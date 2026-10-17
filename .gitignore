@@ -1,4 +1,4 @@
-﻿# Python
+# Python
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -31,3 +31,9 @@ temp/
 task_plan.md
 findings.md
 progress.md
+
+# Build and local refactoring artifacts
+work/
+dist/
+build/
+*.egg-info/

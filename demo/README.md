@@ -15,13 +15,13 @@
 
 ```sh
 uv sync --locked
-uv run memory_product/app.py --open
+uv run python -m api.app --open
 ```
 
 Windows PowerShell 也可执行：
 
 ```powershell
-.\memory_product\start_demo.ps1 -Open
+.\scripts\start_demo.ps1 -Open
 ```
 
 成功信号：终端显示 `Web UI: http://127.0.0.1:8765`，浏览器打开同一地址。
@@ -42,7 +42,7 @@ Windows PowerShell 也可执行：
 在仓库根目录执行：
 
 ```sh
-uv run --locked python -m unittest discover -s memory_product/tests -v
+uv run --locked python -m unittest discover -s tests -v
 ```
 
 测试覆盖核心状态机、隐私门、重复强化、遗忘、删除、页面、健康接口与端到端 seed-search-stats 流程。
@@ -50,13 +50,12 @@ uv run --locked python -m unittest discover -s memory_product/tests -v
 ## 目录
 
 ```text
-memory_product/
-├── app.py                    # HTTP API 与静态页面服务
-├── memory_core.py            # 记忆领域逻辑、SQLite 与检索
-├── start_demo.ps1            # Windows 一键启动
-├── static/index.html         # 响应式演示界面
-├── tests/test_memory_core.py # 核心逻辑测试
-└── tests/test_http_api.py    # HTTP 集成测试
+src/cognitive_memory/  # 可复用的记忆库
+api/app.py             # HTTP 接口与启动
+demo/static/index.html # Web 演示页面
+demo/seed.py           # 演示数据
+scripts/start_demo.ps1 # Windows 启动脚本
+tests/                 # 自动化测试
 ```
 
 ## 重要边界
@@ -67,4 +66,4 @@ memory_product/
 - 这是本地单用户命名空间演示，没有登录、权限隔离、加密、备份或分布式部署。
 - 系统不会调用 LLM 生成答案；“基于当前记忆”是证据拼接式演示回答。
 
-完整架构、接口、算法、状态与路线图见上一级目录的 `认知长期记忆系统产品技术文档_v1.0.md`。
+完整架构、接口、算法、状态与路线图见仓库根目录的 `认知长期记忆系统产品技术文档_v1.0.md`。

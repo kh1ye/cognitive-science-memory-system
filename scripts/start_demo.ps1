@@ -4,10 +4,10 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$projectRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
+$projectRoot = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 Set-Location -LiteralPath $projectRoot
 
-$arguments = @('run', '--locked', 'app.py', '--host', '127.0.0.1', '--port', $Port)
+$arguments = @('run', '--locked', 'python', '-m', 'api.app', '--host', '127.0.0.1', '--port', $Port)
 if ($Open) {
     $arguments += '--open'
 }

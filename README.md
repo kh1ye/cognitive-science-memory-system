@@ -17,7 +17,7 @@
 - 隐私写入门、遗忘、物理删除和审计记录
 - SQLite 本地持久化
 - 可视化 Web 演示页面
-- 13 项自动化测试
+- 16 项自动化测试
 
 ## 快速启动
 
@@ -25,7 +25,7 @@
 
 ```sh
 uv sync --locked
-uv run memory_product/app.py --open
+uv run python -m api.app --open
 ```
 
 默认使用 Python 3.12，uv 会在需要时自动下载解释器，并在 `.venv` 中创建隔离环境。当前仅使用 Python 标准库，无第三方依赖。
@@ -35,7 +35,7 @@ uv run memory_product/app.py --open
 Windows 也可以使用 PowerShell 启动脚本：
 
 ```powershell
-.\memory_product\start_demo.ps1 -Open
+.\scripts\start_demo.ps1 -Open
 ```
 
 ## 运行测试
@@ -43,7 +43,7 @@ Windows 也可以使用 PowerShell 启动脚本：
 在仓库根目录执行：
 
 ```sh
-uv run --locked python -m unittest discover -s memory_product/tests -v
+uv run --locked python -m unittest discover -s tests -v
 ```
 
 ## 依赖管理
@@ -58,10 +58,48 @@ uv sync --locked        # 按锁文件同步环境
 
 将 `pyproject.toml`、`uv.lock` 和 `.python-version` 一起提交；`.venv` 已被 Git 忽略。
 
+## 项目结构
+
+```text
+src/cognitive_memory/   # 可安装的 Python 记忆库
+├── memory.py          # 统一入口与写入事务
+├── models.py          # 记录与写入结果类型
+├── enums.py           # 记忆类型与状态
+├── config.py          # 参数配置
+├── encoding.py        # 隐私门、分类、选择性编码和注意力画像
+├── consolidation.py   # 冲突判断、证据累计和巩固
+├── retention.py       # 遗忘和归档
+├── retrieval/         # 词法召回与注意力排序
+└── storage/           # 存储接口、SQLite 和审计落库
+api/app.py             # HTTP 适配层
+demo/                  # Web 页面与演示数据
+scripts/               # 启动脚本
+tests/                 # 自动化测试
+```
+
+业务规则通过存储接口读写记录；SQL 仅位于 SQLite 适配层。一次写入中的状态变化和审计记录在同一事务内提交，失败时一起回滚。
+
+### Python 调用
+
+```python
+from cognitive_memory import Memory
+
+with Memory("memory_product/data/memory_demo.db") as memory:
+    memory.add_memory({
+        "user_id": "alice",
+        "content": "我喜欢 Python",
+        "tags": ["preference"],
+    })
+    result = memory.search("alice", "我喜欢什么？")
+    print(result["answer"])
+```
+
+核心库可以安装后从任意工作目录导入。HTTP 和 Demo 从仓库根目录启动。数据库格式保持兼容，Demo 默认仍使用 `memory_product/data/memory_demo.db`，已有数据无需搬迁；该目录只保留运行数据。
+
 ## 技术文档
 
 [认知长期记忆系统产品技术文档 v1.0](./认知长期记忆系统产品技术文档_v1.0.md)
 
 ## 协作方式
 
-请从 main 创建个人功能分支，修改后提交并发起 Pull Request，不要直接覆盖主分支。
+小团队日常修改可直接提交到 `main`。推送前同步远程代码，提交前运行相关测试；较大改动或需要同伴审阅时按需使用分支和 Pull Request。

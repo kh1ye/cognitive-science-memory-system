@@ -1,21 +1,15 @@
 from __future__ import annotations
 
-import sys
 import unittest
 from datetime import timedelta
-from pathlib import Path
+
+from cognitive_memory import Memory
+from cognitive_memory.models import utc_now
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
-
-from memory_core import MemoryService, utc_now  # noqa: E402
-
-
-class MemoryServiceTests(unittest.TestCase):
+class MemoryTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.service = MemoryService(":memory:")
+        self.service = Memory(":memory:")
         self.user = "test-user"
 
     def tearDown(self) -> None:
@@ -84,8 +78,16 @@ class MemoryServiceTests(unittest.TestCase):
         )
         self.assertEqual(second_conflict["decision"], "CONSOLIDATED")
         memories = self.service.list_memories(self.user)
-        rust_current = [m for m in memories if m["state_role"] == "current" and m["memory_value"] == "Rust"]
-        python_history = [m for m in memories if m["state_role"] == "history" and m["memory_value"] == "Python"]
+        rust_current = [
+            m
+            for m in memories
+            if m["state_role"] == "current" and m["memory_value"] == "Rust"
+        ]
+        python_history = [
+            m
+            for m in memories
+            if m["state_role"] == "history" and m["memory_value"] == "Python"
+        ]
         self.assertEqual(len(rust_current), 1)
         self.assertEqual(len(python_history), 1)
         self.assertEqual(python_history[0]["id"], original["memory"]["id"])
@@ -101,7 +103,9 @@ class MemoryServiceTests(unittest.TestCase):
     def test_history_intent_can_promote_history(self):
         self.test_single_conflict_is_candidate_and_repeated_conflict_consolidates()
         result = self.service.search(self.user, "我以前主要使用什么编程语言？")
-        history_items = [item for item in result["results"] if item["state_role"] == "history"]
+        history_items = [
+            item for item in result["results"] if item["state_role"] == "history"
+        ]
         self.assertTrue(history_items)
         self.assertIn("Python", result["answer"])
 
@@ -116,7 +120,9 @@ class MemoryServiceTests(unittest.TestCase):
         self.assertEqual(self.service.list_memories(self.user), [])
 
     def test_do_not_store_instruction_has_priority(self):
-        result = self.add(content="不要记住：我今天临时住在某酒店", tags=["profile"], consent=True)
+        result = self.add(
+            content="不要记住：我今天临时住在某酒店", tags=["profile"], consent=True
+        )
         self.assertEqual(result["decision"], "DROP")
 
     def test_retention_archives_old_unprotected_memory_but_keeps_protected_memory(self):
@@ -137,11 +143,12 @@ class MemoryServiceTests(unittest.TestCase):
     def test_user_delete_physically_removes_content(self):
         record = self.add()["memory"]
         self.assertTrue(self.service.delete_memory(self.user, record["id"]))
-        self.assertEqual(self.service.list_memories(self.user, include_archived=True), [])
+        self.assertEqual(
+            self.service.list_memories(self.user, include_archived=True), []
+        )
         events = self.service.list_audit(self.user)
         self.assertEqual(events[0]["event_type"], "USER_DELETE")
 
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
-
