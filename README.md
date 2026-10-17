@@ -17,7 +17,7 @@
 - 隐私写入门、遗忘、物理删除和审计记录
 - SQLite 本地持久化
 - 可视化 Web 演示页面
-- 16 项自动化测试
+- 25 项自动化测试
 
 ## 快速启动
 
@@ -28,9 +28,19 @@ uv sync --locked
 uv run python -m api.app --open
 ```
 
-默认使用 Python 3.12，uv 会在需要时自动下载解释器，并在 `.venv` 中创建隔离环境。当前仅使用 Python 标准库，无第三方依赖。
+默认使用 Python 3.12，uv 会在需要时自动下载解释器，并在 `.venv` 中创建隔离环境。核心记忆逻辑仍使用 Python 标准库；HTTP 层使用 FastAPI + Uvicorn，uv 会安装锁定依赖。
 
 浏览器访问：<http://127.0.0.1:8765>
+
+接口文档：<http://127.0.0.1:8765/docs>；OpenAPI：<http://127.0.0.1:8765/openapi.json>。
+
+也可以直接运行 ASGI 服务（在仓库根目录执行）：
+
+```sh
+uv run uvicorn api.app:app --host 127.0.0.1 --port 8765
+```
+
+开发时可添加 `--reload`。使用 `--db` 自定义数据库或自动打开浏览器时，继续使用 `uv run python -m api.app --db 路径 --open`。
 
 Windows 也可以使用 PowerShell 启动脚本：
 
@@ -71,13 +81,13 @@ src/cognitive_memory/   # 可安装的 Python 记忆库
 ├── retention.py       # 遗忘和归档
 ├── retrieval/         # 词法召回与注意力排序
 └── storage/           # 存储接口、SQLite 和审计落库
-api/app.py             # HTTP 适配层
+api/                   # FastAPI 应用、请求模型与请求中间件
 demo/                  # Web 页面与演示数据
 scripts/               # 启动脚本
 tests/                 # 自动化测试
 ```
 
-业务规则通过存储接口读写记录；SQL 仅位于 SQLite 适配层。一次写入中的状态变化和审计记录在同一事务内提交，失败时一起回滚。
+业务规则通过存储接口读写记录；SQL 仅位于 SQLite 适配层。HTTP 请求通过 Pydantic 模型校验，校验失败保持原有 400 和 `error/message` 格式；数据库操作由同步路由在线程池执行，应用生命周期负责创建和关闭连接。一次写入中的状态变化和审计记录在同一事务内提交，失败时一起回滚。
 
 ### Python 调用
 

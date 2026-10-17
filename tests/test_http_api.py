@@ -1,49 +1,28 @@
 from __future__ import annotations
 
-import json
-import threading
 import unittest
-from http.client import HTTPConnection
+from unittest.mock import patch
 
-from api.app import MemoryHTTPServer
+from fastapi.testclient import TestClient
+
+from api.app import create_app
+from api.middleware import MAX_BODY_SIZE
 from cognitive_memory import Memory
 
 
 class HttpApiTests(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls) -> None:
-        cls.service = Memory(":memory:")
-        cls.server = MemoryHTTPServer(("127.0.0.1", 0), cls.service)
-        cls.port = cls.server.server_address[1]
-        cls.thread = threading.Thread(target=cls.server.serve_forever, daemon=True)
-        cls.thread.start()
-
-    @classmethod
-    def tearDownClass(cls) -> None:
-        cls.server.shutdown()
-        cls.server.server_close()
-        cls.service.close()
-        cls.thread.join(timeout=2)
+    def setUp(self):
+        self.client = TestClient(create_app(":memory:"))
+        self.client.__enter__()
+        self.addCleanup(self.client.__exit__, None, None, None)
 
     def request(self, method: str, path: str, payload: dict | None = None):
-        connection = HTTPConnection("127.0.0.1", self.port, timeout=4)
-        body = (
-            json.dumps(payload, ensure_ascii=False).encode("utf-8")
-            if payload is not None
-            else None
-        )
-        headers = {"Content-Type": "application/json"} if body is not None else {}
-        connection.request(method, path, body=body, headers=headers)
-        response = connection.getresponse()
-        data = response.read()
-        content_type = response.getheader("Content-Type", "")
-        connection.close()
+        response = self.client.request(method, path, json=payload)
+        content_type = response.headers.get("content-type", "")
         parsed = (
-            json.loads(data.decode("utf-8"))
-            if "application/json" in content_type
-            else data
+            response.json() if "application/json" in content_type else response.content
         )
-        return response.status, parsed, content_type
+        return response.status_code, parsed, content_type
 
     def test_health_and_index(self):
         status, data, _ = self.request("GET", "/api/health")
@@ -78,6 +57,117 @@ class HttpApiTests(unittest.TestCase):
         )
         self.assertEqual(status, 400)
         self.assertEqual(data["error"], "validation_error")
+
+    def test_openapi_documents_request_fields(self):
+        schema = self.client.get("/openapi.json").json()
+        self.assertIn("/api/memories", schema["paths"])
+        self.assertIn(
+            "content", schema["components"]["schemas"]["MemoryRequest"]["properties"]
+        )
+        self.assertEqual(self.client.get("/docs").status_code, 200)
+
+    def test_malformed_json_and_invalid_fields_return_400(self):
+        for body in ("{", "[]", '{"top_k":"invalid"}', '{"query":null}'):
+            with self.subTest(body=body):
+                response = self.client.post(
+                    "/api/search",
+                    content=body,
+                    headers={"content-type": "application/json"},
+                )
+                self.assertEqual(response.status_code, 400)
+                self.assertEqual(response.json()["error"], "validation_error")
+                self.assertIsInstance(response.json()["message"], str)
+
+    def test_request_size_limit_with_and_without_content_length(self):
+        oversized = b"x" * (MAX_BODY_SIZE + 1)
+        for content in (oversized, iter([oversized[:500000], oversized[500000:]])):
+            response = self.client.post("/api/memories", content=content)
+            self.assertEqual(response.status_code, 400)
+            self.assertEqual(response.json()["message"], "请求体过大")
+        self.assertEqual(self.client.get("/api/memories").json()["items"], [])
+
+    def test_create_list_audit_retention_and_delete(self):
+        status, result, _ = self.request(
+            "POST",
+            "/api/memories",
+            {
+                "user_id": "alice",
+                "content": "用户喜欢 Python",
+                "tags": "preference",
+            },
+        )
+        self.assertEqual(status, 201)
+        memory_id = result["memory"]["id"]
+        self.assertEqual(
+            len(self.client.get("/api/memories?user_id=alice").json()["items"]), 1
+        )
+        self.assertTrue(self.client.get("/api/audit?user_id=alice").json()["items"])
+        self.assertIn("write_threshold", self.client.get("/api/config").json())
+        self.assertEqual(
+            self.client.post(
+                "/api/maintenance/retention", json={"user_id": "alice"}
+            ).status_code,
+            200,
+        )
+        self.assertEqual(
+            self.client.delete(f"/api/memories/{memory_id}?user_id=bob").status_code,
+            404,
+        )
+        self.assertTrue(
+            self.client.delete(f"/api/memories/{memory_id}?user_id=alice").json()[
+                "deleted"
+            ]
+        )
+        self.assertEqual(
+            self.client.delete(f"/api/memories/{memory_id}?user_id=alice").status_code,
+            404,
+        )
+
+    def test_unknown_api_and_static_traversal(self):
+        for method in ("GET", "POST", "DELETE"):
+            response = self.client.request(method, "/api/unknown")
+            self.assertEqual(response.status_code, 404)
+            self.assertEqual(response.json()["error"], "not_found")
+        self.assertIn(self.client.get("/%2e%2e/pyproject.toml").status_code, (403, 404))
+
+    def test_internal_error_keeps_json_contract(self):
+        with Memory() as memory:
+            with TestClient(
+                create_app(service=memory), raise_server_exceptions=False
+            ) as client:
+                with patch.object(
+                    memory, "stats", side_effect=RuntimeError("storage failed")
+                ):
+                    response = client.get("/api/stats")
+                self.assertEqual(response.status_code, 500)
+                self.assertEqual(response.json()["error"], "internal_error")
+                self.assertEqual(response.headers["cache-control"], "no-store")
+
+    def test_cache_headers(self):
+        self.assertEqual(
+            self.client.get("/api/health").headers["cache-control"], "no-store"
+        )
+        self.assertEqual(self.client.get("/").headers["cache-control"], "no-cache")
+
+
+class AppLifecycleTests(unittest.TestCase):
+    def test_lifespan_closes_owned_memory(self):
+        memory = Memory()
+        with (
+            patch("api.app.Memory", return_value=memory),
+            patch.object(memory, "close", wraps=memory.close) as close,
+        ):
+            application = create_app(":memory:")
+            with TestClient(application) as client:
+                self.assertEqual(client.get("/api/stats").status_code, 200)
+                close.assert_not_called()
+            close.assert_called_once()
+
+    def test_lifespan_preserves_injected_memory(self):
+        with Memory() as memory:
+            with TestClient(create_app(service=memory)) as client:
+                self.assertEqual(client.get("/api/stats").status_code, 200)
+            self.assertEqual(memory.stats("demo-user")["active_count"], 0)
 
 
 if __name__ == "__main__":

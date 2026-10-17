@@ -1,6 +1,6 @@
 # Cognitive Memory Lab - 本地演示产品
 
-这是一个无需云端 API、Docker 或第三方 Python 包的认知长期记忆系统 MVP。它把以下机制串成一个真实可运行的闭环：
+这是一个无需云端 API 或 Docker，使用 FastAPI + Uvicorn 提供本地 HTTP 服务的认知长期记忆系统 MVP。它把以下机制串成一个真实可运行的闭环：
 
 - 选择性编码：低价值信息只进入工作记忆，敏感信息默认拒绝持久化。
 - 四类记忆：Working、Episodic、Semantic、Procedural。
@@ -24,7 +24,7 @@ Windows PowerShell 也可执行：
 .\scripts\start_demo.ps1 -Open
 ```
 
-成功信号：终端显示 `Web UI: http://127.0.0.1:8765`，浏览器打开同一地址。
+成功信号：终端显示 `Web UI: http://127.0.0.1:8765`，浏览器打开同一地址。接口文档位于 `/docs`，OpenAPI 位于 `/openapi.json`。
 
 数据库默认写入仓库内的 `memory_product/data/memory_demo.db`。
 
