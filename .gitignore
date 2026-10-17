@@ -1,0 +1,33 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Runtime data
+memory_product/data/
+*.db
+*.db-shm
+*.db-wal
+*.log
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+
+# Internal planning files
+task_plan.md
+findings.md
+progress.md

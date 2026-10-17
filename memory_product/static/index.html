@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cognitive Memory Lab</title>
+  <style>
+    :root {
+      --ink: #13221d;
+      --muted: #66736e;
+      --paper: #f4f1e9;
+      --card: rgba(255,255,255,.84);
+      --line: #d9ddd5;
+      --green: #0d6b50;
+      --green-2: #2e9474;
+      --orange: #e06e36;
+      --orange-soft: #fff0e5;
+      --blue: #225f9b;
+      --yellow: #e5b23f;
+      --shadow: 0 18px 45px rgba(24, 45, 37, .09);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 4%, rgba(46,148,116,.15), transparent 28rem),
+        radial-gradient(circle at 90% 18%, rgba(224,110,54,.12), transparent 25rem),
+        var(--paper);
+      font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif;
+      min-height: 100vh;
+    }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    .shell { width: min(1440px, calc(100% - 36px)); margin: 0 auto; padding-bottom: 56px; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:20px; padding: 28px 0 18px; }
+    .brand { display:flex; align-items:center; gap:14px; }
+    .logo {
+      width:46px; height:46px; border-radius:14px; display:grid; place-items:center;
+      color:white; font-weight:800; background:linear-gradient(145deg,var(--green),#173f35);
+      box-shadow:0 10px 26px rgba(13,107,80,.24);
+    }
+    .brand h1 { margin:0; font: 700 20px/1.15 Georgia,"Microsoft YaHei",serif; letter-spacing:.02em; }
+    .brand p { margin:4px 0 0; color:var(--muted); font-size:12px; }
+    .header-actions { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .user-pill { background:#fff; border:1px solid var(--line); border-radius:999px; padding:9px 14px; display:flex; align-items:center; gap:8px; }
+    .user-pill input { border:0; outline:0; width:110px; color:var(--ink); background:transparent; }
+    .status-dot { width:8px; height:8px; border-radius:50%; background:#a0aaa5; box-shadow:0 0 0 4px rgba(160,170,165,.12); }
+    .status-dot.ok { background:#25a66f; box-shadow:0 0 0 4px rgba(37,166,111,.14); }
+    .hero {
+      border:1px solid rgba(255,255,255,.8); border-radius:28px; padding:36px;
+      background:linear-gradient(120deg,rgba(255,255,255,.86),rgba(247,250,246,.72));
+      box-shadow:var(--shadow); overflow:hidden; position:relative;
+    }
+    .hero::after { content:""; position:absolute; width:300px; height:300px; border:1px solid rgba(13,107,80,.16); border-radius:50%; right:-110px; top:-180px; box-shadow:0 0 0 34px rgba(13,107,80,.025),0 0 0 68px rgba(13,107,80,.02); }
+    .eyebrow { color:var(--green); text-transform:uppercase; letter-spacing:.18em; font-size:11px; font-weight:800; }
+    .hero h2 { max-width:760px; margin:11px 0 10px; font:700 clamp(29px,4vw,48px)/1.12 Georgia,"Microsoft YaHei",serif; }
+    .hero p { max-width:780px; margin:0; line-height:1.75; color:var(--muted); font-size:15px; }
+    .hero-row { margin-top:25px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+    .btn { border:1px solid transparent; border-radius:12px; padding:11px 16px; font-weight:700; transition:.18s ease; }
+    .btn:hover { transform:translateY(-1px); }
+    .btn-primary { background:var(--green); color:#fff; box-shadow:0 8px 18px rgba(13,107,80,.18); }
+    .btn-secondary { background:#fff; color:var(--ink); border-color:var(--line); }
+    .btn-danger { background:#fff3ee; color:#9c3c20; border-color:#f0c7b6; }
+    .btn-small { padding:7px 10px; border-radius:9px; font-size:12px; }
+    .stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:18px 0; }
+    .stat { background:var(--card); border:1px solid rgba(255,255,255,.9); border-radius:18px; padding:17px 18px; box-shadow:0 8px 28px rgba(24,45,37,.05); }
+    .stat span { color:var(--muted); font-size:12px; }
+    .stat strong { display:block; margin-top:7px; font-size:28px; letter-spacing:-.04em; }
+    .grid { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr); gap:18px; align-items:start; }
+    .card { background:var(--card); border:1px solid rgba(255,255,255,.92); border-radius:22px; padding:22px; box-shadow:0 10px 32px rgba(24,45,37,.06); margin-bottom:18px; }
+    .card-head { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; margin-bottom:17px; }
+    .card h3 { margin:0; font:700 20px/1.2 Georgia,"Microsoft YaHei",serif; }
+    .card .sub { color:var(--muted); margin-top:5px; font-size:12px; line-height:1.5; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .field { display:flex; flex-direction:column; gap:6px; }
+    .field.full { grid-column:1/-1; }
+    label { color:#43524c; font-size:12px; font-weight:700; }
+    input, select, textarea { width:100%; color:var(--ink); background:#fff; border:1px solid var(--line); border-radius:11px; padding:10px 11px; outline:none; transition:.16s; }
+    input:focus, select:focus, textarea:focus { border-color:var(--green-2); box-shadow:0 0 0 3px rgba(46,148,116,.12); }
+    textarea { resize:vertical; min-height:84px; line-height:1.55; }
+    input[type=range] { padding:0; accent-color:var(--green); }
+    .range-line { display:flex; align-items:center; gap:10px; }
+    .range-line output { width:34px; color:var(--green); font-size:12px; font-weight:800; }
+    .check { flex-direction:row; align-items:center; gap:8px; padding-top:7px; }
+    .check input { width:auto; }
+    .form-actions { grid-column:1/-1; display:flex; gap:9px; align-items:center; }
+    .message { margin-top:13px; border-radius:12px; padding:11px 13px; font-size:13px; line-height:1.5; display:none; }
+    .message.show { display:block; }
+    .message.ok { background:#e7f6ef; color:#145f46; border:1px solid #bfe6d5; }
+    .message.warn { background:var(--orange-soft); color:#8a3f1f; border:1px solid #efc7b0; }
+    .pipeline { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-top:15px; }
+    .stage { min-height:98px; padding:13px 11px; border-radius:14px; background:#f8faf7; border:1px solid var(--line); position:relative; }
+    .stage:not(:last-child)::after { content:"→"; position:absolute; right:-9px; top:36px; z-index:2; color:var(--green); font-weight:900; }
+    .stage b { display:block; font-size:12px; margin-bottom:6px; }
+    .stage small { color:var(--muted); line-height:1.4; display:block; }
+    .stage:nth-child(3) { background:#fff4ed; border-color:#efc3ad; }
+    .stage:nth-child(4) { background:#eef6fd; border-color:#c5dced; }
+    .stage:nth-child(5) { background:#ecf7f1; border-color:#bfdfcf; }
+    .search-line { display:grid; grid-template-columns:1fr auto; gap:9px; }
+    .answer { padding:15px; margin:13px 0 0; border-radius:14px; background:#eff7f3; border-left:4px solid var(--green); line-height:1.6; display:none; }
+    .answer.show { display:block; }
+    .result-list { display:grid; gap:10px; margin-top:12px; }
+    .result { border:1px solid var(--line); background:#fff; padding:13px; border-radius:13px; }
+    .result-top { display:flex; justify-content:space-between; gap:12px; align-items:center; }
+    .result p { margin:8px 0 0; line-height:1.55; font-size:13px; }
+    .score { color:var(--green); font:800 13px/1 monospace; }
+    .badge { display:inline-flex; align-items:center; border-radius:999px; padding:4px 8px; font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; }
+    .current { color:#0e6d4f; background:#e3f3eb; }
+    .candidate { color:#a24e19; background:#ffeadc; }
+    .history { color:#4d6070; background:#e9eef2; }
+    .working { color:#715a11; background:#fff2be; }
+    .archived { color:#727a76; background:#eceeed; }
+    .table-wrap { overflow:auto; border:1px solid var(--line); border-radius:14px; }
+    table { width:100%; border-collapse:collapse; min-width:850px; background:#fff; }
+    th { text-align:left; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); background:#f5f7f4; padding:10px; }
+    td { border-top:1px solid #edf0ec; padding:10px; font-size:12px; vertical-align:top; }
+    td.content { max-width:340px; line-height:1.45; }
+    .mono { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:11px; }
+    .audit-list { display:grid; gap:0; max-height:510px; overflow:auto; padding-right:4px; }
+    .audit { display:grid; grid-template-columns:12px 1fr; gap:11px; padding:11px 0; border-bottom:1px solid #e9ece7; }
+    .audit-dot { width:10px; height:10px; margin-top:4px; border-radius:50%; background:var(--green-2); box-shadow:0 0 0 4px rgba(46,148,116,.10); }
+    .audit b { font-size:11px; color:var(--green); }
+    .audit p { margin:4px 0; font-size:12px; line-height:1.5; }
+    .audit time { color:var(--muted); font-size:10px; }
+    .empty { color:var(--muted); font-size:13px; padding:20px 4px; text-align:center; }
+    .step-list { margin:12px 0 0; padding:0; list-style:none; display:grid; gap:8px; }
+    .step-list li { display:flex; gap:9px; align-items:flex-start; font-size:12px; line-height:1.5; }
+    .step-num { flex:0 0 22px; height:22px; border-radius:7px; background:#e7f3ed; color:var(--green); display:grid; place-items:center; font-weight:900; font-size:10px; }
+    footer { color:var(--muted); font-size:11px; text-align:center; padding:18px; }
+    @media (max-width:1000px) { .grid { grid-template-columns:1fr; } .stat-grid { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:720px) { .shell { width:min(100% - 20px,1440px); } header { align-items:flex-start; flex-direction:column; } .hero { padding:25px 21px; } .form-grid { grid-template-columns:1fr; } .pipeline { grid-template-columns:1fr; } .stage:not(:last-child)::after { content:"↓"; top:auto; right:50%; bottom:-13px; } .stat-grid { grid-template-columns:1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand">
+        <div class="logo">M</div>
+        <div><h1>Cognitive Memory Lab</h1><p>Melo × AB-Mem × AxoMem · Offline MVP</p></div>
+      </div>
+      <div class="header-actions">
+        <div class="user-pill"><span class="status-dot" id="statusDot"></span><span style="font-size:12px;color:var(--muted)">用户</span><input id="userId" value="demo-user" aria-label="用户 ID"></div>
+        <button class="btn btn-secondary btn-small" id="refreshBtn">刷新</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">Evidence-gated adaptive memory</div>
+      <h2>让记忆在使用、反馈与修正中持续演化。</h2>
+      <p>这个演示把选择性写入、注意力调制检索、候选证据缓冲与角色化记忆读出串成真实闭环。单次冲突不会立刻覆盖稳定记忆；重复且一致的新证据才会提交状态变化。</p>
+      <div class="hero-row">
+        <button class="btn btn-primary" id="seedBtn">运行一键演示</button>
+        <button class="btn btn-secondary" id="retentionBtn">执行保留度检查</button>
+        <span id="heroStatus" style="font-size:12px;color:var(--muted)">服务连接中…</span>
+      </div>
+    </section>
+
+    <section class="stat-grid">
+      <div class="stat"><span>活跃记忆</span><strong id="statActive">0</strong></div>
+      <div class="stat"><span>当前 / 候选</span><strong id="statRoles">0 / 0</strong></div>
+      <div class="stat"><span>历史状态</span><strong id="statHistory">0</strong></div>
+      <div class="stat"><span>审计事件</span><strong id="statAudit">0</strong></div>
+    </section>
+
+    <div class="grid">
+      <main>
+        <section class="card">
+          <div class="card-head"><div><h3>闭环架构</h3><div class="sub">Melo 管生命周期，AB-Mem 管优先级，AxoMem 管状态演化。</div></div></div>
+          <div class="pipeline">
+            <div class="stage"><b>01 输入规范化</b><small>内容、来源、标签、主题与取值</small></div>
+            <div class="stage"><b>02 选择性编码</b><small>隐私门、写入分数与四类路由</small></div>
+            <div class="stage"><b>03 CPE / 证据门</b><small>冲突先候选，重复一致才巩固</small></div>
+            <div class="stage"><b>04 注意力检索</b><small>相关度 × 偏置 × 动态上下文</small></div>
+            <div class="stage"><b>05 反馈与保留</b><small>强化、历史、遗忘、删除、审计</small></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><div><h3>写入一条记忆</h3><div class="sub">“主题 + 取值”用于可解释的冲突演示；普通自由文本也可直接写入。</div></div></div>
+          <form id="memoryForm" class="form-grid">
+            <div class="field full"><label for="content">记忆内容 *</label><textarea id="content" required placeholder="例如：用户最近更倾向使用 Rust 作为主要编程语言。"></textarea></div>
+            <div class="field"><label for="memoryKey">记忆主题（可选）</label><input id="memoryKey" placeholder="coding_language"></div>
+            <div class="field"><label for="memoryValue">主题取值（可选）</label><input id="memoryValue" placeholder="Rust"></div>
+            <div class="field"><label for="memoryType">记忆类型</label><select id="memoryType"><option value="semantic">Semantic 语义</option><option value="episodic">Episodic 情景</option><option value="procedural">Procedural 程序</option><option value="working">Working 工作</option></select></div>
+            <div class="field"><label for="source">来源</label><select id="source"><option value="user">用户陈述</option><option value="user_correction">用户纠正</option><option value="user_feedback">用户反馈</option><option value="tool">工具证据</option><option value="task_success">任务成功</option></select></div>
+            <div class="field full"><label for="tags">标签（逗号分隔）</label><input id="tags" placeholder="preference, profile, safety, conflict"></div>
+            <div class="field"><label>重要度</label><div class="range-line"><input id="importance" type="range" min="0" max="1" value="0.8" step="0.01"><output id="importanceOut">0.80</output></div></div>
+            <div class="field"><label>来源置信度</label><div class="range-line"><input id="confidence" type="range" min="0" max="1" value="0.9" step="0.01"><output id="confidenceOut">0.90</output></div></div>
+            <div class="field full check"><input id="consent" type="checkbox"><label for="consent">若标签含 sensitive/private，确认用户已明确同意持久化</label></div>
+            <div class="form-actions"><button class="btn btn-primary" type="submit">执行写入管线</button><button class="btn btn-secondary" type="reset">清空</button></div>
+          </form>
+          <div class="message" id="writeMessage"></div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><div><h3>记忆状态表</h3><div class="sub">类型表示“是什么”，角色表示“当前是否有效”。Candidate 不会覆盖 Current。</div></div><button class="btn btn-secondary btn-small" id="toggleArchived">显示归档</button></div>
+          <div class="table-wrap">
+            <table><thead><tr><th>角色</th><th>类型</th><th>内容</th><th>主题 / 取值</th><th>证据</th><th>写入分</th><th>偏置</th><th>操作</th></tr></thead><tbody id="memoryRows"></tbody></table>
+          </div>
+        </section>
+      </main>
+
+      <aside>
+        <section class="card">
+          <div class="card-head"><div><h3>证据约束检索</h3><div class="sub">先通过词法语义门，再用持久偏置、动态上下文和状态角色重排。</div></div></div>
+          <form id="searchForm">
+            <div class="search-line"><input id="query" required placeholder="例如：我现在主要使用什么编程语言？"><button class="btn btn-primary" type="submit">检索</button></div>
+            <div class="field" style="margin-top:9px"><input id="activeGoal" placeholder="可选：当前目标，如“开始新项目”"></div>
+          </form>
+          <div class="answer" id="answer"></div>
+          <div class="result-list" id="searchResults"></div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><div><h3>一键演示说明</h3><div class="sub">点击后会重置当前用户命名空间，再顺序执行五个事件。</div></div></div>
+          <ol class="step-list">
+            <li><span class="step-num">1</span><span>写入稳定偏好：主要使用 Python。</span></li>
+            <li><span class="step-num">2</span><span>写入高显著性安全约束：花生过敏。</span></li>
+            <li><span class="step-num">3</span><span>首次改为 Rust：只进入 Candidate。</span></li>
+            <li><span class="step-num">4</span><span>再次确认 Rust：证据门通过，Python 转为 History，Rust 成为 Current。</span></li>
+            <li><span class="step-num">5</span><span>写入可复用演示流程，路由到 Procedural。</span></li>
+          </ol>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><div><h3>审计时间线</h3><div class="sub">每次写入、候选、巩固、检索、遗忘和删除均可追踪。</div></div></div>
+          <div class="audit-list" id="auditList"></div>
+        </section>
+      </aside>
+    </div>
+    <footer>Offline demonstrator · SQLite persistence · No cloud key required · Rules are inspectable and replaceable</footer>
+  </div>
+
+  <script>
+    const state = { includeArchived: false };
+    const $ = (id) => document.getElementById(id);
+    const user = () => $('userId').value.trim() || 'demo-user';
+    const esc = (value) => String(value ?? '').replace(/[&<>'"]/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+
+    async function api(path, options = {}) {
+      const response = await fetch(path, {headers:{'Content-Type':'application/json'}, ...options});
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.message || `HTTP ${response.status}`);
+      return data;
+    }
+
+    function showMessage(element, text, kind = 'ok') {
+      element.className = `message show ${kind}`;
+      element.textContent = text;
+    }
+
+    function renderStats(stats) {
+      $('statActive').textContent = stats.active_count || 0;
+      $('statRoles').textContent = `${stats.by_role.current || 0} / ${stats.by_role.candidate || 0}`;
+      $('statHistory').textContent = stats.by_role.history || 0;
+      $('statAudit').textContent = stats.audit_count || 0;
+    }
+
+    function renderMemories(items) {
+      const rows = $('memoryRows');
+      if (!items.length) {
+        rows.innerHTML = '<tr><td colspan="8" class="empty">还没有记忆。可运行一键演示或手动写入。</td></tr>';
+        return;
+      }
+      rows.innerHTML = items.map(item => `
+        <tr>
+          <td><span class="badge ${esc(item.state_role)}">${esc(item.state_role)}</span></td>
+          <td>${esc(item.memory_type)}</td>
+          <td class="content">${esc(item.content)}<div style="margin-top:5px;color:var(--muted)">${esc((item.tags || []).join(' · '))}</div></td>
+          <td class="mono">${esc(item.memory_key || '—')}<br><b>${esc(item.memory_value || '—')}</b></td>
+          <td>${esc(item.evidence_count)}</td>
+          <td class="mono">${Number(item.write_score).toFixed(3)}</td>
+          <td class="mono">${Number(item.attention_bias).toFixed(3)}</td>
+          <td><button class="btn btn-danger btn-small" data-delete="${esc(item.id)}">删除</button></td>
+        </tr>`).join('');
+      rows.querySelectorAll('[data-delete]').forEach(button => button.addEventListener('click', async () => {
+        if (!confirm('确定物理删除这条记忆正文吗？该操作不可撤销。')) return;
+        try { await api(`/api/memories/${encodeURIComponent(button.dataset.delete)}?user_id=${encodeURIComponent(user())}`, {method:'DELETE'}); await loadAll(); }
+        catch (error) { alert(error.message); }
+      }));
+    }
+
+    function renderAudit(items) {
+      const box = $('auditList');
+      if (!items.length) { box.innerHTML = '<div class="empty">暂无审计事件</div>'; return; }
+      box.innerHTML = items.map(item => `<div class="audit"><span class="audit-dot"></span><div><b>${esc(item.event_type)}</b><p>${esc(item.message)}</p><time>${esc(item.created_at.replace('T',' ').replace('+00:00',' UTC'))}</time></div></div>`).join('');
+    }
+
+    async function loadAll() {
+      const uid = encodeURIComponent(user());
+      try {
+        const [health, stats, memories, audit] = await Promise.all([
+          api('/api/health'), api(`/api/stats?user_id=${uid}`),
+          api(`/api/memories?user_id=${uid}&include_archived=${state.includeArchived}`),
+          api(`/api/audit?user_id=${uid}`)
+        ]);
+        $('statusDot').classList.add('ok');
+        $('heroStatus').textContent = `${health.service} · ${health.version} · 已连接`;
+        renderStats(stats); renderMemories(memories.items); renderAudit(audit.items);
+      } catch (error) {
+        $('statusDot').classList.remove('ok'); $('heroStatus').textContent = `连接失败：${error.message}`;
+      }
+    }
+
+    $('importance').addEventListener('input', () => $('importanceOut').textContent = Number($('importance').value).toFixed(2));
+    $('confidence').addEventListener('input', () => $('confidenceOut').textContent = Number($('confidence').value).toFixed(2));
+    $('userId').addEventListener('change', loadAll);
+    $('refreshBtn').addEventListener('click', loadAll);
+    $('toggleArchived').addEventListener('click', () => { state.includeArchived = !state.includeArchived; $('toggleArchived').textContent = state.includeArchived ? '隐藏归档' : '显示归档'; loadAll(); });
+
+    $('memoryForm').addEventListener('reset', () => setTimeout(() => { $('importanceOut').textContent='0.80'; $('confidenceOut').textContent='0.90'; }, 0));
+    $('memoryForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const payload = {
+        user_id:user(), content:$('content').value, memory_key:$('memoryKey').value,
+        memory_value:$('memoryValue').value, memory_type:$('memoryType').value,
+        source:$('source').value, tags:$('tags').value,
+        importance:Number($('importance').value), confidence:Number($('confidence').value),
+        consent:$('consent').checked
+      };
+      try {
+        const result = await api('/api/memories', {method:'POST', body:JSON.stringify(payload)});
+        const gate = result.gate ? `；证据 ${result.gate.evidence_count}/${result.gate.minimum_evidence_count}，CPE ${result.gate.cpe}` : '';
+        showMessage($('writeMessage'), `决策：${result.decision}${gate}`, result.decision === 'DROP' ? 'warn' : 'ok');
+        await loadAll();
+      } catch (error) { showMessage($('writeMessage'), error.message, 'warn'); }
+    });
+
+    $('seedBtn').addEventListener('click', async () => {
+      $('seedBtn').disabled = true; $('seedBtn').textContent = '正在构建状态…';
+      try {
+        const data = await api('/api/demo/seed', {method:'POST', body:JSON.stringify({user_id:user()})});
+        const decisions = data.events.map(event => event.decision).join(' → ');
+        $('heroStatus').textContent = `演示完成：${decisions}`;
+        $('query').value = '我现在主要使用什么编程语言？';
+        await loadAll();
+      } catch (error) { $('heroStatus').textContent = `演示失败：${error.message}`; }
+      finally { $('seedBtn').disabled = false; $('seedBtn').textContent = '重新运行一键演示'; }
+    });
+
+    $('retentionBtn').addEventListener('click', async () => {
+      try {
+        const data = await api('/api/maintenance/retention', {method:'POST', body:JSON.stringify({user_id:user()})});
+        $('heroStatus').textContent = `保留度检查完成，归档 ${data.archived_ids.length} 条记忆。`;
+        await loadAll();
+      } catch (error) { $('heroStatus').textContent = error.message; }
+    });
+
+    $('searchForm').addEventListener('submit', async (event) => {
+      event.preventDefault(); $('searchResults').innerHTML = '<div class="empty">正在计算候选与注意力分数…</div>';
+      try {
+        const data = await api('/api/search', {method:'POST', body:JSON.stringify({user_id:user(),query:$('query').value,active_goal:$('activeGoal').value,top_k:5})});
+        $('answer').className = 'answer show'; $('answer').textContent = data.answer;
+        $('searchResults').innerHTML = data.results.length ? data.results.map(item => `
+          <div class="result"><div class="result-top"><span class="badge ${esc(item.state_role)}">${esc(item.state_role)}</span><span class="score">${Number(item.retrieval.score).toFixed(4)}</span></div><p>${esc(item.content)}</p><div class="mono" style="margin-top:8px;color:var(--muted)">base ${Number(item.retrieval.base_relevance).toFixed(3)} × bias ${Number(item.retrieval.attention_bias).toFixed(3)} × context ${Number(item.retrieval.context_match).toFixed(3)} × role ${Number(item.retrieval.role_factor).toFixed(2)}</div></div>`).join('') : '<div class="empty">没有通过语义门的证据。</div>';
+        await loadAll();
+      } catch (error) { $('answer').className='answer show'; $('answer').textContent=error.message; $('searchResults').innerHTML=''; }
+    });
+
+    loadAll();
+  </script>
+</body>
+</html>
