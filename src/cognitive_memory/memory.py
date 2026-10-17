@@ -205,6 +205,49 @@ class Memory:
             "config": asdict(self.config),
         }
 
+    def overview(self, user_id: str = "demo-user") -> dict[str, Any]:
+        stats = self.stats(user_id)
+        with self.storage.transaction():
+            storage = self.storage.storage_info()
+        return {
+            **stats,
+            "total_count": sum(stats["by_role"].values()),
+            "recent_activity": self.list_audit(user_id, limit=8),
+            "storage": storage,
+            "modules": [
+                {
+                    "name": "选择性编码",
+                    "description": "隐私判断与价值筛选",
+                    "status": "ready",
+                },
+                {
+                    "name": "证据巩固",
+                    "description": "冲突缓冲与状态更新",
+                    "status": "ready",
+                },
+                {
+                    "name": "记忆检索",
+                    "description": "词法召回与注意力排序",
+                    "status": "ready",
+                },
+                {
+                    "name": "遗忘管理",
+                    "description": "保留度计算与归档",
+                    "status": "ready",
+                },
+                {
+                    "name": "语言模型",
+                    "description": "尚未配置模型服务",
+                    "status": "unconfigured",
+                },
+                {
+                    "name": "向量模型",
+                    "description": "当前使用离线词法检索",
+                    "status": "unconfigured",
+                },
+            ],
+        }
+
     def reset_user(self, user_id: str) -> None:
         """Reset only one explicitly selected demo namespace."""
         user_id = normalize_text(user_id) or "demo-user"

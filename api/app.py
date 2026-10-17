@@ -10,20 +10,20 @@ from pathlib import Path
 from typing import Annotated
 
 import uvicorn
-from fastapi import Depends, FastAPI, Request
+from fastapi import Depends, FastAPI, Query, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.exceptions import HTTPException
 
 from cognitive_memory import Memory
-from demo.seed import seed_demo
 
 from .middleware import RequestPolicyMiddleware
 from .schemas import MemoryRequest, NamespaceRequest, SearchRequest
+from .seed import seed_demo
 
 ROOT = Path(__file__).resolve().parents[1]
-STATIC_ROOT = ROOT / "demo" / "static"
+STATIC_ROOT = ROOT / "frontend" / "static"
 DEFAULT_DB = ROOT / "memory_product" / "data" / "memory_demo.db"
 
 
@@ -94,6 +94,10 @@ def create_app(
     def health():
         return {"status": "ok", "service": "cognitive-memory-demo", "version": "1.0.0"}
 
+    @application.get("/api/overview")
+    def overview(memory: MemoryDependency, user_id: str = "demo-user"):
+        return memory.overview(user_id)
+
     @application.get("/api/config")
     def config(memory: MemoryDependency, user_id: str = "demo-user"):
         return memory.stats(user_id)["config"]
@@ -107,9 +111,12 @@ def create_app(
         memory: MemoryDependency,
         user_id: str = "demo-user",
         include_archived: bool = False,
+        limit: int = Query(200, ge=1, le=1000),
     ):
         return {
-            "items": memory.list_memories(user_id, include_archived=include_archived)
+            "items": memory.list_memories(
+                user_id, include_archived=include_archived, limit=limit
+            )
         }
 
     @application.get("/api/audit")
@@ -156,7 +163,9 @@ def create_app(
         return error_response("接口不存在", 404, "not_found")
 
     # Register last so /docs, /openapi.json and API routes remain reachable.
-    application.mount("/", StaticFiles(directory=STATIC_ROOT, html=True), name="demo")
+    application.mount(
+        "/", StaticFiles(directory=STATIC_ROOT, html=True), name="frontend"
+    )
     return application
 
 

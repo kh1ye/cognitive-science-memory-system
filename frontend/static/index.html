@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>记忆工作台 · Cognitive Memory</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <a class="brand" href="#overview"
+          ><span class="brand-mark">m<span></span></span
+          ><span>记忆工作台<small>COGNITIVE MEMORY</small></span></a
+        >
+        <div class="nav-label">工作空间</div>
+        <nav aria-label="主导航">
+          <a href="#overview" data-page="overview"
+            ><i data-icon="overview"></i>系统总览</a
+          >
+          <a href="#assistant" data-page="assistant"
+            ><i data-icon="chat"></i>个人助手</a
+          >
+          <a href="#memories" data-page="memories"
+            ><i data-icon="memory"></i>记忆管理<span id="navCount">—</span></a
+          >
+        </nav>
+        <div class="sidebar-note">
+          <span class="small-dot"></span>本地记忆空间
+          <p>保留重要的事，让每次对话有迹可循。</p>
+        </div>
+        <div class="sidebar-bottom">
+          <a href="/docs" target="_blank" rel="noopener"
+            ><i data-icon="book"></i>接口文档<i data-icon="external"></i></a
+          ><button id="profileButton" class="profile">
+            <span class="avatar">U</span
+            ><span
+              ><b id="profileName">demo-user</b
+              ><small>个人工作空间</small></span
+            ><i data-icon="chevron"></i>
+          </button>
+        </div>
+      </aside>
+      <main>
+        <header class="topbar">
+          <div class="breadcrumb">
+            工作空间 <span>/</span> <b id="breadcrumbTitle">系统总览</b>
+          </div>
+          <div class="connection">
+            <span class="small-dot" id="connectionDot"></span
+            ><span id="connectionLabel">连接中</span>
+          </div>
+        </header>
+        <div class="page" id="overviewPage">
+          <div class="page-heading">
+            <div>
+              <h1>系统总览</h1>
+              <p>你的记忆空间，近况一目了然。</p>
+            </div>
+            <div class="heading-actions">
+              <span class="date-chip" id="today"></span
+              ><button class="button" id="refreshButton">
+                <i data-icon="refresh"></i>刷新
+              </button>
+            </div>
+          </div>
+          <div class="metrics">
+            <article class="metric">
+              <div>
+                记忆总量<span class="metric-icon blue"
+                  ><i data-icon="memory"></i
+                ></span>
+              </div>
+              <strong id="totalMetric">—</strong
+              ><small>包含历史与已归档记录</small>
+            </article>
+            <article class="metric">
+              <div>
+                活跃记忆<span class="metric-icon green"
+                  ><i data-icon="activity"></i
+                ></span>
+              </div>
+              <strong id="activeMetric">—</strong
+              ><small>当前参与记忆生命周期</small>
+            </article>
+            <article class="metric">
+              <div>
+                待巩固证据<span class="metric-icon amber"
+                  ><i data-icon="layers"></i
+                ></span>
+              </div>
+              <strong id="candidateMetric">—</strong
+              ><small>等待更多一致证据</small>
+            </article>
+            <article class="metric">
+              <div>
+                本地存储<span class="metric-icon gray"
+                  ><i data-icon="database"></i
+                ></span>
+              </div>
+              <strong id="storageMetric">—</strong
+              ><small>数据库及日志 · 全部用户</small>
+            </article>
+          </div>
+          <div class="overview-grid">
+            <section class="panel">
+              <div class="panel-heading">
+                <h2>记忆类型分布</h2>
+                <span class="subtle">全部记录</span>
+              </div>
+              <div id="typeChart" class="type-chart"></div>
+              <div class="panel-foot">不同形式的记忆，各有其位置。</div>
+            </section>
+            <section class="panel">
+              <div class="panel-heading">
+                <h2>记忆状态</h2>
+                <span class="subtle">生命周期</span>
+              </div>
+              <div class="state-layout">
+                <div class="donut" id="stateDonut">
+                  <div>
+                    <strong id="donutTotal">0</strong><small>条记忆</small>
+                  </div>
+                </div>
+                <div id="stateLegend" class="legend"></div>
+              </div>
+            </section>
+            <section class="panel activity-panel">
+              <div class="panel-heading">
+                <h2>最近活动</h2>
+                <button class="text-button" data-go="memories">
+                  查看记忆 <span>↗</span>
+                </button>
+              </div>
+              <div id="activityList"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-heading">
+                <h2>核心模块</h2>
+                <span class="subtle">当前配置</span>
+              </div>
+              <div id="moduleList" class="module-list"></div>
+            </section>
+          </div>
+          <footer class="overview-footer">
+            <span id="storageDescription">SQLite · 本地持久化</span
+            ><span id="updatedAt">等待同步</span>
+          </footer>
+        </div>
+        <div class="page assistant-page" id="assistantPage" hidden>
+          <div class="assistant-shell">
+            <aside class="conversation-sidebar">
+              <button class="button full" id="newChat">
+                <i data-icon="plus"></i>新建会话
+              </button>
+              <div class="nav-label">最近会话</div>
+              <div id="conversationList"></div>
+              <p class="conversation-note">
+                会话保存在当前浏览器<br />按用户空间分别记录
+              </p>
+            </aside>
+            <div class="conversation-main">
+              <div class="chat-topline">
+                <span id="conversationTitle">新会话</span>
+                <div class="mobile-chat-tools">
+                  <select id="mobileConversation" aria-label="选择会话"></select
+                  ><button
+                    class="icon-button"
+                    id="mobileNewChat"
+                    aria-label="新建会话"
+                  >
+                    <i data-icon="plus"></i>
+                  </button>
+                </div>
+                <button
+                  class="icon-button"
+                  id="deleteChat"
+                  aria-label="删除当前会话"
+                >
+                  <i data-icon="trash"></i>
+                </button>
+              </div>
+              <div id="messages" class="messages" aria-live="polite"></div>
+              <div class="composer-wrap">
+                <form id="chatForm" class="composer">
+                  <textarea
+                    id="chatInput"
+                    rows="2"
+                    placeholder="问问与自己有关的事…"
+                    aria-label="发送消息"
+                    maxlength="10000"
+                    required
+                  ></textarea>
+                  <div class="composer-bottom">
+                    <span><i data-icon="memory"></i>关联你的个人记忆</span
+                    ><button
+                      type="submit"
+                      class="send-button"
+                      id="sendButton"
+                      aria-label="发送"
+                    >
+                      <i data-icon="arrowUp"></i>
+                    </button>
+                  </div>
+                </form>
+                <p class="composer-note">
+                  尚未接入大模型。回答来自记忆检索与证据整理，不会自动保存聊天内容。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page" id="memoriesPage" hidden>
+          <div class="page-heading">
+            <div>
+              <h1>记忆管理</h1>
+              <p>查看被记住的内容，保留、回顾或移除。</p>
+            </div>
+            <div class="heading-actions">
+              <button class="button" id="retentionButton">
+                <i data-icon="refresh"></i>检查保留度</button
+              ><button class="button primary" id="addMemoryButton">
+                <i data-icon="plus"></i>添加记忆
+              </button>
+            </div>
+          </div>
+          <div
+            id="memoryTabs"
+            class="memory-tabs"
+            role="tablist"
+            aria-label="记忆类型"
+          ></div>
+          <section class="panel memory-panel">
+            <div class="memory-toolbar">
+              <label class="search-input"
+                ><i data-icon="search"></i
+                ><input
+                  id="memorySearch"
+                  placeholder="搜索内容、标签或主题"
+                  aria-label="搜索记忆" /></label
+              ><select id="stateFilter" aria-label="筛选状态">
+                <option value="">全部状态</option>
+                <option value="current">当前</option>
+                <option value="candidate">候选</option>
+                <option value="history">历史</option>
+                <option value="working">工作层</option>
+                <option value="archived">已归档</option></select
+              ><span id="filteredCount" class="subtle"></span>
+            </div>
+            <div class="table-scroll">
+              <table class="memory-table">
+                <thead>
+                  <tr>
+                    <th>记忆内容</th>
+                    <th>类型</th>
+                    <th>状态</th>
+                    <th>证据</th>
+                    <th>更新时间</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="memoryRows"></tbody>
+              </table>
+            </div>
+            <div class="table-footer">
+              <span id="paginationInfo"></span>
+              <div>
+                <button
+                  class="button small"
+                  id="previousPage"
+                  aria-label="上一页"
+                >
+                  ←</button
+                ><button class="button small" id="nextPage" aria-label="下一页">
+                  →
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div id="loadError" class="load-error" hidden role="alert"></div>
+      </main>
+    </div>
+    <dialog id="memoryDialog">
+      <form id="memoryForm">
+        <div class="dialog-heading">
+          <h2>添加记忆</h2>
+          <button
+            type="button"
+            class="icon-button"
+            data-close="memoryDialog"
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </div>
+        <label
+          >记忆内容<textarea
+            name="content"
+            required
+            rows="4"
+            placeholder="你希望长期记住的事…"
+            maxlength="10000"
+          ></textarea>
+        </label>
+        <div class="form-grid">
+          <label
+            >记忆类型<select name="memory_type">
+              <option value="semantic">语义记忆</option>
+              <option value="episodic">情景记忆</option>
+              <option value="procedural">程序记忆</option>
+              <option value="working">工作记忆</option>
+            </select></label
+          ><label
+            >标签<input
+              name="tags"
+              placeholder="偏好、目标，以逗号分隔" /></label
+          ><label
+            >主题标识<input
+              name="memory_key"
+              placeholder="例如 coding_language" /></label
+          ><label
+            >主题取值<input name="memory_value" placeholder="例如 Python"
+          /></label>
+        </div>
+        <p class="form-hint">
+          同一主题的不同取值会参与冲突判断，重复一致的证据可触发巩固。
+        </p>
+        <label class="checkbox"
+          ><input
+            type="checkbox"
+            name="consent"
+          />这条信息包含敏感内容，我同意保存</label
+        >
+        <div class="dialog-actions">
+          <span id="formError" class="error-text" role="alert"></span
+          ><button type="button" class="button" data-close="memoryDialog">
+            取消</button
+          ><button class="button primary" type="submit" id="saveMemory">
+            保存记忆
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="detailDialog"><div id="memoryDetail"></div></dialog>
+    <dialog id="profileDialog">
+      <form id="profileForm">
+        <div class="dialog-heading">
+          <h2>切换用户空间</h2>
+          <button
+            type="button"
+            class="icon-button"
+            data-close="profileDialog"
+            aria-label="关闭"
+          >
+            ×
+          </button>
+        </div>
+        <label>用户 ID<input id="userInput" required maxlength="100" /></label>
+        <p class="form-hint">
+          记忆与会话按用户 ID 区分。这是本地空间切换，不提供身份认证。
+        </p>
+        <div class="dialog-actions">
+          <button type="button" class="button" data-close="profileDialog">
+            取消</button
+          ><button class="button primary">切换空间</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="confirmDialog">
+      <div class="dialog-heading"><h2 id="confirmTitle">确认操作</h2></div>
+      <p id="confirmText"></p>
+      <div class="dialog-actions">
+        <button class="button" id="cancelConfirm">取消</button
+        ><button class="button danger" id="acceptConfirm">确认删除</button>
+      </div>
+    </dialog>
+    <div id="toast" class="toast" role="status" hidden></div>
+  </body>
+</html>

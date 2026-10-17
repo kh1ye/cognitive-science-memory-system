@@ -17,7 +17,7 @@
 - 隐私写入门、遗忘、物理删除和审计记录
 - SQLite 本地持久化
 - 可视化 Web 演示页面
-- 25 项自动化测试
+- 28 项自动化测试
 
 ## 快速启动
 
@@ -47,6 +47,12 @@ Windows 也可以使用 PowerShell 启动脚本：
 ```powershell
 .\scripts\start_demo.ps1 -Open
 ```
+
+## 前端工作台
+
+左侧导航包含三个页面：系统总览、个人助手、记忆管理。总览使用真实记忆统计和 SQLite 存储数据；个人助手支持浏览器本地会话、记忆检索和引用；管理中心提供筛选、详情、添加和删除。
+
+当前助手尚未接入大模型，回答来自已有记忆的检索与证据整理。聊天内容不会自动写入记忆，可手动保存。详见 [前端说明](frontend/README.md)。
 
 ## 运行测试
 
@@ -82,7 +88,7 @@ src/cognitive_memory/   # 可安装的 Python 记忆库
 ├── retrieval/         # 词法召回与注意力排序
 └── storage/           # 存储接口、SQLite 和审计落库
 api/                   # FastAPI 应用、请求模型与请求中间件
-demo/                  # Web 页面与演示数据
+frontend/              # 三页面工作台（HTML / CSS / JavaScript）
 scripts/               # 启动脚本
 tests/                 # 自动化测试
 ```
@@ -104,7 +110,7 @@ with Memory("memory_product/data/memory_demo.db") as memory:
     print(result["answer"])
 ```
 
-核心库可以安装后从任意工作目录导入。HTTP 和 Demo 从仓库根目录启动。数据库格式保持兼容，Demo 默认仍使用 `memory_product/data/memory_demo.db`，已有数据无需搬迁；该目录只保留运行数据。
+核心库可以安装后从任意工作目录导入。HTTP 和前端 从仓库根目录启动。数据库格式保持兼容，前端服务默认仍使用 `memory_product/data/memory_demo.db`，已有数据无需搬迁；该目录只保留运行数据。
 
 ## 技术文档
 

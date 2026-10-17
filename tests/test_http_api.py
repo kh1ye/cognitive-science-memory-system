@@ -31,7 +31,7 @@ class HttpApiTests(unittest.TestCase):
         status, body, content_type = self.request("GET", "/")
         self.assertEqual(status, 200)
         self.assertIn("text/html", content_type)
-        self.assertIn(b"Cognitive Memory Lab", body)
+        self.assertIn("记忆工作台".encode(), body)
 
     def test_seed_search_and_stats_flow(self):
         status, seeded, _ = self.request(
@@ -50,6 +50,39 @@ class HttpApiTests(unittest.TestCase):
         status, stats, _ = self.request("GET", "/api/stats?user_id=http-user")
         self.assertEqual(status, 200)
         self.assertGreaterEqual(stats["by_role"]["current"], 2)
+
+    def test_overview_counts_user_scope_and_storage(self):
+        self.request(
+            "POST", "/api/memories", {"user_id": "alice", "content": "用户喜欢 Python"}
+        )
+        alice = self.client.get("/api/overview?user_id=alice").json()
+        bob = self.client.get("/api/overview?user_id=bob").json()
+        self.assertEqual(alice["total_count"], 1)
+        self.assertEqual(sum(alice["by_type"].values()), 1)
+        self.assertEqual(bob["total_count"], 0)
+        self.assertEqual(bob["recent_activity"], [])
+        self.assertEqual(alice["storage"]["scope"], "database")
+        self.assertGreater(alice["storage"]["allocated_bytes"], 0)
+        self.assertEqual(alice["storage"]["mode"], "memory")
+        self.assertEqual(alice["storage"], bob["storage"])
+        self.assertEqual(alice["modules"][-2]["status"], "unconfigured")
+
+    def test_memory_list_limit(self):
+        for index in range(3):
+            self.request("POST", "/api/memories", {"content": f"任务记录 {index}"})
+        self.assertEqual(
+            len(self.client.get("/api/memories?limit=2").json()["items"]), 2
+        )
+        self.assertEqual(self.client.get("/api/memories?limit=1001").status_code, 400)
+
+    def test_frontend_assets_are_served(self):
+        for path, content_type in (
+            ("/app.js", "javascript"),
+            ("/styles.css", "text/css"),
+        ):
+            response = self.client.get(path)
+            self.assertEqual(response.status_code, 200)
+            self.assertIn(content_type, response.headers["content-type"])
 
     def test_validation_error(self):
         status, data, _ = self.request(

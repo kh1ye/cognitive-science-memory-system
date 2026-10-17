@@ -451,6 +451,24 @@ class SQLiteStorage:
         params = (user_id,)
         self._conn.execute("DELETE FROM audit_events WHERE user_id = ?", params)
 
+    def storage_info(self) -> dict[str, Any]:
+        """Physical database sizes are global, not per-user attribution."""
+        page_count = self._conn.execute("PRAGMA page_count").fetchone()[0]
+        page_size = self._conn.execute("PRAGMA page_size").fetchone()[0]
+        in_memory = self.db_path == ":memory:"
+        database_bytes = 0 if in_memory else Path(self.db_path).stat().st_size
+        wal = Path(self.db_path + "-wal")
+        wal_bytes = wal.stat().st_size if not in_memory and wal.exists() else 0
+        return {
+            "engine": "SQLite",
+            "mode": "memory" if in_memory else "file",
+            "database_bytes": database_bytes,
+            "wal_bytes": wal_bytes,
+            "allocated_bytes": page_count * page_size,
+            "scope": "database",
+            "status": "ready",
+        }
+
     @contextmanager
     def transaction(self):
         """Serialize one complete operation, committing or rolling back together."""
