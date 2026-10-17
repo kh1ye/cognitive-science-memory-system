@@ -11,27 +11,22 @@
 
 ## 启动
 
-在 PowerShell 中执行：
+安装 [uv](https://docs.astral.sh/uv/getting-started/installation/)，在仓库根目录执行：
 
-```powershell
-cd "D:\Agent开发\记忆系统开发\memory_product"
-.\start_demo.ps1 -Open
+```sh
+uv sync --locked
+uv run memory_product/app.py --open
 ```
 
-如果 PowerShell 执行策略阻止脚本，可直接执行：
+Windows PowerShell 也可执行：
 
 ```powershell
-cd "D:\Agent开发\记忆系统开发\memory_product"
-python .\app.py --open
+.\memory_product\start_demo.ps1 -Open
 ```
 
 成功信号：终端显示 `Web UI: http://127.0.0.1:8765`，浏览器打开同一地址。
 
-数据库默认写入：
-
-```text
-D:\Agent开发\记忆系统开发\memory_product\data\memory_demo.db
-```
+数据库默认写入仓库内的 `memory_product/data/memory_demo.db`。
 
 ## 三分钟演示
 
@@ -44,9 +39,10 @@ D:\Agent开发\记忆系统开发\memory_product\data\memory_demo.db
 
 ## 测试
 
-```powershell
-cd "D:\Agent开发\记忆系统开发\memory_product"
-python -m unittest discover -s .\tests -v
+在仓库根目录执行：
+
+```sh
+uv run --locked python -m unittest discover -s memory_product/tests -v
 ```
 
 测试覆盖核心状态机、隐私门、重复强化、遗忘、删除、页面、健康接口与端到端 seed-search-stats 流程。

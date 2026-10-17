@@ -1,4 +1,4 @@
-﻿# Cognitive Science Memory System
+# Cognitive Science Memory System
 
 面向 AI Agent 的认知科学启发式长期记忆系统原型。
 
@@ -21,24 +21,42 @@
 
 ## 快速启动
 
-在仓库根目录执行：
+项目使用 [uv](https://docs.astral.sh/uv/getting-started/installation/) 管理 Python、虚拟环境和依赖。安装 uv 后，在仓库根目录执行（macOS、Linux、Windows 通用）：
 
-    cd ".\memory_product"
-    .\start_demo.ps1 -Open
+```sh
+uv sync --locked
+uv run memory_product/app.py --open
+```
 
-如果 PowerShell 阻止脚本：
+默认使用 Python 3.12，uv 会在需要时自动下载解释器，并在 `.venv` 中创建隔离环境。当前仅使用 Python 标准库，无第三方依赖。
 
-    cd ".\memory_product"
-    python .\app.py --open
+浏览器访问：<http://127.0.0.1:8765>
 
-浏览器访问：
+Windows 也可以使用 PowerShell 启动脚本：
 
-    http://127.0.0.1:8765
+```powershell
+.\memory_product\start_demo.ps1 -Open
+```
 
 ## 运行测试
 
-    cd ".\memory_product"
-    python -m unittest discover -s .\tests -v
+在仓库根目录执行：
+
+```sh
+uv run --locked python -m unittest discover -s memory_product/tests -v
+```
+
+## 依赖管理
+
+```sh
+uv add 包名             # 添加运行依赖并更新锁文件
+uv add --dev 包名       # 添加开发依赖
+uv remove 包名          # 移除依赖
+uv lock                 # 修改配置后更新锁文件
+uv sync --locked        # 按锁文件同步环境
+```
+
+将 `pyproject.toml`、`uv.lock` 和 `.python-version` 一起提交；`.venv` 已被 Git 忽略。
 
 ## 技术文档
 
