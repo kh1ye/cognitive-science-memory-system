@@ -7,7 +7,7 @@ import MemoryForm from "./components/MemoryForm.vue";
 import { createWorkspace, WorkspaceKey } from "./composables/useWorkspace";
 const workspace = createWorkspace();
 provide(WorkspaceKey, workspace);
-const { state, refresh, switchUser, resolveConfirm, dispose } = workspace;
+const { state, refresh, initialize, switchUser, resolveConfirm, dispose } = workspace;
 const route = useRoute();
 const title = computed(() => route.meta.title || "系统总览");
 const profileOpen = ref(false),
@@ -28,7 +28,7 @@ function submitProfile() {
   switchUser(userInput.value);
   profileOpen.value = false;
 }
-onMounted(refresh);
+onMounted(initialize);
 onUnmounted(dispose);
 const navigation = [
   { name: "overview", title: "系统总览", icon: "overview" },

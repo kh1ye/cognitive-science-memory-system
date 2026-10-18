@@ -1,9 +1,10 @@
 export async function api(path, options = {}) {
+  const { timeoutMs = 20000, ...fetchOptions } = options;
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 20000);
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
     const response = await fetch(path, {
-      ...options,
+      ...fetchOptions,
       signal: controller.signal,
       headers: { "Content-Type": "application/json", ...options.headers },
     });
@@ -23,5 +24,5 @@ export async function api(path, options = {}) {
     clearTimeout(timer);
   }
 }
-export const post = (path, body) =>
-  api(path, { method: "POST", body: JSON.stringify(body) });
+export const post = (path, body, options = {}) =>
+  api(path, { ...options, method: "POST", body: JSON.stringify(body) });

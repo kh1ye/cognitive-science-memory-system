@@ -38,11 +38,12 @@ function mountView(component, value) {
   resources.push(() => wrapper.unmount());
   return wrapper;
 }
-function mockApi(search = () => response({ results: [], policy: {} })) {
+function mockApi(search = () => response({ answer: "你好", references: [] })) {
   vi.stubGlobal(
     "fetch",
     vi.fn(async (path) => {
-      if (path === "/api/search") return search();
+      if (path === "/api/chat") return search();
+      if (path.startsWith("/api/sessions")) return response({ items: [], persisted: true });
       return response(
         path.startsWith("/api/overview") ? summary : { items: records },
       );
@@ -101,6 +102,7 @@ describe("Vue workspace migration", () => {
     value.switchUser("bob");
     pending[2](response({ ...summary, total_count: 2 }));
     pending[3](response({ items: [{ ...records[0], content: "bob 的记忆" }] }));
+    pending[4](response({ items: [] }));
     await flushPromises();
     pending[0](response(summary));
     pending[1](response({ items: records }));
@@ -122,12 +124,15 @@ describe("Vue workspace migration", () => {
     const wrapper = mountView(AssistantView, value);
     await wrapper.get("textarea").setValue("我喜欢什么？");
     await wrapper.get("form").trigger("submit");
+    await flushPromises();
     expect(value.state.sending).toBe(true);
-    expect(wrapper.text()).toContain("正在查找相关记忆");
+    expect(wrapper.get('input[type="checkbox"]').element.disabled).toBe(true);
+    expect(wrapper.text()).toContain("正在思考并检索记忆");
     completeSearch(
       response({
-        policy: { history_intent: false },
-        results: [{ ...records[0], retrieval: { score: 0.9 } }],
+        answer: records[0].content,
+        references: [{ ...records[0], score: 0.9 }],
+        memory_results: [{ decision: "WRITE_CURRENT" }],
       }),
     );
     await flushPromises();
@@ -139,6 +144,8 @@ describe("Vue workspace migration", () => {
     expect(saved[0].messages[1].text).toContain("Python");
     expect(wrapper.find("h1").exists()).toBe(false);
     expect(wrapper.text()).not.toContain("记忆检索模式");
+    await wrapper.get('input[type="checkbox"]').setValue(false);
+    expect(value.state.autoRemember).toBe(false);
   });
 
   it("keeps a failed message and unlocks the composer for retry", async () => {
@@ -194,6 +201,62 @@ describe("Vue workspace migration", () => {
     expect(wrapper.get(".memory-preview").text()).toContain("Python");
     expect(wrapper.get(".memory-preview").text()).not.toContain("JavaScript");
     media.mockRestore();
+  });
+
+  it("recovers SQLite sessions into an empty browser and sends only the new turn with the thread id", async () => {
+    const remote = { id: "server-thread", title: "服务端会话", persisted: true, messages: [
+      { role: "user", text: "我叫小明" }, { role: "assistant", text: "你好小明" },
+    ] };
+    vi.stubGlobal("fetch", vi.fn(async (path) => {
+      if (path.startsWith("/api/sessions")) return response({ items: [remote] });
+      if (path === "/api/chat") return response({ answer: "你叫小明", references: [] });
+      return response(path.startsWith("/api/overview") ? summary : { items: records });
+    }));
+    const value = workspace();
+    await value.initialize();
+    expect(value.state.currentChatId).toBe("server-thread");
+    expect(value.currentChat.value.messages).toHaveLength(2);
+    value.state.autoRemember = false;
+    await value.sendMessage("我叫什么？");
+    const call = fetch.mock.calls.find(([path]) => path === "/api/chat");
+    expect(JSON.parse(call[1].body)).toEqual({
+      user_id: "demo-user", thread_id: "server-thread", message: "我叫什么？", auto_remember: false,
+    });
+    expect(value.currentChat.value.messages[3].text).toBe("你叫小明");
+  });
+
+  it("ignores session recovery from the previous user", async () => {
+    let completeOld;
+    vi.stubGlobal("fetch", vi.fn(async (path) => {
+      if (path === "/api/sessions?user_id=demo-user")
+        return new Promise((resolve) => { completeOld = resolve; });
+      if (path.startsWith("/api/sessions")) return response({ items: [] });
+      return response(path.startsWith("/api/overview") ? summary : { items: [] });
+    }));
+    const value = workspace();
+    const old = value.refreshChats();
+    value.switchUser("bob");
+    await flushPromises();
+    completeOld(response({ items: [{ id: "private-alice", messages: [] }] }));
+    await old;
+    expect(value.state.user).toBe("bob");
+    expect(value.state.chats).toEqual([]);
+  });
+
+  it("deletes the server session without deleting long-term memories", async () => {
+    mockApi();
+    const value = workspace();
+    value.state.chats = [{ id: "server-thread", persisted: true, title: "对话", messages: [] }];
+    value.state.currentChatId = "server-thread";
+    value.state.memories = records;
+    const pending = value.deleteChat();
+    value.resolveConfirm(true);
+    await pending;
+    expect(fetch).toHaveBeenCalledWith(
+      "/api/sessions/server-thread?user_id=demo-user", expect.objectContaining({ method: "DELETE" }),
+    );
+    expect(value.state.chats).toEqual([]);
+    expect(value.state.memories).toEqual(records);
   });
 
   it("rejects privacy drops without closing the unsaved memory draft", async () => {

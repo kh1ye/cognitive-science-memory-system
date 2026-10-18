@@ -2,7 +2,7 @@
 import { computed, nextTick, ref, watch } from "vue";
 import AppIcon from "../components/AppIcon.vue";
 import { useWorkspace } from "../composables/useWorkspace";
-import { types, roles } from "../lib/format";
+import { types, roles, decisionNames } from "../lib/format";
 const {
   state,
   currentChat,
@@ -50,7 +50,7 @@ async function createChat() {
   inputElement.value?.focus();
 }
 async function send(text = input.value) {
-  if (!text.trim() || state.sending) return;
+  if (!text.trim() || state.sending || state.sessionsLoading) return;
   input.value = "";
   const pending = sendMessage(text);
   await scroll();
@@ -67,11 +67,12 @@ function keydown(event) {
 </script>
 <template>
   <div class="page assistant-page">
+    <div v-if="state.sessionsLoading" class="subtle" role="status">正在恢复服务端会话…</div>
     <div class="assistant-shell">
       <aside class="conversation-sidebar">
         <button
           class="button full"
-          :disabled="state.sending"
+          :disabled="state.sending || state.sessionsLoading"
           @click="createChat"
         >
           <AppIcon name="plus" />新建会话
@@ -83,14 +84,14 @@ function keydown(event) {
             :key="chat.id"
             class="conversation-item"
             :class="{ active: chat.id === state.currentChatId }"
-            :disabled="state.sending"
+            :disabled="state.sending || state.sessionsLoading"
             @click="selectChat(chat.id)"
           >
             <AppIcon name="chat" /><span>{{ chat.title }}</span>
           </button>
         </div>
         <p class="conversation-note">
-          会话保存在当前浏览器<br />按用户空间分别记录
+          会话保存在服务端 SQLite<br />按用户空间分别记录
         </p>
       </aside>
       <div class="conversation-main">
@@ -99,7 +100,7 @@ function keydown(event) {
           <div class="mobile-chat-tools">
             <select
               :value="state.currentChatId"
-              :disabled="state.sending"
+              :disabled="state.sending || state.sessionsLoading"
               aria-label="选择会话"
               @change="selectChat($event.target.value)"
             >
@@ -113,7 +114,7 @@ function keydown(event) {
               </option></select
             ><button
               class="icon-button"
-              :disabled="state.sending"
+              :disabled="state.sending || state.sessionsLoading"
               aria-label="新建会话"
               @click="createChat"
             >
@@ -185,7 +186,7 @@ function keydown(event) {
               <b>{{ message.role === "user" ? "你" : "个人助手" }}</b>
               <p>{{ message.text }}</p>
               <small v-if="message.pending" class="subtle"
-                >正在查找相关记忆…</small
+                >正在思考并检索记忆…</small
               >
               <details v-if="message.refs?.length" class="evidence-list">
                 <summary>参考了 {{ message.refs.length }} 条记忆</summary>
@@ -209,6 +210,8 @@ function keydown(event) {
                   >
                 </div>
               </details>
+              <small v-for="warning in message.warnings || []" :key="warning" class="subtle">{{ warning }}</small>
+              <small v-if="message.memory_results?.length" class="subtle">自动记忆结果：{{ message.memory_results.map((item) => decisionNames[item.decision] || item.decision).join('；') }}</small>
               <div v-if="message.role === 'user'" class="message-actions">
                 <button class="text-button" @click="openMemory(message.text)">
                   保存为记忆
@@ -230,10 +233,14 @@ function keydown(event) {
               @keydown="keydown"
             />
             <div class="composer-bottom">
-              <span><AppIcon name="memory" />关联你的个人记忆</span
+              <label class="auto-memory-toggle"><input
+                v-model="state.autoRemember"
+                type="checkbox"
+                :disabled="state.sending"
+              />自动记忆</label
               ><button
                 class="send-button"
-                :disabled="state.sending || !input.trim()"
+                :disabled="state.sending || state.sessionsLoading || !input.trim()"
                 aria-label="发送"
               >
                 <AppIcon name="arrowUp" />
@@ -241,7 +248,7 @@ function keydown(event) {
             </div>
           </form>
           <p class="composer-note">
-            尚未接入大模型。回答来自记忆检索与证据整理，不会自动保存聊天内容。
+            会话用于连续对话；自动记忆会提取可长期保留的信息。敏感信息请手动确认保存。
           </p>
         </div>
       </div>

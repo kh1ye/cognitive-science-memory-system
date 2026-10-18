@@ -17,10 +17,11 @@ from fastapi.staticfiles import StaticFiles
 from starlette.exceptions import HTTPException
 
 from cognitive_memory import Memory
+from conversation_agent import ConversationAgent
 
 from .middleware import RequestPolicyMiddleware
 from .responses import error_response
-from .routers import demo, memories, retrieval, system
+from .routers import chat, demo, memories, retrieval, system
 from .settings import SERVICE_NAME
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,6 +34,8 @@ def create_app(
     *,
     service: Memory | None = None,
     demo_token: str | None = None,
+    chat_db_path: str | Path | None = None,
+    chat_model=None,
 ) -> FastAPI:
     """Create the service; demo seeding requires an explicit token.
 
@@ -43,9 +46,23 @@ def create_app(
     @asynccontextmanager
     async def lifespan(application: FastAPI):
         application.state.memory = service if service is not None else Memory(db_path)
+        conversation = None
         try:
+            session_path = chat_db_path
+            if session_path is None:
+                session_path = os.getenv("CONVERSATION_DB_PATH") or (
+                    ":memory:"
+                    if str(db_path) == ":memory:" or service is not None
+                    else Path(db_path).with_name(Path(db_path).stem + "_sessions.db")
+                )
+            conversation = ConversationAgent(
+                application.state.memory, session_path, model=chat_model
+            )
+            application.state.conversation_agent = conversation
             yield
         finally:
+            if conversation is not None:
+                conversation.close()
             if service is None:
                 application.state.memory.close()
 
@@ -92,7 +109,7 @@ def create_app(
             {"detail": exc.detail}, status_code=exc.status_code, headers=exc.headers
         )
 
-    for router in (memories.router, retrieval.router, system.router):
+    for router in (memories.router, retrieval.router, system.router, chat.router):
         application.include_router(router)
     if application.state.demo_token:
         application.include_router(demo.router)

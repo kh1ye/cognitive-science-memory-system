@@ -1,8 +1,9 @@
 """Request schemas for validation and generated OpenAPI documentation."""
 
 from typing import Any
+from uuid import uuid4
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
 class NamespaceRequest(BaseModel):
@@ -30,3 +31,32 @@ class SearchRequest(NamespaceRequest):
     top_k: int = 5
     active_goal: str = ""
     recent_focus: str = ""
+
+
+class SessionRequest(BaseModel):
+    user_id: str = Field(default="demo-user", min_length=1, max_length=100)
+    thread_id: str = Field(
+        default_factory=lambda: str(uuid4()),
+        pattern=r"^[A-Za-z0-9_-]{1,100}$",
+    )
+
+    @field_validator("user_id")
+    @classmethod
+    def normalize_user(cls, value):
+        value = value.strip().lower()
+        if not value:
+            raise ValueError("user_id 不能为空")
+        return value
+
+
+class ChatRequest(SessionRequest):
+    message: str = Field(min_length=1, max_length=10000)
+    auto_remember: bool = True
+
+    @field_validator("message")
+    @classmethod
+    def nonempty_message(cls, value):
+        value = value.strip()
+        if not value:
+            raise ValueError("message 不能为空")
+        return value

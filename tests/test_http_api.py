@@ -16,6 +16,9 @@ from cognitive_memory import Memory
 
 class HttpApiTests(unittest.TestCase):
     def setUp(self):
+        settings = patch.dict(os.environ, {"LLM_API_KEY": "", "OPENAI_API_KEY": ""})
+        settings.start()
+        self.addCleanup(settings.stop)
         self.client = TestClient(create_app(":memory:", demo_token="test-demo-token"))
         self.client.__enter__()
         self.addCleanup(self.client.__exit__, None, None, None)
@@ -96,7 +99,9 @@ class HttpApiTests(unittest.TestCase):
         self.assertTrue(schema["paths"]["/api/demo/seed"]["post"]["security"])
 
     def test_demo_token_environment_configuration(self):
-        with patch.dict(os.environ, {"COGNITIVE_MEMORY_DEMO_TOKEN": "environment-token"}):
+        with patch.dict(
+            os.environ, {"COGNITIVE_MEMORY_DEMO_TOKEN": "environment-token"}
+        ):
             with TestClient(create_app(":memory:")) as client:
                 self.assertEqual(client.post("/api/demo/seed").status_code, 401)
                 response = client.post(

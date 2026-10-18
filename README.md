@@ -17,7 +17,8 @@
 - 隐私写入门、遗忘、物理删除和审计记录
 - SQLite 本地持久化
 - 可视化 Web 工作台
-- 32 项后端测试 + 7 项前端回归测试
+- LangChain + LangGraph 多轮对话、SQLite 会话恢复与自动长期记忆
+- 44 项后端测试 + 10 项前端回归测试
 
 ## 快速启动
 
@@ -30,7 +31,7 @@ npm --prefix frontend run build
 uv run python -m api.app --open
 ```
 
-默认使用 Python 3.12，uv 会在需要时自动下载解释器，并在 `.venv` 中创建隔离环境。核心记忆逻辑仍使用 Python 标准库；HTTP 层使用 FastAPI + Uvicorn，uv 会安装锁定依赖。
+默认使用 Python 3.12，uv 会在需要时自动下载解释器，并在 `.venv` 中创建隔离环境。核心记忆逻辑仍使用 Python 标准库；Agent 使用 LangChain + LangGraph；HTTP 层使用 FastAPI + Uvicorn，uv 会安装锁定依赖。
 
 浏览器访问：<http://127.0.0.1:8765>
 
@@ -54,9 +55,68 @@ uv run uvicorn api.app:app --host 127.0.0.1 --port 8765
 
 前端使用 Vue 3 单文件组件、Composition API 和 Vue Router，生产构建输出到 `frontend/dist/`，由 FastAPI 提供。开发时运行 `npm --prefix frontend run dev`，访问 5173 端口，API 自动代理到 8765。
 
-左侧导航包含三个页面：系统总览、个人助手、记忆管理。总览使用真实记忆统计和 SQLite 存储数据；个人助手支持浏览器本地会话、记忆检索和引用；管理中心提供筛选、详情、添加和删除。
+左侧导航包含三个页面：系统总览、个人助手、记忆管理。总览使用真实记忆统计和 SQLite 存储数据；个人助手支持 LLM 多轮对话、SQLite 会话恢复、记忆检索和引用；管理中心提供筛选、详情、添加和删除。
 
-当前助手尚未接入大模型，回答来自已有记忆的检索与证据整理。聊天内容不会自动写入记忆，可手动保存。详见 [前端说明](frontend/README.md)。
+个人助手通过 LangChain 调用模型，并用 LangGraph 的 SQLite Checkpointer 恢复同一 `thread_id` 的上下文。自动记忆开关默认开启，每轮从用户明确陈述中提取结构化候选，再交给原有 Memory Engine 决定写入、强化、候选和巩固。仍支持手动保存。详见 [前端说明](frontend/README.md)。
+
+## 配置对话模型
+
+先执行 `uv sync --locked`。在启动后端的终端中配置模型，环境变量或项目根目录 `.env` 变更后重启后端。
+
+macOS / Linux：
+
+```sh
+export LLM_MODEL="gpt-4o-mini"
+export LLM_API_KEY="你的密钥"
+export LLM_BASE_URL="https://api.openai.com/v1"
+uv run --locked python -m api.app --open
+```
+
+Windows PowerShell：
+
+```powershell
+$env:LLM_MODEL = "gpt-4o-mini"
+$env:LLM_API_KEY = "你的密钥"
+$env:LLM_BASE_URL = "https://api.openai.com/v1"
+.\scripts\start.ps1 -Open
+```
+
+`LLM_PROVIDER=openai`（默认）使用 OpenAI 兼容的 Chat Completions 服务；`LLM_PROVIDER=anthropic` 使用 Anthropic 兼容服务。自动提取需要模型支持工具调用形式的结构化输出。`LLM_API_KEY` / `LLM_BASE_URL` 未设置时，也读取 `OPENAI_API_KEY` / `OPENAI_BASE_URL`。模型默认 `gpt-4o-mini`。示例见 `.env.example`，程序会自动读取项目根目录的 `.env`，同名 shell 环境变量优先。
+
+未配置密钥时，记忆管理、检索、会话管理仍可使用，聊天返回 503 和配置提示。临时连接或限流错误由 SDK 最多重试一次，持续失败返回 502；自动提取失败则保留已生成的回答并返回警告，用户可手动保存。
+
+### 会话与长期记忆
+
+- **短期会话**：同一用户和 `thread_id` 的对话由 SQLite Checkpointer 保存；重启后恢复。模型每轮读取最多最近 20 条消息，完整记录仍保留在数据库中。
+- **长期记忆**：通过现有 `cognitive_memory.Memory.search/add_memory` 读写，同一用户的不同会话共享。Agent 不控制状态转换。
+- **数据文件**：默认会话库与记忆库分开，例如 `memory_demo_sessions.db` 与 `memory_demo.db`。可用 `CONVERSATION_DB_PATH` 指定会话库路径；更改会话库路径会切换到另一组会话。
+- **提取边界**：只写入本轮用户原文片段，忽略虚构片段；“不要记住”等指令阻止自动长期记忆提取。敏感候选没有自动保存同意，会由原有隐私门拒写，需手动明确同意。短期会话记录依然持久化；模型会收到所需历史及检索记忆。
+- **会话管理**：页面从服务端恢复最近 100 个会话，浏览器仅作缓存。旧版离线聊天保留在本地；继续旧会话时会新建 LLM 会话，旧记录不自动上传。
+- **部署范围**：沿用本地单进程部署，聊天与会话操作串行处理。`user_id` 仍是空间标识，不提供身份认证。删除会话清除该会话的检查点和浏览器缓存，保留已写入的长期记忆。
+
+### 聊天 API
+
+| 方法 | 路径 | 用途 |
+|---|---|---|
+| POST | `/api/chat` | 输入 `user_id`、`thread_id`、`message`、`auto_remember`；返回回答、引用、记忆写入决策和警告 |
+| GET | `/api/chat/status` | 查看模型是否配置及模型名称，不返回密钥 |
+| POST | `/api/sessions` | 新建会话，可指定 `thread_id`；不指定则生成 UUID |
+| GET | `/api/sessions?user_id=alice` | 恢复最近 100 个会话及记录 |
+| GET | `/api/sessions/{thread_id}?user_id=alice` | 获取单个会话 |
+| DELETE | `/api/sessions/{thread_id}?user_id=alice` | 删除会话与检查点 |
+
+`/api/chat` 不提供 `thread_id` 时会生成新 ID，连续对话需保留返回的 `thread_id`。例如：
+
+```sh
+curl -X POST http://127.0.0.1:8765/api/chat \
+  -H "Content-Type: application/json" \
+  -d '{"user_id":"alice","thread_id":"my-chat","message":"我主要使用 Python","auto_remember":true}'
+curl -X POST http://127.0.0.1:8765/api/chat \
+  -H "Content-Type: application/json" \
+  -d '{"user_id":"alice","thread_id":"my-chat","message":"我刚才说使用什么？","auto_remember":false}'
+```
+
+实现参考官方 [LangGraph 持久化](https://docs.langchain.com/oss/python/langgraph/persistence)、[SQLite Checkpointer](https://reference.langchain.com/python/langgraph.checkpoint.sqlite/SqliteSaver) 与 [ChatOpenAI](https://docs.langchain.com/oss/python/integrations/chat/openai) 文档。
 
 ## 演示数据接口
 
@@ -117,10 +177,12 @@ src/cognitive_memory/   # 可安装的 Python 记忆库
 ├── retention.py       # 遗忘和归档
 ├── retrieval/         # 词法召回与注意力排序
 └── storage/           # 存储接口、SQLite 和审计落库
+src/conversation_agent/ # 独立 Agent：graph、state、llm、prompts、memory
 api/                   # FastAPI 应用、依赖、请求模型与中间件
 ├── routers/memories.py # 记忆增删查、审计和保留度检查
 ├── routers/retrieval.py # 检索
 ├── routers/system.py   # 健康、配置、统计和总览
+├── routers/chat.py     # LLM 聊天、会话恢复和删除
 └── routers/demo.py     # 默认关闭、令牌保护的演示数据接口
 frontend/              # Vue 3 + Vue Router + Vite 三页面工作台
 scripts/               # 启动脚本

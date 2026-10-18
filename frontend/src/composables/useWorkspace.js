@@ -31,12 +31,15 @@ export function createWorkspace() {
     chats: [],
     currentChatId: null,
     sending: false,
+    autoRemember: true,
+    sessionsLoading: false,
     memoryDraft: null,
     confirm: null,
   });
   let loadVersion = 0,
     toastTimer,
     confirmResolve;
+  let sessionsVersion = 0;
   const currentChat = computed(() =>
     state.chats.find((c) => c.id === state.currentChatId),
   );
@@ -108,9 +111,32 @@ export function createWorkspace() {
       if (version === loadVersion) state.loading = false;
     }
   }
+  async function refreshChats() {
+    const version = ++sessionsVersion, user = state.user;
+    state.sessionsLoading = true;
+    try {
+      const result = await api(`/api/sessions?user_id=${encodeURIComponent(user)}`);
+      if (version !== sessionsVersion || user !== state.user || state.sending) return;
+      const remote = result.items;
+      const remoteIds = new Set(remote.map((chat) => chat.id));
+      const local = state.chats.filter((chat) => !chat.persisted && !remoteIds.has(chat.id));
+      state.chats = [...remote, ...local];
+      if (!state.chats.some((chat) => chat.id === state.currentChatId))
+        state.currentChatId = state.chats[0]?.id || null;
+      saveChats();
+    } catch (error) {
+      if (version === sessionsVersion) notify(`会话恢复失败：${error.message}`);
+    } finally {
+      if (version === sessionsVersion) state.sessionsLoading = false;
+    }
+  }
+  async function initialize() {
+    await Promise.all([refresh(), refreshChats()]);
+  }
   function switchUser(value) {
     const user = value.trim().toLowerCase();
     if (!user || state.sending) return;
+    ++sessionsVersion;
     ++loadVersion;
     state.user = user;
     persist("cm.user", user);
@@ -121,7 +147,7 @@ export function createWorkspace() {
     state.updatedAt = "";
     resolveConfirm(false);
     loadChats();
-    refresh();
+    initialize();
   }
   function askConfirm(title, text, action = "确认删除") {
     resolveConfirm(false);
@@ -198,7 +224,7 @@ export function createWorkspace() {
     }
   }
   function newChat() {
-    if (state.sending) return;
+    if (state.sending || state.sessionsLoading) return;
     const empty = state.chats.find((c) => !c.messages.length);
     if (empty) state.currentChatId = empty.id;
     else {
@@ -212,30 +238,42 @@ export function createWorkspace() {
     if (!state.sending) state.currentChatId = id;
   }
   async function deleteChat() {
-    const id = state.currentChatId;
-    if (!id || state.sending) return;
+    const id = state.currentChatId, user = state.user;
+    if (!id || state.sending || state.sessionsLoading) return;
     if (
       !(await askConfirm(
         "删除这个会话？",
-        "仅删除当前浏览器中的会话，已保存的个人记忆不会被删除。",
+        "删除服务端会话和当前浏览器缓存，已保存的长期记忆仍会保留。",
       ))
     )
       return;
+    if (user !== state.user) return;
+    const chat = state.chats.find((c) => c.id === id);
+    if (chat?.persisted) {
+      try {
+        await api(`/api/sessions/${encodeURIComponent(id)}?user_id=${encodeURIComponent(user)}`, { method: "DELETE" });
+      } catch (error) {
+        notify(error.message);
+        return;
+      }
+    }
+    if (user !== state.user) return;
     state.chats = state.chats.filter((c) => c.id !== id);
     state.currentChatId = state.chats[0]?.id || null;
     saveChats();
   }
   async function sendMessage(text) {
     text = text.trim();
-    if (!text || state.sending) return false;
+    if (!text || state.sending || state.sessionsLoading) return false;
+    if (currentChat.value && !currentChat.value.persisted && currentChat.value.messages.length) {
+      const next = { id: crypto.randomUUID(), title: "新会话", messages: [] };
+      state.chats.unshift(next);
+      state.currentChatId = next.id;
+      notify("旧版记录已保留，已为连续对话创建新会话。");
+    }
     if (!currentChat.value) newChat();
     const chat = currentChat.value,
       user = state.user;
-    const recent = chat.messages
-      .filter((m) => m.role === "user")
-      .slice(-3)
-      .map((m) => m.text)
-      .join(" ");
     chat.messages.push({ role: "user", text });
     if (chat.title === "新会话") chat.title = text.slice(0, 20);
     chat.messages.push({
@@ -247,29 +285,22 @@ export function createWorkspace() {
     const reply = chat.messages[chat.messages.length - 1];
     state.sending = true;
     try {
-      const result = await post("/api/search", {
+      if (!chat.persisted) {
+        await post("/api/sessions", { user_id: user, thread_id: chat.id });
+        chat.persisted = true;
+      }
+      const result = await post("/api/chat", {
         user_id: user,
-        query: text,
-        recent_focus: recent,
-        top_k: 5,
-      });
-      const role = result.policy?.history_intent ? "history" : "current";
-      const preferred = result.results.filter((m) => m.state_role === role);
-      const pool = preferred.length ? preferred : result.results;
-      const references = pool
-        .filter((m) => m.retrieval.score >= pool[0].retrieval.score * 0.55)
-        .slice(0, 3);
-      reply.text = references.length
-        ? "从已有记忆中找到以下线索：\n\n" +
-          references.map((m) => m.content).join("\n\n")
-        : "在当前记忆里还没有找到相关记录。你可以先添加信息，或换一种更具体的问法。";
-      reply.refs = references.map((m) => ({
-        id: m.id,
-        content: m.content,
-        memory_type: m.memory_type,
-        state_role: m.state_role,
-        score: m.retrieval.score,
-      }));
+        thread_id: chat.id,
+        message: text,
+        auto_remember: state.autoRemember,
+      }, { timeoutMs: 210000 });
+      chat.persisted = true;
+      reply.text = result.answer;
+      reply.refs = result.references || [];
+      reply.memory_results = result.memory_results || [];
+      reply.warnings = result.warnings || [];
+      if (reply.warnings.length) notify(reply.warnings.join(" "));
     } catch (error) {
       reply.text = `这次查询没有完成：${error.message} 你的消息已保留，可以重新发送。`;
       reply.error = true;
@@ -283,6 +314,7 @@ export function createWorkspace() {
   }
   function dispose() {
     ++loadVersion;
+    ++sessionsVersion;
     clearTimeout(toastTimer);
     resolveConfirm(false);
   }
@@ -290,6 +322,8 @@ export function createWorkspace() {
   return {
     state,
     currentChat,
+    initialize,
+    refreshChats,
     refresh,
     switchUser,
     notify,
