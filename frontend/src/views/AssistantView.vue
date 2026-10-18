@@ -2,7 +2,7 @@
 import { computed, nextTick, ref, watch } from "vue";
 import AppIcon from "../components/AppIcon.vue";
 import { useWorkspace } from "../composables/useWorkspace";
-import { types, roles, decisionNames } from "../lib/format";
+import { types, roles, memoryStatusNames, formatMemoryDecision } from "../lib/format";
 const {
   state,
   currentChat,
@@ -211,7 +211,8 @@ function keydown(event) {
                 </div>
               </details>
               <small v-for="warning in message.warnings || []" :key="warning" class="subtle">{{ warning }}</small>
-              <small v-if="message.memory_results?.length" class="subtle">自动记忆结果：{{ message.memory_results.map((item) => decisionNames[item.decision] || item.decision).join('；') }}</small>
+              <small v-if="message.memory_results?.length" class="subtle">自动记忆结果：{{ message.memory_results.map(formatMemoryDecision).join('；') }}</small>
+              <small v-if="memoryStatusNames[message.memory_status]" class="subtle memory-processing-status">{{ memoryStatusNames[message.memory_status] }}</small>
               <div v-if="message.role === 'user'" class="message-actions">
                 <button class="text-button" @click="openMemory(message.text)">
                   保存为记忆

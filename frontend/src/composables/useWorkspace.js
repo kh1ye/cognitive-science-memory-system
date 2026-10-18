@@ -294,11 +294,12 @@ export function createWorkspace() {
         thread_id: chat.id,
         message: text,
         auto_remember: state.autoRemember,
-      }, { timeoutMs: 210000 });
+      }, { timeoutMs: 300000 });
       chat.persisted = true;
       reply.text = result.answer;
       reply.refs = result.references || [];
       reply.memory_results = result.memory_results || [];
+      reply.memory_status = result.memory_status || "";
       reply.warnings = result.warnings || [];
       if (reply.warnings.length) notify(reply.warnings.join(" "));
     } catch (error) {

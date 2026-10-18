@@ -1,9 +1,35 @@
 """Adapter to Cognitive Memory: no alternate storage or state machine."""
 
+import unicodedata
+
 from cognitive_memory import Memory
 from cognitive_memory.retrieval.lexical import normalize_text
 
 from .state import MemoryExtraction
+
+
+def source_span(content: str, message: str) -> str | None:
+    """Recover original evidence despite whitespace, casing or punctuation changes."""
+    if content in message:
+        return content
+
+    def canonical(text):
+        chars, positions = [], []
+        for i, char in enumerate(text):
+            for value in unicodedata.normalize("NFKC", char).casefold():
+                if not value.isspace() and not unicodedata.category(value).startswith(
+                    "P"
+                ):
+                    chars.append(value)
+                    positions.append(i)
+        return "".join(chars), positions
+
+    needle, _ = canonical(content.rstrip("。！？.!?"))
+    haystack, positions = canonical(message)
+    start = haystack.find(needle) if needle else -1
+    if start < 0:
+        return None
+    return message[positions[start] : positions[start + len(needle) - 1] + 1]
 
 
 class CognitiveMemory:
@@ -37,17 +63,26 @@ class CognitiveMemory:
         results = []
         seen = set()
         for candidate in extraction.memories:
-            # Never persist invented/paraphrased content or write the same span twice.
-            if candidate.content not in message or candidate.content in seen:
+            content = source_span(candidate.content, message)
+            if content is None:
+                results.append(
+                    {
+                        "decision": "SKIPPED",
+                        "reason": "no_source_evidence",
+                        "memory_id": None,
+                    }
+                )
                 continue
-            seen.add(candidate.content)
+            if content in seen:
+                continue
+            seen.add(content)
             tags = list(candidate.tags)
             if candidate.sensitive:
                 tags.append("sensitive")
             result = self.engine.add_memory(
                 {
                     "user_id": user_id,
-                    "content": candidate.content,
+                    "content": content,
                     "memory_key": candidate.memory_key,
                     "memory_value": candidate.memory_value,
                     "memory_type": candidate.memory_type,

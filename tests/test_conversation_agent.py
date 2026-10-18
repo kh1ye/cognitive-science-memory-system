@@ -69,6 +69,62 @@ class ConversationAgentTests(unittest.TestCase):
         self.agent = ConversationAgent(self.engine, self.path, model=self.model)
         self.addCleanup(lambda: self.agent.close())
 
+    def test_format_changes_preserve_the_original_user_evidence(self):
+        self.model.extraction = {
+            "memories": [
+                candidate(
+                    "我喜欢用 Python 做数据分析。", tags=["preference", "communication"]
+                )
+            ]
+        }
+        result = self.agent.chat("alice", "format", "我喜欢用Python做数据分析")
+        self.assertEqual(result["memory_results"][0]["decision"], "WRITE_CURRENT")
+        self.assertEqual(
+            self.engine.list_memories("alice")[0]["content"], "我喜欢用Python做数据分析"
+        )
+
+    def test_memory_status_distinguishes_empty_disabled_and_privacy(self):
+        empty = self.agent.chat("alice", "status", "你是谁")
+        self.assertEqual(empty["memory_status"], "no_new_memory")
+        disabled = self.agent.chat(
+            "alice", "status", "我喜欢 Python", auto_remember=False
+        )
+        self.assertEqual(disabled["memory_status"], "disabled")
+        blocked = self.agent.chat("alice", "status", "不要保存这句话")
+        self.assertEqual(blocked["memory_status"], "privacy_blocked")
+        self.assertEqual(
+            self.agent.get_session("alice", "status")["messages"][-1]["memory_status"],
+            "privacy_blocked",
+        )
+
+    def test_failed_structured_extraction_gets_one_json_recovery(self):
+        self.model.fail_extraction = True
+        original = self.model.invoke
+
+        def invoke(messages):
+            if "只输出符合以下 schema" in messages[0].content:
+                return AIMessage(
+                    content=json.dumps({"memories": [candidate("以后请用中文回答")]})
+                )
+            return original(messages)
+
+        self.model.invoke = invoke
+        result = self.agent.chat("alice", "recover", "以后请用中文回答")
+        self.assertEqual(result["memory_results"][0]["decision"], "WRITE_CURRENT")
+        self.assertEqual(result["warnings"], [])
+
+    def test_tool_free_json_response_is_recovered_without_another_model_call(self):
+        self.model.with_structured_output = lambda *args, **kwargs: RunnableLambda(
+            lambda messages: {
+                "parsed": None,
+                "raw": AIMessage(content='```json\n{"memories": []}\n```'),
+                "parsing_error": None,
+            }
+        )
+        result = self.agent.chat("alice", "json", "你好")
+        self.assertEqual(result["memory_status"], "no_new_memory")
+        self.assertEqual(len(self.model.calls), 1)
+
     def test_anthropic_text_blocks_are_saved_without_thinking(self):
         self.model.invoke = lambda messages: AIMessage(
             content=[
@@ -152,7 +208,7 @@ class ConversationAgentTests(unittest.TestCase):
         self.assertEqual(result["memory_results"][0]["decision"], "DROP")
         self.model.extraction = {"memories": [candidate("我喜欢 Rust")]}
         result = self.agent.chat("alice", "privacy", "你好")
-        self.assertEqual(result["memory_results"], [])
+        self.assertEqual(result["memory_results"][0]["reason"], "no_source_evidence")
         self.assertEqual(self.engine.list_memories("alice"), [])
 
     def test_extraction_failure_keeps_answer_and_checkpoint(self):

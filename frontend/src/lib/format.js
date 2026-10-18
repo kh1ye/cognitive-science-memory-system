@@ -42,6 +42,17 @@ export const decisionNames = {
   CONSOLIDATED: "证据已巩固，当前状态已更新",
   DROP: "未保存：请检查隐私标签与保存同意",
 };
+export const memoryStatusNames = {
+  disabled: "自动记忆已关闭，本轮仅保留会话记录",
+  no_new_memory: "本轮未发现需要长期保存的新信息",
+  privacy_blocked: "遵循不记忆指令，本轮未写入长期记忆",
+  failed: "本轮自动记忆处理失败，信息尚未确认加入",
+};
+export function formatMemoryDecision(result) {
+  if (result.reason === "no_source_evidence") return "未写入：提取内容没有原话依据";
+  if (result.reason === "consent_required") return "未写入：敏感信息需要手动确认同意";
+  return decisionNames[result.decision] || result.decision;
+}
 export const formatDate = (value) =>
   new Intl.DateTimeFormat("zh-CN", {
     month: "2-digit",

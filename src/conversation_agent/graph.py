@@ -15,10 +15,10 @@ from langgraph.graph import END, START, StateGraph
 from cognitive_memory import Memory
 from cognitive_memory.retrieval.lexical import normalize_text
 
-from .llm import ChatModelError, LLMSettings
+from .llm import ChatModelError, LLMSettings, extract_memories
 from .memory import CognitiveMemory
-from .prompts import DIALOGUE_PROMPT, EXTRACTION_PROMPT
-from .state import ConversationState, MemoryExtraction
+from .prompts import DIALOGUE_PROMPT
+from .state import ConversationState
 
 
 class ConversationAgent:
@@ -129,35 +129,33 @@ class ConversationAgent:
     def _remember(self, state):
         user_message = state["messages"][-2]
         results, warnings = [], []
-        if state["auto_remember"] and self.memory.allows_extraction(
-            str(user_message.content)
-        ):
-            try:
-                extractor = self._get_model().with_structured_output(
-                    MemoryExtraction, method="function_calling"
-                )
-                extraction = MemoryExtraction.model_validate(
-                    extractor.invoke(
-                        [
-                            SystemMessage(content=EXTRACTION_PROMPT),
-                            HumanMessage(content=str(user_message.content)),
-                        ]
+        status = "disabled"
+        if state["auto_remember"]:
+            status = "privacy_blocked"
+            if self.memory.allows_extraction(str(user_message.content)):
+                try:
+                    extraction = extract_memories(
+                        self._get_model(), str(user_message.content)
                     )
-                )
-                results = self.memory.write(
-                    state["user_id"],
-                    str(user_message.content),
-                    extraction,
-                    state["thread_id"],
-                )
-            except Exception:  # noqa: BLE001 -- preserve the answer across provider/storage failures
-                # A successful conversation must survive extraction/provider/write failures.
-                warnings.append(
-                    "本轮回答已保存，但自动记忆处理未完成；可手动保存重要信息。"
-                )
+                    results = self.memory.write(
+                        state["user_id"],
+                        str(user_message.content),
+                        extraction,
+                        state["thread_id"],
+                    )
+                    status = "processed" if results else "no_new_memory"
+                except Exception as error:  # noqa: BLE001 -- preserve the successful answer
+                    status = "failed"
+                    logging.getLogger(__name__).warning(
+                        "Memory extraction failed: %s", type(error).__name__
+                    )
+                    warnings.append(
+                        "自动记忆提取或写入失败，本轮信息未确认加入记忆。可手动保存或稍后重试。"
+                    )
         reply = state["messages"][-1]
         return {
             "memory_results": results,
+            "memory_status": status,
             "warnings": warnings,
             "messages": [
                 AIMessage(
@@ -166,6 +164,7 @@ class ConversationAgent:
                     additional_kwargs={
                         "references": state["references"],
                         "memory_results": results,
+                        "memory_status": status,
                         "warnings": warnings,
                     },
                 )
@@ -211,6 +210,7 @@ class ConversationAgent:
                 "answer": state["messages"][-1].content,
                 "references": state["references"],
                 "memory_results": state["memory_results"],
+                "memory_status": state["memory_status"],
                 "warnings": state["warnings"],
             }
 
@@ -229,6 +229,7 @@ class ConversationAgent:
                         "text": message.content,
                         "refs": data.get("references", []),
                         "memory_results": data.get("memory_results", []),
+                        "memory_status": data.get("memory_status", ""),
                         "warnings": data.get("warnings", []),
                     }
                 )

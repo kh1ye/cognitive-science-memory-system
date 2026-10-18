@@ -1,5 +1,7 @@
 """Environment-configured LangChain model; no network access during startup."""
 
+import json
+import logging
 import os
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -65,3 +67,41 @@ class LLMSettings:
             timeout=45,
             max_retries=1,
         )
+
+
+def extract_memories(model, message):
+    """Validate tool output, recovering JSON or requesting one format correction."""
+    from langchain_core.messages import HumanMessage, SystemMessage
+    from langchain_core.output_parsers import JsonOutputParser
+
+    from .prompts import EXTRACTION_PROMPT
+    from .state import MemoryExtraction
+
+    messages = [SystemMessage(content=EXTRACTION_PROMPT), HumanMessage(content=message)]
+    try:
+        response = model.with_structured_output(
+            MemoryExtraction, method="function_calling", include_raw=True
+        ).invoke(messages)
+        if isinstance(response, MemoryExtraction):
+            return response
+        if "parsed" not in response:
+            return MemoryExtraction.model_validate(response)
+        if response["parsed"] is not None:
+            return MemoryExtraction.model_validate(response["parsed"])
+        raw = response.get("raw")
+        if raw is not None and raw.text.strip():
+            return MemoryExtraction.model_validate(JsonOutputParser().parse(raw.text))
+    except Exception as error:  # noqa: BLE001 -- one independent recovery attempt
+        logging.getLogger(__name__).info(
+            "Retrying memory extraction after %s", type(error).__name__
+        )
+    schema = MemoryExtraction.model_json_schema()
+
+    correction = SystemMessage(
+        content=EXTRACTION_PROMPT
+        + "\n上次结构化提取格式未通过校验。只输出符合以下 schema 的 JSON，不要解释。"
+        + '没有新记忆时返回 {"memories": []}。\n'
+        + json.dumps(schema, ensure_ascii=False)
+    )
+    response = model.invoke([correction, HumanMessage(content=message)])
+    return MemoryExtraction.model_validate(JsonOutputParser().parse(response.text))

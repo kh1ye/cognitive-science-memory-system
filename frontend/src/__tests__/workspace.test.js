@@ -259,6 +259,16 @@ describe("Vue workspace migration", () => {
     expect(value.state.memories).toEqual(records);
   });
 
+  it("explains when a successful conversation has no new long-term memory", async () => {
+    mockApi(() => response({ answer: "你好", references: [], memory_status: "no_new_memory" }));
+    const value = workspace();
+    const wrapper = mountView(AssistantView, value);
+    await value.sendMessage("你好");
+    await flushPromises();
+    expect(wrapper.text()).toContain("本轮未发现需要长期保存的新信息");
+    expect(value.currentChat.value.messages[1].memory_status).toBe("no_new_memory");
+  });
+
   it("rejects privacy drops without closing the unsaved memory draft", async () => {
     vi.stubGlobal(
       "fetch",
