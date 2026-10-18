@@ -23,7 +23,7 @@ from .schemas import MemoryRequest, NamespaceRequest, SearchRequest
 from .seed import seed_demo
 
 ROOT = Path(__file__).resolve().parents[1]
-STATIC_ROOT = ROOT / "frontend" / "static"
+STATIC_ROOT = ROOT / "frontend" / "dist"
 DEFAULT_DB = ROOT / "memory_product" / "data" / "memory_demo.db"
 
 
@@ -163,9 +163,21 @@ def create_app(
         return error_response("接口不存在", 404, "not_found")
 
     # Register last so /docs, /openapi.json and API routes remain reachable.
-    application.mount(
-        "/", StaticFiles(directory=STATIC_ROOT, html=True), name="frontend"
-    )
+    if (STATIC_ROOT / "index.html").is_file():
+        application.mount(
+            "/", StaticFiles(directory=STATIC_ROOT, html=True), name="frontend"
+        )
+    else:
+
+        @application.get("/", include_in_schema=False)
+        def frontend_not_built():
+            return JSONResponse(
+                {
+                    "message": "前端尚未构建。请执行 npm --prefix frontend ci 和 npm --prefix frontend run build。"
+                },
+                status_code=503,
+            )
+
     return application
 
 

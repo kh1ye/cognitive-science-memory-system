@@ -37,3 +37,8 @@ work/
 dist/
 build/
 *.egg-info/
+
+# Frontend dependencies
+node_modules/
+.vite/
+coverage/

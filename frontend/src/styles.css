@@ -113,7 +113,7 @@ i {
   gap: 12px;
   align-items: center;
   padding: 0 12px;
-  margin-bottom: 47px;
+  margin-bottom: 32px;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -189,7 +189,7 @@ nav a:not(.active) > span {
   color: #969ba3;
 }
 .sidebar-note {
-  margin: 35px 12px 0;
+  margin: 25px 12px 0;
   padding-top: 23px;
   border-top: 1px solid var(--line);
   color: #7b8390;
@@ -302,16 +302,16 @@ main {
   color: #9299a4;
 }
 .page {
-  max-width: 1440px;
+  max-width: 1480px;
   margin: auto;
-  padding: 33px 38px 22px;
+  padding: 22px 28px 18px;
 }
 .page-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 .page-heading p {
   font-size: 12px;
@@ -382,7 +382,7 @@ main {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 9px;
-  padding: 20px 22px;
+  padding: 15px 18px;
   box-shadow: 0 2px 3px #18233b03;
 }
 .metric > div {
@@ -435,7 +435,7 @@ main {
 .overview-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 22px;
+  gap: 16px;
 }
 .panel {
   border: 1px solid var(--line);
@@ -449,7 +449,7 @@ main {
   justify-content: space-between;
   align-items: center;
   gap: 15px;
-  padding: 22px 24px 18px;
+  padding: 17px 20px 14px;
 }
 .subtle {
   font-size: 10px;
@@ -507,8 +507,8 @@ main {
   align-items: center;
   justify-content: center;
   gap: 33px;
-  padding: 11px 24px 33px;
-  min-height: 213px;
+  padding: 4px 22px 20px;
+  min-height: 184px;
 }
 .donut {
   height: 152px;
@@ -733,7 +733,7 @@ main {
   padding: 14px 6px 0;
   margin-top: auto;
 }
-#conversationList {
+.conversation-list {
   overflow: auto;
 }
 .conversation-item {
@@ -802,12 +802,12 @@ main {
 .messages {
   flex: 1;
   overflow: auto;
-  padding: 28px 40px;
+  padding: 22px 28px;
   scroll-behavior: smooth;
 }
 .chat-empty {
-  max-width: 520px;
-  margin: 65px auto 25px;
+  max-width: 680px;
+  margin: clamp(12px, 4vh, 40px) auto 18px;
 }
 .chat-empty-mark {
   width: 42px;
@@ -817,7 +817,7 @@ main {
   place-items: center;
   border-radius: 11px;
   color: #627da7;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 .chat-empty h2 {
   font-size: 23px;
@@ -854,7 +854,7 @@ main {
   color: #a3b2c8;
 }
 .message {
-  max-width: 740px;
+  max-width: 940px;
   margin: 0 auto 24px;
   display: flex;
   gap: 12px;
@@ -939,7 +939,7 @@ main {
   background: #fff;
 }
 .composer {
-  max-width: 740px;
+  max-width: 940px;
   margin: auto;
   border: 1px solid #dfe4ed;
   border-radius: 10px;
@@ -1122,7 +1122,7 @@ main {
   width: 9%;
 }
 .memory-table td {
-  padding: 17px 20px;
+  padding: 13px 16px;
   border-bottom: 1px solid #eff1f5;
   font-size: 11px;
   color: #8590a0;
@@ -1331,32 +1331,10 @@ dialog textarea::placeholder {
   max-width: 80vw;
   z-index: 99;
 }
-#confirmText {
+.confirm-text {
   color: #8590a0;
   font-size: 13px;
   line-height: 1.8;
-}
-@media (min-width: 1500px) {
-  .page {
-    padding-top: 43px;
-  }
-  .metric {
-    padding: 24px;
-  }
-  .overview-grid {
-    gap: 25px;
-  }
-  .panel-heading {
-    padding-top: 25px;
-  }
-  .type-chart {
-    padding-top: 12px;
-    padding-bottom: 25px;
-    gap: 21px;
-  }
-  .state-layout {
-    padding-bottom: 38px;
-  }
 }
 @media (max-width: 1150px) {
   .sidebar {
@@ -1673,4 +1651,276 @@ dialog textarea::placeholder {
   .profile > i {
     display: none;
   }
+}
+
+/* Compact workspace: let content set card height instead of stretching rows. */
+.overview-grid {
+  align-items: start;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+}
+.overview-column {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.metrics {
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.metric strong {
+  font-size: 29px;
+  margin: 6px 0 4px;
+}
+.metric-icon {
+  width: 27px;
+  height: 27px;
+}
+.panel-foot {
+  padding: 10px 0 12px;
+}
+.type-chart {
+  gap: 15px;
+  padding: 3px 20px 16px;
+}
+.module-list {
+  padding: 0 20px 5px;
+}
+.module-row {
+  padding: 9px 0;
+}
+.activity-head,
+.activity-row {
+  padding-inline: 20px;
+}
+.activity-row {
+  padding-block: 10px;
+}
+.activity-row:last-child {
+  padding-bottom: 13px;
+}
+.activity-content p {
+  font-size: 11px;
+}
+.conversation-sidebar {
+  width: 185px;
+  padding: 14px 11px;
+}
+.chat-empty h2 {
+  font-size: 21px;
+}
+.chat-empty p {
+  margin: 8px 0 18px;
+}
+.suggestions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.suggestion {
+  min-height: 54px;
+  gap: 10px;
+  padding: 11px 13px;
+}
+.chat-recent {
+  margin-top: 25px;
+  border-top: 1px solid var(--line);
+  padding-top: 15px;
+}
+.chat-recent-heading {
+  display: flex;
+  justify-content: space-between;
+  color: #9ba4b1;
+  font-size: 10px;
+  margin-bottom: 8px;
+}
+.chat-recent-heading a {
+  color: #8295b3;
+}
+.chat-memory-row {
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 0;
+  width: 100%;
+  text-align: left;
+  color: #7e8a9c;
+  font-size: 11px;
+}
+.chat-memory-row > span:nth-child(2) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.chat-memory-row > i {
+  margin-left: auto;
+}
+.chat-memory-row svg {
+  width: 12px;
+  height: 12px;
+}
+.memory-type-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.memory-tabs {
+  margin-bottom: 16px;
+}
+.memory-toolbar {
+  padding: 14px 16px;
+}
+.memory-table th {
+  padding-inline: 16px;
+}
+.memory-layout {
+  display: grid;
+  gap: 16px;
+  align-items: start;
+}
+.memory-panel {
+  min-width: 0;
+}
+.memory-preview {
+  display: none;
+}
+.preview-body {
+  padding: 0 20px 20px;
+}
+.preview-badges {
+  display: flex;
+  gap: 6px;
+  margin: 2px 0 14px;
+}
+.preview-content {
+  font-size: 13px;
+  color: #546379;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+.preview-fields {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 12px 10px;
+  margin-top: 22px;
+  font-size: 11px;
+}
+.preview-fields dt {
+  color: #9ca6b4;
+}
+.preview-fields dd {
+  color: #6c7b90;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.preview-score {
+  margin: 22px 0 17px;
+}
+.preview-score > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #929eae;
+  margin-bottom: 9px;
+}
+.preview-score b {
+  font-weight: 500;
+  color: #7386a2;
+}
+.preview-updated {
+  font-size: 10px;
+  color: #a3acb9;
+  border-top: 1px solid var(--line);
+  padding-top: 15px;
+  margin-bottom: 15px;
+}
+@media (min-width: 1280px) {
+  .memory-layout {
+    grid-template-columns: minmax(0, 1fr) 272px;
+  }
+  .memory-preview {
+    display: block;
+    position: sticky;
+    top: 18px;
+  }
+  .memory-table .selected-row {
+    background: #f6f8fc;
+  }
+  .memory-table .selected-row td:first-child {
+    box-shadow: inset 2px 0 #8da7d4;
+  }
+}
+@media (min-width: 1151px) {
+  .sidebar {
+    width: 208px;
+    padding-top: 26px;
+  }
+  main {
+    margin-left: 208px;
+  }
+  .topbar {
+    padding-inline: 28px;
+  }
+  .toast {
+    left: calc(50% + 104px);
+  }
+}
+@media (max-width: 900px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+  .overview-column {
+    display: contents;
+  }
+  .types-panel {
+    order: 1;
+  }
+  .state-panel {
+    order: 2;
+  }
+  .activity-panel {
+    order: 3;
+  }
+  .modules-panel {
+    order: 4;
+  }
+  .suggestions {
+    grid-template-columns: 1fr;
+  }
+  .conversation-sidebar {
+    width: 150px;
+  }
+}
+@media (max-width: 650px) {
+  .page {
+    padding: 18px 14px;
+  }
+  .metrics {
+    gap: 10px;
+  }
+  .metric {
+    padding: 12px;
+  }
+  .metric strong {
+    font-size: 25px;
+  }
+  .page-heading {
+    margin-bottom: 17px;
+  }
+  .chat-empty {
+    margin-top: 10px;
+  }
+  .chat-recent {
+    margin-top: 18px;
+  }
+}
+.brand {
+  padding-inline: 8px;
+  gap: 10px;
+}
+.brand small {
+  white-space: nowrap;
+  font-size: 7px;
+  letter-spacing: 1.3px;
 }

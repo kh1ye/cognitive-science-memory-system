@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import re
 import unittest
+from pathlib import Path
+from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
 from fastapi.testclient import TestClient
@@ -76,13 +79,27 @@ class HttpApiTests(unittest.TestCase):
         self.assertEqual(self.client.get("/api/memories?limit=1001").status_code, 400)
 
     def test_frontend_assets_are_served(self):
-        for path, content_type in (
-            ("/app.js", "javascript"),
-            ("/styles.css", "text/css"),
-        ):
+        index = self.client.get("/").text
+        assets = re.findall(r'(?:src|href)="(/assets/[^"]+)"', index)
+        self.assertTrue(any(path.endswith(".js") for path in assets))
+        self.assertTrue(any(path.endswith(".css") for path in assets))
+        for path in assets:
             response = self.client.get(path)
             self.assertEqual(response.status_code, 200)
-            self.assertIn(content_type, response.headers["content-type"])
+            self.assertIn(
+                "javascript" if path.endswith(".js") else "text/css",
+                response.headers["content-type"],
+            )
+
+    def test_backend_works_without_frontend_build(self):
+        with (
+            TemporaryDirectory() as directory,
+            patch("api.app.STATIC_ROOT", Path(directory)),
+        ):
+            with TestClient(create_app(":memory:")) as client:
+                self.assertEqual(client.get("/").status_code, 503)
+                self.assertEqual(client.get("/api/health").status_code, 200)
+                self.assertEqual(client.get("/docs").status_code, 200)
 
     def test_validation_error(self):
         status, data, _ = self.request(

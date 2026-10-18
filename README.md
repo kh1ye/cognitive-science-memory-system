@@ -17,14 +17,16 @@
 - 隐私写入门、遗忘、物理删除和审计记录
 - SQLite 本地持久化
 - 可视化 Web 演示页面
-- 28 项自动化测试
+- 29 项后端测试 + 7 项前端回归测试
 
 ## 快速启动
 
-项目使用 [uv](https://docs.astral.sh/uv/getting-started/installation/) 管理 Python、虚拟环境和依赖。安装 uv 后，在仓库根目录执行（macOS、Linux、Windows 通用）：
+项目使用 [uv](https://docs.astral.sh/uv/getting-started/installation/) 管理 Python、虚拟环境和依赖。安装 uv 和 Node.js 24 后，在仓库根目录执行（macOS、Linux、Windows 通用）：
 
 ```sh
 uv sync --locked
+npm --prefix frontend ci
+npm --prefix frontend run build
 uv run python -m api.app --open
 ```
 
@@ -42,13 +44,15 @@ uv run uvicorn api.app:app --host 127.0.0.1 --port 8765
 
 开发时可添加 `--reload`。使用 `--db` 自定义数据库或自动打开浏览器时，继续使用 `uv run python -m api.app --db 路径 --open`。
 
-Windows 也可以使用 PowerShell 启动脚本：
+完成前端构建后，Windows 也可以使用 PowerShell 启动脚本：
 
 ```powershell
 .\scripts\start_demo.ps1 -Open
 ```
 
-## 前端工作台
+## 前端工作台（Vue 3）
+
+前端使用 Vue 3 单文件组件、Composition API 和 Vue Router，生产构建输出到 `frontend/dist/`，由 FastAPI 提供。开发时运行 `npm --prefix frontend run dev`，访问 5173 端口，API 自动代理到 8765。
 
 左侧导航包含三个页面：系统总览、个人助手、记忆管理。总览使用真实记忆统计和 SQLite 存储数据；个人助手支持浏览器本地会话、记忆检索和引用；管理中心提供筛选、详情、添加和删除。
 
@@ -56,9 +60,11 @@ Windows 也可以使用 PowerShell 启动脚本：
 
 ## 运行测试
 
-在仓库根目录执行：
+在仓库根目录执行（后端测试前需先构建前端）：
 
 ```sh
+npm --prefix frontend test
+npm --prefix frontend run build
 uv run --locked python -m unittest discover -s tests -v
 ```
 
@@ -88,7 +94,7 @@ src/cognitive_memory/   # 可安装的 Python 记忆库
 ├── retrieval/         # 词法召回与注意力排序
 └── storage/           # 存储接口、SQLite 和审计落库
 api/                   # FastAPI 应用、请求模型与请求中间件
-frontend/              # 三页面工作台（HTML / CSS / JavaScript）
+frontend/              # Vue 3 + Vue Router + Vite 三页面工作台
 scripts/               # 启动脚本
 tests/                 # 自动化测试
 ```
@@ -110,7 +116,7 @@ with Memory("memory_product/data/memory_demo.db") as memory:
     print(result["answer"])
 ```
 
-核心库可以安装后从任意工作目录导入。HTTP 和前端 从仓库根目录启动。数据库格式保持兼容，前端服务默认仍使用 `memory_product/data/memory_demo.db`，已有数据无需搬迁；该目录只保留运行数据。
+核心库可以安装后从任意工作目录导入。HTTP 和前端从仓库根目录启动。数据库格式保持兼容，前端服务默认仍使用 `memory_product/data/memory_demo.db`，已有数据无需搬迁；该目录只保留运行数据。
 
 ## 技术文档
 
