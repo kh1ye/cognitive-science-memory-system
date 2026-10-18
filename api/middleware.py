@@ -1,4 +1,4 @@
-"""Bound request buffering and preserve the demo's cache policy."""
+"""Bound request buffering and preserve the service's cache policy."""
 
 from fastapi.responses import JSONResponse
 from starlette.datastructures import Headers, MutableHeaders

@@ -12,6 +12,6 @@ if ($Open) {
     $arguments += '--open'
 }
 
-Write-Host "Starting Cognitive Memory Demo on http://127.0.0.1:$Port"
+Write-Host "Starting Cognitive Memory System on http://127.0.0.1:$Port"
 uv @arguments
 exit $LASTEXITCODE

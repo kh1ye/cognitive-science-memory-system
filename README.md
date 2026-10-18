@@ -1,4 +1,4 @@
-# Cognitive Science Memory System
+# Cognitive Memory System
 
 面向 AI Agent 的认知科学启发式长期记忆系统原型。
 
@@ -16,8 +16,8 @@
 - 注意力调制检索与历史状态查询
 - 隐私写入门、遗忘、物理删除和审计记录
 - SQLite 本地持久化
-- 可视化 Web 演示页面
-- 29 项后端测试 + 7 项前端回归测试
+- 可视化 Web 工作台
+- 32 项后端测试 + 7 项前端回归测试
 
 ## 快速启动
 
@@ -47,7 +47,7 @@ uv run uvicorn api.app:app --host 127.0.0.1 --port 8765
 完成前端构建后，Windows 也可以使用 PowerShell 启动脚本：
 
 ```powershell
-.\scripts\start_demo.ps1 -Open
+.\scripts\start.ps1 -Open
 ```
 
 ## 前端工作台（Vue 3）
@@ -57,6 +57,30 @@ uv run uvicorn api.app:app --host 127.0.0.1 --port 8765
 左侧导航包含三个页面：系统总览、个人助手、记忆管理。总览使用真实记忆统计和 SQLite 存储数据；个人助手支持浏览器本地会话、记忆检索和引用；管理中心提供筛选、详情、添加和删除。
 
 当前助手尚未接入大模型，回答来自已有记忆的检索与证据整理。聊天内容不会自动写入记忆，可手动保存。详见 [前端说明](frontend/README.md)。
+
+## 演示数据接口
+
+正式服务统一使用名称 `Cognitive Memory System`。默认不注册 `/api/demo/seed`，调用返回 404，接口文档也不展示该路径。正式部署请保持 `COGNITIVE_MEMORY_DEMO_TOKEN` 未设置。
+
+需要演示数据时，先生成随机令牌并通过环境变量 `COGNITIVE_MEMORY_DEMO_TOKEN` 配置到服务进程，再启动服务。启用后每次调用必须携带 `Authorization: Bearer <令牌>`；缺失或错误令牌返回 401。Swagger `/docs` 支持通过 Authorize 输入令牌。
+
+PowerShell 示例（先完成依赖安装和前端构建）：
+
+```powershell
+$env:COGNITIVE_MEMORY_DEMO_TOKEN = uv run python -c "import secrets; print(secrets.token_urlsafe(32))"
+.\scripts\start.ps1 -Open
+```
+
+在另一个终端使用同一令牌调用：
+
+```sh
+curl -X POST http://127.0.0.1:8765/api/demo/seed \
+  -H "Authorization: Bearer <令牌>" \
+  -H "Content-Type: application/json" \
+  -d '{"user_id":"demo-sandbox"}'
+```
+
+此操作会重置指定用户的记忆和审计记录，仅用于可重置的演示空间。未提供 `user_id` 时仍兼容旧行为，使用 `demo-user`。演示结束后移除环境变量并重启服务，即可关闭接口。
 
 ## 运行测试
 
@@ -93,7 +117,11 @@ src/cognitive_memory/   # 可安装的 Python 记忆库
 ├── retention.py       # 遗忘和归档
 ├── retrieval/         # 词法召回与注意力排序
 └── storage/           # 存储接口、SQLite 和审计落库
-api/                   # FastAPI 应用、请求模型与请求中间件
+api/                   # FastAPI 应用、依赖、请求模型与中间件
+├── routers/memories.py # 记忆增删查、审计和保留度检查
+├── routers/retrieval.py # 检索
+├── routers/system.py   # 健康、配置、统计和总览
+└── routers/demo.py     # 默认关闭、令牌保护的演示数据接口
 frontend/              # Vue 3 + Vue Router + Vite 三页面工作台
 scripts/               # 启动脚本
 tests/                 # 自动化测试

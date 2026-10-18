@@ -15,7 +15,7 @@ const profileOpen = ref(false),
 watch(
   title,
   (value) => {
-    document.title = `${value} · 记忆工作台`;
+    document.title = `${value} · Cognitive Memory System`;
   },
   { immediate: true },
 );
@@ -41,7 +41,7 @@ const navigation = [
     <aside class="sidebar">
       <RouterLink class="brand" to="/overview"
         ><span class="brand-mark">m<span /></span
-        ><span>记忆工作台<small>COGNITIVE MEMORY</small></span></RouterLink
+        ><span>记忆工作台<small>Cognitive Memory System</small></span></RouterLink
       >
       <div class="nav-label">工作空间</div>
       <nav aria-label="主导航">

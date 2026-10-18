@@ -1,16 +1,16 @@
-"""FastAPI HTTP adapter and static server for the memory demo."""
+"""FastAPI application and static server for Cognitive Memory System."""
 
 from __future__ import annotations
 
 import argparse
+import os
 import threading
 import webbrowser
 from contextlib import asynccontextmanager
 from pathlib import Path
-from typing import Annotated
 
 import uvicorn
-from fastapi import Depends, FastAPI, Query, Request
+from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -19,29 +19,26 @@ from starlette.exceptions import HTTPException
 from cognitive_memory import Memory
 
 from .middleware import RequestPolicyMiddleware
-from .schemas import MemoryRequest, NamespaceRequest, SearchRequest
-from .seed import seed_demo
+from .responses import error_response
+from .routers import demo, memories, retrieval, system
+from .settings import SERVICE_NAME
 
 ROOT = Path(__file__).resolve().parents[1]
 STATIC_ROOT = ROOT / "frontend" / "dist"
 DEFAULT_DB = ROOT / "memory_product" / "data" / "memory_demo.db"
 
 
-def error_response(message: str, status: int = 400, error: str = "validation_error"):
-    return JSONResponse({"error": error, "message": message}, status_code=status)
-
-
-def get_memory(request: Request) -> Memory:
-    return request.app.state.memory
-
-
-MemoryDependency = Annotated[Memory, Depends(get_memory)]
-
-
 def create_app(
-    db_path: str | Path = DEFAULT_DB, *, service: Memory | None = None
+    db_path: str | Path = DEFAULT_DB,
+    *,
+    service: Memory | None = None,
+    demo_token: str | None = None,
 ) -> FastAPI:
-    """Create an app; lifespan owns only the Memory instance it creates."""
+    """Create the service; demo seeding requires an explicit token.
+
+    ``None`` reads COGNITIVE_MEMORY_DEMO_TOKEN; an empty token disables seeding.
+    Lifespan owns only the Memory instance it creates.
+    """
 
     @asynccontextmanager
     async def lifespan(application: FastAPI):
@@ -53,9 +50,14 @@ def create_app(
                 application.state.memory.close()
 
     application = FastAPI(
-        title="Cognitive Memory API", version="1.0.0", lifespan=lifespan
+        title=SERVICE_NAME, description=SERVICE_NAME, version="1.0.0", lifespan=lifespan
     )
 
+    application.state.demo_token = (
+        os.environ.get("COGNITIVE_MEMORY_DEMO_TOKEN", "")
+        if demo_token is None
+        else demo_token
+    ).strip()
     application.add_middleware(RequestPolicyMiddleware)
 
     @application.exception_handler(RequestValidationError)
@@ -90,69 +92,10 @@ def create_app(
             {"detail": exc.detail}, status_code=exc.status_code, headers=exc.headers
         )
 
-    @application.get("/api/health")
-    def health():
-        return {"status": "ok", "service": "cognitive-memory-demo", "version": "1.0.0"}
-
-    @application.get("/api/overview")
-    def overview(memory: MemoryDependency, user_id: str = "demo-user"):
-        return memory.overview(user_id)
-
-    @application.get("/api/config")
-    def config(memory: MemoryDependency, user_id: str = "demo-user"):
-        return memory.stats(user_id)["config"]
-
-    @application.get("/api/stats")
-    def stats(memory: MemoryDependency, user_id: str = "demo-user"):
-        return memory.stats(user_id)
-
-    @application.get("/api/memories")
-    def memories(
-        memory: MemoryDependency,
-        user_id: str = "demo-user",
-        include_archived: bool = False,
-        limit: int = Query(200, ge=1, le=1000),
-    ):
-        return {
-            "items": memory.list_memories(
-                user_id, include_archived=include_archived, limit=limit
-            )
-        }
-
-    @application.get("/api/audit")
-    def audit(memory: MemoryDependency, user_id: str = "demo-user"):
-        return {"items": memory.list_audit(user_id)}
-
-    @application.post("/api/memories", status_code=201)
-    def add_memory(payload: MemoryRequest, memory: MemoryDependency):
-        return memory.add_memory(payload.model_dump(exclude_unset=True))
-
-    @application.post("/api/search")
-    def search(payload: SearchRequest, memory: MemoryDependency):
-        return memory.search(
-            payload.user_id,
-            payload.query,
-            payload.top_k,
-            payload.active_goal,
-            payload.recent_focus,
-        )
-
-    @application.post("/api/maintenance/retention")
-    def retention(memory: MemoryDependency, payload: NamespaceRequest | None = None):
-        return memory.run_retention((payload or NamespaceRequest()).user_id)
-
-    @application.post("/api/demo/seed")
-    def seed(memory: MemoryDependency, payload: NamespaceRequest | None = None):
-        user_id = (payload or NamespaceRequest()).user_id
-        return {"events": seed_demo(memory, user_id), "stats": memory.stats(user_id)}
-
-    @application.delete("/api/memories/{memory_id}")
-    def delete(memory_id: str, memory: MemoryDependency, user_id: str = "demo-user"):
-        if memory.delete_memory(user_id, memory_id):
-            return {"deleted": True, "memory_id": memory_id}
-        return JSONResponse(
-            {"deleted": False, "message": "记忆不存在"}, status_code=404
-        )
+    for router in (memories.router, retrieval.router, system.router):
+        application.include_router(router)
+    if application.state.demo_token:
+        application.include_router(demo.router)
 
     @application.api_route(
         "/api/{path:path}",
@@ -185,9 +128,7 @@ app = create_app()
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(
-        description="Run the cognitive memory demo product"
-    )
+    parser = argparse.ArgumentParser(description=f"Run {SERVICE_NAME}")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", default=8765, type=int)
     parser.add_argument("--db", default=str(DEFAULT_DB), help="SQLite path or :memory:")
@@ -200,7 +141,7 @@ def build_parser() -> argparse.ArgumentParser:
 def main() -> None:
     args = build_parser().parse_args()
     url = f"http://{args.host}:{args.port}"
-    print(f"Web UI: {url}\nAPI docs: {url}/docs\nSQLite: {args.db}")
+    print(f"{SERVICE_NAME}\nWeb UI: {url}\nAPI docs: {url}/docs\nSQLite: {args.db}")
     timer = None
     if args.open:
         timer = threading.Timer(0.7, lambda: webbrowser.open(url))

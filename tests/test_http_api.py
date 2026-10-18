@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import re
 import unittest
 from pathlib import Path
@@ -15,12 +16,17 @@ from cognitive_memory import Memory
 
 class HttpApiTests(unittest.TestCase):
     def setUp(self):
-        self.client = TestClient(create_app(":memory:"))
+        self.client = TestClient(create_app(":memory:", demo_token="test-demo-token"))
         self.client.__enter__()
         self.addCleanup(self.client.__exit__, None, None, None)
 
     def request(self, method: str, path: str, payload: dict | None = None):
-        response = self.client.request(method, path, json=payload)
+        headers = (
+            {"Authorization": "Bearer test-demo-token"}
+            if path == "/api/demo/seed"
+            else {}
+        )
+        response = self.client.request(method, path, json=payload, headers=headers)
         content_type = response.headers.get("content-type", "")
         parsed = (
             response.json() if "application/json" in content_type else response.content
@@ -31,6 +37,7 @@ class HttpApiTests(unittest.TestCase):
         status, data, _ = self.request("GET", "/api/health")
         self.assertEqual(status, 200)
         self.assertEqual(data["status"], "ok")
+        self.assertEqual(data["service"], "Cognitive Memory System")
         status, body, content_type = self.request("GET", "/")
         self.assertEqual(status, 200)
         self.assertIn("text/html", content_type)
@@ -53,6 +60,55 @@ class HttpApiTests(unittest.TestCase):
         status, stats, _ = self.request("GET", "/api/stats?user_id=http-user")
         self.assertEqual(status, 200)
         self.assertGreaterEqual(stats["by_role"]["current"], 2)
+
+    def test_demo_seed_disabled_by_default(self):
+        with patch.dict(os.environ, {"COGNITIVE_MEMORY_DEMO_TOKEN": ""}):
+            with TestClient(create_app(":memory:")) as client:
+                client.post("/api/memories", json={"content": "保留的正式数据"})
+                response = client.post("/api/demo/seed")
+                self.assertEqual(response.status_code, 404)
+                self.assertEqual(response.json()["error"], "not_found")
+                self.assertNotIn(
+                    "/api/demo/seed", client.get("/openapi.json").json()["paths"]
+                )
+                self.assertEqual(
+                    client.get("/api/memories").json()["items"][0]["content"],
+                    "保留的正式数据",
+                )
+
+    def test_demo_seed_requires_valid_bearer_without_mutating_data(self):
+        self.client.post("/api/memories", json={"content": "保留的数据"})
+        for headers in (
+            {},
+            {"Authorization": "Bearer wrong"},
+            {"Authorization": "Basic test-demo-token"},
+        ):
+            with self.subTest(headers=headers):
+                response = self.client.post("/api/demo/seed", headers=headers)
+                self.assertEqual(response.status_code, 401)
+                self.assertEqual(response.headers["www-authenticate"], "Bearer")
+                self.assertEqual(response.headers["cache-control"], "no-store")
+                self.assertEqual(
+                    self.client.get("/api/memories").json()["items"][0]["content"],
+                    "保留的数据",
+                )
+        schema = self.client.get("/openapi.json").json()
+        self.assertTrue(schema["paths"]["/api/demo/seed"]["post"]["security"])
+
+    def test_demo_token_environment_configuration(self):
+        with patch.dict(os.environ, {"COGNITIVE_MEMORY_DEMO_TOKEN": "environment-token"}):
+            with TestClient(create_app(":memory:")) as client:
+                self.assertEqual(client.post("/api/demo/seed").status_code, 401)
+                response = client.post(
+                    "/api/demo/seed",
+                    json={"user_id": "demo-only"},
+                    headers={"Authorization": "Bearer environment-token"},
+                )
+                self.assertEqual(response.status_code, 200)
+                self.assertIn("events", response.json())
+                self.assertEqual(client.get("/api/memories").json()["items"], [])
+            with TestClient(create_app(":memory:", demo_token="")) as client:
+                self.assertEqual(client.post("/api/demo/seed").status_code, 404)
 
     def test_overview_counts_user_scope_and_storage(self):
         self.request(
@@ -110,6 +166,8 @@ class HttpApiTests(unittest.TestCase):
 
     def test_openapi_documents_request_fields(self):
         schema = self.client.get("/openapi.json").json()
+        self.assertEqual(schema["info"]["title"], "Cognitive Memory System")
+        self.assertEqual(schema["info"]["description"], "Cognitive Memory System")
         self.assertIn("/api/memories", schema["paths"])
         self.assertIn(
             "content", schema["components"]["schemas"]["MemoryRequest"]["properties"]

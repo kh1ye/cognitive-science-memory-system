@@ -83,4 +83,4 @@ uv run --locked python -m unittest discover -s tests -v
 
 前端测试覆盖旧会话兼容、用户切换时的过期请求、会话响应式更新与引用、安全文本渲染、筛选、请求失败恢复和隐私拒写。后端测试需要先构建前端，以验证实际打包资源。
 
-兼容接口 `/api/demo/seed` 仍然保留，测试数据在 `api/seed.py`，界面不自动调用，不会重置已有记忆。
+演示接口 `/api/demo/seed` 默认关闭。设置 `COGNITIVE_MEMORY_DEMO_TOKEN` 并重启后启用，调用必须携带匹配的 Bearer 令牌。演示数据在 `api/seed.py`，界面不自动调用；手动调用会重置指定用户的记忆和审计记录。配置示例见根目录 README。
