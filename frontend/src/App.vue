@@ -34,6 +34,7 @@ const navigation = [
   { name: "overview", title: "系统总览", icon: "overview" },
   { name: "assistant", title: "个人助手", icon: "chat" },
   { name: "memories", title: "记忆管理", icon: "memory" },
+  { name: "evolution", title: "记忆演化", icon: "activity" },
 ];
 </script>
 <template>
