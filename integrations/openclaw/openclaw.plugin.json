@@ -1,0 +1,17 @@
+{
+  "id": "cognitive-memory",
+  "name": "Cognitive Memory",
+  "description": "Search and explicitly save memories through the local Cognitive Memory API",
+  "categories": ["other"],
+  "contracts": { "tools": ["cognitive_memory_search", "cognitive_memory_save"] },
+  "activation": { "onStartup": true },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "baseUrl": { "type": "string", "default": "http://127.0.0.1:8765" },
+      "userId": { "type": "string", "minLength": 1, "description": "Dedicated single-user memory space. Use separate plugin instances for different users." }
+    },
+    "required": ["userId"]
+  }
+}

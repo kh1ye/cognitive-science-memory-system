@@ -5,6 +5,7 @@ import AppIcon from "../components/AppIcon.vue";
 import { useWorkspace } from "../composables/useWorkspace";
 import { types, roles, formatDate } from "../lib/format";
 const { state, openMemory, deleteMemory, runRetention } = useWorkspace();
+const source = ref(""), since = ref(""), focus = ref(""), healthOpen = ref(false);
 const selectedType = ref(""),
   query = ref(""),
   role = ref(""),
@@ -20,10 +21,39 @@ const tabs = computed(() => [
     count: state.overview?.by_type[key] || 0,
   })),
 ]);
+const sources = computed(() => [...new Set(state.memories.map(m => m.source).filter(Boolean))].sort());
+const candidates = computed(() => state.memories.filter(m => m.state_role === "candidate"));
+const protectedCount = computed(() => state.memories.filter(m => m.is_protected).length);
+const archivedCount = computed(() => state.memories.filter(m => m.state_role === "archived").length);
+const duplicateGroups = computed(() => {
+  const groups = new Map();
+  for (const m of state.memories.filter(m => ["current", "working"].includes(m.state_role))) {
+    const key = m.content.trim().toLowerCase().replace(/\s+/g, " ");
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(m);
+  }
+  return [...groups.values()].filter(group => group.length > 1);
+});
+const related = computed(() => {
+  const m = previewMemory.value;
+  if (!m) return [];
+  const ids = new Set([m.parent_id, ...(m.support_ids || [])]);
+  return state.memories.filter(other => other.id !== m.id &&
+    (ids.has(other.id) || other.parent_id === m.id ||
+    (m.memory_key && other.memory_key === m.memory_key)));
+});
+function resetFilters() {
+  selectedType.value = query.value = role.value = source.value = since.value = focus.value = "";
+}
+function showCandidates() { resetFilters(); focus.value = "candidate"; healthOpen.value = false; }
+watch(() => state.user, () => { resetFilters(); detail.value = null; previewId.value = null; healthOpen.value = false; });
 const filtered = computed(() =>
   state.memories.filter(
     (memory) =>
       (!selectedType.value || memory.memory_type === selectedType.value) &&
+      (!source.value || memory.source === source.value) &&
+      (!since.value || Date.parse(memory.updated_at) >= new Date(`${since.value}T00:00:00`).getTime()) &&
+      (!focus.value || (focus.value === "protected" ? memory.is_protected : memory.state_role === focus.value)) &&
       (!role.value || memory.state_role === role.value) &&
       (!query.value.trim() ||
         [memory.content, memory.memory_key, memory.memory_value, ...memory.tags]
@@ -48,7 +78,7 @@ function selectMemory(memory) {
   previewId.value = memory.id;
   if (!window.matchMedia("(min-width: 1280px)").matches) detail.value = memory;
 }
-watch([selectedType, query, role], () => {
+watch([selectedType, query, role, source, since, focus], () => {
   page.value = 1;
 });
 watch(pages, (value) => {
@@ -104,15 +134,23 @@ function tabKey(event, index) {
     <div class="page-heading">
       <div>
         <h1>记忆管理</h1>
-        <p>查看被记住的内容，保留、回顾或移除。</p>
+        <p>查看记忆来源，对照候选与历史，了解每次变化。</p>
       </div>
       <div class="heading-actions">
+        <button class="button" @click="healthOpen = true">记忆体检</button>
         <button class="button" :disabled="checking" @click="retention">
           <AppIcon name="refresh" />检查保留度</button
         ><button class="button primary" @click="openMemory()">
           <AppIcon name="plus" />添加记忆
         </button>
       </div>
+    </div>
+    <div class="memory-scope"><span>当前空间：<strong>{{ state.user }}</strong></span><span>以下筛选与体检基于已加载的 {{ state.memories.length }} 条记忆<span v-if="state.overview?.total_count > state.memories.length">，不覆盖全部记录</span></span></div>
+    <div class="memory-shortcuts" aria-label="快捷筛选">
+      <button class="panel memory-shortcut" :class="{ active: !focus }" @click="resetFilters"><span>全部已加载</span><strong>{{ state.memories.length }}</strong><small>浏览当前空间</small></button>
+      <button class="panel memory-shortcut" :class="{ active: focus === 'candidate' }" @click="showCandidates"><span>待核实候选</span><strong>{{ candidates.length }}</strong><small>查看与已有记忆的差异</small></button>
+      <button class="panel memory-shortcut" :class="{ active: focus === 'protected' }" @click="resetFilters(); focus = 'protected'"><span>受保护记忆</span><strong>{{ protectedCount }}</strong><small>保留度检查不会归档</small></button>
+      <button class="panel memory-shortcut" :class="{ active: focus === 'archived' }" @click="resetFilters(); focus = 'archived'"><span>已归档</span><strong>{{ archivedCount }}</strong><small>回顾保留的旧记录</small></button>
     </div>
     <div class="memory-tabs" role="tablist" aria-label="记忆类型">
       <button
@@ -143,6 +181,12 @@ function tabKey(event, index) {
               {{ item.label }}
             </option></select
           ><span class="subtle">{{ filtered.length }} 条记录</span>
+        </div>
+        <div class="memory-extra-filters">
+          <label>来源<select v-model="source" aria-label="筛选来源"><option value="">全部来源</option><option v-for="item in sources" :key="item" :value="item">{{ item }}</option></select></label>
+          <label>更新起始日期<input v-model="since" type="date" aria-label="更新起始日期" /></label>
+          <span v-if="focus" class="badge">{{ focus === 'protected' ? '受保护记忆' : roles[focus]?.label }}</span>
+          <button class="button small" @click="resetFilters">重置筛选</button>
         </div>
         <div class="table-scroll">
           <table class="memory-table">
@@ -263,6 +307,8 @@ function tabKey(event, index) {
               >
             </div>
             <dl class="preview-fields">
+              <dt>来源</dt><dd>{{ previewMemory.source || "未记录" }}</dd>
+              <dt>最近访问</dt><dd>{{ previewMemory.last_accessed_at ? formatDate(previewMemory.last_accessed_at) : "暂无访问记录" }}</dd>
               <dt>主题</dt>
               <dd>{{ previewMemory.memory_key || "未设置" }}</dd>
               <dt>取值</dt>
@@ -287,6 +333,16 @@ function tabKey(event, index) {
                 />
               </div>
             </div>
+            <div v-if="previewMemory.state_role === 'candidate'" class="memory-notice">这是一条候选证据，尚未替代当前记忆。系统会在后续一致证据达到阈值后判断是否巩固。</div>
+            <section v-if="related.length" class="memory-relations">
+              <h3>关联与新旧对照</h3>
+              <p class="subtle">前序版本、支持证据及同主题记录 · 已加载范围</p>
+              <button v-for="item in related" :key="item.id" class="related-memory" @click="detail = item">
+                <span class="badge" :class="item.state_role">{{ roles[item.state_role]?.label }}</span>
+                <small>{{ previewMemory.parent_id === item.id ? '前序记忆' : (previewMemory.support_ids || []).includes(item.id) ? '支持证据' : '同主题 / 后续记录' }}</small>
+                <p>{{ item.content }}</p>
+              </button>
+            </section>
             <div class="preview-updated">
               更新于 {{ formatDate(previewMemory.updated_at) }}
             </div>
@@ -299,6 +355,14 @@ function tabKey(event, index) {
       </aside>
     </div>
   </div>
+  <AppDialog :open="healthOpen" title="记忆体检" @update:open="healthOpen = false">
+    <p class="form-hint">仅分析当前空间已加载的 {{ state.memories.length }} 条记录，不调用模型，不修改记忆。重复检查仅比较当前与工作层记录的相同正文，不代表语义去重。</p>
+    <div class="health-item"><h3>待核实候选 · {{ candidates.length }} 条</h3><p>候选尚未成为当前事实，可对照已有记忆和证据来源。</p><button class="button" :disabled="!candidates.length" @click="showCandidates">查看候选</button></div>
+    <div class="health-item"><h3>相同正文 · {{ duplicateGroups.length }} 组</h3><p v-if="!duplicateGroups.length">已加载的当前与工作层记录未发现相同正文。</p>
+      <button v-for="group in duplicateGroups" :key="group[0].id" class="related-memory" @click="healthOpen = false; detail = group[0]"><p>{{ group[0].content }}</p><small>{{ group.length }} 条记录 · 查看详情后判断是否需要保留</small></button>
+    </div>
+    <div class="dialog-actions"><button class="button" @click="healthOpen = false">关闭</button></div>
+  </AppDialog>
   <AppDialog :open="!!detail" title="记忆详情" @update:open="detail = null"
     ><template v-if="detail"
       ><p class="detail-content">{{ detail.content }}</p>
@@ -313,8 +377,8 @@ function tabKey(event, index) {
           <dd>{{ value }}</dd></template
         >
       </dl>
-      <p v-if="detail.support_ids.length" class="form-hint">
-        此记录由 {{ detail.support_ids.length }} 条候选证据巩固而来。
+      <p v-if="(detail.support_ids || []).length" class="form-hint">
+        此记录由 {{ (detail.support_ids || []).length }} 条候选证据巩固而来。
       </p>
       <div class="dialog-actions">
         <button class="button danger" @click="remove(detail.id)">

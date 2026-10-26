@@ -10,6 +10,18 @@ provide(WorkspaceKey, workspace);
 const { state, refresh, initialize, switchUser, resolveConfirm, dispose } = workspace;
 const route = useRoute();
 const title = computed(() => route.meta.title || "系统总览");
+function readSidebarPreference() {
+  try {
+    const saved = localStorage.getItem("cm.sidebarCollapsed");
+    if (saved !== null) return saved === "true";
+  } catch { /* The toggle remains available when storage is blocked. */ }
+  return window.matchMedia?.("(max-width: 650px)").matches || false;
+}
+const sidebarCollapsed = ref(readSidebarPreference());
+function toggleSidebar() {
+  sidebarCollapsed.value = !sidebarCollapsed.value;
+  try { localStorage.setItem("cm.sidebarCollapsed", String(sidebarCollapsed.value)); } catch { /* Session-only preference. */ }
+}
 const profileOpen = ref(false),
   userInput = ref("");
 watch(
@@ -31,6 +43,7 @@ function submitProfile() {
 onMounted(initialize);
 onUnmounted(dispose);
 const navigation = [
+  { name: "install", title: "安装与接入", icon: "layers" },
   { name: "overview", title: "系统总览", icon: "overview" },
   { name: "assistant", title: "个人助手", icon: "chat" },
   { name: "memories", title: "记忆管理", icon: "memory" },
@@ -38,11 +51,11 @@ const navigation = [
 ];
 </script>
 <template>
-  <div class="layout">
-    <aside class="sidebar">
-      <RouterLink class="brand" to="/overview"
+  <div class="layout" :class="{ 'sidebar-collapsed': sidebarCollapsed }">
+    <aside id="workspace-sidebar" class="sidebar">
+      <RouterLink class="brand sidebar-link" to="/overview" aria-label="记忆工作台首页" :data-tooltip="sidebarCollapsed ? '记忆工作台首页' : null"
         ><span class="brand-mark">m<span /></span
-        ><span>记忆工作台<small>Cognitive Memory System</small></span></RouterLink
+        ><span class="brand-copy">记忆工作台<small>Cognitive Memory System</small></span></RouterLink
       >
       <div class="nav-label">工作空间</div>
       <nav aria-label="主导航">
@@ -51,8 +64,10 @@ const navigation = [
           :key="item.name"
           :to="{ name: item.name }"
           active-class="active"
-          ><AppIcon :name="item.icon" />{{ item.title
-          }}<span v-if="item.name === 'memories'">{{
+          class="sidebar-link"
+          :aria-label="item.title"
+          :data-tooltip="sidebarCollapsed ? item.title : null"
+          ><AppIcon :name="item.icon" /><span class="nav-name">{{ item.title }}</span><span class="nav-count" v-if="item.name === 'memories'">{{
             state.overview?.total_count ?? "—"
           }}</span></RouterLink
         >
@@ -62,9 +77,9 @@ const navigation = [
         <p>保留重要的事，让每次对话有迹可循。</p>
       </div>
       <div class="sidebar-bottom">
-        <a href="/docs" target="_blank" rel="noopener"
-          ><AppIcon name="book" />接口文档<AppIcon name="external" /></a
-        ><button class="profile" :disabled="state.sending" @click="openProfile">
+        <a class="sidebar-link" href="/docs" target="_blank" rel="noopener" aria-label="接口文档（新窗口）" :data-tooltip="sidebarCollapsed ? '接口文档' : null"
+          ><AppIcon name="book" /><span class="nav-name">接口文档</span><AppIcon name="external" /></a
+        ><button class="profile sidebar-link" :aria-label="`切换用户空间：${state.user}`" :data-tooltip="sidebarCollapsed ? `切换用户空间：${state.user}` : null" :disabled="state.sending" @click="openProfile">
           <span class="avatar">U</span
           ><span
             ><b>{{ state.user }}</b
@@ -75,8 +90,9 @@ const navigation = [
     </aside>
     <main>
       <header class="topbar">
-        <div class="breadcrumb">
-          工作空间 <span>/</span><b>{{ title }}</b>
+        <div class="topbar-leading">
+          <button class="icon-button sidebar-toggle" :aria-label="sidebarCollapsed ? '展开侧边栏' : '收起侧边栏'" :title="sidebarCollapsed ? '展开侧边栏' : '收起侧边栏'" :aria-expanded="!sidebarCollapsed" aria-controls="workspace-sidebar" @click="toggleSidebar"><AppIcon name="sidebar" /></button>
+          <div class="breadcrumb">工作空间 <span>/</span><b>{{ title }}</b></div>
         </div>
         <div class="connection">
           <span

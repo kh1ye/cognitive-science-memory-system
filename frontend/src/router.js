@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import InstallView from "./views/InstallView.vue";
 import OverviewView from "./views/OverviewView.vue";
 import AssistantView from "./views/AssistantView.vue";
 import MemoriesView from "./views/MemoriesView.vue";
@@ -10,6 +11,7 @@ if (/^#(overview|assistant|memories)$/.test(location.hash)) {
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
+    { path: "/install", name: "install", component: InstallView, meta: { title: "安装与接入" } },
     { path: "/", redirect: "/overview" },
     {
       path: "/overview",

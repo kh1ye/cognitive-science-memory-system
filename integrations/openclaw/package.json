@@ -1,0 +1,9 @@
+{
+  "name": "cognitive-memory-openclaw",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local Cognitive Memory search and explicit save tools for OpenClaw",
+  "openclaw": { "extensions": ["./index.ts"] },
+  "scripts": { "test": "node --test plugin.test.mjs" }
+}
