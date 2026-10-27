@@ -18,7 +18,7 @@ class MemoryCandidate(BaseModel):
         description="稳定的主题标识，同一主题始终使用相同标识",
     )
     memory_value: str = Field(default="", max_length=500)
-    memory_type: Literal["semantic", "episodic", "procedural", "working"] = "semantic"
+    memory_type: Literal["semantic", "episodic", "procedural"] = "semantic"
     tags: list[str] = Field(default_factory=list, max_length=8)
     importance: float = Field(default=0.7, ge=0, le=1)
     confidence: float = Field(default=0.8, ge=0, le=1)

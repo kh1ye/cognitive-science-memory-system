@@ -4,7 +4,6 @@ import math
 import re
 from typing import Any
 
-from .enums import MEMORY_TYPES
 from .retrieval.lexical import cosine_similarity, normalize_text
 from .storage.base import Storage
 
@@ -64,19 +63,6 @@ def parse_tags(raw: Any) -> list[str]:
     else:
         values = [str(raw)]
     return sorted({normalize_text(value) for value in values if value.strip()})
-
-
-def infer_memory_type(tags: list[str], requested: str | None) -> str:
-    if requested in MEMORY_TYPES:
-        return requested
-    tag_set = set(tags)
-    if tag_set & {"procedure", "workflow", "流程", "工作流"}:
-        return "procedural"
-    if tag_set & {"profile", "preference", "goal", "fact", "画像", "偏好", "目标"}:
-        return "semantic"
-    if tag_set & {"event", "timeline", "tool", "事件", "时间线", "工具"}:
-        return "episodic"
-    return "semantic"
 
 
 class Encoder:

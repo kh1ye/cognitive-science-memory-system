@@ -75,6 +75,13 @@ chat/profile are outside this adapter's supported scope.
 
 ## Verify
 
+All three adapters accept optional `memory_type` on `cognitive_memory_save`:
+`episodic`, `semantic`, or `procedural`. Omit it to use the engine's tag-based default.
+`working` is a lifecycle state and is rejected as a content type. For example, save a
+workflow with `memory_type="procedural"`; use `episodic` for a concrete event.
+Search preserves record roles; `has_results` means records were found, whereas
+`grounded` requires confirmed records in the state requested by the query.
+
 Ask the agent to explicitly use `cognitive_memory_save` to remember a non-sensitive
 fact, then use `cognitive_memory_search` to retrieve it. Inspect the configured user
 space in the local workbench. A successful HTTP response may still say `DROP` or

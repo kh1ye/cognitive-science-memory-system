@@ -6,7 +6,7 @@
 
 新入口为 `Memory(...).architecture`、`/api/architecture/*`，现有 `/api/chat` 已使用新架构。管理页顶部「打开四类记忆 · 任务与来源」读取真实对象、显示回执、登记并执行内置程序。个人助手显示新的来源、版本及学习失败状态。
 
-**兼容写入保留，读取统一**：`Memory.add_memory/search/list_memories`、默认 `/api/memories`、`/api/search`、旧演化演示及既有第三方适配器继续操作原 `memories` 表，其评分、标签、current/candidate/history 和重复强化属于旧协议。助手与 `/api/architecture/retrieve` 通过 `MemoryCatalog` 同时召回类型化对象和相关的兼容记录，因此演化页、手动添加的信息也可供新会话检索。兼容 working 不跨任务恢复，candidate 不作为当前知识，旧 procedural 仅能作为语义流程文字，不能执行；迁移记录在引用及其 record 中均标为 legacy_unverified/candidate，不冒充已验证事实。
+**兼容写入保留，读取统一**：兼容层合并了远程的主题规范化、逐条证据、幂等和可靠状态更新；其新写入只接受三类长期内容，原 working 类型按标签迁移为长期内容类型，工作层仍是 state_role。任务工作记忆仍由 working_states 独立承载，管理总览继续汇总四个模块。`Memory.add_memory/search/list_memories`、默认 `/api/memories`、`/api/search`、旧演化演示及既有第三方适配器继续操作原 `memories` 表，其评分、标签、current/candidate/history 和重复强化属于旧协议。助手与 `/api/architecture/retrieve` 通过 `MemoryCatalog` 同时召回类型化对象和相关的兼容记录，因此演化页、手动添加的信息也可供新会话检索。兼容 working 不跨任务恢复，candidate 不作为当前知识，旧 procedural 仅能作为语义流程文字，不能执行；迁移记录在引用及其 record 中均标为 legacy_unverified/candidate，不冒充已验证事实。
 
 `Memory.stats/overview` 与前端管理列表（`GET /api/memories?view=all`）汇总 working_states、episode_events、semantic_assertions、semantic_documents、procedure_versions 及兼容原记录。来源、学习回执、事件容器和程序运行日志不另计记忆；迁移隔离副本不重复计数。统计覆盖全量，列表最多加载 1000 条并标明加载范围。类型化对象没有旧写入评分，展示为“不适用”；其来源删除、程序版本状态等操作仍在类型面板管理。读取层不双写、不迁移数据；默认旧列表及搜索协议不变。
 

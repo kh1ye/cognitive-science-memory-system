@@ -432,6 +432,7 @@ class ConversationAgent:
                         if isinstance(message, HumanMessage)
                         else "assistant",
                         "text": message.content,
+                        "id": message.id,
                         "refs": data.get("references", []),
                         "memory_results": data.get("memory_results", []),
                         "memory_status": data.get("memory_status", ""),

@@ -73,6 +73,11 @@ implement its own PII classifier. Use the workbench's manual consent flow if nee
 Failures throw into Harness's normal tool-error pipeline; requests time out after
 15 seconds and respect cancellation. The plugin does not retry writes automatically.
 
+The save tool accepts optional `memory_type`: `episodic`, `semantic`, or `procedural`.
+Omitting it keeps tag-based classification. `working` is a state and is rejected as
+a content type. Search uses `has_results` for any matches and `grounded` only for
+confirmed records in the requested state; candidate-only matches remain references.
+
 ## Test / inspect package
 
 ```sh

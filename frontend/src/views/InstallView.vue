@@ -64,7 +64,7 @@ async function copy(code, id) {
   <div class="page install-page">
     <div class="install-banner"><AppIcon name="book" /><div><strong>把记忆能力接入你的应用</strong><p>选择接入方式，复制示例，从第一条记忆开始。</p></div><a class="button small" href="/docs" target="_blank" rel="noopener">接口文档 <AppIcon name="external" /></a></div>
     <div class="install-content">
-      <div class="page-heading"><div><h1>安装与接入</h1><p>Cognitive Memory System · 本地优先的记忆服务</p></div></div>
+      <div class="page-heading"><div><h1>安装与接入</h1><p>Cognitive Science Memory System · 本地优先的记忆服务</p></div></div>
       <div class="install-choices" aria-label="接入方式">
         <button v-for="item in choices" :key="item.id" class="panel install-choice" :class="{ active: mode === item.id }" :aria-pressed="mode === item.id" @click="mode = item.id; copied = ''"><span class="integration-logo-tile"><IntegrationLogo :name="item.id === 'agent' ? 'agent' : item.id === 'python' ? 'sdk' : 'plugin'" /></span><span><strong>{{ item.title }}</strong><small>{{ item.text }}</small></span></button>
       </div>

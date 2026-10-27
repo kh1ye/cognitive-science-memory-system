@@ -34,12 +34,15 @@ export function createWorkspace() {
     autoRemember: true,
     sessionsLoading: false,
     memoryDraft: null,
+    inspectedRecord: null,
+    focusMessageId: "",
     confirm: null,
   });
   let loadVersion = 0,
     toastTimer,
     confirmResolve;
   let sessionsVersion = 0;
+  let inspectVersion = 0, sourceVersion = 0;
   const currentChat = computed(() =>
     state.chats.find((c) => c.id === state.currentChatId),
   );
@@ -138,12 +141,16 @@ export function createWorkspace() {
     if (!user || state.sending) return;
     ++sessionsVersion;
     ++loadVersion;
+    ++inspectVersion;
+    ++sourceVersion;
     state.user = user;
     persist("cm.user", user);
     state.overview = null;
     state.memories = [];
     state.connected = false;
     state.memoryDraft = null;
+    state.inspectedRecord = null;
+    state.focusMessageId = "";
     state.updatedAt = "";
     resolveConfirm(false);
     loadChats();
@@ -225,6 +232,8 @@ export function createWorkspace() {
   }
   function newChat() {
     if (state.sending || state.sessionsLoading) return;
+    ++sourceVersion;
+    state.focusMessageId = "";
     const empty = state.chats.find((c) => !c.messages.length);
     if (empty) state.currentChatId = empty.id;
     else {
@@ -235,7 +244,28 @@ export function createWorkspace() {
     }
   }
   function selectChat(id) {
-    if (!state.sending) state.currentChatId = id;
+    if (!state.sending) { ++sourceVersion; state.currentChatId = id; state.focusMessageId = ""; }
+  }
+  async function openSourceThread(id, messageId = "") {
+    const user = state.user;
+    if (state.sending || !id) return;
+    const version = ++sourceVersion;
+    try {
+      const chat = await api(`/api/sessions/${encodeURIComponent(id)}?user_id=${encodeURIComponent(user)}`);
+      if (user !== state.user || version !== sourceVersion) return;
+      state.chats = [chat, ...state.chats.filter(item => item.id !== id)];
+      state.currentChatId = id;
+      state.focusMessageId = messageId;
+      saveChats();
+    } catch (error) { if (user === state.user && version === sourceVersion) notify(`来源会话不可用：${error.message}`); }
+  }
+  async function inspectMemory(id) {
+    const user = state.user;
+    const version = ++inspectVersion;
+    try {
+      const record = await api(`/api/memories/${encodeURIComponent(id)}?user_id=${encodeURIComponent(user)}`);
+      if (user === state.user && version === inspectVersion) state.inspectedRecord = record;
+    } catch (error) { if (user === state.user && version === inspectVersion) notify(error.message); }
   }
   async function deleteChat() {
     const id = state.currentChatId, user = state.user;
@@ -265,6 +295,7 @@ export function createWorkspace() {
   async function sendMessage(text) {
     text = text.trim();
     if (!text || state.sending || state.sessionsLoading) return false;
+    state.focusMessageId = "";
     if (currentChat.value && !currentChat.value.persisted && currentChat.value.messages.length) {
       const next = { id: crypto.randomUUID(), title: "新会话", messages: [] };
       state.chats.unshift(next);
@@ -314,6 +345,8 @@ export function createWorkspace() {
     return true;
   }
   function dispose() {
+    ++sourceVersion;
+    ++inspectVersion;
     ++loadVersion;
     ++sessionsVersion;
     clearTimeout(toastTimer);
@@ -336,6 +369,8 @@ export function createWorkspace() {
     runRetention,
     newChat,
     selectChat,
+    openSourceThread,
+    inspectMemory,
     deleteChat,
     sendMessage,
     dispose,

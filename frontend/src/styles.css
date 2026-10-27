@@ -114,17 +114,15 @@ i {
   align-items: center;
   padding: 0 12px;
   margin-bottom: 32px;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  line-height: 1.25;
+  letter-spacing: 0.15px;
 }
-.brand small {
+.brand-name {
   display: block;
-  font-size: 8px;
-  letter-spacing: 1.5px;
-  color: #969aa3;
-  margin-top: 3px;
-  font-weight: 500;
+  color: var(--ink);
+  white-space: nowrap;
 }
 .brand-mark {
   position: relative;
@@ -139,6 +137,7 @@ i {
   font-family: Georgia, serif;
   line-height: 1;
   padding-bottom: 6px;
+  flex: 0 0 35px;
 }
 .brand-mark span {
   position: absolute;

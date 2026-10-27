@@ -48,6 +48,7 @@ export function apply(ctx, config) {
     description: 'Save only a fact explicitly supplied for remembering by the user. Never save assistant inferences, secrets or whole conversations. Mark sensitive inputs; consent is never inferred. Report DROP and CANDIDATE accurately, not as confirmed current facts.',
     parameters: {
       content: { type: 'string', required: true, description: 'User-provided fact, 1–10000 characters.' },
+      memory_type: { type: 'string', description: 'Content type: episodic (events), semantic (facts), or procedural (reusable steps).' },
       sensitive: { type: 'boolean', description: 'True for sensitive data; privacy gate blocks storage without manual consent.' },
       memory_key: { type: 'string', description: 'Optional stable topic key.' },
       memory_value: { type: 'string', description: 'Optional topic value.' },
@@ -55,8 +56,9 @@ export function apply(ctx, config) {
     output,
     async execute(args, exec) {
       if (typeof args.content !== 'string' || !args.content.trim() || args.content.length > 10000) throw new Error('content must contain 1–10000 characters');
+      if (args.memory_type !== undefined && !['episodic','semantic','procedural'].includes(args.memory_type)) throw new Error('memory_type must be episodic, semantic or procedural');
       return request('/api/memories', {
-        content: args.content, source: 'deepseek_harness_plugin',
+        content: args.content, memory_type: args.memory_type, source: 'deepseek_harness_plugin',
         tags: args.sensitive ? ['sensitive'] : [], consent: false,
         memory_key: args.memory_key || '', memory_value: args.memory_value || '',
       }, exec);

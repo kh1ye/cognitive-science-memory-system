@@ -139,6 +139,20 @@ class MemoryCatalogTests(unittest.TestCase):
             old_api = client.get("/api/memories?user_id=alice").json()["items"]
             self.assertEqual(old_api, [legacy])
             native = next(r for r in rows if r.get("module") == "semantic_assertions")
+            path = "/api/memories/" + native["id"]
+            self.assertEqual(
+                client.get(path + "?user_id=alice").json()["storage_kind"], "typed"
+            )
+            self.assertEqual(
+                client.get(path + "/evidence?user_id=alice").json()["items"][0][
+                    "content"
+                ],
+                "我喜欢喝乌龙茶，今天买了乌龙茶",
+            )
+            self.assertEqual(client.get(path + "?user_id=bob").status_code, 404)
+            self.assertEqual(
+                client.get(path + "/evidence?user_id=bob").status_code, 404
+            )
             self.assertIsNone(native["importance"])
             self.assertFalse(native["can_delete"])
             self.assertTrue(
@@ -223,14 +237,14 @@ class MemoryCatalogTests(unittest.TestCase):
                     {
                         "user_id": "alice",
                         "content": text,
-                        "memory_type": kind,
+                        "memory_type": "semantic" if kind == "working" else kind,
                         "tags": ["preference"],
                     }
                 )["memory"]
                 with memory.storage.transaction():
                     memory.storage._conn.execute(
-                        "UPDATE memories SET state_role=? WHERE id=?",
-                        (role, record["id"]),
+                        "UPDATE memories SET memory_type=?, state_role=? WHERE id=?",
+                        (kind, role, record["id"]),
                     )
             refs = memory.catalog.retrieve("alice", "new", "task", "Python")
             self.assertEqual(len(refs), 1)

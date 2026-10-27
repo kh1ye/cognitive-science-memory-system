@@ -27,7 +27,7 @@ const profileOpen = ref(false),
 watch(
   title,
   (value) => {
-    document.title = `${value} · Cognitive Memory System`;
+    document.title = `${value} · Cognitive Science Memory System`;
   },
   { immediate: true },
 );
@@ -40,8 +40,28 @@ function submitProfile() {
   switchUser(userInput.value);
   profileOpen.value = false;
 }
-watch(() => Boolean(route.name && !route.meta.landing), (workspaceVisible) => { if (workspaceVisible) initialize(); }, { immediate: true });
+watch(() => Boolean(route.name && !route.meta.landing), (workspaceVisible) => {
+  if (workspaceVisible) initialize();
+}, { immediate: true });
 onUnmounted(dispose);
+let openedSourceLink = "", openedRecordLink = "";
+watch(() => [route.name, route.query.thread, route.query.message, state.sessionsLoading, state.user],
+  ([name, thread, message, loading, user]) => {
+    const key = name === "assistant" && typeof thread === "string" ? JSON.stringify([user, thread, message]) : "";
+    if (!key) openedSourceLink = "";
+    else if (!loading && key !== openedSourceLink) {
+      openedSourceLink = key;
+      workspace.openSourceThread(thread, typeof message === "string" ? message : "");
+    }
+  });
+watch(() => [route.name, route.query.record, state.loading, state.user], ([name, id, loading, user]) => {
+  const key = name === "memories" && typeof id === "string" ? JSON.stringify([user, id]) : "";
+  if (!key) { openedRecordLink = ""; state.inspectedRecord = null; }
+  else if (!loading && key !== openedRecordLink) {
+    openedRecordLink = key;
+    workspace.inspectMemory(id);
+  }
+});
 const navigation = [
   { name: "install", title: "安装与接入", icon: "layers" },
   { name: "overview", title: "系统总览", icon: "overview" },
@@ -56,7 +76,7 @@ const navigation = [
     <aside id="workspace-sidebar" class="sidebar">
       <RouterLink class="brand sidebar-link" to="/overview" aria-label="记忆工作台首页" :data-tooltip="sidebarCollapsed ? '记忆工作台首页' : null"
         ><span class="brand-mark">m<span /></span
-        ><span class="brand-copy">记忆工作台<small>Cognitive Memory System</small></span></RouterLink
+        ><span class="brand-copy brand-name">Cognitive Science<br />Memory System</span></RouterLink
       >
       <div class="nav-label">工作空间</div>
       <nav aria-label="主导航">

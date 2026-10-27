@@ -33,13 +33,17 @@ function useMemory(memory) {
 async function scroll() {
   await nextTick();
   if (messagesElement.value)
-    messagesElement.value.scrollTop = messagesElement.value.scrollHeight;
+    if (state.focusMessageId) {
+      const target = [...messagesElement.value.querySelectorAll('[data-message-id]')].find(item => item.dataset.messageId === state.focusMessageId);
+      target?.scrollIntoView({ block: "center" });
+    } else messagesElement.value.scrollTop = messagesElement.value.scrollHeight;
 }
 watch(
   () => [
     state.currentChatId,
     currentChat.value?.messages.length,
     state.sending,
+    state.focusMessageId,
   ],
   scroll,
   { immediate: true },
@@ -170,6 +174,8 @@ function keydown(event) {
             v-for="(message, index) in currentChat?.messages || []"
             :key="index"
             class="message"
+            :data-message-id="message.id"
+            :data-source-focus="message.id && message.id === state.focusMessageId ? 'true' : null"
             :class="
               message.role === 'user'
                 ? 'user'
@@ -208,6 +214,7 @@ function keydown(event) {
                     <template v-if="reference.version"> · 版本 {{reference.version}} · 来源 {{reference.source_refs?.length || 0}}</template>
                     <template v-else> · 匹配分数 {{ Number(reference.score || 0).toFixed(3) }}</template></small
                   >
+                  <RouterLink class="text-button" :to="{ name: 'memories', query: { record: reference.id } }">查看记忆与来源 ↗</RouterLink>
                 </div>
               </details>
               <small v-for="warning in message.warnings || []" :key="warning" class="subtle">{{ warning }}</small>
@@ -256,3 +263,7 @@ function keydown(event) {
     </div>
   </div>
 </template>
+<style scoped>
+.evidence-card .text-button { margin-top:8px; }
+.message[data-source-focus="true"] { outline:1px solid var(--blue); outline-offset:8px; border-radius:5px; }
+</style>

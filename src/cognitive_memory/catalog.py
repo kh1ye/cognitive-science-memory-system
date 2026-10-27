@@ -167,6 +167,42 @@ class MemoryCatalog:
                 + len(self.architecture.repo.rows("learning_operations", user)),
             }
 
+    def get(self, user, memory_id):
+        user = normalize_text(user) or "demo-user"
+        with self.storage._lock:
+            return next((r for r in self._rows(user) if r["id"] == memory_id), None)
+
+    def evidence(self, user, memory_id):
+        user = normalize_text(user) or "demo-user"
+        with self.storage._lock:
+            record = self.get(user, memory_id)
+            if record is None or record["storage_kind"] != "typed":
+                return None
+            sources = [
+                self.architecture.repo.get("source_records", user, ref)
+                for ref in record["source_refs"]
+            ]
+            items = [
+                {
+                    "id": s["id"],
+                    "content": s["content"],
+                    "source": s["source_kind"],
+                    "thread_id": s["thread_id"],
+                    "message_id": s["source_event_id"],
+                    "created_at": s["recorded_at"],
+                    "legacy": False,
+                }
+                for s in sources
+                if s
+            ]
+            return {
+                "memory_id": memory_id,
+                "items": items,
+                "total_count": len(items),
+                "evidence_count": record["evidence_count"],
+                "legacy_gap": 0,
+            }
+
     def activity(self, user, limit=8):
         user = normalize_text(user) or "demo-user"
         with self.storage._lock:

@@ -40,11 +40,11 @@ class HttpApiTests(unittest.TestCase):
         status, data, _ = self.request("GET", "/api/health")
         self.assertEqual(status, 200)
         self.assertEqual(data["status"], "ok")
-        self.assertEqual(data["service"], "Cognitive Memory System")
+        self.assertEqual(data["service"], "Cognitive Science Memory System")
         status, body, content_type = self.request("GET", "/")
         self.assertEqual(status, 200)
         self.assertIn("text/html", content_type)
-        self.assertIn("记忆工作台".encode(), body)
+        self.assertIn("Cognitive Science Memory System".encode(), body)
 
     def test_seed_search_and_stats_flow(self):
         status, seeded, _ = self.request(
@@ -171,13 +171,32 @@ class HttpApiTests(unittest.TestCase):
 
     def test_openapi_documents_request_fields(self):
         schema = self.client.get("/openapi.json").json()
-        self.assertEqual(schema["info"]["title"], "Cognitive Memory System")
-        self.assertEqual(schema["info"]["description"], "Cognitive Memory System")
+        self.assertEqual(schema["info"]["title"], "Cognitive Science Memory System")
+        self.assertEqual(schema["info"]["description"], "Cognitive Science Memory System")
         self.assertIn("/api/memories", schema["paths"])
         self.assertIn(
             "content", schema["components"]["schemas"]["MemoryRequest"]["properties"]
         )
         self.assertEqual(self.client.get("/docs").status_code, 200)
+
+    def test_api_and_model_extraction_only_accept_three_types(self):
+        from conversation_agent.state import MemoryCandidate
+        from pydantic import ValidationError
+
+        expected = {"episodic", "semantic", "procedural"}
+        schema = self.client.get("/openapi.json").json()
+        self.assertEqual(set(schema["components"]["schemas"]["MemoryType"]["enum"]), expected)
+        for memory_type in sorted(expected):
+            response = self.client.post("/api/memories", json={"content": memory_type, "memory_type": memory_type})
+            self.assertEqual(response.status_code, 201)
+            self.assertEqual(response.json()["memory"]["memory_type"], memory_type)
+            self.assertEqual(MemoryCandidate(content="test", memory_type=memory_type).memory_type, memory_type)
+        for value in ("working", "unknown"):
+            for endpoint in ("/api/memories", "/api/evolution"):
+                self.assertEqual(self.client.post(endpoint, json={"content": "invalid", "memory_type": value}).status_code, 400)
+            with self.assertRaises(ValidationError):
+                MemoryCandidate(content="test", memory_type=value)
+        self.assertEqual(len(self.client.get("/api/memories").json()["items"]), 3)
 
     def test_malformed_json_and_invalid_fields_return_400(self):
         for body in ("{", "[]", '{"top_k":"invalid"}', '{"query":null}'):

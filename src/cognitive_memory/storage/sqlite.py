@@ -4,11 +4,14 @@ import json
 import sqlite3
 import threading
 import uuid
-from contextlib import contextmanager
+from contextlib import closing, contextmanager
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 from ..models import MemoryRecord, iso_now
+from ..classification import infer_memory_type
+from ..provenance import source_id
 from ..retrieval.lexical import normalize_text
 
 
@@ -23,10 +26,16 @@ class SQLiteStorage:
         self._conn.row_factory = sqlite3.Row
         self._lock = threading.RLock()
         self._transaction_depth = 0
-        with self._lock:
-            self._conn.execute("PRAGMA foreign_keys = ON")
-            self._conn.execute("PRAGMA journal_mode = WAL")
-            self._create_schema()
+        try:
+            with self._lock:
+                self._conn.execute("PRAGMA foreign_keys = ON")
+                self._conn.execute("PRAGMA journal_mode = WAL")
+                self._create_schema()
+                self._migrate_legacy_working_types()
+                self._seed_legacy_evidence()
+        except Exception:
+            self._conn.close()
+            raise
 
     def list_memories_all_for_migration(self):
         return [self._row_to_dict(row) for row in self._conn.execute("SELECT * FROM memories")]
@@ -83,9 +92,121 @@ class SQLiteStorage:
             );
             CREATE INDEX IF NOT EXISTS idx_audit_user_time
                 ON audit_events(user_id, created_at DESC);
+
+            CREATE TABLE IF NOT EXISTS memory_evidence (
+                id TEXT PRIMARY KEY,
+                memory_id TEXT NOT NULL REFERENCES memories(id) ON DELETE CASCADE,
+                user_id TEXT NOT NULL,
+                origin_key TEXT NOT NULL,
+                content TEXT NOT NULL,
+                source TEXT NOT NULL,
+                thread_id TEXT,
+                message_id TEXT,
+                created_at TEXT NOT NULL,
+                legacy INTEGER NOT NULL DEFAULT 0,
+                UNIQUE(memory_id, origin_key)
+            );
+            CREATE INDEX IF NOT EXISTS idx_evidence_origin
+                ON memory_evidence(user_id, origin_key);
             """
         )
         self._conn.commit()
+
+    def _migrate_legacy_working_types(self) -> None:
+        """Reclassify legacy content without promoting its lifecycle state.
+
+        Back up file databases before the first migration. Keeping IDs, timestamps,
+        roles and scores intact also preserves evidence chains and retention age.
+        """
+        rows = self._conn.execute(
+            "SELECT id, tags_json, metadata_json FROM memories WHERE memory_type = 'working'"
+        ).fetchall()
+        if not rows:
+            return
+        updates = []
+        for row in rows:
+            memory_type = infer_memory_type(json.loads(row["tags_json"]))
+            metadata = json.loads(row["metadata_json"])
+            metadata.setdefault("legacy_memory_type", "working")
+            updates.append(
+                (memory_type, json.dumps(metadata, ensure_ascii=False, sort_keys=True), row["id"])
+            )
+        if self.db_path != ":memory:":
+            stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+            path = Path(self.db_path)
+            backup = path.with_name(path.name + f".before-three-types-{stamp}.bak")
+            with closing(sqlite3.connect(backup)) as destination:
+                self._conn.backup(destination)
+        with self._conn:
+            self._conn.executemany(
+                "UPDATE memories SET memory_type = ?, metadata_json = ? WHERE id = ? AND memory_type = 'working'",
+                updates,
+            )
+
+    def _seed_legacy_evidence(self):
+        rows = self._conn.execute(
+            "SELECT * FROM memories WHERE id NOT IN (SELECT memory_id FROM memory_evidence)"
+        ).fetchall()
+        with self._conn:
+            for row in rows:
+                if not json.loads(row["support_ids_json"]):
+                    self._seed_evidence_row(row)
+            for row in rows:
+                support_ids = json.loads(row["support_ids_json"])
+                if support_ids:
+                    self.copy_evidence(support_ids, row["id"])
+                    if not self.evidence_count(row["id"]):
+                        self._seed_evidence_row(row)
+
+    def _seed_evidence_row(self, row):
+        values = self._row_to_dict(row)
+        values["evidence_origin"] = "legacy:" + row["id"]
+        self.add_evidence(row["id"], values, legacy=True)
+
+    def add_evidence(self, memory_id, values, *, legacy=False):
+        metadata = values.get("metadata") or {}
+        cursor = self._conn.execute(
+            "INSERT OR IGNORE INTO memory_evidence VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (str(uuid.uuid4()), memory_id, values["user_id"],
+             values.get("evidence_origin") or str(uuid.uuid4()), values["content"],
+             values.get("source", "user"), source_id(metadata.get("thread_id")),
+             source_id(metadata.get("message_id")), values.get("created_at") or iso_now(), int(legacy)),
+        )
+        return cursor.rowcount == 1
+
+    def find_evidence(self, user_id, origin_key):
+        row = self._conn.execute(
+            "SELECT m.* FROM memories m JOIN memory_evidence e ON e.memory_id=m.id "
+            "WHERE e.user_id=? AND e.origin_key=? "
+            "ORDER BY CASE m.state_role WHEN 'current' THEN 0 WHEN 'candidate' THEN 1 ELSE 2 END, "
+            "m.updated_at DESC LIMIT 1", (user_id, origin_key),
+        ).fetchone()
+        return self._row_to_dict(row)
+
+    def evidence_count(self, memory_id):
+        return self._conn.execute(
+            "SELECT count(*) FROM memory_evidence WHERE memory_id=?", (memory_id,)
+        ).fetchone()[0]
+
+    def list_evidence(self, memory_id, limit=500):
+        return [dict(row) for row in self._conn.execute(
+            "SELECT id,content,source,thread_id,message_id,created_at,legacy "
+            "FROM memory_evidence WHERE memory_id=? ORDER BY created_at,id LIMIT ?",
+            (memory_id, limit),
+        ).fetchall()]
+
+    def copy_evidence(self, source_ids, memory_id):
+        target = self.get_memory(memory_id)
+        for source_id in source_ids:
+            rows = self._conn.execute(
+                "SELECT * FROM memory_evidence WHERE memory_id=? AND user_id=?",
+                (source_id, target["user_id"]),
+            ).fetchall()
+            for row in rows:
+                self.add_evidence(memory_id, {
+                    **dict(row), "evidence_origin": row["origin_key"],
+                    "metadata": {"thread_id": row["thread_id"], "message_id": row["message_id"]},
+                }, legacy=bool(row["legacy"]))
 
     def audit(
         self,
@@ -182,6 +303,7 @@ class SQLiteStorage:
                 ),
             },
         )
+        self.add_evidence(memory_id, {**values, "created_at": now})
         return memory_id
 
     def list_memories(
@@ -235,14 +357,16 @@ class SQLiteStorage:
             else None
         )
 
-    def find_duplicate(self, user_id: str, normalized: str) -> MemoryRecord | None:
-        params = (user_id, normalized)
+    def find_duplicate(self, user_id: str, normalized: str, memory_key=None, memory_type=None) -> MemoryRecord | None:
+        params = (user_id, normalized, memory_key, memory_type)
         return self._row_to_dict(
             self._conn.execute(
                 """
             SELECT * FROM memories
             WHERE user_id = ? AND normalized_content = ? AND state_role != 'archived'
-            ORDER BY created_at DESC LIMIT 1
+              AND memory_key IS ? AND memory_type = ?
+            ORDER BY CASE state_role WHEN 'current' THEN 0 WHEN 'candidate' THEN 1 ELSE 2 END,
+                     created_at DESC LIMIT 1
             """,
                 params,
             ).fetchone()
