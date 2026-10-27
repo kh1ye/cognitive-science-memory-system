@@ -104,21 +104,27 @@ class Retriever:
                     "result_ids": [item["id"] for item in results],
                 },
             )
+            preferred_role = "history" if history_intent else "current"
+            preferred_results = [item for item in results if item["state_role"] == preferred_role]
             if not results:
                 answer = "证据不足：当前长期记忆中没有找到可支持回答的记录。"
             else:
-                preferred_role = "history" if history_intent else "current"
-                preferred_results = [
-                    item for item in results if item["state_role"] == preferred_role
-                ]
-                chosen = preferred_results or results
-                answer = "基于当前记忆：" + "；".join(
-                    item["content"] for item in chosen[:3]
-                )
+                chosen = preferred_results
+                if chosen:
+                    prefix = "基于历史记忆：" if history_intent else "基于当前有效记忆："
+                    answer = prefix + "；".join(item["content"] for item in chosen[:3])
+                else:
+                    labels = {"candidate": "未确认候选", "history": "历史记录", "working": "工作层记录", "current": "当前记录"}
+                    answer = "缺少所查询状态的确认依据，仅找到参考信息：" + "；".join(
+                        f"【{labels.get(item['state_role'], item['state_role'])}】{item['content']}"
+                        for item in results[:3]
+                    )
             return {
                 "query": query,
                 "answer": answer,
-                "grounded": bool(results),
+                "grounded": bool(results) and bool(preferred_results),
+                "has_results": bool(results),
+                "answer_status": "confirmed_history" if results and preferred_results and history_intent else "confirmed_current" if results and preferred_results else "reference_only" if results else "insufficient_evidence",
                 "results": results,
                 "policy": {
                     "semantic_gate": True,

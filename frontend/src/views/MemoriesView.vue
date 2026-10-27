@@ -2,6 +2,7 @@
 import { computed, ref, watch } from "vue";
 import AppDialog from "../components/AppDialog.vue";
 import AppIcon from "../components/AppIcon.vue";
+import SourceEvidence from "../components/SourceEvidence.vue";
 import { useWorkspace } from "../composables/useWorkspace";
 import { types, roles, formatDate } from "../lib/format";
 const { state, openMemory, deleteMemory, runRetention } = useWorkspace();
@@ -34,14 +35,16 @@ const duplicateGroups = computed(() => {
   }
   return [...groups.values()].filter(group => group.length > 1);
 });
-const related = computed(() => {
-  const m = previewMemory.value;
+function relatedTo(m) {
   if (!m) return [];
   const ids = new Set([m.parent_id, ...(m.support_ids || [])]);
   return state.memories.filter(other => other.id !== m.id &&
     (ids.has(other.id) || other.parent_id === m.id ||
     (m.memory_key && other.memory_key === m.memory_key)));
-});
+}
+const related = computed(() => relatedTo(previewMemory.value));
+const detailRelated = computed(() => relatedTo(detail.value));
+watch(() => state.inspectedRecord, record => { if (record) detail.value = record; }, { immediate: true });
 function resetFilters() {
   selectedType.value = query.value = role.value = source.value = since.value = focus.value = "";
 }
@@ -377,6 +380,13 @@ function tabKey(event, index) {
           <dd>{{ value }}</dd></template
         >
       </dl>
+      <SourceEvidence :memory-id="detail.id" :user-id="state.user" />
+      <section v-if="detailRelated.length" class="memory-relations">
+        <h3>关联与新旧对照</h3><p class="subtle">当前空间已加载的关联记录</p>
+        <button v-for="item in detailRelated" :key="item.id" class="related-memory" @click="detail = item">
+          <span class="badge" :class="item.state_role">{{ roles[item.state_role]?.label }}</span><p>{{ item.content }}</p>
+        </button>
+      </section>
       <p v-if="(detail.support_ids || []).length" class="form-hint">
         此记录由 {{ (detail.support_ids || []).length }} 条候选证据巩固而来。
       </p>

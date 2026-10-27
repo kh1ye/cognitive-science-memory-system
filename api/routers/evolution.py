@@ -4,6 +4,7 @@ import re
 from fastapi import APIRouter
 
 from cognitive_memory import Memory
+from cognitive_memory.keys import canonicalize_memory_key, canonicalize_memory_value
 from cognitive_memory.retrieval.lexical import normalize_text
 from conversation_agent.llm import ModelNotConfigured, extract_memories
 from conversation_agent.memory import source_span
@@ -35,7 +36,7 @@ class EvolutionInput(BaseModel):
 
 def local_extraction(content):
     patterns = [
-        (r"我(?:现在|目前|平时)?(?:更|最)?喜欢喝(咖啡|茶|牛奶|水)", "drink_preference"),
+        (r"我(?:现在|目前|平时)?(?:更|最)?喜欢喝(咖啡|茶|牛奶|水)", "preferred_beverage"),
         (r"我(?:现在|目前|平时)?(?:更|最)?喜欢(?:使用|用)\s*(Python|Rust|JavaScript|Java|Go)", "preferred_programming_language"),
     ]
     for pattern, key in patterns:
@@ -91,7 +92,19 @@ def analyze(payload: EvolutionInput, memory: MemoryDependency, agent: AgentDepen
             response["extraction"]["rejected_count"] += 1
             continue
         seen.add(evidence)
-        candidates.append(candidate.model_copy(update={"content": evidence}))
+        memory_key = canonicalize_memory_key(candidate.memory_key)
+        candidates.append(
+            candidate.model_copy(
+                update={
+                    "content": evidence,
+                    "memory_key": memory_key or "",
+                    "memory_value": canonicalize_memory_value(
+                        memory_key, candidate.memory_value, evidence
+                    )
+                    or "",
+                }
+            )
+        )
     response["extraction"]["candidates"] = [item.model_dump() for item in candidates]
     if not candidates:
         response["outcome"] = "no_new_memory"
@@ -114,6 +127,7 @@ DECISIONS = {
     "WRITE_CURRENT": "通过写入门槛，保存为当前长期记忆。",
     "KEEP_SESSION_ONLY": "保留在工作层，未成为当前长期记忆；工作层仍存储在 SQLite 中。",
     "REINFORCED": "强化已有记忆，增加证据，不重复创建当前记忆。",
+    "UNCHANGED": "该来源事件已处理，未重复写入或增加证据。",
     "CANDIDATE": "新证据进入候选区，暂不替换当前记忆。",
     "CONSOLIDATED": "证据门控通过，新记忆成为当前，旧记忆转为历史。",
     "DROP": "隐私门拦截，未保存记忆正文。",
@@ -129,8 +143,8 @@ class EvolutionStorage:
     def __getattr__(self, name):
         return getattr(self.storage, name)
 
-    def find_duplicate(self, user_id, normalized):
-        record = self.storage.find_duplicate(user_id, normalized)
+    def find_duplicate(self, user_id, normalized, memory_key=None, memory_type=None):
+        record = self.storage.find_duplicate(user_id, normalized, memory_key, memory_type)
         if record:
             self.previous = dict(record)
         return record
@@ -182,7 +196,8 @@ def evolve(payload: MemoryRequest, memory: MemoryDependency):
     result = observer.add_memory(payload.model_dump(exclude_unset=True))
     record = result.get("memory")
     decision = result["decision"]
-    duplicate = result.get("reason") == "exact_duplicate"
+    replayed = decision == "UNCHANGED"
+    duplicate = result.get("reason") in {"exact_duplicate", "source_event_already_processed"}
     dropped = decision == "DROP"
     encoded = not dropped and not duplicate
     compared = encoded and decision != "KEEP_SESSION_ONLY"
@@ -209,13 +224,15 @@ def evolve(payload: MemoryRequest, memory: MemoryDependency):
                 {"label": "巩固误差门槛", "value": memory.config.cpe_commit_threshold},
                 {"label": "最低证据数量", "value": memory.config.minimum_evidence_count},
                 {"label": "一致性门槛", "value": memory.config.evidence_consistency_threshold},
+                {"label": "取值明确变化", "value": event["details"].get("explicit_value_change", False)},
             ]
     privacy_message = {
         "do_not_store_instruction": "识别到不记忆指令，未保存正文。",
         "consent_required": "敏感标签缺少明确保存同意，未保存正文。",
     }.get(result.get("reason"), "通过隐私门；同一用户范围内检查重复、类型和写入价值。")
     comparison_message = (
-        "发现完全重复的正文，直接强化已有记录，跳过评分与冲突巩固。" if duplicate
+        "来源事件已处理，本次不重新比较，也不增加证据。" if replayed
+        else "发现完全重复的正文，直接强化已有记录，跳过评分与冲突巩固。" if duplicate
         else "未执行长期记忆比较。" if not compared
         else "找到相同记忆键的当前记录，比较新旧值。" if storage.previous
         else "未找到可比较的当前记录。" if payload.memory_key.strip()
@@ -233,7 +250,7 @@ def evolve(payload: MemoryRequest, memory: MemoryDependency):
                 {"label": "记忆键", "value": payload.memory_key or "未指定"},
                 {"label": "记忆值", "value": payload.memory_value or "未指定"},
             ]},
-            {"title": "选择性编码", "status": "blocked" if dropped else "skipped" if duplicate else "done", "description": privacy_message if not duplicate else "完全重复输入直接强化，不重新进行类型与评分计算。", "fields": encoding_fields},
+            {"title": "选择性编码", "status": "blocked" if dropped else "skipped" if duplicate else "done", "description": "来源事件已处理，跳过重复编码，不增加证据。" if replayed else privacy_message if not duplicate else "完全重复输入直接强化，不重新进行类型与评分计算。", "fields": encoding_fields},
             {"title": "新旧比较", "status": "done" if compared or duplicate else "skipped", "description": comparison_message, "fields": comparison_fields},
             {"title": "巩固决策", "status": "blocked" if dropped else "done", "description": DECISIONS[decision], "fields": [{"label": "决策代码", "value": decision}, {"label": "原因代码", "value": result.get("reason", "")}]},
             {"title": "存储结果", "status": "blocked" if dropped else "done", "description": "未创建记忆正文记录，仅保留既有隐私审计。" if dropped else "返回 SQLite 中的实际记录。类型与生命周期状态分别展示。", "fields": []},

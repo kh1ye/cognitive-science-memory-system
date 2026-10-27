@@ -1,4 +1,4 @@
-# Cognitive Memory System
+# Cognitive Science Memory System
 
 面向 AI Agent 的认知科学启发式长期记忆系统原型。
 
@@ -10,7 +10,7 @@
 
 ## 已实现功能
 
-- Working、Episodic、Semantic、Procedural 四类记忆
+- 情景（Episodic）、语义（Semantic）、程序（Procedural）三类长期记忆；工作层是独立的保存状态
 - Current、Candidate、History 状态演化
 - 单次冲突进入候选区，重复一致证据触发巩固
 - 注意力调制检索与历史状态查询
@@ -18,9 +18,11 @@
 - SQLite 本地持久化
 - 可视化 Web 工作台
 - LangChain + LangGraph 多轮对话、SQLite 会话恢复与自动长期记忆
-- 48 项后端测试 + 11 项前端回归测试
+- 当前源码定义 81 项后端测试 + 33 项前端回归测试
 
 ## 快速启动
+
+记忆内容类型仅支持 `episodic`、`semantic`、`procedural`；省略类型时按标签推断。`working` 仅作为保存状态保留。旧库首次打开时会按标签重新归类旧 working 类型，并先生成同目录 `.before-three-types-*.bak` 数据库备份；原正文和状态保持不变。
 
 项目使用 [uv](https://docs.astral.sh/uv/getting-started/installation/) 管理 Python、虚拟环境和依赖。安装 uv 和 Node.js 24 后，在仓库根目录执行（macOS、Linux、Windows 通用）：
 
@@ -34,6 +36,8 @@ uv run python -m api.app --open
 默认使用 Python 3.12，uv 会在需要时自动下载解释器，并在 `.venv` 中创建隔离环境。核心记忆逻辑仍使用 Python 标准库；Agent 使用 LangChain + LangGraph；HTTP 层使用 FastAPI + Uvicorn，uv 会安装锁定依赖。
 
 浏览器访问：<http://127.0.0.1:8765>
+
+默认先展示产品介绍页（功能说明、记忆演化演示及接入示例），点击「进入工作台」进入系统总览。工作台侧栏的「产品首页」可返回介绍页。直接打开 `/#/overview`、`/#/memories` 等地址仍进入对应工作台页面。
 
 接口文档：<http://127.0.0.1:8765/docs>；OpenAPI：<http://127.0.0.1:8765/openapi.json>。
 
@@ -55,7 +59,7 @@ uv run uvicorn api.app:app --host 127.0.0.1 --port 8765
 
 前端使用 Vue 3 单文件组件、Composition API 和 Vue Router，生产构建输出到 `frontend/dist/`，由 FastAPI 提供。开发时运行 `npm --prefix frontend run dev`，访问 5173 端口，API 自动代理到 8765。
 
-左侧导航包含三个页面：系统总览、个人助手、记忆管理。总览使用真实记忆统计和 SQLite 存储数据；个人助手支持 LLM 多轮对话、SQLite 会话恢复、记忆检索和引用；管理中心提供筛选、详情、添加和删除。
+左侧导航包含五个页面：系统总览、个人助手、记忆管理、记忆演化、安装与接入。总览使用真实记忆统计和 SQLite 存储数据；个人助手支持 LLM 多轮对话、SQLite 会话恢复、记忆检索和引用；管理中心提供筛选、详情、添加和删除；记忆演化页展示一次输入从提取到存储的真实处理轨迹；安装页提供现有客户端的接入步骤。
 
 总览新增当前用户近况摘要、记忆演化与管理入口，以及可解释的最近变化。活动中的关联正文为当前记录快照，不是历史正文；删除后不再返回关联正文。核心模块区分已就绪、已配置、未配置与暂未实现；模型已配置不代表验证过连接，读取总览不调用模型。原有四张指标卡保持不变。
 
@@ -67,7 +71,19 @@ uv run uvicorn api.app:app --host 127.0.0.1 --port 8765
 
 已配置模型时复用现有结构化提取与原文证据校验；没有模型时使用明确标注的有限本地规则，仅识别「我喜欢喝茶。」「我现在更喜欢喝咖啡。」「我喜欢用 Python。」等简单完整偏好句式。本地规则的重要性 0.7、置信度 0.8 为固定默认参数。未识别、无原文依据、隐私拦截或证据不足时如实展示，不生成额外用户证据，不强制走完巩固流程。
 
-`POST /api/evolution/analyze` 接受 `user_id`、`content` 并自动执行完整流程；底层 `POST /api/evolution` 仍支持结构化输入的单次执行追踪。通过请求范围的存储与编码代理采集真实结果，不改变原评分、状态转换及其他页面。完全重复正文直接强化；工作层仍为 SQLite 持久记录。页面展示提交当时的快照，刷新后不保留展示，但实际记忆保留。更新后需重新构建前端并重启后端。
+`POST /api/evolution/analyze` 接受 `user_id`、`content` 并自动执行完整流程；底层 `POST /api/evolution` 仍支持结构化输入的单次执行追踪。通过请求范围的存储与编码代理采集真实结果。当前记忆的重复内容会强化；历史内容重新输入则与当前状态重新比较，工作层也可因新的高价值输入重新评估。工作层仍为 SQLite 持久记录。页面展示提交当时的快照，刷新后不保留展示，但实际记忆保留。更新后需重新构建前端并重启后端。
+
+## 来源回溯与更新规则
+
+- 记忆详情新增「来源证据」，保留每次写入或强化的内容片段、来源、时间和已知会话/消息标识。助手引用可打开记忆详情，再跳到原始用户消息；手机端同样可查看来源和新旧对照。已删除或不存在的会话会提示无法打开，长期记忆仍保留。
+- 首次启动新版会新增 `memory_evidence` 表，只从旧记录及其显式支持关系恢复已知来源，不改旧记忆正文、状态和审计。旧版本仅累计计数而未保存的逐条原文，会显示缺失数量；无法恢复未保存的来源。
+- 同一 `memory_key` 已有当前值时，不等价的新输入先进入候选，不再因文字相近而产生第二条当前记录。巩固需要足够候选数、一致性，以及「明确的非空取值变化」或达到 CPE 提交阈值。CPE 保持实际分数。无明确取值的模糊更新保持候选。
+- `metadata.message_id` 或 `metadata.event_id` 可标识实际来源事件：同用户、来源、会话、事件标识、规范化内容和主题/取值相同的重放返回 `UNCHANGED`，不重复计数。无事件标识的独立请求仍视为新证据；客户端重试应沿用原事件标识。助手自动写入已传递真实消息 ID。
+- 检索的 `grounded` 仅在命中查询所需的确认状态时为真（普通查询为当前，历史查询为历史）。`has_results` 表示是否找到记录；仅候选、工作层或不符查询状态的记录以参考信息返回，`answer_status=reference_only`，不会称为当前有效事实。
+
+新增只读接口：`GET /api/memories/{id}?user_id=...`、`GET /api/memories/{id}/evidence?user_id=...`，均按用户空间检查归属。来源接口返回 `items`（最多 500 条）、`total_count`、原 `evidence_count` 与 `legacy_gap`。删除记忆会连同该记忆持有的来源记录一起删除。
+
+OpenClaw、Hermes、DeepSeek Harness 的 `cognitive_memory_save` 均支持可选 `memory_type`：`episodic` / `semantic` / `procedural`。`working` 是状态，不是可写入的内容类型。插件仍为显式保存，完整宿主激活需在对应应用验证。
 
 ## 配置对话模型
 
@@ -130,7 +146,7 @@ curl -X POST http://127.0.0.1:8765/api/chat \
 
 ## 演示数据接口
 
-正式服务统一使用名称 `Cognitive Memory System`。默认不注册 `/api/demo/seed`，调用返回 404，接口文档也不展示该路径。正式部署请保持 `COGNITIVE_MEMORY_DEMO_TOKEN` 未设置。
+正式服务统一使用名称 `Cognitive Science Memory System`。默认不注册 `/api/demo/seed`，调用返回 404，接口文档也不展示该路径。正式部署请保持 `COGNITIVE_MEMORY_DEMO_TOKEN` 未设置。
 
 需要演示数据时，先生成随机令牌并通过环境变量 `COGNITIVE_MEMORY_DEMO_TOKEN` 配置到服务进程，再启动服务。启用后每次调用必须携带 `Authorization: Bearer <令牌>`；缺失或错误令牌返回 401。Swagger `/docs` 支持通过 Authorize 输入令牌。
 
@@ -183,6 +199,7 @@ src/cognitive_memory/   # 可安装的 Python 记忆库
 ├── enums.py           # 记忆类型与状态
 ├── config.py          # 参数配置
 ├── encoding.py        # 隐私门、分类、选择性编码和注意力画像
+├── keys.py            # 模型生成的同义主题键与受控取值归一化
 ├── consolidation.py   # 冲突判断、证据累计和巩固
 ├── retention.py       # 遗忘和归档
 ├── retrieval/         # 词法召回与注意力排序
@@ -194,7 +211,7 @@ api/                   # FastAPI 应用、依赖、请求模型与中间件
 ├── routers/system.py   # 健康、配置、统计和总览
 ├── routers/chat.py     # LLM 聊天、会话恢复和删除
 └── routers/demo.py     # 默认关闭、令牌保护的演示数据接口
-frontend/              # Vue 3 + Vue Router + Vite 三页面工作台
+frontend/              # Vue 3 + Vue Router + Vite 五页面工作台
 scripts/               # 启动脚本
 tests/                 # 自动化测试
 ```
@@ -220,8 +237,10 @@ with Memory("memory_product/data/memory_demo.db") as memory:
 
 ## 技术文档
 
-[认知长期记忆系统产品技术文档 v1.0](./认知长期记忆系统产品技术文档_v1.0.md)
+[认知长期记忆系统产品技术文档 v2.0](./认知长期记忆系统产品技术文档_v2.0.md)（当前版本）
+
+[2026-10-27 优化实施记录](./优化实施记录_20261027.md)（来源回溯、状态修复、验证与升级说明）
 
 ## 协作方式
 
-小团队日常修改可直接提交到 `main`。推送前同步远程代码，提交前运行相关测试；较大改动或需要同伴审阅时按需使用分支和 Pull Request。
+小团队也建议在功能分支上开发，并通过 Pull Request 审查后合并到 `main`。推送前同步远程代码，提交前运行相关测试；如需强制执行，可为 `main` 配置分支保护和至少一次批准。

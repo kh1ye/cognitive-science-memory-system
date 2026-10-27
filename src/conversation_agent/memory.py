@@ -3,6 +3,7 @@
 import unicodedata
 
 from cognitive_memory import Memory
+from cognitive_memory.keys import canonicalize_memory_key
 from cognitive_memory.retrieval.lexical import normalize_text
 
 from .state import MemoryExtraction
@@ -56,7 +57,8 @@ class CognitiveMemory:
         )
 
     def write(
-        self, user_id: str, message: str, extraction: MemoryExtraction, thread_id: str
+        self, user_id: str, message: str, extraction: MemoryExtraction, thread_id: str,
+        message_id: str | None = None,
     ):
         if not self.allows_extraction(message):
             return []
@@ -83,7 +85,7 @@ class CognitiveMemory:
                 {
                     "user_id": user_id,
                     "content": content,
-                    "memory_key": candidate.memory_key,
+                    "memory_key": canonicalize_memory_key(candidate.memory_key),
                     "memory_value": candidate.memory_value,
                     "memory_type": candidate.memory_type,
                     "tags": tags,
@@ -91,7 +93,7 @@ class CognitiveMemory:
                     "confidence": candidate.confidence,
                     "consent": False,
                     "source": "conversation_agent",
-                    "metadata": {"thread_id": thread_id, "extraction": "llm"},
+                    "metadata": {"thread_id": thread_id, "message_id": message_id, "extraction": "llm"},
                 }
             )
             results.append(

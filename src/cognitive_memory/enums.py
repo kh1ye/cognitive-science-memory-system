@@ -4,7 +4,6 @@ from enum import Enum
 
 
 class MemoryType(str, Enum):
-    WORKING = "working"
     EPISODIC = "episodic"
     SEMANTIC = "semantic"
     PROCEDURAL = "procedural"

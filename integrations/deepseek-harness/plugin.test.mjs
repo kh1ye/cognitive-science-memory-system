@@ -69,6 +69,11 @@ test('real temporary memory API: write, recall, conflict, privacy and namespace 
     const found=await call('cognitive_memory_search',{query:'茶'});
     assert.equal(found.results[0].source,'deepseek_harness_plugin');
     assert.equal(found.results[0].user_id,'dsh-contract');
+    for (const memory_type of ['episodic','semantic','procedural']) {
+      const typed=await call('cognitive_memory_save',{content:`${memory_type} from DSH`,memory_type});
+      assert.equal(typed.memory.memory_type,memory_type);
+    }
+    assert.equal((await execute(app.ctx,'cognitive_memory_save',{content:'invalid',memory_type:'working'})).isError,true);
     const changed=await call('cognitive_memory_save',{content:'我现在更喜欢喝咖啡',memory_key:'drink',memory_value:'咖啡'});
     assert.equal(changed.decision,'CANDIDATE');
     assert.equal((await call('cognitive_memory_save',{content:'secret',sensitive:true})).decision,'DROP');

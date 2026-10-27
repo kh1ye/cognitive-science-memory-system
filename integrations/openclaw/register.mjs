@@ -30,10 +30,11 @@ export function registerMemoryTools(api) {
     {
       name: "cognitive_memory_save", label: "保存明确记忆",
       description: "Save only a fact explicitly supplied for remembering by the user. Do not save assistant conclusions, secrets or an entire conversation. Set sensitive=true for sensitive information; never assert consent. Report the returned decision accurately; candidate or DROP is not a current fact.",
-      parameters: { type: "object", properties: { content: string, sensitive: { type: "boolean" }, memory_key: { type: "string" }, memory_value: { type: "string" } }, required: ["content"], additionalProperties: false },
+      parameters: { type: "object", properties: { content: string, memory_type: { type: "string", enum: ["episodic", "semantic", "procedural"] }, sensitive: { type: "boolean" }, memory_key: { type: "string" }, memory_value: { type: "string" } }, required: ["content"], additionalProperties: false },
       call: async (args, signal) => {
         if (typeof args.content !== "string" || !args.content.trim() || args.content.length > 10000) throw new Error("content must contain 1–10000 characters");
-        return request("/api/memories", { content: args.content, source: "openclaw_plugin", tags: args.sensitive ? ["sensitive"] : [], consent: false, memory_key: args.memory_key || "", memory_value: args.memory_value || "" }, signal);
+        if (args.memory_type !== undefined && !["episodic", "semantic", "procedural"].includes(args.memory_type)) throw new Error("memory_type must be episodic, semantic or procedural");
+        return request("/api/memories", { content: args.content, memory_type: args.memory_type, source: "openclaw_plugin", tags: args.sensitive ? ["sensitive"] : [], consent: false, memory_key: args.memory_key || "", memory_value: args.memory_value || "" }, signal);
       },
     },
   ];

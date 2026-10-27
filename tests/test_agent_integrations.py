@@ -100,6 +100,18 @@ class AgentIntegrationTests(unittest.TestCase):
             self.assertEqual(json.loads(config.read_text())['user_id'],'existing')
             self.assertTrue((Path(home)/'plugins/cognitive-memory/plugin.yaml').exists())
 
+    def test_hermes_saves_all_three_types_and_rejects_working_type(self):
+        with tempfile.TemporaryDirectory() as home:
+            provider = self.load_provider(home, user='three-types')
+            for memory_type in ('episodic', 'semantic', 'procedural'):
+                result = json.loads(provider.handle_tool_call('cognitive_memory_save', {
+                    'content': f'{memory_type} type from Hermes', 'memory_type': memory_type,
+                }))
+                self.assertEqual(result['memory']['memory_type'], memory_type)
+            self.assertIn('error', json.loads(provider.handle_tool_call('cognitive_memory_save', {
+                'content': 'invalid', 'memory_type': 'working',
+            })))
+
     @unittest.skipUnless(shutil.which('node'), 'Node is required for OpenClaw adapter contracts')
     def test_openclaw_real_http_contract(self):
         result = subprocess.run(['node','--test','integrations/openclaw/plugin.test.mjs'],cwd=ROOT,env={**os.environ,'MEMORY_TEST_URL':self.url},capture_output=True,text=True,encoding='utf-8',timeout=30)

@@ -10,11 +10,6 @@ export const types = {
     description: "方法、流程与习惯",
     color: "#b5a3c9",
   },
-  working: {
-    label: "工作记忆",
-    description: "短时任务与临时信息",
-    color: "#cfb781",
-  },
 };
 export const roles = {
   current: { label: "当前", color: "#6689c9" },
@@ -25,8 +20,9 @@ export const roles = {
 };
 export const eventNames = {
   WRITE_CURRENT: "写入长期记忆",
-  KEEP_SESSION_ONLY: "保留工作记忆",
+  KEEP_SESSION_ONLY: "保留在工作层",
   REINFORCE: "强化已有记忆",
+  UNCHANGED: "来源事件已处理",
   CANDIDATE: "发现候选证据",
   CONSOLIDATE: "完成证据巩固",
   RETRIEVE: "检索记忆",
@@ -38,6 +34,7 @@ export const decisionNames = {
   WRITE_CURRENT: "已保存为当前记忆",
   KEEP_SESSION_ONLY: "已保留在工作层",
   REINFORCED: "已强化已有记忆",
+  UNCHANGED: "该来源已处理，未重复增加证据",
   CANDIDATE: "已进入候选区，等待更多一致证据",
   CONSOLIDATED: "证据已巩固，当前状态已更新",
   DROP: "未保存：请检查隐私标签与保存同意",

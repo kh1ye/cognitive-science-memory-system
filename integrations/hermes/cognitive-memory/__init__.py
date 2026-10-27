@@ -65,7 +65,7 @@ class CognitiveMemoryProvider(MemoryProvider):
             {"name": "cognitive_memory_search", "description": "Search long-term memories for the configured user.",
              "parameters": {"type": "object", "properties": {"query": text, "top_k": {"type": "integer", "minimum": 1, "maximum": 20}}, "required": ["query"], "additionalProperties": False}},
             {"name": "cognitive_memory_save", "description": "Explicitly save a user-provided fact. Mark sensitive information; no consent is inferred. Report the returned decision.",
-             "parameters": {"type": "object", "properties": {"content": text, "sensitive": {"type": "boolean"}, "memory_key": {"type": "string"}, "memory_value": {"type": "string"}}, "required": ["content"], "additionalProperties": False}},
+             "parameters": {"type": "object", "properties": {"content": text, "memory_type": {"type": "string", "enum": ["episodic", "semantic", "procedural"]}, "sensitive": {"type": "boolean"}, "memory_key": {"type": "string"}, "memory_value": {"type": "string"}}, "required": ["content"], "additionalProperties": False}},
         ]
 
     def handle_tool_call(self, tool_name, args, **kwargs):
@@ -87,6 +87,10 @@ class CognitiveMemoryProvider(MemoryProvider):
                 path = "/api/memories"
                 payload = {"content": content, "source": "hermes_plugin", "tags": ["sensitive"] if args.get("sensitive") else [],
                            "consent": False, "memory_key": args.get("memory_key", ""), "memory_value": args.get("memory_value", "")}
+                if "memory_type" in args:
+                    if args["memory_type"] not in {"episodic", "semantic", "procedural"}:
+                        raise ValueError("memory_type must be episodic, semantic or procedural")
+                    payload["memory_type"] = args["memory_type"]
             else:
                 raise ValueError("Unknown memory tool")
             payload["user_id"] = self.user_id

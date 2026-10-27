@@ -1,4 +1,4 @@
-"""FastAPI application and static server for Cognitive Memory System."""
+"""FastAPI application and static server for Cognitive Science Memory System."""
 
 from __future__ import annotations
 

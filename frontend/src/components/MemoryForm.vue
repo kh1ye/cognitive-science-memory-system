@@ -46,7 +46,6 @@ async function submit() {
             <option value="semantic">语义记忆</option>
             <option value="episodic">情景记忆</option>
             <option value="procedural">程序记忆</option>
-            <option value="working">工作记忆</option>
           </select></label
         >
         <label
@@ -66,6 +65,7 @@ async function submit() {
         /></label>
       </div>
       <p class="form-hint">
+        长期记忆分为情景、语义、程序三类；工作层表示保存状态。
         同一主题的不同取值会参与冲突判断，重复一致的证据可触发巩固。
       </p>
       <label class="checkbox"

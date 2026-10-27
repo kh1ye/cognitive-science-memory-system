@@ -6,9 +6,12 @@ from pathlib import Path
 from typing import Any
 
 from .config import MemoryConfig
+from .classification import infer_memory_type
 from .consolidation import Consolidator
-from .encoding import PROTECTED_TAGS, Encoder, clamp, infer_memory_type, parse_tags
+from .encoding import PROTECTED_TAGS, Encoder, clamp, parse_tags
+from .keys import canonicalize_memory_key, canonicalize_memory_value
 from .models import WriteResult, iso_now
+from .provenance import evidence_origin
 from .retention import RetentionManager
 from .retrieval.lexical import normalize_text
 from .retrieval.retriever import Retriever
@@ -71,17 +74,24 @@ class Memory:
         if not content:
             raise ValueError("content 不能为空")
         tags = parse_tags(payload.get("tags"))
+        memory_type = infer_memory_type(tags, payload.get("memory_type"))
         source = normalize_text(str(payload.get("source", "user"))) or "user"
         consent = bool(payload.get("consent", False))
         normalized = normalize_text(content)
-        memory_key = normalize_text(str(payload.get("memory_key", ""))) or None
-        memory_value = str(payload.get("memory_value", "")).strip() or None
+        memory_key = canonicalize_memory_key(str(payload.get("memory_key", "")))
+        memory_value = canonicalize_memory_value(
+            memory_key, str(payload.get("memory_value", "")), content
+        )
         importance = clamp(float(payload.get("importance", 0.7)))
         confidence = clamp(float(payload.get("confidence", 0.8)))
         active_goal = str(payload.get("active_goal", "")).strip()
         metadata = (
             payload.get("metadata") if isinstance(payload.get("metadata"), dict) else {}
         )
+        evidence = {"user_id": user_id, "content": content, "source": source,
+                    "normalized_content": normalized, "memory_key": memory_key,
+                    "memory_value": memory_value, "metadata": metadata}
+        evidence["evidence_origin"] = evidence_origin(evidence)
         with self.storage.transaction():
             privacy_reason = self.encoder.privacy_reason(normalized, tags, consent)
             if privacy_reason:
@@ -92,8 +102,15 @@ class Memory:
                 )
                 self.storage.audit(user_id, "DROP_PRIVACY", message)
                 return {"decision": "DROP", "reason": privacy_reason, "memory": None}
-            duplicate = self.storage.find_duplicate(user_id, normalized)
-            if duplicate:
+            replay = self.storage.find_evidence(user_id, evidence["evidence_origin"])
+            if replay:
+                return {"decision": "UNCHANGED", "reason": "source_event_already_processed", "memory": replay}
+            duplicate = self.storage.find_duplicate(user_id, normalized, memory_key, memory_type)
+            reusable = duplicate and duplicate["state_role"] == "current"
+            if duplicate and duplicate["state_role"] == "working":
+                reusable = self.encoder.write_score(user_id, content, tags, importance, confidence) < self.config.write_threshold
+            if reusable:
+                self.storage.add_evidence(duplicate["id"], evidence)
                 count = duplicate["evidence_count"] + 1
                 self.storage.reinforce_duplicate(
                     count, iso_now(), importance, confidence, duplicate["id"]
@@ -110,7 +127,6 @@ class Memory:
                     "reason": "exact_duplicate",
                     "memory": self.storage.get_memory(duplicate["id"]),
                 }
-            memory_type = infer_memory_type(tags, payload.get("memory_type"))
             (saliency, goal_relevance, preference_strength, attention_bias) = (
                 self.encoder.attention_profile(
                     user_id, content, memory_key, tags, importance, active_goal
@@ -140,20 +156,18 @@ class Memory:
                 "write_score": write_score,
                 "is_protected": is_protected,
                 "metadata": metadata,
+                "evidence_origin": evidence["evidence_origin"],
+                "parent_id": duplicate["id"] if duplicate and duplicate["state_role"] == "working" else None,
             }
-            if memory_type == "working" or write_score < self.config.write_threshold:
+            if write_score < self.config.write_threshold:
                 memory_id = self.storage.insert_memory(
                     {**base_values, "state_role": "working"}
                 )
-                reason = (
-                    "explicit_working_memory"
-                    if memory_type == "working"
-                    else "below_write_threshold"
-                )
+                reason = "below_write_threshold"
                 self.storage.audit(
                     user_id,
                     "KEEP_SESSION_ONLY",
-                    "显式工作记忆或写入分数低于阈值，仅保留在工作层。",
+                    "写入分数低于阈值，仅保留在工作层；内容类型仍属于三类记忆之一。",
                     memory_id,
                     {
                         "write_score": write_score,
@@ -166,7 +180,21 @@ class Memory:
                     "reason": reason,
                     "memory": self.storage.get_memory(memory_id),
                 }
-            return self.consolidator.apply(base_values)
+            result = self.consolidator.apply(base_values)
+            if duplicate and duplicate["state_role"] == "working":
+                self.storage.archive_supports([(iso_now(), duplicate["id"])])
+            return result
+
+    def evidence(self, user_id: str, memory_id: str):
+        user_id = normalize_text(user_id) or "demo-user"
+        with self.storage.transaction():
+            if not self.storage.find_owned(memory_id, user_id):
+                return None
+            record = self.storage.get_memory(memory_id)
+            count = self.storage.evidence_count(memory_id)
+            return {"memory_id": memory_id, "items": self.storage.list_evidence(memory_id),
+                    "total_count": count, "evidence_count": record["evidence_count"],
+                    "legacy_gap": max(0, record["evidence_count"] - count)}
 
     def delete_memory(self, user_id: str, memory_id: str) -> bool:
         user_id = normalize_text(user_id) or "demo-user"

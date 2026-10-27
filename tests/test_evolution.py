@@ -171,6 +171,25 @@ class NaturalEvolutionTests(unittest.TestCase):
         self.assertEqual(len(report["traces"]), 1)
         self.assertEqual(self.records()[0]["content"], "我喜欢用Python")
 
+    def test_model_generated_beverage_alias_is_canonicalized(self):
+        self.agent._model = object()
+        extraction = MemoryExtraction(memories=[MemoryCandidate(
+            content="我喜欢喝茶。",
+            memory_key="favorite_drink",
+            memory_value="喜欢喝茶",
+            tags=["preference"],
+        )])
+        with patch("api.routers.evolution.extract_memories", return_value=extraction):
+            report = self.analyze("我喜欢喝茶。").json()
+        self.assertEqual(
+            report["extraction"]["candidates"][0]["memory_key"],
+            "preferred_beverage",
+        )
+        self.assertEqual(
+            report["extraction"]["candidates"][0]["memory_value"], "茶"
+        )
+        self.assertEqual(self.records()[0]["memory_key"], "preferred_beverage")
+
     def test_sensitive_candidate_does_not_get_automatic_consent(self):
         self.agent._model = object()
         extraction = MemoryExtraction(memories=[MemoryCandidate(content="我的私人健康信息", sensitive=True)])

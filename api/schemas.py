@@ -4,6 +4,7 @@ from typing import Any
 from uuid import uuid4
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
+from cognitive_memory import MemoryType
 
 
 class NamespaceRequest(BaseModel):
@@ -16,7 +17,7 @@ class MemoryRequest(NamespaceRequest):
     content: str = ""
     memory_key: str = ""
     memory_value: str = ""
-    memory_type: str | None = None
+    memory_type: MemoryType | None = None
     source: str = "user"
     tags: str | list[Any] | None = None
     importance: float = 0.7

@@ -64,6 +64,7 @@ class Consolidator:
             old_value = normalize_text(str(current.get("memory_value") or ""))
             new_value = normalize_text(str(memory_value or ""))
             if old_value and new_value and (old_value == new_value):
+                self.storage.add_evidence(current["id"], values)
                 new_count = current["evidence_count"] + 1
                 self.storage.reinforce_current(
                     new_count,
@@ -88,7 +89,11 @@ class Consolidator:
             (cpe, components) = self._prediction_error(
                 current, content, memory_value, tags
             )
-            if cpe >= self.config.cpe_low_threshold:
+            # A structured value change is a conflict even when lexical distance
+            # is small (e.g. Python 3.11 -> Python 3.12). Never add a second Current.
+            explicit_value_change = bool(old_value and new_value and old_value != new_value)
+            conflict_basis = "explicit_value_change" if explicit_value_change else "prediction_error" if cpe >= self.config.cpe_low_threshold else "ambiguous_topic_update"
+            if current_row:
                 candidate_id = self.storage.insert_memory(
                     {
                         **values,
@@ -115,18 +120,20 @@ class Consolidator:
                 self.storage.audit(
                     user_id,
                     "CANDIDATE",
-                    "检测到与当前状态不一致的证据，先进入候选缓冲区。",
+                    "检测到与当前状态不一致的证据，先进入候选缓冲区。" if conflict_basis != "ambiguous_topic_update" else "同主题输入无法确认是否等价，先保留候选，不新增第二条当前记忆。",
                     candidate_id,
                     {
                         "cpe": round(cpe, 4),
                         "components": components,
                         "evidence_count": evidence_count,
                         "consistency": round(consistency, 4),
+                        "explicit_value_change": explicit_value_change,
+                        "conflict_basis": conflict_basis,
                     },
                 )
                 if (
                     evidence_count >= self.config.minimum_evidence_count
-                    and cpe >= self.config.cpe_commit_threshold
+                    and (explicit_value_change or cpe >= self.config.cpe_commit_threshold)
                     and (consistency >= self.config.evidence_consistency_threshold)
                 ):
                     support_ids = [row["id"] for row in candidate_rows]
@@ -147,13 +154,15 @@ class Consolidator:
                                 "consolidated": True,
                                 "cpe_components": components,
                                 "consistency": consistency,
+                                "explicit_value_change": explicit_value_change,
                             },
                         }
                     )
+                    self.storage.copy_evidence(support_ids, consolidated_id)
                     self.storage.audit(
                         user_id,
                         "CONSOLIDATE",
-                        "候选证据达到数量、误差和一致性阈值：旧状态转为历史，新状态提交为当前。",
+                        "候选证据达到数量与一致性要求，且存在明确取值变化或足够预测误差：旧状态转为历史，新状态提交为当前。",
                         consolidated_id,
                         {
                             "previous_current_id": current["id"],
@@ -161,6 +170,7 @@ class Consolidator:
                             "evidence_count": evidence_count,
                             "cpe": round(cpe, 4),
                             "consistency": round(consistency, 4),
+                            "explicit_value_change": explicit_value_change,
                         },
                     )
                     return {
@@ -172,7 +182,7 @@ class Consolidator:
                     }
                 return {
                     "decision": "CANDIDATE",
-                    "reason": "awaiting_consistent_evidence",
+                    "reason": "awaiting_clear_topic_value" if conflict_basis == "ambiguous_topic_update" else "awaiting_consistent_evidence",
                     "memory": self.storage.get_memory(candidate_id),
                     "gate": {
                         "evidence_count": evidence_count,
@@ -181,6 +191,8 @@ class Consolidator:
                         "commit_threshold": self.config.cpe_commit_threshold,
                         "consistency": round(consistency, 4),
                         "consistency_threshold": self.config.evidence_consistency_threshold,
+                        "explicit_value_change": explicit_value_change,
+                        "conflict_basis": conflict_basis,
                     },
                 }
         memory_id = self.storage.insert_memory({**values, "state_role": "current"})

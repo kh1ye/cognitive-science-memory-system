@@ -75,6 +75,11 @@ chat/profile are outside this adapter's supported scope.
 
 ## Verify
 
+`cognitive_memory_save` accepts optional `memory_type`: `episodic`, `semantic`, or
+`procedural`. Omit it to use tag-based classification. `working` is a state, not a
+content type. Search returns `has_results` separately from `grounded`; candidate-only
+matches remain reference information rather than confirmed current facts.
+
 Ask the agent to explicitly use `cognitive_memory_save` to remember a non-sensitive
 fact, then use `cognitive_memory_search` to retrieve it. Inspect the configured user
 space in the local workbench. A successful HTTP response may still say `DROP` or

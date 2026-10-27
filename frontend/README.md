@@ -1,6 +1,6 @@
-# 记忆工作台前端（Vue 3）
+# Cognitive Science Memory System 前端（Vue 3）
 
-采用 Vue 3 Composition API、Vue Router 和 Vite。三个页面使用单文件组件，界面风格和记忆操作沿用原版本，会话改为服务端 SQLite 持久化；个人助手不显示额外的顶部标题区域。
+采用 Vue 3 Composition API、Vue Router 和 Vite。五个页面使用单文件组件，界面风格和记忆操作沿用原版本，会话由服务端 SQLite 持久化；个人助手不显示额外的顶部标题区域。
 
 ## 环境
 
@@ -43,9 +43,15 @@ npm --prefix frontend run dev
 
 ## 页面和能力
 
+- `/` 或 `/#/`：产品介绍首页，包含介绍、接入示例与自动播放的记忆演示；示例不向记忆库写入数据。点击「进入工作台」前不请求工作台 API。
+
 - `/#/overview`：记忆统计、类型/状态分布、最近活动、SQLite 存储与模块配置。
 - `/#/assistant`：新建/切换会话、记忆检索、证据引用、手动保存消息。Enter 发送，Shift+Enter 换行。
 - `/#/memories`：类型/状态/关键词筛选、分页、详情、添加/删除和保留度检查。
+- `/#/evolution`：一次自然语言输入完成提取、选择性编码、新旧比较、巩固决策和真实存储结果展示。
+- `/#/install`：Python、HTTP 和本地 Agent 插件安装与接入步骤。
+
+记忆详情显示逐条来源、历史来源缺失提示和关联/新旧对照，支持手机端。助手引用的「查看记忆与来源」打开 `/#/memories?record=记录ID`；来源内的链接打开 `/#/assistant?thread=会话ID&message=消息ID` 并高亮原消息。来源会话可单独读取，不受最近 100 个会话列表限制；会话被删除时提示无法打开。旧记录缺少消息 ID 时只能定位到会话，缺少会话 ID 时只展示已知内容。
 
 旧链接 `/#overview`、`/#assistant`、`/#memories` 会自动转换成 Vue Router 地址。
 

@@ -142,6 +142,7 @@ class ConversationAgent:
                         str(user_message.content),
                         extraction,
                         state["thread_id"],
+                        user_message.id,
                     )
                     status = "processed" if results else "no_new_memory"
                 except Exception as error:  # noqa: BLE001 -- preserve the successful answer
@@ -227,6 +228,7 @@ class ConversationAgent:
                         if isinstance(message, HumanMessage)
                         else "assistant",
                         "text": message.content,
+                        "id": message.id,
                         "refs": data.get("references", []),
                         "memory_results": data.get("memory_results", []),
                         "memory_status": data.get("memory_status", ""),

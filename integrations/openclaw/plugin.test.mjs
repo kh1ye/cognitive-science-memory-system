@@ -33,6 +33,11 @@ test('round trips with the real temporary API when supplied', {skip:!process.env
   assert.equal(write.details.decision,'WRITE_CURRENT');
   const found=await tools[0].execute('2',{query:'Python'});
   assert.equal(found.details.results[0].source,'openclaw_plugin');
+  for (const memory_type of ['episodic','semantic','procedural']) {
+    const saved=await tools[1].execute('typed',{content:`${memory_type} from OpenClaw`,memory_type});
+    assert.equal(saved.details.memory.memory_type,memory_type);
+  }
+  assert.equal((await tools[1].execute('bad-type',{content:'invalid',memory_type:'working'})).isError,true);
   const blocked=await tools[1].execute('3',{content:'敏感内容',sensitive:true});
   assert.equal(blocked.details.decision,'DROP');
   const optout=await tools[1].execute('4',{content:'不要记住我的偏好'});

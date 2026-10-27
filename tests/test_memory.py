@@ -55,6 +55,28 @@ class MemoryTests(unittest.TestCase):
         )
         self.assertEqual(result["decision"], "KEEP_SESSION_ONLY")
         self.assertEqual(result["memory"]["state_role"], "working")
+        self.assertEqual(result["memory"]["memory_type"], "semantic")
+
+    def test_three_content_types_are_independent_of_working_state(self):
+        for memory_type in ("episodic", "semantic", "procedural"):
+            with self.subTest(memory_type=memory_type):
+                result = self.add(
+                    content=f"低分内容 {memory_type}", memory_type=memory_type,
+                    memory_key="", memory_value="", tags=["noise"],
+                    importance=0.1, confidence=0.2,
+                )
+                self.assertEqual(result["memory"]["memory_type"], memory_type)
+                self.assertEqual(result["memory"]["state_role"], "working")
+
+    def test_invalid_content_type_is_rejected_without_side_effects(self):
+        self.add()
+        before = self.service.list_memories(self.user)
+        audit = self.service.list_audit(self.user)
+        for value in ("working", "unknown"):
+            with self.subTest(value=value), self.assertRaisesRegex(ValueError, "memory_type"):
+                self.add(memory_type=value)
+        self.assertEqual(self.service.list_memories(self.user), before)
+        self.assertEqual(self.service.list_audit(self.user), audit)
 
     def test_single_conflict_is_candidate_and_repeated_conflict_consolidates(self):
         original = self.add()
@@ -92,6 +114,38 @@ class MemoryTests(unittest.TestCase):
         self.assertEqual(len(python_history), 1)
         self.assertEqual(python_history[0]["id"], original["memory"]["id"])
         self.assertEqual(len(second_conflict["support_ids"]), 2)
+
+    def test_alias_keys_share_one_preference_state_machine(self):
+        tea = self.add(
+            content="我喜欢喝茶。",
+            memory_key="beverage_preference",
+            memory_value="喜欢喝茶",
+        )
+        coffee_candidate = self.add(
+            content="我现在更喜欢喝咖啡。",
+            memory_key="preferred_beverage",
+            memory_value="喜欢喝咖啡",
+        )
+        coffee_current = self.add(
+            content="我目前最喜欢喝咖啡。",
+            memory_key="favorite_drink",
+            memory_value="咖啡",
+        )
+
+        self.assertEqual(tea["memory"]["memory_key"], "preferred_beverage")
+        self.assertEqual(coffee_candidate["decision"], "CANDIDATE")
+        self.assertEqual(coffee_current["decision"], "CONSOLIDATED")
+        records = self.service.list_memories(self.user, include_archived=True)
+        current = [row for row in records if row["state_role"] == "current"]
+        history = [row for row in records if row["state_role"] == "history"]
+        self.assertEqual(
+            [(row["memory_key"], row["memory_value"]) for row in current],
+            [("preferred_beverage", "咖啡")],
+        )
+        self.assertEqual(
+            [(row["memory_key"], row["memory_value"]) for row in history],
+            [("preferred_beverage", "茶")],
+        )
 
     def test_search_prefers_current_over_history(self):
         self.test_single_conflict_is_candidate_and_repeated_conflict_consolidates()

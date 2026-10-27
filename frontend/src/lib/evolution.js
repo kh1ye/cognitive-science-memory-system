@@ -2,8 +2,9 @@ import { roles } from "./format";
 
 export function decisionSummary(trace) {
   const decision = trace.result.decision;
+  if (decision === "UNCHANGED") return "该来源事件已处理，本次没有重复写入或增加证据。";
   if (decision === "CANDIDATE")
-    return "发现新的不一致证据，已保存为候选；原有当前记忆暂时保留。";
+    return trace.result.reason === "awaiting_clear_topic_value" ? "同主题输入的取值尚不明确，已暂存候选；原有当前记忆保留。" : "发现新的不一致证据，已保存为候选；原有当前记忆暂时保留。";
   if (decision === "CONSOLIDATED")
     return "新证据达到巩固条件，新记忆成为当前；旧记忆已转为历史。";
   if (decision === "REINFORCED")
@@ -65,6 +66,7 @@ export function metricExplanation(field, trace) {
   }
   if (field.label === "写入门槛") return "进入长期记忆处理的最低写入分数，不代表巩固条件已满足。";
   if (field.label === "预测误差") {
+    if (valueFor("取值明确变化")) return "新旧结构化取值明确不同，已按取值变化进入冲突处理；仍需满足证据数量和一致性，不虚增预测误差分数。";
     const threshold = config.cpe_commit_threshold ?? gate.commit_threshold ?? valueFor("巩固误差门槛");
     return threshold == null
       ? "表示本次新旧信息的差异程度，不是模型回答错误的概率。"
@@ -85,8 +87,9 @@ export function metricExplanation(field, trace) {
     任务相关性: "反映与当前任务目标的相关程度；未提供目标时使用默认值 0.5。",
     偏好强度: "由同主题记录数量与偏好标签共同影响，是规则分数。",
     注意偏向: "综合显著性、任务相关性和偏好强度，用于注意力调制。",
-    巩固误差门槛: "需要与最低证据数量、一致性门槛同时满足。",
+    巩固误差门槛: "无明确取值变化时使用的误差要求；明确取值变化可作为另一依据，证据数量和一致性仍须达标。",
     最低证据数量: "需要后续真实输入提供证据，系统不会自动生成确认。",
+    取值明确变化: "明确的新旧取值差异可以触发冲突处理；单次输入仍不能直接替换当前记忆。",
     一致性门槛: "只有足够且一致的证据，才能支持更新当前记忆。",
     决策代码: "原记忆引擎返回的实际分支标识。",
     原因代码: "该分支的实际触发原因；不代表额外执行了模型推理。",
