@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import LandingView from "./views/LandingView.vue";
 import InstallView from "./views/InstallView.vue";
 import OverviewView from "./views/OverviewView.vue";
 import AssistantView from "./views/AssistantView.vue";
@@ -12,7 +13,7 @@ export default createRouter({
   history: createWebHashHistory(),
   routes: [
     { path: "/install", name: "install", component: InstallView, meta: { title: "安装与接入" } },
-    { path: "/", redirect: "/overview" },
+    { path: "/", name: "home", component: LandingView, meta: { title: "认知记忆系统", landing: true } },
     {
       path: "/overview",
       name: "overview",

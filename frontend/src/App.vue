@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, onUnmounted, provide, ref, watch } from "vue";
+import { computed, onUnmounted, provide, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import AppIcon from "./components/AppIcon.vue";
 import AppDialog from "./components/AppDialog.vue";
@@ -40,7 +40,7 @@ function submitProfile() {
   switchUser(userInput.value);
   profileOpen.value = false;
 }
-onMounted(initialize);
+watch(() => Boolean(route.name && !route.meta.landing), (workspaceVisible) => { if (workspaceVisible) initialize(); }, { immediate: true });
 onUnmounted(dispose);
 const navigation = [
   { name: "install", title: "安装与接入", icon: "layers" },
@@ -51,7 +51,8 @@ const navigation = [
 ];
 </script>
 <template>
-  <div class="layout" :class="{ 'sidebar-collapsed': sidebarCollapsed }">
+  <RouterView v-if="route.meta.landing" />
+  <div v-else class="layout" :class="{ 'sidebar-collapsed': sidebarCollapsed }">
     <aside id="workspace-sidebar" class="sidebar">
       <RouterLink class="brand sidebar-link" to="/overview" aria-label="记忆工作台首页" :data-tooltip="sidebarCollapsed ? '记忆工作台首页' : null"
         ><span class="brand-mark">m<span /></span
@@ -77,6 +78,7 @@ const navigation = [
         <p>保留重要的事，让每次对话有迹可循。</p>
       </div>
       <div class="sidebar-bottom">
+        <RouterLink to="/" class="sidebar-link" aria-label="产品首页" :data-tooltip="sidebarCollapsed ? '产品首页' : null"><AppIcon name="layers" /><span class="nav-name">产品首页</span></RouterLink>
         <a class="sidebar-link" href="/docs" target="_blank" rel="noopener" aria-label="接口文档（新窗口）" :data-tooltip="sidebarCollapsed ? '接口文档' : null"
           ><AppIcon name="book" /><span class="nav-name">接口文档</span><AppIcon name="external" /></a
         ><button class="profile sidebar-link" :aria-label="`切换用户空间：${state.user}`" :data-tooltip="sidebarCollapsed ? `切换用户空间：${state.user}` : null" :disabled="state.sending" @click="openProfile">
