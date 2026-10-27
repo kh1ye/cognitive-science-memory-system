@@ -1,0 +1,996 @@
+{
+  "semantic_assertions": [
+    {
+      "sensitive": false,
+      "evidence_text": "我平时最喜欢喝乌龙茶。",
+      "subject": "qa-functional-20261027",
+      "predicate": "最喜欢喝的茶/饮品偏好",
+      "value": "乌龙茶",
+      "scope": "user",
+      "valid_from": null,
+      "valid_to": null,
+      "epistemic_status": "explicit",
+      "status": "current",
+      "confidence": 0.9,
+      "cardinality": "single",
+      "correction": false,
+      "source_refs": [
+        "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+      ],
+      "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+      "evidence_ids": [
+        "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+      ],
+      "version": 1,
+      "recorded_at": "2026-10-27T16:00:22+00:00",
+      "supersedes_ids": []
+    },
+    {
+      "sensitive": false,
+      "evidence_text": "以后默认用中文回复我。",
+      "subject": "user",
+      "predicate": "回复语言偏好",
+      "value": "中文",
+      "scope": "user",
+      "valid_from": null,
+      "valid_to": null,
+      "epistemic_status": "explicit",
+      "status": "current",
+      "confidence": 0.95,
+      "cardinality": "single",
+      "correction": false,
+      "source_refs": [
+        "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+      ],
+      "id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+      "evidence_ids": [
+        "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+      ],
+      "version": 1,
+      "recorded_at": "2026-10-27T16:04:40+00:00",
+      "supersedes_ids": []
+    }
+  ],
+  "episode_events": [
+    {
+      "observation": "昨天我和同事在公园打了一小时羽毛球。",
+      "actor": "user",
+      "event_kind": "input",
+      "occurred_at": "昨天",
+      "action_ref": null,
+      "outcome": "unknown",
+      "parent_event_id": null,
+      "corrects": null,
+      "source_refs": [
+        "ee119511d3c680a6a471919179fa141eb67cdc0cf6d687ef1527a686ca7d346a"
+      ],
+      "id": "bba9083aae3d53d0f401e159970caf49f2ba74d6f75060bcce6ef9aa79c35672",
+      "episode_id": "0bc4a3962dc453f76d365e732973e8ded9c1e308945f0f77bb39754ef466893f",
+      "thread_id": "8d0c44ab-a01e-4365-844e-a0ea53ebc514",
+      "task_id": "8d0c44ab-a01e-4365-844e-a0ea53ebc514",
+      "sequence_no": 1,
+      "recorded_at": "2026-10-27T16:04:08+00:00"
+    },
+    {
+      "observation": "Procedure execution",
+      "actor": "system",
+      "event_kind": "result",
+      "occurred_at": null,
+      "action_ref": "089a07f6da7b8370041554ea05d224b7d86f303a493d9c458790859f93eab2dd",
+      "outcome": "succeeded",
+      "parent_event_id": null,
+      "corrects": null,
+      "source_refs": [
+        "ca9f7de205c952b6427d701d6032178a3d284f6da068afd7688b3d3d463208b8"
+      ],
+      "id": "42422bb921745221562a4cacf5376817929165302e9613f323101e7c6f7b8da9",
+      "episode_id": "1850dbaa7c95d7470fdf8b5d5c7ce322d2b45a7287f05569d2462ca3b2de662b",
+      "thread_id": "manual",
+      "task_id": "task",
+      "sequence_no": 1,
+      "recorded_at": "2026-10-27T16:07:47+00:00"
+    }
+  ],
+  "procedure_versions": [
+    {
+      "id": "e8e64107769429b3a127ee734de46bb2ade21d5aedfb5e9fb709444a639471e7",
+      "procedure_id": "7d74132f3457f2c35c3e64aa0479140c91238c86259f1de71ed42746f617fc2d",
+      "version": "MiniMax-M3[1m]",
+      "kind": "reasoning",
+      "description": "Hosted model configuration; provider version may be an alias",
+      "implementation_ref": "hosted-model",
+      "provider": "anthropic",
+      "model": "MiniMax-M3[1m]",
+      "status": "configured",
+      "validation_refs": [],
+      "source_refs": [],
+      "weights_managed": false
+    },
+    {
+      "description": "text.normalize",
+      "kind": "reasoning",
+      "implementation_ref": "text.normalize",
+      "source_refs": [
+        "b607d3b8f26585d3ae56105cd3d65cfc52b873cadf0f9dd25c1efa21b7b69bce"
+      ],
+      "id": "2dce71c7fa608bad8285b613e28181fea1013d72c39ce65328e1f02f96fb8c14",
+      "procedure_id": "dc29ace8bc4fe80fc47804b51c1120a89a90811d0c9b4afc544a485d72411187",
+      "scope": "user",
+      "version": 1,
+      "status": "enabled",
+      "implementation_hash": "dab932fdc4e9e7a4682f57f9345c2e61fb2f31b5cad4443ec86afc61873787b9",
+      "validation_refs": [
+        "code-owned-allowlist-v1"
+      ],
+      "created_at": "2026-10-27T16:07:36+00:00",
+      "preconditions": [],
+      "postconditions": [],
+      "input_schema": {
+        "properties": {
+          "text": {
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "title": "TextInput",
+        "type": "object"
+      },
+      "output_schema": {
+        "type": "object"
+      }
+    },
+    {
+      "description": "knowledge.retrieve",
+      "kind": "retrieval",
+      "implementation_ref": "knowledge.retrieve",
+      "source_refs": [
+        "0e1f6fd008a3b50431b0a982ab21622fae666b31091c4ccc2ce2e8d1488bd857"
+      ],
+      "id": "15e361bf0aba5b5a76a4218b3f7ddea611ebc40d306d0a58a58f575281068d6a",
+      "procedure_id": "58b7fbd5a9be8f320aa2213ac8425ff06de9a3b815b8c5b6c5714388f0549b55",
+      "scope": "user",
+      "version": 1,
+      "status": "enabled",
+      "implementation_hash": "a348ff9affc1f105216acfb9a08817ccc102f6b1db840a2a66e86c8a5b57ad37",
+      "validation_refs": [
+        "code-owned-allowlist-v1"
+      ],
+      "created_at": "2026-10-27T16:07:36+00:00",
+      "preconditions": [],
+      "postconditions": [],
+      "input_schema": {
+        "properties": {
+          "query": {
+            "title": "Query",
+            "type": "string"
+          },
+          "scope": {
+            "default": "user",
+            "title": "Scope",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "title": "QueryInput",
+        "type": "object"
+      },
+      "output_schema": {
+        "type": "object"
+      }
+    },
+    {
+      "description": "knowledge.learn",
+      "kind": "learning",
+      "implementation_ref": "knowledge.learn",
+      "source_refs": [
+        "6a14e643bc42775787527a924cf9505d61acb8d0a64cc346d59fdff5fea443f8"
+      ],
+      "id": "f19f0f3632a4c0e3e8b33f643834aaecbb7aff4f1e70d0f119a507172a0d1cd1",
+      "procedure_id": "334747c60697b31532d253fa2487159cea08b1c11f61ef442f566e635988c843",
+      "scope": "user",
+      "version": 1,
+      "status": "enabled",
+      "implementation_hash": "36b1217bfe175308144b3c547d0e7c911db205dfa40ba82f0d4d4ad7d7c8cd06",
+      "validation_refs": [
+        "code-owned-allowlist-v1"
+      ],
+      "created_at": "2026-10-27T16:07:36+00:00",
+      "preconditions": [],
+      "postconditions": [],
+      "input_schema": {
+        "$defs": {
+          "SemanticAssertion": {
+            "additionalProperties": false,
+            "properties": {
+              "sensitive": {
+                "default": false,
+                "title": "Sensitive",
+                "type": "boolean"
+              },
+              "evidence_text": {
+                "minLength": 1,
+                "title": "Evidence Text",
+                "type": "string"
+              },
+              "subject": {
+                "minLength": 1,
+                "title": "Subject",
+                "type": "string"
+              },
+              "predicate": {
+                "minLength": 1,
+                "title": "Predicate",
+                "type": "string"
+              },
+              "value": {
+                "title": "Value"
+              },
+              "scope": {
+                "default": "user",
+                "title": "Scope",
+                "type": "string"
+              },
+              "valid_from": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Valid From"
+              },
+              "valid_to": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Valid To"
+              },
+              "epistemic_status": {
+                "default": "explicit",
+                "enum": [
+                  "explicit",
+                  "supported",
+                  "inferred",
+                  "legacy_unverified"
+                ],
+                "title": "Epistemic Status",
+                "type": "string"
+              },
+              "status": {
+                "default": "current",
+                "enum": [
+                  "current",
+                  "disputed",
+                  "history",
+                  "candidate",
+                  "legacy_unverified"
+                ],
+                "title": "Status",
+                "type": "string"
+              },
+              "confidence": {
+                "default": 0.8,
+                "maximum": 1,
+                "minimum": 0,
+                "title": "Confidence",
+                "type": "number"
+              },
+              "cardinality": {
+                "default": "single",
+                "enum": [
+                  "single",
+                  "multiple"
+                ],
+                "title": "Cardinality",
+                "type": "string"
+              },
+              "correction": {
+                "default": false,
+                "title": "Correction",
+                "type": "boolean"
+              },
+              "source_refs": {
+                "items": {
+                  "type": "string"
+                },
+                "title": "Source Refs",
+                "type": "array"
+              }
+            },
+            "required": [
+              "evidence_text",
+              "subject",
+              "predicate",
+              "value"
+            ],
+            "title": "SemanticAssertion",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "assertion": {
+            "$ref": "#/$defs/SemanticAssertion"
+          }
+        },
+        "required": [
+          "assertion"
+        ],
+        "title": "KnowledgeInput",
+        "type": "object"
+      },
+      "output_schema": {
+        "type": "object"
+      }
+    },
+    {
+      "description": "text.emit",
+      "kind": "grounding",
+      "implementation_ref": "text.emit",
+      "source_refs": [
+        "29dc4d3cc4224dd43cdd9de06ba4bb9a97d17c193f7bf7bbb1417c8703ac504d"
+      ],
+      "id": "799b6d06edf567f01577a53db9ffa6bed47f1a1378de05b98a51d6371da2894c",
+      "procedure_id": "21bede51609522bc1fd603ba73d2513ea8a3e786ed671b5834730785b5c9a20c",
+      "scope": "user",
+      "version": 1,
+      "status": "enabled",
+      "implementation_hash": "0c1032ecb0f14cc207ba25f0591e382da0779aa6c88d08502546ceea6fca2b2c",
+      "validation_refs": [
+        "code-owned-allowlist-v1"
+      ],
+      "created_at": "2026-10-27T16:07:36+00:00",
+      "preconditions": [],
+      "postconditions": [],
+      "input_schema": {
+        "properties": {
+          "text": {
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "title": "TextInput",
+        "type": "object"
+      },
+      "output_schema": {
+        "type": "object"
+      }
+    },
+    {
+      "description": "decision.next",
+      "kind": "decision",
+      "implementation_ref": "decision.next",
+      "source_refs": [
+        "ca2ead0f28ce78d2c40859e3d525e645b5103c2fa540acb110c03635a686e09e"
+      ],
+      "id": "62c50291bef34bdb837735f1ac7d2a0fb979983f7c8e82cf62bf70fb2b2fc7d0",
+      "procedure_id": "9c15f85c0ac645026eaff25690f598ae7dad5485a32bab27bb5a1a1bffd4842e",
+      "scope": "user",
+      "version": 1,
+      "status": "enabled",
+      "implementation_hash": "33a72b9a6a9536384306f391a10e98b4ca29317bdb556b924af5d373d99bedc6",
+      "validation_refs": [
+        "code-owned-allowlist-v1"
+      ],
+      "created_at": "2026-10-27T16:07:36+00:00",
+      "preconditions": [],
+      "postconditions": [],
+      "input_schema": {
+        "properties": {
+          "completed": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Completed",
+            "type": "array"
+          }
+        },
+        "title": "DecisionInput",
+        "type": "object"
+      },
+      "output_schema": {
+        "type": "object"
+      }
+    }
+  ],
+  "procedure_runs": [
+    {
+      "id": "089a07f6da7b8370041554ea05d224b7d86f303a493d9c458790859f93eab2dd",
+      "version_id": "2dce71c7fa608bad8285b613e28181fea1013d72c39ce65328e1f02f96fb8c14",
+      "version": 1,
+      "procedure_id": "dc29ace8bc4fe80fc47804b51c1120a89a90811d0c9b4afc544a485d72411187",
+      "parameter_hash": "21829a2c4e54b293f6beea227869de499ae592c7e0fe8f50862148c4cea52fcd",
+      "status": "succeeded",
+      "result": {
+        "text": "hello world"
+      },
+      "error": null,
+      "source_refs": [
+        "ca9f7de205c952b6427d701d6032178a3d284f6da068afd7688b3d3d463208b8"
+      ],
+      "recorded_at": "2026-10-27T16:07:47+00:00"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "0b780922-edb8-4a5d-8a70-a89d4e27bfba",
+      "title": "我喜欢用什么编程语言写脚本？",
+      "messages": [
+        {
+          "role": "user",
+          "text": "我喜欢用什么编程语言写脚本？",
+          "refs": [],
+          "memory_results": [],
+          "memory_status": "",
+          "warnings": []
+        },
+        {
+          "role": "assistant",
+          "text": "我这边暂时没有找到关于你常用脚��语言的记录——现有的记忆里只提到你平时喜欢喝乌龙茶，以及默认用中文回复我这两点，跟编程语言无关。\n\n方便的话告诉我一下，你写脚本主要用哪种语言（比如 Python、Shell/Bash、JavaScript、Go、Rust 等）？你说一次我就能记住，以后再问就不用重复讲了。",
+          "refs": [
+            {
+              "module": "semantic",
+              "memory_id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+              "version": 1,
+              "source_refs": [
+                "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+              ],
+              "purpose": "我喜欢用什么编程语言写脚本？",
+              "record": {
+                "sensitive": false,
+                "evidence_text": "我平时最喜欢喝乌龙茶。",
+                "subject": "qa-functional-20261027",
+                "predicate": "最喜欢喝的茶/饮品偏好",
+                "value": "乌龙茶",
+                "scope": "user",
+                "valid_from": null,
+                "valid_to": null,
+                "epistemic_status": "explicit",
+                "status": "current",
+                "confidence": 0.9,
+                "cardinality": "single",
+                "correction": false,
+                "source_refs": [
+                  "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+                ],
+                "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+                "evidence_ids": [
+                  "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+                ],
+                "version": 1,
+                "recorded_at": "2026-10-27T16:00:22+00:00",
+                "supersedes_ids": []
+              },
+              "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+              "memory_type": "semantic",
+              "state_role": "current",
+              "content": "我平时最喜欢喝乌龙茶。"
+            },
+            {
+              "module": "semantic",
+              "memory_id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+              "version": 1,
+              "source_refs": [
+                "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+              ],
+              "purpose": "我喜欢用什么编程语言写脚本？",
+              "record": {
+                "sensitive": false,
+                "evidence_text": "以后默认用中文回复我。",
+                "subject": "user",
+                "predicate": "回复语言偏好",
+                "value": "中文",
+                "scope": "user",
+                "valid_from": null,
+                "valid_to": null,
+                "epistemic_status": "explicit",
+                "status": "current",
+                "confidence": 0.95,
+                "cardinality": "single",
+                "correction": false,
+                "source_refs": [
+                  "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+                ],
+                "id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+                "evidence_ids": [
+                  "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+                ],
+                "version": 1,
+                "recorded_at": "2026-10-27T16:04:40+00:00",
+                "supersedes_ids": []
+              },
+              "id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+              "memory_type": "semantic",
+              "state_role": "current",
+              "content": "以后默认用中文回复我。"
+            }
+          ],
+          "memory_results": [],
+          "memory_status": "no_new_memory",
+          "warnings": []
+        }
+      ],
+      "updated_at": 1793117500.684293,
+      "persisted": true
+    },
+    {
+      "id": "8d0c44ab-a01e-4365-844e-a0ea53ebc514",
+      "title": "我平时最喜欢喝什么茶？",
+      "messages": [
+        {
+          "role": "user",
+          "text": "我平时最喜欢喝什么茶？",
+          "refs": [],
+          "memory_results": [],
+          "memory_status": "",
+          "warnings": []
+        },
+        {
+          "role": "assistant",
+          "text": "你平时最喜欢喝乌龙茶。",
+          "refs": [
+            {
+              "module": "semantic",
+              "memory_id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+              "version": 1,
+              "source_refs": [
+                "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+              ],
+              "purpose": "我平时最喜欢喝什么茶？",
+              "record": {
+                "sensitive": false,
+                "evidence_text": "我平时最喜欢喝乌龙茶。",
+                "subject": "qa-functional-20261027",
+                "predicate": "最喜欢喝的茶/饮品偏好",
+                "value": "乌龙茶",
+                "scope": "user",
+                "valid_from": null,
+                "valid_to": null,
+                "epistemic_status": "explicit",
+                "status": "current",
+                "confidence": 0.9,
+                "cardinality": "single",
+                "correction": false,
+                "source_refs": [
+                  "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+                ],
+                "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+                "evidence_ids": [
+                  "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+                ],
+                "version": 1,
+                "recorded_at": "2026-10-27T16:00:22+00:00",
+                "supersedes_ids": []
+              },
+              "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+              "memory_type": "semantic",
+              "state_role": "current",
+              "content": "我平时最喜欢喝乌龙茶。"
+            }
+          ],
+          "memory_results": [],
+          "memory_status": "no_new_memory",
+          "warnings": []
+        },
+        {
+          "role": "user",
+          "text": "昨天我和同事在公园打了一小时羽毛球。",
+          "refs": [],
+          "memory_results": [],
+          "memory_status": "",
+          "warnings": []
+        },
+        {
+          "role": "assistant",
+          "text": "听起来不错！打了一小时羽毛球挺消耗体力的，记得及时补水、拉伸放松。",
+          "refs": [
+            {
+              "module": "semantic",
+              "memory_id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+              "version": 1,
+              "source_refs": [
+                "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+              ],
+              "purpose": "昨天我和同事在公园打了一小时羽毛球。",
+              "record": {
+                "sensitive": false,
+                "evidence_text": "我平时最喜欢喝乌龙茶。",
+                "subject": "qa-functional-20261027",
+                "predicate": "最喜欢喝的茶/饮品偏好",
+                "value": "乌龙茶",
+                "scope": "user",
+                "valid_from": null,
+                "valid_to": null,
+                "epistemic_status": "explicit",
+                "status": "current",
+                "confidence": 0.9,
+                "cardinality": "single",
+                "correction": false,
+                "source_refs": [
+                  "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+                ],
+                "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+                "evidence_ids": [
+                  "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+                ],
+                "version": 1,
+                "recorded_at": "2026-10-27T16:00:22+00:00",
+                "supersedes_ids": []
+              },
+              "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+              "memory_type": "semantic",
+              "state_role": "current",
+              "content": "我平时最喜欢喝乌龙茶。"
+            }
+          ],
+          "memory_results": [
+            {
+              "id": "d20c134cb645159cc7d63b25c02984e5fd65f43d231e8216e218b40dac6e0644",
+              "idempotency_key": "d20c134cb645159cc7d63b25c02984e5fd65f43d231e8216e218b40dac6e0644",
+              "target_module": "episodic",
+              "source_refs": [
+                "ee119511d3c680a6a471919179fa141eb67cdc0cf6d687ef1527a686ca7d346a"
+              ],
+              "status": "succeeded",
+              "result_refs": [
+                "bba9083aae3d53d0f401e159970caf49f2ba74d6f75060bcce6ef9aa79c35672"
+              ],
+              "error": null
+            }
+          ],
+          "memory_status": "processed",
+          "warnings": []
+        },
+        {
+          "role": "user",
+          "text": "以后默认用中文回复我。",
+          "refs": [],
+          "memory_results": [],
+          "memory_status": "",
+          "warnings": []
+        },
+        {
+          "role": "assistant",
+          "text": "好的，以后我会默认用中文回复你。",
+          "refs": [
+            {
+              "module": "semantic",
+              "memory_id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+              "version": 1,
+              "source_refs": [
+                "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+              ],
+              "purpose": "以后默认用中文回复我。",
+              "record": {
+                "sensitive": false,
+                "evidence_text": "我平时最喜欢喝乌龙茶。",
+                "subject": "qa-functional-20261027",
+                "predicate": "最喜欢喝的茶/饮品偏好",
+                "value": "乌龙茶",
+                "scope": "user",
+                "valid_from": null,
+                "valid_to": null,
+                "epistemic_status": "explicit",
+                "status": "current",
+                "confidence": 0.9,
+                "cardinality": "single",
+                "correction": false,
+                "source_refs": [
+                  "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+                ],
+                "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+                "evidence_ids": [
+                  "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+                ],
+                "version": 1,
+                "recorded_at": "2026-10-27T16:00:22+00:00",
+                "supersedes_ids": []
+              },
+              "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+              "memory_type": "semantic",
+              "state_role": "current",
+              "content": "我平时最喜欢喝乌龙茶。"
+            }
+          ],
+          "memory_results": [
+            {
+              "id": "f496aa315c0803fb66d8fda89c1d0c3347c5688b27ba7f1e30df1367884a1158",
+              "idempotency_key": "f496aa315c0803fb66d8fda89c1d0c3347c5688b27ba7f1e30df1367884a1158",
+              "target_module": "semantic",
+              "source_refs": [
+                "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+              ],
+              "status": "succeeded",
+              "result_refs": [
+                "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b"
+              ],
+              "error": null
+            }
+          ],
+          "memory_status": "processed",
+          "warnings": []
+        },
+        {
+          "role": "user",
+          "text": "这是一条自动记忆关闭测试：我最喜欢的水果是杨桃。",
+          "refs": [],
+          "memory_results": [],
+          "memory_status": "",
+          "warnings": []
+        },
+        {
+          "role": "assistant",
+          "text": "好的，我记住了：你最喜欢的水果是杨桃。",
+          "refs": [
+            {
+              "module": "semantic",
+              "memory_id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+              "version": 1,
+              "source_refs": [
+                "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+              ],
+              "purpose": "这是一条自动记忆关闭测试：我最喜欢的水果是杨桃。",
+              "record": {
+                "sensitive": false,
+                "evidence_text": "我平时最喜欢喝乌龙茶。",
+                "subject": "qa-functional-20261027",
+                "predicate": "最喜欢喝的茶/饮品偏好",
+                "value": "乌龙茶",
+                "scope": "user",
+                "valid_from": null,
+                "valid_to": null,
+                "epistemic_status": "explicit",
+                "status": "current",
+                "confidence": 0.9,
+                "cardinality": "single",
+                "correction": false,
+                "source_refs": [
+                  "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+                ],
+                "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+                "evidence_ids": [
+                  "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+                ],
+                "version": 1,
+                "recorded_at": "2026-10-27T16:00:22+00:00",
+                "supersedes_ids": []
+              },
+              "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+              "memory_type": "semantic",
+              "state_role": "current",
+              "content": "我平时最喜欢喝乌龙茶。"
+            },
+            {
+              "module": "semantic",
+              "memory_id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+              "version": 1,
+              "source_refs": [
+                "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+              ],
+              "purpose": "这是一条自动记忆关闭测试：我最喜欢的水果是杨桃。",
+              "record": {
+                "sensitive": false,
+                "evidence_text": "以后默认用中文回复我。",
+                "subject": "user",
+                "predicate": "回复语言偏好",
+                "value": "中文",
+                "scope": "user",
+                "valid_from": null,
+                "valid_to": null,
+                "epistemic_status": "explicit",
+                "status": "current",
+                "confidence": 0.95,
+                "cardinality": "single",
+                "correction": false,
+                "source_refs": [
+                  "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+                ],
+                "id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+                "evidence_ids": [
+                  "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+                ],
+                "version": 1,
+                "recorded_at": "2026-10-27T16:04:40+00:00",
+                "supersedes_ids": []
+              },
+              "id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+              "memory_type": "semantic",
+              "state_role": "current",
+              "content": "以后默认用中文回复我。"
+            }
+          ],
+          "memory_results": [],
+          "memory_status": "disabled",
+          "warnings": []
+        }
+      ],
+      "updated_at": 1793117139.101274,
+      "persisted": true
+    },
+    {
+      "id": "88c7dcab-edff-4b5c-8b9b-a9712998b5fb",
+      "title": "以后请用中文回复我。我平时最喜欢喝乌龙茶",
+      "messages": [
+        {
+          "role": "user",
+          "text": "以后请用中文回复我。我平时最喜欢喝乌龙茶。",
+          "refs": [],
+          "memory_results": [],
+          "memory_status": "",
+          "warnings": []
+        },
+        {
+          "role": "assistant",
+          "text": "好的，以后我会用中文回复你。也记住了，你平时最喜欢喝乌龙茶。",
+          "refs": [],
+          "memory_results": [
+            {
+              "id": "9abf94ec66a2738b14e35e9d68b5e7b59d525b848df4fc1bf7633b472efe837e",
+              "idempotency_key": "9abf94ec66a2738b14e35e9d68b5e7b59d525b848df4fc1bf7633b472efe837e",
+              "target_module": "semantic",
+              "source_refs": [
+                "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+              ],
+              "status": "succeeded",
+              "result_refs": [
+                "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16"
+              ],
+              "error": null
+            }
+          ],
+          "memory_status": "processed",
+          "warnings": []
+        }
+      ],
+      "updated_at": 1793116822.125024,
+      "persisted": true
+    }
+  ],
+  "legacy_memories": [
+    {
+      "id": "c1d1f43f-1800-47e3-aa47-f562b9f5b964",
+      "user_id": "qa-functional-20261027",
+      "content": "我喜欢用 Python 写脚本。",
+      "normalized_content": "我喜欢用 python 写脚本。",
+      "memory_key": "preferred_programming_language",
+      "memory_value": "Python",
+      "memory_type": "semantic",
+      "state_role": "current",
+      "source": "evolution_workbench",
+      "importance": 0.7,
+      "confidence": 0.95,
+      "saliency": 0.45499999999999996,
+      "goal_relevance": 0.5,
+      "preference_strength": 0.7,
+      "attention_bias": 0.5929079904663688,
+      "write_score": 0.649,
+      "prediction_error": 0.0,
+      "evidence_count": 1,
+      "parent_id": null,
+      "is_protected": true,
+      "created_at": "2026-10-27T16:09:46+00:00",
+      "updated_at": "2026-10-27T16:09:46+00:00",
+      "last_accessed_at": null,
+      "tags": [
+        "preference",
+        "programming",
+        "python"
+      ],
+      "support_ids": [],
+      "metadata": {}
+    }
+  ],
+  "overview_after_evolution": {
+    "active_count": 1,
+    "by_role": {
+      "current": 1
+    },
+    "by_type": {
+      "semantic": 1
+    },
+    "audit_count": 2,
+    "config": {
+      "write_threshold": 0.42,
+      "cpe_low_threshold": 0.55,
+      "cpe_commit_threshold": 0.7,
+      "evidence_consistency_threshold": 0.6,
+      "minimum_evidence_count": 2,
+      "retention_threshold": 0.3,
+      "retention_decay": 0.04,
+      "retrieval_lambda_bias": 0.65,
+      "retrieval_delta_context": 0.45
+    },
+    "total_count": 1,
+    "recent_activity": [
+      {
+        "id": "158ca98d-c9bb-4fc3-97fe-f619595933c8",
+        "user_id": "qa-functional-20261027",
+        "event_type": "RETRIEVE",
+        "memory_id": null,
+        "message": "完成注意力调制检索，返回 1 条证据。",
+        "created_at": "2026-10-27T16:12:16+00:00",
+        "details": {
+          "query": "编程语言 Python",
+          "result_ids": [
+            "c1d1f43f-1800-47e3-aa47-f562b9f5b964"
+          ]
+        },
+        "related_memory": null
+      },
+      {
+        "id": "879f239e-1f03-41b2-a85a-290a08809045",
+        "user_id": "qa-functional-20261027",
+        "event_type": "WRITE_CURRENT",
+        "memory_id": "c1d1f43f-1800-47e3-aa47-f562b9f5b964",
+        "message": "通过选择性编码门，写入当前长期记忆。",
+        "created_at": "2026-10-27T16:09:46+00:00",
+        "details": {
+          "write_score": 0.649
+        },
+        "related_memory": {
+          "id": "c1d1f43f-1800-47e3-aa47-f562b9f5b964",
+          "content": "我喜欢用 Python 写脚本。",
+          "memory_type": "semantic",
+          "state_role": "current"
+        }
+      }
+    ],
+    "storage": {
+      "engine": "SQLite",
+      "mode": "file",
+      "database_bytes": 258048,
+      "wal_bytes": 4132392,
+      "allocated_bytes": 270336,
+      "scope": "database",
+      "status": "ready"
+    },
+    "modules": [
+      {
+        "name": "选择性编码",
+        "description": "隐私判断与价值筛选",
+        "status": "ready"
+      },
+      {
+        "name": "证据巩固",
+        "description": "冲突缓冲与状态更新",
+        "status": "ready"
+      },
+      {
+        "name": "记忆检索",
+        "description": "词法召回与注意力排序",
+        "status": "ready"
+      },
+      {
+        "name": "遗忘管理",
+        "description": "保留度计算与归档",
+        "status": "ready"
+      },
+      {
+        "name": "语言模型",
+        "description": "LangChain · MiniMax-M3[1m] · 尚未验证连接",
+        "status": "configured"
+      },
+      {
+        "name": "向量模型",
+        "description": "当前版本使用词法召回，尚未实现向量检索",
+        "status": "not_implemented"
+      }
+    ]
+  }
+}

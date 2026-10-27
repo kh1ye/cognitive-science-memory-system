@@ -105,3 +105,57 @@ def extract_memories(model, message):
     )
     response = model.invoke([correction, HumanMessage(content=message)])
     return MemoryExtraction.model_validate(JsonOutputParser().parse(response.text))
+
+
+def _ground_episode_evidence(analysis, source_content):
+    """Accept source spans, not paraphrases; normalize only formatting differences."""
+    from cognitive_memory.provenance import source_span
+
+    episodes = []
+    for episode in analysis.episode_candidates:
+        evidence = source_span(episode.observation, source_content)
+        if evidence is None:
+            raise ValueError("Episode observation must be copied from the source")
+        episodes.append(episode.model_copy(update={"observation": evidence}))
+    return analysis.model_copy(update={"episode_candidates": episodes})
+
+
+def analyze_observation(model, message, *, source_content=None):
+    """Validated multi-target extraction; injectable models support fully offline tests."""
+    from langchain_core.messages import HumanMessage, SystemMessage
+
+    from cognitive_memory.architecture_models import ObservationAnalysis
+
+    from .prompts import OBSERVATION_ANALYSIS_PROMPT
+
+    prompt = OBSERVATION_ANALYSIS_PROMPT
+    from langchain_core.output_parsers import JsonOutputParser
+
+    # The graph supplies the exact observation separately from trusted user metadata.
+    # Source validation must not accept metadata as if it were user evidence.
+    source_content = message if source_content is None else source_content
+    messages = [SystemMessage(content=prompt), HumanMessage(content=message)]
+    try:
+        response = model.with_structured_output(
+            ObservationAnalysis, method="function_calling", include_raw=True
+        ).invoke(messages)
+        if isinstance(response, dict) and "parsed" in response:
+            if response["parsed"] is not None:
+                response = response["parsed"]
+            else:
+                response = JsonOutputParser().parse(response["raw"].text)
+        return _ground_episode_evidence(
+            ObservationAnalysis.model_validate(response), source_content
+        )
+    except Exception:  # noqa: BLE001 -- preserve reply and report extraction/learning failure
+        correction = SystemMessage(
+            content=prompt
+            + "\n上次结构或事件来源校验失败。事件observation必须逐字复制原文连续片段，不能改写或加入元数据。"
+            + "\n只输出符合以下 schema 的 JSON："
+            + json.dumps(ObservationAnalysis.model_json_schema(), ensure_ascii=False)
+        )
+        response = model.invoke([correction, HumanMessage(content=message)])
+        return _ground_episode_evidence(
+            ObservationAnalysis.model_validate(JsonOutputParser().parse(response.text)),
+            source_content,
+        )

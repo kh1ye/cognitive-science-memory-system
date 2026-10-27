@@ -1,5 +1,6 @@
 <script setup>
 import { computed, ref, watch } from "vue";
+import ArchitectureMemory from "../components/ArchitectureMemory.vue";
 import AppDialog from "../components/AppDialog.vue";
 import AppIcon from "../components/AppIcon.vue";
 import { useWorkspace } from "../composables/useWorkspace";
@@ -93,8 +94,9 @@ const detailFields = computed(() => {
     ["主题标识", m.memory_key || "—"],
     ["主题取值", m.memory_value || "—"],
     ["证据数量", m.evidence_count],
-    ["重要程度", Number(m.importance).toFixed(2)],
-    ["写入分数", Number(m.write_score).toFixed(3)],
+    ["重要程度", m.importance == null ? "不适用" : Number(m.importance).toFixed(2)],
+    ["写入分数", m.write_score == null ? "不适用" : Number(m.write_score).toFixed(3)],
+    ["对象状态", m.native_status || "—"],
     ["是否受保护", m.is_protected ? "是" : "否"],
     ["创建时间", formatDate(m.created_at)],
     ["更新时间", formatDate(m.updated_at)],
@@ -130,6 +132,7 @@ function tabKey(event, index) {
 }
 </script>
 <template>
+  <ArchitectureMemory :user="state.user" />
   <div class="page">
     <div class="page-heading">
       <div>
@@ -234,6 +237,7 @@ function tabKey(event, index) {
                 <td>{{ formatDate(memory.updated_at) }}</td>
                 <td>
                   <button
+                    v-if="memory.can_delete !== false"
                     class="icon-button"
                     aria-label="删除记忆"
                     @click="remove(memory.id)"
@@ -318,7 +322,7 @@ function tabKey(event, index) {
               <dt>保护状态</dt>
               <dd>{{ previewMemory.is_protected ? "受保护" : "普通记忆" }}</dd>
             </dl>
-            <div class="preview-score">
+            <div v-if="previewMemory.importance != null" class="preview-score">
               <div>
                 <span>重要程度</span
                 ><b>{{ Math.round(previewMemory.importance * 100) }}%</b>
@@ -333,7 +337,8 @@ function tabKey(event, index) {
                 />
               </div>
             </div>
-            <div v-if="previewMemory.state_role === 'candidate'" class="memory-notice">这是一条候选证据，尚未替代当前记忆。系统会在后续一致证据达到阈值后判断是否巩固。</div>
+            <div v-if="previewMemory.storage_kind === 'typed'" class="memory-notice">此记录来自四类记忆对象。状态为 {{ previewMemory.native_status }}，请在上方任务与来源面板管理来源和程序版本。</div>
+            <div v-else-if="previewMemory.state_role === 'candidate'" class="memory-notice">这是一条候选证据，尚未替代当前记忆。系统会在后续一致证据达到阈值后判断是否巩固。</div>
             <section v-if="related.length" class="memory-relations">
               <h3>关联与新旧对照</h3>
               <p class="subtle">前序版本、支持证据及同主题记录 · 已加载范围</p>
@@ -381,7 +386,7 @@ function tabKey(event, index) {
         此记录由 {{ (detail.support_ids || []).length }} 条候选证据巩固而来。
       </p>
       <div class="dialog-actions">
-        <button class="button danger" @click="remove(detail.id)">
+        <button v-if="detail.can_delete !== false" class="button danger" @click="remove(detail.id)">
           删除记忆</button
         ><button class="button" @click="detail = null">关闭</button>
       </div></template

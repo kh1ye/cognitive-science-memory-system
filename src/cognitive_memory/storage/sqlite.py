@@ -22,10 +22,14 @@ class SQLiteStorage:
         self._conn = sqlite3.connect(self.db_path, check_same_thread=False)
         self._conn.row_factory = sqlite3.Row
         self._lock = threading.RLock()
+        self._transaction_depth = 0
         with self._lock:
             self._conn.execute("PRAGMA foreign_keys = ON")
             self._conn.execute("PRAGMA journal_mode = WAL")
             self._create_schema()
+
+    def list_memories_all_for_migration(self):
+        return [self._row_to_dict(row) for row in self._conn.execute("SELECT * FROM memories")]
 
     def close(self) -> None:
         with self._lock:
@@ -473,5 +477,17 @@ class SQLiteStorage:
     def transaction(self):
         """Serialize one complete operation, committing or rolling back together."""
         with self._lock:
-            with self._conn:
+            outermost = self._transaction_depth == 0
+            self._transaction_depth += 1
+            try:
+                if outermost:
+                    self._conn.execute("BEGIN IMMEDIATE")
                 yield
+                if outermost:
+                    self._conn.commit()
+            except BaseException:
+                if outermost:
+                    self._conn.rollback()
+                raise
+            finally:
+                self._transaction_depth -= 1

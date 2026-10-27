@@ -1,0 +1,13 @@
+{
+  "examples": 100,
+  "by_type": {
+    "working": 25,
+    "episodic": 25,
+    "semantic": 25,
+    "procedural": 25
+  },
+  "unique_ids": 100,
+  "unique_examples": 100,
+  "model_calls": 0,
+  "system_behavior_evaluated": false
+}

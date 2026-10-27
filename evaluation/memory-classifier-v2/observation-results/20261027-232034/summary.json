@@ -1,0 +1,29 @@
+{
+  "model": "MiniMax-M3[1m]",
+  "attempted": 32,
+  "results": {
+    "baseline": {
+      "attempted": 16,
+      "contract_matches": 9,
+      "errors": 0,
+      "mismatch_ids": [
+        "E4",
+        "E1",
+        "P1",
+        "S1",
+        "S4",
+        "E3",
+        "E2"
+      ]
+    },
+    "current": {
+      "attempted": 16,
+      "contract_matches": 14,
+      "errors": 0,
+      "mismatch_ids": [
+        "E2",
+        "E3"
+      ]
+    }
+  }
+}

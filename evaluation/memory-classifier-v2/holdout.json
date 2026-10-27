@@ -1,0 +1,167 @@
+{
+  "name": "新写的32条补充检查样本",
+  "version": "holdout-authored-v1",
+  "limitations": "在看过旧错例后按同一边界编写；首次调用前冻结，未经独立专家标注，不是外部盲测集。",
+  "cases": [
+    {
+      "id": "H001",
+      "memory_type": "working",
+      "example": "刚才试穿的腰围是七十四，我换到另一排，还拿这个数和新裤子比着。"
+    },
+    {
+      "id": "H002",
+      "memory_type": "working",
+      "example": "语音里说了三个包裹的位置，我一边回想一边挨个找。"
+    },
+    {
+      "id": "H003",
+      "memory_type": "working",
+      "example": "算账算到一百二十了，我接着把运费加进去。"
+    },
+    {
+      "id": "H004",
+      "memory_type": "working",
+      "example": "老师刚拍了四下节奏，我先在心里跟一遍，再拍给他听。"
+    },
+    {
+      "id": "H005",
+      "memory_type": "working",
+      "example": "这局还剩两张牌没见过，我记着它们，正想该出哪张。"
+    },
+    {
+      "id": "H006",
+      "memory_type": "working",
+      "example": "桌上三杯饮料谁点的我刚问过，现在正一杯杯对着人递过去。"
+    },
+    {
+      "id": "H007",
+      "memory_type": "working",
+      "example": "刚才称过空盒是四十克，我拿总重减掉它，算里面东西多重。"
+    },
+    {
+      "id": "H008",
+      "memory_type": "working",
+      "example": "对方刚说了一个新邮箱，我来不及写，先在心里重复着。"
+    },
+    {
+      "id": "H009",
+      "memory_type": "episodic",
+      "example": "今天我把公交卡落家里了，只好走路去单位。"
+    },
+    {
+      "id": "H010",
+      "memory_type": "episodic",
+      "example": "那回爬到山顶，才发现相机一直没开机。"
+    },
+    {
+      "id": "H011",
+      "memory_type": "episodic",
+      "example": "昨晚我去接妹妹，站错了校门，等了好久。"
+    },
+    {
+      "id": "H012",
+      "memory_type": "episodic",
+      "example": "前天试着修水龙头，最后弄湿了半个厨房。"
+    },
+    {
+      "id": "H013",
+      "memory_type": "episodic",
+      "example": "上次回老家，我和表弟在院子里下了一下午棋。"
+    },
+    {
+      "id": "H014",
+      "memory_type": "episodic",
+      "example": "今早我刚进办公室，同事就递给我一块热烧饼。"
+    },
+    {
+      "id": "H015",
+      "memory_type": "episodic",
+      "example": "第一次参加合唱时，我紧张得唱快了一拍。"
+    },
+    {
+      "id": "H016",
+      "memory_type": "episodic",
+      "example": "昨天我在路口摔了一跤，路人帮我扶起了车。"
+    },
+    {
+      "id": "H017",
+      "memory_type": "semantic",
+      "example": "我外公以前是小学老师。"
+    },
+    {
+      "id": "H018",
+      "memory_type": "semantic",
+      "example": "我读初中的城市是厦门。"
+    },
+    {
+      "id": "H019",
+      "memory_type": "semantic",
+      "example": "我吃饺子喜欢蘸醋。"
+    },
+    {
+      "id": "H020",
+      "memory_type": "semantic",
+      "example": "这间活动室每逢月底周五打扫。"
+    },
+    {
+      "id": "H021",
+      "memory_type": "semantic",
+      "example": "换相机电池之前要关机，这个步骤我知道。"
+    },
+    {
+      "id": "H022",
+      "memory_type": "semantic",
+      "example": "我能说出煮米饭的步骤：淘米、加水，再按煮饭键。"
+    },
+    {
+      "id": "H023",
+      "memory_type": "semantic",
+      "example": "舅舅做葱油面，总是先把葱炸香再拌面。"
+    },
+    {
+      "id": "H024",
+      "memory_type": "semantic",
+      "example": "我能讲清平结怎么打：两根绳先交叉，再换方向打一个结。"
+    },
+    {
+      "id": "H025",
+      "memory_type": "procedural",
+      "example": "竹笛我学过，能连贯地吹完整首小曲。"
+    },
+    {
+      "id": "H026",
+      "memory_type": "procedural",
+      "example": "我练会了反手转笔，一只手就能转好几圈。"
+    },
+    {
+      "id": "H027",
+      "memory_type": "procedural",
+      "example": "钩针我会用，能钩出一个小杯垫。"
+    },
+    {
+      "id": "H028",
+      "memory_type": "procedural",
+      "example": "我会倒立，靠墙能自己撑起来。"
+    },
+    {
+      "id": "H029",
+      "memory_type": "procedural",
+      "example": "这套广播操我跟得上，动作都做得出来。"
+    },
+    {
+      "id": "H030",
+      "memory_type": "procedural",
+      "example": "溜冰我练了两年，能顺着弯道滑过去。"
+    },
+    {
+      "id": "H031",
+      "memory_type": "procedural",
+      "example": "我会打水漂，小石片能在水上连跳几下。"
+    },
+    {
+      "id": "H032",
+      "memory_type": "procedural",
+      "example": "我能用二胡把这段旋律拉顺，换弦也不会卡住。"
+    }
+  ]
+}

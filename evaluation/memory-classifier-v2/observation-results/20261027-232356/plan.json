@@ -1,0 +1,162 @@
+{
+  "started_at": "2026-10-27T23:23:56.538618+08:00",
+  "model": "MiniMax-M3[1m]",
+  "cases": [
+    [
+      "S1",
+      "我在厦门读的初中。",
+      {
+        "semantic": true,
+        "episode": false,
+        "proposal": false
+      }
+    ],
+    [
+      "S2",
+      "我吃面习惯加醋。",
+      {
+        "semantic": true,
+        "episode": false,
+        "proposal": false
+      }
+    ],
+    [
+      "S3",
+      "我知道换灯泡要先断电。",
+      {
+        "semantic": true,
+        "episode": false,
+        "proposal": false
+      }
+    ],
+    [
+      "S4",
+      "我哥煎饼会先摊面糊再打鸡蛋。",
+      {
+        "semantic": true,
+        "episode": false,
+        "proposal": false
+      }
+    ],
+    [
+      "S5",
+      "我会打乒乓球。",
+      {
+        "semantic": true,
+        "episode": false,
+        "proposal": false
+      }
+    ],
+    [
+      "E1",
+      "今天我坐船去鼓浪屿，回程下起了雨。",
+      {
+        "semantic": false,
+        "episode": true,
+        "proposal": false
+      }
+    ],
+    [
+      "E2",
+      "刚才装书架，我把一块木板装反了。",
+      {
+        "semantic": false,
+        "episode": true,
+        "proposal": false
+      }
+    ],
+    [
+      "E3",
+      "昨天下午，我和同事在公司门口拍了张合照。",
+      {
+        "semantic": false,
+        "episode": true,
+        "proposal": false
+      }
+    ],
+    [
+      "E4",
+      "上周末我给朋友做饭，锅底烧糊了。",
+      {
+        "semantic": false,
+        "episode": true,
+        "proposal": false
+      }
+    ],
+    [
+      "W1",
+      "这次回复只用英文。",
+      {
+        "semantic": false,
+        "episode": false,
+        "proposal": false,
+        "working": true
+      }
+    ],
+    [
+      "W2",
+      "这道题先别给答案，只给我一个提示。",
+      {
+        "semantic": false,
+        "episode": false,
+        "proposal": false,
+        "working": true
+      }
+    ],
+    [
+      "S6",
+      "以后默认用西班牙语回复我。",
+      {
+        "semantic": true,
+        "episode": false,
+        "proposal": false
+      }
+    ],
+    [
+      "P1",
+      "请登记一个把重复空格合并的文本清理工具，先作为待验证的能力。",
+      {
+        "semantic": false,
+        "episode": false,
+        "proposal": true
+      }
+    ],
+    [
+      "M1",
+      "我平时喝美式，昨天试了拿铁。这次帮我比较两种咖啡的价格。",
+      {
+        "semantic": true,
+        "episode": true,
+        "proposal": false,
+        "working": true
+      }
+    ],
+    [
+      "M2",
+      "我会折纸，昨天教妹妹折了一只纸鹤。",
+      {
+        "semantic": true,
+        "episode": true,
+        "proposal": false
+      }
+    ],
+    [
+      "N1",
+      "你觉得我该买哪款相机？",
+      {
+        "semantic": false,
+        "episode": false,
+        "proposal": false
+      }
+    ]
+  ],
+  "prompt_hashes": {
+    "baseline": "de975da0cc0ab1b3b6469876e31b1ff2cbe499f27e297f76f9ca30faed7e429b",
+    "current": "c286901b0341395e1c37f709a6fb3acb3903c8109b41401d78d5061f8f957d65"
+  },
+  "seed": 20261027,
+  "workers": 2,
+  "analyses": 16,
+  "scoring": "Exact boolean candidate presence for specified fields, plus every emitted write succeeds; unspecified working changes allowed",
+  "limitations": "作者定义的16条小规模定向检查，不是四类单标签分类分数；复用实际函数的格式恢复策略，单次分析可能有格式恢复调用。"
+}

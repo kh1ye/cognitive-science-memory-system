@@ -1,0 +1,817 @@
+{
+  "name": "四种记忆的100个生活化例子",
+  "version": "examples-v3",
+  "origin": "project_authored",
+  "status": "review_only_not_run",
+  "purpose": "用日常例子帮助理解并初步区分四种记忆内容；这是概念示例集，不是系统能力验收报告。",
+  "important_note": "程序性记忆用人的熟练技能作类比。这些句子描述技能，但句子本身不等于已经安装的智能体程序；工作记忆的例子强调当下保持和使用信息的情境，不是指这些句子作为历史叙述永远只能有一个标签。",
+  "definitions": {
+    "working": "眼下为了完成一件事，暂时保持和使用的信息。",
+    "episodic": "自己在某个时间、地点亲历的一件事。",
+    "semantic": "已经知道的事实、概念或稳定的个人信息，不依赖某次经历的细节。",
+    "procedural": "已经学会、能够实际完成的技能，强调会做，而不只是知道步骤。"
+  },
+  "model_calls": 0,
+  "cases": [
+    {
+      "id": "001",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "服务员报了三个菜名，我点菜前先在脑中记着它们。",
+      "why": "点菜时暂时保持几个选项。",
+      "status": "not_run"
+    },
+    {
+      "id": "002",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "心算 23 加 18 时，我暂时记着刚算出的中间数字。",
+      "why": "中间结果服务于眼前的计算。",
+      "status": "not_run"
+    },
+    {
+      "id": "003",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "刚看到取件码，我走到快递柜前时还在心里默念。",
+      "why": "为马上取件暂时保持信息。",
+      "status": "not_run"
+    },
+    {
+      "id": "004",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "朋友说在商场三楼见，我进电梯时先记着“三楼”。",
+      "why": "楼层信息用于眼前的会合。",
+      "status": "not_run"
+    },
+    {
+      "id": "005",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "照着菜谱做饭时，我记着接下来还要放盐和葱。",
+      "why": "暂时保持当前做饭步骤。",
+      "status": "not_run"
+    },
+    {
+      "id": "006",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "读到一句长句的后半句时，我还记着前半句的内容。",
+      "why": "前后信息暂时保持，帮助理解整句话。",
+      "status": "not_run"
+    },
+    {
+      "id": "007",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "买菜时，我在脑中核对刚才选的三样菜，看看还差什么。",
+      "why": "为了当前购物暂时整理清单。",
+      "status": "not_run"
+    },
+    {
+      "id": "008",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "导航说下个路口右转，我开到路口前一直记着这件事。",
+      "why": "当前路口指令暂时保持。",
+      "status": "not_run"
+    },
+    {
+      "id": "009",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "老师口头布置两项任务，我动笔记录前先记着它们。",
+      "why": "信息尚在当前处理过程中。",
+      "status": "not_run"
+    },
+    {
+      "id": "010",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "输验证码时，我在看一眼和填完之间暂时记住那几个字符。",
+      "why": "短时间保持，完成眼前输入。",
+      "status": "not_run"
+    },
+    {
+      "id": "011",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "朋友刚说想喝冰的，我替他下单时记着这个要求。",
+      "why": "当前订单的临时要求。",
+      "status": "not_run"
+    },
+    {
+      "id": "012",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "收银员告诉我合计金额，我找零钱时先记着这个数。",
+      "why": "金额用于当前支付计算。",
+      "status": "not_run"
+    },
+    {
+      "id": "013",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "换乘地铁时，我刚查到要去二号站台，走过去时还记着。",
+      "why": "眼前换乘所需的信息。",
+      "status": "not_run"
+    },
+    {
+      "id": "014",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "做拼图时，我暂时记着刚看到的那块缺口形状。",
+      "why": "当前匹配任务需要保持形状信息。",
+      "status": "not_run"
+    },
+    {
+      "id": "015",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "比较两件外套时，我把它们的价格和尺码暂时放在一起考虑。",
+      "why": "同时保持比较所需的几项信息。",
+      "status": "not_run"
+    },
+    {
+      "id": "016",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "电话里对方说先寄合同再开发票，我挂电话前整理着这个顺序。",
+      "why": "当前沟通里的步骤仍在处理。",
+      "status": "not_run"
+    },
+    {
+      "id": "017",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "开会讨论两个方案时，我暂时记着各自的优缺点，准备表态。",
+      "why": "信息正用于当前决策。",
+      "status": "not_run"
+    },
+    {
+      "id": "018",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "朋友让我顺路带面包，我走进便利店时还惦记着这件事。",
+      "why": "当前待办暂时保持。",
+      "status": "not_run"
+    },
+    {
+      "id": "019",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "做一道数学题时，我把题目给的条件和刚得到的结果放在一起想。",
+      "why": "当前推理需要同时保持相关信息。",
+      "status": "not_run"
+    },
+    {
+      "id": "020",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "看电影中途去买水，我暂时记着自己的座位在第六排。",
+      "why": "座位信息用于马上返回。",
+      "status": "not_run"
+    },
+    {
+      "id": "021",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "准备出门时，我一边收拾一边记着钥匙和雨伞还没拿。",
+      "why": "追踪眼前任务未完成的部分。",
+      "status": "not_run"
+    },
+    {
+      "id": "022",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "排队点奶茶时，我记着朋友刚说的少冰和三分糖。",
+      "why": "临时保持本次订单参数。",
+      "status": "not_run"
+    },
+    {
+      "id": "023",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "检查作文时，我暂时记着刚发现的两个错字，准备回去修改。",
+      "why": "信息服务于眼前修改任务。",
+      "status": "not_run"
+    },
+    {
+      "id": "024",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "玩猜数字游戏时，我记着这一轮已经排除的几个数字。",
+      "why": "保持当前轮次的进展。",
+      "status": "not_run"
+    },
+    {
+      "id": "025",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "等朋友确认餐厅时，我先把两个备选地点记在心里。",
+      "why": "当前决策尚未完成，暂时保留候选。",
+      "status": "not_run"
+    },
+    {
+      "id": "026",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "我今天下午和朋友去电影院看了一场电影。",
+      "why": "具体发生过的个人经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "027",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "上周六，我在西湖边骑车时遇到了一场大雨。",
+      "why": "包含时间、地点和发生的事情。",
+      "status": "not_run"
+    },
+    {
+      "id": "028",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "昨天晚饭时，我把一杯果汁洒在了桌上。",
+      "why": "一次具体的生活事件。",
+      "status": "not_run"
+    },
+    {
+      "id": "029",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "去年生日，朋友们在家里给我准备了一个惊喜蛋糕。",
+      "why": "可以回忆的一次生日经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "030",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "今天早上我赶公交时，刚到站台车就开走了。",
+      "why": "具体时刻发生的赶车经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "031",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "上个月我第一次去成都，在小店里吃了一碗担担面。",
+      "why": "特定旅程中的个人经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "032",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "前天晚上，我和室友一起把客厅打扫干净了。",
+      "why": "有参与者和结果的一次活动。",
+      "status": "not_run"
+    },
+    {
+      "id": "033",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "上周的英语课上，我第一次主动举手回答了问题。",
+      "why": "特定课堂中发生的事情。",
+      "status": "not_run"
+    },
+    {
+      "id": "034",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "今天中午，我在公司楼下碰见了多年没见的同学。",
+      "why": "特定时间和地点的相遇。",
+      "status": "not_run"
+    },
+    {
+      "id": "035",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "去年冬天，我在哈尔滨第一次看到了大雪。",
+      "why": "亲历的一次具体场景。",
+      "status": "not_run"
+    },
+    {
+      "id": "036",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "昨天我做番茄炒蛋时盐放多了，最后有点咸。",
+      "why": "具体动作及其结果。",
+      "status": "not_run"
+    },
+    {
+      "id": "037",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "上周日，我带着小狗去公园，它追着一个球跑了很久。",
+      "why": "过去一次活动的细节。",
+      "status": "not_run"
+    },
+    {
+      "id": "038",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "今天下午，我在图书馆借到了想读的那本书。",
+      "why": "一次借书经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "039",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "小时候有一次停电，全家围着蜡烛讲故事。",
+      "why": "过去某次可回忆的经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "040",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "昨天的羽毛球比赛，我和搭档打到最后一局才获胜。",
+      "why": "具体比赛及其结果。",
+      "status": "not_run"
+    },
+    {
+      "id": "041",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "上个月搬家那天，我把最重要的一箱书落在了旧房子里。",
+      "why": "特定日期背景下的一次遗漏。",
+      "status": "not_run"
+    },
+    {
+      "id": "042",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "今天我坐地铁时坐过了站，又从下一站返回。",
+      "why": "包含动作顺序的个人经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "043",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "去年国庆，我在海边看了一次日出。",
+      "why": "有时间和地点的个人体验。",
+      "status": "not_run"
+    },
+    {
+      "id": "044",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "昨天下午我去修自行车，师傅换掉了漏气的内胎。",
+      "why": "一次具体维修经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "045",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "上次家庭聚餐，奶奶教我包了第一个饺子。",
+      "why": "过去的一次学习事件，还不代表已经熟练。",
+      "status": "not_run"
+    },
+    {
+      "id": "046",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "今天上台发言时，我忘了一句话，后来靠提示卡接了下去。",
+      "why": "具体困难与应对过程。",
+      "status": "not_run"
+    },
+    {
+      "id": "047",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "前天我尝试烤饼干，第一盘烤糊了，第二盘才成功。",
+      "why": "两次尝试及不同结果。",
+      "status": "not_run"
+    },
+    {
+      "id": "048",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "上周五晚上，我和同事聊了很久，最后还是没定下出游地点。",
+      "why": "具体互动以及未决结果。",
+      "status": "not_run"
+    },
+    {
+      "id": "049",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "今天我去取快递，到了才发现拿错了取件码。",
+      "why": "具体情境中的行动和发现。",
+      "status": "not_run"
+    },
+    {
+      "id": "050",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "昨天爬山下到半山腰时，我的鞋带断了，只好慢慢走下去。",
+      "why": "带情境细节的个人经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "051",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "法国的首都是巴黎。",
+      "why": "关于世界的事实知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "052",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "一周有七天。",
+      "why": "一般性的概念知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "053",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "三角形有三条边。",
+      "why": "数学概念的属性。",
+      "status": "not_run"
+    },
+    {
+      "id": "054",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "一年有十二个月。",
+      "why": "日历知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "055",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "北京是中国的首都。",
+      "why": "地理事实知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "056",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "猫是一种哺乳动物。",
+      "why": "生物分类知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "057",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "地球绕太阳运行。",
+      "why": "一般天文知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "058",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "标准国际象棋棋盘有六十四个格子。",
+      "why": "关于一种游戏的规则知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "059",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "红灯表示车辆应停车等待。",
+      "why": "交通规则知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "060",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "一小时有六十分钟。",
+      "why": "时间单位知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "061",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我的生日是五月十日。",
+      "why": "稳定的个人信息。",
+      "status": "not_run"
+    },
+    {
+      "id": "062",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我住在杭州。",
+      "why": "个人当前居住信息，不是一次出行事件。",
+      "status": "not_run"
+    },
+    {
+      "id": "063",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我更喜欢喝茶，而不是咖啡。",
+      "why": "个人偏好。",
+      "status": "not_run"
+    },
+    {
+      "id": "064",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我平时喜欢先看结论，再看解释。",
+      "why": "较稳定的信息接收偏好。",
+      "status": "not_run"
+    },
+    {
+      "id": "065",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "小林是我的同事。",
+      "why": "人物关系知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "066",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我的常用编辑器是 VS Code。",
+      "why": "个人常用工具信息。",
+      "status": "not_run"
+    },
+    {
+      "id": "067",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我家养了一只名叫豆豆的狗。",
+      "why": "关于自己生活的事实。",
+      "status": "not_run"
+    },
+    {
+      "id": "068",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我通常在早上七点起床。",
+      "why": "长期习惯，不是某天早起的单次事件。",
+      "status": "not_run"
+    },
+    {
+      "id": "069",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我的家乡在苏州。",
+      "why": "个人背景知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "070",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我喜欢听轻音乐。",
+      "why": "个人兴趣偏好。",
+      "status": "not_run"
+    },
+    {
+      "id": "071",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我最喜欢的颜色是蓝色。",
+      "why": "个人稳定偏好。",
+      "status": "not_run"
+    },
+    {
+      "id": "072",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我们小组的负责人是王老师。",
+      "why": "组织与人物关系知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "073",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我常去的图书馆星期一闭馆。",
+      "why": "地点的开放规则知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "074",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我读的是计算机专业。",
+      "why": "个人教育背景信息。",
+      "status": "not_run"
+    },
+    {
+      "id": "075",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "Python 是一种编程语言。",
+      "why": "关于工具类别的一般知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "076",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我已经会骑自行车，骑行时能自然地保持平衡和转弯。",
+      "why": "已经形成的平衡与骑行技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "077",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "每天出门时，我不用重新想步骤就能把鞋带系好。",
+      "why": "熟练的系鞋带技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "078",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我学会了游泳，入水后能协调划水、蹬腿和换气。",
+      "why": "能够实际完成的一套运动技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "079",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我熟练使用筷子，夹菜时能自然控制手指的力度。",
+      "why": "熟练的手部操作技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "080",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我能不看键盘熟练打字，手指会自然找到字母的位置。",
+      "why": "已经掌握的盲打技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "081",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我已经熟练掌握钢琴指法，演奏熟悉曲子时手指能连贯移动。",
+      "why": "已经学会并能实施的演奏技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "082",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我会开手动挡汽车，能在行驶中配合离合、油门和换挡。",
+      "why": "协调多个动作完成驾驶的技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "083",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我已经学会包饺子，能熟练地捏出褶子并把馅包住。",
+      "why": "能实际完成的手工技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "084",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我学会了滑冰，能在冰面上控制重心并停下来。",
+      "why": "已经形成的滑行和控制技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "085",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我能熟练弹吉他，在几个常用和弦之间自然切换。",
+      "why": "已掌握的演奏动作。",
+      "status": "not_run"
+    },
+    {
+      "id": "086",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我会用针线缝纽扣，能独立把松掉的纽扣缝牢。",
+      "why": "已经掌握并可独立实施的操作。",
+      "status": "not_run"
+    },
+    {
+      "id": "087",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我学会了跳绳，能协调手腕转动和双脚起跳。",
+      "why": "协调动作形成的运动技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "088",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我会做番茄炒蛋，能熟练控制翻炒动作和火候。",
+      "why": "实际烹饪能力，而非只背过菜谱。",
+      "status": "not_run"
+    },
+    {
+      "id": "089",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我已经练会了毛笔握笔和运笔，能写出连贯的笔画。",
+      "why": "已经形成的书写技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "090",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我能熟练地用剪刀沿着曲线剪纸。",
+      "why": "能实际实施的精细动作技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "091",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我会发羽毛球，能协调挥拍动作把球送到合适的位置。",
+      "why": "已掌握的发球动作。",
+      "status": "not_run"
+    },
+    {
+      "id": "092",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我已经学会打乒乓球的正手攻球，来球时能完成连贯回击。",
+      "why": "经过学习形成的击球技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "093",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我能熟练地把魔方复原，遇到熟悉的情况就能连贯转动。",
+      "why": "已经掌握并能使用的操作技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "094",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我会折纸鹤，拿到纸后能独立完成整套折叠动作。",
+      "why": "可实际完成的一套手工技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "095",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我会编辫子，能熟练地交替编好三股头发。",
+      "why": "已经形成的手部动作技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "096",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我能熟练使用鼠标拖放文件，手眼配合时不用逐步思考。",
+      "why": "熟练的计算机交互操作技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "097",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我会使用快捷键复制和粘贴，操作时能自然按出对应组合。",
+      "why": "已掌握的操作技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "098",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我已经学会用相机对焦和调整拍摄参数，能独立完成拍照。",
+      "why": "能够实施的设备操作技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "099",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我能熟练打篮球运球，移动时能协调手掌拍球和步伐。",
+      "why": "已经形成的运动控制技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "100",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "我已经学会用螺丝刀拧紧螺丝，操作时能控制方向和力度。",
+      "why": "能够实际实施的工具使用技能。",
+      "status": "not_run"
+    }
+  ]
+}

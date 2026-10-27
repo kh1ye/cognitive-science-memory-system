@@ -1,0 +1,372 @@
+{
+  "semantic_assertions": [
+    {
+      "sensitive": false,
+      "evidence_text": "我平时最喜欢喝乌龙茶。",
+      "subject": "qa-functional-20261027",
+      "predicate": "最喜欢喝的茶/饮品偏好",
+      "value": "乌龙茶",
+      "scope": "user",
+      "valid_from": null,
+      "valid_to": null,
+      "epistemic_status": "explicit",
+      "status": "current",
+      "confidence": 0.9,
+      "cardinality": "single",
+      "correction": false,
+      "source_refs": [
+        "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+      ],
+      "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+      "evidence_ids": [
+        "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+      ],
+      "version": 1,
+      "recorded_at": "2026-10-27T16:00:22+00:00",
+      "supersedes_ids": []
+    },
+    {
+      "sensitive": false,
+      "evidence_text": "以后默认用中文回复我。",
+      "subject": "user",
+      "predicate": "回复语言偏好",
+      "value": "中文",
+      "scope": "user",
+      "valid_from": null,
+      "valid_to": null,
+      "epistemic_status": "explicit",
+      "status": "current",
+      "confidence": 0.95,
+      "cardinality": "single",
+      "correction": false,
+      "source_refs": [
+        "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+      ],
+      "id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+      "evidence_ids": [
+        "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+      ],
+      "version": 1,
+      "recorded_at": "2026-10-27T16:04:40+00:00",
+      "supersedes_ids": []
+    }
+  ],
+  "episode_events": [
+    {
+      "observation": "昨天我和同事在公园打了一小时羽毛球。",
+      "actor": "user",
+      "event_kind": "input",
+      "occurred_at": "昨天",
+      "action_ref": null,
+      "outcome": "unknown",
+      "parent_event_id": null,
+      "corrects": null,
+      "source_refs": [
+        "ee119511d3c680a6a471919179fa141eb67cdc0cf6d687ef1527a686ca7d346a"
+      ],
+      "id": "bba9083aae3d53d0f401e159970caf49f2ba74d6f75060bcce6ef9aa79c35672",
+      "episode_id": "0bc4a3962dc453f76d365e732973e8ded9c1e308945f0f77bb39754ef466893f",
+      "thread_id": "8d0c44ab-a01e-4365-844e-a0ea53ebc514",
+      "task_id": "8d0c44ab-a01e-4365-844e-a0ea53ebc514",
+      "sequence_no": 1,
+      "recorded_at": "2026-10-27T16:04:08+00:00"
+    }
+  ],
+  "working_states": [
+    {
+      "user_id": "qa-functional-20261027",
+      "thread_id": "88c7dcab-edff-4b5c-8b9b-a9712998b5fb",
+      "task_id": "88c7dcab-edff-4b5c-8b9b-a9712998b5fb",
+      "revision": 9,
+      "goals": [
+        "用中文回复用户"
+      ],
+      "constraints": [
+        "本次任务使用中文回复"
+      ],
+      "observations": [
+        {
+          "source_id": "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d",
+          "content": "以后请用中文回复我。我平时最喜欢喝乌龙茶。"
+        }
+      ],
+      "active_knowledge": [],
+      "task_state": {
+        "steps": 3,
+        "stop_reason": "turn_complete"
+      },
+      "open_questions": [],
+      "candidate_actions": [],
+      "selected_action": {
+        "name": "stop",
+        "arguments": {},
+        "reason": "turn_complete",
+        "status": "proposed"
+      },
+      "status": "paused",
+      "created_at": "2026-10-27T16:00:21+00:00",
+      "updated_at": "2026-10-27T16:00:22+00:00"
+    },
+    {
+      "user_id": "qa-functional-20261027",
+      "thread_id": "8d0c44ab-a01e-4365-844e-a0ea53ebc514",
+      "task_id": "8d0c44ab-a01e-4365-844e-a0ea53ebc514",
+      "revision": 36,
+      "goals": [],
+      "constraints": [
+        "默认使用中文回复用户"
+      ],
+      "observations": [
+        {
+          "source_id": "704322d0a665e19e83debc36ba2c06bb23abd7d49801a2d241b028cfaa1d31d3",
+          "content": "我平时最喜欢喝什么茶？"
+        },
+        {
+          "source_id": "ee119511d3c680a6a471919179fa141eb67cdc0cf6d687ef1527a686ca7d346a",
+          "content": "昨天我和同事在公园打了一小时羽毛球。"
+        },
+        {
+          "source_id": "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3",
+          "content": "以后默认用中文回复我。"
+        },
+        {
+          "source_id": "4f701e7bb4fed726a664109d7c427c46bf02002d1b5a4e13263e990c440a5725",
+          "content": "这是一条自动记忆关闭测试：我最喜欢的水果是杨桃。"
+        }
+      ],
+      "active_knowledge": [
+        {
+          "module": "semantic",
+          "memory_id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+          "version": 1,
+          "source_refs": [
+            "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+          ],
+          "purpose": "这是一条自动记忆关闭测试：我最喜欢的水果是杨桃。",
+          "record": {
+            "sensitive": false,
+            "evidence_text": "我平时最喜欢喝乌龙茶。",
+            "subject": "qa-functional-20261027",
+            "predicate": "最喜欢喝的茶/饮品偏好",
+            "value": "乌龙茶",
+            "scope": "user",
+            "valid_from": null,
+            "valid_to": null,
+            "epistemic_status": "explicit",
+            "status": "current",
+            "confidence": 0.9,
+            "cardinality": "single",
+            "correction": false,
+            "source_refs": [
+              "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+            ],
+            "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+            "evidence_ids": [
+              "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+            ],
+            "version": 1,
+            "recorded_at": "2026-10-27T16:00:22+00:00",
+            "supersedes_ids": []
+          },
+          "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+          "memory_type": "semantic",
+          "state_role": "current",
+          "content": "我平时最喜欢喝乌龙茶。"
+        },
+        {
+          "module": "semantic",
+          "memory_id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+          "version": 1,
+          "source_refs": [
+            "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+          ],
+          "purpose": "这是一条自动记忆关闭测试：我最喜欢的水果是杨桃。",
+          "record": {
+            "sensitive": false,
+            "evidence_text": "以后默认用中文回复我。",
+            "subject": "user",
+            "predicate": "回复语言偏好",
+            "value": "中文",
+            "scope": "user",
+            "valid_from": null,
+            "valid_to": null,
+            "epistemic_status": "explicit",
+            "status": "current",
+            "confidence": 0.95,
+            "cardinality": "single",
+            "correction": false,
+            "source_refs": [
+              "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+            ],
+            "id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+            "evidence_ids": [
+              "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+            ],
+            "version": 1,
+            "recorded_at": "2026-10-27T16:04:40+00:00",
+            "supersedes_ids": []
+          },
+          "id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+          "memory_type": "semantic",
+          "state_role": "current",
+          "content": "以后默认用中文回复我。"
+        }
+      ],
+      "task_state": {
+        "steps": 3,
+        "stop_reason": "turn_complete"
+      },
+      "open_questions": [
+        "“同事”是否指长期固定的关系（如固定搭档）尚未确认，本次仅作为单次同行者记录。",
+        "羽毛球活动是否为长期/规律习惯未提及，如需登记请补充频率信息。"
+      ],
+      "candidate_actions": [],
+      "selected_action": {
+        "name": "stop",
+        "arguments": {},
+        "reason": "turn_complete",
+        "status": "proposed"
+      },
+      "status": "paused",
+      "created_at": "2026-10-27T16:01:00+00:00",
+      "updated_at": "2026-10-27T16:05:39+00:00"
+    }
+  ],
+  "source_records": [
+    {
+      "id": "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d",
+      "source_kind": "user_report",
+      "source_event_id": "5873f183-30c4-4df7-835b-2da3b52f9514",
+      "source_ref": "",
+      "scope": "user",
+      "thread_id": "88c7dcab-edff-4b5c-8b9b-a9712998b5fb",
+      "task_id": "88c7dcab-edff-4b5c-8b9b-a9712998b5fb",
+      "observed_at": "2026-10-27T16:00:21+00:00",
+      "recorded_at": "2026-10-27T16:00:21+00:00",
+      "content_hash": "1607f2d3fc970c0682890d47905b3750cefb96efb7e1ed54b2c61e7d68f77f92",
+      "evidence_identity": "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d",
+      "content": "以后请用中文回复我。我平时最喜欢喝乌龙茶。",
+      "retention_policy": "persist"
+    },
+    {
+      "id": "704322d0a665e19e83debc36ba2c06bb23abd7d49801a2d241b028cfaa1d31d3",
+      "source_kind": "user_report",
+      "source_event_id": "0644edad-51fe-4c52-a0e0-e1a962dfefc2",
+      "source_ref": "",
+      "scope": "user",
+      "thread_id": "8d0c44ab-a01e-4365-844e-a0ea53ebc514",
+      "task_id": "8d0c44ab-a01e-4365-844e-a0ea53ebc514",
+      "observed_at": "2026-10-27T16:01:00+00:00",
+      "recorded_at": "2026-10-27T16:01:00+00:00",
+      "content_hash": "da41a308ed83c85b64da4c89a61aa11454fd017a47d173f009141fd54e729c80",
+      "evidence_identity": "704322d0a665e19e83debc36ba2c06bb23abd7d49801a2d241b028cfaa1d31d3",
+      "content": "我平时最喜欢喝什么茶？",
+      "retention_policy": "persist"
+    },
+    {
+      "id": "ee119511d3c680a6a471919179fa141eb67cdc0cf6d687ef1527a686ca7d346a",
+      "source_kind": "user_report",
+      "source_event_id": "c304bb1b-3ca9-4836-bc16-43ae213041e7",
+      "source_ref": "",
+      "scope": "user",
+      "thread_id": "8d0c44ab-a01e-4365-844e-a0ea53ebc514",
+      "task_id": "8d0c44ab-a01e-4365-844e-a0ea53ebc514",
+      "observed_at": "2026-10-27T16:04:05+00:00",
+      "recorded_at": "2026-10-27T16:04:05+00:00",
+      "content_hash": "2442ef79d8e3b66d706743932767554163be7a5a8300cb66ad0e9e2c7266b8a4",
+      "evidence_identity": "ee119511d3c680a6a471919179fa141eb67cdc0cf6d687ef1527a686ca7d346a",
+      "content": "昨天我和同事在公园打了一小时羽毛球。",
+      "retention_policy": "persist"
+    },
+    {
+      "id": "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3",
+      "source_kind": "user_report",
+      "source_event_id": "01815715-ed2b-4123-a9d6-b235afa0f8c8",
+      "source_ref": "",
+      "scope": "user",
+      "thread_id": "8d0c44ab-a01e-4365-844e-a0ea53ebc514",
+      "task_id": "8d0c44ab-a01e-4365-844e-a0ea53ebc514",
+      "observed_at": "2026-10-27T16:04:38+00:00",
+      "recorded_at": "2026-10-27T16:04:38+00:00",
+      "content_hash": "aadd87ee01c6e739a5a948cf61f23d4e5ae9813b7332c944313e13674c8cf7ee",
+      "evidence_identity": "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3",
+      "content": "以后默认用中文回复我。",
+      "retention_policy": "persist"
+    },
+    {
+      "id": "4f701e7bb4fed726a664109d7c427c46bf02002d1b5a4e13263e990c440a5725",
+      "source_kind": "user_report",
+      "source_event_id": "3be28571-b4b5-4941-80b8-e8dc3e256ccf",
+      "source_ref": "",
+      "scope": "user",
+      "thread_id": "8d0c44ab-a01e-4365-844e-a0ea53ebc514",
+      "task_id": "8d0c44ab-a01e-4365-844e-a0ea53ebc514",
+      "observed_at": "2026-10-27T16:05:37+00:00",
+      "recorded_at": "2026-10-27T16:05:37+00:00",
+      "content_hash": "a055b5aff7648e61840a693f4e0b130401a7aa94ff7aad9eb5143f3b1b8837ce",
+      "evidence_identity": "4f701e7bb4fed726a664109d7c427c46bf02002d1b5a4e13263e990c440a5725",
+      "content": null,
+      "retention_policy": "no_long_term"
+    }
+  ],
+  "overview": {
+    "active_count": 0,
+    "by_role": {},
+    "by_type": {},
+    "audit_count": 0,
+    "config": {
+      "write_threshold": 0.42,
+      "cpe_low_threshold": 0.55,
+      "cpe_commit_threshold": 0.7,
+      "evidence_consistency_threshold": 0.6,
+      "minimum_evidence_count": 2,
+      "retention_threshold": 0.3,
+      "retention_decay": 0.04,
+      "retrieval_lambda_bias": 0.65,
+      "retrieval_delta_context": 0.45
+    },
+    "total_count": 0,
+    "recent_activity": [],
+    "storage": {
+      "engine": "SQLite",
+      "mode": "file",
+      "database_bytes": 217088,
+      "wal_bytes": 3802792,
+      "allocated_bytes": 258048,
+      "scope": "database",
+      "status": "ready"
+    },
+    "modules": [
+      {
+        "name": "选择性编码",
+        "description": "隐私判断与价值筛选",
+        "status": "ready"
+      },
+      {
+        "name": "证据巩固",
+        "description": "冲突缓冲与状态更新",
+        "status": "ready"
+      },
+      {
+        "name": "记忆检索",
+        "description": "词法召回与注意力排序",
+        "status": "ready"
+      },
+      {
+        "name": "遗忘管理",
+        "description": "保留度计算与归档",
+        "status": "ready"
+      },
+      {
+        "name": "语言模型",
+        "description": "LangChain · MiniMax-M3[1m] · 尚未验证连接",
+        "status": "configured"
+      },
+      {
+        "name": "向量模型",
+        "description": "当前版本使用词法召回，尚未实现向量检索",
+        "status": "not_implemented"
+      }
+    ]
+  }
+}

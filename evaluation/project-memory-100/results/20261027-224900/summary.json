@@ -1,0 +1,98 @@
+{
+  "started_at": "2026-10-27T22:49:00.063411+08:00",
+  "provider": "anthropic",
+  "model": "MiniMax-M3[1m]",
+  "dataset_version": "examples-v3",
+  "dataset_sha256": "14a84b2375510152a0b15a2e61c03b43f49b5a4536c0c78be07b197ebab47b14",
+  "prompt_sha256": "fccb5038ccaf41b5ec1900e04964fdce77b100556772a5feb39d63ad4b62a4c3",
+  "seed": 20261027,
+  "workers": 4,
+  "temperature": "provider_default",
+  "sdk_max_retries": 1,
+  "status": "completed",
+  "elapsed_seconds": 49.743,
+  "attempted": 100,
+  "correct": 100,
+  "accuracy": 1.0,
+  "api_errors": 0,
+  "abstentions": 0,
+  "macro_f1": 1.0,
+  "per_class": {
+    "working": {
+      "support": 25,
+      "correct": 25,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "episodic": {
+      "support": 25,
+      "correct": 25,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "semantic": {
+      "support": 25,
+      "correct": 25,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "procedural": {
+      "support": 25,
+      "correct": 25,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "confusion_matrix": {
+    "working": {
+      "working": 25,
+      "episodic": 0,
+      "semantic": 0,
+      "procedural": 0,
+      "unknown": 0,
+      "error": 0
+    },
+    "episodic": {
+      "working": 0,
+      "episodic": 25,
+      "semantic": 0,
+      "procedural": 0,
+      "unknown": 0,
+      "error": 0
+    },
+    "semantic": {
+      "working": 0,
+      "episodic": 0,
+      "semantic": 25,
+      "procedural": 0,
+      "unknown": 0,
+      "error": 0
+    },
+    "procedural": {
+      "working": 0,
+      "episodic": 0,
+      "semantic": 0,
+      "procedural": 25,
+      "unknown": 0,
+      "error": 0
+    }
+  },
+  "wrong_ids": [],
+  "measured": "memory_concept_classification",
+  "not_measured": [
+    "production observation routing",
+    "long-term writes",
+    "working-state recovery",
+    "procedure execution"
+  ],
+  "limitations": [
+    "项目自建、表述明确的简单例子；单次采样，不代表复杂对话或通用能力。",
+    "四类定义写入固定评测提示，未提供带标签示例或当前样本答案。",
+    "模型版本为提供商标识，可能是别名；底层模型权重版本不可验证。",
+    "未修改项目原有提取提示；使用单独概念评测提示。"
+  ]
+}

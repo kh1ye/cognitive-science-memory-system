@@ -1,0 +1,12 @@
+{
+  "count": 100,
+  "class_counts": {
+    "working": 25,
+    "episodic": 25,
+    "semantic": 25,
+    "procedural": 25
+  },
+  "unique_examples": 100,
+  "model_calls_at_generation": 0,
+  "status": "review_only_not_run"
+}

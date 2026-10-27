@@ -1,6 +1,6 @@
 """Request schemas for validation and generated OpenAPI documentation."""
 
-from typing import Any
+from typing import Any, Literal
 from uuid import uuid4
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
@@ -52,6 +52,9 @@ class SessionRequest(BaseModel):
 class ChatRequest(SessionRequest):
     message: str = Field(min_length=1, max_length=10000)
     auto_remember: bool = True
+    task_id: str | None = None
+    source_event_id: str | None = None
+    retention_policy: Literal["persist", "no_long_term", "no_persist"] = "persist"
 
     @field_validator("message")
     @classmethod

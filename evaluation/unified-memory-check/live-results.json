@@ -1,0 +1,880 @@
+{
+  "user_id": "qa-functional-20261027",
+  "checks": {
+    "new_thread_retrieves_original_evolution_record": true,
+    "live_model_answers_python": true,
+    "both_storage_kinds_visible": true,
+    "overview_matches_full_list": true,
+    "all_four_memory_types_visible": true,
+    "original_evolution_record_in_management_list": true,
+    "native_tea_visible": true,
+    "native_activity_resolved": true,
+    "unknown_user_has_empty_catalog": true
+  },
+  "overview_before_chat": {
+    "active_count": 14,
+    "total_count": 14,
+    "by_role": {
+      "working": 3,
+      "current": 11
+    },
+    "by_type": {
+      "working": 3,
+      "semantic": 3,
+      "episodic": 2,
+      "procedural": 6
+    },
+    "by_storage": {
+      "typed": 13,
+      "legacy": 1
+    },
+    "audit_count": 5,
+    "config": {
+      "write_threshold": 0.42,
+      "cpe_low_threshold": 0.55,
+      "cpe_commit_threshold": 0.7,
+      "evidence_consistency_threshold": 0.6,
+      "minimum_evidence_count": 2,
+      "retention_threshold": 0.3,
+      "retention_decay": 0.04,
+      "retrieval_lambda_bias": 0.65,
+      "retrieval_delta_context": 0.45
+    },
+    "recent_activity": [
+      {
+        "id": "158ca98d-c9bb-4fc3-97fe-f619595933c8",
+        "user_id": "qa-functional-20261027",
+        "event_type": "RETRIEVE",
+        "memory_id": null,
+        "message": "完成注意力调制检索，返回 1 条证据。",
+        "created_at": "2026-10-27T16:12:16+00:00",
+        "details": {
+          "query": "编程语言 Python",
+          "result_ids": [
+            "c1d1f43f-1800-47e3-aa47-f562b9f5b964"
+          ]
+        },
+        "related_memory": null
+      },
+      {
+        "id": "879f239e-1f03-41b2-a85a-290a08809045",
+        "user_id": "qa-functional-20261027",
+        "event_type": "WRITE_CURRENT",
+        "memory_id": "c1d1f43f-1800-47e3-aa47-f562b9f5b964",
+        "message": "通过选择性编码门，写入当前长期记忆。",
+        "created_at": "2026-10-27T16:09:46+00:00",
+        "details": {
+          "write_score": 0.649
+        },
+        "related_memory": {
+          "id": "c1d1f43f-1800-47e3-aa47-f562b9f5b964",
+          "content": "我喜欢用 Python 写脚本。",
+          "memory_type": "semantic",
+          "state_role": "current"
+        }
+      },
+      {
+        "id": "f496aa315c0803fb66d8fda89c1d0c3347c5688b27ba7f1e30df1367884a1158",
+        "event_type": "TYPED_LEARNING",
+        "created_at": "2026-10-27T16:04:38+00:00",
+        "message": "记忆写入成功",
+        "memory_id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+        "details": {
+          "target_module": "semantic",
+          "status": "succeeded"
+        },
+        "related_memory": {
+          "id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+          "content": "以后默认用中文回复我。",
+          "memory_type": "semantic",
+          "state_role": "current"
+        }
+      },
+      {
+        "id": "d20c134cb645159cc7d63b25c02984e5fd65f43d231e8216e218b40dac6e0644",
+        "event_type": "TYPED_LEARNING",
+        "created_at": "2026-10-27T16:04:05+00:00",
+        "message": "记忆写入成功",
+        "memory_id": "bba9083aae3d53d0f401e159970caf49f2ba74d6f75060bcce6ef9aa79c35672",
+        "details": {
+          "target_module": "episodic",
+          "status": "succeeded"
+        },
+        "related_memory": {
+          "id": "bba9083aae3d53d0f401e159970caf49f2ba74d6f75060bcce6ef9aa79c35672",
+          "content": "昨天我和同事在公园打了一小时羽毛球。",
+          "memory_type": "episodic",
+          "state_role": "current"
+        }
+      },
+      {
+        "id": "9abf94ec66a2738b14e35e9d68b5e7b59d525b848df4fc1bf7633b472efe837e",
+        "event_type": "TYPED_LEARNING",
+        "created_at": "2026-10-27T16:00:21+00:00",
+        "message": "记忆写入成功",
+        "memory_id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+        "details": {
+          "target_module": "semantic",
+          "status": "succeeded"
+        },
+        "related_memory": {
+          "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+          "content": "我平时最喜欢喝乌龙茶。",
+          "memory_type": "semantic",
+          "state_role": "current"
+        }
+      }
+    ],
+    "storage": {
+      "engine": "SQLite",
+      "mode": "file",
+      "database_bytes": 270336,
+      "wal_bytes": 0,
+      "allocated_bytes": 270336,
+      "scope": "database",
+      "status": "ready"
+    },
+    "modules": [
+      {
+        "name": "选择性编码",
+        "description": "隐私判断与价值筛选",
+        "status": "ready"
+      },
+      {
+        "name": "证据巩固",
+        "description": "冲突缓冲与状态更新",
+        "status": "ready"
+      },
+      {
+        "name": "记忆检索",
+        "description": "词法召回与注意力排序",
+        "status": "ready"
+      },
+      {
+        "name": "遗忘管理",
+        "description": "保留度计算与归档",
+        "status": "ready"
+      },
+      {
+        "name": "语言模型",
+        "description": "LangChain · MiniMax-M3[1m] · 尚未验证连接",
+        "status": "configured"
+      },
+      {
+        "name": "向量模型",
+        "description": "当前版本使用词法召回，尚未实现向量检索",
+        "status": "not_implemented"
+      }
+    ]
+  },
+  "all_list_before_chat": [
+    {
+      "id": "57df75102b0173b9588b01f44a03a9f89415d334bd3965a1202b5ad3ab1001cc",
+      "user_id": "qa-functional-20261027",
+      "content": "{\"task_id\": \"0b780922-edb8-4a5d-8a70-a89d4e27bfba\", \"goals\": [\"确定用户喜欢用什么编程语言写脚本\"], \"constraints\": [], \"task_state\": {\"steps\": 3, \"stop_reason\": \"turn_complete\"}}",
+      "memory_type": "working",
+      "state_role": "working",
+      "native_status": "paused",
+      "storage_kind": "typed",
+      "module": "working_states",
+      "can_delete": false,
+      "source": "typed_memory",
+      "memory_key": "",
+      "memory_value": "",
+      "tags": [],
+      "evidence_count": 0,
+      "source_refs": [],
+      "version": null,
+      "created_at": "2026-10-27T16:11:39+00:00",
+      "updated_at": "2026-10-27T16:11:40+00:00",
+      "last_accessed_at": null,
+      "importance": null,
+      "write_score": null,
+      "confidence": null,
+      "is_protected": false,
+      "parent_id": null,
+      "support_ids": []
+    },
+    {
+      "id": "c1d1f43f-1800-47e3-aa47-f562b9f5b964",
+      "user_id": "qa-functional-20261027",
+      "content": "我喜欢用 Python 写脚本。",
+      "normalized_content": "我喜欢用 python 写脚本。",
+      "memory_key": "preferred_programming_language",
+      "memory_value": "Python",
+      "memory_type": "semantic",
+      "state_role": "current",
+      "source": "evolution_workbench",
+      "importance": 0.7,
+      "confidence": 0.95,
+      "saliency": 0.45499999999999996,
+      "goal_relevance": 0.5,
+      "preference_strength": 0.7,
+      "attention_bias": 0.5929079904663688,
+      "write_score": 0.649,
+      "prediction_error": 0.0,
+      "evidence_count": 1,
+      "parent_id": null,
+      "is_protected": true,
+      "created_at": "2026-10-27T16:09:46+00:00",
+      "updated_at": "2026-10-27T16:09:46+00:00",
+      "last_accessed_at": "2026-10-27T16:12:16+00:00",
+      "tags": [
+        "preference",
+        "programming",
+        "python"
+      ],
+      "support_ids": [],
+      "metadata": {},
+      "storage_kind": "legacy",
+      "can_delete": true,
+      "migration_unverified": false
+    },
+    {
+      "id": "42422bb921745221562a4cacf5376817929165302e9613f323101e7c6f7b8da9",
+      "user_id": "qa-functional-20261027",
+      "content": "Procedure execution",
+      "memory_type": "episodic",
+      "state_role": "current",
+      "native_status": "current",
+      "storage_kind": "typed",
+      "module": "episode_events",
+      "can_delete": false,
+      "source": "typed_memory",
+      "memory_key": "",
+      "memory_value": "",
+      "tags": [],
+      "evidence_count": 1,
+      "source_refs": [
+        "ca9f7de205c952b6427d701d6032178a3d284f6da068afd7688b3d3d463208b8"
+      ],
+      "version": null,
+      "created_at": "2026-10-27T16:07:47+00:00",
+      "updated_at": "2026-10-27T16:07:47+00:00",
+      "last_accessed_at": null,
+      "importance": null,
+      "write_score": null,
+      "confidence": null,
+      "is_protected": false,
+      "parent_id": null,
+      "support_ids": []
+    },
+    {
+      "id": "f19f0f3632a4c0e3e8b33f643834aaecbb7aff4f1e70d0f119a507172a0d1cd1",
+      "user_id": "qa-functional-20261027",
+      "content": "knowledge.learn",
+      "memory_type": "procedural",
+      "state_role": "current",
+      "native_status": "enabled",
+      "storage_kind": "typed",
+      "module": "procedure_versions",
+      "can_delete": false,
+      "source": "typed_memory",
+      "memory_key": "",
+      "memory_value": "",
+      "tags": [],
+      "evidence_count": 1,
+      "source_refs": [
+        "6a14e643bc42775787527a924cf9505d61acb8d0a64cc346d59fdff5fea443f8"
+      ],
+      "version": 1,
+      "created_at": "2026-10-27T16:07:36+00:00",
+      "updated_at": "2026-10-27T16:07:36+00:00",
+      "last_accessed_at": null,
+      "importance": null,
+      "write_score": null,
+      "confidence": null,
+      "is_protected": false,
+      "parent_id": null,
+      "support_ids": []
+    },
+    {
+      "id": "799b6d06edf567f01577a53db9ffa6bed47f1a1378de05b98a51d6371da2894c",
+      "user_id": "qa-functional-20261027",
+      "content": "text.emit",
+      "memory_type": "procedural",
+      "state_role": "current",
+      "native_status": "enabled",
+      "storage_kind": "typed",
+      "module": "procedure_versions",
+      "can_delete": false,
+      "source": "typed_memory",
+      "memory_key": "",
+      "memory_value": "",
+      "tags": [],
+      "evidence_count": 1,
+      "source_refs": [
+        "29dc4d3cc4224dd43cdd9de06ba4bb9a97d17c193f7bf7bbb1417c8703ac504d"
+      ],
+      "version": 1,
+      "created_at": "2026-10-27T16:07:36+00:00",
+      "updated_at": "2026-10-27T16:07:36+00:00",
+      "last_accessed_at": null,
+      "importance": null,
+      "write_score": null,
+      "confidence": null,
+      "is_protected": false,
+      "parent_id": null,
+      "support_ids": []
+    },
+    {
+      "id": "62c50291bef34bdb837735f1ac7d2a0fb979983f7c8e82cf62bf70fb2b2fc7d0",
+      "user_id": "qa-functional-20261027",
+      "content": "decision.next",
+      "memory_type": "procedural",
+      "state_role": "current",
+      "native_status": "enabled",
+      "storage_kind": "typed",
+      "module": "procedure_versions",
+      "can_delete": false,
+      "source": "typed_memory",
+      "memory_key": "",
+      "memory_value": "",
+      "tags": [],
+      "evidence_count": 1,
+      "source_refs": [
+        "ca2ead0f28ce78d2c40859e3d525e645b5103c2fa540acb110c03635a686e09e"
+      ],
+      "version": 1,
+      "created_at": "2026-10-27T16:07:36+00:00",
+      "updated_at": "2026-10-27T16:07:36+00:00",
+      "last_accessed_at": null,
+      "importance": null,
+      "write_score": null,
+      "confidence": null,
+      "is_protected": false,
+      "parent_id": null,
+      "support_ids": []
+    },
+    {
+      "id": "2dce71c7fa608bad8285b613e28181fea1013d72c39ce65328e1f02f96fb8c14",
+      "user_id": "qa-functional-20261027",
+      "content": "text.normalize",
+      "memory_type": "procedural",
+      "state_role": "current",
+      "native_status": "enabled",
+      "storage_kind": "typed",
+      "module": "procedure_versions",
+      "can_delete": false,
+      "source": "typed_memory",
+      "memory_key": "",
+      "memory_value": "",
+      "tags": [],
+      "evidence_count": 1,
+      "source_refs": [
+        "b607d3b8f26585d3ae56105cd3d65cfc52b873cadf0f9dd25c1efa21b7b69bce"
+      ],
+      "version": 1,
+      "created_at": "2026-10-27T16:07:36+00:00",
+      "updated_at": "2026-10-27T16:07:36+00:00",
+      "last_accessed_at": null,
+      "importance": null,
+      "write_score": null,
+      "confidence": null,
+      "is_protected": false,
+      "parent_id": null,
+      "support_ids": []
+    },
+    {
+      "id": "15e361bf0aba5b5a76a4218b3f7ddea611ebc40d306d0a58a58f575281068d6a",
+      "user_id": "qa-functional-20261027",
+      "content": "knowledge.retrieve",
+      "memory_type": "procedural",
+      "state_role": "current",
+      "native_status": "enabled",
+      "storage_kind": "typed",
+      "module": "procedure_versions",
+      "can_delete": false,
+      "source": "typed_memory",
+      "memory_key": "",
+      "memory_value": "",
+      "tags": [],
+      "evidence_count": 1,
+      "source_refs": [
+        "0e1f6fd008a3b50431b0a982ab21622fae666b31091c4ccc2ce2e8d1488bd857"
+      ],
+      "version": 1,
+      "created_at": "2026-10-27T16:07:36+00:00",
+      "updated_at": "2026-10-27T16:07:36+00:00",
+      "last_accessed_at": null,
+      "importance": null,
+      "write_score": null,
+      "confidence": null,
+      "is_protected": false,
+      "parent_id": null,
+      "support_ids": []
+    },
+    {
+      "id": "68662699a0ebad6e76c2fa3d4a62c29d3d15e11624131948063b4c0e0490af6c",
+      "user_id": "qa-functional-20261027",
+      "content": "{\"task_id\": \"8d0c44ab-a01e-4365-844e-a0ea53ebc514\", \"goals\": [], \"constraints\": [\"默认使用中文回复用户\"], \"task_state\": {\"steps\": 3, \"stop_reason\": \"turn_complete\"}}",
+      "memory_type": "working",
+      "state_role": "working",
+      "native_status": "paused",
+      "storage_kind": "typed",
+      "module": "working_states",
+      "can_delete": false,
+      "source": "typed_memory",
+      "memory_key": "",
+      "memory_value": "",
+      "tags": [],
+      "evidence_count": 0,
+      "source_refs": [],
+      "version": null,
+      "created_at": "2026-10-27T16:01:00+00:00",
+      "updated_at": "2026-10-27T16:05:39+00:00",
+      "last_accessed_at": null,
+      "importance": null,
+      "write_score": null,
+      "confidence": null,
+      "is_protected": false,
+      "parent_id": null,
+      "support_ids": []
+    },
+    {
+      "id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+      "user_id": "qa-functional-20261027",
+      "content": "以后默认用中文回复我。",
+      "memory_type": "semantic",
+      "state_role": "current",
+      "native_status": "current",
+      "storage_kind": "typed",
+      "module": "semantic_assertions",
+      "can_delete": false,
+      "source": "typed_memory",
+      "memory_key": "回复语言偏好",
+      "memory_value": "中文",
+      "tags": [],
+      "evidence_count": 1,
+      "source_refs": [
+        "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+      ],
+      "version": 1,
+      "created_at": "2026-10-27T16:04:40+00:00",
+      "updated_at": "2026-10-27T16:04:40+00:00",
+      "last_accessed_at": null,
+      "importance": null,
+      "write_score": null,
+      "confidence": 0.95,
+      "is_protected": false,
+      "parent_id": null,
+      "support_ids": []
+    },
+    {
+      "id": "bba9083aae3d53d0f401e159970caf49f2ba74d6f75060bcce6ef9aa79c35672",
+      "user_id": "qa-functional-20261027",
+      "content": "昨天我和同事在公园打了一小时羽毛球。",
+      "memory_type": "episodic",
+      "state_role": "current",
+      "native_status": "current",
+      "storage_kind": "typed",
+      "module": "episode_events",
+      "can_delete": false,
+      "source": "typed_memory",
+      "memory_key": "",
+      "memory_value": "",
+      "tags": [],
+      "evidence_count": 1,
+      "source_refs": [
+        "ee119511d3c680a6a471919179fa141eb67cdc0cf6d687ef1527a686ca7d346a"
+      ],
+      "version": null,
+      "created_at": "2026-10-27T16:04:08+00:00",
+      "updated_at": "2026-10-27T16:04:08+00:00",
+      "last_accessed_at": null,
+      "importance": null,
+      "write_score": null,
+      "confidence": null,
+      "is_protected": false,
+      "parent_id": null,
+      "support_ids": []
+    },
+    {
+      "id": "caaf8cca9ce47662b650a74978d502f5fe0378f3b8ba5527aa098737fe5da0d4",
+      "user_id": "qa-functional-20261027",
+      "content": "{\"task_id\": \"88c7dcab-edff-4b5c-8b9b-a9712998b5fb\", \"goals\": [\"用中文回复用户\"], \"constraints\": [\"本次任务使用中文回复\"], \"task_state\": {\"steps\": 3, \"stop_reason\": \"turn_complete\"}}",
+      "memory_type": "working",
+      "state_role": "working",
+      "native_status": "paused",
+      "storage_kind": "typed",
+      "module": "working_states",
+      "can_delete": false,
+      "source": "typed_memory",
+      "memory_key": "",
+      "memory_value": "",
+      "tags": [],
+      "evidence_count": 0,
+      "source_refs": [],
+      "version": null,
+      "created_at": "2026-10-27T16:00:21+00:00",
+      "updated_at": "2026-10-27T16:00:22+00:00",
+      "last_accessed_at": null,
+      "importance": null,
+      "write_score": null,
+      "confidence": null,
+      "is_protected": false,
+      "parent_id": null,
+      "support_ids": []
+    },
+    {
+      "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+      "user_id": "qa-functional-20261027",
+      "content": "我平时最喜欢喝乌龙茶。",
+      "memory_type": "semantic",
+      "state_role": "current",
+      "native_status": "current",
+      "storage_kind": "typed",
+      "module": "semantic_assertions",
+      "can_delete": false,
+      "source": "typed_memory",
+      "memory_key": "最喜欢喝的茶/饮品偏好",
+      "memory_value": "乌龙茶",
+      "tags": [],
+      "evidence_count": 1,
+      "source_refs": [
+        "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+      ],
+      "version": 1,
+      "created_at": "2026-10-27T16:00:22+00:00",
+      "updated_at": "2026-10-27T16:00:22+00:00",
+      "last_accessed_at": null,
+      "importance": null,
+      "write_score": null,
+      "confidence": 0.9,
+      "is_protected": false,
+      "parent_id": null,
+      "support_ids": []
+    },
+    {
+      "id": "e8e64107769429b3a127ee734de46bb2ade21d5aedfb5e9fb709444a639471e7",
+      "user_id": "qa-functional-20261027",
+      "content": "Hosted model configuration; provider version may be an alias",
+      "memory_type": "procedural",
+      "state_role": "current",
+      "native_status": "configured",
+      "storage_kind": "typed",
+      "module": "procedure_versions",
+      "can_delete": false,
+      "source": "typed_memory",
+      "memory_key": "",
+      "memory_value": "",
+      "tags": [],
+      "evidence_count": 0,
+      "source_refs": [],
+      "version": "MiniMax-M3[1m]",
+      "created_at": null,
+      "updated_at": null,
+      "last_accessed_at": null,
+      "importance": null,
+      "write_score": null,
+      "confidence": null,
+      "is_protected": false,
+      "parent_id": null,
+      "support_ids": []
+    }
+  ],
+  "original_evolution_record_id": "c1d1f43f-1800-47e3-aa47-f562b9f5b964",
+  "new_chat_response": {
+    "thread_id": "unified-recall-4972ce43",
+    "task_id": "unified-recall-4972ce43",
+    "stop_reason": "turn_complete",
+    "answer": "你喜欢用 **Python** 写脚本。",
+    "references": [
+      {
+        "module": "semantic",
+        "memory_id": "c1d1f43f-1800-47e3-aa47-f562b9f5b964",
+        "id": "c1d1f43f-1800-47e3-aa47-f562b9f5b964",
+        "version": null,
+        "source_refs": [],
+        "purpose": "我喜欢用什么编程语言写脚本？",
+        "record": {
+          "id": "c1d1f43f-1800-47e3-aa47-f562b9f5b964",
+          "user_id": "qa-functional-20261027",
+          "content": "我喜欢用 Python 写脚本。",
+          "normalized_content": "我喜欢用 python 写脚本。",
+          "memory_key": "preferred_programming_language",
+          "memory_value": "Python",
+          "memory_type": "semantic",
+          "state_role": "current",
+          "source": "evolution_workbench",
+          "importance": 0.7,
+          "confidence": 0.95,
+          "saliency": 0.45499999999999996,
+          "goal_relevance": 0.5,
+          "preference_strength": 0.7,
+          "attention_bias": 0.5929079904663688,
+          "write_score": 0.649,
+          "prediction_error": 0.0,
+          "evidence_count": 1,
+          "parent_id": null,
+          "is_protected": true,
+          "created_at": "2026-10-27T16:09:46+00:00",
+          "updated_at": "2026-10-27T16:09:46+00:00",
+          "last_accessed_at": "2026-10-27T16:12:16+00:00",
+          "tags": [
+            "preference",
+            "programming",
+            "python"
+          ],
+          "support_ids": [],
+          "metadata": {},
+          "epistemic_status": "user_report"
+        },
+        "memory_type": "semantic",
+        "content": "我喜欢用 Python 写脚本。",
+        "storage_kind": "legacy",
+        "state_role": "current",
+        "epistemic_status": "user_report",
+        "score": 0.5656854249492381
+      },
+      {
+        "module": "semantic",
+        "memory_id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+        "version": 1,
+        "source_refs": [
+          "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+        ],
+        "purpose": "我喜欢用什么编程语言写脚本？",
+        "record": {
+          "sensitive": false,
+          "evidence_text": "我平时最喜欢喝乌龙茶。",
+          "subject": "qa-functional-20261027",
+          "predicate": "最喜欢喝的茶/饮品偏好",
+          "value": "乌龙茶",
+          "scope": "user",
+          "valid_from": null,
+          "valid_to": null,
+          "epistemic_status": "explicit",
+          "status": "current",
+          "confidence": 0.9,
+          "cardinality": "single",
+          "correction": false,
+          "source_refs": [
+            "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+          ],
+          "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+          "evidence_ids": [
+            "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+          ],
+          "version": 1,
+          "recorded_at": "2026-10-27T16:00:22+00:00",
+          "supersedes_ids": []
+        },
+        "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+        "memory_type": "semantic",
+        "state_role": "current",
+        "content": "我平时最喜欢喝乌龙茶。"
+      },
+      {
+        "module": "semantic",
+        "memory_id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+        "version": 1,
+        "source_refs": [
+          "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+        ],
+        "purpose": "我喜欢用什么编程语言写脚本？",
+        "record": {
+          "sensitive": false,
+          "evidence_text": "以后默认用中文回复我。",
+          "subject": "user",
+          "predicate": "回复语言偏好",
+          "value": "中文",
+          "scope": "user",
+          "valid_from": null,
+          "valid_to": null,
+          "epistemic_status": "explicit",
+          "status": "current",
+          "confidence": 0.95,
+          "cardinality": "single",
+          "correction": false,
+          "source_refs": [
+            "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+          ],
+          "id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+          "evidence_ids": [
+            "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+          ],
+          "version": 1,
+          "recorded_at": "2026-10-27T16:04:40+00:00",
+          "supersedes_ids": []
+        },
+        "id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+        "memory_type": "semantic",
+        "state_role": "current",
+        "content": "以后默认用中文回复我。"
+      }
+    ],
+    "memory_results": [],
+    "memory_status": "disabled",
+    "warnings": []
+  },
+  "overview_after_chat": {
+    "active_count": 15,
+    "total_count": 15,
+    "by_role": {
+      "working": 4,
+      "current": 11
+    },
+    "by_type": {
+      "working": 4,
+      "semantic": 3,
+      "episodic": 2,
+      "procedural": 6
+    },
+    "by_storage": {
+      "typed": 14,
+      "legacy": 1
+    },
+    "audit_count": 5,
+    "config": {
+      "write_threshold": 0.42,
+      "cpe_low_threshold": 0.55,
+      "cpe_commit_threshold": 0.7,
+      "evidence_consistency_threshold": 0.6,
+      "minimum_evidence_count": 2,
+      "retention_threshold": 0.3,
+      "retention_decay": 0.04,
+      "retrieval_lambda_bias": 0.65,
+      "retrieval_delta_context": 0.45
+    },
+    "recent_activity": [
+      {
+        "id": "158ca98d-c9bb-4fc3-97fe-f619595933c8",
+        "user_id": "qa-functional-20261027",
+        "event_type": "RETRIEVE",
+        "memory_id": null,
+        "message": "完成注意力调制检索，返回 1 条证据。",
+        "created_at": "2026-10-27T16:12:16+00:00",
+        "details": {
+          "query": "编程语言 Python",
+          "result_ids": [
+            "c1d1f43f-1800-47e3-aa47-f562b9f5b964"
+          ]
+        },
+        "related_memory": null
+      },
+      {
+        "id": "879f239e-1f03-41b2-a85a-290a08809045",
+        "user_id": "qa-functional-20261027",
+        "event_type": "WRITE_CURRENT",
+        "memory_id": "c1d1f43f-1800-47e3-aa47-f562b9f5b964",
+        "message": "通过选择性编码门，写入当前长期记忆。",
+        "created_at": "2026-10-27T16:09:46+00:00",
+        "details": {
+          "write_score": 0.649
+        },
+        "related_memory": {
+          "id": "c1d1f43f-1800-47e3-aa47-f562b9f5b964",
+          "content": "我喜欢用 Python 写脚本。",
+          "memory_type": "semantic",
+          "state_role": "current"
+        }
+      },
+      {
+        "id": "f496aa315c0803fb66d8fda89c1d0c3347c5688b27ba7f1e30df1367884a1158",
+        "event_type": "TYPED_LEARNING",
+        "created_at": "2026-10-27T16:04:38+00:00",
+        "message": "记忆写入成功",
+        "memory_id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+        "details": {
+          "target_module": "semantic",
+          "status": "succeeded"
+        },
+        "related_memory": {
+          "id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+          "content": "以后默认用中文回复我。",
+          "memory_type": "semantic",
+          "state_role": "current"
+        }
+      },
+      {
+        "id": "d20c134cb645159cc7d63b25c02984e5fd65f43d231e8216e218b40dac6e0644",
+        "event_type": "TYPED_LEARNING",
+        "created_at": "2026-10-27T16:04:05+00:00",
+        "message": "记忆写入成功",
+        "memory_id": "bba9083aae3d53d0f401e159970caf49f2ba74d6f75060bcce6ef9aa79c35672",
+        "details": {
+          "target_module": "episodic",
+          "status": "succeeded"
+        },
+        "related_memory": {
+          "id": "bba9083aae3d53d0f401e159970caf49f2ba74d6f75060bcce6ef9aa79c35672",
+          "content": "昨天我和同事在公园打了一小时羽毛球。",
+          "memory_type": "episodic",
+          "state_role": "current"
+        }
+      },
+      {
+        "id": "9abf94ec66a2738b14e35e9d68b5e7b59d525b848df4fc1bf7633b472efe837e",
+        "event_type": "TYPED_LEARNING",
+        "created_at": "2026-10-27T16:00:21+00:00",
+        "message": "记忆写入成功",
+        "memory_id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+        "details": {
+          "target_module": "semantic",
+          "status": "succeeded"
+        },
+        "related_memory": {
+          "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+          "content": "我平时最喜欢喝乌龙茶。",
+          "memory_type": "semantic",
+          "state_role": "current"
+        }
+      }
+    ],
+    "storage": {
+      "engine": "SQLite",
+      "mode": "file",
+      "database_bytes": 270336,
+      "wal_bytes": 201912,
+      "allocated_bytes": 282624,
+      "scope": "database",
+      "status": "ready"
+    },
+    "modules": [
+      {
+        "name": "选择性编码",
+        "description": "隐私判断与价值筛选",
+        "status": "ready"
+      },
+      {
+        "name": "证据巩固",
+        "description": "冲突缓冲与状态更新",
+        "status": "ready"
+      },
+      {
+        "name": "记忆检索",
+        "description": "词法召回与注意力排序",
+        "status": "ready"
+      },
+      {
+        "name": "遗忘管理",
+        "description": "保留度计算与归档",
+        "status": "ready"
+      },
+      {
+        "name": "语言模型",
+        "description": "LangChain · MiniMax-M3[1m] · 尚未验证连接",
+        "status": "configured"
+      },
+      {
+        "name": "向量模型",
+        "description": "当前版本使用词法召回，尚未实现向量检索",
+        "status": "not_implemented"
+      }
+    ]
+  },
+  "browser_verified": {
+    "assistant_answer": "你喜欢用 **Python** 写脚本。",
+    "same_reference_includes_original_evolution_id": "c1d1f43f-1800-47e3-aa47-f562b9f5b964",
+    "overview_total": 15,
+    "management_total": 15,
+    "semantic_filter_rows": [
+      "我喜欢用 Python 写脚本。",
+      "以后默认用中文回复我。",
+      "我平时最喜欢喝乌龙茶。"
+    ],
+    "restored_user": "demo-user",
+    "restored_page": "/#/assistant"
+  }
+}

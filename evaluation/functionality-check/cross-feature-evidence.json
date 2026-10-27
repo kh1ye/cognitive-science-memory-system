@@ -1,0 +1,105 @@
+{
+  "legacy_search": {
+    "query": "编程语言 Python",
+    "answer": "基于当前记忆：我喜欢用 Python 写脚本。",
+    "grounded": true,
+    "results": [
+      {
+        "id": "c1d1f43f-1800-47e3-aa47-f562b9f5b964",
+        "user_id": "qa-functional-20261027",
+        "content": "我喜欢用 Python 写脚本。",
+        "normalized_content": "我喜欢用 python 写脚本。",
+        "memory_key": "preferred_programming_language",
+        "memory_value": "Python",
+        "memory_type": "semantic",
+        "state_role": "current",
+        "source": "evolution_workbench",
+        "importance": 0.7,
+        "confidence": 0.95,
+        "saliency": 0.45499999999999996,
+        "goal_relevance": 0.5,
+        "preference_strength": 0.7,
+        "attention_bias": 0.5929079904663688,
+        "write_score": 0.649,
+        "prediction_error": 0.0,
+        "evidence_count": 1,
+        "parent_id": null,
+        "is_protected": true,
+        "created_at": "2026-10-27T16:09:46+00:00",
+        "updated_at": "2026-10-27T16:09:46+00:00",
+        "last_accessed_at": null,
+        "tags": [
+          "preference",
+          "programming",
+          "python"
+        ],
+        "support_ids": [],
+        "metadata": {},
+        "retrieval": {
+          "score": 0.379889,
+          "base_relevance": 0.212132,
+          "attention_bias": 0.592908,
+          "context_match": 0.212132,
+          "role_factor": 1.18
+        }
+      }
+    ],
+    "policy": {
+      "semantic_gate": true,
+      "attention_modulation": true,
+      "history_intent": false
+    }
+  },
+  "typed_assertions": [
+    {
+      "sensitive": false,
+      "evidence_text": "我平时最喜欢喝乌龙茶。",
+      "subject": "qa-functional-20261027",
+      "predicate": "最喜欢喝的茶/饮品偏好",
+      "value": "乌龙茶",
+      "scope": "user",
+      "valid_from": null,
+      "valid_to": null,
+      "epistemic_status": "explicit",
+      "status": "current",
+      "confidence": 0.9,
+      "cardinality": "single",
+      "correction": false,
+      "source_refs": [
+        "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+      ],
+      "id": "841eb19e93343d77e1c736444fd4e646f4c63c874e21038dadc6c19974caac16",
+      "evidence_ids": [
+        "3b5d077939626d5be65c94ac9d49343d2bbdda852479d2a703a2ae9fc04e9b0d"
+      ],
+      "version": 1,
+      "recorded_at": "2026-10-27T16:00:22+00:00",
+      "supersedes_ids": []
+    },
+    {
+      "sensitive": false,
+      "evidence_text": "以后默认用中文回复我。",
+      "subject": "user",
+      "predicate": "回复语言偏好",
+      "value": "中文",
+      "scope": "user",
+      "valid_from": null,
+      "valid_to": null,
+      "epistemic_status": "explicit",
+      "status": "current",
+      "confidence": 0.95,
+      "cardinality": "single",
+      "correction": false,
+      "source_refs": [
+        "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+      ],
+      "id": "482a388024a26b552e5b118a079fdbb211bf5ef0355ef748547bf63f2315fd9b",
+      "evidence_ids": [
+        "668888c781ccb04d3b4a7d8a4eeb62c9d3e906def1fece7edbb59d61574f55a3"
+      ],
+      "version": 1,
+      "recorded_at": "2026-10-27T16:04:40+00:00",
+      "supersedes_ids": []
+    }
+  ]
+}

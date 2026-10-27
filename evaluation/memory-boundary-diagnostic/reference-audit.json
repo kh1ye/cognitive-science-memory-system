@@ -1,0 +1,51 @@
+{
+  "scope": "Review of reference labels, not an independent expert gold standard",
+  "assessed_before_diagnostic_predictions_read": true,
+  "cases": [
+    {
+      "id": "N052",
+      "assessment": "reference_reasonable_but_short_context",
+      "reason": "陈述求学地点可以是个人语义事实；简短一句不能证明是否伴随具体场景的再体验。"
+    },
+    {
+      "id": "N058",
+      "assessment": "ambiguous_reference",
+      "reason": "第一次指向具体学习事件，小学也可只是在陈述个人背景；原标签不能视为唯一正确答案。"
+    },
+    {
+      "id": "N060",
+      "assessment": "reference_reasonable_but_interpretation_sensitive",
+      "reason": "惯用手是可以陈述的个人特征；仅这一句不足以证明当前展示的是书写技能的实施。"
+    },
+    {
+      "id": "N063",
+      "assessment": "reference_supported_under_content_vs_skill_criterion",
+      "reason": "明确说知道做法，只展示可陈述步骤，没有实际技能表现的证据。"
+    },
+    {
+      "id": "N064",
+      "assessment": "reference_supported_under_content_vs_skill_criterion",
+      "reason": "记得并说出折叠步骤，不等于展示熟练折叠技能。"
+    },
+    {
+      "id": "N073",
+      "assessment": "reference_supported_under_content_vs_skill_criterion",
+      "reason": "句子表达说话者知道外婆的做法，并非直接证明说话者掌握相应动作技能。"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.nimh.nih.gov/research/research-funded-by-nimh/rdoc/constructs/declarative-memory",
+      "supports": "事实知识与情景事件的区分"
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10662951/",
+      "supports": "个人语义信息包括自传事实；与特定一次事件的对比，也存在边界连续性"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/7414331/",
+      "supports": "原始实验支持技能表现与陈述性记忆可分离；不为六条句子提供直接金标准标签"
+    }
+  ],
+  "caveat": "上述为本次审阅者依据原文与分类任务口径作的解释，不是来源对这六句的直接标注。"
+}

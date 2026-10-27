@@ -205,8 +205,8 @@ function keydown(event) {
                     {{
                       roles[reference.state_role]?.label || reference.state_role
                     }}
-                    · 匹配分数
-                    {{ Number(reference.score || 0).toFixed(3) }}</small
+                    <template v-if="reference.version"> · 版本 {{reference.version}} · 来源 {{reference.source_refs?.length || 0}}</template>
+                    <template v-else> · 匹配分数 {{ Number(reference.score || 0).toFixed(3) }}</template></small
                   >
                 </div>
               </details>

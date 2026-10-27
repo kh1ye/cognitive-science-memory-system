@@ -91,7 +91,7 @@ const donut = computed(() => {
       </div>
     </div>
     <section class="panel snapshot-panel" aria-label="当前近况">
-      <div class="snapshot-copy"><span class="snapshot-caption">当前近况 · {{ state.user }}</span><h2>{{ snapshot }}</h2><p>{{ state.error ? '同步未成功；已有数据为上次成功同步的快照。' : state.loading ? '正在同步，已有数据为上次快照。' : '记录总量包含历史、工作层与归档；各状态以最近一次同步为准。' }}</p></div>
+      <div class="snapshot-copy"><span class="snapshot-caption">当前近况 · {{ state.user }}</span><h2>{{ snapshot }}</h2><p>{{ state.error ? '同步未成功；已有数据为上次成功同步的快照。' : state.loading ? '正在同步，已有数据为上次快照。' : '总量汇总四类记忆对象与兼容记录，包含工作状态、程序版本、历史及归档；迁移副本不重复计数。' }}</p></div>
       <div class="snapshot-actions"><RouterLink class="button primary" to="/evolution"><AppIcon name="activity" />体验记忆演化</RouterLink><RouterLink class="button" to="/memories"><AppIcon name="memory" />管理记忆</RouterLink></div>
     </section>
     <div class="metrics">

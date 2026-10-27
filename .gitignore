@@ -42,3 +42,8 @@ build/
 node_modules/
 .vite/
 coverage/
+
+# Spreadsheet editor locks and inspection intermediates
+outputs/**/.~*
+outputs/**/~$*
+outputs/**/*.inspect.ndjson

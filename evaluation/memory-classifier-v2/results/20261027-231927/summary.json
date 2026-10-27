@@ -1,0 +1,380 @@
+{
+  "model": "MiniMax-M3[1m]",
+  "attempted": 264,
+  "elapsed_seconds": 145.019,
+  "results": {
+    "natural-v2/baseline": {
+      "model": "MiniMax-M3[1m]",
+      "prompt_version": "baseline",
+      "dataset_version": "natural-v2",
+      "attempted": 100,
+      "correct": 95,
+      "accuracy": 0.95,
+      "api_errors": 0,
+      "abstentions": 0,
+      "macro_f1": 0.94880174291939,
+      "per_class": {
+        "working": {
+          "support": 25,
+          "correct": 25,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "episodic": {
+          "support": 25,
+          "correct": 25,
+          "precision": 0.9615384615384616,
+          "recall": 1.0,
+          "f1": 0.9803921568627451
+        },
+        "semantic": {
+          "support": 25,
+          "correct": 20,
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.888888888888889
+        },
+        "procedural": {
+          "support": 25,
+          "correct": 25,
+          "precision": 0.8620689655172413,
+          "recall": 1.0,
+          "f1": 0.9259259259259259
+        }
+      },
+      "confusion_matrix": {
+        "working": {
+          "working": 25,
+          "episodic": 0,
+          "semantic": 0,
+          "procedural": 0,
+          "unknown": 0,
+          "error": 0
+        },
+        "episodic": {
+          "working": 0,
+          "episodic": 25,
+          "semantic": 0,
+          "procedural": 0,
+          "unknown": 0,
+          "error": 0
+        },
+        "semantic": {
+          "working": 0,
+          "episodic": 1,
+          "semantic": 20,
+          "procedural": 4,
+          "unknown": 0,
+          "error": 0
+        },
+        "procedural": {
+          "working": 0,
+          "episodic": 0,
+          "semantic": 0,
+          "procedural": 25,
+          "unknown": 0,
+          "error": 0
+        }
+      },
+      "wrong_ids": [
+        "N058",
+        "N060",
+        "N063",
+        "N064",
+        "N073"
+      ],
+      "measured": "memory_concept_classification",
+      "not_measured": [
+        "production observation routing",
+        "long-term writes",
+        "working-state recovery",
+        "procedure execution"
+      ],
+      "limitations": [
+        "项目自建、作者给定参考标签，未经独立专家验证；单次采样，不代表复杂对话或通用能力。",
+        "四类定义写入固定评测提示，未提供带标签示例或当前样本答案。",
+        "模型版本为提供商标识，可能是别名；底层模型权重版本不可验证。",
+        "调用项目概念分类函数；实际输入分流使用独立的多目标结构，不由本成绩替代。"
+      ],
+      "started_at": "2026-10-27T23:19:27.716119+08:00"
+    },
+    "natural-v2/boundaries-v2": {
+      "model": "MiniMax-M3[1m]",
+      "prompt_version": "boundaries-v2",
+      "dataset_version": "natural-v2",
+      "attempted": 100,
+      "correct": 99,
+      "accuracy": 0.99,
+      "api_errors": 0,
+      "abstentions": 0,
+      "macro_f1": 0.9899959983993597,
+      "per_class": {
+        "working": {
+          "support": 25,
+          "correct": 25,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "episodic": {
+          "support": 25,
+          "correct": 25,
+          "precision": 0.9615384615384616,
+          "recall": 1.0,
+          "f1": 0.9803921568627451
+        },
+        "semantic": {
+          "support": 25,
+          "correct": 24,
+          "precision": 1.0,
+          "recall": 0.96,
+          "f1": 0.9795918367346939
+        },
+        "procedural": {
+          "support": 25,
+          "correct": 25,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "confusion_matrix": {
+        "working": {
+          "working": 25,
+          "episodic": 0,
+          "semantic": 0,
+          "procedural": 0,
+          "unknown": 0,
+          "error": 0
+        },
+        "episodic": {
+          "working": 0,
+          "episodic": 25,
+          "semantic": 0,
+          "procedural": 0,
+          "unknown": 0,
+          "error": 0
+        },
+        "semantic": {
+          "working": 0,
+          "episodic": 1,
+          "semantic": 24,
+          "procedural": 0,
+          "unknown": 0,
+          "error": 0
+        },
+        "procedural": {
+          "working": 0,
+          "episodic": 0,
+          "semantic": 0,
+          "procedural": 25,
+          "unknown": 0,
+          "error": 0
+        }
+      },
+      "wrong_ids": [
+        "N058"
+      ],
+      "measured": "memory_concept_classification",
+      "not_measured": [
+        "production observation routing",
+        "long-term writes",
+        "working-state recovery",
+        "procedure execution"
+      ],
+      "limitations": [
+        "项目自建、作者给定参考标签，未经独立专家验证；单次采样，不代表复杂对话或通用能力。",
+        "四类定义写入固定评测提示，未提供带标签示例或当前样本答案。",
+        "模型版本为提供商标识，可能是别名；底层模型权重版本不可验证。",
+        "调用项目概念分类函数；实际输入分流使用独立的多目标结构，不由本成绩替代。"
+      ],
+      "started_at": "2026-10-27T23:19:27.716119+08:00"
+    },
+    "holdout-authored-v1/baseline": {
+      "model": "MiniMax-M3[1m]",
+      "prompt_version": "baseline",
+      "dataset_version": "holdout-authored-v1",
+      "attempted": 32,
+      "correct": 28,
+      "accuracy": 0.875,
+      "api_errors": 0,
+      "abstentions": 0,
+      "macro_f1": 0.8666666666666667,
+      "per_class": {
+        "working": {
+          "support": 8,
+          "correct": 8,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "episodic": {
+          "support": 8,
+          "correct": 8,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "semantic": {
+          "support": 8,
+          "correct": 4,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "procedural": {
+          "support": 8,
+          "correct": 8,
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "f1": 0.8
+        }
+      },
+      "confusion_matrix": {
+        "working": {
+          "working": 8,
+          "episodic": 0,
+          "semantic": 0,
+          "procedural": 0,
+          "unknown": 0,
+          "error": 0
+        },
+        "episodic": {
+          "working": 0,
+          "episodic": 8,
+          "semantic": 0,
+          "procedural": 0,
+          "unknown": 0,
+          "error": 0
+        },
+        "semantic": {
+          "working": 0,
+          "episodic": 0,
+          "semantic": 4,
+          "procedural": 4,
+          "unknown": 0,
+          "error": 0
+        },
+        "procedural": {
+          "working": 0,
+          "episodic": 0,
+          "semantic": 0,
+          "procedural": 8,
+          "unknown": 0,
+          "error": 0
+        }
+      },
+      "wrong_ids": [
+        "H021",
+        "H022",
+        "H023",
+        "H024"
+      ],
+      "measured": "memory_concept_classification",
+      "not_measured": [
+        "production observation routing",
+        "long-term writes",
+        "working-state recovery",
+        "procedure execution"
+      ],
+      "limitations": [
+        "项目自建、作者给定参考标签，未经独立专家验证；单次采样，不代表复杂对话或通用能力。",
+        "四类定义写入固定评测提示，未提供带标签示例或当前样本答案。",
+        "模型版本为提供商标识，可能是别名；底层模型权重版本不可验证。",
+        "调用项目概念分类函数；实际输入分流使用独立的多目标结构，不由本成绩替代。"
+      ],
+      "started_at": "2026-10-27T23:19:27.716119+08:00"
+    },
+    "holdout-authored-v1/boundaries-v2": {
+      "model": "MiniMax-M3[1m]",
+      "prompt_version": "boundaries-v2",
+      "dataset_version": "holdout-authored-v1",
+      "attempted": 32,
+      "correct": 32,
+      "accuracy": 1.0,
+      "api_errors": 0,
+      "abstentions": 0,
+      "macro_f1": 1.0,
+      "per_class": {
+        "working": {
+          "support": 8,
+          "correct": 8,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "episodic": {
+          "support": 8,
+          "correct": 8,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "semantic": {
+          "support": 8,
+          "correct": 8,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "procedural": {
+          "support": 8,
+          "correct": 8,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "confusion_matrix": {
+        "working": {
+          "working": 8,
+          "episodic": 0,
+          "semantic": 0,
+          "procedural": 0,
+          "unknown": 0,
+          "error": 0
+        },
+        "episodic": {
+          "working": 0,
+          "episodic": 8,
+          "semantic": 0,
+          "procedural": 0,
+          "unknown": 0,
+          "error": 0
+        },
+        "semantic": {
+          "working": 0,
+          "episodic": 0,
+          "semantic": 8,
+          "procedural": 0,
+          "unknown": 0,
+          "error": 0
+        },
+        "procedural": {
+          "working": 0,
+          "episodic": 0,
+          "semantic": 0,
+          "procedural": 8,
+          "unknown": 0,
+          "error": 0
+        }
+      },
+      "wrong_ids": [],
+      "measured": "memory_concept_classification",
+      "not_measured": [
+        "production observation routing",
+        "long-term writes",
+        "working-state recovery",
+        "procedure execution"
+      ],
+      "limitations": [
+        "项目自建、作者给定参考标签，未经独立专家验证；单次采样，不代表复杂对话或通用能力。",
+        "四类定义写入固定评测提示，未提供带标签示例或当前样本答案。",
+        "模型版本为提供商标识，可能是别名；底层模型权重版本不可验证。",
+        "调用项目概念分类函数；实际输入分流使用独立的多目标结构，不由本成绩替代。"
+      ],
+      "started_at": "2026-10-27T23:19:27.716119+08:00"
+    }
+  }
+}

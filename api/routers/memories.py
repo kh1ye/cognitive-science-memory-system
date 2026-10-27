@@ -1,5 +1,7 @@
 """Memory records, audit history, and retention maintenance."""
 
+from typing import Literal
+
 from fastapi import APIRouter, Query
 from fastapi.responses import JSONResponse
 
@@ -15,11 +17,14 @@ def memories(
     user_id: str = "demo-user",
     include_archived: bool = False,
     limit: int = Query(200, ge=1, le=1000),
+    view: Literal["legacy", "all"] = "legacy",
 ):
     return {
-        "items": memory.list_memories(
-            user_id, include_archived=include_archived, limit=limit
-        )
+        "items": (
+            memory.catalog.list
+            if view == "all" and memory.catalog is not None
+            else memory.list_memories
+        )(user_id, include_archived=include_archived, limit=limit)
     }
 
 

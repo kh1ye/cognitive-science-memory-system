@@ -39,3 +39,13 @@ class ConversationState(MessagesState):
     memory_results: list[dict[str, Any]]
     warnings: list[str]
     memory_status: str
+
+    task_id: str
+    observation_id: str
+    retention_policy: str
+    analysis: dict
+    working: dict
+    completed_actions: list[str]
+    selected_action: dict
+    steps: int
+    stop_reason: str

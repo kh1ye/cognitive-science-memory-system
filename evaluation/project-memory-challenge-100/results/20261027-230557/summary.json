@@ -1,0 +1,105 @@
+{
+  "started_at": "2026-10-27T23:05:57.699173+08:00",
+  "provider": "anthropic",
+  "model": "MiniMax-M3[1m]",
+  "dataset_version": "natural-v2",
+  "dataset_sha256": "edd18eeee012c3b0fec5a61701cb171b2153f858414602f0348887a354639f48",
+  "prompt_sha256": "fccb5038ccaf41b5ec1900e04964fdce77b100556772a5feb39d63ad4b62a4c3",
+  "seed": 20261027,
+  "workers": 4,
+  "temperature": "provider_default",
+  "sdk_max_retries": 1,
+  "status": "completed",
+  "elapsed_seconds": 54.528,
+  "attempted": 100,
+  "correct": 94,
+  "accuracy": 0.94,
+  "api_errors": 0,
+  "abstentions": 0,
+  "macro_f1": 0.9377751877751878,
+  "per_class": {
+    "working": {
+      "support": 25,
+      "correct": 25,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "episodic": {
+      "support": 25,
+      "correct": 25,
+      "precision": 0.9259259259259259,
+      "recall": 1.0,
+      "f1": 0.9615384615384615
+    },
+    "semantic": {
+      "support": 25,
+      "correct": 19,
+      "precision": 1.0,
+      "recall": 0.76,
+      "f1": 0.8636363636363636
+    },
+    "procedural": {
+      "support": 25,
+      "correct": 25,
+      "precision": 0.8620689655172413,
+      "recall": 1.0,
+      "f1": 0.9259259259259259
+    }
+  },
+  "confusion_matrix": {
+    "working": {
+      "working": 25,
+      "episodic": 0,
+      "semantic": 0,
+      "procedural": 0,
+      "unknown": 0,
+      "error": 0
+    },
+    "episodic": {
+      "working": 0,
+      "episodic": 25,
+      "semantic": 0,
+      "procedural": 0,
+      "unknown": 0,
+      "error": 0
+    },
+    "semantic": {
+      "working": 0,
+      "episodic": 2,
+      "semantic": 19,
+      "procedural": 4,
+      "unknown": 0,
+      "error": 0
+    },
+    "procedural": {
+      "working": 0,
+      "episodic": 0,
+      "semantic": 0,
+      "procedural": 25,
+      "unknown": 0,
+      "error": 0
+    }
+  },
+  "wrong_ids": [
+    "N052",
+    "N058",
+    "N060",
+    "N063",
+    "N064",
+    "N073"
+  ],
+  "measured": "memory_concept_classification",
+  "not_measured": [
+    "production observation routing",
+    "long-term writes",
+    "working-state recovery",
+    "procedure execution"
+  ],
+  "limitations": [
+    "项目自建、作者给定参考标签，未经独立专家验证；单次采样，不代表复杂对话或通用能力。",
+    "四类定义写入固定评测提示，未提供带标签示例或当前样本答案。",
+    "模型版本为提供商标识，可能是别名；底层模型权重版本不可验证。",
+    "未修改项目原有提取提示；使用单独概念评测提示。"
+  ]
+}

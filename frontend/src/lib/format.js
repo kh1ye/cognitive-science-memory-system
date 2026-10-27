@@ -33,6 +33,7 @@ export const eventNames = {
   RETENTION: "检查保留度",
   USER_DELETE: "删除记忆",
   DROP_PRIVACY: "隐私门拦截",
+  TYPED_LEARNING: "四类记忆写入",
 };
 export const decisionNames = {
   WRITE_CURRENT: "已保存为当前记忆",
@@ -49,11 +50,12 @@ export const memoryStatusNames = {
   failed: "本轮自动记忆处理失败，信息尚未确认加入",
 };
 export function formatMemoryDecision(result) {
+  if (result.target_module) return `${types[result.target_module]?.label || result.target_module}：${result.status === 'succeeded' ? '已写入' : '写入失败'}`;
   if (result.reason === "no_source_evidence") return "未写入：提取内容没有原话依据";
   if (result.reason === "consent_required") return "未写入：敏感信息需要手动确认同意";
   return decisionNames[result.decision] || result.decision;
 }
-export const formatDate = (value) =>
+export const formatDate = (value) => !value || !Number.isFinite(new Date(value).getTime()) ? "未记录" :
   new Intl.DateTimeFormat("zh-CN", {
     month: "2-digit",
     day: "2-digit",

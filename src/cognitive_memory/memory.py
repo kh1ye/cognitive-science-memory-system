@@ -28,6 +28,10 @@ class Memory:
     ):
         self.config = config or MemoryConfig()
         self.storage = storage if storage is not None else SQLiteStorage(db_path)
+        from .architecture import MemoryArchitecture
+        self.architecture = MemoryArchitecture(self.storage) if isinstance(self.storage, SQLiteStorage) else None
+        from .catalog import MemoryCatalog
+        self.catalog = MemoryCatalog(self) if self.architecture is not None else None
         self.encoder = Encoder(self.storage)
         self.consolidator = Consolidator(self.storage, self.config)
         self.retriever = Retriever(self.storage, self.config)
@@ -64,6 +68,12 @@ class Memory:
         return self.retention.run_retention(user_id, reference_time)
 
     def add_memory(self, payload: dict[str, Any]) -> WriteResult:
+        """Legacy protocol only. New callers use architecture.observe and typed services.
+
+        This compatibility path intentionally retains the original scoring/state semantics;
+        the catalog exposes eligible rows to chat without making them typed assertions.
+        Migrated rows remain unverified and working text is never restored across tasks.
+        """
         user_id = (
             normalize_text(str(payload.get("user_id", "demo-user"))) or "demo-user"
         )
@@ -175,6 +185,13 @@ class Memory:
             if not row:
                 return False
             self.storage.delete_owned(memory_id, user_id)
+            if self.architecture is not None:
+                migrated = self.storage._conn.execute(
+                    "SELECT target_table, target_id FROM legacy_memory_map WHERE legacy_id=?", (memory_id,)
+                ).fetchone()
+                if migrated:
+                    self.architecture.repo.delete(migrated["target_table"], user_id, migrated["target_id"])
+                    self.storage._conn.execute("DELETE FROM legacy_memory_map WHERE legacy_id=?", (memory_id,))
             self.storage.audit(
                 user_id,
                 "USER_DELETE",
@@ -192,6 +209,8 @@ class Memory:
 
     def stats(self, user_id: str) -> dict[str, Any]:
         user_id = normalize_text(user_id) or "demo-user"
+        if self.catalog is not None:
+            return {**self.catalog.stats(user_id), "config": asdict(self.config)}
         with self.storage.transaction():
             role_rows = self.storage.role_counts(user_id)
             type_rows = self.storage.type_counts(user_id)
@@ -212,7 +231,7 @@ class Memory:
         return {
             **stats,
             "total_count": sum(stats["by_role"].values()),
-            "recent_activity": self.list_audit(user_id, limit=8),
+            "recent_activity": self.catalog.activity(user_id) if self.catalog is not None else self.list_audit(user_id, limit=8),
             "storage": storage,
             "modules": [
                 {

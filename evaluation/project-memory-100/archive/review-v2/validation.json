@@ -1,0 +1,21 @@
+{
+  "scenarios": 100,
+  "step_inputs": 155,
+  "primary_distribution": {
+    "working": 25,
+    "episodic": 25,
+    "semantic": 25,
+    "procedural": 25
+  },
+  "form_distribution": {
+    "natural": 40,
+    "contrast": 20,
+    "multi_turn": 20,
+    "behavior": 20
+  },
+  "observation_contracts_valid": true,
+  "all_100_review_rows_present": true,
+  "model_calls": 0,
+  "system_behavior_evaluated": false,
+  "cases_sha256": "f5d5dc0cac5c48b2c74cd1ec9f5f2fe99b3912ed6081f1cd8c38b0683cc0145e"
+}

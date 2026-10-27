@@ -1,4 +1,4 @@
-"""A linear retrieve → reply → remember graph with SQLite checkpoints."""
+"""Bounded observe/decide/execute loop using LangGraph checkpoints."""
 
 import json
 import logging
@@ -8,14 +8,26 @@ import time
 from pathlib import Path
 from uuid import NAMESPACE_URL, uuid4, uuid5
 
-from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
+from langchain_core.messages import (
+    AIMessage,
+    HumanMessage,
+    RemoveMessage,
+    SystemMessage,
+)
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.graph import END, START, StateGraph
+from langgraph.graph.message import REMOVE_ALL_MESSAGES
 
 from cognitive_memory import Memory
+from cognitive_memory.architecture_models import (
+    Action,
+    Observation,
+    ObservationAnalysis,
+)
+from cognitive_memory.models import iso_now
 from cognitive_memory.retrieval.lexical import normalize_text
 
-from .llm import ChatModelError, LLMSettings, extract_memories
+from .llm import ChatModelError, LLMSettings, analyze_observation
 from .memory import CognitiveMemory
 from .prompts import DIALOGUE_PROMPT
 from .state import ConversationState
@@ -53,14 +65,218 @@ class ConversationAgent:
                 )
             """)
         builder = StateGraph(ConversationState)
-        builder.add_node("retrieve", self._retrieve)
-        builder.add_node("reply", self._reply)
-        builder.add_node("remember", self._remember)
-        builder.add_edge(START, "retrieve")
-        builder.add_edge("retrieve", "reply")
-        builder.add_edge("reply", "remember")
-        builder.add_edge("remember", END)
+        builder.add_node("observe", self._observe)
+        builder.add_node("decide", self._decide)
+        builder.add_node("execute", self._execute)
+        builder.add_edge(START, "observe")
+        builder.add_edge("observe", "decide")
+        builder.add_conditional_edges(
+            "decide",
+            lambda state: "end" if state["stop_reason"] else "execute",
+            {"end": END, "execute": "execute"},
+        )
+        builder.add_edge("execute", "decide")
         self.graph = builder.compile(checkpointer=self.checkpointer)
+        self.ephemeral_graph = builder.compile()
+        self.memory.engine.architecture.source_delete_hooks.append(
+            self._purge_source_session
+        )
+
+    def _purge_source_session(self, user, thread):
+        # Older checkpoint revisions may contain retrieved/derived prose. Conservatively
+        # remove this user's conversation checkpoints rather than inspect only latest state.
+        for session in self.list_sessions(user):
+            self.delete_session(user, session["id"])
+
+    def _observe(self, state):
+        architecture = self.memory.engine.architecture
+        message = str(state["messages"][-1].content)
+        analysis, warnings = ObservationAnalysis(), []
+        if (
+            state["auto_remember"]
+            and state["retention_policy"] != "no_persist"
+            and self.memory.allows_extraction(message)
+        ):
+            try:
+                analysis = analyze_observation(
+                    self._get_model(),
+                    "user_id=" + state["user_id"] + "\n" + message,
+                    source_content=message,
+                )
+            except Exception:  # noqa: BLE001 -- preserve reply and report extraction/learning failure
+                warnings.append("结构化提取失败；本轮未确认保存长期记忆。")
+        working = architecture.working_state(
+            state["user_id"], state["thread_id"], state["task_id"]
+        )
+        observation = Observation(
+            user_id=state["user_id"],
+            thread_id=state["thread_id"],
+            task_id=state["task_id"],
+            source_event_id=state["observation_id"],
+            content=message,
+            observed_at=iso_now(),
+            retention_policy="no_long_term"
+            if any(s.sensitive for s in analysis.semantic_candidates)
+            else state["retention_policy"],
+        )
+        # Runtime updates first; learning is a separately selected action below.
+        if state["retention_policy"] != "no_persist":
+            architecture.observe(
+                observation,
+                analysis.model_copy(
+                    update={
+                        "episode_candidates": [],
+                        "semantic_candidates": [],
+                        "procedure_proposals": [],
+                    }
+                ),
+            )
+        return {
+            "analysis": analysis.model_dump(),
+            "completed_actions": [],
+            "steps": 0,
+            "stop_reason": "",
+            "references": [],
+            "memory_results": [],
+            "warnings": warnings,
+            "memory_status": "disabled",
+            "working": working.model_dump(),
+        }
+
+    def _decide(self, state):
+        completed = state["completed_actions"]
+        candidates = [
+            Action(name=name, reason=reason)
+            for name, reason in [
+                ("retrieve", "Fill knowledge gap from long-term memory"),
+                ("reply", "Answer using available context"),
+                ("learn", "Persist validated learning candidates"),
+            ]
+            if name not in completed
+        ]
+        stop = ""
+        if state["steps"] >= 4:
+            stop = "max_steps"
+        elif not candidates:
+            stop = "turn_complete"
+        selected = candidates[0] if candidates else Action(name="stop", reason=stop)
+        if selected.name in completed:
+            stop = "repeated_action"
+        patch = {
+            "candidate_actions": [a.model_dump() for a in candidates],
+            "selected_action": selected.model_dump(),
+            "task_state": {"steps": state["steps"], "stop_reason": stop},
+            "status": "paused" if stop else "active",
+        }
+        if state["retention_policy"] != "no_persist":
+            self.memory.engine.architecture.update_working_state(
+                state["user_id"], state["thread_id"], state["task_id"], patch
+            )
+        return {"selected_action": selected.model_dump(), "stop_reason": stop}
+
+    def _execute(self, state):
+        action = Action.model_validate(state["selected_action"])
+        if action.name == "retrieve":
+            query = str(state["messages"][-1].content)
+            # Bounded fixed policy: explicit experience/capability requests route separately.
+            modules = (
+                ("episodic",)
+                if any(w in query for w in ("以前", "上次", "经历"))
+                else ("semantic",)
+            )
+            if any(w in query for w in ("程序", "工具", "能力")):
+                modules = ("procedural",)
+            if state["retention_policy"] == "no_persist":
+                references = []
+            else:
+                references = self.memory.engine.catalog.retrieve(
+                    state["user_id"],
+                    state["thread_id"],
+                    state["task_id"],
+                    query,
+                    modules=modules,
+                )
+            update = {"references": references}
+        elif action.name == "reply":
+            update = self._reply(state)
+        elif action.name == "learn":
+            update = self._learn(state)
+        else:
+            update = {}
+        action.status = (
+            "failed" if update.get("memory_status") == "failed" else "succeeded"
+        )
+        if state["retention_policy"] != "no_persist":
+            self.memory.engine.architecture.update_working_state(
+                state["user_id"],
+                state["thread_id"],
+                state["task_id"],
+                {"selected_action": action.model_dump()},
+            )
+        return {
+            **update,
+            "completed_actions": [*state["completed_actions"], action.name],
+            "steps": state["steps"] + 1,
+        }
+
+    def _learn(self, state):
+        status, results, warnings = "disabled", [], list(state["warnings"])
+        if state["auto_remember"] and state["retention_policy"] == "persist":
+            try:
+                content = str(
+                    next(
+                        m
+                        for m in reversed(state["messages"])
+                        if isinstance(m, HumanMessage)
+                    ).content
+                )
+                if not self.memory.allows_extraction(content):
+                    status = "privacy_blocked"
+                elif warnings:
+                    status = "failed"
+                else:
+                    result = self.memory.engine.architecture.observe(
+                        Observation(
+                            user_id=state["user_id"],
+                            thread_id=state["thread_id"],
+                            task_id=state["task_id"],
+                            source_event_id=state["observation_id"],
+                            content=content,
+                        ),
+                        state["analysis"],
+                    )
+                    results = result["operations"]
+                    status = (
+                        "failed"
+                        if result["status"] == "partial_failure"
+                        else (
+                            "privacy_blocked"
+                            if result["status"] == "no_long_term"
+                            else ("processed" if results else "no_new_memory")
+                        )
+                    )
+            except Exception:  # noqa: BLE001 -- preserve reply and report extraction/learning failure
+                status = "failed"
+            if status == "failed":
+                warnings.append("回答已生成，但本轮长期记忆未全部保存成功。")
+        reply = state["messages"][-1]
+        return {
+            "memory_results": results,
+            "memory_status": status,
+            "warnings": warnings,
+            "messages": [
+                AIMessage(
+                    id=reply.id,
+                    content=reply.content,
+                    additional_kwargs={
+                        "references": state["references"],
+                        "memory_results": results,
+                        "memory_status": status,
+                        "warnings": warnings,
+                    },
+                )
+            ],
+        }
 
     @property
     def configured(self):
@@ -77,21 +293,6 @@ class ConversationAgent:
         internal_id = str(uuid5(NAMESPACE_URL, json.dumps([user_id, thread_id])))
         return {"configurable": {"thread_id": internal_id}}
 
-    def _retrieve(self, state):
-        message = state["messages"][-1]
-        recent = " ".join(
-            str(m.content)
-            for m in state["messages"][:-1]
-            if isinstance(m, HumanMessage)
-        )[-2000:]
-        return {
-            "references": self.memory.retrieve(
-                state["user_id"], str(message.content), recent
-            ),
-            "memory_results": [],
-            "warnings": [],
-        }
-
     def _reply(self, state):
         # Bound the model context without discarding the durable transcript.
         history = state["messages"][-20:]
@@ -100,7 +301,15 @@ class ConversationAgent:
         messages = [
             SystemMessage(
                 content=DIALOGUE_PROMPT
-                + json.dumps(state["references"], ensure_ascii=False)
+                + json.dumps(
+                    {
+                        "retrieved": state["references"],
+                        "working": self.memory.engine.architecture.working_state(
+                            state["user_id"], state["thread_id"], state["task_id"]
+                        ).model_dump(),
+                    },
+                    ensure_ascii=False,
+                )
             ),
             *history,
         ]
@@ -126,51 +335,6 @@ class ConversationAgent:
             ]
         }
 
-    def _remember(self, state):
-        user_message = state["messages"][-2]
-        results, warnings = [], []
-        status = "disabled"
-        if state["auto_remember"]:
-            status = "privacy_blocked"
-            if self.memory.allows_extraction(str(user_message.content)):
-                try:
-                    extraction = extract_memories(
-                        self._get_model(), str(user_message.content)
-                    )
-                    results = self.memory.write(
-                        state["user_id"],
-                        str(user_message.content),
-                        extraction,
-                        state["thread_id"],
-                    )
-                    status = "processed" if results else "no_new_memory"
-                except Exception as error:  # noqa: BLE001 -- preserve the successful answer
-                    status = "failed"
-                    logging.getLogger(__name__).warning(
-                        "Memory extraction failed: %s", type(error).__name__
-                    )
-                    warnings.append(
-                        "自动记忆提取或写入失败，本轮信息未确认加入记忆。可手动保存或稍后重试。"
-                    )
-        reply = state["messages"][-1]
-        return {
-            "memory_results": results,
-            "memory_status": status,
-            "warnings": warnings,
-            "messages": [
-                AIMessage(
-                    id=reply.id,
-                    content=reply.content,
-                    additional_kwargs={
-                        "references": state["references"],
-                        "memory_results": results,
-                        "memory_status": status,
-                        "warnings": warnings,
-                    },
-                )
-            ],
-        }
-
     def create_session(
         self, user_id: str, thread_id: str | None = None, title="新会话"
     ):
@@ -184,29 +348,70 @@ class ConversationAgent:
             )
         return self.get_session(user_id, thread_id)
 
-    def chat(self, user_id: str, thread_id: str, message: str, *, auto_remember=True):
+    def chat(
+        self,
+        user_id: str,
+        thread_id: str,
+        message: str,
+        *,
+        auto_remember=True,
+        task_id=None,
+        source_event_id=None,
+        retention_policy="persist",
+    ):
         user_id = normalize_text(user_id) or "demo-user"
         with self._lock:
             self._get_model()  # Fail clearly before writing a checkpoint if unconfigured.
-            self.create_session(user_id, thread_id, message[:20])
+            if retention_policy not in ("persist", "no_long_term", "no_persist"):
+                raise ValueError("Invalid retention policy")
+            if retention_policy != "no_persist":
+                self.create_session(user_id, thread_id, message[:20])
             config = self._config(user_id, thread_id)
-            state = self.graph.invoke(
+            graph = (
+                self.ephemeral_graph if retention_policy == "no_persist" else self.graph
+            )
+            observation_id = source_event_id or str(uuid4())
+            new_messages = [HumanMessage(content=message, id=observation_id)]
+            prior = (
+                self.graph.get_state(config).values
+                if retention_policy != "no_persist"
+                else {}
+            )
+            if prior.get("task_id") and prior["task_id"] != (task_id or thread_id):
+                new_messages = [RemoveMessage(id=REMOVE_ALL_MESSAGES), *new_messages]
+            if retention_policy != "no_persist":
+                self.memory.engine.architecture.register_model_configuration(
+                    user_id, provider=self.settings.provider, model=self.settings.model
+                )
+            state = graph.invoke(
                 {
-                    "messages": [HumanMessage(content=message, id=str(uuid4()))],
+                    "messages": new_messages,
                     "user_id": user_id,
                     "thread_id": thread_id,
                     "auto_remember": auto_remember,
+                    "task_id": task_id or thread_id,
+                    "observation_id": observation_id,
+                    "retention_policy": "no_long_term"
+                    if retention_policy == "persist" and not auto_remember
+                    else retention_policy,
                 },
-                config,
+                {**config, "recursion_limit": 16},
             )
-            with self.checkpointer.cursor() as cursor:
-                cursor.execute(
-                    "UPDATE conversation_threads SET updated_at=?, "
-                    "title=CASE WHEN title='新会话' THEN ? ELSE title END WHERE id=?",
-                    (time.time(), message[:20], config["configurable"]["thread_id"]),
-                )
+            if retention_policy != "no_persist":
+                with self.checkpointer.cursor() as cursor:
+                    cursor.execute(
+                        "UPDATE conversation_threads SET updated_at=?, "
+                        "title=CASE WHEN title='新会话' THEN ? ELSE title END WHERE id=?",
+                        (
+                            time.time(),
+                            message[:20],
+                            config["configurable"]["thread_id"],
+                        ),
+                    )
             return {
                 "thread_id": thread_id,
+                "task_id": state["task_id"],
+                "stop_reason": state["stop_reason"],
                 "answer": state["messages"][-1].content,
                 "references": state["references"],
                 "memory_results": state["memory_results"],
@@ -268,6 +473,11 @@ class ConversationAgent:
                 return False
             internal_id = self._config(user_id, thread_id)["configurable"]["thread_id"]
             self.checkpointer.delete_thread(internal_id)
+            architecture = self.memory.engine.architecture
+            with architecture.storage.transaction():
+                for runtime in architecture.repo.rows("working_states", user_id):
+                    if runtime["thread_id"] == thread_id:
+                        architecture.clear_task(user_id, thread_id, runtime["task_id"])
             with self.checkpointer.cursor() as cursor:
                 cursor.execute(
                     "DELETE FROM conversation_threads WHERE id=?", (internal_id,)
@@ -276,4 +486,7 @@ class ConversationAgent:
 
     def close(self):
         with self._lock:
+            hooks = self.memory.engine.architecture.source_delete_hooks
+            if self._purge_source_session in hooks:
+                hooks.remove(self._purge_source_session)
             self._conn.close()

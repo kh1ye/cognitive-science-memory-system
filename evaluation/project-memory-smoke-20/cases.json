@@ -1,0 +1,509 @@
+{
+  "name": "项目记忆简易验收集20条",
+  "version": "review-v1",
+  "origin": "project_authored",
+  "status": "review_only_not_run",
+  "purpose": "检查项目要求的分流、来源、状态更新及真实执行，不是学术基准或单标签四分类。",
+  "grading": "逐条核对必需信息是否进入正确模块、是否产生禁止的持久化或错误事实；同义键名、合理拆分数量不作固定字符串匹配。",
+  "cases": [
+    {
+      "id": "01",
+      "category": "工作状态",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-01",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-01",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "这次用英文回答。"
+      },
+      "setup": [],
+      "expected_working_update": true,
+      "expected_long_term_targets": [],
+      "expected_behavior": "本任务增加英文回答约束。",
+      "forbidden_behavior": "不新建长期英文偏好。",
+      "entrypoint": "observe_with_model_analysis"
+    },
+    {
+      "id": "02",
+      "category": "工作状态",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-02",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-02",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "帮我整理报告，先列提纲，等我确认再写正文。"
+      },
+      "setup": [],
+      "expected_working_update": true,
+      "expected_long_term_targets": [],
+      "expected_behavior": "目标为整理报告；当前进度为等待提纲确认。",
+      "forbidden_behavior": "不声称报告已经完成；不编造经历。",
+      "entrypoint": "observe_with_model_analysis"
+    },
+    {
+      "id": "03",
+      "category": "工作状态",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-03",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-03",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "这次只读检查配置，不修改文件。"
+      },
+      "setup": [],
+      "expected_working_update": true,
+      "expected_long_term_targets": [],
+      "expected_behavior": "本任务增加只读约束。",
+      "forbidden_behavior": "不能变成永久禁止修改文件的偏好。",
+      "entrypoint": "observe_with_model_analysis"
+    },
+    {
+      "id": "04",
+      "category": "语义知识",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-04",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-04",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "以后默认用中文回答。"
+      },
+      "setup": [],
+      "expected_working_update": false,
+      "expected_long_term_targets": [
+        "semantic"
+      ],
+      "expected_behavior": "保存有原文来源的长期语言偏好。",
+      "forbidden_behavior": "不需要靠重复出现才生效。",
+      "entrypoint": "observe_with_model_analysis"
+    },
+    {
+      "id": "05",
+      "category": "语义知识",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-05",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-05",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "project:Atlas",
+        "retention_policy": "persist",
+        "content": "Atlas 项目的默认端口是 8080。"
+      },
+      "setup": [],
+      "expected_working_update": false,
+      "expected_long_term_targets": [
+        "semantic"
+      ],
+      "expected_behavior": "保存 Atlas 范围的端口配置事实。",
+      "forbidden_behavior": "不覆盖其他项目的同名配置。",
+      "entrypoint": "observe_with_model_analysis"
+    },
+    {
+      "id": "06",
+      "category": "语义更新",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-06",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-06",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "纠正一下，以后默认用英文回答，不再默认中文。"
+      },
+      "setup": [
+        "先用有来源的断言写入用户长期中文偏好；subject=eval-user，predicate=preferred_language。"
+      ],
+      "expected_working_update": false,
+      "expected_long_term_targets": [
+        "semantic"
+      ],
+      "expected_behavior": "新英文偏好有效，旧中文版本可追溯。",
+      "forbidden_behavior": "不能直接删除旧偏好或把新偏好只留在候选区。",
+      "entrypoint": "observe_with_model_analysis"
+    },
+    {
+      "id": "07",
+      "category": "情景经历",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-07",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-07",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "2026年10月20日，我运行测试，有 3 项失败。"
+      },
+      "setup": [],
+      "expected_working_update": false,
+      "expected_long_term_targets": [
+        "episodic"
+      ],
+      "expected_behavior": "记录这次测试、发生时间及失败反馈。",
+      "forbidden_behavior": "不能记成测试成功；不能泛化为所有测试都会失败。",
+      "entrypoint": "observe_with_model_analysis",
+      "expected_event": {
+        "actor": "user",
+        "outcome": "failed",
+        "occurred_date": "2026-10-20"
+      }
+    },
+    {
+      "id": "08",
+      "category": "情景经历",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-08",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-08",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "刚才导入了 100 条数据，90 条成功，10 条失败。"
+      },
+      "setup": [],
+      "expected_working_update": false,
+      "expected_long_term_targets": [
+        "episodic"
+      ],
+      "expected_behavior": "记录一次导入经历，结果为部分完成。",
+      "forbidden_behavior": "不能把整次操作标为完全成功。",
+      "entrypoint": "observe_with_model_analysis",
+      "expected_event": {
+        "actor": "user",
+        "outcome": "partial"
+      }
+    },
+    {
+      "id": "09",
+      "category": "情景经历",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-09",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-09",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "刚才我点了保存，但还不知道有没有保存成功。"
+      },
+      "setup": [],
+      "expected_working_update": false,
+      "expected_long_term_targets": [
+        "episodic"
+      ],
+      "expected_behavior": "记录保存操作，结果为未知。",
+      "forbidden_behavior": "不能凭点击保存就写成成功。",
+      "entrypoint": "observe_with_model_analysis",
+      "expected_event": {
+        "actor": "user",
+        "outcome": "unknown"
+      }
+    },
+    {
+      "id": "10",
+      "category": "流程知识",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-10",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-10",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "我们的发布规范是先测试，再构建，最后人工确认上线。"
+      },
+      "setup": [],
+      "expected_working_update": false,
+      "expected_long_term_targets": [
+        "semantic"
+      ],
+      "expected_behavior": "保存为有来源的流程知识或文档。",
+      "forbidden_behavior": "不能直接产生已启用、可执行的程序。",
+      "entrypoint": "observe_with_model_analysis"
+    },
+    {
+      "id": "11",
+      "category": "程序提议",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-11",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-11",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "请把“压缩连续空白字符”登记成程序候选，先不要启用。"
+      },
+      "setup": [],
+      "expected_working_update": false,
+      "expected_long_term_targets": [
+        "procedure_proposal"
+      ],
+      "expected_behavior": "形成程序草稿，等待实现和验证。",
+      "forbidden_behavior": "不能声称已启用或执行成功。",
+      "entrypoint": "observe_with_model_analysis",
+      "expected_procedure_status": "draft",
+      "implementation_ref": null
+    },
+    {
+      "id": "12",
+      "category": "程序执行",
+      "evaluation_layer": "procedure_behavior",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-12",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-12",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "执行已启用的 text.normalize，输入文本为“a   b”。"
+      },
+      "setup": [
+        "在隔离库安装内置程序，获取 text.normalize 已验证且启用的 version_id。"
+      ],
+      "expected_working_update": false,
+      "expected_long_term_targets": [
+        "procedure_run",
+        "episodic"
+      ],
+      "expected_behavior": "实际调用注册实现，输出“a b”，保存版本、运行结果和对应情景。",
+      "forbidden_behavior": "不能只生成“执行成功”文字来代替真实运行。",
+      "entrypoint": "execute_procedure",
+      "arguments": {
+        "text": "a   b"
+      },
+      "expected_run": {
+        "status": "succeeded",
+        "result": {
+          "text": "a b"
+        }
+      },
+      "note": "此项为程序行为测试，不计入自然语言分类准确率。"
+    },
+    {
+      "id": "13",
+      "category": "混合输入",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-13",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-13",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "以后默认用中文，但这次报告请用英文。"
+      },
+      "setup": [],
+      "expected_working_update": true,
+      "expected_long_term_targets": [
+        "semantic"
+      ],
+      "expected_behavior": "长期中文偏好进入语义；本任务英文要求进入工作状态。",
+      "forbidden_behavior": "不能让本次英文覆盖长期中文。",
+      "entrypoint": "observe_with_model_analysis"
+    },
+    {
+      "id": "14",
+      "category": "混合输入",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-14",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-14",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "昨天测试失败了，这次先检查依赖版本。"
+      },
+      "setup": [],
+      "expected_working_update": true,
+      "expected_long_term_targets": [
+        "episodic"
+      ],
+      "expected_behavior": "过去失败进入情景；当前排查要求进入工作状态。",
+      "forbidden_behavior": "不能把“先检查依赖”当成已经执行的动作。",
+      "entrypoint": "observe_with_model_analysis"
+    },
+    {
+      "id": "15",
+      "category": "混合输入",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-15",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-15",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "project:Atlas",
+        "retention_policy": "persist",
+        "content": "Atlas 默认端口是 8080；刚才启动失败；这次先只读检查端口占用。"
+      },
+      "setup": [],
+      "expected_working_update": true,
+      "expected_long_term_targets": [
+        "semantic",
+        "episodic"
+      ],
+      "expected_behavior": "拆为配置知识、失败经历和本任务约束。",
+      "forbidden_behavior": "不把整段原文无差别复制成三个事实。",
+      "entrypoint": "observe_with_model_analysis"
+    },
+    {
+      "id": "16",
+      "category": "混合输入",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-16",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-16",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "昨天我手工清理了文本空白；现在请把这项能力登记为程序候选。"
+      },
+      "setup": [],
+      "expected_working_update": true,
+      "expected_long_term_targets": [
+        "episodic",
+        "procedure_proposal"
+      ],
+      "expected_behavior": "昨日操作进入情景；能力登记请求形成程序草稿。",
+      "forbidden_behavior": "不能将过去手工做过直接等同于已有可执行实现。",
+      "entrypoint": "observe_with_model_analysis"
+    },
+    {
+      "id": "17",
+      "category": "普通提问",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-17",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-17",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "SQLite 和 PostgreSQL 有什么区别？"
+      },
+      "setup": [],
+      "expected_working_update": false,
+      "expected_long_term_targets": [],
+      "expected_behavior": "可回答问题，不必生成新的长期对象。",
+      "forbidden_behavior": "不能据此推断用户正在使用其中某个数据库。",
+      "entrypoint": "observe_with_model_analysis"
+    },
+    {
+      "id": "18",
+      "category": "假设反例",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-18",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-18",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "如果我以后搬到上海，通勤成本会增加吗？"
+      },
+      "setup": [],
+      "expected_working_update": true,
+      "expected_long_term_targets": [],
+      "expected_behavior": "保留为当前讨论的假设，不建立已搬家事实。",
+      "forbidden_behavior": "不能保存“用户现居上海”。",
+      "entrypoint": "observe_with_model_analysis"
+    },
+    {
+      "id": "19",
+      "category": "引用反例",
+      "evaluation_layer": "routing_and_content",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-19",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-19",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "persist",
+        "content": "把小说里的这句话翻译成英文：“我喜欢喝咖啡。”"
+      },
+      "setup": [],
+      "expected_working_update": true,
+      "expected_long_term_targets": [],
+      "expected_behavior": "形成当前翻译任务。",
+      "forbidden_behavior": "不能把小说人物的话变成用户咖啡偏好。",
+      "entrypoint": "observe_with_model_analysis"
+    },
+    {
+      "id": "20",
+      "category": "保存约束",
+      "evaluation_layer": "retention",
+      "input": {
+        "user_id": "eval-user",
+        "thread_id": "smoke-20",
+        "task_id": "task-1",
+        "source_kind": "user_report",
+        "source_event_id": "smoke-20",
+        "observed_at": "2026-10-27T10:00:00+08:00",
+        "scope": "user",
+        "retention_policy": "no_long_term",
+        "content": "这条信息只用于本次任务，不要加入长期记忆：预算是 500 元。"
+      },
+      "setup": [],
+      "expected_working_update": true,
+      "expected_long_term_targets": [],
+      "expected_behavior": "本任务可使用预算约束，长期模块不新增对象。",
+      "forbidden_behavior": "不能保存为用户长期预算；不将“禁止长期记忆”误称为“不保存会话”。",
+      "entrypoint": "observe_with_model_analysis",
+      "note": "输入显式携带保存策略；候选提出与实际写入必须分开判断。"
+    }
+  ]
+}

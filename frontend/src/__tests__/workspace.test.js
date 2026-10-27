@@ -74,6 +74,28 @@ afterEach(() => {
 });
 
 describe("Vue workspace migration", () => {
+  it("loads the shared catalog and renders typed objects without legacy scores or delete actions", async () => {
+    const typed = { ...records[0], id: "native-tea", content: "我喜欢喝乌龙茶",
+      storage_kind: "typed", native_status: "current", can_delete: false,
+      importance: null, write_score: null, created_at: null, updated_at: null };
+    vi.stubGlobal("fetch", vi.fn(async path => response(
+      path.startsWith("/api/overview") ? { ...summary, total_count: 2 } : { items: [typed, ...records] },
+    )));
+    const value = workspace();
+    await value.refresh();
+    expect(fetch.mock.calls.some(([url]) => url.includes("/api/memories?") && url.includes("view=all"))).toBe(true);
+    const wrapper = mountView(MemoriesView, value);
+    expect(wrapper.text()).toContain("乌龙茶");
+    expect(wrapper.text()).toContain("Python");
+    expect(wrapper.findAll('table button[aria-label="删除记忆"]')).toHaveLength(1);
+    expect(wrapper.find(".preview-score").exists()).toBe(false);
+    expect(wrapper.get(".memory-preview").text()).toContain("未记录");
+    expect(wrapper.text()).not.toContain("NaN");
+    await wrapper.get(".memory-preview .button.full").trigger("click");
+    expect(wrapper.text()).toContain("不适用");
+    expect(wrapper.find(".dialog-actions .danger").exists()).toBe(false);
+  });
+
   it("reads the previous frontend conversation format without losing history", () => {
     localStorage.setItem("cm.user", JSON.stringify("alice"));
     localStorage.setItem(

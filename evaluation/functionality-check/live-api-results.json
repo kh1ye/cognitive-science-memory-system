@@ -1,0 +1,192 @@
+{
+  "test_user": "qa-api-67f18fb340bd",
+  "checks": 28,
+  "passed": 28,
+  "failed": [],
+  "results": [
+    {
+      "name": "健康接口",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.012
+    },
+    {
+      "name": "模型配置状态",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.004
+    },
+    {
+      "name": "语义候选实际写入",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.003
+    },
+    {
+      "name": "工作约束更新",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.003
+    },
+    {
+      "name": "新任务不继承临时约束",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.003
+    },
+    {
+      "name": "语义检索",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.003
+    },
+    {
+      "name": "其他用户检索隔离",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.002
+    },
+    {
+      "name": "相同来源重试幂等",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.003
+    },
+    {
+      "name": "无原文依据拒绝写入",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.004
+    },
+    {
+      "name": "偏好更正保留历史版本",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.006
+    },
+    {
+      "name": "同文不同事件独立保存",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.003
+    },
+    {
+      "name": "同一事件重试不重复",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.003
+    },
+    {
+      "name": "仅任务保存不写长期事实",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.003
+    },
+    {
+      "name": "不持久化不产生来源与状态",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.006
+    },
+    {
+      "name": "内置程序登记",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.0
+    },
+    {
+      "name": "程序真实执行与结果记录",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.0
+    },
+    {
+      "name": "程序重试幂等",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.003
+    },
+    {
+      "name": "程序参数失败如实记录",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.0
+    },
+    {
+      "name": "普通流程只形成草稿",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.0
+    },
+    {
+      "name": "未实现程序不能启用",
+      "passed": true,
+      "detail": {
+        "error": "validation_error",
+        "message": "Procedure must be validated before activation"
+      },
+      "seconds": 0.003
+    },
+    {
+      "name": "停用程序不能执行",
+      "passed": true,
+      "detail": {
+        "error": "validation_error",
+        "message": "Procedure is not enabled"
+      },
+      "seconds": 0.003
+    },
+    {
+      "name": "禁止跨来源删除",
+      "passed": true,
+      "detail": {
+        "error": "not_found",
+        "message": "接口不存在"
+      },
+      "seconds": 0.003
+    },
+    {
+      "name": "非法工作状态字段被拒绝",
+      "passed": true,
+      "detail": {
+        "error": "validation_error",
+        "message": "Invalid working-state patch"
+      },
+      "seconds": 0.003
+    },
+    {
+      "name": "空消息返回校验错误",
+      "passed": true,
+      "detail": {
+        "error": "validation_error",
+        "message": "body.message: Value error, message 不能为空"
+      },
+      "seconds": 0.003
+    },
+    {
+      "name": "兼容记忆手动保存",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.0
+    },
+    {
+      "name": "兼容记忆本地搜索",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.003
+    },
+    {
+      "name": "兼容记忆删除",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.003
+    },
+    {
+      "name": "测试来源及派生知识清理",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.012
+    }
+  ],
+  "scope": "Running API with explicit structured analysis; model extraction tested separately through browser. Builtin registry metadata may remain in isolated test namespace."
+}

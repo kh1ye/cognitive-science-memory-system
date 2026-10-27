@@ -1,6 +1,7 @@
 """System health, configuration, and aggregate statistics."""
 
 from fastapi import APIRouter, Request
+
 from cognitive_memory.retrieval.lexical import normalize_text
 
 from ..dependencies import MemoryDependency
@@ -18,21 +19,8 @@ def health():
 def overview(request: Request, memory: MemoryDependency, user_id: str = "demo-user"):
     user_id = normalize_text(user_id) or "demo-user"
     result = memory.overview(user_id)
-    with memory.storage.transaction():
-        for event in result["recent_activity"]:
-            event["related_memory"] = None
-            memory_id = event.get("memory_id")
-            if (
-                event["event_type"] != "USER_DELETE"
-                and memory_id
-                and memory.storage.find_owned(memory_id, user_id)
-            ):
-                record = memory.storage.get_memory(memory_id)
-                if record:
-                    event["related_memory"] = {
-                        key: record[key]
-                        for key in ("id", "content", "memory_type", "state_role")
-                    }
+    # The catalog resolves references against this user's complete view, including
+    # native objects. Do not overwrite them with a legacy-table-only lookup.
     agent = request.app.state.conversation_agent
     for module in result["modules"]:
         if module["name"] == "语言模型":

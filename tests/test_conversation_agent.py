@@ -25,7 +25,7 @@ class LocalModel:
     def __init__(self):
         self.calls = []
         self.extraction_calls = []
-        self.extraction = {"memories": []}
+        self.extraction = {"semantic_candidates": []}
         self.fail_reply = False
         self.fail_extraction = False
 
@@ -50,11 +50,12 @@ class LocalModel:
 
 def candidate(content, value="Python", **extra):
     return {
-        "content": content,
-        "memory_key": "preferred_programming_language",
-        "memory_value": value,
-        "tags": ["preference"],
-        **extra,
+        "evidence_text": content,
+        "subject": "alice",
+        "predicate": "preferred_programming_language",
+        "value": value,
+        "sensitive": extra.get("sensitive", False),
+        "correction": extra.get("correction", False),
     }
 
 
@@ -71,16 +72,17 @@ class ConversationAgentTests(unittest.TestCase):
 
     def test_format_changes_preserve_the_original_user_evidence(self):
         self.model.extraction = {
-            "memories": [
+            "semantic_candidates": [
                 candidate(
                     "我喜欢用 Python 做数据分析。", tags=["preference", "communication"]
                 )
             ]
         }
         result = self.agent.chat("alice", "format", "我喜欢用Python做数据分析")
-        self.assertEqual(result["memory_results"][0]["decision"], "WRITE_CURRENT")
+        self.assertEqual(result["memory_results"][0]["status"], "succeeded")
         self.assertEqual(
-            self.engine.list_memories("alice")[0]["content"], "我喜欢用Python做数据分析"
+            self.engine.architecture.retrieve_knowledge("alice")[0]["evidence_text"],
+            "我喜欢用Python做数据分析",
         )
 
     def test_memory_status_distinguishes_empty_disabled_and_privacy(self):
@@ -104,20 +106,22 @@ class ConversationAgentTests(unittest.TestCase):
         def invoke(messages):
             if "只输出符合以下 schema" in messages[0].content:
                 return AIMessage(
-                    content=json.dumps({"memories": [candidate("以后请用中文回答")]})
+                    content=json.dumps(
+                        {"semantic_candidates": [candidate("以后请用中文回答")]}
+                    )
                 )
             return original(messages)
 
         self.model.invoke = invoke
         result = self.agent.chat("alice", "recover", "以后请用中文回答")
-        self.assertEqual(result["memory_results"][0]["decision"], "WRITE_CURRENT")
+        self.assertEqual(result["memory_results"][0]["status"], "succeeded")
         self.assertEqual(result["warnings"], [])
 
     def test_tool_free_json_response_is_recovered_without_another_model_call(self):
         self.model.with_structured_output = lambda *args, **kwargs: RunnableLambda(
             lambda messages: {
                 "parsed": None,
-                "raw": AIMessage(content='```json\n{"memories": []}\n```'),
+                "raw": AIMessage(content='```json\n{"semantic_candidates": []}\n```'),
                 "parsing_error": None,
             }
         )
@@ -156,13 +160,15 @@ class ConversationAgentTests(unittest.TestCase):
         self.assertEqual(len(self.model.extraction_calls), 0)
 
     def test_long_term_memory_is_shared_across_threads_but_not_users(self):
-        self.model.extraction = {"memories": [candidate("我喜欢 Python")]}
+        self.model.extraction = {"semantic_candidates": [candidate("我喜欢 Python")]}
         saved = self.agent.chat("alice", "first", "我喜欢 Python")
-        self.assertEqual(saved["memory_results"][0]["decision"], "WRITE_CURRENT")
+        self.assertEqual(saved["memory_results"][0]["status"], "succeeded")
         result = self.agent.chat(
             "alice", "second", "我喜欢什么编程语言？", auto_remember=False
         )
-        self.assertEqual(result["references"][0]["content"], "我喜欢 Python")
+        self.assertEqual(
+            result["references"][0]["record"]["evidence_text"], "我喜欢 Python"
+        )
         self.assertIn("我喜欢 Python", self.model.calls[-1][0].content)
         self.assertEqual(
             len([m for m in self.model.calls[-1] if isinstance(m, HumanMessage)]), 1
@@ -180,36 +186,34 @@ class ConversationAgentTests(unittest.TestCase):
             ("我现在主要使用 Rust", "Rust"),
             ("确认我的主要语言已变成 Rust", "Rust"),
         ]:
-            self.model.extraction = {"memories": [candidate(text, value)]}
+            self.model.extraction = {
+                "semantic_candidates": [
+                    candidate(text, value, correction=value == "Rust")
+                ]
+            }
             result = self.agent.chat("alice", "preferences", text)
-        self.assertEqual(result["memory_results"][0]["decision"], "CONSOLIDATED")
-        rows = self.engine.list_memories("alice")
+        self.assertEqual(result["memory_results"][0]["status"], "succeeded")
+        rows = self.engine.architecture.retrieve_knowledge("alice", history=True)
         self.assertTrue(
-            any(
-                row["state_role"] == "history" and row["memory_value"] == "Python"
-                for row in rows
-            )
+            any(row["status"] == "history" and row["value"] == "Python" for row in rows)
         )
         self.assertTrue(
-            any(
-                row["state_role"] == "current" and row["memory_value"] == "Rust"
-                for row in rows
-            )
+            any(row["status"] == "current" and row["value"] == "Rust" for row in rows)
         )
 
     def test_privacy_opt_out_sensitive_and_invented_memory_are_rejected(self):
-        self.model.extraction = {"memories": [candidate("我喜欢 Python")]}
+        self.model.extraction = {"semantic_candidates": [candidate("我喜欢 Python")]}
         self.agent.chat("alice", "privacy", "不要记住，我喜欢 Python")
         self.assertEqual(self.model.extraction_calls, [])
         self.model.extraction = {
-            "memories": [candidate("我有花生过敏", sensitive=True)]
+            "semantic_candidates": [candidate("我有花生过敏", sensitive=True)]
         }
         result = self.agent.chat("alice", "privacy", "我有花生过敏")
-        self.assertEqual(result["memory_results"][0]["decision"], "DROP")
-        self.model.extraction = {"memories": [candidate("我喜欢 Rust")]}
+        self.assertEqual(result["memory_status"], "privacy_blocked")
+        self.model.extraction = {"semantic_candidates": [candidate("我喜欢 Rust")]}
         result = self.agent.chat("alice", "privacy", "你好")
-        self.assertEqual(result["memory_results"][0]["reason"], "no_source_evidence")
-        self.assertEqual(self.engine.list_memories("alice"), [])
+        self.assertEqual(result["memory_results"][0]["status"], "failed")
+        self.assertEqual(self.engine.architecture.retrieve_knowledge("alice"), [])
 
     def test_extraction_failure_keeps_answer_and_checkpoint(self):
         self.model.fail_extraction = True
@@ -221,7 +225,7 @@ class ConversationAgentTests(unittest.TestCase):
         self.assertEqual(session["messages"][-1]["warnings"], result["warnings"])
 
     def test_delete_session_removes_checkpoints_and_preserves_long_term_memory(self):
-        self.model.extraction = {"memories": [candidate("我喜欢 Python")]}
+        self.model.extraction = {"semantic_candidates": [candidate("我喜欢 Python")]}
         self.agent.chat("alice", "delete", "我喜欢 Python")
         self.assertFalse(self.agent.delete_session("bob", "delete"))
         self.assertTrue(self.agent.delete_session("alice", "delete"))
@@ -229,7 +233,7 @@ class ConversationAgentTests(unittest.TestCase):
         self.assertIsNone(
             self.agent.checkpointer.get_tuple(self.agent._config("alice", "delete"))
         )
-        self.assertEqual(len(self.engine.list_memories("alice")), 1)
+        self.assertEqual(len(self.engine.architecture.retrieve_knowledge("alice")), 1)
 
 
 class ConversationApiTests(unittest.TestCase):
@@ -353,7 +357,11 @@ class ConversationApiTests(unittest.TestCase):
                                 "function": {
                                     "name": data["tools"][0]["function"]["name"],
                                     "arguments": json.dumps(
-                                        {"memories": [candidate("我喜欢 Python")]},
+                                        {
+                                            "semantic_candidates": [
+                                                candidate("我喜欢 Python")
+                                            ]
+                                        },
                                         ensure_ascii=False,
                                     ),
                                 },
@@ -411,8 +419,8 @@ class ConversationApiTests(unittest.TestCase):
                 response = client.post("/api/chat", json={"message": "我喜欢 Python"})
                 self.assertEqual(response.status_code, 200, response.text)
                 self.assertEqual(
-                    response.json()["memory_results"][0]["decision"],
-                    "WRITE_CURRENT",
+                    response.json()["memory_results"][0]["status"],
+                    "succeeded",
                 )
                 self.assertEqual(requests[0]["model"], "local-test-model")
                 self.assertEqual(len(requests), 2)

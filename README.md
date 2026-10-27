@@ -1,5 +1,10 @@
 # Cognitive Memory System
 
+> **架构更新（2026-10-27）**：新会话已接入 CoALA 启发的独立工作状态、情景、语义和程序服务。使用 `memory.architecture`、`/api/architecture/*` 或管理页顶部的四类记忆面板。
+> [完整架构、迁移/恢复、API、隐私与兼容说明](docs/coala-architecture.md)；离线运行示例：`uv run python scripts/coala_example.py`。
+> 旧版评分、状态演化及写入协议仍属于兼容存储；`add_memory`、默认 `/api/memories`、`/api/search` 及演化演示保留原协议。助手和类型化检索接口统一读取新旧记忆，总览与管理列表统一统计四类对象和兼容记录，迁移副本不重复计数（列表使用 `view=all`）。聊天 `memory_results` 为逐项学习回执，引用保留来源与版本；兼容流程文本不能作为可执行程序。
+
+
 面向 AI Agent 的认知科学启发式长期记忆系统原型。
 
 ## 核心方法

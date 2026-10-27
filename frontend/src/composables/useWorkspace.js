@@ -93,7 +93,7 @@ export function createWorkspace() {
       const [summary, list] = await Promise.all([
         api(`/api/overview?user_id=${encodeURIComponent(user)}`),
         api(
-          `/api/memories?user_id=${encodeURIComponent(user)}&include_archived=true&limit=1000`,
+          `/api/memories?user_id=${encodeURIComponent(user)}&include_archived=true&limit=1000&view=all`,
         ),
       ]);
       if (version !== loadVersion) return;

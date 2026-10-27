@@ -1,0 +1,450 @@
+{
+  "status": "completed",
+  "model": "MiniMax-M3[1m]",
+  "attempted": 102,
+  "api_errors": 0,
+  "elapsed_seconds": 68.812,
+  "aggregates": [
+    {
+      "subset": "control",
+      "prompt": "clarified",
+      "wording": "original",
+      "calls": 24,
+      "reference_matches": 24,
+      "label_counts": {
+        "working": 6,
+        "episodic": 6,
+        "procedural": 6,
+        "semantic": 6
+      }
+    },
+    {
+      "subset": "control",
+      "prompt": "original",
+      "wording": "original",
+      "calls": 24,
+      "reference_matches": 24,
+      "label_counts": {
+        "semantic": 6,
+        "episodic": 6,
+        "working": 6,
+        "procedural": 6
+      }
+    },
+    {
+      "subset": "disputed",
+      "prompt": "clarified",
+      "wording": "original",
+      "calls": 18,
+      "reference_matches": 14,
+      "label_counts": {
+        "episodic": 3,
+        "semantic": 14,
+        "procedural": 1
+      }
+    },
+    {
+      "subset": "disputed",
+      "prompt": "original",
+      "wording": "original",
+      "calls": 18,
+      "reference_matches": 2,
+      "label_counts": {
+        "procedural": 12,
+        "episodic": 4,
+        "semantic": 2
+      }
+    },
+    {
+      "subset": "disputed",
+      "prompt": "original",
+      "wording": "paraphrase",
+      "calls": 18,
+      "reference_matches": 5,
+      "label_counts": {
+        "semantic": 5,
+        "procedural": 10,
+        "episodic": 3
+      }
+    }
+  ],
+  "per_case": {
+    "N052": {
+      "example": "我上大学是在南京。",
+      "reference": "semantic",
+      "paraphrase": "我是在南京上的大学。",
+      "conditions": {
+        "original/original": {
+          "predictions": [
+            "semantic",
+            "episodic",
+            "semantic"
+          ],
+          "reference_matches": 2
+        },
+        "original/paraphrase": {
+          "predictions": [
+            "semantic",
+            "semantic",
+            "semantic"
+          ],
+          "reference_matches": 3
+        },
+        "clarified/original": {
+          "predictions": [
+            "semantic",
+            "semantic",
+            "semantic"
+          ],
+          "reference_matches": 3
+        }
+      }
+    },
+    "N058": {
+      "example": "我第一次学游泳是在小学。",
+      "reference": "semantic",
+      "paraphrase": "我是在小学开始学游泳的。",
+      "conditions": {
+        "original/original": {
+          "predictions": [
+            "episodic",
+            "episodic",
+            "episodic"
+          ],
+          "reference_matches": 0
+        },
+        "original/paraphrase": {
+          "predictions": [
+            "episodic",
+            "episodic",
+            "episodic"
+          ],
+          "reference_matches": 0
+        },
+        "clarified/original": {
+          "predictions": [
+            "episodic",
+            "episodic",
+            "episodic"
+          ],
+          "reference_matches": 0
+        }
+      }
+    },
+    "N060": {
+      "example": "我一直用左手写字。",
+      "reference": "semantic",
+      "paraphrase": "写字我一向用左手。",
+      "conditions": {
+        "original/original": {
+          "predictions": [
+            "procedural",
+            "procedural",
+            "procedural"
+          ],
+          "reference_matches": 0
+        },
+        "original/paraphrase": {
+          "predictions": [
+            "semantic",
+            "procedural",
+            "semantic"
+          ],
+          "reference_matches": 2
+        },
+        "clarified/original": {
+          "predictions": [
+            "semantic",
+            "semantic",
+            "semantic"
+          ],
+          "reference_matches": 3
+        }
+      }
+    },
+    "N063": {
+      "example": "我知道这道菜的做法：先炒鸡蛋，再放番茄。",
+      "reference": "semantic",
+      "paraphrase": "这道菜怎么做我知道：鸡蛋先炒，番茄后放。",
+      "conditions": {
+        "original/original": {
+          "predictions": [
+            "procedural",
+            "procedural",
+            "procedural"
+          ],
+          "reference_matches": 0
+        },
+        "original/paraphrase": {
+          "predictions": [
+            "procedural",
+            "procedural",
+            "procedural"
+          ],
+          "reference_matches": 0
+        },
+        "clarified/original": {
+          "predictions": [
+            "semantic",
+            "semantic",
+            "semantic"
+          ],
+          "reference_matches": 3
+        }
+      }
+    },
+    "N064": {
+      "example": "纸鹤的折法我还记得，第一步是把方纸沿对角线折起来。",
+      "reference": "semantic",
+      "paraphrase": "折纸鹤先把方纸沿对角线折一下，这一步我还记得。",
+      "conditions": {
+        "original/original": {
+          "predictions": [
+            "procedural",
+            "procedural",
+            "procedural"
+          ],
+          "reference_matches": 0
+        },
+        "original/paraphrase": {
+          "predictions": [
+            "procedural",
+            "procedural",
+            "procedural"
+          ],
+          "reference_matches": 0
+        },
+        "clarified/original": {
+          "predictions": [
+            "semantic",
+            "semantic",
+            "procedural"
+          ],
+          "reference_matches": 2
+        }
+      }
+    },
+    "N073": {
+      "example": "我外婆做红烧肉会先焯水，再炒糖色。",
+      "reference": "semantic",
+      "paraphrase": "我外婆做红烧肉，总是先焯水，再炒糖色。",
+      "conditions": {
+        "original/original": {
+          "predictions": [
+            "procedural",
+            "procedural",
+            "procedural"
+          ],
+          "reference_matches": 0
+        },
+        "original/paraphrase": {
+          "predictions": [
+            "procedural",
+            "procedural",
+            "procedural"
+          ],
+          "reference_matches": 0
+        },
+        "clarified/original": {
+          "predictions": [
+            "semantic",
+            "semantic",
+            "semantic"
+          ],
+          "reference_matches": 3
+        }
+      }
+    },
+    "N001": {
+      "example": "取件码是三八七二，我走到柜子前还在心里念这几个数。",
+      "reference": "working",
+      "paraphrase": null,
+      "conditions": {
+        "original/original": {
+          "predictions": [
+            "working",
+            "working",
+            "working"
+          ],
+          "reference_matches": 3
+        },
+        "clarified/original": {
+          "predictions": [
+            "working",
+            "working",
+            "working"
+          ],
+          "reference_matches": 3
+        }
+      }
+    },
+    "N003": {
+      "example": "刚算出来是六十四，这个数先留着，还得加上后面那一项。",
+      "reference": "working",
+      "paraphrase": null,
+      "conditions": {
+        "original/original": {
+          "predictions": [
+            "working",
+            "working",
+            "working"
+          ],
+          "reference_matches": 3
+        },
+        "clarified/original": {
+          "predictions": [
+            "working",
+            "working",
+            "working"
+          ],
+          "reference_matches": 3
+        }
+      }
+    },
+    "N026": {
+      "example": "今天和朋友去看电影，散场才发现我们进错了厅。",
+      "reference": "episodic",
+      "paraphrase": null,
+      "conditions": {
+        "original/original": {
+          "predictions": [
+            "episodic",
+            "episodic",
+            "episodic"
+          ],
+          "reference_matches": 3
+        },
+        "clarified/original": {
+          "predictions": [
+            "episodic",
+            "episodic",
+            "episodic"
+          ],
+          "reference_matches": 3
+        }
+      }
+    },
+    "N027": {
+      "example": "学车那会儿，有一次我把驾校的花坛撞了。",
+      "reference": "episodic",
+      "paraphrase": null,
+      "conditions": {
+        "original/original": {
+          "predictions": [
+            "episodic",
+            "episodic",
+            "episodic"
+          ],
+          "reference_matches": 3
+        },
+        "clarified/original": {
+          "predictions": [
+            "episodic",
+            "episodic",
+            "episodic"
+          ],
+          "reference_matches": 3
+        }
+      }
+    },
+    "N051": {
+      "example": "我妈的生日是十月三日。",
+      "reference": "semantic",
+      "paraphrase": null,
+      "conditions": {
+        "original/original": {
+          "predictions": [
+            "semantic",
+            "semantic",
+            "semantic"
+          ],
+          "reference_matches": 3
+        },
+        "clarified/original": {
+          "predictions": [
+            "semantic",
+            "semantic",
+            "semantic"
+          ],
+          "reference_matches": 3
+        }
+      }
+    },
+    "N055": {
+      "example": "我们组每周三下午开例会。",
+      "reference": "semantic",
+      "paraphrase": null,
+      "conditions": {
+        "original/original": {
+          "predictions": [
+            "semantic",
+            "semantic",
+            "semantic"
+          ],
+          "reference_matches": 3
+        },
+        "clarified/original": {
+          "predictions": [
+            "semantic",
+            "semantic",
+            "semantic"
+          ],
+          "reference_matches": 3
+        }
+      }
+    },
+    "N076": {
+      "example": "好几年没骑车了，骑上还是会。",
+      "reference": "procedural",
+      "paraphrase": null,
+      "conditions": {
+        "original/original": {
+          "predictions": [
+            "procedural",
+            "procedural",
+            "procedural"
+          ],
+          "reference_matches": 3
+        },
+        "clarified/original": {
+          "predictions": [
+            "procedural",
+            "procedural",
+            "procedural"
+          ],
+          "reference_matches": 3
+        }
+      }
+    },
+    "N090": {
+      "example": "我会折纸鹤，给张纸就能折。",
+      "reference": "procedural",
+      "paraphrase": null,
+      "conditions": {
+        "original/original": {
+          "predictions": [
+            "procedural",
+            "procedural",
+            "procedural"
+          ],
+          "reference_matches": 3
+        },
+        "clarified/original": {
+          "predictions": [
+            "procedural",
+            "procedural",
+            "procedural"
+          ],
+          "reference_matches": 3
+        }
+      }
+    }
+  },
+  "limitations": [
+    "依据已知6条分歧设计的事后诊断，不是新留出集，也不能作为通用准确率。",
+    "补充判据针对已知边界，是提示干预；改写可能改变重点，无法完全隔离因果。",
+    "没有另一供应商模型、独立专家金标准或盲法裁决。",
+    "参考标签仅用于描述一致率；N058等存在合理解释空间。",
+    "默认温度未显式固定，每条独立调用；SDK可能重试传输。"
+  ]
+}

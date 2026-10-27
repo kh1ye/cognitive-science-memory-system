@@ -1,0 +1,1016 @@
+{
+  "name": "四种记忆生活化进阶对照集",
+  "version": "challenge-v1",
+  "origin": "project_authored",
+  "purpose": "检验同主题、相似词语下的记忆概念辨别。",
+  "important_note": "按句子重点展示的认知过程给参考标签；现实活动可涉及多种记忆。这是作者标注的概念集，不是经过独立专家验证的金标准，也不是实际系统能力验收。",
+  "difficulty": "moderate_contrastive",
+  "design": [
+    "25个生活主题，每个主题覆盖四类记忆，共100条。",
+    "减少对日期、学会、熟练等显眼词语的依赖。",
+    "加入知道步骤却不会做、有时间词的稳定事实、没有日期的具体回忆、包含背景知识的当前处理。",
+    "仅发送example；主题、分组、标签和解释全部隐藏，逐条独立测试。"
+  ],
+  "cases": [
+    {
+      "id": "C001",
+      "group_id": "G01",
+      "topic": "骑自行车",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "导航刚报完两个转弯，我一边骑向路口，一边在脑中排列先左后右的顺序。",
+      "why": "转弯顺序正用于眼前导航，不是在回顾骑车经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "C002",
+      "group_id": "G01",
+      "topic": "骑自行车",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "想起爸爸松开车后座的那一刻，我还记得车把晃了一下，自己一头扎进了草丛。",
+      "why": "焦点是学车过程中的一个具体场景，而非现在是否会骑车。",
+      "status": "not_run"
+    },
+    {
+      "id": "C003",
+      "group_id": "G01",
+      "topic": "骑自行车",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "自行车捏左边还是右边的刹把控制前轮，要看这辆车的刹车配置。",
+      "why": "关于器材的知识，不是实际制动的动作能力。",
+      "status": "not_run"
+    },
+    {
+      "id": "C004",
+      "group_id": "G01",
+      "topic": "骑自行车",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "前方路面突然变窄，我的手脚顺势配合，把车稳稳地带过两根路桩之间。",
+      "why": "焦点是骑车时协调操控的动作表现。",
+      "status": "not_run"
+    },
+    {
+      "id": "C005",
+      "group_id": "G02",
+      "topic": "包饺子",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "妈妈刚说这盘用韭菜馅、那盘用白菜馅，我下手分盘时还在心里对着这两个位置。",
+      "why": "当前分盘所需的对应关系在被保持和使用。",
+      "status": "not_run"
+    },
+    {
+      "id": "C006",
+      "group_id": "G02",
+      "topic": "包饺子",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "看到那个歪歪扭扭的饺子，我就想起第一次下厨时，奶奶站在身旁替我补破皮的样子。",
+      "why": "具体的一次共同经历，有人物和场景细节。",
+      "status": "not_run"
+    },
+    {
+      "id": "C007",
+      "group_id": "G02",
+      "topic": "包饺子",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我能讲出饺子收口时要把边缘压紧的道理，但一上手还是捏不住。",
+      "why": "知道做法而尚不能完成动作，重点是陈述性知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "C008",
+      "group_id": "G02",
+      "topic": "包饺子",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "饺子皮转到手里，我的拇指和食指连续配合，一排褶子就捏出来了，不用逐步想怎么动。",
+      "why": "无需逐步回想的动作技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "C009",
+      "group_id": "G03",
+      "topic": "弹钢琴",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "老师刚弹了一小段新旋律，我先在脑中留住这几个音，接着试着把它们接到下一句。",
+      "why": "保持新信息并在当前任务中组合。",
+      "status": "not_run"
+    },
+    {
+      "id": "C010",
+      "group_id": "G03",
+      "topic": "弹钢琴",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "每次听到那首曲子的开头，我都会想起上台演出时手心出汗、第三个音弹错的瞬间。",
+      "why": "反复被唤起的仍是某次具体演出。",
+      "status": "not_run"
+    },
+    {
+      "id": "C011",
+      "group_id": "G03",
+      "topic": "弹钢琴",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "五线谱上的高音谱号用来确定音高位置，这件事我记得很清楚。",
+      "why": "乐理知识，不是弹奏技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "C012",
+      "group_id": "G03",
+      "topic": "弹钢琴",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "这段琶音一起头，手指就沿着键盘连贯地走下去，我能同时留意旁边人的讲话。",
+      "why": "弹奏动作已能自动、连贯执行。",
+      "status": "not_run"
+    },
+    {
+      "id": "C013",
+      "group_id": "G04",
+      "topic": "游泳",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "教练说这一趟先慢后快，我出发前把两段各游多少米在脑中对了一遍，免得游错。",
+      "why": "当前训练安排的在线保持与核对。",
+      "status": "not_run"
+    },
+    {
+      "id": "C014",
+      "group_id": "G04",
+      "topic": "游泳",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "一碰到冰凉的池水，我就想起第一次下深水区时，自己死死抓住泳道线不放。",
+      "why": "感觉线索唤起一次特定经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "C015",
+      "group_id": "G04",
+      "topic": "游泳",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我知道蛙泳换气要与划水、蹬腿配合，可这些动作到我身上还是乱的。",
+      "why": "会说出动作关系，不等于具备相应技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "C016",
+      "group_id": "G04",
+      "topic": "游泳",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "游到池子中间，我的换气和划水仍按自己的节奏接续，不需要每一下都给自己口头指令。",
+      "why": "身体动作协调的持续执行。",
+      "status": "not_run"
+    },
+    {
+      "id": "C017",
+      "group_id": "G05",
+      "topic": "织围巾",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "这一排刚数到第十七针，有人打断我，我一边回答一边把十七这个数留着，接着从十八数起。",
+      "why": "当前计数的中间状态在被保持。",
+      "status": "not_run"
+    },
+    {
+      "id": "C018",
+      "group_id": "G05",
+      "topic": "织围巾",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "摸到那条粗糙的围巾，我还会想起送礼那天拆开包装，才发现自己漏织了一个洞。",
+      "why": "围绕一件物品的一次具体事件。",
+      "status": "not_run"
+    },
+    {
+      "id": "C019",
+      "group_id": "G05",
+      "topic": "织围巾",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "针数相同时，用不同粗细的毛线织出来的宽度可能不同。",
+      "why": "关于编织的普遍知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "C020",
+      "group_id": "G05",
+      "topic": "织围巾",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "毛线从指间绕过，两根针有节奏地交替，我看着电视也能把这一排接下去。",
+      "why": "编织动作无需逐步有意识推演。",
+      "status": "not_run"
+    },
+    {
+      "id": "C021",
+      "group_id": "G06",
+      "topic": "打字",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "对方念完一串从没见过的编号，我还没来得及输入，只能在心里分成两段反复过一遍。",
+      "why": "陌生编号在输入前被短时保持。",
+      "status": "not_run"
+    },
+    {
+      "id": "C022",
+      "group_id": "G06",
+      "topic": "打字",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "听见机械键盘的声音，我想起交论文那晚按下发送键，才发现附件漏传的那一幕。",
+      "why": "回顾一次明确的个人事件。",
+      "status": "not_run"
+    },
+    {
+      "id": "C023",
+      "group_id": "G06",
+      "topic": "打字",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "键盘上的 F 和 J 通常有小凸起，可以用来定位手指。",
+      "why": "键位设计的事实知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "C024",
+      "group_id": "G06",
+      "topic": "打字",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "眼睛一直看着屏幕上的原稿，手指自己找到字母键，把整段话连续敲了出来。",
+      "why": "无需看键盘定位的输入技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "C025",
+      "group_id": "G07",
+      "topic": "开车",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "导航把路线改了，我在等红灯时把原来要走的出口从计划里划掉，换成刚报的新出口。",
+      "why": "当前路线信息被更新。",
+      "status": "not_run"
+    },
+    {
+      "id": "C026",
+      "group_id": "G07",
+      "topic": "开车",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "说到倒车，我总会想到驾考那次车轮压线，考官低头记下一笔的情景。",
+      "why": "一次考试的具体回忆。",
+      "status": "not_run"
+    },
+    {
+      "id": "C027",
+      "group_id": "G07",
+      "topic": "开车",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我每周一和周三需要开车去接孩子，这个安排整个学期都一样。",
+      "why": "带时间词的稳定个人安排，不是一次接送事件。",
+      "status": "not_run"
+    },
+    {
+      "id": "C028",
+      "group_id": "G07",
+      "topic": "开车",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "车刚有一点溜坡的迹象，我的脚已经配合离合和油门，让它平稳地停住并重新起步。",
+      "why": "车辆控制中的协调动作能力。",
+      "status": "not_run"
+    },
+    {
+      "id": "C029",
+      "group_id": "G08",
+      "topic": "手冲咖啡",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "这次换了新配方，我看过后合上手机，边注水边在脑中核对还剩多少水量。",
+      "why": "当前冲煮目标与剩余量的在线处理。",
+      "status": "not_run"
+    },
+    {
+      "id": "C030",
+      "group_id": "G08",
+      "topic": "手冲咖啡",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "这股焦味让我想起搬家后的第一杯咖啡，杯子放在纸箱上，我喝一口就皱了眉。",
+      "why": "有环境和反应的一次个人经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "C031",
+      "group_id": "G08",
+      "topic": "手冲咖啡",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我喝咖啡通常不加糖；去年到现在，这个口味一直没变。",
+      "why": "时间跨度并未使稳定偏好变成单次经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "C032",
+      "group_id": "G08",
+      "topic": "手冲咖啡",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "水流忽然偏大，我转了转手腕，壶嘴很快回到均匀的细水流，整个过程没有停顿。",
+      "why": "注水时实际的手部控制技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "C033",
+      "group_id": "G09",
+      "topic": "电影放映",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "片单刚改过，我站在控制台前把接下来的两段片名和各自开始点在脑中重新排好。",
+      "why": "当前播放任务的信息更新与排序。",
+      "status": "not_run"
+    },
+    {
+      "id": "C034",
+      "group_id": "G09",
+      "topic": "电影放映",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "电影散场时那阵掌声我还记得，坐在旁边的朋友把纸巾递给我，我们都没马上起身。",
+      "why": "无日期词也有明确的一次观影情境。",
+      "status": "not_run"
+    },
+    {
+      "id": "C035",
+      "group_id": "G09",
+      "topic": "电影放映",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "这家影院每周二都有优惠场，这是它固定的售票安排。",
+      "why": "包含星期信息的常规规则。",
+      "status": "not_run"
+    },
+    {
+      "id": "C036",
+      "group_id": "G09",
+      "topic": "电影放映",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "银幕上的画面一虚，放映员的手就转向调焦位置，几下细调便把影像收清楚了。",
+      "why": "焦点是实际操作设备的调节技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "C037",
+      "group_id": "G10",
+      "topic": "折纸",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "视频突然断了，我在脑中留着刚看到的两个折法，趁还记得把这一角折完。",
+      "why": "当前操作依赖刚获得信息的保持。",
+      "status": "not_run"
+    },
+    {
+      "id": "C038",
+      "group_id": "G10",
+      "topic": "折纸",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "那只缺了翅膀的纸鹤让我想起课间折纸的那回，铃响后我慌忙把它塞进书包。",
+      "why": "特定课堂片段的回忆。",
+      "status": "not_run"
+    },
+    {
+      "id": "C039",
+      "group_id": "G10",
+      "topic": "折纸",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我能背出纸鹤的折叠顺序，但给我一张纸，我还是找不到该翻哪一层。",
+      "why": "步骤知识与实际技能分离，句子强调前者。",
+      "status": "not_run"
+    },
+    {
+      "id": "C040",
+      "group_id": "G10",
+      "topic": "折纸",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "纸在手里翻转几次，折痕就对上了；即使不看示范，我也能把纸鹤的翅膀撑开。",
+      "why": "脱离示范仍可执行的折叠技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "C041",
+      "group_id": "G11",
+      "topic": "下棋",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "对手刚走完，我把两种应对的后续走法在脑中各推了几步，再比较会丢哪颗子。",
+      "why": "当前决策中的保持、推演和比较。",
+      "status": "not_run"
+    },
+    {
+      "id": "C042",
+      "group_id": "G11",
+      "topic": "下棋",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "棋盘上的这个局面让我想到决赛那一盘，我落子后才看见对手嘴角露出笑意。",
+      "why": "特定对局的场景回忆。",
+      "status": "not_run"
+    },
+    {
+      "id": "C043",
+      "group_id": "G11",
+      "topic": "下棋",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "国际象棋中的马按日字形路线移动，越过相邻棋子也不受阻挡。",
+      "why": "棋子的规则知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "C044",
+      "group_id": "G11",
+      "topic": "下棋",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "练过许多次的收官局面一摆出来，他不用逐项背口诀，就能接连走出那套应对。",
+      "why": "焦点是反复练习形成、能直接执行的应对技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "C045",
+      "group_id": "G12",
+      "topic": "羽毛球",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "搭档刚提醒我盯住对面的后场空位，这一分开球前，我把新的站位安排在脑中又对了一遍。",
+      "why": "当前这一分的战术参数。",
+      "status": "not_run"
+    },
+    {
+      "id": "C046",
+      "group_id": "G12",
+      "topic": "羽毛球",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "那次球落在线上，裁判举手判出界，我和搭档对看了一眼，谁也没说话。",
+      "why": "一次比赛中的具体互动，不依赖显式日期。",
+      "status": "not_run"
+    },
+    {
+      "id": "C047",
+      "group_id": "G12",
+      "topic": "羽毛球",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "羽毛球双打场地比单打场地宽，这是规则中规定的。",
+      "why": "运动规则的陈述知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "C048",
+      "group_id": "G12",
+      "topic": "羽毛球",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "来球贴着身体飞过，我来不及念动作要领，手腕已经翻转，把球挡回网前。",
+      "why": "快速执行的击球技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "C049",
+      "group_id": "G13",
+      "topic": "心算",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "刚算出一部分是六十四，我把它先留在脑中，接着算另一部分，再把两边加起来。",
+      "why": "保持中间结果并继续加工。",
+      "status": "not_run"
+    },
+    {
+      "id": "C050",
+      "group_id": "G13",
+      "topic": "心算",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "数学比赛交卷前，我才发现把六写成九；那张卷子上被我擦破的小洞，我还记得。",
+      "why": "一次比赛的细节回忆。",
+      "status": "not_run"
+    },
+    {
+      "id": "C051",
+      "group_id": "G13",
+      "topic": "心算",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "乘法分配律可以写成 a×(b+c)=a×b+a×c。",
+      "why": "数学规则知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "C052",
+      "group_id": "G13",
+      "topic": "心算",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "碰到两位数乘以十一，我按练过的拆分办法很快算完，不用重新推导整套算法。",
+      "why": "已练习形成的计算方法执行能力，而非仅知道公式。",
+      "status": "not_run"
+    },
+    {
+      "id": "C053",
+      "group_id": "G14",
+      "topic": "找路",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "地图已经收进包里，我正把刚看过的三个路口与眼前的岔路逐一对上，判断下一步往哪边。",
+      "why": "刚获得的路线信息正被保持并与现状比较。",
+      "status": "not_run"
+    },
+    {
+      "id": "C054",
+      "group_id": "G14",
+      "topic": "找路",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "经过那面蓝墙，我想起自己迷路的那一回，问路时紧张得把街名都念错了。",
+      "why": "地点唤起一次迷路经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "C055",
+      "group_id": "G14",
+      "topic": "找路",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我家到地铁站有两条常走的路，其中经过菜市场的那条更短。",
+      "why": "稳定的个人环境知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "C056",
+      "group_id": "G14",
+      "topic": "找路",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "把纸地图转到与街道一致的方向，再定位自己，我已经能连贯地完成这些操作，不必一步步回想老师怎么教的。",
+      "why": "地图定向的已习得操作技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "C057",
+      "group_id": "G15",
+      "topic": "说外语",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "对方刚把一句很长的外语说完，我还留着前半句的意思，正在把它和最后几个词拼起来理解。",
+      "why": "当前语言理解中的信息保持和整合。",
+      "status": "not_run"
+    },
+    {
+      "id": "C058",
+      "group_id": "G15",
+      "topic": "说外语",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "第一次在国外点餐时，服务员没听懂，我指着菜单重复了三遍；那张靠窗的桌子我还认得。",
+      "why": "一次点餐经历的回忆。",
+      "status": "not_run"
+    },
+    {
+      "id": "C059",
+      "group_id": "G15",
+      "topic": "说外语",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "法语里的 bonjour 可以用来向人问好。",
+      "why": "词语含义的知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "C060",
+      "group_id": "G15",
+      "topic": "说外语",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "说起这段外语绕口令，舌头和嘴唇能顺畅地接上每个音，我不用逐个想着发音位置。",
+      "why": "发音动作经练习形成的技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "C061",
+      "group_id": "G16",
+      "topic": "熨衣服",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "这次有三件衣服要处理，我刚核对过标签，拿起熨斗时还把各自的温度要求留在脑中对照。",
+      "why": "本次任务参数的在线保持。",
+      "status": "not_run"
+    },
+    {
+      "id": "C062",
+      "group_id": "G16",
+      "topic": "熨衣服",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "看到袖口那道烫痕，我就想起出门面试前熨衣服，接电话回来才发现熨斗没挪开。",
+      "why": "一次失误的具体场景。",
+      "status": "not_run"
+    },
+    {
+      "id": "C063",
+      "group_id": "G16",
+      "topic": "熨衣服",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "衣物洗护标签上的熨斗图案用来表示熨烫要求。",
+      "why": "符号含义的知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "C064",
+      "group_id": "G16",
+      "topic": "熨衣服",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "熨到衬衫肩部时，我的另一只手跟着拉平布料，熨斗顺着弧度移动，很少留下新的褶子。",
+      "why": "两手配合完成的操作技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "C065",
+      "group_id": "G17",
+      "topic": "修剪花枝",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "花店老板刚标出要剪的两根枝条，我走去拿剪刀时还在脑中对着它们的位置，免得回来认错。",
+      "why": "短暂离开期间保持当前目标。",
+      "status": "not_run"
+    },
+    {
+      "id": "C066",
+      "group_id": "G17",
+      "topic": "修剪花枝",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "那盆月季开花时，我又想到第一次修枝剪错主干，自己抱着花盆去请教邻居的样子。",
+      "why": "围绕一次修剪失误的经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "C067",
+      "group_id": "G17",
+      "topic": "修剪花枝",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "不同植物适合修剪的季节可能不一样。",
+      "why": "园艺的一般知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "C068",
+      "group_id": "G17",
+      "topic": "修剪花枝",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "剪刀到枝条旁，我顺手调好角度，另一只手扶住枝身，一剪下去切口就很整齐。",
+      "why": "实际修剪时的动作协调。",
+      "status": "not_run"
+    },
+    {
+      "id": "C069",
+      "group_id": "G18",
+      "topic": "拍照",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "摄影老师刚报了这张照片要试的光圈和快门，我在拧拨轮时还把两个数在脑中交替核对。",
+      "why": "当前拍摄参数的保持与核对。",
+      "status": "not_run"
+    },
+    {
+      "id": "C070",
+      "group_id": "G18",
+      "topic": "拍照",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "照片里那道模糊的人影，让我想起拍摄时弟弟突然跑进镜头，我们一起笑弯了腰。",
+      "why": "影像唤起一次拍摄事件。",
+      "status": "not_run"
+    },
+    {
+      "id": "C071",
+      "group_id": "G18",
+      "topic": "拍照",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "在其他条件相同的情况下，快门开放时间会影响照片的曝光量。",
+      "why": "摄影原理知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "C072",
+      "group_id": "G18",
+      "topic": "拍照",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "运动员突然冲进画面，我的手已经转动变焦环并追随目标，按下快门时没有停下来找按钮。",
+      "why": "实际拍摄中的连续操作技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "C073",
+      "group_id": "G19",
+      "topic": "系鞋带",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "孩子刚说左脚松、右脚紧，我弯腰帮他调整时还在心里分清两边各要怎么改。",
+      "why": "当前左右脚调整要求的保持。",
+      "status": "not_run"
+    },
+    {
+      "id": "C074",
+      "group_id": "G19",
+      "topic": "系鞋带",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "系鞋带时看到膝盖上的旧疤，我想起运动会那次鞋带散开，自己绊倒在终点前。",
+      "why": "身体线索唤起一次具体经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "C075",
+      "group_id": "G19",
+      "topic": "系鞋带",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我只记得自己是在幼儿园学的系鞋带，具体哪一天、谁教的、当时做了什么都想不起来。",
+      "why": "只有个人背景事实，缺少特定学习事件的再现。",
+      "status": "not_run"
+    },
+    {
+      "id": "C076",
+      "group_id": "G19",
+      "topic": "系鞋带",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "一边和同学说话，我的双手一边交叉鞋带、绕圈、拉紧，结很快就打好了。",
+      "why": "无需逐步有意识指导的动作技能。",
+      "status": "not_run"
+    },
+    {
+      "id": "C077",
+      "group_id": "G20",
+      "topic": "做面包",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "电子秤归零后，我还记着刚才已经加了多少面粉，正在心算离这次配方还差多少。",
+      "why": "当前配方中的中间量计算。",
+      "status": "not_run"
+    },
+    {
+      "id": "C078",
+      "group_id": "G20",
+      "topic": "做面包",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "烤箱门一打开，我就想起那回把盐当糖放进去，大家咬下第一口后同时皱眉的场面。",
+      "why": "带共同反应的一次烘焙事件。",
+      "status": "not_run"
+    },
+    {
+      "id": "C079",
+      "group_id": "G20",
+      "topic": "做面包",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "酵母的活性会受温度影响。",
+      "why": "烘焙相关的事实知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "C080",
+      "group_id": "G20",
+      "topic": "做面包",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "面团有点粘手，我用练过的推揉动作把它拉开再折回，手上逐渐找到了合适的力度。",
+      "why": "揉面的动作技能及力度调节。",
+      "status": "not_run"
+    },
+    {
+      "id": "C081",
+      "group_id": "G21",
+      "topic": "手机解锁",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "朋友把备用手机的新密码念了一遍，我从他身边走到桌边，还在心里重复那几个数准备输入。",
+      "why": "新密码只为眼前输入被保持。",
+      "status": "not_run"
+    },
+    {
+      "id": "C082",
+      "group_id": "G21",
+      "topic": "手机解锁",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "一看到碎屏，我就想起下雨那晚在车站掏手机，手一滑，屏幕朝下落到石阶上的声音。",
+      "why": "一次摔手机的个人经历。",
+      "status": "not_run"
+    },
+    {
+      "id": "C083",
+      "group_id": "G21",
+      "topic": "手机解锁",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我的手机解锁密码沿用了很多年，虽然我还能说出数字，却想不起最早是哪天设的。",
+      "why": "可陈述的稳定个人事实，非设置密码的事件回忆。",
+      "status": "not_run"
+    },
+    {
+      "id": "C084",
+      "group_id": "G21",
+      "topic": "手机解锁",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "拿到自己的旧手机，手指就沿着屏幕划出常用图案；让我用嘴描述，反而要停下来比划。",
+      "why": "能直接执行却不易口述的动作模式。",
+      "status": "not_run"
+    },
+    {
+      "id": "C085",
+      "group_id": "G22",
+      "topic": "跳舞",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "老师刚改了这一段的队形，我在音乐响起前把新的前后顺序在脑中排好，免得走到旧位置。",
+      "why": "更新本轮表演的队形信息。",
+      "status": "not_run"
+    },
+    {
+      "id": "C086",
+      "group_id": "G22",
+      "topic": "跳舞",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "舞台灯亮起来，我想到汇演时裙摆勾住道具，搭档拉了我一把才接上下一拍。",
+      "why": "某次舞台意外的场景回忆。",
+      "status": "not_run"
+    },
+    {
+      "id": "C087",
+      "group_id": "G22",
+      "topic": "跳舞",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "这支舞的课程固定在每周六下午，我已经按这个安排上了一学期。",
+      "why": "稳定的课程安排，不是某节课发生的事。",
+      "status": "not_run"
+    },
+    {
+      "id": "C088",
+      "group_id": "G22",
+      "topic": "跳舞",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "伴奏一响，我的脚就接上练过的节拍，转身和换重心连成一串，不用在心里数每个动作。",
+      "why": "练习形成的身体动作序列。",
+      "status": "not_run"
+    },
+    {
+      "id": "C089",
+      "group_id": "G23",
+      "topic": "拧螺丝",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "拆下盖板后，我还在脑中留着四颗螺丝原来的位置，准备按原样装回去。",
+      "why": "当前拆装所需的位置对应关系。",
+      "status": "not_run"
+    },
+    {
+      "id": "C090",
+      "group_id": "G23",
+      "topic": "拧螺丝",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "工具盒里的那根断螺丝，让我想起组装书架时用力过猛，整块木板突然裂开的那声响。",
+      "why": "某次组装事故的细节。",
+      "status": "not_run"
+    },
+    {
+      "id": "C091",
+      "group_id": "G23",
+      "topic": "拧螺丝",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "我能说明十字和一字螺丝刀的区别，却还不会拿稳工具把螺丝拧进去。",
+      "why": "工具类别知识与操作能力分离。",
+      "status": "not_run"
+    },
+    {
+      "id": "C092",
+      "group_id": "G23",
+      "topic": "拧螺丝",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "螺丝刀一接触螺丝，我就能稳住它并随阻力调整手腕，几圈下来没有滑出槽口。",
+      "why": "实际工具使用中的稳定控制。",
+      "status": "not_run"
+    },
+    {
+      "id": "C093",
+      "group_id": "G24",
+      "topic": "画画",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "模特换姿势前，我把刚看到的肩膀与手肘位置留在脑中，正对着画纸补上最后两笔。",
+      "why": "当前作画时保持刚消失的视觉信息。",
+      "status": "not_run"
+    },
+    {
+      "id": "C094",
+      "group_id": "G24",
+      "topic": "画画",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "那幅画角上的水渍，让我想起展览布置那天碰倒水杯，颜料顺着桌沿流下来的情景。",
+      "why": "特定事故的事件回忆。",
+      "status": "not_run"
+    },
+    {
+      "id": "C095",
+      "group_id": "G24",
+      "topic": "画画",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "把红色颜料与黄色颜料混合，通常可以调出橙色。",
+      "why": "颜色混合的知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "C096",
+      "group_id": "G24",
+      "topic": "画画",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "描到圆弧时，我转动手腕让笔尖连续滑过去，粗细随着用力变化，线条没有断开。",
+      "why": "绘画时的连续动作控制。",
+      "status": "not_run"
+    },
+    {
+      "id": "C097",
+      "group_id": "G25",
+      "topic": "抛接球",
+      "memory_type": "working",
+      "memory_name": "工作记忆",
+      "example": "教练刚说这一轮按红、蓝、黄的顺序传，我开始前还把这三个颜色的先后在脑中排着。",
+      "why": "本轮传球规则的短时保持。",
+      "status": "not_run"
+    },
+    {
+      "id": "C098",
+      "group_id": "G25",
+      "topic": "抛接球",
+      "memory_type": "episodic",
+      "memory_name": "情景记忆",
+      "example": "看到那颗黄球，我想起第一次上台表演，球滚到观众脚边，一个小孩替我捡回来的那一幕。",
+      "why": "某次表演中的具体事件。",
+      "status": "not_run"
+    },
+    {
+      "id": "C099",
+      "group_id": "G25",
+      "topic": "抛接球",
+      "memory_type": "semantic",
+      "memory_name": "语义记忆",
+      "example": "三个球的抛接杂耍常见一种叫瀑布式的基本模式。",
+      "why": "运动模式名称的知识。",
+      "status": "not_run"
+    },
+    {
+      "id": "C100",
+      "group_id": "G25",
+      "topic": "抛接球",
+      "memory_type": "procedural",
+      "memory_name": "程序性记忆",
+      "example": "三个球轮流从手中飞起又落下，我能顺着它们的节奏不断接住、再抛出，不必逐个计算动作。",
+      "why": "反复练习形成的抛接协调技能。",
+      "status": "not_run"
+    }
+  ]
+}
