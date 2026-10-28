@@ -211,13 +211,13 @@ class ConversationAgentTests(unittest.TestCase):
         result = self.agent.chat("alice", "privacy", "我有花生过敏")
         self.assertEqual(result["memory_status"], "privacy_blocked")
         self.model.extraction = {"semantic_candidates": [candidate("我喜欢 Rust")]}
-        result = self.agent.chat("alice", "privacy", "你好")
+        result = self.agent.chat("alice", "privacy", "我喜欢茶")
         self.assertEqual(result["memory_results"][0]["status"], "failed")
         self.assertEqual(self.engine.architecture.retrieve_knowledge("alice"), [])
 
     def test_extraction_failure_keeps_answer_and_checkpoint(self):
         self.model.fail_extraction = True
-        result = self.agent.chat("alice", "failure", "你好")
+        result = self.agent.chat("alice", "failure", "我喜欢茶")
         self.assertTrue(result["answer"])
         self.assertTrue(result["warnings"])
         session = self.agent.get_session("alice", "failure")

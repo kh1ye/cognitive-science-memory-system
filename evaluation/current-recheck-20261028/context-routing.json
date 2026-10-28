@@ -1,0 +1,205 @@
+[
+  {
+    "text": "在吗",
+    "context_only_gate": true,
+    "analysis": {
+      "working_state_patch": {
+        "goals": null,
+        "constraints": null,
+        "open_questions": null,
+        "task_state": null
+      },
+      "episode_candidates": [],
+      "semantic_candidates": [],
+      "procedure_proposals": []
+    },
+    "operations": [],
+    "long_term_objects": 0
+  },
+  {
+    "text": "你好",
+    "context_only_gate": true,
+    "analysis": {
+      "working_state_patch": {
+        "goals": null,
+        "constraints": null,
+        "open_questions": null,
+        "task_state": null
+      },
+      "episode_candidates": [],
+      "semantic_candidates": [],
+      "procedure_proposals": []
+    },
+    "operations": [],
+    "long_term_objects": 0
+  },
+  {
+    "text": "好的",
+    "context_only_gate": true,
+    "analysis": {
+      "working_state_patch": {
+        "goals": null,
+        "constraints": null,
+        "open_questions": null,
+        "task_state": null
+      },
+      "episode_candidates": [],
+      "semantic_candidates": [],
+      "procedure_proposals": []
+    },
+    "operations": [],
+    "long_term_objects": 0
+  },
+  {
+    "text": "收到",
+    "context_only_gate": true,
+    "analysis": {
+      "working_state_patch": {
+        "goals": null,
+        "constraints": null,
+        "open_questions": null,
+        "task_state": null
+      },
+      "episode_candidates": [],
+      "semantic_candidates": [],
+      "procedure_proposals": []
+    },
+    "operations": [],
+    "long_term_objects": 0
+  },
+  {
+    "text": "谢谢",
+    "context_only_gate": true,
+    "analysis": {
+      "working_state_patch": {
+        "goals": null,
+        "constraints": null,
+        "open_questions": null,
+        "task_state": null
+      },
+      "episode_candidates": [],
+      "semantic_candidates": [],
+      "procedure_proposals": []
+    },
+    "operations": [],
+    "long_term_objects": 0
+  },
+  {
+    "text": "哈哈哈",
+    "context_only_gate": true,
+    "analysis": {
+      "working_state_patch": {
+        "goals": null,
+        "constraints": null,
+        "open_questions": null,
+        "task_state": null
+      },
+      "episode_candidates": [],
+      "semantic_candidates": [],
+      "procedure_proposals": []
+    },
+    "operations": [],
+    "long_term_objects": 0
+  },
+  {
+    "text": "。。。",
+    "context_only_gate": true,
+    "analysis": {
+      "working_state_patch": {
+        "goals": null,
+        "constraints": null,
+        "open_questions": null,
+        "task_state": null
+      },
+      "episode_candidates": [],
+      "semantic_candidates": [],
+      "procedure_proposals": []
+    },
+    "operations": [],
+    "long_term_objects": 0
+  },
+  {
+    "text": "asdfghjkl",
+    "context_only_gate": false,
+    "analysis": {
+      "working_state_patch": {
+        "goals": null,
+        "constraints": null,
+        "open_questions": null,
+        "task_state": null
+      },
+      "episode_candidates": [],
+      "semantic_candidates": [],
+      "procedure_proposals": []
+    },
+    "operations": [],
+    "long_term_objects": 0
+  },
+  {
+    "text": "我喜欢喝乌龙茶",
+    "context_only_gate": false,
+    "analysis": {
+      "working_state_patch": {
+        "goals": null,
+        "constraints": null,
+        "open_questions": null,
+        "task_state": null
+      },
+      "episode_candidates": [],
+      "semantic_candidates": [
+        {
+          "sensitive": false,
+          "evidence_text": "我喜欢喝乌龙茶",
+          "subject": "qa-context",
+          "predicate": "preference.beverage_likes",
+          "value": "乌龙茶",
+          "scope": "user",
+          "valid_from": null,
+          "valid_to": null,
+          "epistemic_status": "explicit",
+          "status": "current",
+          "confidence": 0.9,
+          "cardinality": "single",
+          "correction": false,
+          "source_refs": []
+        }
+      ],
+      "procedure_proposals": []
+    },
+    "operations": [
+      {
+        "id": "e9c20a4f27352dc37ee7a8fd1f5b62a571f985cd97d9f5570e893db860c827ff",
+        "idempotency_key": "e9c20a4f27352dc37ee7a8fd1f5b62a571f985cd97d9f5570e893db860c827ff",
+        "target_module": "semantic",
+        "source_refs": [
+          "d0863243461af5e310947d426400a1cb8277569cfb36e4fa957f9320abef5978"
+        ],
+        "status": "succeeded",
+        "result_refs": [
+          "9260ad14242d6816462ba3e4f9dfe5ff8f306bceff7ebca055745d49349867f3"
+        ],
+        "error": null
+      }
+    ],
+    "long_term_objects": 1
+  },
+  {
+    "text": "以后请用中文回复我",
+    "context_only_gate": false,
+    "analysis": {
+      "working_state_patch": {
+        "goals": null,
+        "constraints": [
+          "本次任务用中文回复用户"
+        ],
+        "open_questions": [],
+        "task_state": null
+      },
+      "episode_candidates": [],
+      "semantic_candidates": [],
+      "procedure_proposals": []
+    },
+    "operations": [],
+    "long_term_objects": 0
+  }
+]

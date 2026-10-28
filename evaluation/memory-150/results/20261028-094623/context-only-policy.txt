@@ -1,0 +1,46 @@
+"""Conservative context-only gate; no length-based rejection of useful facts."""
+
+import unicodedata
+
+
+def context_only(text: str) -> bool:
+    text = unicodedata.normalize("NFKC", text).strip().casefold()
+    words = "".join(
+        c
+        for c in text
+        if not c.isspace() and not unicodedata.category(c).startswith(("P", "S"))
+    )
+    if not words:
+        return True
+    if words in {
+        "在吗",
+        "在不在",
+        "有人吗",
+        "你好",
+        "您好",
+        "嗨",
+        "hi",
+        "hello",
+        "早上好",
+        "晚上好",
+        "好的",
+        "好吧",
+        "收到",
+        "知道了",
+        "谢谢",
+        "谢谢你",
+        "不客气",
+        "嗯",
+        "嗯嗯",
+        "哦",
+        "哦哦",
+        "ok",
+        "okay",
+        "哈哈",
+        "哈哈哈",
+        "呵呵",
+        "测试",
+        "测试一下",
+    }:
+        return True
+    return len(words) >= 3 and len(set(words)) == 1

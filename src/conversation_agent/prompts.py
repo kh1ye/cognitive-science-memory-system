@@ -7,6 +7,9 @@ OBSERVATION_ANALYSIS_PROMPT = (
 working_state_patch 只允许 goals、constraints、open_questions（均为字符串数组）和 task_state（对象）。
 例如临时要求写 {"constraints":["本次任务用英文"]}；不得加入 task_language 等额外字段。
 长期事实/偏好才形成 semantic_candidates；临时语言要求不得同时写成长期偏好。
+“以后请用中文回复我”“今后回答简短些”“默认用 Python”明确表示跨会话偏好，必须提取 semantic_candidates，不得改写为“本次任务”的临时约束。
+纯问候、在线确认、感谢、附和、无意义字符和测试噪声不提取长期候选；短句中明确的个人事实或偏好仍应保留。
+普通知识提问、试发消息不属于值得长期保存的个人经历；不得因为用户发出了一条消息就生成 event_kind=input 的长期情景记录。问题中另有明确陈述的稳定个人事实时，仅提取有依据的事实片段。
 subject 对用户自身用实际 user_id。每个语义候选必须提供 evidence_text（用户原文连续片段）。明确修正自身长期偏好时 correction=true。
 未知内容不默认成为事实。事实保留有效时间，不推测精确时间；仅从原文提取，区分 explicit/inferred。
 只有原文明确报告的具体经历才进入 episode_candidates；普通偏好、问题和当前指令不必形成经历候选。

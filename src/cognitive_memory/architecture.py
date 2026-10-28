@@ -599,6 +599,10 @@ class MemoryArchitecture:
 
     def observe(self, observation, analysis=None):
         o = Observation.model_validate(observation)
+        from .value import context_only
+
+        if o.retention_policy == "persist" and context_only(o.content):
+            o = o.model_copy(update={"retention_policy": "no_long_term"})
         # Privacy gate runs before source registration, state, extraction or logging.
         if o.retention_policy == "no_persist":
             return {"status": "not_persisted", "operations": [], "analysis": None}

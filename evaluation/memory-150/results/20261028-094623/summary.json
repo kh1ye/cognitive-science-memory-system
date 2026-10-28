@@ -1,0 +1,70 @@
+{
+  "total": 150,
+  "api_errors": 0,
+  "categories": {
+    "working": {
+      "total": 30,
+      "correct": 30,
+      "accuracy": 1.0,
+      "wrong_ids": []
+    },
+    "episodic": {
+      "total": 30,
+      "correct": 30,
+      "accuracy": 1.0,
+      "wrong_ids": []
+    },
+    "semantic": {
+      "total": 30,
+      "correct": 29,
+      "accuracy": 0.9666666666666667,
+      "wrong_ids": [
+        "T068"
+      ]
+    },
+    "procedural": {
+      "total": 30,
+      "correct": 30,
+      "accuracy": 1.0,
+      "wrong_ids": []
+    },
+    "low_value": {
+      "total": 30,
+      "correct": 0,
+      "accuracy": 0.0,
+      "wrong_ids": [
+        "T121",
+        "T122",
+        "T123",
+        "T125",
+        "T126",
+        "T127",
+        "T129",
+        "T130",
+        "T131",
+        "T128",
+        "T133",
+        "T132",
+        "T135",
+        "T136",
+        "T134",
+        "T124",
+        "T140",
+        "T138",
+        "T137",
+        "T139",
+        "T141",
+        "T143",
+        "T142",
+        "T144",
+        "T146",
+        "T145",
+        "T147",
+        "T149",
+        "T150",
+        "T148"
+      ]
+    }
+  },
+  "low_value_source_body_saved_ids": []
+}

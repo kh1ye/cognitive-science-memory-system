@@ -1,0 +1,92 @@
+[
+  {
+    "example": "我试一下能不能发出去",
+    "response": {
+      "thread_id": "test",
+      "task_id": "test",
+      "stop_reason": "turn_complete",
+      "answer": "已经发出来了，我这边收到了。",
+      "references": [],
+      "memory_results": [],
+      "memory_status": "no_new_memory",
+      "warnings": []
+    },
+    "sources": [
+      {
+        "id": "1cfac20133b8a8b7c01c41e72c3526b7934c58ad5425c7833483075a6204f18c",
+        "source_kind": "user_report",
+        "source_event_id": "783ec141-b1d6-431f-9c2e-4e619495468f",
+        "source_ref": "",
+        "scope": "user",
+        "thread_id": "test",
+        "task_id": "test",
+        "observed_at": "2026-10-28T01:51:54+00:00",
+        "recorded_at": "2026-10-28T01:51:54+00:00",
+        "content_hash": "1cf04ff3838ad7dd5a09ab6f0a18206040584c1b1ad364db136624d4b7a80b3d",
+        "evidence_identity": "1cfac20133b8a8b7c01c41e72c3526b7934c58ad5425c7833483075a6204f18c",
+        "content": null,
+        "retention_policy": "no_long_term"
+      }
+    ]
+  },
+  {
+    "example": "1+1等于几？",
+    "response": {
+      "thread_id": "test",
+      "task_id": "test",
+      "stop_reason": "turn_complete",
+      "answer": "1+1等于2。",
+      "references": [],
+      "memory_results": [],
+      "memory_status": "no_new_memory",
+      "warnings": []
+    },
+    "sources": [
+      {
+        "id": "6c31b28ea66311d72fafb7974afd3a87f8c4d646a5af24121ce96fb4f4cfc971",
+        "source_kind": "user_report",
+        "source_event_id": "396a1802-93d3-4a26-82c7-dedd6953c2f9",
+        "source_ref": "",
+        "scope": "user",
+        "thread_id": "test",
+        "task_id": "test",
+        "observed_at": "2026-10-28T01:51:56+00:00",
+        "recorded_at": "2026-10-28T01:51:56+00:00",
+        "content_hash": "4554962066a3860d82f4ca57699d26d650a9d32f22b6cfa99b9bed81092694b8",
+        "evidence_identity": "6c31b28ea66311d72fafb7974afd3a87f8c4d646a5af24121ce96fb4f4cfc971",
+        "content": null,
+        "retention_policy": "no_long_term"
+      }
+    ]
+  },
+  {
+    "example": "路过打个招呼",
+    "response": {
+      "thread_id": "test",
+      "task_id": "test",
+      "stop_reason": "turn_complete",
+      "answer": "嗨，你好呀！很高兴见到你 👋 有什么想聊的或需要帮忙的吗？",
+      "references": [],
+      "memory_results": [],
+      "memory_status": "no_new_memory",
+      "warnings": []
+    },
+    "sources": [
+      {
+        "id": "db7621aa104d43f1d8b0f810d7ce0df6eca3709c6a784e2b4c7607e599e6ea6a",
+        "source_kind": "user_report",
+        "source_event_id": "afd93679-a406-4cf2-92c2-65bf58fc86ff",
+        "source_ref": "",
+        "scope": "user",
+        "thread_id": "test",
+        "task_id": "test",
+        "observed_at": "2026-10-28T01:52:00+00:00",
+        "recorded_at": "2026-10-28T01:52:00+00:00",
+        "content_hash": "6824a6a559592cbe60d02cd9e7f67dc01364c28ba6001fde4c3aa22a925b42a7",
+        "evidence_identity": "db7621aa104d43f1d8b0f810d7ce0df6eca3709c6a784e2b4c7607e599e6ea6a",
+        "content": null,
+        "retention_policy": "no_long_term"
+      }
+    ]
+  }
+]

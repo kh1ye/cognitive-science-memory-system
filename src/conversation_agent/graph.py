@@ -26,6 +26,7 @@ from cognitive_memory.architecture_models import (
 )
 from cognitive_memory.models import iso_now
 from cognitive_memory.retrieval.lexical import normalize_text
+from cognitive_memory.value import context_only
 
 from .llm import ChatModelError, LLMSettings, analyze_observation
 from .memory import CognitiveMemory
@@ -96,6 +97,7 @@ class ConversationAgent:
             state["auto_remember"]
             and state["retention_policy"] != "no_persist"
             and self.memory.allows_extraction(message)
+            and not context_only(message)
         ):
             try:
                 analysis = analyze_observation(
@@ -117,6 +119,11 @@ class ConversationAgent:
             observed_at=iso_now(),
             retention_policy="no_long_term"
             if any(s.sensitive for s in analysis.semantic_candidates)
+            or not (
+                analysis.semantic_candidates
+                or analysis.episode_candidates
+                or analysis.procedure_proposals
+            )
             else state["retention_policy"],
         )
         # Runtime updates first; learning is a separately selected action below.
@@ -234,6 +241,15 @@ class ConversationAgent:
                     status = "privacy_blocked"
                 elif warnings:
                     status = "failed"
+                elif context_only(content) or not any(
+                    state["analysis"].get(k)
+                    for k in (
+                        "semantic_candidates",
+                        "episode_candidates",
+                        "procedure_proposals",
+                    )
+                ):
+                    status = "no_new_memory"
                 else:
                     result = self.memory.engine.architecture.observe(
                         Observation(

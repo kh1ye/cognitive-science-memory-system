@@ -1,0 +1,15 @@
+{
+  "started_at": "2026-10-28T09:39:58.817575+08:00",
+  "provider": "anthropic",
+  "model": "MiniMax-M3[1m]",
+  "dataset_version": "natural-v2",
+  "dataset_sha256": "edd18eeee012c3b0fec5a61701cb171b2153f858414602f0348887a354639f48",
+  "prompt_version": "boundaries-v2",
+  "prompt_sha256": "b7e8d8681af34a7f322c6f668efec3ee65f1d2bb68589adce71c7e678d43126a",
+  "seed": 20261027,
+  "workers": 4,
+  "temperature": "provider_default",
+  "sdk_max_retries": 1,
+  "status": "completed",
+  "elapsed_seconds": 65.55
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "text": "以后请用中文回复我",
+    "analysis": {
+      "working_state_patch": {
+        "goals": [],
+        "constraints": [],
+        "open_questions": [],
+        "task_state": null
+      },
+      "episode_candidates": [],
+      "semantic_candidates": [
+        {
+          "sensitive": false,
+          "evidence_text": "以后请用中文回复我",
+          "subject": "qa-context",
+          "predicate": "期望的回复语言",
+          "value": "中文",
+          "scope": "user",
+          "valid_from": null,
+          "valid_to": null,
+          "epistemic_status": "explicit",
+          "status": "current",
+          "confidence": 0.95,
+          "cardinality": "single",
+          "correction": false,
+          "source_refs": []
+        }
+      ],
+      "procedure_proposals": []
+    },
+    "operations": [
+      {
+        "id": "e9c20a4f27352dc37ee7a8fd1f5b62a571f985cd97d9f5570e893db860c827ff",
+        "idempotency_key": "e9c20a4f27352dc37ee7a8fd1f5b62a571f985cd97d9f5570e893db860c827ff",
+        "target_module": "semantic",
+        "source_refs": [
+          "d0863243461af5e310947d426400a1cb8277569cfb36e4fa957f9320abef5978"
+        ],
+        "status": "succeeded",
+        "result_refs": [
+          "a0d06890fa7dbd90f8f3caceb5a29ad50ad342596716438fab6b2a7324ca2489"
+        ],
+        "error": null
+      }
+    ],
+    "long_term_count": 1
+  },
+  {
+    "text": "以后请用中文回复我",
+    "analysis": {
+      "working_state_patch": {
+        "goals": [
+          "以中文回复 qa-context 的消息"
+        ],
+        "constraints": null,
+        "open_questions": null,
+        "task_state": null
+      },
+      "episode_candidates": [],
+      "semantic_candidates": [
+        {
+          "sensitive": false,
+          "evidence_text": "以后请用中文回复我",
+          "subject": "qa-context",
+          "predicate": "回复语言偏好",
+          "value": "中文",
+          "scope": "user",
+          "valid_from": null,
+          "valid_to": null,
+          "epistemic_status": "explicit",
+          "status": "current",
+          "confidence": 0.95,
+          "cardinality": "single",
+          "correction": false,
+          "source_refs": []
+        }
+      ],
+      "procedure_proposals": []
+    },
+    "operations": [
+      {
+        "id": "e9c20a4f27352dc37ee7a8fd1f5b62a571f985cd97d9f5570e893db860c827ff",
+        "idempotency_key": "e9c20a4f27352dc37ee7a8fd1f5b62a571f985cd97d9f5570e893db860c827ff",
+        "target_module": "semantic",
+        "source_refs": [
+          "d0863243461af5e310947d426400a1cb8277569cfb36e4fa957f9320abef5978"
+        ],
+        "status": "succeeded",
+        "result_refs": [
+          "232fa58c67a5f390fcd944c7a94bbea9c384a1db49a2836e56b1decfdba24f59"
+        ],
+        "error": null
+      }
+    ],
+    "long_term_count": 1
+  }
+]

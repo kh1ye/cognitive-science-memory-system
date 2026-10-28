@@ -1,0 +1,15 @@
+{
+  "dataset_sha256": "274ba9dd347a648beb1511b8b7b7c9cf7a3b4b5ed7904e9aa333cde9bc73accd",
+  "model": "MiniMax-M3[1m]",
+  "concept_prompt_sha256": "b7e8d8681af34a7f322c6f668efec3ee65f1d2bb68589adce71c7e678d43126a",
+  "observation_prompt_sha256": "e883d53c327c0e3585e7a206d00b05ee5fc246dbb77980c689aef7e5ff48d88c",
+  "code_commit": "22559d06a25e541cf0b19a57e7993584de3e6f85",
+  "working_tree_modified": true,
+  "workers": 4,
+  "source_sha256": {
+    "src/cognitive_memory/value.py": "19989341152df18692430df7162fd35a8c0a5edcb9942bed828c6987e8e13453",
+    "src/cognitive_memory/architecture.py": "76522578f8064593c0dce9fa771b4d26443dd3bcd441a0dc0eace54971887d41",
+    "src/conversation_agent/graph.py": "6e40454938be550d19c9d788484e05860f038c11633c3824ac0e5a8931b54d6d",
+    "src/conversation_agent/memory_concepts.py": "c14ea251d432cd61322d1dbb194b5331dd5d9ab52de72160743fbff61fa3d3e8"
+  }
+}

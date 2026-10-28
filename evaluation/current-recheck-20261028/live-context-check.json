@@ -1,0 +1,82 @@
+{
+  "user": "qa-low-value-24bc94ce",
+  "reply": {
+    "thread_id": "test",
+    "task_id": "test",
+    "stop_reason": "turn_complete",
+    "answer": "在的，有什么可以帮你？",
+    "references": [],
+    "memory_results": [],
+    "memory_status": "no_new_memory",
+    "warnings": []
+  },
+  "objects": {
+    "semantic_assertions": [],
+    "episode_events": [],
+    "procedure_versions": [
+      {
+        "id": "271944e7ae230e99100e06021edf951a18a0152e302cd3a1c47811c1a76df529",
+        "procedure_id": "938c9c7429891f5db9adafe496aecc6ac46bd8ab007ec962c71ce45444877675",
+        "version": "MiniMax-M3[1m]",
+        "kind": "reasoning",
+        "description": "Hosted model configuration; provider version may be an alias",
+        "implementation_ref": "hosted-model",
+        "provider": "anthropic",
+        "model": "MiniMax-M3[1m]",
+        "status": "configured",
+        "validation_refs": [],
+        "source_refs": [],
+        "weights_managed": false
+      }
+    ],
+    "working_states": [
+      {
+        "user_id": "qa-low-value-24bc94ce",
+        "thread_id": "test",
+        "task_id": "test",
+        "revision": 9,
+        "goals": [],
+        "constraints": [],
+        "observations": [
+          {
+            "source_id": "b8530a47d47ce0fab5f9f63faf51011bd46b3869a2824f23514c2932b95c6674",
+            "content": "在吗"
+          }
+        ],
+        "active_knowledge": [],
+        "task_state": {
+          "steps": 3,
+          "stop_reason": "turn_complete"
+        },
+        "open_questions": [],
+        "candidate_actions": [],
+        "selected_action": {
+          "name": "stop",
+          "arguments": {},
+          "reason": "turn_complete",
+          "status": "proposed"
+        },
+        "status": "paused",
+        "created_at": "2026-10-28T01:42:30+00:00",
+        "updated_at": "2026-10-28T01:42:31+00:00"
+      }
+    ],
+    "source_records": [
+      {
+        "id": "b8530a47d47ce0fab5f9f63faf51011bd46b3869a2824f23514c2932b95c6674",
+        "source_kind": "user_report",
+        "source_event_id": "b484a7d6-50a5-4121-a147-86889bbb6824",
+        "source_ref": "",
+        "scope": "user",
+        "thread_id": "test",
+        "task_id": "test",
+        "observed_at": "2026-10-28T01:42:30+00:00",
+        "recorded_at": "2026-10-28T01:42:30+00:00",
+        "content_hash": "fcd192fefb444c2f883cd2377a2c91a60477a4543c5b639b2049f7cd7d0daa74",
+        "evidence_identity": "b8530a47d47ce0fab5f9f63faf51011bd46b3869a2824f23514c2932b95c6674",
+        "content": null,
+        "retention_policy": "no_long_term"
+      }
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "total": 150,
+  "api_errors": 0,
+  "categories": {
+    "working": {
+      "total": 30,
+      "correct": 30,
+      "accuracy": 1.0,
+      "wrong_ids": []
+    },
+    "episodic": {
+      "total": 30,
+      "correct": 30,
+      "accuracy": 1.0,
+      "wrong_ids": []
+    },
+    "semantic": {
+      "total": 30,
+      "correct": 29,
+      "accuracy": 0.9666666666666667,
+      "wrong_ids": [
+        "T068"
+      ]
+    },
+    "procedural": {
+      "total": 30,
+      "correct": 30,
+      "accuracy": 1.0,
+      "wrong_ids": []
+    },
+    "low_value": {
+      "total": 30,
+      "correct": 28,
+      "accuracy": 0.9333333333333333,
+      "wrong_ids": [
+        "T144",
+        "T150"
+      ]
+    }
+  },
+  "low_value_source_body_saved_ids": [
+    "T142",
+    "T141",
+    "T143",
+    "T146",
+    "T145",
+    "T148",
+    "T147",
+    "T144",
+    "T149",
+    "T150"
+  ]
+}
