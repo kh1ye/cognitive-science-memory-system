@@ -10,7 +10,7 @@ beforeEach(()=>{
 });
 afterEach(()=>{wrapper?.unmount();wrapper=null;vi.unstubAllGlobals();});
 async function render(){
-  const routes=['overview','install','assistant','memories','evolution'].map(name=>({path:`/${name}`,name,component:{template:'<div />'},meta:{title:name}}));
+  const routes=['overview','install','assistant','memories','memory-gallery', 'evolution'].map(name=>({path:`/${name}`,name,component:{template:'<div />'},meta:{title:name}}));
   const router=createRouter({history:createMemoryHistory(),routes});
   await router.push('/overview');
   await router.isReady();
@@ -38,4 +38,18 @@ it('toggles the navigation rail, keeps accessible labels, preserves routes and p
   await wrapper.find('[aria-label="展开侧边栏"]').trigger('click');
   expect(wrapper.find('nav [aria-label="记忆管理"]').attributes('data-tooltip')).toBeUndefined();
   expect(localStorage.getItem('cm.sidebarCollapsed')).toBe('false');
+});
+it('refreshes the shared catalog on memory navigation and returning to the tab',async()=>{
+  const router=await render();
+  const reads=()=>fetch.mock.calls.filter(([path])=>path.startsWith('/api/memories?')).length;
+  const initial=reads();
+  await router.push('/memory-gallery');await flushPromises();
+  expect(reads()).toBe(initial+1);
+  await router.push('/memories');await flushPromises();
+  expect(reads()).toBe(initial+2);
+  window.dispatchEvent(new Event('focus'));await flushPromises();
+  expect(reads()).toBe(initial+3);
+  await router.push('/assistant');await flushPromises();
+  window.dispatchEvent(new Event('focus'));await flushPromises();
+  expect(reads()).toBe(initial+3);
 });

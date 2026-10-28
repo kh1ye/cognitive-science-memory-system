@@ -6,7 +6,7 @@ import AppIcon from "../components/AppIcon.vue";
 import SourceEvidence from "../components/SourceEvidence.vue";
 import { useWorkspace } from "../composables/useWorkspace";
 import { types, roles, formatDate } from "../lib/format";
-const { state, openMemory, deleteMemory, runRetention } = useWorkspace();
+const { state, openMemory, deleteMemory, runRetention, refresh } = useWorkspace();
 const source = ref(""), since = ref(""), focus = ref(""), healthOpen = ref(false);
 const selectedType = ref(""),
   query = ref(""),
@@ -135,7 +135,7 @@ function tabKey(event, index) {
 }
 </script>
 <template>
-  <ArchitectureMemory :user="state.user" />
+  <ArchitectureMemory :user="state.user" @changed="refresh" />
   <div class="page">
     <div class="page-heading">
       <div>

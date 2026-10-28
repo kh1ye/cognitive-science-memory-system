@@ -427,6 +427,11 @@ class ConversationAgent:
             return {
                 "thread_id": thread_id,
                 "task_id": state["task_id"],
+                "working_state": self.memory.engine.architecture.working_state(
+                    user_id, thread_id, state["task_id"]
+                ).model_dump()
+                if retention_policy != "no_persist"
+                else None,
                 "stop_reason": state["stop_reason"],
                 "answer": state["messages"][-1].content,
                 "references": state["references"],
@@ -457,6 +462,12 @@ class ConversationAgent:
                 )
         return {
             "id": thread_id,
+            "task_id": snapshot.values.get("task_id"),
+            "working_state": self.memory.engine.architecture.working_state(
+                _user_id, thread_id, snapshot.values["task_id"]
+            ).model_dump()
+            if snapshot.values.get("task_id")
+            else None,
             "title": title,
             "messages": messages,
             "updated_at": updated_at,

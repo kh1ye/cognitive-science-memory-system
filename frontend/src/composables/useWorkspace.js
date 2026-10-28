@@ -327,6 +327,8 @@ export function createWorkspace() {
         auto_remember: state.autoRemember,
       }, { timeoutMs: 300000 });
       chat.persisted = true;
+      chat.task_id = result.task_id;
+      chat.working_state = result.working_state || null;
       reply.text = result.answer;
       reply.refs = result.references || [];
       reply.memory_results = result.memory_results || [];

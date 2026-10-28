@@ -89,6 +89,35 @@ def objects(
     return {"items": memory.architecture.repo.rows(module, user_id, scope)}
 
 
+@router.get("/objects/{module}/{object_id}")
+def object_detail(
+    module: Literal[
+        "working_states",
+        "episodes",
+        "episode_events",
+        "semantic_assertions",
+        "semantic_documents",
+        "procedures",
+        "procedure_versions",
+        "procedure_runs",
+        "source_records",
+        "memory_links",
+        "learning_operations",
+    ],
+    object_id: str,
+    memory: MemoryDependency,
+    user_id: str,
+):
+    from cognitive_memory.retrieval.lexical import normalize_text
+
+    record = memory.architecture.repo.get(
+        module, normalize_text(user_id) or "demo-user", object_id
+    )
+    if record is None:
+        raise HTTPException(404, "Memory object not found")
+    return record
+
+
 @router.get("/working/{thread_id}/{task_id}")
 def working(thread_id: str, task_id: str, memory: MemoryDependency, user_id: str):
     return memory.architecture.working_state(user_id, thread_id, task_id).model_dump()

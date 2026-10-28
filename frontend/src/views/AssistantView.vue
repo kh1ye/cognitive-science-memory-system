@@ -1,5 +1,6 @@
 <script setup>
 import { computed, nextTick, ref, watch } from "vue";
+import WorkingMemoryPanel from "../components/WorkingMemoryPanel.vue";
 import AppIcon from "../components/AppIcon.vue";
 import { useWorkspace } from "../composables/useWorkspace";
 import { types, roles, memoryStatusNames, formatMemoryDecision } from "../lib/format";
@@ -260,10 +261,20 @@ function keydown(event) {
           </p>
         </div>
       </div>
+      <WorkingMemoryPanel :memory="currentChat?.working_state || null" :sending="state.sending" />
     </div>
   </div>
 </template>
 <style scoped>
+.assistant-shell{display:grid;grid-template-columns:190px minmax(0,1fr) 265px;grid-template-rows:minmax(0,1fr)}
+.conversation-sidebar{width:auto;min-height:0;overflow:hidden}
+.conversation-list{flex:1;min-height:0;overscroll-behavior:contain}
+.conversation-sidebar>.button,.conversation-sidebar>.nav-label,.conversation-note{flex-shrink:0}
+.conversation-main{min-height:0;overflow:hidden}
+.messages{min-height:0;overscroll-behavior:contain}
+.chat-topline,.composer-wrap{flex-shrink:0}
+@media(max-width:1250px){.assistant-shell{grid-template-columns: minmax(0,1fr) 250px}.conversation-sidebar{display:none}}
+@media(max-width:1050px){.assistant-page{height:auto;min-height:calc(100dvh - 70px)}.assistant-shell{display:flex;flex:none;flex-direction:column;overflow:visible}.conversation-main{flex:none;height:calc(100dvh - 110px);min-height:320px}}
 .evidence-card .text-button { margin-top:8px; }
 .message[data-source-focus="true"] { outline:1px solid var(--blue); outline-offset:8px; border-radius:5px; }
 </style>

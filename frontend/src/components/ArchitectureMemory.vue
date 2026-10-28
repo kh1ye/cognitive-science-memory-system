@@ -2,6 +2,7 @@
 import { computed, ref, watch } from 'vue';
 import { api, post } from '../lib/api';
 const props = defineProps({ user: { type: String, required: true } });
+const emit = defineEmits(['changed']);
 const expanded = ref(false), module = ref('working_states'), items = ref([]), error = ref(''), busy = ref(false);
 const thread = ref('manual'), task = ref('task'), content = ref(''), analysis = ref('{}'), receipt = ref(null);
 const policy = ref('persist'), argumentsText = ref('{"text":"hello   world"}');
@@ -14,7 +15,7 @@ async function load() {
   try { const data = await api(`/api/architecture/objects/${selected}?user_id=${encodeURIComponent(user)}`); if (props.user===user && module.value===selected) items.value=data.items; }
   catch(e) { error.value=e.message; } finally { busy.value=false; }
 }
-async function run(action) { error.value=''; try {receipt.value=await action(); await load();} catch(e){error.value=e.message;} }
+async function run(action) { error.value=''; try {receipt.value=await action(); emit('changed'); await load();} catch(e){error.value=e.message;} }
 function observe() { return run(() => post('/api/architecture/observe',{observation:{user_id:props.user,thread_id:thread.value,task_id:task.value,source_kind:'user_report',source_event_id:crypto.randomUUID(),content:content.value,retention_policy:policy.value},analysis:JSON.parse(analysis.value)})); }
 function install(){return run(()=>post('/api/architecture/procedures/install-builtins',{user_id:props.user}));}
 function execute(row){return run(()=>post(`/api/architecture/runs/${row.id}`,{user_id:props.user,run_key:crypto.randomUUID(),thread_id:thread.value,task_id:task.value,arguments:JSON.parse(argumentsText.value)}));}

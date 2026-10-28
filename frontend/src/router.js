@@ -4,6 +4,7 @@ import InstallView from "./views/InstallView.vue";
 import OverviewView from "./views/OverviewView.vue";
 import AssistantView from "./views/AssistantView.vue";
 import MemoriesView from "./views/MemoriesView.vue";
+import MemoryGalaxyView from "./views/MemoryGalaxyView.vue";
 import EvolutionView from "./views/EvolutionView.vue";
 // Preserve links from the previous vanilla frontend.
 if (/^#(overview|assistant|memories)$/.test(location.hash)) {
@@ -32,6 +33,7 @@ export default createRouter({
       component: MemoriesView,
       meta: { title: "记忆管理" },
     },
+    { path: "/memory-gallery", name: "memory-gallery", component: MemoryGalaxyView, meta: { title: "记忆展示" } },
     {
       path: "/evolution",
       name: "evolution",

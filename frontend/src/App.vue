@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onUnmounted, provide, ref, watch } from "vue";
+import { computed, onMounted, onUnmounted, provide, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import AppIcon from "./components/AppIcon.vue";
 import AppDialog from "./components/AppDialog.vue";
@@ -44,6 +44,21 @@ watch(() => Boolean(route.name && !route.meta.landing), (workspaceVisible) => {
   if (workspaceVisible) initialize();
 }, { immediate: true });
 onUnmounted(dispose);
+const memoryRoutes = new Set(["memories", "memory-gallery"]);
+function syncMemories() {
+  if (memoryRoutes.has(route.name) && !state.loading && document.visibilityState !== "hidden") refresh();
+}
+watch(() => route.name, (name, previous) => {
+  if (previous && memoryRoutes.has(name)) syncMemories();
+});
+onMounted(() => {
+  window.addEventListener("focus", syncMemories);
+  document.addEventListener("visibilitychange", syncMemories);
+});
+onUnmounted(() => {
+  window.removeEventListener("focus", syncMemories);
+  document.removeEventListener("visibilitychange", syncMemories);
+});
 let openedSourceLink = "", openedRecordLink = "";
 watch(() => [route.name, route.query.thread, route.query.message, state.sessionsLoading, state.user],
   ([name, thread, message, loading, user]) => {
@@ -67,6 +82,7 @@ const navigation = [
   { name: "overview", title: "系统总览", icon: "overview" },
   { name: "assistant", title: "个人助手", icon: "chat" },
   { name: "memories", title: "记忆管理", icon: "memory" },
+  { name: "memory-gallery", title: "记忆展示", icon: "constellation" },
   { name: "evolution", title: "记忆演化", icon: "activity" },
 ];
 </script>

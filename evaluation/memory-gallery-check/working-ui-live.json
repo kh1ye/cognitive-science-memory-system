@@ -1,0 +1,44 @@
+{
+  "thread_id": "weekend-plan",
+  "task_id": "weekend-plan",
+  "working_state": {
+    "user_id": "qa-working-display",
+    "thread_id": "weekend-plan",
+    "task_id": "weekend-plan",
+    "revision": 9,
+    "goals": [
+      "制定一份周末读书计划"
+    ],
+    "constraints": [
+      "本次只列出三项要点，不展开细节"
+    ],
+    "observations": [
+      {
+        "source_id": "0c4bf688955a3782eb317eb9db923fef50192f1f10688fa939c9168912908f15",
+        "content": "帮我制定一个周末读书计划，这次先列三项要点，不要展开。"
+      }
+    ],
+    "active_knowledge": [],
+    "task_state": {
+      "steps": 3,
+      "stop_reason": "turn_complete"
+    },
+    "open_questions": [],
+    "candidate_actions": [],
+    "selected_action": {
+      "name": "stop",
+      "arguments": {},
+      "reason": "turn_complete",
+      "status": "proposed"
+    },
+    "status": "paused",
+    "created_at": "2026-10-28T05:17:06+00:00",
+    "updated_at": "2026-10-28T05:17:09+00:00"
+  },
+  "stop_reason": "turn_complete",
+  "answer": "- **周六上午**：确定一本书，集中阅读并做简短笔记。  \n- **周日下午**：安排一小时深度阅读，整理重点内容。  \n- **周日晚**：回顾阅读收获，选定下周书单。",
+  "references": [],
+  "memory_results": [],
+  "memory_status": "no_new_memory",
+  "warnings": []
+}

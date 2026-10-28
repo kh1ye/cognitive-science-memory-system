@@ -1,6 +1,7 @@
 <script setup>
 defineProps({ name: { type: String, default: "memory" } });
 const icons = {
+  constellation: '<circle cx="5" cy="7" r="2"/><circle cx="18" cy="4" r="1.5"/><circle cx="14" cy="15" r="2.5"/><circle cx="4" cy="20" r="1"/><circle cx="21" cy="20" r="1"/><path d="m7 7 9-3M6 9l6 5m4 3 4 3M5 19l7-3"/>',
   sidebar: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/>',
   overview:
     '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
