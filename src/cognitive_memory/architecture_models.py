@@ -95,6 +95,14 @@ class ObservationAnalysis(Contract):
     semantic_candidates: list[SemanticAssertion] = Field(default_factory=list)
     procedure_proposals: list[ProcedureProposal] = Field(default_factory=list)
 
+    def has_explicit_candidates(self) -> bool:
+        """User observations may learn stated facts, events, or requested abilities."""
+        return bool(
+            self.episode_candidates
+            or self.procedure_proposals
+            or any(s.epistemic_status == "explicit" for s in self.semantic_candidates)
+        )
+
 
 class Observation(Contract):
     user_id: str = Field(min_length=1)

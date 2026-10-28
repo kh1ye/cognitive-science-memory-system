@@ -119,11 +119,7 @@ class ConversationAgent:
             observed_at=iso_now(),
             retention_policy="no_long_term"
             if any(s.sensitive for s in analysis.semantic_candidates)
-            or not (
-                analysis.semantic_candidates
-                or analysis.episode_candidates
-                or analysis.procedure_proposals
-            )
+            or not analysis.has_explicit_candidates()
             else state["retention_policy"],
         )
         # Runtime updates first; learning is a separately selected action below.
@@ -241,14 +237,9 @@ class ConversationAgent:
                     status = "privacy_blocked"
                 elif warnings:
                     status = "failed"
-                elif context_only(content) or not any(
-                    state["analysis"].get(k)
-                    for k in (
-                        "semantic_candidates",
-                        "episode_candidates",
-                        "procedure_proposals",
-                    )
-                ):
+                elif context_only(content) or not ObservationAnalysis.model_validate(
+                    state["analysis"]
+                ).has_explicit_candidates():
                     status = "no_new_memory"
                 else:
                     result = self.memory.engine.architecture.observe(

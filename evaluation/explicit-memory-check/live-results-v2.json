@@ -1,0 +1,121 @@
+[
+  {
+    "case": "preference",
+    "message": "我喜欢早上跑步",
+    "memory_status": "processed",
+    "operations": [
+      {
+        "id": "3a1f575e86e54de4629335dae4ba9e016c412d1892f69e196b53f93aab20d7b9",
+        "idempotency_key": "3a1f575e86e54de4629335dae4ba9e016c412d1892f69e196b53f93aab20d7b9",
+        "target_module": "semantic",
+        "source_refs": [
+          "bc2a46651db5aa951e8e137f57abb901bf42a993a66769c3f53337ba0c4bd253"
+        ],
+        "status": "succeeded",
+        "result_refs": [
+          "8825fa0f0e397da1fd99a836f4118b5af2a9fc85fca551e6ba49f184da6027f1"
+        ],
+        "error": null,
+        "result_status": "current",
+        "epistemic_status": "explicit"
+      }
+    ],
+    "assertions": [
+      {
+        "predicate": "喜欢早上跑步",
+        "value": "喜欢早上跑步",
+        "evidence_text": "我喜欢早上跑步",
+        "status": "current",
+        "epistemic_status": "explicit",
+        "cardinality": "single"
+      }
+    ]
+  },
+  {
+    "case": "routine",
+    "message": "我每天早上跑步",
+    "memory_status": "processed",
+    "operations": [
+      {
+        "id": "f06a0bdb49a61508c6de2f7875b066ba11549b8ca25b1f2b77d872c05d79d25e",
+        "idempotency_key": "f06a0bdb49a61508c6de2f7875b066ba11549b8ca25b1f2b77d872c05d79d25e",
+        "target_module": "semantic",
+        "source_refs": [
+          "98f8076956a30cdde337878b6e0f129929369f658ecd12438eff06046f0c188c"
+        ],
+        "status": "succeeded",
+        "result_refs": [
+          "3160cc55cf8b623c08ee21d91afa1217cd59ce922a583b164a195cb27935ced4"
+        ],
+        "error": null,
+        "result_status": "current",
+        "epistemic_status": "explicit"
+      }
+    ],
+    "assertions": [
+      {
+        "predicate": "规律晨跑习惯",
+        "value": true,
+        "evidence_text": "我每天早上跑步",
+        "status": "current",
+        "epistemic_status": "explicit",
+        "cardinality": "single"
+      }
+    ]
+  },
+  {
+    "case": "two-facts",
+    "message": "我喜欢晨跑，也喜欢游泳",
+    "memory_status": "processed",
+    "operations": [
+      {
+        "id": "fb43072f5d11d9440c509c9a1c9171700265b48aa84d5055b61d83e434077f8f",
+        "idempotency_key": "fb43072f5d11d9440c509c9a1c9171700265b48aa84d5055b61d83e434077f8f",
+        "target_module": "semantic",
+        "source_refs": [
+          "8fea0dad44a4aa9b0e0583e66c2ea9c0a5c01eaeb03a9caeaaff7b46659a80d5"
+        ],
+        "status": "succeeded",
+        "result_refs": [
+          "55f7eb38c64353dc19db3680c7e758c66c65afc755363bdd46e4843bd7b1d47b"
+        ],
+        "error": null,
+        "result_status": "current",
+        "epistemic_status": "explicit"
+      },
+      {
+        "id": "8690aa509d373c55c7d531f14a7229b919c6ddf8d9dd80688832d6a936568406",
+        "idempotency_key": "8690aa509d373c55c7d531f14a7229b919c6ddf8d9dd80688832d6a936568406",
+        "target_module": "semantic",
+        "source_refs": [
+          "8fea0dad44a4aa9b0e0583e66c2ea9c0a5c01eaeb03a9caeaaff7b46659a80d5"
+        ],
+        "status": "succeeded",
+        "result_refs": [
+          "8239040c6a43ade9d978103d034aa2e51d159a3ac04e537cc41a0ad518e4a088"
+        ],
+        "error": null,
+        "result_status": "current",
+        "epistemic_status": "explicit"
+      }
+    ],
+    "assertions": [
+      {
+        "predicate": "喜欢（晨跑）",
+        "value": "晨跑",
+        "evidence_text": "我喜欢晨跑",
+        "status": "current",
+        "epistemic_status": "explicit",
+        "cardinality": "single"
+      },
+      {
+        "predicate": "喜欢（游泳）",
+        "value": "游泳",
+        "evidence_text": "喜欢游泳",
+        "status": "current",
+        "epistemic_status": "explicit",
+        "cardinality": "single"
+      }
+    ]
+  }
+]

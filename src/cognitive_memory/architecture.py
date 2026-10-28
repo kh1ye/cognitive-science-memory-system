@@ -619,6 +619,12 @@ class MemoryArchitecture:
             else:
                 analysis = self.analyzer(o)
         a = ObservationAnalysis.model_validate(analysis)
+        if (
+            o.source_kind == "user_report"
+            and a.semantic_candidates
+            and not a.has_explicit_candidates()
+        ):
+            o = o.model_copy(update={"retention_policy": "no_long_term"})
         if any(s.sensitive for s in a.semantic_candidates) and not o.consent:
             o = o.model_copy(update={"retention_policy": "no_long_term"})
         with self.storage.transaction():
@@ -646,6 +652,14 @@ class MemoryArchitecture:
                 ("procedural", p.model_dump()) for p in a.procedure_proposals
             ]
             for index, (module, candidate) in enumerate(candidates):
+                # A quoted source span proves provenance, not the truth of an inference.
+                # Preserve original indexes so retries keep the same operation identities.
+                if (
+                    o.source_kind == "user_report"
+                    and module == "semantic"
+                    and candidate["epistemic_status"] != "explicit"
+                ):
+                    continue
                 opkey = stable_id(o.user_id, source["id"], module, index)
                 with self.storage.transaction():
                     previous = self.repo.get("learning_operations", o.user_id, opkey)
@@ -692,6 +706,11 @@ class MemoryArchitecture:
                             )
                         self.repo.release_learning_item()
                         operation.update(status="succeeded", result_refs=[result["id"]])
+                        if module == "semantic":
+                            operation.update(
+                                result_status=result["status"],
+                                epistemic_status=result["epistemic_status"],
+                            )
                     except Exception as error:  # noqa: BLE001 -- isolate partial learning failure
                         self.repo.rollback_learning_item()
                         self.repo.release_learning_item()
