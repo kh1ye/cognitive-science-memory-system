@@ -211,15 +211,21 @@ class Memory:
         with self.storage.transaction():
             row = self.storage.find_owned(memory_id, user_id)
             if not row:
-                return False
-            self.storage.delete_owned(memory_id, user_id)
-            if self.architecture is not None:
+                record = self.catalog.get(user_id, memory_id) if self.catalog else None
+                if not record or record["storage_kind"] != "typed":
+                    return False
+                self.architecture.delete_object(user_id, record["module"], memory_id)
+            else:
+                self.storage.delete_owned(memory_id, user_id)
+            if row and self.architecture is not None:
                 migrated = self.storage._conn.execute(
                     "SELECT target_table, target_id FROM legacy_memory_map WHERE legacy_id=?", (memory_id,)
                 ).fetchone()
                 if migrated:
                     self.architecture.repo.delete(migrated["target_table"], user_id, migrated["target_id"])
                     self.storage._conn.execute("DELETE FROM legacy_memory_map WHERE legacy_id=?", (memory_id,))
+            if row and self.architecture is not None:
+                self.architecture.remove_object_references(user_id, {memory_id})
             self.storage.audit(
                 user_id,
                 "USER_DELETE",

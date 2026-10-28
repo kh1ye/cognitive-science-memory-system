@@ -51,7 +51,7 @@ export function formatMemoryDecision(result) {
   if (result.target_module) {
     let label = result.status === 'succeeded' ? '已写入' : '写入失败';
     if (result.status === 'succeeded' && result.target_module === 'semantic') {
-      label = {current:'已保存为当前记忆', candidate:'已保存为待确认候选', disputed:'存在冲突，待确认', history:'已保留为历史记忆'}[result.result_status] || '已保存（状态未记录）';
+      label = {current:'已保存为当前记忆', candidate:'已保存为待确认候选', disputed:'存在冲突，待确认', history:'已保留为历史记忆', deleted:'对应记忆已删除'}[result.result_status] || '已保存（状态未记录）';
     }
     return `${types[result.target_module]?.label || result.target_module}：${label}`;
   }

@@ -116,7 +116,7 @@ class MemoryCatalog:
                         "native_status": status,
                         "storage_kind": "typed",
                         "module": module,
-                        "can_delete": False,
+                        "can_delete": True,
                         "source": "typed_memory",
                         "memory_key": row.get("predicate")
                         or row.get("document_id")

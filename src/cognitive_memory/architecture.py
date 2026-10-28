@@ -382,7 +382,10 @@ class MemoryArchitecture:
                 for r in self.repo.rows("procedure_versions", user)
                 if r.get("procedure_id") == pid
             ]
-            version = len(versions) + 1
+            registry = self.repo.get("procedures", user, pid) or {}
+            version = max(
+                [0, *registry.get("deleted_versions", []), *[r["version"] for r in versions if isinstance(r.get("version"), int)]]
+            ) + 1
             vid = stable_id(user, pid, version)
             data = {
                 **p.model_dump(),
@@ -828,6 +831,55 @@ class MemoryArchitecture:
             )
         self.update_working_state(user, thread, task, {"active_knowledge": result})
         return result
+
+    def remove_object_references(self, user, removed):
+        """Detach deleted objects without deleting shared sources or conversations."""
+        for state in self.repo.rows("working_states", user):
+            refs = state.get("active_knowledge", [])
+            remaining = [r for r in refs if r.get("memory_id", r.get("id")) not in removed]
+            if len(remaining) != len(refs):
+                state["active_knowledge"] = remaining
+                self.repo.put("working_states", user, stable_id(user, state["thread_id"], state["task_id"]), state)
+        for link in self.repo.rows("memory_links", user):
+            if link["from"] in removed or link["to"] in removed:
+                self.repo.delete("memory_links", user, link["id"])
+        for operation in self.repo.rows("learning_operations", user):
+            refs = operation.get("result_refs", [])
+            deleted = [ref for ref in refs if ref in removed]
+            if deleted:
+                operation["result_refs"] = [ref for ref in refs if ref not in removed]
+                operation["deleted_result_refs"] = sorted(set(operation.get("deleted_result_refs", []) + deleted))
+                operation["result_status"] = "deleted"
+                # Keep successful operation identity: replay must not recreate deleted memory.
+                source = next((self.repo.get("source_records", user, ref) for ref in operation.get("source_refs", [])), None)
+                self.repo.put("learning_operations", user, operation["id"], operation, source["scope"] if source else "user")
+
+    def delete_object(self, user, module, object_id):
+        from .catalog import MODULE_TYPES
+
+        if module not in MODULE_TYPES:
+            raise ValueError("Not a managed memory module")
+        with self.storage.transaction():
+            record = self.repo.get(module, user, object_id)
+            if record is None:
+                return False
+            removed = {object_id}
+            if module == "procedure_versions":
+                pid = record.get("procedure_id")
+                registry = self.repo.get("procedures", user, pid) if pid else None
+                if registry:
+                    if registry.get("active_version") == object_id:
+                        registry["active_version"] = None
+                    if isinstance(record.get("version"), int):
+                        registry["deleted_versions"] = sorted(set(registry.get("deleted_versions", []) + [record["version"]]))
+                    self.repo.put("procedures", user, pid, registry)
+                for run in self.repo.rows("procedure_runs", user):
+                    if run.get("version_id") == object_id:
+                        removed.add(run["id"])
+                        self.repo.delete("procedure_runs", user, run["id"])
+            self.repo.delete(module, user, object_id)
+            self.remove_object_references(user, removed)
+            return True
 
     def delete_source(self, user, source_id):
         with self.storage.transaction():

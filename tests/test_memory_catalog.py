@@ -154,7 +154,7 @@ class MemoryCatalogTests(unittest.TestCase):
                 client.get(path + "/evidence?user_id=bob").status_code, 404
             )
             self.assertIsNone(native["importance"])
-            self.assertFalse(native["can_delete"])
+            self.assertTrue(native["can_delete"])
             self.assertTrue(
                 any(
                     e["related_memory"] and e["related_memory"]["id"] == native["id"]

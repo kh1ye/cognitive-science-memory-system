@@ -135,7 +135,7 @@ function tabKey(event, index) {
 }
 </script>
 <template>
-  <ArchitectureMemory :user="state.user" @changed="refresh" />
+  <ArchitectureMemory :user="state.user" :catalog="state.memories" @changed="refresh" />
   <div class="page">
     <div class="page-heading">
       <div>

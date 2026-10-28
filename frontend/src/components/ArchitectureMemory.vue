@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref, watch } from 'vue';
 import { api, post } from '../lib/api';
-const props = defineProps({ user: { type: String, required: true } });
+const props = defineProps({ user: { type: String, required: true }, catalog: Array });
 const emit = defineEmits(['changed']);
 const expanded = ref(false), module = ref('working_states'), items = ref([]), error = ref(''), busy = ref(false);
 const thread = ref('manual'), task = ref('task'), content = ref(''), analysis = ref('{}'), receipt = ref(null);
@@ -22,6 +22,7 @@ function execute(row){return run(()=>post(`/api/architecture/runs/${row.id}`,{us
 function change(row,action){return run(()=>post(`/api/architecture/procedures/${row.id}/${action}`,{user_id:props.user}));}
 function remove(row){return run(()=>api(`/api/architecture/sources/${row.id}?user_id=${encodeURIComponent(props.user)}`,{method:'DELETE'}));}
 watch(module,()=>{items.value=[];if(expanded.value)load();});
+watch(()=>props.catalog,()=>{if(expanded.value)load();});
 watch(()=>props.user,()=>{items.value=[];receipt.value=null;error.value='';content.value='';if(expanded.value)load();});
 async function toggle(){expanded.value=!expanded.value;if(expanded.value)await load();}
 </script>
