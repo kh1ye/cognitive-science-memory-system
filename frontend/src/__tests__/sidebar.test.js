@@ -10,7 +10,7 @@ beforeEach(()=>{
 });
 afterEach(()=>{wrapper?.unmount();wrapper=null;vi.unstubAllGlobals();});
 async function render(){
-  const routes=['connections','overview','install','assistant','memories','memory-gallery', 'evolution'].map(name=>({path:`/${name}`,name,component:{template:'<div />'},meta:{title:name}}));
+  const routes=['evaluations','connections','overview','install','assistant','memories','memory-gallery', 'evolution'].map(name=>({path:`/${name}`,name,component:{template:'<div />'},meta:{title:name}}));
   const router=createRouter({history:createMemoryHistory(),routes});
   await router.push('/overview');
   await router.isReady();

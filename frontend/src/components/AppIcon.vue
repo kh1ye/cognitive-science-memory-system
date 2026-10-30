@@ -1,6 +1,10 @@
 <script setup>
 defineProps({ name: { type: String, default: "memory" } });
 const icons = {
+  flask: '<path d="M9 3h6m-5 0v6L4 19a1.3 1.3 0 0 0 1 2h14a1.3 1.3 0 0 0 1-2L14 9V3M7 15h10"/><path d="M10 17h.01M14 18h.01"/>',
+  play: '<path d="m8 5 11 7-11 7V5Z"/>',
+  check: '<path d="m5 12 4 4L19 6"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
   constellation: '<circle cx="5" cy="7" r="2"/><circle cx="18" cy="4" r="1.5"/><circle cx="14" cy="15" r="2.5"/><circle cx="4" cy="20" r="1"/><circle cx="21" cy="20" r="1"/><path d="m7 7 9-3M6 9l6 5m4 3 4 3M5 19l7-3"/>',
   sidebar: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/>',
   overview:

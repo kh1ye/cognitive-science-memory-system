@@ -1,0 +1,20 @@
+{
+  "mode": "offline_preflight_not_quality_evaluation",
+  "dataset_root": "D:\\桌面\\memory\\evaluation\\Vatsalabench\\dataset500_handoff_20261022_v1\\dataset500_handoff_20261022_v1",
+  "declared_samples": 500,
+  "checked_samples": 500,
+  "sample_count_matches": true,
+  "samples_with_errors": 0,
+  "review_groups": {
+    "reviewed_umrr": 66,
+    "pending_umrr": 434
+  },
+  "protocol_approved_samples": 0,
+  "totals": {
+    "sessions": 23867,
+    "messages": 246750,
+    "history_characters": 244648697,
+    "probes": 6000
+  }
+}
+Report: D:\桌面\memory\evaluation\Vatsalabench\results\center-20261030-161431-f979a5\preflight.json

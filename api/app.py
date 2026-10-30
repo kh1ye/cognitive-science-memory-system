@@ -21,7 +21,8 @@ from conversation_agent import ConversationAgent
 
 from .middleware import RequestPolicyMiddleware
 from .responses import error_response
-from .routers import architecture, chat, demo, evolution, memories, retrieval, system
+from .routers import architecture, chat, demo, evolution, memories, retrieval, system, evaluations
+from .evaluation_center import EvaluationCenter
 from .settings import SERVICE_NAME
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -46,6 +47,7 @@ def create_app(
     @asynccontextmanager
     async def lifespan(application: FastAPI):
         application.state.memory = service if service is not None else Memory(db_path)
+        application.state.evaluation_center = EvaluationCenter(ROOT)
         conversation = None
         try:
             session_path = chat_db_path
@@ -61,6 +63,7 @@ def create_app(
             application.state.conversation_agent = conversation
             yield
         finally:
+            application.state.evaluation_center.close()
             if conversation is not None:
                 conversation.close()
             if service is None:
@@ -109,7 +112,7 @@ def create_app(
             {"detail": exc.detail}, status_code=exc.status_code, headers=exc.headers
         )
 
-    for router in (architecture.router, memories.router, retrieval.router, system.router, chat.router, evolution.router):
+    for router in (architecture.router, memories.router, retrieval.router, system.router, chat.router, evolution.router, evaluations.router):
         application.include_router(router)
     if application.state.demo_token:
         application.include_router(demo.router)

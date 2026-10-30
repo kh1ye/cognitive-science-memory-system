@@ -1,4 +1,4 @@
-import hashlib, json, time
+import hashlib, json, time, os
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from cognitive_memory import Memory
@@ -12,7 +12,7 @@ from conversation_agent.prompts import OBSERVATION_ANALYSIS_PROMPT
 
 ROOT = Path(__file__).resolve().parent
 stamp = time.strftime("%Y%m%d-%H%M%S")
-out = ROOT / "results" / stamp
+out = Path(os.environ["EVALUATION_OUTPUT_DIR"]) if os.environ.get("EVALUATION_OUTPUT_DIR") else ROOT / "results" / stamp
 out.mkdir(parents=True)
 raw = (ROOT / "cases.json").read_bytes()
 cases = json.loads(raw)["cases"]

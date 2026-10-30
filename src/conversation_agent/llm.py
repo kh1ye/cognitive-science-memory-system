@@ -24,6 +24,7 @@ class LLMSettings:
     api_key: str = field(default="", repr=False)
     base_url: str | None = None
     provider: str = "openai"
+    thinking: str | None = None
 
     @classmethod
     def from_env(cls):
@@ -40,6 +41,7 @@ class LLMSettings:
             or config.get("OPENAI_BASE_URL")
             or None,
             provider=config.get("LLM_PROVIDER", "openai").strip().lower(),
+            thinking=config.get("LLM_THINKING") or None,
         )
 
     def create_model(self):
@@ -66,6 +68,7 @@ class LLMSettings:
             base_url=self.base_url,
             timeout=45,
             max_retries=1,
+            extra_body={"thinking": {"type": self.thinking}} if self.thinking in ("enabled", "disabled") else None,
         )
 
 

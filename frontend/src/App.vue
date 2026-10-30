@@ -89,6 +89,7 @@ const navigationGroups = [
     { name: "evolution", title: "记忆演化", icon: "activity" },
   ] },
   { title: "开发与设置", items: [
+    { name: "evaluations", title: "评测中心", icon: "flask" },
     { name: "connections", title: "接入管理", icon: "database" },
     { name: "install", title: "安装与接入", icon: "layers" },
     { href: "/docs", title: "接口文档", icon: "book" },

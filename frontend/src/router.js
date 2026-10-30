@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import LandingView from "./views/LandingView.vue";
 import ConnectionsView from "./views/ConnectionsView.vue";
+import EvaluationsView from "./views/EvaluationsView.vue";
 import InstallView from "./views/InstallView.vue";
 import OverviewView from "./views/OverviewView.vue";
 import AssistantView from "./views/AssistantView.vue";
@@ -14,6 +15,7 @@ if (/^#(overview|assistant|memories)$/.test(location.hash)) {
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
+    { path: "/evaluations", name: "evaluations", component: EvaluationsView, meta: { title: "评测中心" } },
     { path: "/connections", name: "connections", component: ConnectionsView, meta: { title: "接入管理" } },
     { path: "/install", name: "install", component: InstallView, meta: { title: "安装与接入" } },
     { path: "/", name: "home", component: LandingView, meta: { title: "认知记忆系统", landing: true } },
