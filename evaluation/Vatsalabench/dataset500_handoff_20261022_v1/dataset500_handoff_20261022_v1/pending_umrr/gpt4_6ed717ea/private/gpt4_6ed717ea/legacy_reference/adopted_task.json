@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_6ed717ea",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 412,
+  "question_cell": "F412",
+  "answer_cell": "E412",
+  "adopted_question_verbatim": "Which item did I purchase first, the dog bed for Max or the training pads for Luna?",
+  "adopted_answer_or_rubric_verbatim": "training pads for Luna",
+  "english_rubric": "Require Luna's training pads, bought about a month earlier versus the bed about three weeks earlier. Preserve approximate chronology, not invented dates.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

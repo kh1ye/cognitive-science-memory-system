@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_88806d6e",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 174,
+  "question_cell": "F174",
+  "answer_cell": "E174",
+  "adopted_question_verbatim": "At what kind of event did I say I met Tom?",
+  "adopted_answer_or_rubric_verbatim": "A charity event where I volunteered",
+  "english_rubric": "Require a charity event with volunteering context. Do not assign the beach trip to Tom or assert an exact first-ever meeting date.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

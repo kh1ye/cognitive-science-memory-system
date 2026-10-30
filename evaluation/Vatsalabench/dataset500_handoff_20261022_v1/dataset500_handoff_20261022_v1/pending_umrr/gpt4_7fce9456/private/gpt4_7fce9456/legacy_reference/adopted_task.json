@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_7fce9456",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 297,
+  "question_cell": "F297",
+  "answer_cell": "E297",
+  "adopted_question_verbatim": "Why did I decide against the one-bedroom condo I viewed on February 10?",
+  "adopted_answer_or_rubric_verbatim": "noise from the highway",
+  "english_rubric": "Require noise from the highway; do not substitute the higher competing bid for another property.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

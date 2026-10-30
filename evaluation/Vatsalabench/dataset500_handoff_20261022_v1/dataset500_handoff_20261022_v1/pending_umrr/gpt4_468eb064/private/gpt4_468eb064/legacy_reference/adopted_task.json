@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_468eb064",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 399,
+  "question_cell": "F399",
+  "answer_cell": "E399",
+  "adopted_question_verbatim": "Who did I meet with during the lunch last Tuesday?",
+  "adopted_answer_or_rubric_verbatim": "Emma",
+  "english_rubric": "Require Emma. April 11 is the last Tuesday relative to April 18; do not substitute workshop speaker Rachel Lee.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

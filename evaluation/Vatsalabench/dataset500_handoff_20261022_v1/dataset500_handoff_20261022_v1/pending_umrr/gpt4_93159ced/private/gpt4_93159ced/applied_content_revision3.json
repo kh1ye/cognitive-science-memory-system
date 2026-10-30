@@ -1,0 +1,37 @@
+{
+  "sample_id": "gpt4_93159ced",
+  "source_order": 413,
+  "parent_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1_review2\\packages\\gpt4_93159ced",
+  "package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1_review3\\packages\\gpt4_93159ced",
+  "applied_proposal": {
+    "sample_id": "gpt4_93159ced",
+    "status": "proposed_not_applied",
+    "scope": [
+      "BASE-1",
+      "BASE-2",
+      "BASE-3",
+      "RET-10",
+      "RET-30",
+      "RET-50"
+    ],
+    "proposed_scoring_rule": "Accept approximately 57 months, four years nine months, or an equivalent duration from subtracting approximately 51 months from 108 months under the assumptions stated in the question. Do not require additional proof about gaps, overlapping jobs, or exact pre-NovaTech employment dates."
+  },
+  "changed_files": [
+    "private/gpt4_93159ced/gold.json",
+    "suite.json"
+  ],
+  "gold_sha256": "51e8cdb6588a60e8ea9cb4115abfcadf2578d77beaf4a0fb2b44d3fad9c8632a",
+  "suite_sha256": "c44c5824805855c69864fcacc44e6386f88252e3e00c96e986d9bbbeedde8101",
+  "expected_answers_unchanged": true,
+  "history_branches_times_configuration_unchanged": true,
+  "scoring_rule_fields_updated": [
+    "BASE-1",
+    "BASE-2",
+    "BASE-3",
+    "RET-10",
+    "RET-30",
+    "RET-50"
+  ],
+  "live_approved": false,
+  "api_calls": 0
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "8e91e7d9",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 114,
+  "question_cell": "F114",
+  "answer_cell": "E114",
+  "adopted_question_verbatim": "How many sisters did I say were in my family?",
+  "adopted_answer_or_rubric_verbatim": "3 sisters",
+  "english_rubric": "Require three in the family wording. Do not infer speaker gender or total number of siblings.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

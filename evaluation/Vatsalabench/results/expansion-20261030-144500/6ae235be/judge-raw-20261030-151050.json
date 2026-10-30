@@ -1,0 +1,154 @@
+{
+  "judgment": {
+    "answers": [
+      {
+        "probe_id": "BASE-1",
+        "correct": 0,
+        "reason": "Refuses and gives no list; gold requires all four processes.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "BASE-2",
+        "correct": 0,
+        "reason": "Refuses; does not name the four methods.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "BASE-3",
+        "correct": 0,
+        "reason": "Refuses; does not give the set.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "UMRR-1",
+        "correct": 1,
+        "reason": "Explicit uncertainty, no invented permit number, no false denial of a known event.",
+        "conclusion": "Cannot determine; no permit number in available history."
+      },
+      {
+        "probe_id": "R1R2",
+        "correct": 0,
+        "reason": "Refusal only; neither slot filled.",
+        "conclusion": "Refusal; no list found."
+      },
+      {
+        "probe_id": "RET-10",
+        "correct": 0,
+        "reason": "Refuses; does not give the four processes.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "RET-30",
+        "correct": 0,
+        "reason": "Refuses; does not give the four processes.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "RET-50",
+        "correct": 0,
+        "reason": "Refuses; does not give the four processes.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "CUR-H2",
+        "correct": 1,
+        "reason": "Selects the effective 14:00 value at query time.",
+        "conclusion": "14:00"
+      },
+      {
+        "probe_id": "CON-U",
+        "correct": 1,
+        "reason": "Acknowledges unresolved conflict and asks for confirmation; no unique value chosen.",
+        "conclusion": "Conflict between 14:00 and 15:00; unresolved."
+      },
+      {
+        "probe_id": "CON-P",
+        "correct": 1,
+        "reason": "Chooses signed-record 14:00 per explicit priority.",
+        "conclusion": "14:00"
+      },
+      {
+        "probe_id": "CON-N",
+        "correct": 1,
+        "reason": "Gives agreed 14:00 without inventing conflict.",
+        "conclusion": "14:00"
+      }
+    ],
+    "fsrc_pairs": [
+      {
+        "left": "BASE-1",
+        "right": "BASE-2",
+        "match": 1,
+        "reason": "Both refuse to provide the process list; consistent target conclusion (no recall)."
+      },
+      {
+        "left": "BASE-1",
+        "right": "BASE-3",
+        "match": 1,
+        "reason": "Both refuse; consistent no-recall conclusion."
+      },
+      {
+        "left": "BASE-2",
+        "right": "BASE-3",
+        "match": 1,
+        "reason": "Both refuse; consistent no-recall conclusion."
+      }
+    ],
+    "tic_slots": [
+      {
+        "intent": "Initial process",
+        "covered": 0,
+        "reason": "Answer refuses and names no initial process."
+      },
+      {
+        "intent": "Impurity-removal process",
+        "covered": 0,
+        "reason": "Answer refuses and names no impurity-removal process."
+      }
+    ],
+    "afp_units": [
+      {
+        "text": "No such process list appears in available conversation records or long-term memory; existing material concerns unrelated topics.",
+        "relevant": 1,
+        "reason": "Relevant uncertainty explaining inability to answer."
+      },
+      {
+        "text": "Cannot answer; asks for the source or original text of the list.",
+        "relevant": 1,
+        "reason": "Task-serving request for needed context."
+      }
+    ]
+  },
+  "usage": {
+    "input_tokens": 3975,
+    "output_tokens": 685,
+    "total_tokens": 4660,
+    "input_token_details": {
+      "cache_read": 640
+    },
+    "output_token_details": {}
+  },
+  "metadata": {
+    "token_usage": {
+      "completion_tokens": 685,
+      "prompt_tokens": 3975,
+      "total_tokens": 4660,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 640,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 640,
+      "prompt_cache_miss_tokens": 3335
+    },
+    "model_provider": "openai",
+    "model_name": "deepseek-flash",
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+    "id": "22e5e37f-e9fe-4798-b49c-604cbf903cfd",
+    "finish_reason": "stop",
+    "logprobs": null
+  }
+}

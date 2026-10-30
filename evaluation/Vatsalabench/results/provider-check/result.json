@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "answer": "OK",
+  "metadata": {
+    "token_usage": {
+      "completion_tokens": 14,
+      "prompt_tokens": 33,
+      "total_tokens": 47,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": null,
+        "reasoning_tokens": 12,
+        "rejected_prediction_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 0,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 33
+    },
+    "model_provider": "openai",
+    "model_name": "deepseek-flash",
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+    "id": "80c45e98-e97f-41cb-8778-138201ef12a7",
+    "finish_reason": "stop",
+    "logprobs": null
+  }
+}

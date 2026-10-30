@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "Which book did I finish a week ago?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-02-07T09:09:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-02-07T09:09:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "Which novel had I completed seven days before February 7, 2023?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-02-07T09:09:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-02-07T09:09:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "What book did I report finishing on January 31, 2023?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-02-07T09:09:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-02-07T09:09:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact ISBN of the book I finished on January 31, 2023?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-02-07T09:09:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-02-07T09:09:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "Which book did I finish on January 31, and which date did I report starting it?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-02-07T09:09:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-02-07T09:09:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "Which book did I finish a week ago?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-02-09T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-02-07T09:09:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "Which book did I finish a week ago?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-02-10T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-02-07T09:09:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "Which book did I finish a week ago?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-02-11T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-02-07T09:09:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the daily page target for a separate future reading plan now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-02-09T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-02-09T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/02/09 12:00, what is the daily page target for a separate future reading plan?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-02-09T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-02-09T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/02/09 12:00, what is the daily page target for a separate future reading plan?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-02-09T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-02-09T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/02/09 12:00, what is the daily page target for a separate future reading plan?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-02-09T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-02-09T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

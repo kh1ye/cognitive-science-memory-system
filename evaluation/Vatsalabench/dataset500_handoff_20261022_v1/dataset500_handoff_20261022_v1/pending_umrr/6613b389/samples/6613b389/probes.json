@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "What date did I say our anniversary was coming up on?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-07-07T22:38:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "Which date did I give for my upcoming wedding anniversary?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-07-07T22:38:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "On what month and day did I say my partner and I had our anniversary coming up?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-07-07T22:38:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact booking confirmation number for my planned anniversary staycation?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-07-07T22:38:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "What date was my anniversary coming up on, and what kind of romantic local holiday did I ask for ideas about?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-07-07T22:38:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "What date did I say our anniversary was coming up on?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-07-09T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "What date did I say our anniversary was coming up on?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-07-10T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "What date did I say our anniversary was coming up on?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-07-11T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the start time for a separate future celebration-planning meeting now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-07-09T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-07-09T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/07/09 12:00, what is the start time for a separate future celebration-planning meeting?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-07-09T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-07-09T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/07/09 12:00, what is the start time for a separate future celebration-planning meeting?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-07-09T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-07-09T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/07/09 12:00, what is the start time for a separate future celebration-planning meeting?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-07-09T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-07-09T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

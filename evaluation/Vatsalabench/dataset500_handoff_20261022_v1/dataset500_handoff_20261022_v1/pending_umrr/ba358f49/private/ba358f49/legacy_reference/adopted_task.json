@@ -1,0 +1,15 @@
+{
+  "sample_id": "ba358f49",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 103,
+  "question_cell": "F103",
+  "answer_cell": "E103",
+  "adopted_question_verbatim": "How old did I say I was in the September 1, 2022 skincare conversation?",
+  "adopted_answer_or_rubric_verbatim": "32 years old",
+  "english_rubric": "Require 32 at the historical report, not age today or at a future wedding. No medical advice is requested.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

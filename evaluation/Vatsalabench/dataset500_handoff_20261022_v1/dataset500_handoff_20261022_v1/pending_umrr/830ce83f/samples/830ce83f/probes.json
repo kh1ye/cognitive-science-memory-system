@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "Where did Rachel move to after her recent relocation?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-06-13T15:15:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-06-13T15:15:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "Where had Rachel relocated to in the latest move I reported by the original question date?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-06-13T15:15:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-06-13T15:15:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "What kind of area did I say Rachel had moved back to in the later relocation account?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-06-13T15:15:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-06-13T15:15:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was Rachel's exact street address after moving back to the suburbs?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-06-13T15:15:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-06-13T15:15:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "What kind of area did Rachel move back to in the later report, and which city did I name for her earlier apartment?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-06-13T15:15:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-06-13T15:15:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "Where did Rachel move to after her recent relocation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-06-15T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-06-13T15:15:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "Where did Rachel move to after her recent relocation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-06-16T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-06-13T15:15:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "Where did Rachel move to after her recent relocation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-06-17T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-06-13T15:15:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the start time for a separate future catch-up appointment now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-06-15T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-15T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/06/15 12:00, what is the start time for a separate future catch-up appointment?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-15T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-15T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/06/15 12:00, what is the start time for a separate future catch-up appointment?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-15T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-15T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/06/15 12:00, what is the start time for a separate future catch-up appointment?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-15T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-15T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

@@ -1,0 +1,149 @@
+{
+  "sample_id": "gpt4_5438fa52",
+  "source_order": 179,
+  "status": "accepted_edits_applied_validation_passed",
+  "authorization": "User explicitly requested applying the consolidated suggestions; no experiment or independent acceptance authorized.",
+  "parent_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1\\packages\\gpt4_5438fa52",
+  "parent_suite_sha256": "2d42effa535f49aa3fb4208df8758752cea9948142177b91024f962d2086a6b1",
+  "revised_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1_review2\\packages\\gpt4_5438fa52",
+  "revised_suite_sha256": "990486d0e5331d3e071c2b8c7ad8bd71514332021647906a41e323317d2d4606",
+  "proposal_file": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch07_v1\\pending_edits_all_batches.json",
+  "proposal_sha256": "3407de41004d56cd559b1fe0cb938f21362c02f9caa4ba68469decfe323abd54",
+  "source_proposal": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch03_v1\\proposed_edits.json",
+  "applied_edits": [
+    {
+      "file": "samples/gpt4_5438fa52/sample.json",
+      "field": "target_reference_time",
+      "old": {
+        "kind": "historical_event",
+        "value": "Interpret all relative phrases in the question using the original question timestamp 2023-05-27T16:21:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+      },
+      "proposed": {
+        "kind": "historical_event",
+        "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+      }
+    },
+    {
+      "file": "samples/gpt4_5438fa52/probes.json",
+      "probe_id": "BASE-1",
+      "field": "target_reference_time",
+      "old": {
+        "kind": "historical_event",
+        "value": "Interpret all relative phrases in the question using the original question timestamp 2023-05-27T16:21:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+      },
+      "proposed": {
+        "kind": "historical_event",
+        "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+      }
+    },
+    {
+      "file": "samples/gpt4_5438fa52/probes.json",
+      "probe_id": "BASE-2",
+      "field": "target_reference_time",
+      "old": {
+        "kind": "historical_event",
+        "value": "Interpret all relative phrases in the question using the original question timestamp 2023-05-27T16:21:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+      },
+      "proposed": {
+        "kind": "historical_event",
+        "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+      }
+    },
+    {
+      "file": "samples/gpt4_5438fa52/probes.json",
+      "probe_id": "BASE-3",
+      "field": "target_reference_time",
+      "old": {
+        "kind": "historical_event",
+        "value": "Interpret all relative phrases in the question using the original question timestamp 2023-05-27T16:21:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+      },
+      "proposed": {
+        "kind": "historical_event",
+        "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+      }
+    },
+    {
+      "file": "samples/gpt4_5438fa52/probes.json",
+      "probe_id": "UMRR-1",
+      "field": "target_reference_time",
+      "old": {
+        "kind": "historical_event",
+        "value": "Interpret all relative phrases in the question using the original question timestamp 2023-05-27T16:21:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+      },
+      "proposed": {
+        "kind": "historical_event",
+        "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+      }
+    },
+    {
+      "file": "samples/gpt4_5438fa52/probes.json",
+      "probe_id": "R1R2",
+      "field": "target_reference_time",
+      "old": {
+        "kind": "historical_event",
+        "value": "Interpret all relative phrases in the question using the original question timestamp 2023-05-27T16:21:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+      },
+      "proposed": {
+        "kind": "historical_event",
+        "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+      }
+    },
+    {
+      "file": "samples/gpt4_5438fa52/probes.json",
+      "probe_id": "RET-10",
+      "field": "target_reference_time",
+      "old": {
+        "kind": "historical_event",
+        "value": "Interpret all relative phrases in the question using the original question timestamp 2023-05-27T16:21:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+      },
+      "proposed": {
+        "kind": "historical_event",
+        "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+      }
+    },
+    {
+      "file": "samples/gpt4_5438fa52/probes.json",
+      "probe_id": "RET-30",
+      "field": "target_reference_time",
+      "old": {
+        "kind": "historical_event",
+        "value": "Interpret all relative phrases in the question using the original question timestamp 2023-05-27T16:21:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+      },
+      "proposed": {
+        "kind": "historical_event",
+        "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+      }
+    },
+    {
+      "file": "samples/gpt4_5438fa52/probes.json",
+      "probe_id": "RET-50",
+      "field": "target_reference_time",
+      "old": {
+        "kind": "historical_event",
+        "value": "Interpret all relative phrases in the question using the original question timestamp 2023-05-27T16:21:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+      },
+      "proposed": {
+        "kind": "historical_event",
+        "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+      }
+    }
+  ],
+  "changed_public_files": [
+    "samples/gpt4_5438fa52/probes.json",
+    "samples/gpt4_5438fa52/sample.json"
+  ],
+  "history_byte_identical": true,
+  "branches_byte_identical": true,
+  "gold_byte_identical": true,
+  "private_gold_sha256": "aac2ddf5765237833abbbd63715cca66fd23c0bcce1ebd77b9e6838e75e0191b",
+  "query_times_and_checkpoints_unchanged": true,
+  "protocol_and_provider_unchanged": true,
+  "question_edit_count": 0,
+  "reference_edit_count": 9,
+  "quality_probes": 12,
+  "metrics": 11,
+  "live_review_gate_passed": false,
+  "independent_review": "pending",
+  "api_calls": 0,
+  "inherited_audit_note": "Copied audit files describe their earlier source version. This revision record and current public inputs describe the applied wording."
+}

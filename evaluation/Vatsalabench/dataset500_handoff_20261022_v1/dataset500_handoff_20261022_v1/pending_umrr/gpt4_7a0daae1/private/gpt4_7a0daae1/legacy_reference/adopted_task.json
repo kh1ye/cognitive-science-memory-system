@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_7a0daae1",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 377,
+  "question_cell": "F377",
+  "answer_cell": "E377",
+  "adopted_question_verbatim": "How many weeks passed between the day I bought my new tennis racket and the day I received it?",
+  "adopted_answer_or_rubric_verbatim": "1 week (7 calendar days)",
+  "english_rubric": "Require one week, seven calendar days. An intention to try it sooner does not overwrite delivery.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

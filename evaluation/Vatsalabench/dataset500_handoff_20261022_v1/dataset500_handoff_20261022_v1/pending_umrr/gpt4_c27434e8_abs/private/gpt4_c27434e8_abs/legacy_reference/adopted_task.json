@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_c27434e8_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 434,
+  "question_cell": "F434",
+  "answer_cell": "E434",
+  "adopted_question_verbatim": "Which project did I start first, the Ferrari model or the Porsche 991 Turbo S model?",
+  "adopted_answer_or_rubric_verbatim": "缺少Porsche 991 Turbo S模型开工依据，无法确认先后。",
+  "english_rubric": "The Ferrari start and another aircraft build do not establish a Porsche 991 Turbo S start. Do not silently equate 991 with 911 or an assistant suggestion with a completed personal action.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

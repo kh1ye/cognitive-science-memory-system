@@ -1,0 +1,133 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "$800",
+      "rule": "Accept $800 or eight hundred dollars. Do not require a specific national dollar currency or substitute the monthly beauty-box cost."
+    },
+    "BASE-2": {
+      "expected": "$800",
+      "rule": "Accept $800 or eight hundred dollars. Do not require a specific national dollar currency or substitute the monthly beauty-box cost."
+    },
+    "BASE-3": {
+      "expected": "$800",
+      "rule": "Accept $800 or eight hundred dollars. Do not require a specific national dollar currency or substitute the monthly beauty-box cost."
+    },
+    "RET-10": {
+      "expected": "$800",
+      "rule": "Accept $800 or eight hundred dollars. Do not require a specific national dollar currency or substitute the monthly beauty-box cost."
+    },
+    "RET-30": {
+      "expected": "$800",
+      "rule": "Accept $800 or eight hundred dollars. Do not require a specific national dollar currency or substitute the monthly beauty-box cost."
+    },
+    "RET-50": {
+      "expected": "$800",
+      "rule": "Accept $800 or eight hundred dollars. Do not require a specific national dollar currency or substitute the monthly beauty-box cost."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value and no false denial of a known related event. Do not infer that an identifier or certificate exists merely because the question asks for it.",
+      "annotation_status": "targeted_search_only_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "$800",
+        "$50 per month"
+      ],
+      "intents": [
+        "Bag purchase price",
+        "Monthly subscription cost"
+      ],
+      "rule": "TIC counts substantive answers to the two requested slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, separately from correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "$120",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "$120",
+        "$180"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not choose a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "$120",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "$120",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 16,
+        "turn_index": 3,
+        "date": "2023/05/23 (Tue) 08:15",
+        "role": "user",
+        "quote": "I think I'd like to start tracking my expenses. Can you recommend any good budgeting apps? I've been using my credit card a lot lately, and I'm pretty sure I spent a lot on luxury items last month. I remember buying a designer handbag for a pretty penny - $800, to be exact."
+      },
+      {
+        "session_index": 16,
+        "turn_index": 7,
+        "date": "2023/05/23 (Tue) 08:15",
+        "role": "user",
+        "quote": "I think it's a good idea to set some boundaries. I've been doing some research and found that there are some affordable alternatives to high-end brands that offer similar quality at a lower price point. I've started browsing online at stores like H&M and Uniqlo, and was surprised at how many stylish pieces I could find. I'm also considering canceling my subscription to a monthly beauty box, which was costing me $50 a month. While it was fun to receive a new package every month, I realized that I wasn't using most of the products and was just accumulating a bunch of samples. Instead, I've started buying beauty products at a discount store, where I can find similar products at a fraction of the cost."
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional_pending_independent_review"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+    "sheet": "Sheet1",
+    "row": 6,
+    "question_cell": "F6",
+    "answer_cell": "E6",
+    "status": "user_confirmed_reviewed",
+    "adopted_question": "How much did I spend on a designer handbag?",
+    "adopted_answer": "$800"
+  },
+  "new_content_review": "AI-authored with source-context review; independent acceptance pending",
+  "scope_notes": [
+    "Historical reference remains fixed to the original report, not the query date.",
+    "Recall supplied statements only; no new personal facts are inferred."
+  ],
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10 + 2*r30 + r50)/4.",
+    "resource": "Fresh separate baseline and three resource queries. Native units only. No mixed-unit overall score."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

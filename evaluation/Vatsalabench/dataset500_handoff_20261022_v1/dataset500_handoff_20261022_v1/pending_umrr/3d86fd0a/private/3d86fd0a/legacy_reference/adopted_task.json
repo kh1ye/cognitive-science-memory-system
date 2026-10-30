@@ -1,0 +1,15 @@
+{
+  "sample_id": "3d86fd0a",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 282,
+  "question_cell": "F282",
+  "answer_cell": "E282",
+  "adopted_question_verbatim": "Where did I meet Sophia?",
+  "adopted_answer_or_rubric_verbatim": "a coffee shop in the city",
+  "english_rubric": "Require a coffee shop in the city; do not invent its name or address.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "61f8c8f8",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 354,
+  "question_cell": "F354",
+  "answer_cell": "E354",
+  "adopted_question_verbatim": "How much faster did I finish the 5K run compared to my previous year's time?",
+  "adopted_answer_or_rubric_verbatim": "10 minutes (45-35)",
+  "english_rubric": "Require ten minutes faster, 45-35; two separate runs are not a simultaneous contradiction.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "60bf93ed_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 67,
+  "question_cell": "F67",
+  "answer_cell": "E67",
+  "adopted_question_verbatim": "How many days did it take for my iPad case to arrive after I bought it?",
+  "adopted_answer_or_rubric_verbatim": "说明缺少对应订单和到货信息，无法计算",
+  "english_rubric": "Cannot calculate the iPad-case delivery duration without the corresponding order and arrival information. Do not borrow dates from the backpack or gardening tools or claim no purchase ever occurred.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

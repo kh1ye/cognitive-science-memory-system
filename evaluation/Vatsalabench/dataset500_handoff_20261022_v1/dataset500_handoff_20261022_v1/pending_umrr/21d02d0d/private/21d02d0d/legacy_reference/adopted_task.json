@@ -1,0 +1,15 @@
+{
+  "sample_id": "21d02d0d",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 363,
+  "question_cell": "F363",
+  "answer_cell": "E363",
+  "adopted_question_verbatim": "How many fun runs did I miss in March due to work commitments?",
+  "adopted_answer_or_rubric_verbatim": "2: March 5 and March 26",
+  "english_rubric": "Require two distinct missed runs, not attended runs. The March 26 work cause is contextual, not an exact explicit causal sentence; review that linkage.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

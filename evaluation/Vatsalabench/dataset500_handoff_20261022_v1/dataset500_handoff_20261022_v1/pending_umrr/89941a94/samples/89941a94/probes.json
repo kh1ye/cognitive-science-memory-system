@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "In the May 25 conversation, what other bike did I say I used besides my mountain bike and commuter bike?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-06-21T02:24:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "Which additional bicycle did I say I used alongside the mountain and commuter bikes on May 25?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-06-21T02:24:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "What third type of cycle did I name in the May 25 account apart from my mountain and commuting bikes?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-06-21T02:24:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact frame serial number of my road bike?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-06-21T02:24:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "Which bike did I use besides the mountain and commuter bikes on May 25, and how many miles had I done on it?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-06-21T02:24:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "In the May 25 conversation, what other bike did I say I used besides my mountain bike and commuter bike?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-06-23T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "In the May 25 conversation, what other bike did I say I used besides my mountain bike and commuter bike?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-06-24T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "In the May 25 conversation, what other bike did I say I used besides my mountain bike and commuter bike?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-06-25T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the distance target for a separate future cycling outing now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-06-23T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-23T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/06/23 12:00, what is the distance target for a separate future cycling outing?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-23T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-23T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/06/23 12:00, what is the distance target for a separate future cycling outing?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-23T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-23T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/06/23 12:00, what is the distance target for a separate future cycling outing?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-23T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-23T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

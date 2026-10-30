@@ -1,0 +1,15 @@
+{
+  "sample_id": "d3ab962e",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 84,
+  "question_cell": "F84",
+  "answer_cell": "E84",
+  "adopted_question_verbatim": "How long was the loop trail I said I hiked at Valley of Fire State Park?",
+  "adopted_answer_or_rubric_verbatim": "3 miles",
+  "english_rubric": "Require three miles. Do not sum hikes or include a planned Grand Canyon trip.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

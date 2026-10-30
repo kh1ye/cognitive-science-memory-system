@@ -1,0 +1,125 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "5 days",
+      "rule": "Require five days, not the sum with Big Sur or the planned Colorado visit."
+    },
+    "BASE-2": {
+      "expected": "5 days",
+      "rule": "Require five days, not the sum with Big Sur or the planned Colorado visit."
+    },
+    "BASE-3": {
+      "expected": "5 days",
+      "rule": "Require five days, not the sum with Big Sur or the planned Colorado visit."
+    },
+    "RET-10": {
+      "expected": "5 days",
+      "rule": "Require five days, not the sum with Big Sur or the planned Colorado visit."
+    },
+    "RET-30": {
+      "expected": "5 days",
+      "rule": "Require five days, not the sum with Big Sur or the planned Colorado visit."
+    },
+    "RET-50": {
+      "expected": "5 days",
+      "rule": "Require five days, not the sum with Big Sur or the planned Colorado visit."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "5 days",
+        "3 days"
+      ],
+      "intents": [
+        "Yellowstone duration",
+        "Big Sur duration"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "four nights",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/04/30 08:00",
+        "old_valid_from": "2023/04/30 08:00",
+        "old_valid_to": "2023/05/01 09:00",
+        "observed_at": "2023/05/01 09:00",
+        "valid_from": "2023/05/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/05/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "four nights",
+        "six nights"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "four nights",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "four nights",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 35,
+        "turn_index": 1,
+        "date": "2023/04/29 (Sat) 15:49",
+        "role": "user",
+        "quote": "I'm planning a trip to the Rocky Mountains in Colorado and I was wondering if you could recommend some good hiking trails and camping spots in the area. By the way, I just got back from an amazing 5-day camping trip to Yellowstone National Park last month, and I'm still buzzing from the experience."
+      },
+      {
+        "session_index": 44,
+        "turn_index": 1,
+        "date": "2023/04/29 (Sat) 20:02",
+        "role": "user",
+        "quote": "I'm looking for some new hiking boots. Do you have any recommendations for waterproof boots that are good for multi-day backpacking trips? By the way, I just got back from a 3-day solo camping trip to Big Sur in early April and my current boots did okay, but I think I need something better."
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/04/30 08:00",
+    "old_valid_from": "2023/04/30 08:00",
+    "old_valid_to": "2023/05/01 09:00",
+    "observed_at": "2023/05/01 09:00",
+    "valid_from": "2023/05/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/05/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "b5ef892d",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

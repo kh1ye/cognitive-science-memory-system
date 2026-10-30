@@ -1,0 +1,181 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "12",
+      "rule": "Require twelve largemouth bass from the described completed trip; do not count trout or a planned trip."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Candidate only. Require explicit uncertainty, no invented target value, and no false denial of related known events. Independent whole-history absence review is required. A stated lack of evidence must not be replaced by a claim that the identifier or underlying event never existed. This stricter draft policy is not retroactive to previous pilot scores.",
+      "annotation_status": "AI_search_found_no_support; independent_full_history_review_pending"
+    },
+    "R1R2": {
+      "expected": [
+        "largemouth bass",
+        "12"
+      ],
+      "rule": "TIC proposed answer-slot rule: a substantive proposed value addresses an intent even if incorrect; refusal alone does not fill a requested value. AFP counts deduplicated task-serving units, including relevant uncertainty; empty answer zero. Freeze this convention before live execution.",
+      "intents": [
+        "Bass species",
+        "Number caught"
+      ]
+    },
+    "CUR-H2": {
+      "expected": "Lake Erie",
+      "rule": "Adopt the new effective value after incremental ingestion of the update and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "Lake Erie",
+        "Lake Huron"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not choose a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "Lake Erie",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "Lake Erie",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    },
+    "BASE-2": {
+      "expected": "12",
+      "rule": "Require twelve largemouth bass from the described completed trip; do not count trout or a planned trip."
+    },
+    "BASE-3": {
+      "expected": "12",
+      "rule": "Require twelve largemouth bass from the described completed trip; do not count trout or a planned trip."
+    },
+    "RET-10": {
+      "expected": "12",
+      "rule": "Require twelve largemouth bass from the described completed trip; do not count trout or a planned trip."
+    },
+    "RET-30": {
+      "expected": "12",
+      "rule": "Require twelve largemouth bass from the described completed trip; do not count trout or a planned trip."
+    },
+    "RET-50": {
+      "expected": "12",
+      "rule": "Require twelve largemouth bass from the described completed trip; do not count trout or a planned trip."
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 7,
+        "turn_index": 3,
+        "date": "2023/05/21 (Sun) 06:28",
+        "quote": "By the way, I've had some experience with fishing in Lake Michigan, and I've found that spinner lures worked better for trout than live bait. Also, I caught 12 largemouth bass on my last trip there, so you might want to consider targeting those as well. What's the best type of spinner lure to use for trout in Lake Michigan?"
+      }
+    ],
+    "reviewed_question": "How many largemouth bass did I catch on my fishing trip to Lake Michigan?",
+    "reviewed_answer": "12",
+    "scoring_answer": "12",
+    "normalization": "English scoring form preserves reviewed meaning and source units.",
+    "effective_question": "How many largemouth bass did I catch on my fishing trip to Lake Michigan?"
+  },
+  "negative_review": {
+    "question": "What was the exact fishing-license number associated with the completed Lake Michigan fishing trip I described?",
+    "scan": "All messages, both roles; regex is navigation only, not proof of absence.",
+    "pattern": "license|licence|permit|Lake Michigan|largemouth",
+    "matching_messages": [
+      {
+        "session_index": 7,
+        "turn_index": 1,
+        "role": "user",
+        "date": "2023/05/21 (Sun) 06:28",
+        "content": "I'm planning a fishing trip to Lake Michigan with my friends and I was wondering if you can give me some tips on the best spots to catch trout?"
+      },
+      {
+        "session_index": 7,
+        "turn_index": 2,
+        "role": "assistant",
+        "date": "2023/05/21 (Sun) 06:28",
+        "content": "Lake Michigan is an excellent spot for trout fishing! While trout are not native to Lake Michigan, the lake has been stocked with several species of trout, including Chinook, Coho, and Lake Trout. Here are some tips on the best spots to catch trout in Lake Michigan:\n\n1. **Tributaries and Rivers**: Trout often congregate near tributaries and rivers that flow into Lake Michigan. Focus on areas where rivers like the St. Joseph River (Michigan), Grand River (Michigan), and Milwaukee River (Wisconsin) enter the lake. These areas tend to have structural features like drop-offs, weed beds, and gravel bars that attract trout.\n2. **Structural Features**: Look for underwater structures like reefs, drop-offs, and shipwrecks. These areas can provide habitat for trout and other species. Some popular spots include the Chicago Light Shipwreck, the Gary Reef (Indiana), and the Saugatuck Reef (Michigan).\n3. **Harbors and Piers**: Trout often seek shelter in harbors and around piers, especially during strong winds or cold fronts. Try fishing near harbors like Chicago's Navy Pier, Milwaukee's McKinley Marina, or St. Joseph's Harbor (Michigan).\n4. **Shoreline Areas**: Trout can be found along shoreline areas with rocky structures, weed beds, or sandy bottoms. Look for areas with submerged logs, rocks, or other features that provide habitat.\n5. **Depth and Temperature**: Trout are often found in areas with specific temperature and depth ranges. In Lake Michigan, trout tend to prefer:\n\t* Water temperatures between 40°F and 55°F (4°C to 13°C).\n\t* Depths ranging from 50 to 200 feet (15 to 61 meters).\n6. **Trolling and Casting**: Trolling with spoons, spinners, or flies can be effective for catching trout in Lake Michigan. Casting with live bait, such as alewives or nightcrawlers, can also produce good results.\n7. **Seasonal Patterns**: Trout behavior changes with the seasons:\n\t* Spring: Focus on shallow waters (20-50 feet) and areas with structural features.\n\t* Summer: Target deeper waters (50-150 feet) and look for areas with cooler temperatures.\n\t* Fall: Fish shallower waters again, as trout move towards shorelines and tributaries.\n8. **Regulations and Licenses**: Make sure to check the local fishing regulations, including bag limits, size restrictions, and any closed areas. Obtain the necessary licenses and permits before your trip.\n9. **Local Knowledge**: Consult with local fishing guides, charter captains, or fishing reports to get up-to-date information on trout activity and hotspots.\n10. **Respect the Environment**: Always practice catch-and-release fishing and handle the trout gently to ensure their survival. Follow local regulations and guidelines to help conserve the trout population in Lake Michigan.\n\nRemember to always follow safe boating practices and be mindful of weather conditions on Lake Michigan. Good luck on your fishing trip, and I hope you catch some nice trout!"
+      },
+      {
+        "session_index": 7,
+        "turn_index": 3,
+        "role": "user",
+        "date": "2023/05/21 (Sun) 06:28",
+        "content": "By the way, I've had some experience with fishing in Lake Michigan, and I've found that spinner lures worked better for trout than live bait. Also, I caught 12 largemouth bass on my last trip there, so you might want to consider targeting those as well. What's the best type of spinner lure to use for trout in Lake Michigan?"
+      },
+      {
+        "session_index": 7,
+        "turn_index": 4,
+        "role": "assistant",
+        "date": "2023/05/21 (Sun) 06:28",
+        "content": "Great to hear that you have experience fishing in Lake Michigan! Spinner lures can be very effective for trout, and it's awesome that you've had success with them.\n\nFor trout in Lake Michigan, I'd recommend the following spinner lures:\n\n1. **Rapala Spinners**: Rapala's Spinners, such as the Original Floater or the Deep Tail Dancer, are popular choices for trout fishing in Lake Michigan. They come in various colors and sizes, but try using silver or gold finishes with a slow to medium retrieve.\n2. **Mepps Aglia**: Mepps Aglia spinners are another favorite among trout anglers. They feature a unique, curved blade that creates a enticing motion in the water. Try using a Mepps Aglia in sizes 1/16 to 1/4 oz, with colors like silver, gold, or copper.\n3. **Blue Fox Vibrax**: Blue Fox Vibrax spinners are known for their vibrant colors and enticing action. They're available in a range of sizes and colors, but for trout in Lake Michigan, try using a size 1 or 2 in silver, gold, or chartreuse.\n4. **Rooster Tail**: Rooster Tails are a classic spinner lure that can be effective for trout. Look for sizes 1/16 to 1/4 oz, and experiment with colors like white, silver, or gold.\n\nWhen using spinner lures for trout in Lake Michigan, consider the following tips:\n\n* **Retrieve speed**: Vary your retrieve speed to see what the trout prefer. Sometimes, a slow and steady retrieve can be deadly, while other times a faster retrieve can trigger more strikes.\n* **Depth control**: Use a weighted line or a downrigger to get your spinner lure to the desired depth. Trout in Lake Michigan can be found at various depths, so experiment with different presentations.\n* **Action**: Experiment with different actions, such as a steady retrieve, a stop-and-go retrieve, or a slow, sweeping motion.\n\nIt's great to hear that you caught 12 largemouth bass on your last trip! Largemouth bass are a popular species in Lake Michigan, and they can be targeted using a variety of lures and techniques. If you're interested in targeting bass, I can provide some tips and recommendations as well.\n\nRemember to always check the local fishing regulations and follow catch-and-release guidelines to help conserve the trout and bass populations in Lake Michigan. Good luck on your next fishing trip!"
+      },
+      {
+        "session_index": 7,
+        "turn_index": 6,
+        "role": "assistant",
+        "date": "2023/05/21 (Sun) 06:28",
+        "content": "What an exciting adventure you're planning! Montana and Colorado are both incredible destinations for fly fishing, with world-class rivers, streams, and lakes filled with trout and other species. Here are some tips and recommendations to help you plan an unforgettable fly fishing trip:\n\n**Montana:**\n\n1. **Rivers:** The Big Horn River, Madison River, and Missouri River are must-fish destinations in Montana. Each offers unique fishing experiences, so consider visiting multiple rivers.\n2. **Dry Fly Fishing:** Montana is famous for its dry fly fishing. Bring a selection of dry flies, including hoppers, stimulators, and attractors, to imitate the abundant terrestrial insects.\n3. **Streamer Fishing:** Streamer fishing can be productive in Montana, especially during the spring and fall. Bring a selection of streamers, such as leech patterns, baitfish imitations, and woolly buggers.\n4. **Access:** Montana has many public access points, but consider hiring a guide or joining a fishing lodge to gain access to private water and expert knowledge.\n5. **Timing:** Summer is prime time for fly fishing in Montana, with warm weather and abundant hatches. However, consider visiting during the spring (April-May) or fall (September-October) for fewer crowds and more aggressive fish.\n\n**Colorado:**\n\n1. **Rivers:** The Arkansas River, Blue River, and South Platte River are popular fly fishing destinations in Colorado. Each offers unique fishing experiences, so consider visiting multiple rivers.\n2. **Tailwater Fishing:** Colorado is known for its tailwater fisheries, which offer consistent water temperatures and flows. The Arkansas River and Blue River are excellent examples of tailwater fisheries.\n3. **Dry Fly Fishing:** Colorado's rivers offer excellent dry fly fishing opportunities, especially during the summer months. Bring a selection of dry flies, including hoppers, stimulators, and attractors.\n4. **Nymphing:** Nymphing is also productive in Colorado, especially in the deeper runs and pools. Bring a selection of nymphs, including beatis, pheasant tails, and copper johns.\n5. **Access:** Colorado has many public access points, but consider hiring a guide or joining a fishing lodge to gain access to private water and expert knowledge.\n6. **Timing:** Summer is prime time for fly fishing in Colorado, with warm weather and abundant hatches. However, consider visiting during the spring (April-May) or fall (September-October) for fewer crowds and more aggressive fish.\n\n**General Tips:**\n\n1. **Guide or Lodge:** Consider hiring a guide or joining a fishing lodge to gain expert knowledge, access to private water, and a more personalized experience.\n2. **Gear:** Bring a 9-foot, 5-weight or 6-weight rod, and a reel with a suitable line and leader. Don't forget to pack a selection of flies, tippet material, and other essential gear.\n3. **Waders or Boots:** Bring waders or boots with good traction to navigate the river banks and wade in the water.\n4. **Clothing:** Pack layers, as the weather can change quickly in the mountains. Bring a hat, sunglasses, and sunscreen for protection.\n5. **Fishing License:** Make sure to obtain a fishing license for the state you'll be visiting and follow all local regulations.\n6. **Respect the Environment:** Always practice catch-and-release fishing, handle the fish gently, and respect the environment to help conserve the fish populations and their habitats.\n\nRemember to plan ahead, book your accommodations and guide services early, and be prepared for an unforgettable fly fishing adventure in Montana or Colorado!"
+      },
+      {
+        "session_index": 7,
+        "turn_index": 9,
+        "role": "user",
+        "date": "2023/05/21 (Sun) 06:28",
+        "content": "I'm thinking of restocking my tackle box with size 2 hooks and chartreuse plastic worms, do you know if those are good for catching largemouth bass?"
+      },
+      {
+        "session_index": 7,
+        "turn_index": 10,
+        "role": "assistant",
+        "date": "2023/05/21 (Sun) 06:28",
+        "content": "Size 2 hooks and chartreuse plastic worms can be a good combination for catching largemouth bass, but it depends on various factors such as the water conditions, bass behavior, and the specific fishing technique you're using.\n\n**Size 2 Hooks:**\n\n* Size 2 hooks are a good all-around hook size for largemouth bass fishing, as they can accommodate a variety of baits and lures.\n* They're suitable for fishing soft plastics, worms, and small to medium-sized lures.\n* However, if you're targeting larger bass or using larger baits, you may want to consider using larger hooks (e.g., size 1/0 or 2/0).\n\n**Chartreuse Plastic Worms:**\n\n* Chartreuse is a popular color for soft plastic worms, as it can mimic the appearance of baitfish or injured prey.\n* Chartreuse worms can be effective in clearer water, especially when bass are actively feeding on shad or other baitfish.\n* However, in murkier water or when bass are finicky, you may want to consider using more subtle colors like green pumpkin, watermelon, or June bug.\n\n**Tips for Fishing with Size 2 Hooks and Chartreuse Plastic Worms:**\n\n* Use a suitable rod and reel combo with a medium to medium-heavy action to handle the size 2 hooks and chartreuse worms.\n* Fish the worms slowly and deliberately, using a gentle, sweeping motion to imitate a injured baitfish.\n* Try fishing the worms in areas with structure, such as weed beds, rocks, or sunken logs, where bass tend to congregate.\n* Experiment with different retrieval speeds and actions to see what the bass prefer.\n* Don't be afraid to try different colors or baits if the chartreuse worms aren't producing.\n\nRemember, largemouth bass can be finicky, and what works one day may not work the next. Be prepared to adapt your tackle and techniques to match the changing conditions and bass behavior."
+      },
+      {
+        "session_index": 26,
+        "turn_index": 6,
+        "role": "assistant",
+        "date": "2023/05/24 (Wed) 16:41",
+        "content": "As an alternative to public transportation during non-business hours in Grabs, you may consider taking taxis or ridesharing services like Uber or Lyft if available. Another option is to rent a bike from a local bike-sharing service or even rent a car if you have a valid driver's license. Walking may also be an option depending on the distance and time of day. It is always advisable to plan ahead and research options before traveling to ensure a safe and reliable journey."
+      },
+      {
+        "session_index": 46,
+        "turn_index": 6,
+        "role": "assistant",
+        "date": "2023/05/30 (Tue) 06:51",
+        "content": "I understand the convenience of online shopping, but when it comes to prescription medications, it's generally recommended to stick with your vet's office or a licensed pharmacy. Here's why:\n\n1. **Authenticity and Quality**: When you buy from your vet or a licensed pharmacy, you can be sure you're getting a genuine product from the manufacturer. Online retailers may not always guarantee authenticity, and counterfeit products can be ineffective or even harmful.\n2. **Prescription Verification**: Heartworm prevention medications require a prescription from a licensed veterinarian. Online retailers may not have direct access to your vet's records, which can lead to delays or errors in filling your prescription.\n3. **Dosage and Administration**: Your vet's office can provide personalized guidance on dosage and administration, ensuring you're giving Max the correct amount and frequency. Online retailers might not be able to offer this level of support.\n4. **Monitoring and Follow-up**: Your vet's office can monitor Max's response to the medication and adjust the treatment plan as needed. Online retailers may not have the same level of involvement in your pet's care.\n5. **Relationship with Your Vet**: Buying from your vet's office helps maintain a strong relationship and ensures they remain involved in Max's care. This can be beneficial for future health concerns or questions you may have.\n\nChewy.com and Petco are reputable online retailers, but it's still important to exercise caution when buying prescription medications online. If you do decide to use an online retailer, make sure they:\n\n* Require a prescription from your vet\n* Have a licensed pharmacist on staff\n* Provide clear product information and instructions\n* Offer a satisfaction guarantee\n\nHowever, for prescription medications like heartworm prevention, I would recommend sticking with your vet's office or a licensed pharmacy to ensure the best possible care for Max."
+      }
+    ],
+    "independent_full_history_review": "pending",
+    "second_pass_status": "No supporting answer identified in targeted and identifier searches; provisional."
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "annotation_revision": {
+    "field": "CUR-H2.rule",
+    "prior_text": "Adopt the new value after two later sessions; do not treat the old value as current. This is cold-build version selection, not online update latency.",
+    "reason": "Align stale procedural wording with the unified incremental protocol; expected answer unchanged."
+  }
+}

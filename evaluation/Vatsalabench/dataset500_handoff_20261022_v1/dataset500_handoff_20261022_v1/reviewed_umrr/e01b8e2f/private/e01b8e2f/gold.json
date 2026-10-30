@@ -1,0 +1,196 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "Hawaii",
+      "rule": "Accept Hawaii; do not require a particular island or infer the Big Island was the original destination."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Candidate only. Require explicit uncertainty, no invented target value, and no false denial of related known events. Independent whole-history absence review is required. A stated lack of evidence must not be replaced by a claim that the identifier or underlying event never existed. This stricter draft policy is not retroactive to previous pilot scores.",
+      "annotation_status": "AI_search_found_no_support; independent_full_history_review_pending"
+    },
+    "R1R2": {
+      "expected": [
+        "Hawaii",
+        "one week"
+      ],
+      "rule": "TIC proposed answer-slot rule: a substantive proposed value addresses an intent even if incorrect; refusal alone does not fill a requested value. AFP counts deduplicated task-serving units, including relevant uncertainty; empty answer zero. Freeze this convention before live execution.",
+      "intents": [
+        "Destination",
+        "Duration"
+      ]
+    },
+    "CUR-H2": {
+      "expected": "Iceland",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "Iceland",
+        "Malta"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not choose a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "Iceland",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "Iceland",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    },
+    "BASE-2": {
+      "expected": "Hawaii",
+      "rule": "Accept Hawaii; do not require a particular island or infer the Big Island was the original destination."
+    },
+    "BASE-3": {
+      "expected": "Hawaii",
+      "rule": "Accept Hawaii; do not require a particular island or infer the Big Island was the original destination."
+    },
+    "RET-10": {
+      "expected": "Hawaii",
+      "rule": "Accept Hawaii; do not require a particular island or infer the Big Island was the original destination."
+    },
+    "RET-30": {
+      "expected": "Hawaii",
+      "rule": "Accept Hawaii; do not require a particular island or infer the Big Island was the original destination."
+    },
+    "RET-50": {
+      "expected": "Hawaii",
+      "rule": "Accept Hawaii; do not require a particular island or infer the Big Island was the original destination."
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 18,
+        "turn_index": 3,
+        "date": "2023/05/22 (Mon) 22:01",
+        "quote": "I'm actually thinking of going back to Hawaii, I loved it so much when I went with my family for a week last month! Do you have any suggestions for things to do on the Big Island?"
+      }
+    ],
+    "reviewed_question": "Where did I go on a week-long trip with my family?",
+    "reviewed_answer": "Hawaii",
+    "scoring_answer": "Hawaii",
+    "normalization": "English scoring form preserves reviewed meaning and source units.",
+    "effective_question": "Where did I go on a week-long trip with my family?"
+  },
+  "negative_review": {
+    "question": "What was the exact hotel reservation confirmation number for my week-long family trip to Hawaii?",
+    "scan": "All messages, both roles; regex is navigation only, not proof of absence.",
+    "pattern": "reservation|confirmation|hotel|Hawaii",
+    "matching_messages": [
+      {
+        "session_index": 18,
+        "turn_index": 2,
+        "role": "assistant",
+        "date": "2023/05/22 (Mon) 22:01",
+        "content": "What a great dilemma! Both solo and family travel have their own unique benefits, and it's wonderful that you're considering both options. Here are some fantastic destinations that cater to both solo travelers and families:\n\n**Beach Destinations**\n\n1. **Hawaii, USA**: The islands of Oahu, Maui, Kauai, and the Big Island offer stunning beaches, lush scenery, and a range of outdoor activities. Families can enjoy snorkeling, surfing, and luaus, while solo travelers can explore hidden gems, hike, or simply relax on the beach.\n2. **Cancun, Mexico**: This popular beach destination offers an array of all-inclusive resorts, beautiful beaches, and a vibrant city center. Solo travelers can enjoy water sports, cultural attractions, and a lively nightlife, while families can appreciate the kid-friendly amenities and activities.\n3. **Bali, Indonesia**: With its stunning beaches, temples, and vibrant culture, Bali is a great destination for both solo travelers and families. Families can enjoy water sports, yoga, and wellness retreats, while solo travelers can explore the island's spiritual side, hike, or take a surf lesson.\n\n**City Breaks**\n\n1. **New York City, USA**: The city that never sleeps has something for everyone. Solo travelers can explore iconic landmarks, museums, and Broadway shows, while families can enjoy kid-friendly attractions like the Statue of Liberty, Central Park, and the American Museum of Natural History.\n2. **Paris, France**: The City of Light is a romantic destination for solo travelers, with its art museums, historic landmarks, and charming cafes. Families can enjoy the Eiffel Tower, Disneyland Paris, and the Luxembourg Gardens.\n3. **Singapore**: This cosmopolitan city-state offers a blend of Asian and Western cultures. Solo travelers can explore Gardens by the Bay, Marina Bay Sands, and the food scene, while families can enjoy Universal Studios Singapore, the Singapore Zoo, and Sentosa Island.\n\n**National Parks and Outdoor Adventures**\n\n1. **Yellowstone National Park, USA**: America's first national park is a nature lover's paradise, with geysers, hot springs, and an abundance of wildlife. Solo travelers can hike, camp, and explore, while families can enjoy guided tours, scenic drives, and outdoor activities like horseback riding.\n2. **Costa Rica**: With its lush rainforests, beautiful beaches, and eco-lodges, Costa Rica is perfect for outdoor enthusiasts. Solo travelers can surf, zip line, or hike, while families can enjoy wildlife watching, rafting, and relaxing in a beachside villa.\n3. **New Zealand**: This stunning country offers a range of outdoor activities, from hiking and biking to bungee jumping and skydiving. Solo travelers can explore the scenic routes, national parks, and adventure sports, while families can enjoy the scenic beauty, wildlife encounters, and outdoor activities like kayaking and horseback riding.\n\n**Cruise Destinations**\n\n1. **Alaska, USA**: A cruise to Alaska offers breathtaking natural beauty, wildlife viewing, and outdoor adventures. Solo travelers can enjoy the scenic cruising, hiking, and wildlife watching, while families can appreciate the kid-friendly amenities and activities on board, such as kids' clubs and shore excursions.\n2. **Caribbean Islands**: A Caribbean cruise offers a relaxing getaway with stops at beautiful islands like the Bahamas, St. Maarten, and Jamaica. Solo travelers can unwind on the beach, snorkel, or explore island culture, while families can enjoy the onboard amenities, water sports, and family-friendly shore excursions.\n3. **Mediterranean Europe**: A Mediterranean cruise offers a rich cultural experience, with stops at historic ports like Barcelona, Rome, and Athens. Solo travelers can explore ancient ruins, art museums, and local cuisine, while families can enjoy the onboard amenities, kids' clubs, and family-friendly shore excursions.\n\nThese destinations offer a great balance of activities and"
+      },
+      {
+        "session_index": 18,
+        "turn_index": 3,
+        "role": "user",
+        "date": "2023/05/22 (Mon) 22:01",
+        "content": "I'm actually thinking of going back to Hawaii, I loved it so much when I went with my family for a week last month! Do you have any suggestions for things to do on the Big Island?"
+      },
+      {
+        "session_index": 18,
+        "turn_index": 4,
+        "role": "assistant",
+        "date": "2023/05/22 (Mon) 22:01",
+        "content": "You're a Hawaii lover, too! The Big Island is an amazing choice, with its diverse landscapes, active volcanoes, and rich cultural heritage. Since you've already experienced the islands with your family, I'll suggest some unique activities and experiences that might appeal to solo travelers or families with older kids/teens:\n\n**Nature & Outdoor Adventures**\n\n1. **Volcanoes National Park**: Explore the Kilauea volcano, Thurston Lava Tube, and the Jaggar Museum. Take a guided hike or venture on your own to see the lava flows, steam vents, and stunning landscapes.\n2. **Mauna Kea Stargazing**: Visit the Mauna Kea Visitor Information Station and stargaze on the tallest mountain in Hawaii. You can also book a guided tour to the summit for sunrise or stargazing.\n3. **Snorkeling or Scuba Diving**: Discover the island's vibrant marine life at spots like Kealakekua Bay, Hapuna Beach, or Honokaope Bay.\n4. **Ziplining**: Fly through the lush Hawaiian rainforest with companies like Kohala Zipline or Zip Isle.\n5. **Horseback Riding**: Explore the island's countryside on horseback with outfitters like Na'alapa Stables or Paniolo Horseback Adventures.\n\n**Culture & History**\n\n1. **Hilo Farmers Market**: Visit this bustling market on Saturdays to sample local produce, artisanal goods, and enjoy the lively atmosphere.\n2. **Pacific Tsunami Museum**: Learn about the island's history with tsunamis and their impact on the community.\n3. **Hawaii Tropical Botanical Garden**: Stroll through this beautiful garden, featuring over 2,000 species of plants and flowers.\n4. **Kaloko-Honokohau National Historical Park**: Explore ancient Hawaiian temples, fishponds, and petroglyphs in this coastal park.\n5. **Coffee Farm Tour**: Visit a Kona coffee farm to learn about the production process and taste some of the world's best coffee.\n\n**Food & Drink**\n\n1. **Kona Coffee Tasting**: Sample various coffee blends and flavors at a local coffee shop or farm.\n2. **Hawaii Island Brewery**: Take a tour and taste local craft beers in Kailua-Kona.\n3. **Farm-to-Table Dining**: Enjoy fresh, locally sourced cuisine at restaurants like Merriman's or The Farmhouse at Kahua Ranch.\n4. **Shave Ice**: Try this classic Hawaiian treat at a local shop like Shave Ice Co. or Anuenue Ice Cream.\n\n**Unique Experiences**\n\n1. **Lava Tube Exploration**: Venture into the Kazumura Cave, the world's largest lava tube, with a guided tour.\n2. **Sunrise or Sunset Helicopter Tour**: Soar above the island for breathtaking views of volcanoes, waterfalls, and coastlines.\n3. **Stargazing Dinner Cruise**: Combine dinner with stargazing on a cruise off the Kailua-Kona coast.\n\nThese are just a few ideas to get you started. Depending on your interests and preferences, there are many more hidden gems to discover on the Big Island. Have a fantastic trip!"
+      },
+      {
+        "session_index": 18,
+        "turn_index": 6,
+        "role": "assistant",
+        "date": "2023/05/22 (Mon) 22:01",
+        "content": "Kailua-Kona is a great choice! You'll love the laid-back atmosphere, rich coffee culture, and stunning natural beauty of the area. I've got some fantastic accommodation recommendations that fit your criteria:\n\n**Budget-Friendly Options**\n\n1. **Kona Tiki Hotel**: A retro-style hotel with a relaxed atmosphere, located right on the waterfront. Rooms start at around $120 per night.\n2. **Kona Inn**: A cozy, family-run hotel with a tropical vibe, offering rooms from $100 per night.\n3. **Kona Hostel**: A sociable hostel with dorms and private rooms, perfect for solo travelers. Prices start at $30 per night for a dorm bed.\n\n**Mid-Range Options**\n\n1. **Holualoa Inn**: A charming B&B with a lush garden, located in a historic building. Rooms start at around $180 per night.\n2. **Kona Makai Condos**: Comfortable, self-catering condos with a relaxed atmosphere, priced from $150 per night.\n3. **Wyndham Kona Hawaiian Resort**: A resort with a laid-back vibe, offering studios and one-bedroom condos from $180 per night.\n\n**Unique Accommodations**\n\n1. **Coffee Shack**: A quirky, eco-friendly hostel with private rooms and dorms, located on a coffee farm! Prices start at $40 per night.\n2. **Kalani Retreat**: A wellness-focused resort with a relaxed atmosphere, offering rooms from $120 per night.\n3. **Hale Hoola B&B**: A cozy, family-run B&B with a lush garden, located in a quiet neighborhood. Rooms start at around $150 per night.\n\n**Local Vibe**\n\n1. **Kona Village Inn**: A historic inn with a relaxed atmosphere, located in the heart of Kailua-Kona. Rooms start at around $120 per night.\n2. **Kona Seaside Hotel**: A beachfront hotel with a laid-back vibe, offering rooms from $150 per night.\n3. **Hale Kai O'Kailua**: A beachfront condo complex with a relaxed atmosphere, priced from $180 per night.\n\nAll of these options are within walking distance to Kailua-Kona's town center, coffee farms, and beaches. Be sure to book in advance, especially during peak season (December to April).\n\nFor coffee farm tours, I recommend visiting:\n\n1. **Kona Coffee Living History Farm**: A working coffee farm with guided tours and tastings.\n2. **Mountain Thunder Coffee**: A family-owned farm with tours and tastings, known for their high-quality coffee.\n3. **Greenwell Farms**: A historic coffee farm with guided tours and tastings, offering a glimpse into Kona's coffee history.\n\nEnjoy your stay in Kailua-Kona, and don't hesitate to reach out if you need more recommendations or insider tips!"
+      },
+      {
+        "session_index": 18,
+        "turn_index": 10,
+        "role": "assistant",
+        "date": "2023/05/22 (Mon) 22:01",
+        "content": "You'll love Hilo's food scene! Here are some fantastic lunch recommendations in Hilo:\n\n**Local Favorites**\n\n1. **Cafe Pesto**: A Hilo institution serving delicious, farm-to-table cuisine with a focus on local ingredients. Try their famous pesto burger or fresh fish dishes.\n2. **Hilo Bay Cafe**: Enjoy waterfront dining with stunning views of Hilo Bay. Their menu features a mix of Hawaiian, Asian, and American flavors.\n3. **Kuhio Grille**: This casual, family-owned eatery serves classic Hawaiian comfort food, including laulau, kalua pig, and loco moco.\n\n**Foodie Spots**\n\n1. **The Fish and The Hog**: A popular spot for seafood lovers, offering fresh, sustainable seafood dishes with a focus on local flavors.\n2. **Hilo Town Tavern**: This gastropub serves creative, farm-to-table cuisine with a focus on local ingredients and craft beers.\n3. **Miyo's**: A small, family-run restaurant serving delicious, authentic Japanese cuisine with a focus on local ingredients.\n\n**Quick Bites**\n\n1. **Hilo Farmers Market Food Stalls**: Grab a quick, delicious bite from one of the many food stalls at the farmers market. You'll find everything from traditional Hawaiian dishes to international cuisine.\n2. **Kalapana Cafe**: This casual cafe serves tasty, locally-inspired sandwiches, salads, and baked goods.\n3. **Punalu'u Bakery**: This popular bakery offers a variety of sweet and savory treats, including traditional Hawaiian breads and pastries.\n\n**Local Treats**\n\n1. **Shave Ice**: Try this classic Hawaiian treat at a local shop like Shave Ice Co. or Anuenue Ice Cream.\n2. **Loco Moco**: This iconic Hawaiian dish consists of a juicy burger patty, fried egg, and gravy, all served over a bed of rice. You'll find loco moco at many local eateries.\n\nEnjoy your lunch in Hilo! Be sure to try some of the local specialties and flavors during your visit."
+      },
+      {
+        "session_index": 18,
+        "turn_index": 11,
+        "role": "user",
+        "date": "2023/05/22 (Mon) 22:01",
+        "content": "I'm thinking of trying some of the local specialties like laulau and kalua pig while I'm in Hilo. Do you have any recommendations for places that serve traditional Hawaiian dishes?"
+      },
+      {
+        "session_index": 18,
+        "turn_index": 12,
+        "role": "assistant",
+        "date": "2023/05/22 (Mon) 22:01",
+        "content": "You're in for a treat! Traditional Hawaiian cuisine is a unique fusion of Native Hawaiian, Asian, and American influences. Here are some fantastic recommendations for trying laulau and kalua pig in Hilo:\n\n**Laulau**\n\n1. **Helena's Hawaiian Food**: This local institution has been serving traditional Hawaiian dishes for over 70 years. Their laulau is made with tender pork and beef, wrapped in taro leaves and steamed to perfection.\n2. **Kuhio Grille**: This casual eatery offers a delicious laulau plate lunch, served with rice and macaroni salad.\n3. **Hilo Bay Cafe**: Their laulau is made with fresh, locally-sourced ingredients and served with a side of poi (made from taro root).\n\n**Kalua Pig**\n\n1. **Cafe Pesto**: Their kalua pig is slow-cooked in an underground oven, or imu, and served with cabbage, rice, and a side of poi.\n2. **Hilo Farmers Market Food Stalls**: You'll find several food stalls at the market serving kalua pig, often with a side of cabbage and rice.\n3. **Miyo's**: This small, family-run restaurant offers a delicious kalua pig plate lunch, served with rice and macaroni salad.\n\n**Other Traditional Hawaiian Dishes**\n\n1. **Poi**: Try this traditional Hawaiian staple made from fermented taro root. You'll find it served as a side dish at many local eateries.\n2. **Lomi Salmon**: A classic Hawaiian dish made with salted salmon, diced tomatoes, onions, and chili peppers. You'll find it on the menu at many local restaurants.\n3. **Haupia**: A traditional Hawaiian coconut milk dessert similar to pudding. You'll find it on the menu at many local eateries and bakeries.\n\n**Insider Tip**\n\n* Be sure to try some of the local specialties at a traditional Hawaiian luau, which often feature live music, hula dancing, and a buffet-style meal.\n* If you're looking for a more modern twist on traditional Hawaiian cuisine, try one of the many fusion restaurants in Hilo that blend traditional flavors with contemporary ingredients and techniques.\n\nEnjoy exploring the rich culinary heritage of Hawaii!"
+      },
+      {
+        "session_index": 43,
+        "turn_index": 6,
+        "role": "assistant",
+        "date": "2023/05/28 (Sun) 12:02",
+        "content": "West Hollywood has a plethora of amazing lunch spots to choose from. Here are some recommendations near Verve Coffee Roasters:\n\n1. **The Apple Pan**: A West Hollywood institution since 1947, this diner serves classic American comfort food, including their famous apple pies. It's a 5-minute walk from Verve.\n2. **Sqirl**: A trendy spot with a focus on seasonal, creative dishes. They're known for their sorbet and rice bowls. Sqirl is about a 10-minute walk from Verve.\n3. **Eggslut**: A popular breakfast and lunch spot with creative egg dishes and sandwiches. It's a 10-minute walk from Verve and has a fun, casual atmosphere.\n4. **The Original Farmers Market**: While not a single restaurant, the Farmers Market is a iconic LA destination with a variety of food stalls and eateries. You can grab lunch at one of the many vendors, such as Loteria Grill, Monsieur Madame, or The Gumbo Pot. It's about a 15-minute walk from Verve.\n5. **Cecconi's**: An upscale Italian restaurant with a beautiful patio area. They offer a seasonal lunch menu and are known for their pasta dishes. Cecconi's is a 10-minute walk from Verve.\n6. **The Nice Guy**: An Italian-American restaurant with a retro vibe. They serve classic dishes like pasta, sandwiches, and salads. It's a 10-minute walk from Verve.\n\nThese are just a few of the many great lunch spots in the area. You can choose one that suits your tastes and preferences, or ask Sophia for her input. Whichever you choose, I'm sure you'll have a great time chatting over lunch!\n\nRemember to check reviews, make reservations if possible, and plan accordingly to ensure a smooth and enjoyable lunch meetup."
+      },
+      {
+        "session_index": 48,
+        "turn_index": 3,
+        "role": "user",
+        "date": "2023/05/29 (Mon) 03:11",
+        "content": "I think I'll try using Asana for creating the Gantt chart, I've heard good things about it. By the way, I learned about Agile methodology and Gantt charts at a project management workshop I attended last week at Hilton Hotel downtown, it was really informative."
+      },
+      {
+        "session_index": 48,
+        "turn_index": 4,
+        "role": "assistant",
+        "date": "2023/05/29 (Mon) 03:11",
+        "content": "Asana is a fantastic tool for creating Gantt charts and managing projects. It's user-friendly, and its Gantt chart feature is quite robust.\n\nThat's great to hear that you attended a project management workshop! It's always exciting to learn new concepts and methodologies. Agile methodology is a popular approach to project management, and Gantt charts are a useful tool for visualizing and planning projects.\n\nHilton Hotel downtown, huh? I'm a large language model, I don't have a physical presence, but I'm glad you had a good experience at the workshop. Did you find the workshop helpful in clarifying any concepts or did you have any \"Aha!\" moments during the session?\n\nIf you have any questions or need help with setting up your Gantt chart in Asana, feel free to ask. I'm here to assist you!\n\nAlso, if you're interested in learning more about Agile methodology or project management in general, I'd be happy to provide you with some resources or recommendations. Just let me know what you're looking for!"
+      },
+      {
+        "session_index": 50,
+        "turn_index": 2,
+        "role": "assistant",
+        "date": "2023/05/29 (Mon) 12:45",
+        "content": "You're planning a trip to Ireland for the summer solstice festival! That sounds like an amazing adventure!\n\nI'd be happy to help you find affordable flights and accommodations. However, I have to clarify that there isn't a specific \"summer solstice festival\" in Ireland. The summer solstice, also known as Midsummer, is celebrated on June 21st or 22nd, and it's not a widely observed festival in Ireland. But, you can still experience the country's vibrant culture and stunning landscapes during this time!\n\nThat being said, June is a great time to visit Ireland, with mild weather and longer days. Here are some tips to help you find affordable flights and accommodations:\n\n**Flights:**\n\n1. Be flexible with your travel dates: Prices tend to be lower if you fly in early June or later in the month, avoiding the peak tourist season.\n2. Compare prices: Use flight comparison websites like Skyscanner, Kayak, or Google Flights to find the best deals.\n3. Consider budget airlines: Airlines like Ryanair, Aer Lingus, and WOW Air often offer affordable fares.\n4. Book in advance: The earlier you book, the better your chances of getting a good deal.\n\n**Accommodations:**\n\n1. Budget-friendly options: Look into hostels, guesthouses, or Airbnb apartments, which are often more affordable than hotels.\n2. Book in advance: Like flights, booking accommodations early can help you save money.\n3. Consider staying outside of Dublin: While Dublin is a must-visit, prices tend to be higher there. Look into staying in other towns or cities like Galway, Kilkenny, or Cork.\n4. Look for package deals: Some airlines and travel websites offer package deals that include flights and accommodations, which can sometimes be cheaper than booking separately.\n\nAs for your ancestral roots, it's great that you're exploring your heritage! While you mentioned you're 17% Italian, you didn't mention how much Irish heritage you have. If you're interested in tracing your Irish roots, you might want to consider visiting the National Library of Ireland or the Irish Family History Centre in Dublin, which offer resources and guidance for genealogical research.\n\nFeel free to share more about your travel plans and preferences, and I can provide more tailored advice on finding affordable flights and accommodations for your trip to Ireland!"
+      }
+    ],
+    "independent_full_history_review": "pending",
+    "second_pass_status": "No supporting answer identified in targeted and identifier searches; provisional."
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "annotation_revision": {
+    "field": "CUR-H2.rule",
+    "prior_text": "Adopt the new value after two later sessions; do not treat the old value as current. This is cold-build version selection, not online update latency.",
+    "reason": "Align stale procedural wording with the unified incremental protocol; expected answer unchanged."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

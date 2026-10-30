@@ -1,0 +1,67 @@
+{
+  "sample_id": "8c18457d",
+  "source_order": 181,
+  "status": "accepted_edits_applied_validation_passed",
+  "authorization": "User explicitly requested applying the consolidated suggestions; no experiment or independent acceptance authorized.",
+  "parent_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1\\packages\\8c18457d",
+  "parent_suite_sha256": "257e414646780d0823f0ee0d0b8a3c5914a48d52f0144ed42efe84f5d1c7b407",
+  "revised_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1_review2\\packages\\8c18457d",
+  "revised_suite_sha256": "f164f6637de59d1e60ba7876cad87f5970db4e6f0de737d109fb9f4bdeac52c3",
+  "proposal_file": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch07_v1\\pending_edits_all_batches.json",
+  "proposal_sha256": "3407de41004d56cd559b1fe0cb938f21362c02f9caa4ba68469decfe323abd54",
+  "source_proposal": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch03_v1\\proposed_edits.json",
+  "applied_edits": [
+    {
+      "file": "samples/8c18457d/probes.json",
+      "probe_id": "BASE-1",
+      "field": "question",
+      "old": "What gift did I say I bought for my brother's graduation on March 8?",
+      "proposed": "What did I say I got on March 8 as a graduation gift for my brother?"
+    },
+    {
+      "file": "samples/8c18457d/probes.json",
+      "probe_id": "BASE-2",
+      "field": "question",
+      "old": "What present did I report getting my brother for graduating on March 8?",
+      "proposed": "Which item did I say I got on March 8 to celebrate my brother finishing his studies?"
+    },
+    {
+      "file": "samples/8c18457d/probes.json",
+      "probe_id": "RET-10",
+      "field": "question",
+      "old": "What gift did I say I bought for my brother's graduation on March 8?",
+      "proposed": "What did I say I got on March 8 as a graduation gift for my brother?"
+    },
+    {
+      "file": "samples/8c18457d/probes.json",
+      "probe_id": "RET-30",
+      "field": "question",
+      "old": "What gift did I say I bought for my brother's graduation on March 8?",
+      "proposed": "What did I say I got on March 8 as a graduation gift for my brother?"
+    },
+    {
+      "file": "samples/8c18457d/probes.json",
+      "probe_id": "RET-50",
+      "field": "question",
+      "old": "What gift did I say I bought for my brother's graduation on March 8?",
+      "proposed": "What did I say I got on March 8 as a graduation gift for my brother?"
+    }
+  ],
+  "changed_public_files": [
+    "samples/8c18457d/probes.json"
+  ],
+  "history_byte_identical": true,
+  "branches_byte_identical": true,
+  "gold_byte_identical": true,
+  "private_gold_sha256": "50f8e31ab3ac2be78565f3409c7057118bb23d7261ba3085bae5c65530d7bf23",
+  "query_times_and_checkpoints_unchanged": true,
+  "protocol_and_provider_unchanged": true,
+  "question_edit_count": 5,
+  "reference_edit_count": 0,
+  "quality_probes": 12,
+  "metrics": 11,
+  "live_review_gate_passed": false,
+  "independent_review": "pending",
+  "api_calls": 0,
+  "inherited_audit_note": "Copied audit files describe their earlier source version. This revision record and current public inputs describe the applied wording."
+}

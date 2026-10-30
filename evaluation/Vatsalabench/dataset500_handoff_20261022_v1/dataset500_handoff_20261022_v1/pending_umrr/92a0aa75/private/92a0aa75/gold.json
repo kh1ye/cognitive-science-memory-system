@@ -1,0 +1,130 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "3 years and 9 months",
+      "rule": "Require three years nine months, equivalent to 45 months. Do not infer current-role tenure by unsupported continuity assumptions."
+    },
+    "BASE-2": {
+      "expected": "3 years and 9 months",
+      "rule": "Require three years nine months, equivalent to 45 months. Do not infer current-role tenure by unsupported continuity assumptions."
+    },
+    "BASE-3": {
+      "expected": "3 years and 9 months",
+      "rule": "Require three years nine months, equivalent to 45 months. Do not infer current-role tenure by unsupported continuity assumptions."
+    },
+    "RET-10": {
+      "expected": "3 years and 9 months",
+      "rule": "Require three years nine months, equivalent to 45 months. Do not infer current-role tenure by unsupported continuity assumptions."
+    },
+    "RET-30": {
+      "expected": "3 years and 9 months",
+      "rule": "Require three years nine months, equivalent to 45 months. Do not infer current-role tenure by unsupported continuity assumptions."
+    },
+    "RET-50": {
+      "expected": "3 years and 9 months",
+      "rule": "Require three years nine months, equivalent to 45 months. Do not infer current-role tenure by unsupported continuity assumptions."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "3 years and 9 months",
+        "Senior Marketing Specialist"
+      ],
+      "intents": [
+        "Total tenure",
+        "Promoted role"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "14:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "14:00",
+        "15:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "14:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "14:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 34,
+        "turn_index": 3,
+        "date": "2023/05/29 (Mon) 18:32",
+        "role": "user",
+        "quote": "I like the idea of influencer partnerships and user-generated content campaigns. I've been thinking about my 3 years and 9 months experience in the company and I've realized that I've built a strong understanding of our target audience. I think I can leverage that to identify the right influencers and create a successful UGC campaign. Can you provide more information on how to measure the success of these campaigns and what kind of budget I should allocate for them?"
+      },
+      {
+        "session_index": 30,
+        "turn_index": 1,
+        "date": "2023/05/27 (Sat) 19:34",
+        "role": "user",
+        "quote": "I'm looking to create a presentation for an upcoming conference, and I need some help with designing the slides. Do you have any templates or design tips you can share? By the way, I've been in marketing for a while now, started as a Marketing Coordinator and worked my way up to Senior Marketing Specialist after 2 years and 4 months."
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "92a0aa75",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

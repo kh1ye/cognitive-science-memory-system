@@ -1,0 +1,15 @@
+{
+  "sample_id": "26bdc477",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 469,
+  "question_cell": "F469",
+  "answer_cell": "E469",
+  "adopted_question_verbatim": "How many trips have I taken my Canon EOS 80D camera on?",
+  "adopted_answer_or_rubric_verbatim": "5 trips",
+  "english_rubric": "Require five. Earlier including-three-trips wording gives examples, not necessarily a prior total of three.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

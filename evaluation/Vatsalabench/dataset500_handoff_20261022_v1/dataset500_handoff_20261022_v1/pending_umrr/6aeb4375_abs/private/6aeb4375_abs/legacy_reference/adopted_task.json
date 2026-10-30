@@ -1,0 +1,15 @@
+{
+  "sample_id": "6aeb4375_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 219,
+  "question_cell": "F219",
+  "answer_cell": "E219",
+  "adopted_question_verbatim": "How many Italian restaurants have I tried in my city?",
+  "adopted_answer_or_rubric_verbatim": "无法确认意大利餐厅数量；记录中的3家、4家指韩国餐厅。",
+  "english_rubric": "State that the Italian-restaurant count cannot be established. Do not transfer the Korean counts or infer the user has never visited an Italian restaurant.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

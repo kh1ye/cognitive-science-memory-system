@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "How many MCU films did I say I had watched in the preceding three months in the May 29 conversation?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-06-17T16:20:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "In my May 29 report, how many Marvel-universe films had I watched over the preceding three months?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-06-17T16:20:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "What MCU count did I give for the three-month window described on May 29?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-06-17T16:20:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact streaming account ID used for my MCU films?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-06-17T16:20:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "How many films in total did I report for that May 29 window, and how many were MCU films?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-06-17T16:20:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "How many MCU films did I say I had watched in the preceding three months in the May 29 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-06-19T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "How many MCU films did I say I had watched in the preceding three months in the May 29 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-06-20T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "How many MCU films did I say I had watched in the preceding three months in the May 29 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-06-21T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the start time for a separate future film discussion session now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-06-19T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-19T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/06/19 12:00, what is the start time for a separate future film discussion session?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-19T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-19T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/06/19 12:00, what is the start time for a separate future film discussion session?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-19T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-19T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/06/19 12:00, what is the start time for a separate future film discussion session?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-19T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-19T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

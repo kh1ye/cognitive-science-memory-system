@@ -1,0 +1,15 @@
+{
+  "sample_id": "c9f37c46",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 166,
+  "question_cell": "F166",
+  "answer_cell": "E166",
+  "adopted_question_verbatim": "Which comedian's Netflix special did I say sparked my interest in stand-up?",
+  "adopted_answer_or_rubric_verbatim": "John Mulaney",
+  "english_rubric": "Require John Mulaney. Do not infer an exact elapsed interval from about three months and last month.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

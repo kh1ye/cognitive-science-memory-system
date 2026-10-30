@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "What role did I say I previously held at a small startup?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T20:08:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "Which position did I hold at the small new business where I used Trello?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T20:08:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "What was my job title at the early-stage company mentioned in my project-management-tool discussion?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T20:08:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was my exact employee identification number at the small startup where I previously worked?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T20:08:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "What role did I previously hold at the small startup, and which project-management tool did I say I used there?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T20:08:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "What role did I say I previously held at a small startup?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-06-01T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "What role did I say I previously held at a small startup?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-06-02T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "What role did I say I previously held at a small startup?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-06-03T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the current job title in my newly started role now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-06-01T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 12:00 on June 1, 2023, what is the current job title in my newly started role?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-01T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 12:00 on June 1, 2023, what is the current job title in my newly started role?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-01T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 12:00 on June 1, 2023, what is the current job title in my newly started role?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-01T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

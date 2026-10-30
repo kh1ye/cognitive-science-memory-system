@@ -182,11 +182,9 @@ class ConversationAgent:
         if action.name == "retrieve":
             query = str(state["messages"][-1].content)
             # Bounded fixed policy: explicit experience/capability requests route separately.
-            modules = (
-                ("episodic",)
-                if any(w in query for w in ("以前", "上次", "经历"))
-                else ("semantic",)
-            )
+            # Facts and remembered events are complementary retrieval sources;
+            # query language must not determine which kind is reachable.
+            modules = ("semantic", "episodic")
             if any(w in query for w in ("程序", "工具", "能力")):
                 modules = ("procedural",)
             if state["retention_policy"] == "no_persist":

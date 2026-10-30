@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_7f6b06db",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 127,
+  "question_cell": "F127",
+  "answer_cell": "E127",
+  "adopted_question_verbatim": "Where did I say I went on a day hike with my family in the March 10 conversation?",
+  "adopted_answer_or_rubric_verbatim": "Muir Woods National Monument",
+  "english_rubric": "Require Muir Woods National Monument; Muir Woods is sufficient. Do not resolve contradictory Yosemite trip start/return statements by substitution.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

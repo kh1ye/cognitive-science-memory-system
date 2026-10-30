@@ -1,0 +1,47 @@
+{
+  "sample_id": "0bc8ad93",
+  "source_order": 152,
+  "old_probe": {
+    "probe_id": "UMRR-1",
+    "question": "I mentioned visiting a museum two months ago. Did I visit with a friend or not?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-11T05:28:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-03-11T05:28:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  "old_label": {
+    "expected": "Cannot determine from available history.",
+    "rule": "State that whether a friend accompanied this visit cannot be established. Failure to mention a companion does not prove the user went alone. Distinguish other museum visits and do not transfer their companions. Preserve ambiguity about the relative-date event identification pending independent review.",
+    "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+  },
+  "old_negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "replacement": {
+    "session": 12,
+    "turn": 1,
+    "quote": "I'm planning a trip to Jordan and I'm really interested in visiting Petra. Can you tell me more about the history of the city and its significance? By the way, I just learned a lot about it in a lecture at the History Museum about ancient civilizations this month.",
+    "question": "In my message about planning a trip to Jordan and learning about Petra at the History Museum, how many minutes did I say that lecture lasted?",
+    "expected": "I did not specify the lecture's duration in that message.",
+    "rule": "Accept a clear statement that the referenced message does not specify the lecture duration, or that its duration cannot be determined from that message. Do not invent a number of minutes. 'This month' describes when the lecture occurred, not its duration; the session timestamp is not the lecture duration. Do not infer that the lecture did not happen. A number guessed from general museum knowledge does not satisfy the question.",
+    "finding": "The complete referenced message states the destination, lecture venue, topic, and approximate occurrence month, but no duration. The question concerns what was stated in this particular message, not the duration in the world or all other conversations."
+  },
+  "old_original_answer_conflict": "No, you did not visit with a friend.",
+  "scope_change": "Personal-fact/global uncertainty replaced by explicit-utterance missing-detail uncertainty.",
+  "human_read_complete_target_message": true,
+  "whole_history_semantic_absence_review_claimed": false,
+  "original_history_role_content_order_verified": true,
+  "target_message_occurrences": 1,
+  "other_eleven_quality_probes_unchanged": true,
+  "branches_times_configuration_unchanged": true,
+  "old_probe_hold": "Superseded for this version only; old versions retain their review history.",
+  "independent_acceptance": "pending",
+  "api_calls": 0
+}

@@ -1,0 +1,157 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "noise from the highway",
+      "rule": "Require noise from the highway; do not substitute the higher competing bid for another property."
+    },
+    "BASE-2": {
+      "expected": "noise from the highway",
+      "rule": "Require noise from the highway; do not substitute the higher competing bid for another property."
+    },
+    "BASE-3": {
+      "expected": "noise from the highway",
+      "rule": "Require noise from the highway; do not substitute the higher competing bid for another property."
+    },
+    "RET-10": {
+      "expected": "noise from the highway",
+      "rule": "Require noise from the highway; do not substitute the higher competing bid for another property."
+    },
+    "RET-30": {
+      "expected": "noise from the highway",
+      "rule": "Require noise from the highway; do not substitute the higher competing bid for another property."
+    },
+    "RET-50": {
+      "expected": "noise from the highway",
+      "rule": "Require noise from the highway; do not substitute the higher competing bid for another property."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "highway noise",
+        "February 10"
+      ],
+      "intents": [
+        "Reason",
+        "Viewing date"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "14:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/03/09 08:00",
+        "old_valid_from": "2023/03/09 08:00",
+        "old_valid_to": "2023/03/10 09:00",
+        "observed_at": "2023/03/10 09:00",
+        "valid_from": "2023/03/10 09:00",
+        "valid_to": null,
+        "query_time": "2023/03/10 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "14:00",
+        "15:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "14:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "14:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 36,
+        "turn_index": 7,
+        "date": "2023/03/08 (Wed) 16:03",
+        "role": "user",
+        "quote": "I appreciate your detailed explanation on the importance of research when buying a condo. I'm currently looking at condos in the downtown area, and I'm considering a few options. I viewed a 1-bedroom condo on February 10th, but the noise from the highway was a deal-breaker. I'm looking for a condo with modern appliances and a community pool. Do you have any tips on how to evaluate a condo's appliances and amenities?"
+      },
+      {
+        "session_index": 29,
+        "turn_index": 1,
+        "date": "2023/03/08 (Wed) 12:09",
+        "role": "user",
+        "quote": "I'm in the process of buying a new home and I need some help with organizing all the paperwork. I've been house hunting for a while, and it's been a wild ride. I actually fell in love with a 2-bedroom condo on February 15th, it had amazing modern appliances and a community pool, but unfortunately, my offer got rejected on the 17th due to a higher bid. Anyway, can you help me create a checklist for all the documents I need to finalize the deal on my new home?"
+      },
+      {
+        "session_index": 23,
+        "turn_index": 1,
+        "date": "2023/03/08 (Wed) 09:32",
+        "role": "user",
+        "quote": "Hi! I'm in the process of buying a house and I need help with some calculations. I recently put in an offer on a 3-bedroom townhouse in the Brookside neighborhood on February 25th, and after some negotiations, we agreed on a price of $340,000. Can you help me estimate my monthly mortgage payments?"
+      },
+      {
+        "session_index": 30,
+        "turn_index": 1,
+        "date": "2023/03/08 (Wed) 13:14",
+        "role": "user",
+        "quote": "I'm looking for a home warranty to protect my new place from unexpected repairs. Can you recommend some providers and their prices? By the way, I've been searching for a home for a while now, and I've seen some properties that just didn't fit my budget, like that one in Cedar Creek on February 1st - it was way out of my league."
+      },
+      {
+        "session_index": 40,
+        "turn_index": 1,
+        "date": "2023/03/08 (Wed) 19:51",
+        "role": "user",
+        "quote": "I'm looking for some advice on renovating a kitchen. I recently saw a beautiful 3-bedroom bungalow in the Oakwood neighborhood on January 22nd that I really liked, but the kitchen needed some serious renovation work. Do you have any tips on where to start with a kitchen renovation project?"
+      },
+      {
+        "session_index": 23,
+        "turn_index": 11,
+        "date": "2023/03/08 (Wed) 09:32",
+        "role": "user",
+        "quote": "I forgot to mention that I saw the 3-bedroom townhouse in the Brookside neighborhood on February 22nd. I put in an offer on February 25th, and after some negotiations, we agreed on a price of $340,000. Does that impact how you can help me with improving my credit score or exploring ways to reduce my mortgage costs?"
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/03/09 08:00",
+    "old_valid_from": "2023/03/09 08:00",
+    "old_valid_to": "2023/03/10 09:00",
+    "observed_at": "2023/03/10 09:00",
+    "valid_from": "2023/03/10 09:00",
+    "valid_to": null,
+    "query_time": "2023/03/10 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "gpt4_7fce9456",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

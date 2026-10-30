@@ -1,0 +1,15 @@
+{
+  "sample_id": "6ae235be",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 477,
+  "question_cell": "F477",
+  "answer_cell": "E477",
+  "adopted_question_verbatim": "I remember you told me about the refining processes at CITGO's three refineries earlier. Can you remind me what kind of processes are used at the Lake Charles Refinery?",
+  "adopted_answer_or_rubric_verbatim": "atmospheric distillation; FCC; alkylation; hydrotreating",
+  "english_rubric": "Require all four: atmospheric distillation, fluid catalytic cracking/FCC, alkylation, hydrotreating. Order is immaterial. Historical list recall, not complete or verified industrial specifications.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

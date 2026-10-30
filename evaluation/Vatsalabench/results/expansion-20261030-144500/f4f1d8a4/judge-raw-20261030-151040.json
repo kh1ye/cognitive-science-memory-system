@@ -1,0 +1,159 @@
+{
+  "judgment": {
+    "answers": [
+      {
+        "probe_id": "BASE-1",
+        "correct": 1,
+        "reason": "States sister gave the stand mixer as birthday gift; preserves object, giver, occasion.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "BASE-2",
+        "correct": 1,
+        "reason": "States sister gave the stand mixer as birthday gift, with mild uncertainty but correct value.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "BASE-3",
+        "correct": 1,
+        "reason": "States sister gave the stand mixer as birthday gift.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "UMRR-1",
+        "correct": 1,
+        "reason": "Explicitly says serial number is not in memory, invents no value, and does not deny the known gift event.",
+        "conclusion": "Cannot determine from available history."
+      },
+      {
+        "probe_id": "R1R2",
+        "correct": 1,
+        "reason": "Gives sister and caramel sauce, matching both gold slots.",
+        "conclusion": "sister; caramel sauce"
+      },
+      {
+        "probe_id": "RET-10",
+        "correct": 1,
+        "reason": "Sister given as birthday gift giver.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "RET-30",
+        "correct": 1,
+        "reason": "Sister given as birthday gift giver.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "RET-50",
+        "correct": 1,
+        "reason": "Sister given as birthday gift giver.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "CUR-H2",
+        "correct": 1,
+        "reason": "Selects medium as effective from 2023-06-01 09:00, before query time 11:01.",
+        "conclusion": "medium"
+      },
+      {
+        "probe_id": "CON-U",
+        "correct": 1,
+        "reason": "Acknowledges conflict between medium and high and declines to pick one.",
+        "conclusion": "unresolved conflict between medium and high"
+      },
+      {
+        "probe_id": "CON-P",
+        "correct": 1,
+        "reason": "Chooses medium per explicit signed-record priority.",
+        "conclusion": "medium"
+      },
+      {
+        "probe_id": "CON-N",
+        "correct": 1,
+        "reason": "Gives agreed value medium without inventing conflict.",
+        "conclusion": "medium"
+      }
+    ],
+    "fsrc_pairs": [
+      {
+        "left": "BASE-1",
+        "right": "BASE-2",
+        "match": 1,
+        "reason": "Both conclude sister gave the stand mixer as birthday gift."
+      },
+      {
+        "left": "BASE-1",
+        "right": "BASE-3",
+        "match": 1,
+        "reason": "Both conclude sister gave the stand mixer as birthday gift."
+      },
+      {
+        "left": "BASE-2",
+        "right": "BASE-3",
+        "match": 1,
+        "reason": "Both conclude sister gave the stand mixer as birthday gift."
+      }
+    ],
+    "tic_slots": [
+      {
+        "intent": "Gift giver",
+        "covered": 1,
+        "reason": "Answer states sister gave the stand mixer."
+      },
+      {
+        "intent": "Sauce",
+        "covered": 1,
+        "reason": "Answer states caramel sauce."
+      }
+    ],
+    "afp_units": [
+      {
+        "text": "Your sister gave you the stand mixer as a birthday gift last month.",
+        "relevant": 1,
+        "reason": "Directly answers gift giver slot."
+      },
+      {
+        "text": "You said it's been a game-changer for making caramel.",
+        "relevant": 1,
+        "reason": "Supports sauce slot."
+      },
+      {
+        "text": "You melt sugar and butter together, then slowly add heavy cream to create a smooth caramel sauce.",
+        "relevant": 1,
+        "reason": "Explains the caramel sauce mentioned."
+      }
+    ]
+  },
+  "usage": {
+    "input_tokens": 2524,
+    "output_tokens": 691,
+    "total_tokens": 3215,
+    "input_token_details": {
+      "cache_read": 512
+    },
+    "output_token_details": {}
+  },
+  "metadata": {
+    "token_usage": {
+      "completion_tokens": 691,
+      "prompt_tokens": 2524,
+      "total_tokens": 3215,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 512,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 512,
+      "prompt_cache_miss_tokens": 2012
+    },
+    "model_provider": "openai",
+    "model_name": "deepseek-flash",
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+    "id": "2752cd39-c64b-41a5-9076-093970567fb4",
+    "finish_reason": "stop",
+    "logprobs": null
+  }
+}

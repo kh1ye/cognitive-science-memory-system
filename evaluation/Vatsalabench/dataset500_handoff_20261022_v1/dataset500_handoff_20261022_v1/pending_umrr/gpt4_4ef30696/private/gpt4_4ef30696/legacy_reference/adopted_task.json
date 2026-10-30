@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_4ef30696",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 384,
+  "question_cell": "F384",
+  "answer_cell": "E384",
+  "adopted_question_verbatim": "How many days passed between the day I finished reading 'The Nightingale' and the day I started reading 'The Hitchhiker's Guide to the Galaxy'?",
+  "adopted_answer_or_rubric_verbatim": "1 calendar day",
+  "english_rubric": "Require one calendar day, January 15 to 16, not an inclusive two-day count.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

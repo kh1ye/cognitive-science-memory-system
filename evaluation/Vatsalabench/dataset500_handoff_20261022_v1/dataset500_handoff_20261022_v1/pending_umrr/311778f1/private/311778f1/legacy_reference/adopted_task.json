@@ -1,0 +1,15 @@
+{
+  "sample_id": "311778f1",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 279,
+  "question_cell": "F279",
+  "answer_cell": "E279",
+  "adopted_question_verbatim": "How many hours did I spend watching documentaries on Netflix last month?",
+  "adopted_answer_or_rubric_verbatim": "about 10 hours",
+  "english_rubric": "Require approximately ten hours; preserve self-estimated status and original relative period.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

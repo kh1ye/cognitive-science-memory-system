@@ -1,0 +1,15 @@
+{
+  "sample_id": "28bcfaac",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 498,
+  "question_cell": "F498",
+  "answer_cell": "E498",
+  "adopted_question_verbatim": "I'm going back to our previous conversation about music theory. You mentioned some online resources for learning music theory. Can you remind me of the website you recommended for free lessons and exercises?",
+  "adopted_answer_or_rubric_verbatim": "MusicTheory.net",
+  "english_rubric": "Require MusicTheory.net, ignoring domain case and optional www. Not a current feature or pricing claim.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

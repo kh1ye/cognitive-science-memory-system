@@ -1,0 +1,15 @@
+{
+  "sample_id": "75832dbd",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 318,
+  "question_cell": "F318",
+  "answer_cell": "E318",
+  "adopted_question_verbatim": "Can you recommend some recent publications or conferences that I might find interesting?",
+  "adopted_answer_or_rubric_verbatim": "面向已有专业经验，提供医学影像深度学习相关出版物/会议；近期性需固定检查日期。",
+  "english_rubric": "Recommend relevant advanced publications or conferences; fix recency separately. Do not treat all general AI as explicitly forbidden.",
+  "mapped_role": "supplementary_open_task_not_scheduled_in_core12",
+  "scheduled_in_core12": false,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

@@ -1,0 +1,244 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "10% off",
+      "rule": "Accept a ten-percent reduction or paying 90 percent of the original price; reject 90 percent off or paying 10 percent."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Candidate only. Require explicit uncertainty, no invented target value, and no false denial of related known events. Independent whole-history absence review is required. A stated lack of evidence must not be replaced by a claim that the identifier or underlying event never existed. This stricter draft policy is not retroactive to previous pilot scores.",
+      "annotation_status": "AI_search_found_no_support; independent_full_history_review_pending"
+    },
+    "R1R2": {
+      "expected": [
+        "10% off",
+        "first purchase"
+      ],
+      "rule": "TIC proposed answer-slot rule: a substantive proposed value addresses an intent even if incorrect; refusal alone does not fill a requested value. AFP counts deduplicated task-serving units, including relevant uncertainty; empty answer zero. Freeze this convention before live execution.",
+      "intents": [
+        "Discount percentage",
+        "Purchase eligibility"
+      ]
+    },
+    "CUR-H2": {
+      "expected": "20% off",
+      "rule": "Adopt the new effective value after incremental ingestion of the update and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "20% off",
+        "25% off"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not choose a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "20% off",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "20% off",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    },
+    "BASE-2": {
+      "expected": "10% off",
+      "rule": "Accept a ten-percent reduction or paying 90 percent of the original price; reject 90 percent off or paying 10 percent."
+    },
+    "BASE-3": {
+      "expected": "10% off",
+      "rule": "Accept a ten-percent reduction or paying 90 percent of the original price; reject 90 percent off or paying 10 percent."
+    },
+    "RET-10": {
+      "expected": "10% off",
+      "rule": "Accept a ten-percent reduction or paying 90 percent of the original price; reject 90 percent off or paying 10 percent."
+    },
+    "RET-30": {
+      "expected": "10% off",
+      "rule": "Accept a ten-percent reduction or paying 90 percent of the original price; reject 90 percent off or paying 10 percent."
+    },
+    "RET-50": {
+      "expected": "10% off",
+      "rule": "Accept a ten-percent reduction or paying 90 percent of the original price; reject 90 percent off or paying 10 percent."
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 12,
+        "turn_index": 3,
+        "date": "2023/05/23 (Tue) 05:40",
+        "quote": "I'm also thinking of exploring other platforms like Instagram and Twitter to promote my writing services. Do you have any tips on how to get started with those platforms, especially since I don't have much experience with them? By the way, speaking of first purchases, I remember getting a 10% discount on my first purchase from that new clothing brand last month, which was nice."
+      }
+    ],
+    "reviewed_question": "What was the discount I got on my first purchase from the new clothing brand?",
+    "reviewed_answer": "10% off",
+    "scoring_answer": "10% off",
+    "normalization": "English scoring form preserves reviewed meaning and source units.",
+    "effective_question": "What was the discount I got on my first purchase from the new clothing brand?"
+  },
+  "negative_review": {
+    "question": "What was the exact order confirmation number for my first purchase from the new clothing brand?",
+    "scan": "All messages, both roles; regex is navigation only, not proof of absence.",
+    "pattern": "confirmation|order|clothing brand|first purchase|receipt",
+    "matching_messages": [
+      {
+        "session_index": 3,
+        "turn_index": 4,
+        "role": "assistant",
+        "date": "2023/05/20 (Sat) 08:57",
+        "content": "Great choice on the sides!\n\nNow, about that spice rack organization... I'm happy to help! Here are some tips to help you tame the clutter and make the most of your spice rack:\n\n1. **Purge and declutter**: Start by removing any expired or unused spices. Check the expiration dates and get rid of any spices that are past their prime.\n2. **Categorize and group**: Divide your spices into categories, such as:\n\t* Baking spices (e.g., cinnamon, nutmeg, ginger)\n\t* Savory spices (e.g., oregano, thyme, rosemary)\n\t* Spicy spices (e.g., cayenne, chili powder, paprika)\n\t* International spices (e.g., curry powder, garam masala, Chinese five-spice)\n\t* Herbs (e.g., basil, oregano, parsley)\n3. **Alphabetize within categories**: Arrange the spices within each category in alphabetical order. This makes it easy to find the spice you need quickly.\n4. **Use a tiered spice rack**: Consider using a tiered spice rack or a carousel to maximize vertical storage and make the most of your counter space.\n5. **Store small bottles at the front**: Place smaller bottles or less frequently used spices at the front of the rack, making it easier to access the spices you use most often.\n6. **Label and date**: Label each spice bottle with its contents and the date you purchased it. This helps ensure you use the oldest spices first and avoid expired spices.\n7. **Keep it clean**: Clean your spice rack regularly to prevent dust and spills from accumulating. Wipe down the rack and bottles with a damp cloth, and dry thoroughly to prevent moisture buildup.\n8. **Consider a spice carousel**: If you have a lot of spices, a spice carousel can be a great investment. These rotate to make it easy to access the spice you need, and they often have built-in labels and storage for small items like measuring spoons.\n9. **Store spices away from heat and light**: Keep your spice rack away from heat sources like ovens, stoves, and direct sunlight, as these can cause spices to lose their flavor and aroma.\n10. **Maintain your organization**: Set aside some time every few months to maintain your spice rack organization. Go through your spices, check expiration dates, and make sure everything is still organized and easily accessible.\n\nBy following these tips, you'll be able to find the spices you need quickly and easily, and your kitchen will feel more organized and efficient.\n\nNow, go forth and cook up those delicious chicken enchiladas, and enjoy your newly organized spice rack!"
+      },
+      {
+        "session_index": 3,
+        "turn_index": 6,
+        "role": "assistant",
+        "date": "2023/05/20 (Sat) 08:57",
+        "content": "Kitchen cabinet organization is a great project! I'd be happy to help you tackle it. Here are some tips to keep your kitchen cabinets tidy and functional:\n\n1. **Purge and declutter**: Remove everything from your cabinets and sort items into three categories: keep, donate/sell, and discard. Be ruthless – if you haven't used it in the past year, it's probably safe to let it go.\n2. **Categorize and group**: Divide your kitchen items into categories, such as:\n\t* Baking supplies\n\t* Cooking essentials (e.g., pots, pans, utensils)\n\t* Dinnerware and glassware\n\t* Food storage containers\n\t* Snacks and spices\n\t* Cleaning supplies\n3. **Assign a home**: Once you've grouped your items, assign a specific cabinet or shelf to each category. This helps maintain order and makes it easier to find what you need.\n4. **Use vertical space**: Maximize your cabinet's vertical space by using stackable containers, baskets, or shelves. This helps keep items off the countertops and makes the most of your storage space.\n5. **Opt for adjustable shelves**: Consider installing adjustable shelves or baskets to accommodate items of different sizes. This flexibility ensures you can store a variety of items without wasting space.\n6. **Store heavy items below**: Place heavy items, like pots and pans, on lower shelves or in easy-to-reach locations to avoid straining your back.\n7. **Utilize the back of the door**: Take advantage of the space on the back of your cabinet doors by using over-the-door storage racks, hooks, or adhesive magnets to hang items like spices, oils, or utensils.\n8. **Implement a \"first in, first out\" policy**: Store new items behind existing ones to ensure older items are used before they expire or become outdated.\n9. **Keep frequently used items accessible**: Store your most frequently used items in easy-to-reach locations, like the top shelf or in a convenient drawer.\n10. **Maintain your organization**: Set aside time every few months to maintain your cabinet organization. Go through your categories, ensure everything is still organized, and make adjustments as needed.\n11. **Consider a cabinet organizer system**: If you have a lot of cabinets or complex storage needs, consider investing in a cabinet organizer system. These systems often include custom inserts, baskets, and shelves designed to optimize your cabinet space.\n12. **Keep it clean**: Clean your cabinets regularly to prevent dust, crumbs, and spills from building up. This helps maintain a tidy appearance and prevents pests from being attracted to your kitchen.\n\nBy following these tips, you'll be able to create a functional and organized kitchen cabinet system that makes cooking and meal prep a breeze.\n\nRemember, the key to maintaining a tidy kitchen is to create systems that work for you and your cooking habits. Experiment with different storage solutions and layouts until you find what works best for your space. Happy organizing!"
+      },
+      {
+        "session_index": 3,
+        "turn_index": 8,
+        "role": "assistant",
+        "date": "2023/05/20 (Sat) 08:57",
+        "content": "Congratulations on tackling your kitchen cabinets! Now, let's dive into organizing your kitchen utensils drawer. A tidy utensils drawer can make a big difference in your cooking efficiency and reduce stress in the kitchen. Here are some tips to help you keep your utensils drawer organized:\n\n1. **Purge and declutter**: Remove everything from your utensils drawer and sort items into three categories: keep, donate/sell, and discard. Be honest with yourself – if you haven't used it in the past year, it's probably safe to let it go.\n2. **Categorize and group**: Divide your utensils into categories, such as:\n\t* Cooking utensils (e.g., spoons, spatulas, whisks)\n\t* Baking utensils (e.g., pastry brushes, cake testers)\n\t* Serving utensils (e.g., serving spoons, salad tongs)\n\t* Miscellaneous (e.g., garlic press, egg slicer)\n3. **Assign a home**: Once you've grouped your utensils, assign a specific section of the drawer to each category. This helps maintain order and makes it easier to find what you need.\n4. **Use dividers or inserts**: Use dividers, inserts, or small containers to separate utensils within each category. This prevents utensils from getting jumbled and makes it easier to find what you need.\n5. **Store frequently used utensils front and center**: Place your most frequently used utensils in easy-to-reach locations, like the front of the drawer or in a designated \"quick-grab\" section.\n6. **Utilize the back of the drawer**: Use adhesive hooks, magnets, or a utensil holder on the back of the drawer to store items like oven mitts, silicone spatulas, or infrequently used utensils.\n7. **Store utensils by size**: Organize utensils by size, with larger items at the back of the drawer and smaller items at the front. This helps prevent smaller utensils from getting lost or buried.\n8. **Consider a utensil organizer tray**: Invest in a utensil organizer tray or a custom insert specifically designed for your drawer. These trays often have designated slots for various utensils, keeping them organized and easy to access.\n9. **Keep it clean**: Clean your utensils drawer regularly to prevent crumbs, spills, and dust from accumulating. Wipe down the drawer and utensils with a damp cloth, and dry thoroughly to prevent moisture buildup.\n10. **Maintain your organization**: Set aside time every few months to maintain your utensils drawer organization. Go through your categories, ensure everything is still organized, and make adjustments as needed.\n\nBy following these tips, you'll be able to create a tidy and functional utensils drawer that makes cooking and meal prep more efficient.\n\nRemember, the key to maintaining a tidy kitchen is to create systems that work for you and your cooking habits. Experiment with different storage solutions and layouts until you find what works best for your space. Happy organizing!"
+      },
+      {
+        "session_index": 5,
+        "turn_index": 2,
+        "role": "assistant",
+        "date": "2023/05/20 (Sat) 23:06",
+        "content": "Hello [Albornozmcea@gmail.com](mailto:Albornozmcea@gmail.com),\n\nI would be happy to help you with your cover letter. In order to write a cover letter that is perfect for a particular position, I would need to know more about your resume and the job description for the position you are applying for. Could you please provide me with that information so I can better assist you?\n\nBest regards,\nAssistant"
+      },
+      {
+        "session_index": 5,
+        "turn_index": 4,
+        "role": "assistant",
+        "date": "2023/05/20 (Sat) 23:06",
+        "content": "Thank you for providing your resume, [Albornozmcea@gmail.com](mailto:Albornozmcea@gmail.com). It looks like you have a lot of experience as a backend software developer, which is great. In order to write a cover letter that is perfect for a particular position, I would also need to know more about the job description for the position you are applying for. Could you please provide that information as well?\n\nOnce I have that information, I will be able to help you write a cover letter that is tailored to the specific position you are applying for and that highlights your relevant experience and skills.\n\nBest regards,\nAssistant"
+      },
+      {
+        "session_index": 12,
+        "turn_index": 3,
+        "role": "user",
+        "date": "2023/05/23 (Tue) 05:40",
+        "content": "I'm also thinking of exploring other platforms like Instagram and Twitter to promote my writing services. Do you have any tips on how to get started with those platforms, especially since I don't have much experience with them? By the way, speaking of first purchases, I remember getting a 10% discount on my first purchase from that new clothing brand last month, which was nice."
+      },
+      {
+        "session_index": 14,
+        "turn_index": 8,
+        "role": "assistant",
+        "date": "2023/05/23 (Tue) 19:49",
+        "content": "That's amazing! It's wonderful that you're finding a way to express your emotions through your art. Using abstract techniques can be a powerful way to tap into your feelings and convey them in a way that's both personal and universal.\n\nCapturing the beauty in chaos is a fascinating concept. It's almost as if you're finding a sense of order within the disorder, and that's really compelling. The contrast between the turmoil and the beauty can create a sense of tension and resolution, which can be really captivating for the viewer.\n\nExperimenting with different brushstrokes and colors is a great way to convey the emotions you're feeling. The loose, expressive brushstrokes can suggest a sense of dynamic energy, while the colors you choose can evoke different emotions and moods. Are you finding that certain colors are resonating with you more than others during this process?\n\nIt's also interesting that you mention it's been liberating. Art can be such a powerful tool for self-expression and catharsis. By tapping into your emotions and channeling them into your art, you're able to process and release them in a healthy way. That's really beautiful.\n\nRemember, as you continue to work on \"Turmoil\", don't be afraid to take risks and try new things. Abstract art is all about experimentation and exploration, and some of the most interesting pieces often come from unexpected places. Keep pushing yourself creatively, and I'm sure you'll create something truly remarkable!"
+      },
+      {
+        "session_index": 16,
+        "turn_index": 6,
+        "role": "assistant",
+        "date": "2023/05/24 (Wed) 05:40",
+        "content": "The shape or pattern of the plastic bottle sculpture could be anything that the artist finds interesting or meaningful. Some possibilities could be:\n\n* A large animal or creature, such as a whale or bird, made out of the plastic bottles to draw attention to the problem of plastic pollution in oceans and wildlife.\n* A human figure or group of figures to create a sense of community and to highlight the impact of plastic waste on human society.\n* A geometric shape, such as a cube or pyramid, that creates a sense of order and structure, but also highlights the disorder and chaos caused by plastic waste.\n* A abstract sculpture that invites the viewer to interpret the meaning for themselves.\n\nUltimately, the shape or pattern of the sculpture should be meaningful to the artist and be able to convey the message of the work effectively."
+      },
+      {
+        "session_index": 17,
+        "turn_index": 6,
+        "role": "assistant",
+        "date": "2023/05/24 (Wed) 07:53",
+        "content": "What a wonderful topic! Food is an incredible thread that weaves together cultures, communities, and identities. It's a universal language that transcends borders, languages, and traditions. Here are some insights on how food brings people together across cultures:\n\n1. **Shared experiences:** Food is often at the heart of cultural celebrations, ceremonies, and daily life. Sharing meals with others creates a sense of community and belonging, fostering connections and memories.\n2. **Cultural identity:** Food is deeply tied to cultural heritage and identity. Traditional dishes, ingredients, and cooking techniques are often passed down through generations, preserving cultural history and tradition.\n3. **Hospitality:** In many cultures, food is a symbol of hospitality and generosity. Sharing food with others is a way to show respect, welcome, and care. This gesture breaks down barriers and builds bridges between people from different backgrounds.\n4. **Storytelling:** Food is often tied to stories, legends, and myths. Sharing food-related stories and recipes can help people connect with their heritage and cultural roots, while also sharing their experiences with others.\n5. **Adaptation and fusion:** As people migrate and interact with different cultures, they bring their culinary traditions with them. This leads to the creation of new dishes, flavors, and cooking styles, which can become an integral part of the local culture.\n6. **Sense of belonging:** Food can evoke a sense of nostalgia and comfort, reminding people of their childhood, family, and cultural roots. This nostalgia can create a sense of belonging and connection to one's cultural identity.\n7. **Intergenerational connections:** Food is often passed down from one generation to the next, creating a sense of continuity and tradition. This transmission of culinary knowledge and skills helps to preserve cultural heritage and maintain intergenerational connections.\n8. **Breaking barriers:** Food can bridge cultural divides by providing a common ground for people to come together. Sharing meals can help build understanding, tolerance, and empathy, breaking down stereotypes and prejudices.\n9. **Celebrating diversity:** Food festivals, markets, and events celebrate the diversity of cultures and cuisines, promoting cross-cultural understanding and appreciation.\n10. **Emotional connection:** Food is often tied to emotions, memories, and experiences. Sharing food with others can create an emotional connection, fostering empathy and understanding across cultural boundaries.\n\nIn your own reflection on your ethnic identity, you might consider exploring the following questions:\n\n* What role does food play in your cultural heritage and identity?\n* What traditional dishes or ingredients hold significance for you?\n* How do you incorporate your cultural cuisine into your daily life?\n* What food-related stories or memories do you cherish from your childhood or family traditions?\n* How can you share your cultural cuisine with others, and what benefits do you think this could bring?\n\nBy exploring these questions, you may gain a deeper understanding of how food intersects with your identity and how it can bring you closer to your cultural roots."
+      },
+      {
+        "session_index": 33,
+        "turn_index": 3,
+        "role": "assistant",
+        "date": "2023/05/26 (Fri) 06:36",
+        "content": "In \"The Port-Royal Grammar,\" Antoine Arnauld and Claude Lancelot provided a comprehensive and systematic account of the rules governing the structure and meaning of language. Their work emphasized the importance of logic and reasoning in understanding language and the relationship between syntax, semantics, and the logical structure of sentences. Here are some examples to illustrate their views:\n\n1. Universal Grammar: The Port-Royal Grammar proposed a universal set of rules that govern the structure of all human languages, which would later influence Chomsky's development of the theory of universal grammar. The authors believed that by identifying these universal principles, they could provide a rational basis for understanding language and its meaning.\n2. Sentence structure: Arnauld and Lancelot focused on the structure of sentences, arguing that meaning is derived from the relationships between words in a sentence. They identified the basic elements of sentence structure, such as subjects, verbs, and objects, and described the rules governing their combination and arrangement.\n3. Logical analysis: The authors emphasized the importance of analyzing the logical structure of sentences in order to understand their meaning. They argued that sentences can be broken down into simpler components, or \"propositions,\" which express a relationship between a subject and a predicate. By understanding the logical relationships between these propositions, one can grasp the meaning of complex sentences.\n4. Syntax and Semantics: The Port-Royal Grammar sought to bridge the gap between syntax (the arrangement of words) and semantics (the study of meaning). Arnauld and Lancelot argued that meaning is not solely determined by the individual words in a sentence but also by their syntactic relationships. This focus on the connection between syntax and semantics would later influence the development of formal semantics in the 20th century.\n5. Rationalist approach: The authors' approach to language was grounded in the rationalist philosophy of their time, which held that human knowledge and understanding are based on innate principles and the application of reason. They believed that by studying language through the lens of logic and reason, they could unlock the secrets of meaning and reveal the underlying structure of human thought.\n\nThese examples from \"The Port-Royal Grammar\" illustrate Arnauld and Lancelot's views on the relationship between syntax, semantics, and the logical structure of sentences, and their belief that meaning is derived from the relationships between words in a sentence. Their work laid the foundation for later theories of generative grammar and formal semantics, which continue to influence the study of language today."
+      },
+      {
+        "session_index": 34,
+        "turn_index": 2,
+        "role": "assistant",
+        "date": "2023/05/26 (Fri) 17:41",
+        "content": "I'm happy to help you troubleshoot!\n\nFirst, let's start with the obvious: going to bed at 11:45 PM might not be ideal for getting a good night's sleep. Most adults need 7-9 hours of sleep, and if you're waking up at a typical morning hour (e.g., 6-8 am), you might not be getting enough sleep. However, there could be other factors at play. Let's explore some possible reasons why you're not feeling rested:\n\n1. **Sleep Quality**: Even if you're sleeping for a decent amount of time, poor sleep quality can make you feel groggy and unrefreshed. This could be due to:\n\t* A poor sleep environment (e.g., too bright, noisy, or cold)\n\t* Discomfort or pain (e.g., back or joint issues)\n\t* Sleep disorders like insomnia, sleep apnea, or restless leg syndrome\n2. **Sleep Inertia**: Waking up during a deep sleep phase can leave you feeling disoriented and groggy. This is known as sleep inertia. If you're waking up during a deep sleep phase, it can take some time to feel alert and awake.\n3. **Circadian Rhythm**: Your body's internal clock regulates your sleep-wake cycle. If your circadian rhythm is out of sync, you might feel tired in the morning. This could be due to:\n\t* Irregular sleep schedules (e.g., staying up late, sleeping in late, or working irregular hours)\n\t* Exposure to artificial light (e.g., screens, lamps) before bedtime\n\t* Traveling across time zones or working night shifts\n4. **Lifestyle Factors**: Certain habits or activities can affect your sleep quality and morning energy levels:\n\t* Consuming caffeine, nicotine, or alcohol close to bedtime\n\t* Engaging in stimulating activities (e.g., exercise, gaming, or watching exciting movies) before bedtime\n\t* Eating a large or heavy meal close to bedtime\n\t* Not getting enough physical activity or spending too much time sedentary during the day\n5. **Underlying Health Conditions**: Certain medical conditions, such as:\n\t* Sleep disorders (e.g., insomnia, narcolepsy)\n\t* Chronic fatigue syndrome\n\t* Anemia or iron deficiency\n\t* Hypothyroidism or other hormonal imbalances\n\t* Medication side effects\n\nTo help you better, can you please answer the following questions:\n\n1. What's your typical wake-up time?\n2. How long does it usually take you to fall asleep after going to bed?\n3. Do you wake up during the night or sleep soundly throughout?\n4. Do you feel rested and refreshed on weekends or days off, or do you still struggle with morning grogginess?\n5. Have you noticed any changes in your sleep patterns or energy levels recently?\n6. Do you have any underlying medical conditions or take any medications that might be affecting your sleep?\n\nBy understanding your sleep habits and lifestyle, we can work together to identify potential factors contributing to your morning grogginess and find ways to improve your sleep quality and energy levels."
+      },
+      {
+        "session_index": 42,
+        "turn_index": 2,
+        "role": "assistant",
+        "date": "2023/05/29 (Mon) 01:02",
+        "content": "I'd be happy to help you track your grocery expenses. Let's get started!\n\nTo help me help you, can you please provide some information about your recent grocery shopping trips? Please feel free to share as much or as little as you have:\n\n1. Dates of your recent grocery shopping trips (approximate dates or specific dates)\n2. The total amount you spent on each trip\n3. Any receipts or notes you have about what you purchased (e.g., store name, items bought, prices)\n4. Any categories you'd like to track (e.g., produce, meat, dairy, snacks, etc.)\n\nYou can share this information in a list, table, or simply type it out in a message. I'll help you organize and calculate your total grocery expenses for the past few weeks.\n\nIf you don't have all the details, don't worry! We can start with what you have, and I can help you estimate or fill in the gaps as we go along."
+      },
+      {
+        "session_index": 42,
+        "turn_index": 3,
+        "role": "user",
+        "date": "2023/05/29 (Mon) 01:02",
+        "content": "I can definitely provide some details. So, I went to Walmart last Sunday and spent around $50. The day before, I ordered some groceries online from Target, which were delivered on Monday morning. I used a 10% off coupon on that order, so I ended up saving around $8. A week prior to that, I went to Trader Joe's with my sister and we spent around $75. I've also been regularly shopping at Aldi's, usually stopping by every 10-14 days, and I usually spend around $30-40 per trip. Oh, and I also stopped by the local farmer's market two weekends ago, but I don't have the exact amount I spent there."
+      },
+      {
+        "session_index": 42,
+        "turn_index": 4,
+        "role": "assistant",
+        "date": "2023/05/29 (Mon) 01:02",
+        "content": "Let's break down your grocery expenses for the past few weeks:\n\n**Last Sunday (Walmart):**\n\n* Date: Last Sunday\n* Store: Walmart\n* Amount: $50\n\n**Monday (Target online order):**\n\n* Date: Monday\n* Store: Target\n* Original amount: $80 (assuming 10% off $80 = $8 discount)\n* Discount: $8\n* Final amount: $72\n\n**A week prior (Trader Joe's):**\n\n* Date: A week prior to last Sunday\n* Store: Trader Joe's\n* Amount: $75\n\n**Aldi's (regular trips):**\n\n* Frequency: Every 10-14 days\n* Average amount: $35 (midpoint of $30-40 range)\n* Number of trips: Assume 2 trips in the past few weeks ( rough estimate)\n* Total amount: $70\n\n**Farmer's market (2 weekends ago):**\n\n* Date: 2 weekends ago\n* Store: Local farmer's market\n* Amount: Unknown (we'll come back to this later)\n\nLet's add up the known amounts:\n\n$50 (Walmart) + $72 (Target) + $75 (Trader Joe's) + $70 (Aldi's) = $267\n\nWe'll come back to the farmer's market expense later. If you can estimate the amount you spent there, we can add it to the total. If not, we can leave it out for now.\n\nHow does this look so far?"
+      },
+      {
+        "session_index": 42,
+        "turn_index": 8,
+        "role": "assistant",
+        "date": "2023/05/29 (Mon) 01:02",
+        "content": "I'll respond as the assistant:\n\n\"Got it! I've added the farmer's market estimate to the total. And no problem, I can break down the Aldi's trips into separate entries. Let's assume you made 2 trips, with an average spend of $35 per trip. Here's the revised breakdown:\n\n**Last Sunday (Walmart):**\n\n* Date: Last Sunday\n* Store: Walmart\n* Amount: $50\n\n**Monday (Target online order):**\n\n* Date: Monday\n* Store: Target\n* Original amount: $80\n* Discount: $8\n* Final amount: $72\n\n**A week prior (Trader Joe's):**\n\n* Date: A week prior to last Sunday\n* Store: Trader Joe's\n* Amount: $75\n\n**Aldi's (Trip 1):**\n\n* Date: ~10-14 days prior to last Sunday\n* Store: Aldi's\n* Amount: $35\n\n**Aldi's (Trip 2):**\n\n* Date: ~3-7 days prior to last Sunday\n* Store: Aldi's\n* Amount: $35\n\n**Farmer's market:**\n\n* Date: 2 weekends ago\n* Store: Local farmer's market\n* Amount: $25\n\nLet me recalculate the total...\n\nThe new total comes out to: $292\""
+      },
+      {
+        "session_index": 42,
+        "turn_index": 9,
+        "role": "user",
+        "date": "2023/05/29 (Mon) 01:02",
+        "content": "Here's my next response as the user:\n\n\"Can you also help me track my savings from using coupons and discounts? In this case, I saved $8 from the 10% off coupon on my Target order. Is there a way to add that to the breakdown?\""
+      },
+      {
+        "session_index": 42,
+        "turn_index": 10,
+        "role": "assistant",
+        "date": "2023/05/29 (Mon) 01:02",
+        "content": "Here's my response as the assistant:\n\n\"Great point! I'd be happy to help you track your savings from coupons and discounts. Let's add a new section to the breakdown to keep track of your savings.\n\nHere's the revised breakdown:\n\n**Grocery Expenses:**\n\n* **Last Sunday (Walmart):**\n\t+ Date: Last Sunday\n\t+ Store: Walmart\n\t+ Amount: $50\n* **Monday (Target online order):**\n\t+ Date: Monday\n\t+ Store: Target\n\t+ Original amount: $80\n\t+ Discount: $8 (10% off coupon)\n\t+ Final amount: $72\n* **A week prior (Trader Joe's):**\n\t+ Date: A week prior to last Sunday\n\t+ Store: Trader Joe's\n\t+ Amount: $75\n* **Aldi's (Trip 1):**\n\t+ Date: ~10-14 days prior to last Sunday\n\t+ Store: Aldi's\n\t+ Amount: $35\n* **Aldi's (Trip 2):**\n\t+ Date: ~3-7 days prior to last Sunday\n\t+ Store: Aldi's\n\t+ Amount: $35\n* **Farmer's market:**\n\t+ Date: 2 weekends ago\n\t+ Store: Local farmer's market\n\t+ Amount: $25\n\n**Savings:**\n\n* **Target 10% off coupon:** $8\n\nYour total savings so far is $8. Your total grocery expenses come out to: $292.\n\nLet me know if you have any other coupons or discounts you'd like to track!\""
+      },
+      {
+        "session_index": 42,
+        "turn_index": 12,
+        "role": "assistant",
+        "date": "2023/05/29 (Mon) 01:02",
+        "content": "Here's my response as the assistant:\n\n\"Awesome idea! I completely agree that tracking what you're buying and how you're using leftovers can help with reducing food waste and making more intentional purchasing decisions.\n\nLet's add a 'Notes' section to each trip to help you track this information. Here's the revised breakdown:\n\n**Grocery Expenses:**\n\n* **Last Sunday (Walmart):**\n\t+ Date: Last Sunday\n\t+ Store: Walmart\n\t+ Amount: $50\n\t+ Notes: (add any notes about this trip, e.g. \"bought chicken breasts, planning to use for lunches this week\")\n* **Monday (Target online order):**\n\t+ Date: Monday\n\t+ Store: Target\n\t+ Original amount: $80\n\t+ Discount: $8 (10% off coupon)\n\t+ Final amount: $72\n\t+ Notes: (add any notes about this trip, e.g. \"bought pasta sauce, plan to use with leftover pasta from last week\")\n* **A week prior (Trader Joe's):**\n\t+ Date: A week prior to last Sunday\n\t+ Store: Trader Joe's\n\t+ Amount: $75\n\t+ Notes: (add any notes about this trip)\n* **Aldi's (Trip 1):**\n\t+ Date: ~10-14 days prior to last Sunday\n\t+ Store: Aldi's\n\t+ Amount: $35\n\t+ Notes: (add any notes about this trip)\n* **Aldi's (Trip 2):**\n\t+ Date: ~3-7 days prior to last Sunday\n\t+ Store: Aldi's\n\t+ Amount: $35\n\t+ Notes: (add any notes about this trip)\n* **Farmer's market:**\n\t+ Date: 2 weekends ago\n\t+ Store: Local farmer's market\n\t+ Amount: $25\n\t+ Notes: (add any notes about this trip)\n\n**Savings:**\n\n* **Target 10% off coupon:** $8\n\nYour total savings so far is $8. Your total grocery expenses come out to: $292.\n\nFeel free to add any notes or comments you'd like about each trip. This will help you track what you're buying, how you're using leftovers, and make more intentional purchasing decisions in the future.\""
+      }
+    ],
+    "independent_full_history_review": "pending",
+    "second_pass_status": "No supporting answer identified in targeted and identifier searches; provisional."
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "annotation_revision": {
+    "field": "CUR-H2.rule",
+    "prior_text": "Adopt the new value after two later sessions; do not treat the old value as current. This is cold-build version selection, not online update latency.",
+    "reason": "Align stale procedural wording with the unified incremental protocol; expected answer unchanged."
+  }
+}

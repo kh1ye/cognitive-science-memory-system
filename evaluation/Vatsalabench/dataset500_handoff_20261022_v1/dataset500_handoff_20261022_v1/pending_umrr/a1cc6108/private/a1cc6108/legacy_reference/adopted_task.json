@@ -1,0 +1,15 @@
+{
+  "sample_id": "a1cc6108",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 94,
+  "question_cell": "F94",
+  "answer_cell": "E94",
+  "adopted_question_verbatim": "How old did I say I had turned the previous month in the May 24 conversation?",
+  "adopted_answer_or_rubric_verbatim": "32 years old",
+  "english_rubric": "Require 32 years at the historical report. Do not infer a precise birthday or age at Alex's birth.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "c4f10528",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 475,
+  "question_cell": "F475",
+  "answer_cell": "E475",
+  "adopted_question_verbatim": "Which restaurant did you recommend in our Bandung conversation when describing a signature nasi goreng dish served with prawn crackers and a fried egg?",
+  "adopted_answer_or_rubric_verbatim": "Miss Bee Providore",
+  "english_rubric": "Require Miss Bee Providore from prior assistant text. Area references do not establish a location inside a mall or a current verified menu.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

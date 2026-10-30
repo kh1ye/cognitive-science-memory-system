@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "I'm going back to our previous chat about the Lost Temple of the Djinn one-shot. Can you remind me how many mummies the party will face in the temple?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T23:50:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "How many mummy enemies were specified in the Lost Temple of the Djinn adventure?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T23:50:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "What was the mummy count in that fictional one-shot's enemy list?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T23:50:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What exact map-room coordinate did the adventure assign to the mummies?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T23:50:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "How many mummies were in the scenario, and how many construct guardians?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T23:50:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "I'm going back to our previous chat about the Lost Temple of the Djinn one-shot. Can you remind me how many mummies the party will face in the temple?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-06-01T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "I'm going back to our previous chat about the Lost Temple of the Djinn one-shot. Can you remind me how many mummies the party will face in the temple?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-06-02T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "I'm going back to our previous chat about the Lost Temple of the Djinn one-shot. Can you remind me how many mummies the party will face in the temple?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-06-03T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the start time for a separate future fictional adventure planning session now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-06-01T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/06/01 12:00, what is the start time for a separate future fictional adventure planning session?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-01T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/06/01 12:00, what is the start time for a separate future fictional adventure planning session?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-01T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/06/01 12:00, what is the start time for a separate future fictional adventure planning session?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-01T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

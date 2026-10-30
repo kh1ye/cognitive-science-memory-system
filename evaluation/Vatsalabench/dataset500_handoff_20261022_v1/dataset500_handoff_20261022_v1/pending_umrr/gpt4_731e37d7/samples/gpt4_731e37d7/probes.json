@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "How much did I say I paid for the mindfulness workshop on December 12?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-02-26T23:35:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "What fee did I pay for the December 12 mindfulness session?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-02-26T23:35:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "How much did attending that half-day awareness workshop on December 12 cost?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-02-26T23:35:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact receipt number for the mindfulness workshop fee?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-02-26T23:35:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "What did the workshop cost, and what did I take home from it?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-02-26T23:35:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "How much did I say I paid for the mindfulness workshop on December 12?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-02-28T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "How much did I say I paid for the mindfulness workshop on December 12?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-03-01T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "How much did I say I paid for the mindfulness workshop on December 12?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-03-02T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the start time for a separate future workshop planning meeting now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-02-28T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-02-28T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/02/28 12:00, what is the start time for a separate future workshop planning meeting?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-02-28T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-02-28T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/02/28 12:00, what is the start time for a separate future workshop planning meeting?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-02-28T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-02-28T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/02/28 12:00, what is the start time for a separate future workshop planning meeting?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-02-28T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-02-28T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.1",
+  "suite_id": "unified-next70-331-400-9ee3ecd6-memorybank-live-v2-full-history-v1",
+  "protocol_file": "protocol.json",
+  "config_file": "run_config.json",
+  "instruction_file": "answer_instruction.txt",
+  "samples": [
+    "samples/9ee3ecd6/sample.json"
+  ],
+  "public_sha256": {
+    "protocol.json": "766f167f97ce6e8e42ab79a0151b607586819e98a3bef58c7c8736104660219c",
+    "run_config.json": "97275fb6735397c61e2e8979ee12830bd88f82dcf411d1182cccf67d867b6ab4",
+    "adapter_config.json": "ae290ca9ea3e6ddc1346c6d44462410dd80f7e5d89866dbe7e7201f68efc4c4f",
+    "provider_config.json": "ee301bae5cd2adbaca56c938080478e05d68af8a44f8a54604156b002f2742a9",
+    "answer_instruction.txt": "8ff253b4f1e4564d7bb64630f490413e884a1114a80a446b1634c08fa65f817f",
+    "samples/9ee3ecd6/sample.json": "806b3ee810aa7aff191794d034433d526ba5ec8d67f67b1df600bc8d7b5376f4",
+    "samples/9ee3ecd6/history.json": "6bbed1a7e71e86131fbcd06ad20f9b86780eaa922b3446f26a7451c8160bba54",
+    "samples/9ee3ecd6/probes.json": "6307ebb0add625cc6a9d3fa4919a2ed0b43ef631f75eb2c409d50f8a8c03adbd",
+    "samples/9ee3ecd6/branches.json": "7e4bab5be4f5dc2ce7e1b8601050ded5f77d92997e37d2e951a15e93b8d06b06"
+  }
+}

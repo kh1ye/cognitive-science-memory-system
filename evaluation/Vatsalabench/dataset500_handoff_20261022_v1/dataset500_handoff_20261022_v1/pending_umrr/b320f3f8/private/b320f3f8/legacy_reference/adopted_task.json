@@ -1,0 +1,15 @@
+{
+  "sample_id": "b320f3f8",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 276,
+  "question_cell": "F276",
+  "answer_cell": "E276",
+  "adopted_question_verbatim": "What type of action figure did I buy from a thrift store?",
+  "adopted_answer_or_rubric_verbatim": "a blue Snaggletooth action figure",
+  "english_rubric": "Require blue Snaggletooth; the colour distinguishes the version.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

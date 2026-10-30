@@ -1,0 +1,15 @@
+{
+  "sample_id": "d23cf73b",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 296,
+  "question_cell": "F296",
+  "answer_cell": "E296",
+  "adopted_question_verbatim": "Which Korean dish did I say I tried making from the cooking class's online recipe library?",
+  "adopted_answer_or_rubric_verbatim": "bibimbap",
+  "english_rubric": "Require bibimbap; restaurant dining or intended future meals are not this cooking event.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

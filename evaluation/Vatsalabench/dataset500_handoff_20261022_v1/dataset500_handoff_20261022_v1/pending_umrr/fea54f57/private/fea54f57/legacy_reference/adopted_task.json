@@ -1,0 +1,15 @@
+{
+  "sample_id": "fea54f57",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 229,
+  "question_cell": "F229",
+  "answer_cell": "E229",
+  "adopted_question_verbatim": "I was thinking about our previous conversation about the Fifth Album, and I was wondering if you could remind me what song you said best exemplified the band's growth and development as artists?",
+  "adopted_answer_or_rubric_verbatim": "Evolution",
+  "english_rubric": "Require Evolution as the assistant's prior choice. Do not present the unsourced analysis as verified music history.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

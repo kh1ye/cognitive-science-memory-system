@@ -1,0 +1,22 @@
+{
+  "document": "D:\\电脑管家迁移文件\\xwechat_files\\wxid_z0x6kkw6gw4712_ec8c\\msg\\file\\2026-09\\VatsalaBench_六维指标.docx",
+  "sha256": "3b8b701cca37cb58e59638686f64bf6870173db67db45ad7fadf41fcb4891020",
+  "quality_metrics": [
+    "AFA",
+    "UMRR",
+    "FSRC",
+    "SCHR",
+    "TIC",
+    "AFP",
+    "CVSAR",
+    "CR-AUC"
+  ],
+  "efficiency_metrics": [
+    "L95",
+    "ATC",
+    "SAF"
+  ],
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python": "3.12.10",
+  "overall_score": null
+}

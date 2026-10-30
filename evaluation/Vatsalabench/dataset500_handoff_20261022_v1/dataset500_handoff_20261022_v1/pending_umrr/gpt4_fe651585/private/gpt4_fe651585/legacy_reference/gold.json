@@ -1,0 +1,143 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "January",
+      "rule": "Require January. This adoption does not establish first-time parenthood."
+    },
+    "BASE-2": {
+      "expected": "January",
+      "rule": "Require January. This adoption does not establish first-time parenthood."
+    },
+    "BASE-3": {
+      "expected": "January",
+      "rule": "Require January. This adoption does not establish first-time parenthood."
+    },
+    "RET-10": {
+      "expected": "January",
+      "rule": "Require January. This adoption does not establish first-time parenthood."
+    },
+    "RET-30": {
+      "expected": "January",
+      "rule": "Require January. This adoption does not establish first-time parenthood."
+    },
+    "RET-50": {
+      "expected": "January",
+      "rule": "Require January. This adoption does not establish first-time parenthood."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "January",
+        "China"
+      ],
+      "intents": [
+        "Month",
+        "Country"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "10:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/03/18 08:00",
+        "old_valid_from": "2023/03/18 08:00",
+        "old_valid_to": "2023/03/19 09:00",
+        "observed_at": "2023/03/19 09:00",
+        "valid_from": "2023/03/19 09:00",
+        "valid_to": null,
+        "query_time": "2023/03/19 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "10:00",
+        "11:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "10:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "10:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 41,
+        "turn_index": 1,
+        "date": "2023/03/17 (Fri) 15:27",
+        "role": "user",
+        "quote": "I'm considering adopting a baby boy from foster care and I'm wondering if you can provide me with some information on the process and requirements for adoption in my state. By the way, my cousin Alex just adopted a baby girl from China in January, so I've seen firsthand how life-changing it can be."
+      },
+      {
+        "session_index": 47,
+        "turn_index": 9,
+        "date": "2023/03/17 (Fri) 18:54",
+        "role": "user",
+        "quote": "I'm excited to hear that you're planning an Art Studio Party for Olivia! I think the kids will have a blast exploring their creativity at the different art stations. By the way, my sister-in-law, Rachel, is doing great with the twins, Jackson and Julia. They're growing up so fast!"
+      },
+      {
+        "session_index": 47,
+        "turn_index": 1,
+        "date": "2023/03/17 (Fri) 18:54",
+        "role": "user",
+        "quote": "I'm planning a birthday party for my niece, Olivia, who's turning 6 soon. Can you give me some theme ideas and decoration suggestions for a kindergarten-aged girl's party? By the way, I've been busy with my sister-in-law's twins, Jackson and Julia, who were born on February 12th - they're keeping me on my toes!"
+      },
+      {
+        "session_index": 47,
+        "turn_index": 3,
+        "date": "2023/03/17 (Fri) 18:54",
+        "role": "user",
+        "quote": "I like the princess party idea, but I'm not sure if Olivia would like it. Do you have any other ideas that are a bit more unique and not so traditional? My brother and his wife are also considering a theme for Jackson and Julia's first birthday party coming up, and maybe something more neutral would be a good idea for twins."
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/03/18 08:00",
+    "old_valid_from": "2023/03/18 08:00",
+    "old_valid_to": "2023/03/19 09:00",
+    "observed_at": "2023/03/19 09:00",
+    "valid_from": "2023/03/19 09:00",
+    "valid_to": null,
+    "query_time": "2023/03/19 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "gpt4_fe651585",
+  "sensitivity_note": "Recall only the explicitly reported history. Do not infer diagnoses, immigration status beyond the text, sexual orientation or other sensitive identity from event participation; this is not professional advice.",
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

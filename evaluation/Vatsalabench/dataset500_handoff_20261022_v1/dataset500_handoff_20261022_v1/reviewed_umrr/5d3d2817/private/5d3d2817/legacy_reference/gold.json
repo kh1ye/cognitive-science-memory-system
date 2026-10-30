@@ -1,0 +1,230 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "marketing specialist",
+      "rule": "Require marketing specialist or a genuinely equivalent job title, not marketing manager or just employee."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Candidate only. Require explicit uncertainty, no invented target value, and no false denial of related known events. Independent whole-history absence review is required. A stated lack of evidence must not be replaced by a claim that the identifier or underlying event never existed. This stricter draft policy is not retroactive to previous pilot scores.",
+      "annotation_status": "AI_search_found_no_support; independent_full_history_review_pending"
+    },
+    "R1R2": {
+      "expected": [
+        "marketing specialist",
+        "Trello"
+      ],
+      "rule": "TIC proposed answer-slot rule: a substantive proposed value addresses an intent even if incorrect; refusal alone does not fill a requested value. AFP counts deduplicated task-serving units, including relevant uncertainty; empty answer zero. Freeze this convention before live execution.",
+      "intents": [
+        "Former role",
+        "Tool used in that role"
+      ]
+    },
+    "CUR-H2": {
+      "expected": "marketing manager",
+      "rule": "Adopt the new effective value after incremental ingestion of the update and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "marketing manager",
+        "sales coordinator"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not choose a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "marketing manager",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "marketing manager",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    },
+    "BASE-2": {
+      "expected": "marketing specialist",
+      "rule": "Require marketing specialist or a genuinely equivalent job title, not marketing manager or just employee."
+    },
+    "BASE-3": {
+      "expected": "marketing specialist",
+      "rule": "Require marketing specialist or a genuinely equivalent job title, not marketing manager or just employee."
+    },
+    "RET-10": {
+      "expected": "marketing specialist",
+      "rule": "Require marketing specialist or a genuinely equivalent job title, not marketing manager or just employee."
+    },
+    "RET-30": {
+      "expected": "marketing specialist",
+      "rule": "Require marketing specialist or a genuinely equivalent job title, not marketing manager or just employee."
+    },
+    "RET-50": {
+      "expected": "marketing specialist",
+      "rule": "Require marketing specialist or a genuinely equivalent job title, not marketing manager or just employee."
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 27,
+        "turn_index": 5,
+        "date": "2023/05/24 (Wed) 23:58",
+        "quote": "I've used Trello in my previous role as a marketing specialist at a small startup and I'm familiar with its features. But I'm interested in exploring other options as well. Could you tell me more about ClickUp? How does it differ from Trello, and what are its strengths and weaknesses?"
+      }
+    ],
+    "reviewed_question": "What role did I say I previously held at a small startup?",
+    "reviewed_answer": "marketing specialist",
+    "scoring_answer": "marketing specialist",
+    "normalization": "English scoring form preserves reviewed meaning and source units.",
+    "effective_question": "What role did I say I previously held at a small startup?"
+  },
+  "negative_review": {
+    "question": "What was my exact employee identification number at the small startup where I previously worked?",
+    "scan": "All messages, both roles; regex is navigation only, not proof of absence.",
+    "pattern": "employee|identification|specialist|startup|staff|payroll",
+    "matching_messages": [
+      {
+        "session_index": 4,
+        "turn_index": 1,
+        "role": "assistant",
+        "date": "2023/05/20 (Sat) 20:11",
+        "content": "Naval Ravikant is a well-known entrepreneur, author, and investor. He is known for his insights on business, technology, and personal development. Here are a few YouTube channels and personalities that have similar content to Naval Ravikant:\n\n1. Sam Altman - He is an entrepreneur, startup advisor, and president of Y Combinator. His channel features interviews with entrepreneurs and business leaders, as well as insights on startups and technology.\n2. Tim Ferriss - He is an entrepreneur, author, and podcast host. His channel features interviews with successful entrepreneurs and business leaders, as well as information on personal development and achieving success in business.\n3. Jason Calacanis - He is an entrepreneur, angel investor, and podcast host. His channel features interviews with successful entrepreneurs and business leaders, as well as insights on startups, technology, and investing.\n4. Peter Thiel - He is a venture capitalist, entrepreneur, and author. His channel features interviews with successful entrepreneurs and business leaders, as well as insights on startups, technology, and investing.\n5. Patrick O'Shaughnessy - He is an investor, author, and podcast host. His channel features interviews with successful entrepreneurs and business leaders, as well as insights on investing and personal development.\n6. Ramit Sethi - He is an entrepreneur, author, and personal finance expert. His channel features advice on personal finance, career development, and entrepreneurship.\n7. Naval - his channel features his talks, podcast and interviews on a wide range of topics including business, technology, investing, and personal development.\n8. Balaji Srinivasan - He is an entrepreneur, investor and a technology commentator, his channel features talks on technology, startups, and trends.\n9. Naval Ravikant's podcast, the \"Naval\" podcast, features interviews with entrepreneurs and business leaders, as well as insights on technology, startups, and personal development, it's a good way to get more of his content.\n\nThese channels and personalities are known for their insights on business, technology, and personal development, and they often feature interviews with successful entrepreneurs and business leaders, as well as insights on startups, technology, investing and personal development."
+      },
+      {
+        "session_index": 4,
+        "turn_index": 3,
+        "role": "assistant",
+        "date": "2023/05/20 (Sat) 20:11",
+        "content": "Sure, here are 20 more examples of YouTube channels and personalities that have similar content to Naval Ravikant, along with their YouTube channel links or websites:\n\n1. Eric Jorgenson - He is an entrepreneur, investor and author, his channel features interviews with entrepreneurs and business leaders, as well as insights on startups and technology. <https://www.youtube.com/user/ericjorgenson>\n2. Ben Horowitz - He is a venture capitalist, author and co-founder of Andreessen Horowitz, his channel features interviews with entrepreneurs and business leaders, as well as insights on startups, technology, and investing. <https://www.youtube.com/user/bhorowitz>\n3. Andrew Yang - He is an entrepreneur, author, and founder of Venture for America, his channel features interviews with entrepreneurs and business leaders, as well as insights on technology, startups, and personal development. <https://www.youtube.com/user/AndrewYangVids>\n4. Naval Ravikant's podcast, the \"Naval\" podcast, features interviews with entrepreneurs and business leaders, as well as insights on technology, startups, and personal development. <https://www.youtube.com/channel/UCY4oNuO7VhEqo-A7F3qD9Lg>\n5. Peter Diamandis - He is an entrepreneur, author, and founder of the XPRIZE Foundation, his channel features interviews with entrepreneurs and business leaders, as well as insights on technology, startups, and personal development. <https://www.youtube.com/user/PeterDiamandis>\n6. Chris Sacca - He is a venture capitalist, entrepreneur, and podcast host, his channel features interviews with entrepreneurs and business leaders, as well as insights on startups, technology, and investing. <https://www.youtube.com/user/sacca>\n7. Joe Rogan - He is a comedian, podcast host, and entrepreneur, his channel features interviews with entrepreneurs, business leaders, and experts from a wide range of fields, as well as insights on personal development, health, and other topics. <https://www.youtube.com/user/PowerfulJRE>\n8. Tim Urban - He is an author, blogger and speaker, his channel features videos on a wide range of topics, including personal development, productivity, and decision-making. <https://www.youtube.com/user/waitbutwhy>\n9. James Altucher - He is an entrepreneur, author, and podcast host, his channel features interviews with entrepreneurs and business leaders, as well as insights on personal development, investing, and other topics. <https://www.youtube.com/user/jaltucher>\n10. Y Combinator - It is a startup accelerator that provides funding, resources, and mentorship to early-stage companies. Their channel features interviews with entrepreneurs, startup advice, and information on various industries. <https://www.youtube.com/user/ycombinator>\n11. 500 Startups - It is a global venture capital seed fund, it's channel features interviews with entrepreneurs and business leaders, as well as insights on startups, technology, and investing. <https://www.youtube.com/user/500Startups>\n12. Paul Graham - He is a computer scientist, venture capitalist, and entrepreneur. His website, paulgraham.com, features a collection of essays on a wide range of topics, including startups, technology, and personal development.\n13. Fred Wilson - He is a venture capitalist, blogger and entrepreneur, his website avc.com features insights on startups, technology, and investing.\n14. Mark Suster - He"
+      },
+      {
+        "session_index": 4,
+        "turn_index": 5,
+        "role": "assistant",
+        "date": "2023/05/20 (Sat) 20:11",
+        "content": "is a venture capitalist, entrepreneur, and blogger, his website bothsidesofthetable.com features insights on startups, technology, and investing.\n\n15. Mark Cuban - He is an entrepreneur, investor, and owner of the Dallas Mavericks. His website, blogmaverick.com, features insights on business, technology, and personal development.\n16. Keith Rabois - He is an entrepreneur, investor, and COO of Square. His website keithrabois.com features insights on startups, technology, and personal development.\n17. Marc Andreessen - He is a venture capitalist, entrepreneur, and co-founder of Andreessen Horowitz. His website, blog.pmarca.com, features insights on startups, technology, and investing.\n18. Sam Altman - He is an entrepreneur, startup advisor, and president of Y Combinator. His website, blog.samaltman.com, features insights on startups, technology, and personal development.\n19. Adam Grant - He is an organizational psychologist, author, and Wharton Professor. His website, adamgrant.net, features insights on organizational behavior, leadership, and personal development.\n20. Malcolm Gladwell - He is a journalist, author, and speaker. His website, gladwell.com, features insights on a wide range of topics, including business, psychology, and personal development.\n\nThese channels and personalities are known for their insights on business, technology, and personal development, and they often feature interviews with successful entrepreneurs and business leaders, as well as insights on startups, technology, investing, and personal development. They also have their personal websites where they share their thoughts and ideas."
+      },
+      {
+        "session_index": 10,
+        "turn_index": 4,
+        "role": "assistant",
+        "date": "2023/05/21 (Sun) 19:14",
+        "content": "Jeyuk bokkeum is a fantastic dish to try, and that sweet and spicy sauce is a game-changer.\n\nRegarding Korean chili flakes, also known as **gochugaru** (), you can find them at various Asian markets or online. Here are some tips to help you source the best quality:\n\n1. **Korean or Asian markets**: Visit a local Korean or Asian market in your area, and they'll likely carry a variety of gochugaru brands. You can ask the staff for recommendations or try a few different types to compare.\n2. **Online retailers**: Amazon, Asianfoodgrocer, and Luckyfood.com are popular online sources for Korean chili flakes. Look for brands like Sempio, Chongga, or Koko, which are well-known for their quality.\n3. **Korean grocery stores online**: If you can't find a physical Korean market, consider shopping online from Korean grocery stores like HMart or K Market. They often carry a wide selection of gochugaru brands.\n4. **Check the label**: When purchasing gochugaru, make sure to check the label for the following:\n\t* **Scoville heat units (SHU)**: Korean chili flakes can range from 10,000 to 30,000 SHU. If you prefer a milder heat, look for flakes with a lower SHU rating.\n\t* ** Ingredients**: Ensure the product only contains chili peppers and no additives or fillers.\n\t* **Grind size**: You can find gochugaru in various grind sizes, from fine to coarse. A finer grind will dissolve more easily in sauces, while a coarser grind provides a more textured heat.\n\nSome popular gochugaru brands include:\n\n* Sempio: Known for their high-quality, flavorful chili flakes with a range of heat levels.\n* Chongga: Offers a variety of gochugaru products, including organic and sun-dried options.\n* Koko: A popular brand among Korean cooks, offering a range of chili flakes with different heat levels and flavor profiles.\n\nFor Jeyuk bokkeum, you'll want to use a gochugaru with a moderate heat level, around 15,000-20,000 SHU. This will provide a nice balance of sweetness and spiciness in the sauce.\n\nNow, are you ready to give Jeyuk bokkeum a try? I can provide you with a simple recipe to get started!"
+      },
+      {
+        "session_index": 27,
+        "turn_index": 5,
+        "role": "user",
+        "date": "2023/05/24 (Wed) 23:58",
+        "content": "I've used Trello in my previous role as a marketing specialist at a small startup and I'm familiar with its features. But I'm interested in exploring other options as well. Could you tell me more about ClickUp? How does it differ from Trello, and what are its strengths and weaknesses?"
+      },
+      {
+        "session_index": 27,
+        "turn_index": 9,
+        "role": "user",
+        "date": "2023/05/24 (Wed) 23:58",
+        "content": "I'm actually thinking of automating some of the workflows in my new role as a senior marketing analyst. In my previous role at the startup, I was responsible for managing a team of interns, and I had to manually assign tasks and track their progress. With ClickUp's automation features, I think I could automate some of those tasks and free up more time for strategic planning."
+      },
+      {
+        "session_index": 28,
+        "turn_index": 10,
+        "role": "assistant",
+        "date": "2023/05/25 (Thu) 01:06",
+        "content": "Yes, the widespread availability and affordability of nanobiosensors for the diagnosis and management of neurodegenerative diseases could potentially help with early intervention and prevention.\n\nEarly diagnosis of neurodegenerative diseases with the use of nanobiosensors allows for the initiation of treatment and management strategies at an earlier stage of the disease. This can help slow down the disease progression and improve patient outcomes. Furthermore, early detection of biomarkers associated with neurodegenerative diseases can aid in the identification of individuals who may be at a higher risk of developing the disease, allowing for targeted interventions and monitoring.\n\nIn addition, the use of nanobiosensors can aid in the development of new drugs and therapies for the prevention and treatment of neurodegenerative diseases. By precisely monitoring the efficacy of these drugs, researchers can determine their effectiveness and optimize their dosage and delivery.\n\nOverall, widespread use of nanobiosensors for neurodegenerative diseases could lead to earlier diagnosis, earlier initiation of management strategies, and better tracking of disease progression, leading to improved patient outcomes and the development of new preventative strategies."
+      },
+      {
+        "session_index": 29,
+        "turn_index": 2,
+        "role": "user",
+        "date": "2023/05/25 (Thu) 03:32",
+        "content": "act as bailey:\n\nYou 6:07 AM\nInvited\nAmy Scott, M.Ed., LPC Associate\nto connect\nHi Dr. Scott,\n\nI was looking at your profile and, based on your experience, I would like to talk to you about some of the exciting counseling and psychiatric work we have at Televero Health.\n\nWhat do you think about scheduling a quick call to discuss this? Is there a time that works best for you?\nThursday\nYou 3:38 PM\nThanks for connecting, Dr. Scott.\n\nI work at Televero Health and we are currently recruiting for psychiatry positions that complement your skills very well.\n\nIs it possible for us to schedule a call so we can discuss this further?\n\nLooking forward to your response.\n\nBest regards,\nBailey\n\nhttps://calendly.com/bailey-baker-1/30min\nAmy Scott, M.Ed., LPC Associate 11:12 PM\nI am not a psychiatrist. I am a LPC Associate. \nSeen by Amy Scott, M.Ed., LPC Associate at 3/16/23, 11:12 PM\nCompose a new message\n\nType your message here…\nType your message here…\n\nAttach a file\n\nSend\nRecipient information\n\nAmy Scott, M.Ed., LPC Associate \n· 1st\nWomen's Health Specialist at Exact Sciences\nPlano, Texas, United States"
+      },
+      {
+        "session_index": 30,
+        "turn_index": 9,
+        "role": "user",
+        "date": "2023/05/25 (Thu) 04:47",
+        "content": "I'll send her a LinkedIn message now. If I don't hear back within a few days, I'll follow up with an email. Do you think I should also reach out to some of the other people I met at TechCon, like John from StartupABC, to see if they're interested in attending or participating in the meetup?"
+      },
+      {
+        "session_index": 30,
+        "turn_index": 10,
+        "role": "assistant",
+        "date": "2023/05/25 (Thu) 04:47",
+        "content": "Sending a LinkedIn message to Sarah is a great first step.\n\nReaching out to other people you met at TechCon, like John from StartupABC, can be a good idea, but consider the following:\n\n1. **Relevance:** Is John's expertise or interests aligned with the topic of your meetup? If not, it might not be the best use of his time or yours.\n2. **Value proposition:** What's in it for John? Is there a clear benefit for him to attend or participate in your meetup? Make sure you can articulate the value he'll gain from attending.\n3. **Overwhelming your network:** Be mindful of not overwhelming your network with too many requests or invitations. Space out your outreach efforts to avoid fatigue.\n\nIf you do decide to reach out to John, consider a gentle, non-committal message, such as:\n\n\"Hi John, great catching up with you at TechCon! I'm organizing a meetup for my professional network in June and thought you might be interested in attending. The topic is [topic] and I think you'd find it valuable. Let me know if you're interested and available, and I'll send over more details.\"\n\nThis approach allows John to opt-in or out without feeling obligated, and you're not committing him to anything just yet.\n\n**Additional tips:**\n\n* Keep your messages personalized and concise.\n* Make sure you're not duplicating efforts or sending the same message to everyone.\n* Consider creating a list or spreadsheet to track your outreach efforts and follow-ups.\n* Be respectful of people's time and decisions, whether they're interested or not.\n\nBy being thoughtful and strategic in your outreach, you'll increase the chances of getting positive responses and building a strong, engaged community for your meetup."
+      },
+      {
+        "session_index": 30,
+        "turn_index": 11,
+        "role": "user",
+        "date": "2023/05/25 (Thu) 04:47",
+        "content": "I'll send a personalized message to John from StartupABC, and see if he's interested in attending or participating in the meetup. What about my follow-up with Emily from the Digital Marketing conference in February? I need to send her some case studies we discussed. Should I do that now or wait until I hear back from Sarah and John?"
+      },
+      {
+        "session_index": 34,
+        "turn_index": 8,
+        "role": "assistant",
+        "date": "2023/05/25 (Thu) 21:35",
+        "content": "Colleges and universities have taken various steps to ensure the safety and well-being of their student-athletes amidst controversies. Many schools have implemented policies and programs aimed at addressing issues such as athlete safety, mental health, and wellness.\n\nFor instance, several universities have established student-athlete wellness centers that provide a range of services, such as physical therapy, sports medicine, nutrition guidance, and mental health resources. These centers aim to promote the overall well-being of student-athletes and provide them with the support they need to succeed both on and off the field.\n\nIn addition, colleges and universities often have dedicated staff that are responsible for overseeing the welfare of student-athletes, including athletic trainers, academic advisors, and compliance officers. These individuals work closely with student-athletes to ensure that they are receiving the necessary support and resources, including any necessary medical or academic attention.\n\nMoreover, following the recent scandals related to athlete compensation, universities have implemented policies and programs aimed at addressing these issues. Many schools now provide athletic scholarships that cover the full cost of attendance, and some have provided additional financial support to student-athletes, such as stipends for living expenses.\n\nOverall, colleges and universities are continuously implementing and updating policies and programs to ensure the safety and well-being of their student-athletes, and the focus remains on creating a positive, healthy, and inclusive environment for all students, including those participating in athletics programs."
+      },
+      {
+        "session_index": 34,
+        "turn_index": 10,
+        "role": "assistant",
+        "date": "2023/05/25 (Thu) 21:35",
+        "content": "As an AI language model, I cannot offer an opinion or a belief. However, some people believe that college sports are overly focused on profit and winning at all costs, which could contribute to various controversies and issues related to college sports programs. These organizations generate millions in revenue from merchandise sales, ticket sales, and television contracts, raising concerns about how student-athletes are compensated for their participation in these revenue-generating events.\n\nFurthermore, the intense pressure to win, combined with a culture that prioritizes athletics over academics, can also lead to controversial and unethical practices to gain an edge over competitors. For example, some programs may resort to illegal recruiting practices or pressure student-athletes to engage in risky behaviors, such as playing through injuries.\n\nHowever, it's essential to note that not all college sports programs prioritize profit over the well-being of their student-athletes. Many universities have prioritized creating an environment in which student-athletes can succeed both on and off the field, emphasizing the importance of education, community service, and personal growth. Ultimately, the approach to college sports may vary depending on the specific university, athletic department, and coaching staff, and their priorities and values."
+      },
+      {
+        "session_index": 38,
+        "turn_index": 2,
+        "role": "assistant",
+        "date": "2023/05/28 (Sun) 04:42",
+        "content": "I don't have personal experiences or feelings, but here are some suggestions for international students on how they can gain experience in their field of study if they are unable to secure an internship:\n\n1. volunteer work: consider volunteering with a non-profit, community organization or social enterprise related to your field of study. this will give you practical experience and networking opportunities, and you will be contributing to society in a positive manner.\n\n2. online courses: take online courses or certification programs to expand your knowledge and gain practical skills.\n\n3. freelancing: consider freelancing in your field of study by offering your services to small businesses or startups. this can give you valuable experience and help you build your network.\n\n4. join student organizations: join student organizations and clubs related to your field of study. these groups often host events and offer opportunities to connect with professionals in your field.\n\n5. research projects: conduct research projects or participate in a research program within your university or course of study where you can develop practical skills and add value to your academic curriculum. \n\n6. attend conferences or seminars: attend conferences or seminars related to your field of study. this will give you an opportunity to learn from experts in your industry and network with professionals in your field. \n\n7. mentorship: find a mentor or network with other professionals in your industry to learn from their experiences and gain valuable insight into the industry you are interested in. \n\nit is important to remember that gaining experience in any field can take time and effort. don’t give up on pursuing your passions and continue seeking new opportunities to gain practical skills and knowledge."
+      },
+      {
+        "session_index": 48,
+        "turn_index": 10,
+        "role": "assistant",
+        "date": "2023/05/29 (Mon) 19:29",
+        "content": "HubSpot's lead scoring feature is an excellent way to identify leads that are ready for sales outreach, and negative scoring is a powerful way to identify leads that are not a good fit for your product or service. Here's a step-by-step guide on how to create a negative scoring criterion in HubSpot:\n\n**Step 1: Identify Negative Behaviors or Characteristics**\n\n1. Identify the behaviors, actions, or characteristics that indicate a lead is not a good fit for your AI-powered project management tool. These may include:\n\t* Lack of engagement with your content (e.g., not opening emails, not visiting your website)\n\t* Incomplete or inaccurate form submissions (e.g., missing company information, invalid email addresses)\n\t* Unqualified job titles or industries\n\t* Low company size or revenue\n\n**Step 2: Create a Negative Scoring Criterion**\n\n1. Navigate to **Settings** > **Properties** > **Lead Properties**.\n2. Click **Create a property** and choose **Lead scoring**.\n3. Name your negative scoring criterion (e.g., \"Negative Score for Unqualified Leads\").\n4. Set the **Scoring type** to **Points-based**.\n\n**Step 3: Assign Negative Points**\n\n1. Click **Add a criterion** to define the negative behaviors or characteristics.\n2. Assign negative points to each criterion based on its importance (e.g., -5 points for not opening an email, -10 points for an invalid email address).\n\n**Example Negative Scoring Criteria:**\n\n* -5 points: Did not open an email about the Tech Expo within 7 days\n* -10 points: Provided an invalid email address\n* -8 points: Has a job title of \"Student\" or \"Intern\"\n* -5 points: Company size is less than 10 employees\n\n**Step 4: Set a Negative Scoring Threshold**\n\n1. Set a threshold score that indicates a lead is not a good fit (e.g., -15 points).\n2. Choose the **Threshold type**:\n\t* **Static**: Trigger the negative scoring notification when the lead reaches the exact score.\n\t* **Dynamic**: Trigger the negative scoring notification when the lead's score changes by a certain amount (e.g., decreases by 10 points).\n\n**Step 5: Create a Workflow for Negative Scoring Leads**\n\n1. Navigate to **Workflows** > **Create a workflow**.\n2. Choose **Lead-based workflow**.\n3. Set the **Trigger** to **Lead scoring** and select the negative scoring criterion created in Step 2.\n4. Set the **Trigger type** to **Threshold reached** and choose the negative scoring threshold defined in Step 4.\n5. Add actions to the workflow, such as:\n\t* Sending a notification to the sales team to review the lead\n\t* Updating the lead's lifecycle stage to \"Unqualified Lead\"\n\t* Removing the lead from sales outreach campaigns\n\n**Tips and Variations:**\n\n* Use HubSpot's negative scoring feature to identify leads that are not a good fit for your product or service, and focus your sales outreach on high-quality leads.\n* Create multiple negative scoring criteria to track different negative behaviors or characteristics.\n* Use HubSpot's integration with other tools (e.g., CRM, marketing automation) to further enrich lead scoring data.\n* Continuously refine and optimize your negative scoring model based on performance data and feedback.\n\nBy creating a negative scoring criterion in HubSpot, you'll be able to identify leads that are not a good fit for your AI-powered project management tool and focus your sales outreach on high-quality leads that are more likely to convert into customers."
+      },
+      {
+        "session_index": 48,
+        "turn_index": 12,
+        "role": "assistant",
+        "date": "2023/05/29 (Mon) 19:29",
+        "content": "HubSpot's lead scoring feature is an excellent way to identify leads that are ready for sales outreach, and creating a lead scoring criterion that identifies leads that match your ideal customer profile is a great way to focus your sales efforts on high-quality leads. Here's a step-by-step guide on how to create a lead scoring criterion in HubSpot that identifies leads that match your ideal customer profile:\n\n**Step 1: Define Your Ideal Customer Profile**\n\n1. Identify the characteristics of your ideal customer, including:\n\t* Company size\n\t* Industry\n\t* Job title\n\t* Location\n\t* Revenue\n\t* Technology stack\n\t* Pain points\n\t* Goals\n\n**Step 2: Create a Lead Scoring Property**\n\n1. Navigate to **Settings** > **Properties** > **Lead Properties**.\n2. Click **Create a property** and choose **Lead scoring**.\n3. Name your lead scoring property (e.g., \"Ideal Customer Profile Score\").\n4. Set the **Scoring type** to **Points-based**.\n\n**Step 3: Assign Points for Ideal Customer Profile Characteristics**\n\n1. Click **Add a criterion** to define the characteristics of your ideal customer profile.\n2. Assign points to each criterion based on its importance (e.g., 10 points for a company size of 100-500 employees, 5 points for a job title of \"Project Manager\").\n\n**Example Ideal Customer Profile Criteria:**\n\n* 10 points: Company size of 100-500 employees\n* 8 points: Industry of Technology or Software\n* 5 points: Job title of Project Manager or Director of Operations\n* 3 points: Location in the United States or Canada\n* 2 points: Revenue of $10M-$50M\n\n**Step 4: Set a Threshold Score**\n\n1. Set a threshold score that indicates a lead matches your ideal customer profile (e.g., 25 points).\n2. Choose the **Threshold type**:\n\t* **Static**: Trigger the ideal customer profile notification when the lead reaches the exact score.\n\t* **Dynamic**: Trigger the ideal customer profile notification when the lead's score changes by a certain amount (e.g., increases by 10 points).\n\n**Step 5: Create a Workflow for Ideal Customer Profile Leads**\n\n1. Navigate to **Workflows** > **Create a workflow**.\n2. Choose **Lead-based workflow**.\n3. Set the **Trigger** to **Lead scoring** and select the ideal customer profile scoring property created in Step 2.\n4. Set the **Trigger type** to **Threshold reached** and choose the threshold score defined in Step 4.\n5. Add actions to the workflow, such as:\n\t* Sending a notification to the sales team to review the lead\n\t* Updating the lead's lifecycle stage to \" Ideal Customer Profile\"\n\t* Assigning a task to a sales representative to follow up with the lead\n\n**Tips and Variations:**\n\n* Use HubSpot's lead scoring feature to identify leads that match your ideal customer profile and focus your sales outreach on high-quality leads.\n* Create multiple lead scoring properties to track different ideal customer profiles (e.g., one for enterprise customers, one for small businesses).\n* Use HubSpot's integration with other tools (e.g., CRM, marketing automation) to further enrich lead scoring data.\n* Continuously refine and optimize your ideal customer profile scoring model based on performance data and feedback.\n\nBy creating a lead scoring criterion in HubSpot that identifies leads that match your ideal customer profile, you'll be able to focus your sales outreach on high-quality leads that are more likely to convert into customers."
+      }
+    ],
+    "independent_full_history_review": "pending",
+    "second_pass_status": "No supporting answer identified in targeted and identifier searches; provisional."
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "annotation_revision": {
+    "field": "CUR-H2.rule",
+    "prior_text": "Adopt the new value after two later sessions; do not treat the old value as current. This is cold-build version selection, not online update latency.",
+    "reason": "Align stale procedural wording with the unified incremental protocol; expected answer unchanged."
+  }
+}

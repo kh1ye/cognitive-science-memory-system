@@ -1,0 +1,123 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "Jaipur Rugs",
+      "rule": "Require Jaipur Rugs as the named example. Do not certify location, employment statistics or impact."
+    },
+    "BASE-2": {
+      "expected": "Jaipur Rugs",
+      "rule": "Require Jaipur Rugs as the named example. Do not certify location, employment statistics or impact."
+    },
+    "BASE-3": {
+      "expected": "Jaipur Rugs",
+      "rule": "Require Jaipur Rugs as the named example. Do not certify location, employment statistics or impact."
+    },
+    "RET-10": {
+      "expected": "Jaipur Rugs",
+      "rule": "Require Jaipur Rugs as the named example. Do not certify location, employment statistics or impact."
+    },
+    "RET-30": {
+      "expected": "Jaipur Rugs",
+      "rule": "Require Jaipur Rugs as the named example. Do not certify location, employment statistics or impact."
+    },
+    "RET-50": {
+      "expected": "Jaipur Rugs",
+      "rule": "Require Jaipur Rugs as the named example. Do not certify location, employment statistics or impact."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "Jaipur Rugs",
+        "Dabur"
+      ],
+      "intents": [
+        "Rug company",
+        "Consumer-goods company"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "10:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "10:00",
+        "11:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "10:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "10:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 44,
+        "turn_index": 4,
+        "date": "2023/05/29 (Mon) 04:01",
+        "role": "assistant",
+        "quote": "Yes, here are a few examples of private sector businesses that have been particularly impactful in reducing poverty and unemployment in Chaudhary:\n\n1. Jaipur Rugs: Jaipur Rugs is a private company that employs over 40,000 people in the rug-manufacturing industry. The company provides training and employment opportunities to rural women, enabling them to become self-employed and improve their living standards.\n\n2. Dabur: Dabur is a consumer goods company that has invested in improving the livelihoods of farmers in Chaudhary. The company has set up a farmers' training center, providing training on sustainable agriculture practices and increasing crop yields, leading to higher incomes for the farmers.\n\n3. Mahindra & Mahindra: Mahindra & Mahindra is an automobile company that has set up a tractor manufacturing unit in Chaudhary. The company has provided employment opportunities to the local community, especially in the manufacturing and assembly processes.\n\n4. Bajaj Auto: Bajaj Auto is an automobile company that has set up a manufacturing plant in Chaudhary. The company employs around 1,500 people and provides vocational training to local youth, enabling them to acquire necessary skills for employability.\n\n5. ITC: ITC is a conglomerate that has invested in supporting farmers in Chaudhary through a social forestry program. The program has provided farmers with training on agroforestry practices, leading to not only economic benefits but also environmental benefits.\n\nThese are just a few examples of private sector businesses that have made a significant impact in reducing poverty and unemployment in Chaudhary."
+      }
+    ],
+    "scope": "assistant_history",
+    "target_roles": [
+      "assistant"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "8b9d4367",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

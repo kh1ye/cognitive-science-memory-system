@@ -1,0 +1,15 @@
+{
+  "sample_id": "184da446",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 191,
+  "question_cell": "F191",
+  "answer_cell": "E191",
+  "adopted_question_verbatim": "According to my latest reported progress, what page am I on in A Short History of Nearly Everything?",
+  "adopted_answer_or_rubric_verbatim": "Page 220",
+  "english_rubric": "Require page 220 as position, not proof that 220 entire pages were finished. Do not add the two positions.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

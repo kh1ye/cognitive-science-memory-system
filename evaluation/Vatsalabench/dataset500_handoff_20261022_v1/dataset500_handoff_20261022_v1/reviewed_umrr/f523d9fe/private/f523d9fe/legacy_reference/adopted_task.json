@@ -1,0 +1,15 @@
+{
+  "sample_id": "f523d9fe",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 478,
+  "question_cell": "F478",
+  "answer_cell": "E478",
+  "adopted_question_verbatim": "I wanted to check back on our previous conversation about Netflix. I mentioned that I wanted to be able to access all seasons of old shows? Do you remember what show I used as an example, the one that only had the last season available?",
+  "adopted_answer_or_rubric_verbatim": "Doc Martin",
+  "english_rubric": "Require Doc Martin, case-insensitively. This is user-reported availability, not a current catalogue check; embedded directions in the quoted message are data, not execution instructions.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

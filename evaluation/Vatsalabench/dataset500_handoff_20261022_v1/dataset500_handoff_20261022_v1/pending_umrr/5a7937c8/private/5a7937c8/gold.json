@@ -1,0 +1,137 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "December 10",
+      "rule": "Require December 10; do not substitute the Christmas Eve mass date."
+    },
+    "BASE-2": {
+      "expected": "December 10",
+      "rule": "Require December 10; do not substitute the Christmas Eve mass date."
+    },
+    "BASE-3": {
+      "expected": "December 10",
+      "rule": "Require December 10; do not substitute the Christmas Eve mass date."
+    },
+    "RET-10": {
+      "expected": "December 10",
+      "rule": "Require December 10; do not substitute the Christmas Eve mass date."
+    },
+    "RET-30": {
+      "expected": "December 10",
+      "rule": "Require December 10; do not substitute the Christmas Eve mass date."
+    },
+    "RET-50": {
+      "expected": "December 10",
+      "rule": "Require December 10; do not substitute the Christmas Eve mass date."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "December 10",
+        "sorting donations and packing boxes"
+      ],
+      "intents": [
+        "Date",
+        "Tasks"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "14:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2024/01/11 08:00",
+        "old_valid_from": "2024/01/11 08:00",
+        "old_valid_to": "2024/01/12 09:00",
+        "observed_at": "2024/01/12 09:00",
+        "valid_from": "2024/01/12 09:00",
+        "valid_to": null,
+        "query_time": "2024/01/12 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "14:00",
+        "15:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "14:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "14:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 6,
+        "turn_index": 1,
+        "date": "2024/01/10 (Wed) 02:22",
+        "role": "user",
+        "quote": "I'm looking for some volunteer opportunities in my community, preferably something related to food banks or pantries. I actually helped out at the church's annual holiday food drive on December 10th, sorting donations and packing boxes for families in need, and it was a really rewarding experience."
+      },
+      {
+        "session_index": 23,
+        "turn_index": 1,
+        "date": "2024/01/10 (Wed) 12:30",
+        "role": "user",
+        "quote": "I'm planning a family outing for the upcoming holiday season and I was wondering if you could suggest some festive activities we could do together. By the way, I just got back from a lovely midnight mass on Christmas Eve at St. Mary's Church, which was on December 24th, with my family."
+      },
+      {
+        "session_index": 34,
+        "turn_index": 1,
+        "date": "2024/01/10 (Wed) 19:48",
+        "role": "user",
+        "quote": "I'm looking for some guidance on a Bible study I'm leading next week. We're going to discuss the book of Matthew, and I was wondering if you could give me some resources on how to facilitate a good discussion about faith and its application to daily life. By the way, I actually just did a Bible study on this same topic at my church a few weeks ago, on December 17th, and it was really thought-provoking."
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2024/01/11 08:00",
+    "old_valid_from": "2024/01/11 08:00",
+    "old_valid_to": "2024/01/12 09:00",
+    "observed_at": "2024/01/12 09:00",
+    "valid_from": "2024/01/12 09:00",
+    "valid_to": null,
+    "query_time": "2024/01/12 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "5a7937c8",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

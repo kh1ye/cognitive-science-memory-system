@@ -1,0 +1,159 @@
+{
+  "judgment": {
+    "answers": [
+      {
+        "probe_id": "BASE-1",
+        "correct": 0,
+        "reason": "Refuses; does not give Ruby, Python, PHP.",
+        "conclusion": "Refusal; no languages given."
+      },
+      {
+        "probe_id": "BASE-2",
+        "correct": 0,
+        "reason": "Refuses; does not give Ruby, Python, PHP.",
+        "conclusion": "Refusal; no languages given."
+      },
+      {
+        "probe_id": "BASE-3",
+        "correct": 0,
+        "reason": "Refuses; does not give Ruby, Python, PHP.",
+        "conclusion": "Refusal; no languages given."
+      },
+      {
+        "probe_id": "UMRR-1",
+        "correct": 1,
+        "reason": "Explicitly says no information, invents no ID, and does not deny a known related event.",
+        "conclusion": "Cannot determine; no enrolment ID available."
+      },
+      {
+        "probe_id": "R1R2",
+        "correct": 0,
+        "reason": "Refuses both slots; no substantive values.",
+        "conclusion": "Refusal for both back-end languages and earlier basics."
+      },
+      {
+        "probe_id": "RET-10",
+        "correct": 0,
+        "reason": "Refuses; does not give Ruby, Python, PHP.",
+        "conclusion": "Refusal; no languages given."
+      },
+      {
+        "probe_id": "RET-30",
+        "correct": 0,
+        "reason": "Refuses; does not give Ruby, Python, PHP.",
+        "conclusion": "Refusal; no languages given."
+      },
+      {
+        "probe_id": "RET-50",
+        "correct": 0,
+        "reason": "Refuses; does not give Ruby, Python, PHP.",
+        "conclusion": "Refusal; no languages given."
+      },
+      {
+        "probe_id": "CUR-H2",
+        "correct": 1,
+        "reason": "Selects the later effective value 10:00, with appropriate caveat about disputed records.",
+        "conclusion": "10:00 (likely current value)."
+      },
+      {
+        "probe_id": "CON-U",
+        "correct": 1,
+        "reason": "Acknowledges unresolved conflict between 10:00 and 11:00 and does not pick a unique value.",
+        "conclusion": "Unresolved conflict; cannot determine between 10:00 and 11:00."
+      },
+      {
+        "probe_id": "CON-P",
+        "correct": 1,
+        "reason": "Chooses 10:00 per explicit priority of signed record.",
+        "conclusion": "10:00."
+      },
+      {
+        "probe_id": "CON-N",
+        "correct": 1,
+        "reason": "Gives agreed value 10:00 without inventing conflict.",
+        "conclusion": "10:00."
+      }
+    ],
+    "fsrc_pairs": [
+      {
+        "left": "BASE-1",
+        "right": "BASE-2",
+        "match": 1,
+        "reason": "Both refuse to provide the three languages; same target conclusion of unavailability."
+      },
+      {
+        "left": "BASE-1",
+        "right": "BASE-3",
+        "match": 1,
+        "reason": "Both refuse to provide the language examples; consistent refusal."
+      },
+      {
+        "left": "BASE-2",
+        "right": "BASE-3",
+        "match": 1,
+        "reason": "Both refuse to provide the language examples; consistent refusal."
+      }
+    ],
+    "tic_slots": [
+      {
+        "intent": "Back-end examples",
+        "covered": 0,
+        "reason": "Refusal only; no substantive back-end language list."
+      },
+      {
+        "intent": "Earlier basics",
+        "covered": 0,
+        "reason": "Refusal only; no substantive basics list."
+      }
+    ],
+    "afp_units": [
+      {
+        "text": "No record found of the programming-learning content; retrievable memories are unrelated topics.",
+        "relevant": 1,
+        "reason": "Relevant uncertainty explaining inability to answer."
+      },
+      {
+        "text": "Cannot confirm the specific lists and will not fabricate them.",
+        "relevant": 1,
+        "reason": "Relevant uncertainty/refusal tied to the task."
+      },
+      {
+        "text": "Asks user to clarify which conversation/course/plan or paste the list.",
+        "relevant": 1,
+        "reason": "Task-serving clarification request."
+      }
+    ]
+  },
+  "usage": {
+    "input_tokens": 3828,
+    "output_tokens": 758,
+    "total_tokens": 4586,
+    "input_token_details": {
+      "cache_read": 640
+    },
+    "output_token_details": {}
+  },
+  "metadata": {
+    "token_usage": {
+      "completion_tokens": 758,
+      "prompt_tokens": 3828,
+      "total_tokens": 4586,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cache_write_tokens": null,
+        "cached_tokens": 640,
+        "image_tokens": null,
+        "text_tokens": null
+      },
+      "prompt_cache_hit_tokens": 640,
+      "prompt_cache_miss_tokens": 3188
+    },
+    "model_provider": "openai",
+    "model_name": "deepseek-flash",
+    "system_fingerprint": "bc19ba97cbe016479903222bb1578db6",
+    "id": "7ee6643c-7921-4c12-9804-1f3f367a6a18",
+    "finish_reason": "stop",
+    "logprobs": null
+  }
+}

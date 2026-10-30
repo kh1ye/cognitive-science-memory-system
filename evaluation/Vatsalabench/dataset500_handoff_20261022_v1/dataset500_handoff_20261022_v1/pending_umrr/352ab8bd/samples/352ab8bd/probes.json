@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "In your first summary of the Experimental Results section, what average framerate improvement did you attribute to HAMT?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T23:31:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "What approximate average framerate gain did your first Experimental Results summary assign to the HAMT agent?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T23:31:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "In the initial results synopsis, by about what percentage did you say HAMT improved framerate?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T23:31:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What exact GPU model did your first Experimental Results summary specify for the HAMT framerate result?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T23:31:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "What approximate improvement did the first summary attribute to HAMT, and what further factor did it attribute to Active Training Modulation?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T23:31:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "In your first summary of the Experimental Results section, what average framerate improvement did you attribute to HAMT?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-06-01T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "In your first summary of the Experimental Results section, what average framerate improvement did you attribute to HAMT?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-06-02T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "In your first summary of the Experimental Results section, what average framerate improvement did you attribute to HAMT?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-06-03T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the duration for a separate future paper-reading session now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-06-01T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/06/01 12:00, what is the duration for a separate future paper-reading session?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-01T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/06/01 12:00, what is the duration for a separate future paper-reading session?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-01T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/06/01 12:00, what is the duration for a separate future paper-reading session?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-01T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

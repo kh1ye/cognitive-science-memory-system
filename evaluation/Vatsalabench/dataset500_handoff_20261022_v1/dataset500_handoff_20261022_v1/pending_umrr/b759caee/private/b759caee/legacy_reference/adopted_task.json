@@ -1,0 +1,15 @@
+{
+  "sample_id": "b759caee",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 245,
+  "question_cell": "F245",
+  "answer_cell": "E245",
+  "adopted_question_verbatim": "I was looking back at our previous conversation about buying unique engagement rings directly from designers. Can you remind me of the Instagram handle of the UK-based designer who works with unusual gemstones?",
+  "adopted_answer_or_rubric_verbatim": "@jessica_poole_jewellery",
+  "english_rubric": "Require jessica_poole_jewellery, accepting optional @ and removal of Markdown escape backslashes. Do not verify current ownership or endorse vendors.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "0977f2af",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 470,
+  "question_cell": "F470",
+  "answer_cell": "E470",
+  "adopted_question_verbatim": "Which new kitchen gadget did I mention using to make pressure-cooked soups and stews?",
+  "adopted_answer_or_rubric_verbatim": "Instant Pot",
+  "english_rubric": "Require Instant Pot. The source expresses an intention; do not infer an exact purchase sequence or completed use.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

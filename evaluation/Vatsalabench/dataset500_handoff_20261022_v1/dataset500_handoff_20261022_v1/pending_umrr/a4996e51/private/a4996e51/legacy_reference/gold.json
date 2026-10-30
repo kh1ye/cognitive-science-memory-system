@@ -1,0 +1,136 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "50 hours (40+10)",
+      "rule": "Require 50 hours, 40+10. A generally busy 45-hour week is a different condition, not the peak-campaign total."
+    },
+    "BASE-2": {
+      "expected": "50 hours (40+10)",
+      "rule": "Require 50 hours, 40+10. A generally busy 45-hour week is a different condition, not the peak-campaign total."
+    },
+    "BASE-3": {
+      "expected": "50 hours (40+10)",
+      "rule": "Require 50 hours, 40+10. A generally busy 45-hour week is a different condition, not the peak-campaign total."
+    },
+    "RET-10": {
+      "expected": "50 hours (40+10)",
+      "rule": "Require 50 hours, 40+10. A generally busy 45-hour week is a different condition, not the peak-campaign total."
+    },
+    "RET-30": {
+      "expected": "50 hours (40+10)",
+      "rule": "Require 50 hours, 40+10. A generally busy 45-hour week is a different condition, not the peak-campaign total."
+    },
+    "RET-50": {
+      "expected": "50 hours (40+10)",
+      "rule": "Require 50 hours, 40+10. A generally busy 45-hour week is a different condition, not the peak-campaign total."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "40 hours",
+        "10 hours weekly"
+      ],
+      "intents": [
+        "Normal weekly hours",
+        "Peak increment"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "10:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "10:00",
+        "11:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "10:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "10:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 20,
+        "turn_index": 1,
+        "date": "2023/05/24 (Wed) 07:36",
+        "role": "user",
+        "quote": "I'm planning to take a few days off soon and I want to make sure I can manage my work tasks before I go. Can you help me prioritize my tasks and create a schedule for the next week? By the way, I usually work 40 hours a week, with some weeks being busier than others."
+      },
+      {
+        "session_index": 44,
+        "turn_index": 3,
+        "date": "2023/05/29 (Mon) 02:54",
+        "role": "user",
+        "quote": "I've attached my current resume and LinkedIn profile. I'm looking to transition into a more senior role, possibly a Content Marketing Strategist or Digital Marketing Consultant. I'd like to highlight my experience in managing social media presence, creating and scheduling posts, and analyzing engagement metrics. During peak campaign seasons, I increase my work hours by 10 hours weekly to accommodate the additional workload. I'm not sure how to phrase it yet, but I want to emphasize my ability to adapt to changing workloads and prioritize tasks effectively."
+      },
+      {
+        "session_index": 20,
+        "turn_index": 7,
+        "date": "2023/05/24 (Wed) 07:36",
+        "role": "user",
+        "quote": "That's a great point about building in some flexibility into the schedule. I think I'll try to group similar tasks together and allocate larger blocks of time for those tasks. Additionally, I'll make sure to identify tasks that can be swapped or adjusted if needed. One thing I'm concerned about is that some weeks, my workload can get busier than usual, and I might need to put in some extra hours to keep up. I usually work 40 hours a week, but some weeks can go up to 45 hours or so. Do you think that's something I should consider when planning my schedule?"
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "a4996e51",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

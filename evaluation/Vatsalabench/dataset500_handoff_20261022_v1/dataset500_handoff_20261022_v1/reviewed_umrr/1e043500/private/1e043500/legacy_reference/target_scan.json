@@ -1,0 +1,76 @@
+{
+  "pattern": "summer vibes|playlist|spotify",
+  "matching_sentences": [
+    {
+      "session": 6,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 07:28",
+      "text": "\t\t+ Spotify"
+    },
+    {
+      "session": 14,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/21 (Sun) 13:13",
+      "text": "Also, by the way, I've been listening to this one playlist on Spotify that I created, called Summer Vibes, and it's got all these chill tracks that are perfect for relaxing or working out."
+    },
+    {
+      "session": 14,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 13:13",
+      "text": "They also have a \"New Music Mix\" playlist that updates regularly, showcasing new artists and tracks."
+    },
+    {
+      "session": 14,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 13:13",
+      "text": "As for your Summer Vibes playlist, it sounds like you've got a great mix of chill tracks!"
+    },
+    {
+      "session": 14,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 13:13",
+      "text": "If you're looking for more music to add, you might enjoy the following playlists on Spotify:"
+    },
+    {
+      "session": 14,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 13:13",
+      "text": "**Lo-Fi Girl**: A popular playlist with over 2 million followers, featuring a constant stream of lo-fi hip-hop and chillhop tracks."
+    },
+    {
+      "session": 14,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 13:13",
+      "text": "**Ambient Universe**: A playlist with a focus on ambient, drone, and experimental music."
+    },
+    {
+      "session": 14,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 13:13",
+      "text": "**Chillhop Music**: A playlist featuring a mix of lo-fi hip-hop, chillhop, and instrumental tracks."
+    },
+    {
+      "session": 14,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 13:13",
+      "text": "**Coffee Shop Jazz**: A playlist with a relaxing atmosphere, perfect for working or studying."
+    },
+    {
+      "session": 14,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 13:13",
+      "text": "You can also try exploring Spotify's \"Discover Weekly\" and \"Release Radar\" playlists, which are tailored to your listening habits and preferences."
+    }
+  ],
+  "review_scope": "Selected full source-session context plus programmatic target navigation; not independent full-history acceptance."
+}

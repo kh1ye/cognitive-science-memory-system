@@ -1,0 +1,15 @@
+{
+  "sample_id": "72e3ee87",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 447,
+  "question_cell": "F447",
+  "answer_cell": "E447",
+  "adopted_question_verbatim": "How many episodes of the Science series have I completed on Crash Course?",
+  "adopted_answer_or_rubric_verbatim": "50",
+  "english_rubric": "Require fifty completed. Being on episode ten is not equivalent to ten completed episodes.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,1221 @@
+{
+  "question": "What was the exact product SKU of the running shoes I said I wanted to replace?",
+  "pattern": "shoe|trainer|Nike|SKU|model number|product code",
+  "messages_scanned": 487,
+  "matching_sentences": [
+    {
+      "session": 7,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 22:32",
+      "text": "**Comfortable clothing:** Wear comfortable, breathable clothing and shoes suitable for cycling."
+    },
+    {
+      "session": 25,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/25 (Thu) 04:38",
+      "text": "I was just cleaning out my closet and realized I need to get some new casual shoes too, maybe something like those Adidas Superstars I got rid of."
+    },
+    {
+      "session": 25,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/25 (Thu) 04:38",
+      "text": "Do you know any good brands that make similar shoes?"
+    },
+    {
+      "session": 25,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 04:38",
+      "text": "If you're looking for similar shoes, here are some brands and styles you might want to consider:"
+    },
+    {
+      "session": 25,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 04:38",
+      "text": "**Vans Old Skool**: Vans is a popular brand for casual, laid-back shoes."
+    },
+    {
+      "session": 25,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 04:38",
+      "text": "**New Balance 574**: New Balance is known for their comfortable, supportive shoes."
+    },
+    {
+      "session": 25,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 04:38",
+      "text": "**Puma Suede**: Puma's Suede shoes are a stylish, comfortable option that's similar to the Superstar."
+    },
+    {
+      "session": 25,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 04:38",
+      "text": "**Reebok Classic Leather**: Reebok's Classic Leather shoes are a retro-inspired option that's similar to the Superstar."
+    },
+    {
+      "session": 25,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 04:38",
+      "text": "You can check out online retailers like Amazon, Zappos, or 6pm, or visit a local shoe store to try them on and see which one fits and feels best for you."
+    },
+    {
+      "session": 25,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 04:38",
+      "text": "Remember, it's always a good idea to try on shoes before buying, especially if you're shopping online."
+    },
+    {
+      "session": 25,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/25 (Thu) 04:38",
+      "text": "I've been meaning to get some new casual shoes for a while now, and it's a good excuse to treat myself after getting rid of those old Superstars."
+    },
+    {
+      "session": 25,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 04:38",
+      "text": "Treating yourself to new shoes is always a great way to celebrate a good decluttering session!"
+    },
+    {
+      "session": 25,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 04:38",
+      "text": "Remember to consider your personal style, comfort preferences, and the activities you'll be using the shoes for when choosing your new casual shoes."
+    },
+    {
+      "session": 25,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 04:38",
+      "text": "If you're concerned about the environmental impact of throwing away old shoes, you might consider exploring recycling options or repurposing them in the future."
+    },
+    {
+      "session": 25,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 04:38",
+      "text": "Many shoe companies and organizations have programs in place to recycle or repurpose old shoes, so it's worth looking into those options."
+    },
+    {
+      "session": 25,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 04:38",
+      "text": "However, it's also important to acknowledge that sometimes, shoes are simply worn out and need to be disposed of."
+    },
+    {
+      "session": 35,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 04:18",
+      "text": "In contrast, more modern Egyptians may wear different types of shoes that could affect their gait."
+    },
+    {
+      "session": 46,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "I think I'll start cleaning out my shoe rack this weekend, it's been cluttered with shoes I no longer wear and it's getting hard to find the ones I need."
+    },
+    {
+      "session": 46,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "Do you have any tips on how to organize a shoe rack?"
+    },
+    {
+      "session": 46,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "Cleaning out your shoe rack can be a great way to declutter and make the most of your storage space."
+    },
+    {
+      "session": 46,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "Here are some tips to help you organize your shoe rack:"
+    },
+    {
+      "session": 46,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Purge and declutter**: Start by removing everything from your shoe rack and sorting your shoes into three piles: keep, donate/sell, and discard."
+    },
+    {
+      "session": 46,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Categorize and group**: Divide your kept shoes into categories (e.g., heels, flats, boots, sneakers) and group similar shoes together."
+    },
+    {
+      "session": 46,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Assign a home**: Once you've grouped your shoes, assign a specific section of the shoe rack to each category."
+    },
+    {
+      "session": 46,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "This helps maintain organization and prevents shoes from getting mixed up."
+    },
+    {
+      "session": 46,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Use shoe rack dividers**: Consider using dividers or separators to keep shoes from getting jumbled and to create a sense of order."
+    },
+    {
+      "session": 46,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "You can find dividers specifically designed for shoe racks or use cardboard or fabric inserts."
+    },
+    {
+      "session": 46,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Store out-of-season shoes**: If you have limited space, consider storing out-of-season shoes in storage bins or underbed containers to free up space on your shoe rack."
+    },
+    {
+      "session": 46,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Keep frequently worn shoes accessible**: Place your most frequently worn shoes in easy-to-reach locations, making it simple to grab and go."
+    },
+    {
+      "session": 46,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Consider a double-layered shoe rack**: If you have a lot of shoes, consider investing in a double-layered shoe rack."
+    },
+    {
+      "session": 46,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "This allows you to maximize vertical space and store more shoes in a smaller footprint."
+    },
+    {
+      "session": 46,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Keep the floor clear**: Try to keep the floor around your shoe rack clear of clutter to prevent tripping hazards and make it easier to clean."
+    },
+    {
+      "session": 46,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Maintain your organization**: Set a reminder to tidy up your shoe rack every few months to ensure it doesn't get cluttered again."
+    },
+    {
+      "session": 46,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "By following these tips, you'll be able to create a tidy and functional shoe rack that makes your life easier."
+    },
+    {
+      "session": 46,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "I'm planning to get a new pair of gym shoes soon, do you have any recommendations on what features to look for when buying a good pair of gym shoes?"
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "When buying a new pair of gym shoes, there are several features to consider to ensure you get a good pair that meets your needs."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "If you'll be running, look for shoes with good cushioning and support."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "For weightlifting or CrossFit, you'll want shoes with a stiffer sole and lateral support."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Fit**: Make sure the shoes fit comfortably, with enough room in the toe box and a snug heel."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Support**: Look for shoes with good arch support and ankle stability."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "If you have flat feet or other foot issues, consider shoes with additional support features."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "Look for shoes with thick, responsive midsoles."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "Look for shoes with a herringbone or circular traction pattern."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "Look for shoes with mesh panels or perforations."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Durability**: Assess the shoe's build quality and materials."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "A durable shoe will last longer and perform better over time."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Weight**: Lighter shoes can improve performance, but may sacrifice support or cushioning."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Brand and reviews**: Research different brands and read reviews from other users to find a shoe that meets your specific needs and preferences."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "Some popular gym shoe brands include Nike, Adidas, Reebok, and New Balance."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "Consider visiting a specialty running or fitness store to try on different shoes and get a professional fitting."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "Remember, the right gym shoes can make a big difference in your workout performance and comfort."
+    },
+    {
+      "session": 46,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "I've been meaning to get a new pair of gym shoes too!"
+    },
+    {
+      "session": 46,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "Speaking of new shoes, I just got a new pair of sandals that I'm really excited to wear this summer."
+    },
+    {
+      "session": 46,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "Anyway, back to gym shoes..."
+    },
+    {
+      "session": 46,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "I've had a good experience with Nike in the past, but I've been hearing good things about Reebok's CrossFit shoes."
+    },
+    {
+      "session": 46,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "Now, about Reebok's CrossFit shoes..."
+    },
+    {
+      "session": 46,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "I don't have personal experiences, but I can give you an overview of Reebok's CrossFit shoes based on user reviews and feedback."
+    },
+    {
+      "session": 46,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "Reebok's CrossFit shoes are designed specifically for high-intensity workouts, including CrossFit, weightlifting, and HIIT (High-Intensity Interval Training)."
+    },
+    {
+      "session": 46,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "Here are some key features of Reebok's CrossFit shoes:"
+    },
+    {
+      "session": 46,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Stable and durable**: Reebok's CrossFit shoes have a sturdy sole and a low-to-the-ground design, providing stability and support during heavy lifts and intense movements."
+    },
+    {
+      "session": 46,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Breathability**: The shoes feature a breathable upper, which helps keep your feet cool and dry during intense workouts."
+    },
+    {
+      "session": 46,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Flexibility**: The shoes are designed to flex with your foot during movements, allowing for a natural range of motion."
+    },
+    {
+      "session": 46,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "**Comfort**: Many users praise the comfort of Reebok's CrossFit shoes, even during long workouts."
+    },
+    {
+      "session": 46,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "If you're considering Reebok's CrossFit shoes, here are a few things to keep in mind:"
+    },
+    {
+      "session": 46,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "Overall, Reebok's CrossFit shoes are a great option for those who need a versatile, durable, and comfortable shoe for high-intensity workouts."
+    },
+    {
+      "session": 46,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 08:47",
+      "text": "If you're already familiar with Nike, you might find Reebok's shoes to be a great alternative."
+    },
+    {
+      "session": 47,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "Nike: Known for their innovative technology and stylish designs."
+    },
+    {
+      "session": 47,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "ASICS: Specializes in running shoes and apparel, with a focus on comfort and support."
+    },
+    {
+      "session": 47,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "Brooks: A popular choice among runners, offering high-quality shoes and apparel."
+    },
+    {
+      "session": 47,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "I'm actually looking for something specific, like a new pair of running shoes."
+    },
+    {
+      "session": 47,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "Do you know if they have any good deals on running shoes right now?"
+    },
+    {
+      "session": 47,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "Deals on running shoes can vary depending on the retailer, brand, and model."
+    },
+    {
+      "session": 47,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "Here are some current deals on running shoes from popular brands:"
+    },
+    {
+      "session": 47,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Nike:**"
+    },
+    {
+      "session": 47,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "* Nike Air Zoom Pegasus 38: $80 (was $100) at Nike.com"
+    },
+    {
+      "session": 47,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "* Nike Vaporfly Next% 2: $150 (was $200) at Dick's Sporting Goods"
+    },
+    {
+      "session": 47,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "* Nike Air Max Invigor 2: $60 (was $80) at Amazon"
+    },
+    {
+      "session": 47,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "* Amazon: They often have sales on various running shoes from different brands."
+    },
+    {
+      "session": 47,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "* REI: They offer discounts on select running shoes, and members get an extra 10% off."
+    },
+    {
+      "session": 47,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "* 6pm: They have a wide selection of running shoes from various brands at discounted prices."
+    },
+    {
+      "session": 47,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "* Running Warehouse: They offer discounts on running shoes and apparel from popular brands."
+    },
+    {
+      "session": 47,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "* Check the shoe's fit, features, and reviews to ensure it's the right one for your running needs."
+    },
+    {
+      "session": 47,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "Hope this helps you find the perfect pair of running shoes at a great price!"
+    },
+    {
+      "session": 47,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "I'm actually looking for a new pair of Nike running shoes, I've been using them for my daily 5K runs and they've been holding up pretty well."
+    },
+    {
+      "session": 47,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "Do you know if they have any new models or sales on Nike shoes?"
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "Nike is a great choice for running shoes!"
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**New Nike Running Shoe Models:**"
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Nike Air Zoom Pegasus 39**: The latest iteration of the popular Pegasus series, offering improved cushioning and responsiveness."
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Nike Vaporfly Next% 2**: An updated version of the Vaporfly, designed for speed and efficiency, with a full-length carbon plate and a more responsive midsole."
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Nike Air Max Invigor 3**: A new addition to the Air Max family, featuring a full-length Air unit for maximum cushioning and impact protection."
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Nike React Miler**: A new shoe designed for long-distance running, with a React midsole for superior cushioning and energy return."
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Current Sales and Discounts on Nike Running Shoes:**"
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Nike Air Zoom Pegasus 38**: $80 (was $100) at Nike.com"
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Nike Vaporfly Next%**: $150 (was $200) at Dick's Sporting Goods"
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Nike Air Max Invigor 2**: $60 (was $80) at Amazon"
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Nike Free RN 2**: $50 (was $70) at 6pm"
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Nike Sales and Promotions:**"
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Nike Members Get 20% Off**: Sign up for a Nike membership to receive 20% off select styles, including running shoes."
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Student Discount**: Students can get 10% off all Nike products, including running shoes, with a valid student ID."
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Nike Outlet**: Shop the Nike Outlet section for discounted prices on past-season styles and models."
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Deal of the Week**: Check Nike's website for their weekly deals, which often feature running shoes at discounted prices."
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Check the Nike website**: Nike often offers exclusive deals and discounts on their website, so it's worth checking before buying from other retailers."
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Sign up for email newsletters**: Register for Nike's email newsletter to stay informed about new releases, sales, and promotions."
+    },
+    {
+      "session": 47,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "I hope this helps you find the perfect new pair of Nike running shoes for your daily 5K runs!"
+    },
+    {
+      "session": 47,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "Nike has been my favourite brand so far for running shoes."
+    },
+    {
+      "session": 47,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "I'm looking for a new pair running shoes, specifically the same model as my current ones."
+    },
+    {
+      "session": 47,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "I'd be happy to help you find a new pair of Nike running shoes that match your current ones or suggest similar models."
+    },
+    {
+      "session": 47,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**What is the exact model of your current Nike running shoes?** (e.g., Nike Air Zoom Pegasus 37, Nike Vaporfly Next%, etc.)"
+    },
+    {
+      "session": 47,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**What is the colorway of your current shoes?** (e.g., black/white, blue/orange, etc.)"
+    },
+    {
+      "session": 47,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Do you have any specific features in mind for your new shoes?** (e.g., more cushioning, better support, lighter weight, etc.)"
+    },
+    {
+      "session": 47,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Check availability**: I can search online retailers and Nike's website to see if your exact model is still available for purchase."
+    },
+    {
+      "session": 47,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Suggest similar models**: If your exact model is no longer available, I can recommend similar Nike running shoes that might be a good fit for you, based on your foot type, running style, and preferences."
+    },
+    {
+      "session": 47,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Provide alternatives**: If you're open to trying a different model, I can suggest Nike running shoes with similar features or upgrades that might suit your needs."
+    },
+    {
+      "session": 47,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "Let me know, and I'll do my best to help you find the perfect pair of Nike running shoes!"
+    },
+    {
+      "session": 47,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "I bought my current shoes at the outlet mall in April, and they were on sale for 20% off."
+    },
+    {
+      "session": 47,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "Since you bought your current shoes at the outlet mall in April, it's possible that you might be able to find a similar deal again."
+    },
+    {
+      "session": 47,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Nike Outlet website**: The Nike Outlet website often features a wide selection of discounted shoes, including previous seasons' models."
+    },
+    {
+      "session": 47,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "You can filter by style, price, and size to find a similar shoe to your current one."
+    },
+    {
+      "session": 47,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Nike Outlet stores**: Visit a physical Nike Outlet store near you to see what they have in stock."
+    },
+    {
+      "session": 47,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "You can try on shoes and get a feel for the fit and style."
+    },
+    {
+      "session": 47,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Other outlet malls**: If you have other outlet malls in your area, check their Nike stores to see if they carry similar models or styles."
+    },
+    {
+      "session": 47,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "**Online outlet retailers**: Websites like 6pm, Nordstrom Rack, and Saks Off 5th often carry discounted Nike shoes, including previous seasons' models."
+    },
+    {
+      "session": 47,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "As for finding a similar model, Nike often releases new versions of popular styles with updates and improvements."
+    },
+    {
+      "session": 47,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "If you're happy with your current shoes, you might find a newer version that offers even better features and performance."
+    },
+    {
+      "session": 47,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "Keep in mind that outlet malls and online retailers might not always have the exact same model or colorway, but you might find a similar shoe that fits your needs and budget."
+    },
+    {
+      "session": 47,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:47",
+      "text": "Good luck in your search, and I hope you find an amazing deal on your new shoes!"
+    },
+    {
+      "session": 51,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "I'm also thinking of getting a new pair of shoes to match my outfit."
+    },
+    {
+      "session": 51,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "Do you know any good online resources for finding the right dress shoes?"
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "Finding the right dress shoes can elevate your entire outfit."
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Online Shoe Retailers**"
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Allen Edmonds**: Allen Edmonds is a well-known luxury shoemaker that offers high-quality dress shoes."
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Brooks Brothers**: Brooks Brothers is a classic American brand that offers a variety of dress shoes, from oxfords to loafers."
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Nordstrom**: Nordstrom is a great online retailer that carries a wide range of dress shoes from various brands."
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Shoe Review Websites**"
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**The Shoe Snob**: The Shoe Snob is a blog that reviews and showcases high-quality dress shoes."
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Put This On**: Put This On is a men's style blog that often reviews dress shoes."
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Dappered**: Dappered is a men's fashion blog that regularly reviews affordable dress shoes."
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Shoe Forums and Communities**"
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Reddit's r/goodyearwelt**: This subreddit is dedicated to high-quality, handcrafted dress shoes."
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Styleforum**: Styleforum is a men's fashion forum where you can ask for advice on dress shoes, share your own experiences, and learn from others."
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Tips for Buying Dress Shoes Online**"
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Read reviews**: Check reviews from multiple sources to get a sense of the shoe's quality, comfort, and fit."
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Consider the occasion**: Think about the event you're attending and the style of shoe that would be appropriate."
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Don't be afraid to ask for advice**: Reach out to customer service or a stylist for guidance on finding the right shoe for your needs."
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "Remember, buying dress shoes online can be a bit tricky, so make sure to do your research and take your time."
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "If possible, try to visit a physical store to try on shoes before making a purchase online."
+    },
+    {
+      "session": 51,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "I hope these resources help you find the perfect pair of dress shoes to complement your custom-made shirt and outfit!"
+    },
+    {
+      "session": 51,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "I've actually already bought a pair of shoes recently, but I'm not sure if they'll match my outfit perfectly."
+    },
+    {
+      "session": 51,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "Can you give me some tips on how to coordinate my shoes with the rest of my outfit?"
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "Coordinating your shoes with your outfit can make a big difference in your overall look."
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "Here are some tips to help you match your shoes with your outfit:"
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Formal events**: For black-tie events, weddings, or formal galas, opt for patent leather or highly polished shoes in black, white, or midnight blue."
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Business casual**: For business casual events or networking meetings, choose shoes in brown, tan, or loafers in neutral colors."
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Casual events**: For casual events or social gatherings, you can opt for dress shoes in earthy tones, like brown, beige, or oxfords in lighter colors."
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Match the dominant color**: Match your shoes to the dominant color of your outfit, such as the color of your pants, suit, or dress."
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Complement with a secondary color**: If you want to add some contrast, choose a shoe color that complements a secondary color in your outfit, like a tie, pocket square, or shirt."
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Dress shoes**: For formal events, opt for dress shoes with a sleek, streamlined design."
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Leather**: Leather shoes are a classic choice, but consider suede or velvet for a more stylish look."
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Suede**: Suede shoes add a touch of sophistication, but they can be more delicate than leather."
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Brogue or perforations**: Brogue or perforated shoes can add visual interest to your outfit."
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Match your belt**: Try to match your belt to your shoes, especially if you're wearing a suit or dress pants."
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "* Do my shoes match the occasion and dress code?"
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "* Do my shoes complement or match the dominant color of my outfit?"
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "* Does the style of my shoes fit the overall aesthetic of my outfit?"
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "* Do my shoes work well with my belt and accessories?"
+    },
+    {
+      "session": 51,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "If you're still unsure, try taking a photo of yourself in the outfit and shoes, or ask a friend or family member for their honest opinion."
+    },
+    {
+      "session": 51,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "I think I need to try on the shoes with the outfit and see how it looks."
+    },
+    {
+      "session": 51,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "Trying on the shoes with the outfit is a great idea!"
+    },
+    {
+      "session": 51,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Belt**: Make sure your belt matches your shoes and complements the dominant color of your outfit."
+    },
+    {
+      "session": 51,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "**Socks**: Choose socks that match your shoes or complement the dominant color of your outfit."
+    },
+    {
+      "session": 51,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "Now, go ahead and try on your shoes with your outfit, and experiment with different accessories to create a cohesive look."
+    },
+    {
+      "session": 51,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "I think I'll try on the shoes with the outfit and see how it looks."
+    },
+    {
+      "session": 51,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 20:55",
+      "text": "Trying on the shoes with the outfit and experimenting with different accessories is a great way to see how everything comes together."
+    }
+  ],
+  "coverage": "All messages in both roles scanned programmatically. Regex matches are navigation, not proof of absence.",
+  "independent_full_history_review": "pending",
+  "eligibility": "provisional_candidate"
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "a9f6b44c",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 307,
+  "question_cell": "F307",
+  "answer_cell": "E307",
+  "adopted_question_verbatim": "How many bikes did I service or plan to service in March?",
+  "adopted_answer_or_rubric_verbatim": "2: road bike and commuter bike",
+  "english_rubric": "Require two: road and commuter. The question includes plans; repeated service on one bike is not another bike.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

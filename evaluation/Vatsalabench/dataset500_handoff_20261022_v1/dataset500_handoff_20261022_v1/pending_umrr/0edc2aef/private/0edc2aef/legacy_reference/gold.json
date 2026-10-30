@@ -1,0 +1,132 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "Seattle",
+      "rule": "Require Seattle for the earlier discussion; do not use the later Miami task to rewrite historical destination. No claim that suggested hotel amenities exist."
+    },
+    "BASE-2": {
+      "expected": "Seattle",
+      "rule": "Require Seattle for the earlier discussion; do not use the later Miami task to rewrite historical destination. No claim that suggested hotel amenities exist."
+    },
+    "BASE-3": {
+      "expected": "Seattle",
+      "rule": "Require Seattle for the earlier discussion; do not use the later Miami task to rewrite historical destination. No claim that suggested hotel amenities exist."
+    },
+    "RET-10": {
+      "expected": "Seattle",
+      "rule": "Require Seattle for the earlier discussion; do not use the later Miami task to rewrite historical destination. No claim that suggested hotel amenities exist."
+    },
+    "RET-30": {
+      "expected": "Seattle",
+      "rule": "Require Seattle for the earlier discussion; do not use the later Miami task to rewrite historical destination. No claim that suggested hotel amenities exist."
+    },
+    "RET-50": {
+      "expected": "Seattle",
+      "rule": "Require Seattle for the earlier discussion; do not use the later Miami task to rewrite historical destination. No claim that suggested hotel amenities exist."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "Seattle",
+        "a rooftop pool or a hot tub on the balcony"
+      ],
+      "intents": [
+        "Earlier destination",
+        "One stated feature preference"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "sea view",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "sea view",
+        "courtyard view"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "sea view",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "sea view",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 40,
+        "turn_index": 1,
+        "date": "2023/05/29 (Mon) 14:06",
+        "role": "user",
+        "quote": "I'm planning a trip to Seattle and need help finding a hotel with a great view of the city. Do you have any recommendations?"
+      },
+      {
+        "session_index": 40,
+        "turn_index": 3,
+        "date": "2023/05/29 (Mon) 14:06",
+        "role": "user",
+        "quote": "Besides great views, I also like hotels with unique features, such as a rooftop pool or a hot tub on the balcony. Do you know if any of these hotels have those features?"
+      },
+      {
+        "session_index": 40,
+        "turn_index": 19,
+        "date": "2023/05/29 (Mon) 14:06",
+        "role": "user",
+        "quote": "I think I'll stick with the Space Needle Romance Package at The Edgewater Hotel. The hot tub on the balcony with a view of the Space Needle sounds amazing, and the complimentary room service breakfast and $100 credit towards a couples' massage are great perks. Thank you for your help in booking this package!"
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": true,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "0edc2aef",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

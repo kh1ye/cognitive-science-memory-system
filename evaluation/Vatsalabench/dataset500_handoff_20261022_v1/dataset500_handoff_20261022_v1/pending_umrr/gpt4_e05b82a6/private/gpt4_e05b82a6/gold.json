@@ -1,0 +1,144 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "3",
+      "rule": "Require three consecutive rides; treat locations as historical self-report, not externally verified attractions."
+    },
+    "BASE-2": {
+      "expected": "3",
+      "rule": "Require three consecutive rides; treat locations as historical self-report, not externally verified attractions."
+    },
+    "BASE-3": {
+      "expected": "3",
+      "rule": "Require three consecutive rides; treat locations as historical self-report, not externally verified attractions."
+    },
+    "RET-10": {
+      "expected": "3",
+      "rule": "Require three consecutive rides; treat locations as historical self-report, not externally verified attractions."
+    },
+    "RET-30": {
+      "expected": "3",
+      "rule": "Require three consecutive rides; treat locations as historical self-report, not externally verified attractions."
+    },
+    "RET-50": {
+      "expected": "3",
+      "rule": "Require three consecutive rides; treat locations as historical self-report, not externally verified attractions."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "three",
+        "Universal Studios Hollywood"
+      ],
+      "intents": [
+        "Consecutive count",
+        "Reported park"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "10:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/11/05 08:00",
+        "old_valid_from": "2023/11/05 08:00",
+        "old_valid_to": "2023/11/06 09:00",
+        "observed_at": "2023/11/06 09:00",
+        "valid_from": "2023/11/06 09:00",
+        "valid_to": null,
+        "query_time": "2023/11/06 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "10:00",
+        "11:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "10:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "10:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 5,
+        "turn_index": 11,
+        "date": "2023/11/04 (Sat) 03:27",
+        "role": "user",
+        "quote": "Can I ask, have you ever been on a rollercoaster that's themed around an ancient Egyptian tomb? I rode the Revenge of the Mummy rollercoaster three times in a row at Universal Studios Hollywood on October 15th, and it was such a thrill!"
+      },
+      {
+        "session_index": 21,
+        "turn_index": 1,
+        "date": "2023/11/04 (Sat) 11:35",
+        "role": "user",
+        "quote": "I'm planning a trip to Knott's Berry Farm soon and I was wondering if you could give me some tips on which rides to prioritize during their Knott's Spooky Farm event. By the way, I rode the Xcelerator rollercoaster at Knott's Berry Farm on October 8th and it's still one of my favorite thrill rides."
+      },
+      {
+        "session_index": 38,
+        "turn_index": 1,
+        "date": "2023/11/04 (Sat) 18:12",
+        "role": "user",
+        "quote": "I'm planning a trip to Disneyland and was wondering if you could help me with some info on their Halloween events. By the way, I rode Space Mountain: Ghost Galaxy three times at Disneyland on September 24th during Mickey's Halloween Party, and it was a blast! Do you know if they'll have similar events this year?"
+      },
+      {
+        "session_index": 43,
+        "turn_index": 1,
+        "date": "2023/11/04 (Sat) 21:15",
+        "role": "user",
+        "quote": "I'm planning a trip to San Diego and was wondering what are some must-see attractions there. By the way, I'm a huge rollercoaster fan and I have a fun fact: I rode the Mako, Kraken, and Manta rollercoasters all in one night at SeaWorld San Diego in July."
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/11/05 08:00",
+    "old_valid_from": "2023/11/05 08:00",
+    "old_valid_to": "2023/11/06 09:00",
+    "observed_at": "2023/11/06 09:00",
+    "valid_from": "2023/11/06 09:00",
+    "valid_to": null,
+    "query_time": "2023/11/06 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "gpt4_e05b82a6",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

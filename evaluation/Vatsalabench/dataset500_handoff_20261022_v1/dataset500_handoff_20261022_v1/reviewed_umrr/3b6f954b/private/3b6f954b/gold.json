@@ -1,0 +1,280 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "University of Melbourne",
+      "rule": "Accept University of Melbourne or Melbourne University; a city or country alone is insufficient."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Candidate only. Require explicit uncertainty, no invented target value, and no false denial of related known events. Independent whole-history absence review is required. A stated lack of evidence must not be replaced by a claim that the identifier or underlying event never existed. This stricter draft policy is not retroactive to previous pilot scores.",
+      "annotation_status": "AI_search_found_no_support; independent_full_history_review_pending"
+    },
+    "R1R2": {
+      "expected": [
+        "University of Melbourne",
+        "Great Ocean Road"
+      ],
+      "rule": "TIC proposed answer-slot rule: a substantive proposed value addresses an intent even if incorrect; refusal alone does not fill a requested value. AFP counts deduplicated task-serving units, including relevant uncertainty; empty answer zero. Freeze this convention before live execution.",
+      "intents": [
+        "Host university",
+        "Coastal route explored"
+      ]
+    },
+    "CUR-H2": {
+      "expected": "phone call",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "phone call",
+        "postal mail"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not choose a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "phone call",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "phone call",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    },
+    "BASE-2": {
+      "expected": "University of Melbourne",
+      "rule": "Accept University of Melbourne or Melbourne University; a city or country alone is insufficient."
+    },
+    "BASE-3": {
+      "expected": "University of Melbourne",
+      "rule": "Accept University of Melbourne or Melbourne University; a city or country alone is insufficient."
+    },
+    "RET-10": {
+      "expected": "University of Melbourne",
+      "rule": "Accept University of Melbourne or Melbourne University; a city or country alone is insufficient."
+    },
+    "RET-30": {
+      "expected": "University of Melbourne",
+      "rule": "Accept University of Melbourne or Melbourne University; a city or country alone is insufficient."
+    },
+    "RET-50": {
+      "expected": "University of Melbourne",
+      "rule": "Accept University of Melbourne or Melbourne University; a city or country alone is insufficient."
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 22,
+        "turn_index": 9,
+        "date": "2023/05/23 (Tue) 10:24",
+        "quote": "That sounds amazing! I've been to the Great Ocean Road before, and it's definitely a must-see in Australia. I actually went there with some friends during my study abroad program at the University of Melbourne. We had a blast exploring the coast, hiking, and taking in the stunning views. If you have time, I'd recommend stopping by the Kennett River Koala Walk to spot some koalas in their natural habitat."
+      }
+    ],
+    "reviewed_question": "Which university did I attend for my study abroad program?",
+    "reviewed_answer": "University of Melbourne",
+    "scoring_answer": "University of Melbourne",
+    "normalization": "English scoring form preserves reviewed meaning and source units.",
+    "effective_question": "Which university did I attend for my study abroad program?"
+  },
+  "negative_review": {
+    "question": "What was my exact student identification number during the study abroad program I mentioned?",
+    "scan": "All messages, both roles; regex is navigation only, not proof of absence.",
+    "pattern": "student|identification|enrol|enroll|Melbourne|university",
+    "matching_messages": [
+      {
+        "session_index": 5,
+        "turn_index": 2,
+        "role": "assistant",
+        "date": "2023/05/20 (Sat) 13:06",
+        "content": "1. Day Trading\n2. Forex Trading\n3. Options Trading\n4. Futures Trading\n5. Cryptocurrency Trading\n6. Swing Trading\n7. Technical Analysis\n8. Fundamental Analysis\n9. Stock Trading\n10. Penny Stock Trading\n11. Algorithmic Trading\n12. Quantitative Trading\n13. High Frequency Trading\n14. Scalping\n15. Trading Psychology\n16. Risk Management\n17. Trading Strategies\n18. News Trading\n19. Breakout Trading\n20. Trend Trading\n21. Price Action Trading\n22. Position Trading\n23. Elliott Wave Theory\n24. Fibonacci Trading\n25. Volume Trading\n26. Order Flow Trading\n27. Market Profile Trading\n28. Market Sentiment Analysis\n29. Market Making\n30. Market Microstructure\n31. Market Efficiency\n32. Market Liquidity\n33. Trading Indicators\n34. Moving Averages\n35. Bollinger Bands\n36. Relative Strength Index (RSI)\n37. Stochastic Oscillator\n38. MACD (Moving Average Convergence Divergence)\n39. Ichimoku Cloud\n40. Donchian Channels\n41. Keltner Channels\n42. Renko Charts\n43. Heikin Ashi Charts\n44. Candlestick Patterns\n45. Chart Patterns\n46. Gann Theory\n47. Wyckoff Method\n48. Intermarket Analysis\n49. Seasonal Trading\n50. Spread Trading\n51. Arbitrage Trading\n52. Pair Trading\n53. Delta Neutral Trading\n54. Iron Condor Trading\n55. Straddle Trading\n56. Butterfly Trading\n57. Credit Spread Trading\n58. Naked Options Trading\n59. Options Greeks\n60. Covered Call Writing\n61. Dividend Investing\n62. Growth Investing\n63. Value Investing\n64. Index Investing\n65. ETF Trading\n66. Mutual Fund Trading\n67. REIT Investing\n68. Real Estate Investing\n69. CrowdFunding Investing\n70. Peer-to-Peer Lending\n71. Socially Responsible Investing\n72. Impact Investing\n73. Robo-Advisory Services\n74. Financial Planning\n75. Retirement Planning\n76. Tax Planning\n77. Estate Planning\n78. Insurance Planning\n79. College Planning\n80. Credit Score Improvement\n81. Credit Card Rewards\n82. Frugal Living\n83. Budgeting\n84. Debt Management\n85. Student Loans\n86. Side Hustles\n87. Entrepreneurship\n88. Passive Income\n89. Real Estate Investing for Beginners\n90. Trading for Beginners\n91. Personal Finance for Beginners\n92. Investing for Beginners\n93. Financial Literacy\n94. Money Management\n95. Wealth Management\n96. Retirement Living\n97. Digital Currencies\n98. NFT Trading\n99. Gaming Stocks\n100. Electric Vehicles Stocks"
+      },
+      {
+        "session_index": 12,
+        "turn_index": 4,
+        "role": "assistant",
+        "date": "2023/05/22 (Mon) 02:56",
+        "content": "You've already got a great foundation in historical fiction and have dipped your toes into fantasy. I'd be happy to suggest more fantasy books that might interest you:\n\n**Epic Fantasy**\n\n1. **The First Law Trilogy** by Joe Abercrombie: A gritty, fast-paced, and morally complex series that follows a variety of characters in a world on the brink of war.\n2. **The Mistborn Series** by Brandon Sanderson: A high-fantasy series with a unique magic system, complex characters, and a gripping storyline.\n3. **The Stormlight Archive** by Brandon Sanderson: Another epic fantasy series from Sanderson, set in a world where powerful magical beings known as Surgebinders wield immense powers.\n\n**Urban Fantasy**\n\n1. **The All Souls Trilogy** by Deborah Harkness: A historical fantasy series that follows a witch who discovers a long-lost manuscript that holds the secrets of magical creatures.\n2. **The Rivers of London Series** by Ben Aaronovitch: A fun, humorous series that follows a detective as he investigates supernatural crimes in modern-day London.\n3. **The Iron Druid Chronicles** by Kevin Hearne: A fast-paced, action-packed series that follows a 2,000-year-old druid as he battles various supernatural creatures in modern-day Arizona.\n\n**Fantasy with Strong Female Protagonists**\n\n1. **The Poppy War** by R.F. Kuang: A fantasy novel set in a world inspired by Chinese history and mythology, following a young orphan who enrolls in a prestigious military academy and discovers her latent powers.\n2. **The Fifth Season** by N.K. Jemisin: A stunning novel that follows a young woman with the power to control the earth's geology in a world where natural disasters called \"Fifth Seasons\" have caused widespread destruction.\n3. **The House of Shattered Wings** by Aliette de Bodard: A dark, atmospheric novel set in a post-apocalyptic Paris, where fallen angels and rival houses fight for power.\n\n**Fantasy with Unique Magic Systems**\n\n1. **The Gone-Away World** by Nick Harkaway: A post-apocalyptic novel that combines elements of science fiction and fantasy, with a unique magic system based on genetic engineering.\n2. **The Golem and the Jinni** by Helene Wecker: A historical fantasy novel that tells the story of a golem and a jinni who find themselves in early 20th-century New York City, exploring themes of identity and community.\n3. **The House of Whispers** by Laura Purcell: A dark, atmospheric novel set in a crumbling mansion, where a young woman discovers a mysterious journal that holds the secrets of a long-forgotten family tragedy.\n\nI hope you find something that piques your interest!"
+      },
+      {
+        "session_index": 22,
+        "turn_index": 9,
+        "role": "user",
+        "date": "2023/05/23 (Tue) 10:24",
+        "content": "That sounds amazing! I've been to the Great Ocean Road before, and it's definitely a must-see in Australia. I actually went there with some friends during my study abroad program at the University of Melbourne. We had a blast exploring the coast, hiking, and taking in the stunning views. If you have time, I'd recommend stopping by the Kennett River Koala Walk to spot some koalas in their natural habitat."
+      },
+      {
+        "session_index": 22,
+        "turn_index": 10,
+        "role": "assistant",
+        "date": "2023/05/23 (Tue) 10:24",
+        "content": "That sounds like an amazing experience! I'm glad to hear you've had a chance to visit the Great Ocean Road and enjoy its natural beauty. The Kennett River Koala Walk is a great tip - spotting koalas in their natural habitat is a unique and unforgettable experience.\n\nAs a digital AI assistant, I don't have personal experiences or travel, but I'm always happy to help and provide information to assist with your travels. It's great to hear that you have fond memories of your study abroad program at the University of Melbourne. Study abroad experiences can be life-changing, and it's wonderful that you got to explore Australia's beauty during your time there.\n\nIf you have any more travel tips or recommendations, feel free to share them! I'm always eager to learn and provide helpful information to others."
+      },
+      {
+        "session_index": 23,
+        "turn_index": 1,
+        "role": "user",
+        "date": "2023/05/23 (Tue) 14:26",
+        "content": "What role does athletics play in campus culture at the University of Saskatchewan, and how does it differ from other universities in Canada or North America?"
+      },
+      {
+        "session_index": 23,
+        "turn_index": 2,
+        "role": "assistant",
+        "date": "2023/05/23 (Tue) 14:26",
+        "content": "I don't have personal views or beliefs, but i can provide factual information on this topic. \n\nathletics plays a significant role in the campus culture at the university of saskatchewan (usask). the university has a broad range of sports programs and facilities for both varsity and non-varsity athletes, including hockey, soccer, basketball, volleyball, football, rugby, and others. usask also has a strong recreation program that offers fitness classes and intramural sports for students who want to participate in a more casual setting.\n\none significant difference between usask and other canadian or north american universities is the emphasis on hockey. the huskies (usask's varsity hockey team) have a storied history and are consistently ranked among the top teams in canada. hockey is a significant part of the university's athletic culture, and the team's games often draw large crowds.\n\nusask is also unique in that it is home to the canadian football hall of fame, and the university regularly hosts events and ceremonies related to canadian football. overall, athletics plays a central role in the culture of usask and is an important part of the university experience for many students."
+      },
+      {
+        "session_index": 23,
+        "turn_index": 4,
+        "role": "assistant",
+        "date": "2023/05/23 (Tue) 14:26",
+        "content": "USask has a range of athletic facilities that are comparable to those at other universities in Canada. The university has a main athletic complex that includes a hockey rink, basketball court, volleyball court, and fitness center. These facilities are used by both varsity teams and recreational users.\n\nOne unique feature of USask's athletic facilities is the Griffiths Stadium, which is the home of the Huskies' football team. The stadium can seat up to 6,171 spectators and features a natural grass playing surface, which is relatively rare in Canadian football.\n\nAnother distinctive aspect of USask's athletic facilities is the Physical Activity Complex (PAC), which includes a rock climbing wall and a high-performance training center. The PAC is one of the most comprehensive fitness facilities on campus, and it's open to students and staff members.\n\nIn comparison to other universities in Canada, USask's athletic facilities are considered to be of good quality and are well-maintained. While there may be differences in the specific facilities offered at each institution, USask's athletic facilities are on par with those at other similar-sized universities in Canada."
+      },
+      {
+        "session_index": 23,
+        "turn_index": 5,
+        "role": "user",
+        "date": "2023/05/23 (Tue) 14:26",
+        "content": "Can students from other faculties, who are not involved in varsity sports, still use the athletic facilities at USask? Is there a fee?"
+      },
+      {
+        "session_index": 23,
+        "turn_index": 6,
+        "role": "assistant",
+        "date": "2023/05/23 (Tue) 14:26",
+        "content": "Yes, students from other faculties who are not involved in varsity sports can use the athletic facilities at USask. There is a fee for non-varsity athletes to access the facilities, which is typically included in their student fees. However, students who are not enrolled in courses during the summer may be required to pay an additional fee, as summer access to facilities is not automatically included in the regular student fees.\n\nAdditionally, USask offers a range of recreational programs and services available to all students, including fitness classes and intramural sports. These programs are geared towards non-varsity athletes and offer an opportunity for students to participate in sports and activities without being a part of a varsity team. \n\nOverall, USask's athletic facilities and programs are designed to serve both varsity and non-varsity athletes, as well as the broader student population."
+      },
+      {
+        "session_index": 23,
+        "turn_index": 8,
+        "role": "assistant",
+        "date": "2023/05/23 (Tue) 14:26",
+        "content": "I do not have access to the most current information on whether there are any plans to expand or upgrade athletic facilities at usask in the near future. it is best to check with the university of saskatchewan directly or with their facilities management division for the most up-to-date information on possible renovations or expansions of the athletic facilities. however, it is not uncommon for universities to update or expand their athletic facilities to meet the needs of their students, so it is possible that usask is considering such improvements."
+      },
+      {
+        "session_index": 25,
+        "turn_index": 1,
+        "role": "assistant",
+        "date": "2023/05/24 (Wed) 14:57",
+        "content": "Certainly, here are the 10 rows in the table as comma-separated sentences:\n\n1. Photo Style: 1960s Editorial, Composition: Symmetrical, Camera Angle: Low Angle, Room Type: Living Room, Focal Point: Female Model's Face, Textures: Smooth, Clothing: Vintage, Color Palette: Black and White, Camera Model: Canon EOS 1, Lighting: Natural, Location: Studio, Time of Day: Daytime, Mood: Glamorous, Architecture: Modernist, Aspect Ratio: 3:2.\n2. Photo Style: 1960s Editorial, Composition: Asymmetrical, Camera Angle: High Angle, Room Type: Bedroom, Focal Point: Male Model on Bed, Textures: Textured, Clothing: Bohemian, Color Palette: Pastel Colors, Camera Model: Nikon D850, Lighting: Artificial, Location: Beach House, Time of Day: Sunset, Mood: Dreamy, Architecture: Colonial, Aspect Ratio: 4:3.\n3. Photo Style: 1960s Editorial, Composition: Rule of Thirds, Camera Angle: Eye Level, Room Type: Kitchen, Focal Point: Chef with Plate, Textures: Glossy, Clothing: Retro, Color Palette: Primary Colors, Camera Model: Fujifilm X-T3, Lighting: Mixed, Location: Restaurant, Time of Day: Noon, Mood: Energetic, Architecture: Mid-Century, Aspect Ratio: 1:1.\n4. Photo Style: 1960s Editorial, Composition: Golden Ratio, Camera Angle: Bird's Eye View, Room Type: Dining Room, Focal Point: Couple at Table, Textures: Natural, Clothing: Formal, Color Palette: Earthy Tones, Camera Model: Sony A7 III, Lighting: Studio, Location: Luxury Hotel, Time of Day: Nighttime, Mood: Romantic, Architecture: Art Deco, Aspect Ratio: 16:9.\n5. Photo Style: 1960s Editorial, Composition: Centered, Camera Angle: Worm's Eye View, Room Type: Library, Focal Point: Woman reading books, Textures: Rough, Clothing: Academic, Color Palette: Monochromatic, Camera Model: Canon EOS R6, Lighting: Natural, Location: Ivy League University, Time of Day: Late Afternoon, Mood: Intellectual, Architecture: Gothic Revival, Aspect Ratio: 2:1.\n6. Photo Style: 1960s Editorial, Composition: Diagonal, Camera Angle: Dutch Angle, Room Type: Music Room, Focal Point: Man playing piano, Textures: Polished, Clothing: Classic, Color Palette: Deep Hues, Camera Model: Pentax K-1 II, Lighting: Mixed, Location: Private Home, Time of Day: Early Morning, Mood: Melancholic, Architecture: Tudor Revival, Aspect Ratio: 5:4.\n7. Photo Style: 1960s Editorial, Composition: Framing, Camera Angle: Tilted, Room Type: Office, Focal Point: Businesswoman at desk, Textures: Industrial, Clothing: Business, Color Palette: Neutral Colors, Camera Model: Leica SL2-S, Lighting: Artificial, Location: Skyscraper, Time of Day: Late Evening, Mood: Ambitious, Architecture: Postmodern, Aspect Ratio: 2.39:1.\n8. Photo Style: 1960s Editorial, Composition: Minimalism, Camera Angle: Overhead, Room Type: Bathroom, Focal Point: Woman in bathtub, Textures: Smooth, Clothing: Modern, Color Palette: White and Gray, Camera Model: Olympus OM-D E-M1, Lighting: Natural, Location: Spa, Time of Day"
+      },
+      {
+        "session_index": 31,
+        "turn_index": 4,
+        "role": "assistant",
+        "date": "2023/05/26 (Fri) 07:24",
+        "content": "Ancient Egypt is a fascinating topic! Here are some documentary and online resource recommendations that will complement the books I suggested earlier:\n\n**Documentaries**\n\n1. **\"Ancient Egypt: Life and Death in the Valley of the Kings\"** (BBC, 2016) - A 3-part documentary series exploring the lives of the people who built the Valley of the Kings.\n2. **\"The Pyramid Code\"** (History Channel, 2010) - A 5-part documentary series exploring the mysteries and symbolism of the pyramids.\n3. **\"Ancient Egypt: The Greatest Show on Earth\"** (BBC, 2003) - A 6-part documentary series covering the history of ancient Egypt, from the pyramids to the Roman conquest.\n4. **\"Secrets of the Pharaohs\"** (National Geographic, 2019) - A 4-part documentary series using cutting-edge technology to uncover new insights into ancient Egyptian mummies and tombs.\n5. **\"The Nile: Egypt's Great River\"** (BBC, 2019) - A 3-part documentary series exploring the history and culture of the Nile River, which was the lifeblood of ancient Egypt.\n\n**Online Resources**\n\n1. **The British Museum's Ancient Egypt Website**: An exhaustive online resource with articles, videos, and interactive features covering all aspects of ancient Egyptian culture.\n2. **The Metropolitan Museum of Art's Heilbrunn Timeline of Art History: Ancient Egypt**: A comprehensive online timeline of ancient Egyptian art and culture, featuring over 1,000 objects from the Met's collection.\n3. **Ancient Egypt Online**: A website dedicated to ancient Egyptian history, featuring articles, videos, and interactive features on topics like mummies, pyramids, and hieroglyphics.\n4. **Egyptology Resources**: A website maintained by Dr. Kate Phizackerley, featuring articles, news, and resources on ancient Egypt, including a section on recent discoveries and excavations.\n5. **The Griffith Institute's Archive**: A digital archive of over 100,000 images, documents, and artifacts related to ancient Egypt, including the papers of famous Egyptologists like Howard Carter and Alan Gardiner.\n\n**Online Courses and Lectures**\n\n1. **Coursera's \"Ancient Egyptian History\"** (University of Pennsylvania): A free online course covering the history of ancient Egypt from 2613 BCE to 395 CE.\n2. **edX's \"Pyramids of Giza: Ancient Egyptian Art and Archaeology\"** (Harvard University): A free online course exploring the art, architecture, and archaeology of the Giza pyramids.\n3. **The Oriental Institute's \"Ancient Egypt\" Lecture Series** (University of Chicago): A series of free online lectures covering various aspects of ancient Egyptian history and culture.\n\nThese resources will provide you with a wealth of information and insights to complement the books I recommended earlier. Enjoy your exploration of ancient Egypt!"
+      },
+      {
+        "session_index": 31,
+        "turn_index": 6,
+        "role": "assistant",
+        "date": "2023/05/26 (Fri) 07:24",
+        "content": "The pyramids and the Great Sphinx are indeed fascinating topics! Here are some online resources and documentaries that focus specifically on their construction and history:\n\n**Documentaries**\n\n1. **\"The Pyramid Builders\"** (BBC, 2002) - A 2-part documentary series exploring the construction of the pyramids and the lives of the people who built them.\n2. **\"The Great Pyramid: The Last Secret\"** (History Channel, 2019) - A documentary exploring the latest theories and discoveries about the construction of the Great Pyramid of Giza.\n3. **\"The Sphinx Revealed\"** (History Channel, 2019) - A documentary examining the latest research and theories about the construction and purpose of the Great Sphinx.\n4. **\"The Pyramids of Giza: Ancient Egyptian Marvels\"** (Smithsonian Channel, 2018) - A documentary exploring the history and construction of the pyramids, including the Great Pyramid and the Sphinx.\n5. **\"Secrets of the Pyramids\"** (National Geographic, 2017) - A documentary series exploring the latest discoveries and theories about the pyramids, including their construction and purpose.\n\n**Online Resources**\n\n1. **The Great Pyramid of Giza 3D Model** (Google Arts & Culture): An interactive 3D model of the Great Pyramid, allowing you to explore its internal chambers and construction.\n2. **The Pyramids of Giza Virtual Tour** (Egypt's Ministry of Antiquities and Tourism): A virtual tour of the Giza pyramid complex, including the Great Pyramid, the Sphinx, and other monuments.\n3. **The Great Sphinx Project** (Harvard University): A digital project exploring the history and construction of the Great Sphinx, featuring 3D models, videos, and articles.\n4. **The Pyramid Texts Online** (Oxford University): A digital edition of the Pyramid Texts, a collection of ancient Egyptian spells and prayers inscribed on the walls of the pyramids.\n5. **The Giza Plateau Mapping Project** ( Ancient Egypt Research Associates): A website featuring detailed maps and plans of the Giza pyramid complex, including the Sphinx and surrounding monuments.\n\n**Academic Resources**\n\n1. **The Journal of the American Research Center in Egypt**: A peer-reviewed journal featuring articles on various aspects of ancient Egyptian studies, including pyramid construction and the Sphinx.\n2. **The Cambridge University's Faculty of Classics: Ancient Egypt**: A website featuring research papers, articles, and resources on ancient Egyptian history, including the pyramids and the Sphinx.\n3. **The Oriental Institute's Pyramid Texts Project** (University of Chicago): A research project dedicated to the study and publication of the Pyramid Texts, featuring articles, translations, and resources.\n\nThese resources should provide you with a wealth of information on the construction of the pyramids and the Great Sphinx. Enjoy your exploration!"
+      },
+      {
+        "session_index": 31,
+        "turn_index": 8,
+        "role": "assistant",
+        "date": "2023/05/26 (Fri) 07:24",
+        "content": "The Great Sphinx of Giza is indeed a fascinating and enigmatic monument! Here are some resources that focus specifically on its construction, purpose, and the theories surrounding its origins:\n\n**Documentaries**\n\n1. **\"The Sphinx: Secrets of the Great Pyramid\"** (History Channel, 2017) - A documentary exploring the latest research and theories about the Sphinx, including its construction and purpose.\n2. **\"The Great Sphinx: The Riddle of the Ages\"** (BBC, 2015) - A documentary examining the history and mystery of the Sphinx, featuring interviews with experts and archaeologists.\n3. **\"The Sphinx Unveiled\"** (National Geographic, 2019) - A documentary series exploring the latest discoveries and theories about the Sphinx, including its construction and purpose.\n\n**Books**\n\n1. **\"The Message of the Sphinx: A Quest for the Hidden Legacy of Mankind\"** by Graham Hancock - A book exploring the author's theories about the Sphinx's construction and purpose, including its possible connection to ancient civilizations.\n2. **\"Serpent in the Sky: The High Wisdom of Ancient Egypt\"** by John Anthony West - A book examining the symbolism and meaning of the Sphinx, including its connection to ancient Egyptian mythology and spirituality.\n3. **\"The Orion Mystery: Unlocking the Secrets of the Pyramids\"** by Robert Bauval and Graham Hancock - A book exploring the theory that the Sphinx and the pyramids were aligned with the stars of the constellation Orion.\n\n**Online Resources**\n\n1. **The Great Sphinx Project** (Harvard University) - A digital project exploring the history and construction of the Sphinx, featuring 3D models, videos, and articles.\n2. **The Sphinx of Giza** (Egypt's Ministry of Antiquities and Tourism) - An official website featuring information on the Sphinx's history, construction, and significance.\n3. **The Ancient Egypt Online: Sphinx** - A website featuring articles, images, and resources on the Sphinx, including its history, symbolism, and theories about its construction.\n\n**Academic Resources**\n\n1. **The Journal of Egyptian Archaeology: The Sphinx** - A collection of academic articles and research papers on the Sphinx, including its construction, purpose, and significance.\n2. **The American Research Center in Egypt: Sphinx** - A website featuring research papers, articles, and resources on the Sphinx, including its history, symbolism, and theories about its construction.\n3. **The Oriental Institute's Sphinx Research** (University of Chicago) - A research project dedicated to the study of the Sphinx, featuring articles, research papers, and resources.\n\n**Theories and Debates**\n\n1. **The Sphinx's Age**: One of the most debated topics surrounding the Sphinx is its age. Some researchers argue that it's much older than traditionally believed, while others stick to the conventional date of around 2500 BCE.\n2. **The Sphinx's Purpose**: The purpose of the Sphinx is still unknown, with theories ranging from a guardian of the pyramids to a symbol of ancient wisdom and knowledge.\n3. **The Sphinx's Builders**: The identity of the Sphinx's builders is also a topic of debate, with some researchers arguing that it was built by the ancient Egyptians, while others propose alternative theories, such as the existence of an earlier, lost civilization.\n\nThese resources should provide you with a wealth of information on the Great Sphinx, covering its construction, purpose, and the various theories surrounding its origins. Enjoy your exploration!"
+      },
+      {
+        "session_index": 42,
+        "turn_index": 6,
+        "role": "assistant",
+        "date": "2023/05/28 (Sun) 22:50",
+        "content": "What a great idea! Attending cultural events is an excellent way to immerse yourself in the language and culture, meet like-minded people, and practice your language skills. Here are some resources to help you find cultural events in your local area:\n\n**General Event Listings**\n\n1. **Meetup.com**: A popular platform for finding and joining local groups, including language exchange, cultural events, and French language meetups.\n2. **Eventbrite.com**: A event ticketing website that lists various events, including cultural, language, and French-related events.\n3. **Facebook Events**: Follow local cultural organizations, language schools, and French language groups to stay updated on upcoming events.\n\n**French Language and Culture-Specific Resources**\n\n1. **Alliance Française**: A global network of French language and cultural centers. Find your local chapter for events, language classes, and cultural activities.\n2. **French Cultural Services**: Many French embassies and consulates have cultural services that organize events, exhibitions, and language activities.\n3. **French Language Meetups**: Search for French language meetups in your area, which often organize cultural events, conversation practice, and language exchange activities.\n4. **French Cultural Organizations**: Look for local organizations promoting French culture, such as the French-American Chamber of Commerce, French Institute, or French Heritage Society.\n\n**Local University and Language School Resources**\n\n1. **University Language Departments**: Reach out to the French language department at local universities, which often host cultural events, lectures, and language activities.\n2. **Language Schools**: Many language schools, like the French Language School or Language Studies International, offer cultural events, conversation clubs, and language exchange programs.\n\n**Online Communities and Forums**\n\n1. **Reddit's French Language Learners**: A community of French language learners, where you can ask about local events, language exchange, and cultural activities.\n2. **French Language Exchange Forums**: Websites like Conversation Exchange, Tandem, or HelloTalk often have forums or groups for local language exchange and cultural events.\n\n**Tips for finding cultural events**\n\n* Set up notifications for event listings and cultural organizations in your area.\n* Use keywords like \"French language,\" \"French culture,\" \"language exchange,\" or \"French events\" to find relevant events.\n* Reach out to local language schools, universities, or cultural organizations to ask about upcoming events.\n* Attend events regularly to meet people with similar interests and practice your language skills.\n\nBonne chance (good luck) in finding cultural events that match your interests, and I hope you have a great time practicing your French language skills!"
+      },
+      {
+        "session_index": 42,
+        "turn_index": 10,
+        "role": "assistant",
+        "date": "2023/05/28 (Sun) 22:50",
+        "content": "While Conversation Exchange and Tandem are great platforms, they can be more geared towards online language exchange. Here are some resources that can help you find native French speakers in your local area for language exchange or conversation practice:\n\n**Local Language Exchange Meetups**\n\n1. **Meetup.com**: Search for French language exchange meetups in your local area. Many cities have groups that organize regular meetups for language exchange, conversation practice, and cultural events.\n2. **French Language Meetups**: Look for meetups specifically focused on French language exchange, conversation practice, or French culture in your area.\n\n**Local Universities and Language Schools**\n\n1. **University Language Departments**: Reach out to the French language department at local universities, which often have language exchange programs, conversation clubs, or tutoring services that can connect you with native French speakers.\n2. **Language Schools**: Many language schools, like the French Language School or Language Studies International, offer language exchange programs, conversation clubs, or tutoring services that can connect you with native French speakers.\n\n**Local French Cultural Organizations**\n\n1. **Alliance Française**: A global network of French language and cultural centers. Find your local chapter, which often offers language exchange programs, conversation clubs, and cultural events.\n2. **French Cultural Organizations**: Look for local organizations promoting French culture, such as the French-American Chamber of Commerce, French Institute, or French Heritage Society, which may offer language exchange programs or conversation clubs.\n\n**Online Communities and Forums**\n\n1. **Craigslist**: Search for language exchange or French language practice in your local area. Be cautious when using Craigslist and ensure you're meeting in a public place.\n2. **Facebook Groups**: Join local Facebook groups focused on French language learners, language exchange, or French culture in your area.\n3. **Local Online Forums**: Look for online forums or discussion boards focused on language exchange, French language learners, or French culture in your area.\n\n**Language Exchange Events**\n\n1. **Language Exchange Events**: Search for language exchange events, conversation clubs, or French language meetups in your local area.\n2. **French Language Events**: Look for events specifically focused on French language, culture, or conversation practice in your area.\n\n**Tips for finding a local language exchange partner**\n\n* Be clear about your language level, goals, and availability when reaching out to potential language exchange partners.\n* Look for language exchange partners with similar interests or goals to ensure engaging conversations.\n* Meet in a public place for the first meeting, and prioritize your safety.\n* Set goals and topics for your conversations to ensure productive language practice.\n\nBonne chance (good luck) in finding a native French speaker in your local area for language exchange and conversation practice!"
+      },
+      {
+        "session_index": 42,
+        "turn_index": 12,
+        "role": "assistant",
+        "date": "2023/05/28 (Sun) 22:50",
+        "content": "Finding a language exchange partner who is a native French speaker and lives in your local area can be a great way to practice your French language skills and learn about the culture. Here are some resources that can help you find a language exchange partner who fits your criteria:\n\n**Local Language Exchange Websites**\n\n1. **Language Exchange NYC**: A website that connects language learners with native speakers in the New York City area. You can search for native French speakers in your local area.\n2. **LinguaNext**: A language exchange platform that connects language learners with native speakers in their local area. You can search for native French speakers in your city or region.\n3. **Conversation Buddies**: A website that connects language learners with native speakers in their local area for language exchange and cultural exchange. You can search for native French speakers in your city or region.\n\n**Local Universities and Language Schools**\n\n1. **University Language Departments**: Reach out to the French language department at local universities, which often have language exchange programs or conversation clubs that can connect you with native French speakers.\n2. **Language Schools**: Many language schools, like the French Language School or Language Studies International, offer language exchange programs or conversation clubs that can connect you with native French speakers.\n\n**Local French Cultural Organizations**\n\n1. **Alliance Française**: A global network of French language and cultural centers. Find your local chapter, which often offers language exchange programs, conversation clubs, and cultural events.\n2. **French Cultural Organizations**: Look for local organizations promoting French culture, such as the French-American Chamber of Commerce, French Institute, or French Heritage Society, which may offer language exchange programs or conversation clubs.\n\n**Online Communities and Forums**\n\n1. **Craigslist**: Search for language exchange or French language practice in your local area. Be cautious when using Craigslist and ensure you're meeting in a public place.\n2. **Facebook Groups**: Join local Facebook groups focused on French language learners, language exchange, or French culture in your area.\n3. **Local Online Forums**: Look for online forums or discussion boards focused on language exchange, French language learners, or French culture in your area.\n\n**Tips for finding a local language exchange partner**\n\n* Be clear about your language level, goals, and availability when reaching out to potential language exchange partners.\n* Look for language exchange partners with similar interests or goals to ensure engaging conversations.\n* Meet in a public place for the first meeting, and prioritize your safety.\n* Set goals and topics for your conversations to ensure productive language practice.\n\nBonne chance (good luck) in finding a native French speaker in your local area for language exchange and conversation practice!"
+      },
+      {
+        "session_index": 44,
+        "turn_index": 3,
+        "role": "user",
+        "date": "2023/05/29 (Mon) 14:55",
+        "content": "I've actually been using eBird to track my sightings, and I'm currently ranked 10th in my county for the number of species seen this year. Do you think I could reach the top 5 by the end of the summer if I keep up my daily walks and improve my identification skills?"
+      },
+      {
+        "session_index": 44,
+        "turn_index": 4,
+        "role": "assistant",
+        "date": "2023/05/29 (Mon) 14:55",
+        "content": "That's fantastic! Congratulations on being an avid eBirder and being ranked 10th in your county! \n\nReaching the top 5 by the end of the summer is definitely an achievable goal, but it'll require consistent effort and dedication. Here are some tips to help you improve your chances:\n\n1. **Maintain your daily walks**: Keep up your regular birding routine, and try to visit different areas of your local park or explore new locations to increase your chances of spotting new species.\n2. **Improve your identification skills**: Continue to study and learn about the bird species found in your region. Focus on the more challenging species or those you're less familiar with. You can use resources like eBird's species accounts, online forums, and field guides to improve your identification skills.\n3. **Target specific species**: Identify the species that are commonly seen in your county during the summer months but are missing from your life list. Make a target list and focus on finding those birds.\n4. **Pay attention to habitat and behavior**: Learn about the preferred habitats, behaviors, and migration patterns of the species you're targeting. This will increase your chances of spotting them.\n5. **Stay up-to-date with local birding reports**: Follow local birding groups, Facebook pages, or online forums to stay informed about recent sightings and rare bird alerts in your area.\n6. **Join forces with other birders**: Consider joining a local birding group or partnering with other eBirders in your county. You can learn from each other's experiences and get tips on where to find specific species.\n7. **Be persistent and patient**: Reaching the top 5 will require a combination of skill, knowledge, and luck. Don't get discouraged if you don't see new species every day. Keep at it, and eventually, you'll start to see the results.\n\nRemember, the most important aspect of birding is to have fun and enjoy the experience. Good luck, and I hope you reach your goal!\n\nPlease keep me updated on your progress, and feel free to ask for any advice or tips along the way!"
+      },
+      {
+        "session_index": 44,
+        "turn_index": 6,
+        "role": "assistant",
+        "date": "2023/05/29 (Mon) 14:55",
+        "content": "What a great plan! Lakes and rivers are fantastic spots for birding, especially during the summer months. You can expect to see a variety of bird species that thrive in these aquatic environments. Here are some common birds you might spot near lakes and rivers during the summer:\n\n**Waterbirds:**\n\n1. **Herons and Egrets**: Great Blue Herons, Great Egrets, Snowy Egrets, and Green Herons are common sightings near lakes and rivers.\n2. **Ducks and Geese**: Mallards, Wood Ducks, Mergansers, Canada Geese, and domesticated geese are often found in and around lakes and rivers.\n3. **Grebes**: Pied-billed Grebes, Horned Grebes, and Eared Grebes can be seen swimming and diving in the water.\n\n**Shorebirds:**\n\n1. **Sandpipers**: Spotted Sandpipers, Killdeer, and Semipalmated Sandpipers frequent lake and river shores.\n2. **Plovers**: Killdeer, Snowy Plovers, and Semipalmated Plovers can be seen running along the shoreline.\n3. **Terns**: Caspian Terns, Common Terns, and Forster's Terns are often seen flying overhead or perched on rocks and logs.\n\n**Songbirds:**\n\n1. **Warblers**: Yellow Warblers, Yellow-rumped Warblers, and Common Yellowthroats can be seen flitting about in the vegetation near lakes and rivers.\n2. **Sparrows**: Song Sparrows, Savannah Sparrows, and Lincoln's Sparrows are common in wetland areas.\n3. **Flycatchers**: Eastern Kingbirds, Western Kingbirds, and Phoebes can be seen perched on branches or flying about, catching insects.\n\n**Other birds:**\n\n1. **Osprey**: These fish-eating birds of prey are often seen diving into the water to catch fish.\n2. **Bald Eagles**: If you're lucky, you might spot a Bald Eagle soaring overhead or perched in a nearby tree.\n3. **Kingfishers**: Belted Kingfishers are known for their bright plumage and can be seen flying along the shoreline or perched on rocks.\n\nRemember to bring your binoculars, field guide, and sunscreen to ensure a comfortable and enjoyable birding experience. Keep an eye out for these species, and don't hesitate to ask if you have any questions or need help with identification.\n\nHave a fantastic time with your family at the lake, and happy birding!"
+      },
+      {
+        "session_index": 45,
+        "turn_index": 1,
+        "role": "user",
+        "date": "2023/05/29 (Mon) 17:13",
+        "content": "Use the improvements mentioned above on the OKR recap I am sending to you and make an optimized version:\n\nBrief summary: O: 20% completion K1: 60% completion K2: 15% completion K3: 40% completion\n\nRecap of your progress on OKRs:\nK1: v2 of the design is complete but the following adjustments are needed: making the different states of the feature clearer and more obvious, taking into account different uses of AT (for example: students learning from multiple teachers, 1 account for multiple kids learning on AT with the same teacher, exam preparation students, non-language learners, etc)\nK2: Goals and strong ideas for the SOP to create all the lesson material need review. I created content for about 5% of A1 level but what took more time was thinking about the SOP to work around the content limitations of the AI. If good, i can experiment on making it more efficient and start using Luisa's course structure (her K1) to create as much content before the end of the day.\nK3: I made a graphic explaining how I structured my workflow with the AI. Currently the AI has a hard limit of 300~400 characters for replies per chat (SEO team has the same problem). The solution is to first make the AI create the outline and create content in blocks and when relevant as it to \"continue previous message\" to get more."
+      },
+      {
+        "session_index": 45,
+        "turn_index": 2,
+        "role": "assistant",
+        "date": "2023/05/29 (Mon) 17:13",
+        "content": "Optimized version:\n\nBrief summary: O: 20% completion K1: 60% completion K2: 15% completion K3: 40% completion\n\nRecap of your progress on OKRs:\n\n* K1: v2 of the design is complete but adjustments are needed to make the different states of the feature clearer and more obvious. Need to take into account different uses of AT, such as students learning from multiple teachers, exam preparation students, and non-language learners.\n* K2: Goals and strong ideas for the SOP need review. Created content for about 5% of A1 level, but more time was spent thinking about the SOP to work around AI content limitations. Can experiment on making it more efficient and start using Luisa's course structure (her K1) to create more content.\n* K3: Created a graphic explaining my workflow with the AI. Currently the AI has a hard character limit for replies per chat, but the solution is to make the AI create an outline and create content in blocks, and use \"continue previous message\" where relevant."
+      },
+      {
+        "session_index": 49,
+        "turn_index": 4,
+        "role": "assistant",
+        "date": "2023/05/30 (Tue) 09:04",
+        "content": "Yes, you are right. Civic education is crucial for creating informed and engaged citizens. However, implementing civic education programs can face several challenges. Here are a few examples:\n\n1. Funding: Civic education programs require funding, which can be a challenge in areas where there is limited government support or insufficient resources to support these programs.\n\n2. Curriculum: Developing an effective curriculum that balances national priorities, local concerns, and individual interests can be challenging. Often, school curricula may not cater to the diversity of students' backgrounds and experiences.\n\n3. Teacher Training and Support: Teachers play an essential role in delivering civic education, and they ought to be adequately trained, supported, and motivated to do so. It can be challenging to attract qualified teachers to teach civic education and provide them with the necessary training and support.\n\n4. Misinformation: In some areas, there is a significant amount of misinformation or propaganda aimed at discrediting democratic institutions or promoting nationalistic, authoritarian, or extremist agendas. Overcoming this misinformation can be a substantial challenge for civic education programs.\n\n5. Limited Inclusion: Some civic education programs might exclude particular groups or individuals from learning opportunities. For example, people from lower socioeconomic backgrounds may have limited access to civic education programs, which can perpetuate inequalities.\n\nIn conclusion, while civic education is crucial for creating informed and engaged citizens, various challenges must be addressed for effective implementation, including funding, curriculum, teacher training and support, misinformation, and limited inclusion."
+      }
+    ],
+    "independent_full_history_review": "pending",
+    "second_pass_status": "No supporting answer identified in targeted and identifier searches; provisional."
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "annotation_revision": {
+    "field": "CUR-H2.rule",
+    "prior_text": "Adopt the new value after two later sessions; do not treat the old value as current. This is cold-build version selection, not online update latency.",
+    "reason": "Align stale procedural wording with the unified incremental protocol; expected answer unchanged."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

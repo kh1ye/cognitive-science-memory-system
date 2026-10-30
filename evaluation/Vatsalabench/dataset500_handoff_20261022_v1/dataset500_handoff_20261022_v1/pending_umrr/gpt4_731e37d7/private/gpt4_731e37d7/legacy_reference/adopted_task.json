@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_731e37d7",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 311,
+  "question_cell": "F311",
+  "answer_cell": "E311",
+  "adopted_question_verbatim": "How much did I say I paid for the mindfulness workshop on December 12?",
+  "adopted_answer_or_rubric_verbatim": "$20",
+  "english_rubric": "Require $20 for the December 12 workshop, not a sum across events with missing or contradictory dates.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

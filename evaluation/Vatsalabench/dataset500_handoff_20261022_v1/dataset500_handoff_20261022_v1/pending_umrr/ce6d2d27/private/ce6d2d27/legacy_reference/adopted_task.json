@@ -1,0 +1,15 @@
+{
+  "sample_id": "ce6d2d27",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 187,
+  "question_cell": "F187",
+  "answer_cell": "E187",
+  "adopted_question_verbatim": "What day did I say my cocktail-making classes were held on in the June 30 conversation?",
+  "adopted_answer_or_rubric_verbatim": "Fridays",
+  "english_rubric": "Require Fridays. An earlier Thursday class may be a different session, not proof the same recurring class moved.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

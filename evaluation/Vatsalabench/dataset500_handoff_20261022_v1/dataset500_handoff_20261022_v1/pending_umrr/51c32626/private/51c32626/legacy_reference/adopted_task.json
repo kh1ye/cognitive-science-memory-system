@@ -1,0 +1,15 @@
+{
+  "sample_id": "51c32626",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 336,
+  "question_cell": "F336",
+  "answer_cell": "E336",
+  "adopted_question_verbatim": "To which conference did I say I submitted my sentiment analysis research paper?",
+  "adopted_answer_or_rubric_verbatim": "ACL",
+  "english_rubric": "Require ACL. A conference deadline is not the user's submission date.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_e061b84g",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 146,
+  "question_cell": "F146",
+  "answer_cell": "E146",
+  "adopted_question_verbatim": "What sports event did I say I would participate in on June 17, 2023?",
+  "adopted_answer_or_rubric_verbatim": "The company's annual charity soccer tournament",
+  "english_rubric": "Require company annual charity soccer tournament, allowing football. A plan is not evidence of actual participation. No injury-care recommendations are requested.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "5025383b",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 93,
+  "question_cell": "F93",
+  "answer_cell": "E93",
+  "adopted_question_verbatim": "What are the two hobbies that led me to join online communities?",
+  "adopted_answer_or_rubric_verbatim": "photography and cooking",
+  "english_rubric": "Require both photography and cooking. Score the designated baseline as correct only when both are present; record each component without changing the denominator. This is a composite target.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

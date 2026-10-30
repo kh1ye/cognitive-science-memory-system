@@ -1,0 +1,130 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "about $60",
+      "rule": "Require around $60 as the user's reported quote. Do not substitute assistant estimates or treat historical fares as current travel advice."
+    },
+    "BASE-2": {
+      "expected": "about $60",
+      "rule": "Require around $60 as the user's reported quote. Do not substitute assistant estimates or treat historical fares as current travel advice."
+    },
+    "BASE-3": {
+      "expected": "about $60",
+      "rule": "Require around $60 as the user's reported quote. Do not substitute assistant estimates or treat historical fares as current travel advice."
+    },
+    "RET-10": {
+      "expected": "about $60",
+      "rule": "Require around $60 as the user's reported quote. Do not substitute assistant estimates or treat historical fares as current travel advice."
+    },
+    "RET-30": {
+      "expected": "about $60",
+      "rule": "Require around $60 as the user's reported quote. Do not substitute assistant estimates or treat historical fares as current travel advice."
+    },
+    "RET-50": {
+      "expected": "about $60",
+      "rule": "Require around $60 as the user's reported quote. Do not substitute assistant estimates or treat historical fares as current travel advice."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "around $60",
+        "a bit pricey for me"
+      ],
+      "intents": [
+        "User-reported estimate",
+        "Affordability reaction"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "14:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "14:00",
+        "15:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "14:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "14:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 6,
+        "turn_index": 7,
+        "date": "2023/05/20 (Sat) 15:31",
+        "role": "user",
+        "quote": "By the way, I was told that taking a taxi from the airport to my hotel would cost around $60, which is a bit pricey for me."
+      },
+      {
+        "session_index": 33,
+        "turn_index": 4,
+        "date": "2023/05/26 (Fri) 01:16",
+        "role": "assistant",
+        "quote": "Narita Airport is about 60-70 km (37-43 miles) east of central Tokyo, so you'll need to plan your transportation accordingly.\n\nConsidering you're staying in the Shinjuku district, here are some options to get to your hotel:\n\n**1. Narita Express (N'EX) Train**\n\n* Cost: ¥3,020 (around $28 USD) one way\n* Travel time: Approximately 60-70 minutes to Shinjuku Station\n* Frequency: Trains run every 30-60 minutes\n* Pros: Convenient, relatively fast, and comfortable\n* Cons: Can be expensive, especially if you're traveling with a group or have a lot of luggage\n\nFrom Narita Airport, follow the signs to the Narita Express station. You can purchase tickets at the ticket gates or at a ticket vending machine. Take the N'EX train towards Shinjuku, and get off at Shinjuku Station. From there, you can take a short taxi ride or walk to your hotel.\n\n**2. Keisei Skyliner Train + Subway**\n\n* Cost: ¥2,520 (around $23 USD) one way for the Skyliner, plus ¥200-400 (around $2-4 USD) for the subway\n* Travel time: Approximately 60-70 minutes to Shinjuku Station\n* Frequency: Trains run every 20-40 minutes\n* Pros: Cheaper than N'EX, still relatively fast\n* Cons: Requires a transfer at Ueno Station, and then another ride on the subway to Shinjuku\n\nFrom Narita Airport, follow the signs to the Keisei Electric Railway station. Take the Keisei Skyliner train towards Ueno, and get off at Ueno Station. Transfer to the Tokyo Metro Ginza Line (G) and take the subway to Shinjuku Station. From there, you can take a short taxi ride or walk to your hotel.\n\n**3. Airport Limousine Bus**\n\n* Cost: ¥3,200 (around $29 USD) one way\n* Travel time: Approximately 60-90 minutes to Shinjuku Station\n* Frequency: Buses run every 30-60 minutes\n* Pros: Convenient, relatively comfortable, and can be more cost-effective for groups\n* Cons: Can be affected by traffic, and may not be as frequent as trains\n\nFrom Narita Airport, follow the signs to the Airport Limousine bus stop. Purchase a ticket at the counter or online in advance. Take the bus towards Shinjuku, and get off at Shinjuku Station. From there, you can take a short taxi ride or walk to your hotel.\n\n**4. Taxi or Ride-hailing**\n\n* Cost: Around ¥20,000-30,000 (around $180-270 USD) one way, depending on traffic\n* Travel time: Approximately 60-90 minutes to Shinjuku Station\n* Pros: Convenient, door-to-door service\n* Cons: Can be expensive, especially during peak hours or with heavy traffic\n\nYou can find taxi stands or ride-hailing services like Uber or Lyft at the airport. Be aware that prices may surge during peak hours or with heavy traffic.\n\nConsidering your arrival time on a Friday afternoon, I would recommend taking the Narita Express (N'EX) Train or the Keisei Skyliner Train + Subway option. Both are relatively fast and convenient, and will get you to your hotel in Shinjuku with minimal hassle.\n\nIf you're looking for a more budget-friendly option, the Airport Limousine Bus might be a good choice. Just be prepared for possible traffic delays.\n\nWhichever option you choose, make sure to double-check the schedules and prices before your trip to ensure the best experience.\n\nDo you have any other questions or concerns about getting to your hotel in Shinjuku?"
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "09ba9854",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

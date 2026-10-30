@@ -1,0 +1,70 @@
+{
+  "quality": {
+    "AFA": {
+      "value": 0.25,
+      "valid_n": 4,
+      "planned_n": 5
+    },
+    "UMRR": {
+      "value": 1,
+      "valid_n": 4,
+      "planned_n": 5
+    },
+    "FSRC": {
+      "value": 0.25,
+      "valid_n": 4,
+      "planned_n": 5
+    },
+    "SCHR": {
+      "value": 1,
+      "valid_n": 4,
+      "planned_n": 5
+    },
+    "TIC": {
+      "value": 0.25,
+      "valid_n": 4,
+      "planned_n": 5
+    },
+    "AFP": {
+      "value": 0.6458333333333333,
+      "valid_n": 4,
+      "planned_n": 5
+    },
+    "CVSAR": {
+      "value": 1,
+      "valid_n": 4,
+      "planned_n": 5
+    },
+    "CR-AUC": {
+      "value": 1.0,
+      "valid_n": 1,
+      "planned_n": 5
+    }
+  },
+  "resource": {
+    "L95_seconds": null,
+    "L95_completed_observations": 9,
+    "L95_planned_observations": 15,
+    "ATC_tokens_per_query": null,
+    "ATC_valid_n": 3,
+    "ATC_known_lower_bound": 69875.53333333334,
+    "SAF_mean": 2.9091792178813503,
+    "SAF_valid_n": 3,
+    "SAF_pooled": 2.909288940892995,
+    "completed_cohort_only": {
+      "samples": 3,
+      "L95_seconds": 2.8952090999991924,
+      "ATC_tokens_per_query": 106928.55555555555,
+      "SAF_pooled": 2.909288940892995
+    }
+  },
+  "scored_samples": 4,
+  "planned_samples": 5,
+  "SCHR_by_condition": {
+    "compatible": 1,
+    "priority": 1,
+    "unresolved": 1
+  },
+  "overall_score": null,
+  "score_type": "exploratory_model_assisted_current_gold"
+}

@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "Which colleague did I say accompanied me to the Space Exploration exhibition at the Science Museum?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-10T08:15:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "Who was the coworker I named as my companion at the Science Museum's Space Exploration display?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-10T08:15:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "Which workmate joined me for the Space Exploration exhibition I described?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-10T08:15:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was David's full surname, as the colleague accompanying me to Space Exploration?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-10T08:15:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "Which colleague joined me at Space Exploration, and roughly how long did we explore the exhibits?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-10T08:15:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "Which colleague did I say accompanied me to the Space Exploration exhibition at the Science Museum?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-03-12T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "Which colleague did I say accompanied me to the Space Exploration exhibition at the Science Museum?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-03-13T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "Which colleague did I say accompanied me to the Space Exploration exhibition at the Science Museum?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-03-14T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the meeting time for a separate future exhibition visit now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-03-12T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-03-12T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/03/12 12:00, what is the meeting time for a separate future exhibition visit?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-03-12T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-03-12T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/03/12 12:00, what is the meeting time for a separate future exhibition visit?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-03-12T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-03-12T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/03/12 12:00, what is the meeting time for a separate future exhibition visit?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-03-12T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-03-12T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

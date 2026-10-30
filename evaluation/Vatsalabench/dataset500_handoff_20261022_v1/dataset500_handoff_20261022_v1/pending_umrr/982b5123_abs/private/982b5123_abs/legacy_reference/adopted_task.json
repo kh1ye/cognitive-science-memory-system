@@ -1,0 +1,15 @@
+{
+  "sample_id": "982b5123_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 183,
+  "question_cell": "F183",
+  "answer_cell": "E183",
+  "adopted_question_verbatim": "When did I book the Airbnb in Sacramento?",
+  "adopted_answer_or_rubric_verbatim": "无法确认Sacramento的Airbnb预订日期；不能挪用San Francisco的经历。",
+  "english_rubric": "Say the Sacramento Airbnb booking date cannot be established. Do not reuse the San Francisco three-month advance-booking interval, infer a specific date or assert the user never booked Sacramento.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "352ab8bd",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 241,
+  "question_cell": "F241",
+  "answer_cell": "E241",
+  "adopted_question_verbatim": "In your first summary of the Experimental Results section, what average framerate improvement did you attribute to HAMT?",
+  "adopted_answer_or_rubric_verbatim": "Approximately 20%",
+  "english_rubric": "Require about 20 percent, not four times. Scope is the first summary; a later requested harsher review does not change that historical target. No claim of actual paper accuracy.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

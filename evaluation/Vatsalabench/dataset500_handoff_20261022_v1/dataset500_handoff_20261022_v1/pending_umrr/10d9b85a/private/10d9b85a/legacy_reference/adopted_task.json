@@ -1,0 +1,15 @@
+{
+  "sample_id": "10d9b85a",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 312,
+  "question_cell": "F312",
+  "answer_cell": "E312",
+  "adopted_question_verbatim": "How many days did I spend attending workshops, lectures, and conferences in April?",
+  "adopted_answer_or_rubric_verbatim": "3 days: April 10, 17, 18",
+  "english_rubric": "Require three distinct days, April 10, 17,18; not two events.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

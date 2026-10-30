@@ -1,0 +1,463 @@
+{
+  "sample_id": "caf9ead2",
+  "mode": "exploratory_native_extraction_all_quality_checkpoints",
+  "requested_model": "deepseek-v4-flash",
+  "public_sha256": {
+    "protocol.json": "766f167f97ce6e8e42ab79a0151b607586819e98a3bef58c7c8736104660219c",
+    "run_config.json": "97275fb6735397c61e2e8979ee12830bd88f82dcf411d1182cccf67d867b6ab4",
+    "adapter_config.json": "ae290ca9ea3e6ddc1346c6d44462410dd80f7e5d89866dbe7e7201f68efc4c4f",
+    "provider_config.json": "ee301bae5cd2adbaca56c938080478e05d68af8a44f8a54604156b002f2742a9",
+    "answer_instruction.txt": "8ff253b4f1e4564d7bb64630f490413e884a1114a80a446b1634c08fa65f817f",
+    "samples/caf9ead2/sample.json": "950dc4e10118f10aff97c5d9d013722c814ac018719d06be862cad74d7e70f6d",
+    "samples/caf9ead2/history.json": "6763aae9e6b82745915bf8104b264843c98a3beb671eddcd776045cda17f0eb9",
+    "samples/caf9ead2/probes.json": "e72f81d22fa1a0de6e4c747d689dbddda32673bfa98dd128baf569795a1355b6",
+    "samples/caf9ead2/branches.json": "2bfdf8963509c2cde60e6d795063404ad53607ce8e56b3968429869bc0a65cf5"
+  },
+  "code_sha256": {
+    "src/cognitive_memory/architecture.py": "be3adba7149ee0e35de83479867b50e212349166cd08025734379e8aee63b3d7",
+    "src/cognitive_memory/catalog.py": "3c882925ffda314c64850817fa3132dbf2b54907d85b450cad4f2fb980707d5b",
+    "src/cognitive_memory/retrieval/evidence.py": "870bb25de5d9e3f75549b1787dd301447ea378da823e47d9170f6d8e01776773",
+    "src/conversation_agent/graph.py": "b998d87a2a730367789a8ea30b276db0a00b3cd7a5dd97418e71c8f933c6f2d8",
+    "src/conversation_agent/prompts.py": "7ffd14b475602bbbf5bc07ddaef7311729b815def1878341bea99ebfdd8c3846"
+  },
+  "ingestion": [
+    {
+      "event": "BASE:S-0001:0",
+      "seconds": 1.4344653000007384,
+      "analysis": {
+        "working_state_patch": {
+          "goals": [
+            "Build an alternator-based dynamometer with Arduino: measure voltage, current, RPM, torque, horsepower, and graph RPM/horsepower/torque on a computer"
+          ],
+          "constraints": null,
+          "open_questions": null,
+          "task_state": {
+            "project": "alternator dynamometer",
+            "hardware": [
+              "alternator",
+              "load cell",
+              "RPM pickup",
+              "Arduino"
+            ],
+            "software": [
+              "Arduino sketch",
+              "Python + pyserial + matplotlib"
+            ]
+          }
+        },
+        "episode_candidates": [],
+        "semantic_candidates": [],
+        "procedure_proposals": []
+      },
+      "result": {
+        "status": "persist",
+        "source_id": "c22ad9b13710069d98becb6b1b9f70a1584c0453007b59e123aecf98538d2474",
+        "analysis": {
+          "working_state_patch": {
+            "goals": [
+              "Build an alternator-based dynamometer with Arduino: measure voltage, current, RPM, torque, horsepower, and graph RPM/horsepower/torque on a computer"
+            ],
+            "constraints": null,
+            "open_questions": null,
+            "task_state": {
+              "project": "alternator dynamometer",
+              "hardware": [
+                "alternator",
+                "load cell",
+                "RPM pickup",
+                "Arduino"
+              ],
+              "software": [
+                "Arduino sketch",
+                "Python + pyserial + matplotlib"
+              ]
+            }
+          },
+          "episode_candidates": [],
+          "semantic_candidates": [],
+          "procedure_proposals": []
+        },
+        "operations": []
+      }
+    },
+    {
+      "event": "BASE:S-0002:0",
+      "seconds": 2.814510300002439,
+      "analysis": {
+        "working_state_patch": {
+          "goals": [
+            "创建并定制用于跟踪展会线索和后续跟进的电子表格模板",
+            "确认用户展示 NovaGRID 的展会是哪一场"
+          ],
+          "constraints": null,
+          "open_questions": null,
+          "task_state": {
+            "identified_event": "annual Tech Expo at Jacob K. Javits Convention Center, New York City",
+            "event_timing": "about three weeks before 2023-05-20",
+            "event_duration": "three-day event",
+            "product": "NovaGRID",
+            "template_status": "initial template provided; customization pending user answers"
+          }
+        },
+        "episode_candidates": [
+          {
+            "observation": "It was about three weeks ago, in New York City.",
+            "actor": "user",
+            "event_kind": "input",
+            "occurred_at": null,
+            "action_ref": null,
+            "outcome": "unknown",
+            "parent_event_id": null,
+            "corrects": null,
+            "source_refs": []
+          },
+          {
+            "observation": "The event was a three-day event, and I think it was at the Jacob K. Javits Convention Center.",
+            "actor": "user",
+            "event_kind": "input",
+            "occurred_at": null,
+            "action_ref": null,
+            "outcome": "unknown",
+            "parent_event_id": null,
+            "corrects": null,
+            "source_refs": []
+          },
+          {
+            "observation": "Wait, I think I remember now. It was the annual Tech Expo, not one of those specific events. I'm pretty sure that's where I showcased NovaGRID.",
+            "actor": "user",
+            "event_kind": "input",
+            "occurred_at": null,
+            "action_ref": null,
+            "outcome": "unknown",
+            "parent_event_id": null,
+            "corrects": null,
+            "source_refs": []
+          },
+          {
+            "observation": "Yes, that's correct! It was the annual Tech Expo at the Jacob K. Javits Convention Center in New York City.",
+            "actor": "user",
+            "event_kind": "correction",
+            "occurred_at": null,
+            "action_ref": null,
+            "outcome": "unknown",
+            "parent_event_id": null,
+            "corrects": null,
+            "source_refs": []
+          }
+        ],
+        "semantic_candidates": [
+          {
+            "sensitive": false,
+            "evidence_text": "I'm trying to organize my contacts from the recent trade shows I attended.",
+            "subject": "vatsala-caf9ead2",
+            "predicate": "attended_recent_trade_shows",
+            "value": true,
+            "scope": "user",
+            "valid_from": null,
+            "valid_to": null,
+            "epistemic_status": "explicit",
+            "status": "current",
+            "confidence": 0.75,
+            "cardinality": "single",
+            "correction": false,
+            "source_refs": []
+          },
+          {
+            "sensitive": false,
+            "evidence_text": "I showcased our company's latest AI-powered product, NovaGRID",
+            "subject": "vatsala-caf9ead2",
+            "predicate": "company_product",
+            "value": "NovaGRID (AI-powered product)",
+            "scope": "user",
+            "valid_from": null,
+            "valid_to": null,
+            "epistemic_status": "explicit",
+            "status": "current",
+            "confidence": 0.8,
+            "cardinality": "single",
+            "correction": false,
+            "source_refs": []
+          }
+        ],
+        "procedure_proposals": []
+      },
+      "result": {
+        "status": "persist",
+        "source_id": "65d4a4de8f284fc80f9604e3cce06815d54901f417db8b04f597572491f596d9",
+        "analysis": {
+          "working_state_patch": {
+            "goals": [
+              "创建并定制用于跟踪展会线索和后续跟进的电子表格模板",
+              "确认用户展示 NovaGRID 的展会是哪一场"
+            ],
+            "constraints": null,
+            "open_questions": null,
+            "task_state": {
+              "identified_event": "annual Tech Expo at Jacob K. Javits Convention Center, New York City",
+              "event_timing": "about three weeks before 2023-05-20",
+              "event_duration": "three-day event",
+              "product": "NovaGRID",
+              "template_status": "initial template provided; customization pending user answers"
+            }
+          },
+          "episode_candidates": [
+            {
+              "observation": "It was about three weeks ago, in New York City.",
+              "actor": "user",
+              "event_kind": "input",
+              "occurred_at": null,
+              "action_ref": null,
+              "outcome": "unknown",
+              "parent_event_id": null,
+              "corrects": null,
+              "source_refs": []
+            },
+            {
+              "observation": "The event was a three-day event, and I think it was at the Jacob K. Javits Convention Center.",
+              "actor": "user",
+              "event_kind": "input",
+              "occurred_at": null,
+              "action_ref": null,
+              "outcome": "unknown",
+              "parent_event_id": null,
+              "corrects": null,
+              "source_refs": []
+            },
+            {
+              "observation": "Wait, I think I remember now. It was the annual Tech Expo, not one of those specific events. I'm pretty sure that's where I showcased NovaGRID.",
+              "actor": "user",
+              "event_kind": "input",
+              "occurred_at": null,
+              "action_ref": null,
+              "outcome": "unknown",
+              "parent_event_id": null,
+              "corrects": null,
+              "source_refs": []
+            },
+            {
+              "observation": "Yes, that's correct! It was the annual Tech Expo at the Jacob K. Javits Convention Center in New York City.",
+              "actor": "user",
+              "event_kind": "correction",
+              "occurred_at": null,
+              "action_ref": null,
+              "outcome": "unknown",
+              "parent_event_id": null,
+              "corrects": null,
+              "source_refs": []
+            }
+          ],
+          "semantic_candidates": [
+            {
+              "sensitive": false,
+              "evidence_text": "I'm trying to organize my contacts from the recent trade shows I attended.",
+              "subject": "vatsala-caf9ead2",
+              "predicate": "attended_recent_trade_shows",
+              "value": true,
+              "scope": "user",
+              "valid_from": null,
+              "valid_to": null,
+              "epistemic_status": "explicit",
+              "status": "current",
+              "confidence": 0.75,
+              "cardinality": "single",
+              "correction": false,
+              "source_refs": []
+            },
+            {
+              "sensitive": false,
+              "evidence_text": "I showcased our company's latest AI-powered product, NovaGRID",
+              "subject": "vatsala-caf9ead2",
+              "predicate": "company_product",
+              "value": "NovaGRID (AI-powered product)",
+              "scope": "user",
+              "valid_from": null,
+              "valid_to": null,
+              "epistemic_status": "explicit",
+              "status": "current",
+              "confidence": 0.8,
+              "cardinality": "single",
+              "correction": false,
+              "source_refs": []
+            }
+          ],
+          "procedure_proposals": []
+        },
+        "operations": [
+          {
+            "id": "f76c9175dd821b3c591716bcf5b80c50a29a3346523acd38c1009d53913f62ff",
+            "idempotency_key": "f76c9175dd821b3c591716bcf5b80c50a29a3346523acd38c1009d53913f62ff",
+            "target_module": "episodic",
+            "source_refs": [
+              "65d4a4de8f284fc80f9604e3cce06815d54901f417db8b04f597572491f596d9"
+            ],
+            "status": "succeeded",
+            "result_refs": [
+              "7fa2039b000c6c6f1aac7a20231479c77802a9a3f8bc7fa65c7a2ad88e819422"
+            ],
+            "error": null
+          },
+          {
+            "id": "4c068be205076459fbbd5c5c5935ad7898d26c42b31bd5e01e2023a66577a76a",
+            "idempotency_key": "4c068be205076459fbbd5c5c5935ad7898d26c42b31bd5e01e2023a66577a76a",
+            "target_module": "episodic",
+            "source_refs": [
+              "65d4a4de8f284fc80f9604e3cce06815d54901f417db8b04f597572491f596d9"
+            ],
+            "status": "succeeded",
+            "result_refs": [
+              "b1f5bbef3e3742af58a1d5aaeab97f2d17a8a9156894936faebe1f7a150366c4"
+            ],
+            "error": null
+          },
+          {
+            "id": "bfbee403a60bd620aad8332b007269d9c56e0fbe1e95cecaaced94aadde59d56",
+            "idempotency_key": "bfbee403a60bd620aad8332b007269d9c56e0fbe1e95cecaaced94aadde59d56",
+            "target_module": "episodic",
+            "source_refs": [
+              "65d4a4de8f284fc80f9604e3cce06815d54901f417db8b04f597572491f596d9"
+            ],
+            "status": "succeeded",
+            "result_refs": [
+              "4835b22b797c01f018e8d587f613a2de5150715e634c6589df2370e83bfab5da"
+            ],
+            "error": null
+          },
+          {
+            "id": "85500e2f01405dede8a6ecb0f3d5002b12dc94d2b3d1536287c3db00d2d52080",
+            "idempotency_key": "85500e2f01405dede8a6ecb0f3d5002b12dc94d2b3d1536287c3db00d2d52080",
+            "target_module": "episodic",
+            "source_refs": [
+              "65d4a4de8f284fc80f9604e3cce06815d54901f417db8b04f597572491f596d9"
+            ],
+            "status": "succeeded",
+            "result_refs": [
+              "4feb761c926cb7f34147dd3254ce27c55c1dae12b1be065faa1318d4992514ab"
+            ],
+            "error": null
+          },
+          {
+            "id": "30c0c4f234f1473294d2332b95fbc580715116c9d752d82dffff171d8efe187d",
+            "idempotency_key": "30c0c4f234f1473294d2332b95fbc580715116c9d752d82dffff171d8efe187d",
+            "target_module": "semantic",
+            "source_refs": [
+              "65d4a4de8f284fc80f9604e3cce06815d54901f417db8b04f597572491f596d9"
+            ],
+            "status": "succeeded",
+            "result_refs": [
+              "ca90606d5bf3e242a7d49a39d2265dd908a822348ce4d0bfe52d2e3e06f049f0"
+            ],
+            "error": null,
+            "result_status": "current",
+            "epistemic_status": "explicit"
+          },
+          {
+            "id": "7b8950880947927d4dc87ca8a2d7171f738cccebeefa8be9844f971890a96e44",
+            "idempotency_key": "7b8950880947927d4dc87ca8a2d7171f738cccebeefa8be9844f971890a96e44",
+            "target_module": "semantic",
+            "source_refs": [
+              "65d4a4de8f284fc80f9604e3cce06815d54901f417db8b04f597572491f596d9"
+            ],
+            "status": "succeeded",
+            "result_refs": [
+              "2a3fcc5b7b03b59d715f939298cb50b3c1557c663f58ee6d5db6f5646f893428"
+            ],
+            "error": null,
+            "result_status": "current",
+            "epistemic_status": "explicit"
+          }
+        ]
+      }
+    }
+  ],
+  "results": [],
+  "status": "incomplete",
+  "adapter": {
+    "observation_format": "role/turn-labelled original text, 16000-character nonoverlapping segments",
+    "extraction_thinking": "disabled (DeepSeek forced-tool compatibility)",
+    "source_kind": "document",
+    "learning": "native analyze_observation + architecture.observe",
+    "query": "native ConversationAgent.chat on disposable full SQLite fork",
+    "time": "observed_at preserved; knowledge retrieval at probe.query_time",
+    "privacy_consent": false,
+    "limitations": [
+      "Historical replay adapter, not live HTTP turn-by-turn chat",
+      "Dataset approval flags pending; exploratory only",
+      "Resource metrics and official aggregate scoring not implemented",
+      "Native extraction format-recovery may make a second provider call"
+    ]
+  },
+  "prompt_sha256": {
+    "extraction": "6fc3e74f3dc7d18c4cec017e0fa0fbd98ea9dfb6035b979bf8d1e42769702613",
+    "dialogue": "1d73aafe4a5d5cf52bec5c0167999b4cf325f5b0758d7b841f86a69b7b4917f1"
+  },
+  "provider_calls": [
+    {
+      "phase": "quality_ingestion",
+      "run_id": "01a18b98-b22c-7561-a437-90e33755ee54",
+      "usage": {
+        "input_tokens": 4794,
+        "output_tokens": 124,
+        "total_tokens": 4918,
+        "input_token_details": {
+          "cache_read": 2304
+        },
+        "output_token_details": {}
+      },
+      "status": "completed",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6"
+    },
+    {
+      "phase": "quality_ingestion",
+      "run_id": "01a18b98-b7d0-7012-991c-1611579452a6",
+      "usage": {
+        "input_tokens": 4749,
+        "output_tokens": 536,
+        "total_tokens": 5285,
+        "input_token_details": {
+          "cache_read": 2304
+        },
+        "output_token_details": {}
+      },
+      "status": "completed",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6"
+    },
+    {
+      "phase": "quality_ingestion",
+      "run_id": "01a18b98-c2fe-76a3-9057-bf3a48af0c9d",
+      "usage": {
+        "input_tokens": 5676,
+        "output_tokens": 461,
+        "total_tokens": 6137,
+        "input_token_details": {
+          "cache_read": 2304
+        },
+        "output_token_details": {}
+      },
+      "status": "completed",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6"
+    },
+    {
+      "phase": "quality_ingestion",
+      "run_id": "01a18b98-cc92-7870-a7d2-7a3d0051a104",
+      "usage": {
+        "input_tokens": 5835,
+        "output_tokens": 473,
+        "total_tokens": 6308,
+        "input_token_details": {
+          "cache_read": 2304
+        },
+        "output_token_details": {}
+      },
+      "status": "completed",
+      "model": "deepseek-flash",
+      "fingerprint": "bc19ba97cbe016479903222bb1578db6"
+    }
+  ],
+  "error": {
+    "type": "ValidationError",
+    "message": "1 validation error for ObservationAnalysis\nepisode_candidates.1.event_kind\n  Input should be 'input', 'action', 'result', 'feedback', 'correction' or 'summary' [type=literal_error, input_value='decision', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/literal_error"
+  }
+}

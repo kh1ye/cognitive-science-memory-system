@@ -1,0 +1,133 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "3 times the purchase price",
+      "rule": "Require three times the purchase price as the user's own valuation claim, not independent appraisal. Do not confuse total value 3x with profit 2x or invent an absolute price."
+    },
+    "BASE-2": {
+      "expected": "3 times the purchase price",
+      "rule": "Require three times the purchase price as the user's own valuation claim, not independent appraisal. Do not confuse total value 3x with profit 2x or invent an absolute price."
+    },
+    "BASE-3": {
+      "expected": "3 times the purchase price",
+      "rule": "Require three times the purchase price as the user's own valuation claim, not independent appraisal. Do not confuse total value 3x with profit 2x or invent an absolute price."
+    },
+    "RET-10": {
+      "expected": "3 times the purchase price",
+      "rule": "Require three times the purchase price as the user's own valuation claim, not independent appraisal. Do not confuse total value 3x with profit 2x or invent an absolute price."
+    },
+    "RET-30": {
+      "expected": "3 times the purchase price",
+      "rule": "Require three times the purchase price as the user's own valuation claim, not independent appraisal. Do not confuse total value 3x with profit 2x or invent an absolute price."
+    },
+    "RET-50": {
+      "expected": "3 times the purchase price",
+      "rule": "Require three times the purchase price as the user's own valuation claim, not independent appraisal. Do not confuse total value 3x with profit 2x or invent an absolute price."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value and no false denial of a known related event. Do not infer that an identifier or certificate exists merely because the question asks for it.",
+      "annotation_status": "targeted_search_only_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "3 times the purchase price",
+        "living room"
+      ],
+      "intents": [
+        "Self-reported value multiple",
+        "Reported display room"
+      ],
+      "rule": "TIC counts substantive answers to the two requested slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, separately from correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "hallway",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "hallway",
+        "dining room"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not choose a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "hallway",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "hallway",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 40,
+        "turn_index": 7,
+        "date": "2023/05/30 (Tue) 19:43",
+        "role": "user",
+        "quote": "That's really helpful. I was thinking about my flea market find, and I realized that it's actually worth triple what I paid for it, which is amazing!"
+      },
+      {
+        "session_index": 40,
+        "turn_index": 9,
+        "date": "2023/05/30 (Tue) 19:43",
+        "role": "user",
+        "quote": "I think I'll just keep it and continue to enjoy it. I've already got it hung up in my living room, and it really brightens up the space. Plus, it's a great conversation starter when I have guests over. I'm just happy to have it as a part of my collection."
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional_pending_independent_review"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+    "sheet": "Sheet1",
+    "row": 14,
+    "question_cell": "F14",
+    "answer_cell": "E14",
+    "status": "user_confirmed_reviewed",
+    "adopted_question": "How many times the purchase price did I say my flea-market find was worth?",
+    "adopted_answer": "3 times the purchase price"
+  },
+  "new_content_review": "AI-authored with source-context review; independent acceptance pending",
+  "scope_notes": [
+    "Historical reference remains fixed to the original report, not the query date.",
+    "Recall supplied statements only; no new personal facts are inferred."
+  ],
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10 + 2*r30 + r50)/4.",
+    "resource": "Fresh separate baseline and three resource queries. Native units only. No mixed-unit overall score."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

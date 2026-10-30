@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "In the desktop-upgrade discussion where I said my home internet connection had improved, what kind of Wi-Fi system did I report switching to?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-25T23:44:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "When discussing a possible computer replacement, what networking arrangement did I say had already improved my home connection?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-25T23:44:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "Which home wireless configuration did I describe as an improvement while considering a desktop upgrade?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-25T23:44:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact serial number of the mesh-network equipment I installed?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-25T23:44:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "In the discussion linking a home-network upgrade to a possible computer replacement, what networking system did I say I had installed, and what kind of computer was I considering replacing?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-25T23:44:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "In the desktop-upgrade discussion where I said my home internet connection had improved, what kind of Wi-Fi system did I report switching to?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-05-27T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "In the desktop-upgrade discussion where I said my home internet connection had improved, what kind of Wi-Fi system did I report switching to?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-05-28T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "In the desktop-upgrade discussion where I said my home internet connection had improved, what kind of Wi-Fi system did I report switching to?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-05-29T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the notification channel for a separate future equipment-maintenance reminder now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-05-27T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-05-27T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/05/27 12:00, what is the notification channel for a separate future equipment-maintenance reminder?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-05-27T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-05-27T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/05/27 12:00, what is the notification channel for a separate future equipment-maintenance reminder?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-05-27T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-05-27T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/05/27 12:00, what is the notification channel for a separate future equipment-maintenance reminder?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-05-27T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-05-27T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

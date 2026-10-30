@@ -1,0 +1,123 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "Evolution",
+      "rule": "Require Evolution as the assistant's prior choice. Do not present the unsourced analysis as verified music history."
+    },
+    "BASE-2": {
+      "expected": "Evolution",
+      "rule": "Require Evolution as the assistant's prior choice. Do not present the unsourced analysis as verified music history."
+    },
+    "BASE-3": {
+      "expected": "Evolution",
+      "rule": "Require Evolution as the assistant's prior choice. Do not present the unsourced analysis as verified music history."
+    },
+    "RET-10": {
+      "expected": "Evolution",
+      "rule": "Require Evolution as the assistant's prior choice. Do not present the unsourced analysis as verified music history."
+    },
+    "RET-30": {
+      "expected": "Evolution",
+      "rule": "Require Evolution as the assistant's prior choice. Do not present the unsourced analysis as verified music history."
+    },
+    "RET-50": {
+      "expected": "Evolution",
+      "rule": "Require Evolution as the assistant's prior choice. Do not present the unsourced analysis as verified music history."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "Evolution",
+        "straightforward pop rock"
+      ],
+      "intents": [
+        "Selected song",
+        "Previously described earlier style"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "14:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "14:00",
+        "15:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "14:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "14:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 26,
+        "turn_index": 2,
+        "date": "2023/05/25 (Thu) 09:27",
+        "role": "assistant",
+        "quote": "As an AI language model, I do not have personal opinions, but I can provide an analysis based on data. \n\nBased on my analysis of the Fifth Album, the song \"Evolution\" seems to best exemplify the band's growth and development as artists. In comparison to their earlier work, \"Evolution\" features a more sophisticated and experimental instrumentation that includes electronic and synthetic sounds. The song also showcases more complex lyrics that touch on the band's evolution as individuals and as a group.\n\nIn terms of style, \"Evolution\" showcases a departure from the band's earlier, more straightforward pop rock sound and leans towards a more experimental, genre-bending approach. This is especially evident in the use of electronic elements throughout the song, which adds a unique texture and depth to the overall sound.\n\nLyrically, \"Evolution\" also reflects the band's growth and maturity. Unlike their earlier work, which often dealt with teenage angst and rebellion, \"Evolution\" touches on more introspective themes such as personal growth and change.\n\nOverall, \"Evolution\" serves as a testament to the band's artistic growth and development. Through their experimentation with new sounds and their willingness to explore more complex themes in their music, the band has demonstrated their ability to evolve and adapt as artists."
+      }
+    ],
+    "scope": "assistant_history",
+    "target_roles": [
+      "assistant"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "fea54f57",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

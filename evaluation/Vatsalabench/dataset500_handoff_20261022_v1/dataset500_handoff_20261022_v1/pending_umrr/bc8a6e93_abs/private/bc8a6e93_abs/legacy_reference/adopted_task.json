@@ -1,0 +1,15 @@
+{
+  "sample_id": "bc8a6e93_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 35,
+  "question_cell": "F35",
+  "answer_cell": "E35",
+  "adopted_question_verbatim": "What did I bake for my uncle's birthday party?",
+  "adopted_answer_or_rubric_verbatim": "合理说明无法确认，不能挪用侄女生日蛋糕",
+  "english_rubric": "Cannot determine what was baked for the uncle's party. Do not transfer the niece's cake or deny that an uncle's party ever occurred.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

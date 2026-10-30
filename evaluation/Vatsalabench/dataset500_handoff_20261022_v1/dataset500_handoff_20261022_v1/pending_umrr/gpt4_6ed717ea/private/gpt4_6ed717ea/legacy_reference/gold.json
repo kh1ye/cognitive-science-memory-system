@@ -1,0 +1,129 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "training pads for Luna",
+      "rule": "Require Luna's training pads, bought about a month earlier versus the bed about three weeks earlier. Preserve approximate chronology, not invented dates."
+    },
+    "BASE-2": {
+      "expected": "training pads for Luna",
+      "rule": "Require Luna's training pads, bought about a month earlier versus the bed about three weeks earlier. Preserve approximate chronology, not invented dates."
+    },
+    "BASE-3": {
+      "expected": "training pads for Luna",
+      "rule": "Require Luna's training pads, bought about a month earlier versus the bed about three weeks earlier. Preserve approximate chronology, not invented dates."
+    },
+    "RET-10": {
+      "expected": "training pads for Luna",
+      "rule": "Require Luna's training pads, bought about a month earlier versus the bed about three weeks earlier. Preserve approximate chronology, not invented dates."
+    },
+    "RET-30": {
+      "expected": "training pads for Luna",
+      "rule": "Require Luna's training pads, bought about a month earlier versus the bed about three weeks earlier. Preserve approximate chronology, not invented dates."
+    },
+    "RET-50": {
+      "expected": "training pads for Luna",
+      "rule": "Require Luna's training pads, bought about a month earlier versus the bed about three weeks earlier. Preserve approximate chronology, not invented dates."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "10",
+        "$25"
+      ],
+      "intents": [
+        "Pad count",
+        "Set price"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "10:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/30 08:00",
+        "old_valid_from": "2023/05/30 08:00",
+        "old_valid_to": "2023/05/31 09:00",
+        "observed_at": "2023/05/31 09:00",
+        "valid_from": "2023/05/31 09:00",
+        "valid_to": null,
+        "query_time": "2023/05/31 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "10:00",
+        "11:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "10:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "10:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 21,
+        "turn_index": 1,
+        "date": "2023/05/29 (Mon) 19:41",
+        "role": "user",
+        "quote": "I'm thinking of getting some more supplies for my puppy, Luna. She's still in potty-training, and I've been using those eco-friendly training pads from Chewy.com. I got a set of 10 for $25 about a month ago, and they've been a lifesaver. Do you have any recommendations for other potty-training aids or tips?"
+      },
+      {
+        "session_index": 15,
+        "turn_index": 1,
+        "date": "2023/05/29 (Mon) 21:15",
+        "role": "user",
+        "quote": "I'm looking for some advice on dog arthritis. I recently got a new Orthopedic Memory Foam dog bed for my golden retriever, Max, about three weeks ago from Petco, and it seems to be helping with his arthritis. Do you have any other recommendations for managing his condition?"
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/30 08:00",
+    "old_valid_from": "2023/05/30 08:00",
+    "old_valid_to": "2023/05/31 09:00",
+    "observed_at": "2023/05/31 09:00",
+    "valid_from": "2023/05/31 09:00",
+    "valid_to": null,
+    "query_time": "2023/05/31 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "gpt4_6ed717ea",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

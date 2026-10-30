@@ -1,0 +1,39 @@
+{
+  "sample_id": "gpt4_0a05b494",
+  "source_order": 426,
+  "status": "accepted_edits_applied_validation_passed",
+  "authorization": "User explicitly requested applying the consolidated suggestions; no experiment or independent acceptance authorized.",
+  "parent_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1\\packages\\gpt4_0a05b494",
+  "parent_suite_sha256": "c71c8e2433e4b9788bb4160aa87563b06849d6b776145751a9669d3a537b1356",
+  "revised_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1_review2\\packages\\gpt4_0a05b494",
+  "revised_suite_sha256": "43202cb6a83f3d2d2e94a2b071a9d40d48f6271c694da2a7782e6a6301f9474d",
+  "proposal_file": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch07_v1\\pending_edits_all_batches.json",
+  "proposal_sha256": "3407de41004d56cd559b1fe0cb938f21362c02f9caa4ba68469decfe323abd54",
+  "source_proposal": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch07_v1\\proposed_edits.json",
+  "applied_edits": [
+    {
+      "file": "samples/gpt4_0a05b494/probes.json",
+      "probe_id": "BASE-3",
+      "field": "question",
+      "old": "What did the market vendor I had a conversation with make?",
+      "proposed": "What did the person I chatted with at the farmers' market make?"
+    }
+  ],
+  "changed_public_files": [
+    "samples/gpt4_0a05b494/probes.json"
+  ],
+  "history_byte_identical": true,
+  "branches_byte_identical": true,
+  "gold_byte_identical": true,
+  "private_gold_sha256": "ecfcf9b06ad381cc571850f191c88b189e32cbd39d8797fa2fe2ed1c6d7f9d82",
+  "query_times_and_checkpoints_unchanged": true,
+  "protocol_and_provider_unchanged": true,
+  "question_edit_count": 1,
+  "reference_edit_count": 0,
+  "quality_probes": 12,
+  "metrics": 11,
+  "live_review_gate_passed": false,
+  "independent_review": "pending",
+  "api_calls": 0,
+  "inherited_audit_note": "Copied audit files describe their earlier source version. This revision record and current public inputs describe the applied wording."
+}

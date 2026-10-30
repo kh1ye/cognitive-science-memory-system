@@ -1,0 +1,15 @@
+{
+  "sample_id": "b3c15d39",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 51,
+  "question_cell": "F51",
+  "answer_cell": "E51",
+  "adopted_question_verbatim": "On what date did I say my new remote shutter release arrived?",
+  "adopted_answer_or_rubric_verbatim": "February 10",
+  "english_rubric": "Require February 10. Do not replace the date with a calculated delivery duration or assume an unprovided year.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

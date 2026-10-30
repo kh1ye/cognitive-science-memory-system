@@ -1,0 +1,654 @@
+{
+  "question": "What was the exact cancellation confirmation number for my FarmFresh subscription?",
+  "pattern": "cancellation|cancelled|confirmation|delivery|farmfresh|grocery|monthly|number|subscription",
+  "messages_scanned": 533,
+  "matching_sentences": [
+    {
+      "session": 1,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2022/12/08 (Thu) 19:22",
+      "text": "Calculate your hourly wage based on your desired income level, and multiply it by the number of hours you've invested in the piece."
+    },
+    {
+      "session": 1,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2022/12/08 (Thu) 19:22",
+      "text": "**Round numbers and price anchoring**: Consider pricing your sculptures at round numbers (e.g., $50, $100, $200) to make them more appealing to customers."
+    },
+    {
+      "session": 4,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2022/12/22 (Thu) 23:39",
+      "text": "However, the Beat Generation was significant for a number of reasons that go beyond these themes."
+    },
+    {
+      "session": 5,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/01/05 (Thu) 18:23",
+      "text": "By the way, I'm glad I cancelled my monthly grocery delivery subscription from FarmFresh, which I wasn't using frequently enough, and saved $100 per month."
+    },
+    {
+      "session": 5,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/01/05 (Thu) 18:23",
+      "text": "Canceling the subscription was a great decision, and saving $100 per month is a significant amount that can be put towards more important things."
+    },
+    {
+      "session": 5,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/01/05 (Thu) 18:23",
+      "text": "I'm actually thinking of using the $100 to try out some new recipes and ingredients at FreshMarket, the new grocery store I discovered last month."
+    },
+    {
+      "session": 7,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/01/15 (Sun) 00:28",
+      "text": "Do you know if they offer any subscription services or loyalty programs?"
+    },
+    {
+      "session": 7,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/01/15 (Sun) 00:28",
+      "text": "As for subscription services and loyalty programs, Ippodo Tea Co."
+    },
+    {
+      "session": 7,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/01/15 (Sun) 00:28",
+      "text": "**Subscription Service**: Ippodo Tea Co."
+    },
+    {
+      "session": 7,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/01/15 (Sun) 00:28",
+      "text": "offers a monthly subscription service that allows you to receive a regular supply of your favorite teas."
+    },
+    {
+      "session": 7,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/01/15 (Sun) 00:28",
+      "text": "You can choose from a variety of subscription plans, including a \"Tea of the Month\" option that sends a new tea every month."
+    },
+    {
+      "session": 7,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/01/15 (Sun) 00:28",
+      "text": "Subscription prices vary depending on the plan you choose, but they offer a 10% discount on all subscription orders."
+    },
+    {
+      "session": 7,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/01/15 (Sun) 00:28",
+      "text": "Overall, Ippodo Tea Co.'s subscription service and loyalty program can be a great way to enjoy their high-quality teas while also saving money and getting exclusive perks."
+    },
+    {
+      "session": 9,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/01/18 (Wed) 11:15",
+      "text": "Remember to choose party favors that fit your budget and the number of guests attending the party."
+    },
+    {
+      "session": 12,
+      "turn": 5,
+      "role": "assistant",
+      "date": "2023/02/08 (Wed) 20:29",
+      "text": "College of Physicians and Surgeons of Ontario (CPSO) policies: The CPSO is the regulatory body for the practice of medicine in Ontario and has established a number of policies and guidelines related to the use of vaccines and other medical treatments."
+    },
+    {
+      "session": 13,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/02/10 (Fri) 22:13",
+      "text": "Price, design, delivery charge, return policy are the factors I see to purchase the apparel"
+    },
+    {
+      "session": 18,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/02/28 (Tue) 22:12",
+      "text": "By the way, I just did an online grocery order from Instacart and had it delivered to my doorstep, and spent around $60 today."
+    },
+    {
+      "session": 18,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/02/28 (Tue) 22:12",
+      "text": "I'm also thinking of making some changes to my grocery shopping routine."
+    },
+    {
+      "session": 18,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/02/28 (Tue) 22:12",
+      "text": "Do you have any suggestions on how I can optimize my grocery lists and reduce food waste?"
+    },
+    {
+      "session": 18,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 22:12",
+      "text": "Optimizing your grocery lists and reducing food waste are excellent goals!"
+    },
+    {
+      "session": 18,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 22:12",
+      "text": "Plan your meals and make a grocery list:**"
+    },
+    {
+      "session": 18,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 22:12",
+      "text": "This will help you create a focused grocery list and avoid buying unnecessary items."
+    },
+    {
+      "session": 18,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 22:12",
+      "text": "Group your grocery list by store sections (e.g., produce, meat, dairy, canned goods, etc.)."
+    },
+    {
+      "session": 18,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 22:12",
+      "text": "Apps like Ibotta, Fetch Rewards, and Checkout 51 offer cashback on certain grocery items."
+    },
+    {
+      "session": 18,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 22:12",
+      "text": "Regularly review your grocery lists and shopping habits to identify areas for improvement."
+    },
+    {
+      "session": 18,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 22:12",
+      "text": "By implementing these strategies, you can optimize your grocery lists, reduce food waste, and make a positive impact on the environment."
+    },
+    {
+      "session": 18,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/02/28 (Tue) 22:12",
+      "text": "I like the suggestion of planning my meals and making a grocery list."
+    },
+    {
+      "session": 18,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 22:12",
+      "text": "Planning meals and making a grocery list can really help you stay focused and avoid impulse buys."
+    },
+    {
+      "session": 18,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 22:12",
+      "text": "This information will be super useful when planning your shopping trips and creating your grocery lists."
+    },
+    {
+      "session": 18,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 22:12",
+      "text": "Otherwise, happy inventory tracking, and I hope your new system helps you stay organized and save time and money on your grocery shopping!"
+    },
+    {
+      "session": 19,
+      "turn": 1,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 00:36",
+      "text": "Zomato is a popular online restaurant discovery and food delivery platform that operates in over 25 countries worldwide."
+    },
+    {
+      "session": 19,
+      "turn": 1,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 00:36",
+      "text": "Zomato also offers a range of online ordering and delivery services, allowing users to order food from their favorite restaurants and have it delivered to their doorstep."
+    },
+    {
+      "session": 19,
+      "turn": 1,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 00:36",
+      "text": "The platform's food delivery service is available in select cities and is powered by a network of delivery partners who work closely with restaurants to ensure that orders are delivered promptly and efficiently [3]."
+    },
+    {
+      "session": 19,
+      "turn": 1,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 00:36",
+      "text": "The platform's reservation system allows users to view real-time availability, choose their preferred time and date, and receive instant confirmation of their booking [4]."
+    },
+    {
+      "session": 19,
+      "turn": 3,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 00:36",
+      "text": "Zomato is an online restaurant discovery and food delivery platform available in over 25 countries worldwide."
+    },
+    {
+      "session": 19,
+      "turn": 3,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 00:36",
+      "text": "Zomato also offers online ordering and delivery services, as well as a table reservation system."
+    },
+    {
+      "session": 19,
+      "turn": 3,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 00:36",
+      "text": "The platform's food delivery service is available in select cities and is powered by a network of delivery partners who work closely with restaurants to ensure that orders are delivered promptly and efficiently."
+    },
+    {
+      "session": 19,
+      "turn": 7,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 00:36",
+      "text": "Zomato is an online restaurant discovery and food delivery platform available in over 25 countries worldwide [1]."
+    },
+    {
+      "session": 19,
+      "turn": 9,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 00:36",
+      "text": "Zomato is an online restaurant discovery and food delivery platform that provides users with a variety of services, including a comprehensive database of restaurants, ratings and reviews, online ordering, and table reservations."
+    },
+    {
+      "session": 19,
+      "turn": 11,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 00:36",
+      "text": "Zomato is an online restaurant discovery and food delivery platform that provides users with a variety of services, including a comprehensive database of restaurants, ratings and reviews, online ordering, and table reservations [1][2][3]."
+    },
+    {
+      "session": 19,
+      "turn": 11,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 00:36",
+      "text": "Zomato's food delivery service is available in select cities and is powered by a network of delivery partners who work closely with restaurants to ensure that orders are delivered promptly and efficiently [2][3]."
+    },
+    {
+      "session": 19,
+      "turn": 13,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 00:36",
+      "text": "Zomato is an Indian online restaurant discovery and food delivery platform that provides a wide range of services, including a database of restaurants, menus, ratings, reviews, online ordering, and table reservations [1][2][3]."
+    },
+    {
+      "session": 19,
+      "turn": 13,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 00:36",
+      "text": "Zomato's food delivery service is available in select cities and is powered by a network of delivery partners who work closely with restaurants to ensure that orders are delivered quickly and efficiently [2][3]."
+    },
+    {
+      "session": 20,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 17:39",
+      "text": "In the case of Singapore, the government has implemented a number of adaptation measures to address the impacts of climate change, such as sea level rise and increased temperature."
+    },
+    {
+      "session": 22,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 13:57",
+      "text": "Please note that prices are approximate and may vary depending on the number of players on your team."
+    },
+    {
+      "session": 22,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 13:57",
+      "text": "* Any requirements or restrictions for court rentals (e.g., minimum number of players, insurance requirements)"
+    },
+    {
+      "session": 23,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 20:55",
+      "text": "(please share the number of comments on your last post)"
+    },
+    {
+      "session": 23,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 20:55",
+      "text": "Your daily Twitter activity (number of tweets, likes, retweets, and replies)."
+    },
+    {
+      "session": 27,
+      "turn": 4,
+      "role": "user",
+      "date": "2023/02/28 (Tue) 21:36",
+      "text": "Azure subscription."
+    },
+    {
+      "session": 27,
+      "turn": 6,
+      "role": "user",
+      "date": "2023/02/28 (Tue) 21:36",
+      "text": "subscription on VM1."
+    },
+    {
+      "session": 27,
+      "turn": 7,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 21:36",
+      "text": "Creating an event subscription on VM1 will not meet the goal of creating an alert in Azure when more than two error events are logged to the System event log on VM1 within an hour."
+    },
+    {
+      "session": 27,
+      "turn": 7,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 21:36",
+      "text": "The event subscription will allow the event data to be sent to another service such as Azure Event Grid, Azure Event Hub or Azure Logic Apps for further processing."
+    },
+    {
+      "session": 27,
+      "turn": 8,
+      "role": "user",
+      "date": "2023/02/28 (Tue) 21:36",
+      "text": "different subscription."
+    },
+    {
+      "session": 27,
+      "turn": 9,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 21:36",
+      "text": "Moving the virtual machine to a different subscription will not achieve the goal of moving the virtual machine to a different host."
+    },
+    {
+      "session": 27,
+      "turn": 10,
+      "role": "user",
+      "date": "2023/02/28 (Tue) 21:36",
+      "text": "You have an Azure subscription that"
+    },
+    {
+      "session": 29,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 09:45",
+      "text": "Applying for an EIN: The responsible party is responsible for applying for an Employer Identification Number (EIN) for the nonprofit organization."
+    },
+    {
+      "session": 33,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 21:55",
+      "text": "* Cost: Is the app free, or are there any subscription fees?"
+    },
+    {
+      "session": 33,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 21:55",
+      "text": "**Plan your meals**: Plan your meals for the week, and make a grocery list accordingly."
+    },
+    {
+      "session": 33,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 21:55",
+      "text": "**Shop sales**: Check the weekly ads for your local grocery stores and plan your shopping trip around the items that are on sale."
+    },
+    {
+      "session": 33,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 21:55",
+      "text": "**Use cashback apps**: Apps like Ibotta and Fetch Rewards offer cashback on certain grocery items."
+    },
+    {
+      "session": 36,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 23:00",
+      "text": "However, there are a few ways to access HBO content, including \"Westworld,\" depending on your current subscriptions and streaming services:"
+    },
+    {
+      "session": 36,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 23:00",
+      "text": "**Option 1: HBO Subscription**"
+    },
+    {
+      "session": 36,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 23:00",
+      "text": "If you have a traditional cable or satellite TV subscription, you can add HBO to your package."
+    },
+    {
+      "session": 36,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 23:00",
+      "text": "If you're an Amazon Prime member, you can add HBO as a channel to your Prime Video subscription."
+    },
+    {
+      "session": 36,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 23:00",
+      "text": "The HBO add-on is a separate subscription that costs $14.99/month or $139.99/year."
+    },
+    {
+      "session": 36,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 23:00",
+      "text": "If you don't want to commit to a subscription, you can purchase individual episodes or seasons of \"Westworld\" through Amazon Prime Video, Google Play, iTunes, or Vudu."
+    },
+    {
+      "session": 36,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 23:00",
+      "text": "* You cannot watch \"Westworld\" exclusively through Amazon Prime Video without an HBO add-on or a separate HBO subscription."
+    },
+    {
+      "session": 36,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 23:00",
+      "text": "* If you have an Amazon Prime membership, you can add HBO as a channel to your subscription."
+    },
+    {
+      "session": 36,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/02/28 (Tue) 23:00",
+      "text": "I already have an Amazon Prime membership, so it's convenient to add HBO to my subscription."
+    },
+    {
+      "session": 36,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 23:00",
+      "text": "The HBO add-on on Amazon Prime Video is a convenient way to access HBO content, including \"Westworld,\" without needing a separate HBO subscription."
+    },
+    {
+      "session": 36,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 23:00",
+      "text": "**Authenticate your subscription**: You'll be asked to sign in to your Amazon account again to confirm the addition of the HBO channel."
+    },
+    {
+      "session": 36,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 23:00",
+      "text": "* **Convenience**: Adding HBO to your Amazon Prime membership is a convenient way to access HBO content without needing a separate subscription."
+    },
+    {
+      "session": 36,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 23:00",
+      "text": "* **Streamlined billing**: Your HBO add-on fee will be added to your Amazon Prime membership bill, making it easy to manage your subscriptions."
+    },
+    {
+      "session": 36,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 23:00",
+      "text": "By adding the HBO add-on to your Amazon Prime membership, you'll get access to a vast library of HBO content, including \"Westworld,\" for a low monthly or annual fee."
+    },
+    {
+      "session": 37,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 23:26",
+      "text": "**Manage your tiles efficiently**: Make sure to use your tiles wisely, and try to minimize the number of tiles you have left over at the end of each round."
+    },
+    {
+      "session": 37,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 23:26",
+      "text": "**Qwixx**: A quick and simple dice game where players try to score points by rolling certain numbers."
+    },
+    {
+      "session": 39,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 07:52",
+      "text": "this can be achieved by limiting the number of parking spaces available in a city or charging higher prices for parking."
+    },
+    {
+      "session": 39,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 07:52",
+      "text": "Autonomous vehicles could help increase traffic flow by reducing the number of traffic accidents, traffic jams, and traffic caused by human errors."
+    },
+    {
+      "session": 39,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 07:52",
+      "text": "This helps reduce the number of cars on the road, which can reduce congestion."
+    },
+    {
+      "session": 39,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 07:52",
+      "text": "This can help spread out the number of vehicles on the road and reduce congestion during the busiest times."
+    },
+    {
+      "session": 39,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 07:52",
+      "text": "This can help reduce the number of cars on the road during peak commuting times."
+    },
+    {
+      "session": 39,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 07:52",
+      "text": "Consolidate trips: Try to consolidate errands or appointments into one trip to reduce the number of individual trips you make."
+    },
+    {
+      "session": 40,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/02/28 (Tue) 16:45",
+      "text": "By the way, I usually do my grocery shopping and fill up my gas tank on Sundays, so I'll try to fit it in then."
+    },
+    {
+      "session": 40,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 16:45",
+      "text": "You can always do your grocery shopping and fill up your gas tank another day."
+    },
+    {
+      "session": 40,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 16:45",
+      "text": "Pay attention to the overall rating, number of reviews, and comments about the mechanic's work quality, communication, and pricing."
+    },
+    {
+      "session": 42,
+      "turn": 7,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 11:58",
+      "text": "Rounding errors – Rounding errors can occur when you round numbers too soon in a calculation."
+    },
+    {
+      "session": 42,
+      "turn": 7,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 11:58",
+      "text": "Mixing up numbers – Mixing up numbers is another common mistake."
+    },
+    {
+      "session": 42,
+      "turn": 7,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 11:58",
+      "text": "To avoid this, label numbers clearly and double-check that you are using the correct numbers in your calculations."
+    },
+    {
+      "session": 53,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 08:13",
+      "text": "Their sound often features soaring guitar riffs, driving rhythms, and introspective vocal delivery."
+    },
+    {
+      "session": 54,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 21:41",
+      "text": "**Schedule regular check-ins**: Regularly schedule time to catch up and connect with your friend, whether it's a weekly call, a monthly coffee date, or a quarterly activity."
+    },
+    {
+      "session": 54,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/02/28 (Tue) 21:41",
+      "text": "Additionally, it might be helpful to set aside time for self-reflection, whether it's daily, weekly, or monthly, to focus on your goals, achievements, and"
+    },
+    {
+      "session": 54,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/02/28 (Tue) 21:41",
+      "text": "**Celebrate milestones**: Reward yourself for reaching journaling and reflection milestones, like completing a certain number of days or reaching a new level of insight."
+    }
+  ],
+  "scope": "All messages in both roles scanned programmatically; selected cited contexts reviewed. This is not exhaustive semantic reading or proof of absence.",
+  "independent_review": "pending",
+  "eligibility": "provisional_candidate"
+}

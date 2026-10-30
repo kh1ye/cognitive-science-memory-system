@@ -1,0 +1,68 @@
+{
+  "sample_id": "gpt4_213fd887",
+  "source_order": 428,
+  "parent_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1\\packages\\gpt4_213fd887",
+  "package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1_review3\\packages\\gpt4_213fd887",
+  "applied_proposal": {
+    "sample_id": "gpt4_213fd887",
+    "status": "proposed_not_applied",
+    "edits": [
+      {
+        "probe_id": "BASE-1",
+        "field": "question",
+        "old": "Which event did I participate in first, the volleyball league or the charity 5K run to raise money for a local children's hospital?",
+        "proposed": "Based on the approximate time intervals I reported, which appears to have started earlier: my volleyball-league participation or my participation in the charity 5K for the children's hospital?"
+      },
+      {
+        "probe_id": "BASE-2",
+        "field": "question",
+        "old": "Did I join the recreational volleyball activity before or after the children's-hospital charity run?",
+        "proposed": "Judging by my rough timing descriptions, did joining the recreational volleyball competition or taking part in the children's-hospital fundraiser run come first?"
+      },
+      {
+        "probe_id": "BASE-3",
+        "field": "question",
+        "old": "Which participation began earlier: the volleyball league or the fundraising 5K?",
+        "proposed": "According to the approximate timing in my account, which came earlier: starting the volleyball league or doing the five-kilometre charity race?"
+      },
+      {
+        "probe_id": "RET-10",
+        "field": "question",
+        "old": "Which event did I participate in first, the volleyball league or the charity 5K run to raise money for a local children's hospital?",
+        "proposed": "Based on the approximate time intervals I reported, which appears to have started earlier: my volleyball-league participation or my participation in the charity 5K for the children's hospital?"
+      },
+      {
+        "probe_id": "RET-30",
+        "field": "question",
+        "old": "Which event did I participate in first, the volleyball league or the charity 5K run to raise money for a local children's hospital?",
+        "proposed": "Based on the approximate time intervals I reported, which appears to have started earlier: my volleyball-league participation or my participation in the charity 5K for the children's hospital?"
+      },
+      {
+        "probe_id": "RET-50",
+        "field": "question",
+        "old": "Which event did I participate in first, the volleyball league or the charity 5K run to raise money for a local children's hospital?",
+        "proposed": "Based on the approximate time intervals I reported, which appears to have started earlier: my volleyball-league participation or my participation in the charity 5K for the children's hospital?"
+      }
+    ],
+    "scoring_note": "Preserve the existing ordering answer. Accept qualifications such as appears earlier or based on the reported approximate intervals. Do not require exact dates or strict mathematical certainty. An answer giving no ordering at all is not automatically correct."
+  },
+  "changed_files": [
+    "private/gpt4_213fd887/gold.json",
+    "samples/gpt4_213fd887/probes.json",
+    "suite.json"
+  ],
+  "gold_sha256": "a9a8f17d025dbef4b32705e267d203993e0f874452ed73a2c6a3c5e131eaf54f",
+  "suite_sha256": "709b50580437fba1d326ca077eb935651817f7fb1be5b2d6e2850a6d14540ca3",
+  "expected_answers_unchanged": true,
+  "history_branches_times_configuration_unchanged": true,
+  "scoring_rule_fields_updated": [
+    "BASE-1",
+    "BASE-2",
+    "BASE-3",
+    "RET-10",
+    "RET-30",
+    "RET-50"
+  ],
+  "live_approved": false,
+  "api_calls": 0
+}

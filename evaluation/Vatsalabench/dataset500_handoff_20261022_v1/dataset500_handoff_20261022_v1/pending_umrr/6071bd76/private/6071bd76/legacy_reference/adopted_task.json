@@ -1,0 +1,15 @@
+{
+  "sample_id": "6071bd76",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 197,
+  "question_cell": "F197",
+  "answer_cell": "E197",
+  "adopted_question_verbatim": "For the coffee-to-water ratio in my French press, did I switch to more water per tablespoon of coffee, or less?",
+  "adopted_answer_or_rubric_verbatim": "Less water: from 6 to 5 ounces per tablespoon of coffee",
+  "english_rubric": "Require less water; the change from six to five ounces per tablespoon substantiates the direction. Do not invert the ratio or assess coffee quality.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

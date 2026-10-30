@@ -1,0 +1,27 @@
+{
+  "pattern": "Costa Rica|7 shirts|seven shirts|3 of the shirts",
+  "matching_sentences": [
+    {
+      "session": 45,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 11:53",
+      "text": "Like, on my last trip to Costa Rica, I brought 7 shirts and 5 pairs of shorts, but I only ended up wearing 3 of the shirts and 2 of the shorts."
+    },
+    {
+      "session": 45,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 11:53",
+      "text": "**You likely need fewer tops:** 3 out of 7 shirts is a pretty low usage rate."
+    },
+    {
+      "session": 45,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 11:53",
+      "text": "For example, if you're going to Costa Rica, you might prioritize packing:"
+    }
+  ],
+  "review_scope": "Selected full source-session context plus programmatic target navigation; not independent full-history acceptance."
+}

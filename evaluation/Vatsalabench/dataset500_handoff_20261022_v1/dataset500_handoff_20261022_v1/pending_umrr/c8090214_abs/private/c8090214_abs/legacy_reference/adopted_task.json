@@ -1,0 +1,15 @@
+{
+  "sample_id": "c8090214_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 433,
+  "question_cell": "F433",
+  "answer_cell": "E433",
+  "adopted_question_verbatim": "How many days before I bought my iPad did I attend the Holiday Market?",
+  "adopted_answer_or_rubric_verbatim": "缺少iPad购买日期，无法确定时间间隔。",
+  "english_rubric": "The iPhone purchase on Black Friday does not provide an iPad purchase date. The requested market-to-iPad interval is not established; independent whole-history review remains pending.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

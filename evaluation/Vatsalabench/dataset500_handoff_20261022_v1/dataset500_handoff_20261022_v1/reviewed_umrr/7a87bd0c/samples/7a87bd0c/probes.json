@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "How long did I report keeping up my daily tidying routine in the September 30 conversation?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-09-30T23:45:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "What length of time did I report maintaining daily tidying in the September 30 chat?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-09-30T23:45:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "For how many weeks did I say I had kept up my everyday straightening-up habit on September 30?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-09-30T23:45:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact date I restarted the tidying routine mentioned in September?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-09-30T23:45:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "What routine duration did I report in September, and what duration had I reported in June?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-09-30T23:45:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "How long did I report keeping up my daily tidying routine in the September 30 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-10-02T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "How long did I report keeping up my daily tidying routine in the September 30 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-10-03T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "How long did I report keeping up my daily tidying routine in the September 30 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-10-04T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the duration for a separate future organising session now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-10-02T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-10-02T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/10/02 12:00, what is the duration for a separate future organising session?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-10-02T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-10-02T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/10/02 12:00, what is the duration for a separate future organising session?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-10-02T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-10-02T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/10/02 12:00, what is the duration for a separate future organising session?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-10-02T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-10-02T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

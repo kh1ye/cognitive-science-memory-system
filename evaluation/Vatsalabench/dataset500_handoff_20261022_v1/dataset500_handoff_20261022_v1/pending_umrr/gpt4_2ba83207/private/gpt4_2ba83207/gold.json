@@ -1,0 +1,144 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "around $150",
+      "rule": "Require around $150 for that order, not a cross-store monthly total."
+    },
+    "BASE-2": {
+      "expected": "around $150",
+      "rule": "Require around $150 for that order, not a cross-store monthly total."
+    },
+    "BASE-3": {
+      "expected": "around $150",
+      "rule": "Require around $150 for that order, not a cross-store monthly total."
+    },
+    "RET-10": {
+      "expected": "around $150",
+      "rule": "Require around $150 for that order, not a cross-store monthly total."
+    },
+    "RET-30": {
+      "expected": "around $150",
+      "rule": "Require around $150 for that order, not a cross-store monthly total."
+    },
+    "RET-50": {
+      "expected": "around $150",
+      "rule": "Require around $150 for that order, not a cross-store monthly total."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "around $150",
+        "organic and sustainable products"
+      ],
+      "intents": [
+        "Order amount",
+        "Product description"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "14:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "14:00",
+        "15:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "14:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "14:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 31,
+        "turn_index": 1,
+        "date": "2023/05/26 (Fri) 10:17",
+        "role": "user",
+        "quote": "I'm trying to plan my meals for the week and was wondering if you could help me come up with some recipe ideas using chicken breast and ground beef, which I just bought last week. By the way, I've been trying to shop more sustainably, which is why I placed an online order with Thrive Market last month and spent around $150 on organic and sustainable products."
+      },
+      {
+        "session_index": 33,
+        "turn_index": 1,
+        "date": "2023/05/26 (Fri) 14:05",
+        "role": "user",
+        "quote": "I'm trying to plan my meals for the upcoming week and was wondering if you could help me with some recipe suggestions. By the way, I just want to mention that I went grocery shopping last Saturday, exactly a week ago, and spent around $120 at Walmart, which is actually a bit higher than I expected, but I did get some good deals with a 10% off coupon on dairy products."
+      },
+      {
+        "session_index": 45,
+        "turn_index": 1,
+        "date": "2023/05/29 (Mon) 15:17",
+        "role": "user",
+        "quote": "I'm trying to plan my meals for the upcoming week and make a grocery list. Can you help me come up with some recipe ideas using chicken breast and ground beef? By the way, speaking of grocery shopping, my sister and I went to Trader Joe's the week before last and spent around $80 between the two of us on some pre-packaged meals and snacks."
+      },
+      {
+        "session_index": 49,
+        "turn_index": 7,
+        "date": "2023/05/30 (Tue) 03:44",
+        "role": "user",
+        "quote": "I'm glad you helped me with the meal plan and grocery list. I think I'll stick to Instacart for this week's grocery shopping. By the way, I've been using their service quite frequently. I ordered from Publix last week and spent around $60. The delivery fee was $10, but it was worth it since I was short on time. Do you think you could help me estimate the cost of the ingredients on this list based on average prices? I'd like to budget for my groceries this week."
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "gpt4_2ba83207",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

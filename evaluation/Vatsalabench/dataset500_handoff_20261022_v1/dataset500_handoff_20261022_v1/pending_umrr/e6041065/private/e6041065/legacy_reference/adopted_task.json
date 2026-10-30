@@ -1,0 +1,15 @@
+{
+  "sample_id": "e6041065",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 335,
+  "question_cell": "F335",
+  "answer_cell": "E335",
+  "adopted_question_verbatim": "Which two types of shoes did I say I wore on my last trip?",
+  "adopted_answer_or_rubric_verbatim": "sneakers and sandals",
+  "english_rubric": "Require both sneakers and sandals; do not infer that two separate last-trip accounts necessarily identify the same journey.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

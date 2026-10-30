@@ -1,0 +1,15 @@
+{
+  "sample_id": "f685340e",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 210,
+  "question_cell": "F210",
+  "answer_cell": "E210",
+  "adopted_question_verbatim": "How often do I play tennis with my friends at the local park previously? How often do I play now?",
+  "adopted_answer_or_rubric_verbatim": "Previously weekly; now every other week",
+  "english_rubric": "Require both weekly before and every other week later. Record two components but use complete-answer binary AFA. Earlier Sunday spectatorship is not proof of a regular Sunday schedule.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

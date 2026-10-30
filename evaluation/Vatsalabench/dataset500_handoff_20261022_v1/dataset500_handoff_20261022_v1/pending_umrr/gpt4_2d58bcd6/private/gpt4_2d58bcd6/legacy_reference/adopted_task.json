@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_2d58bcd6",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 162,
+  "question_cell": "F162",
+  "answer_cell": "E162",
+  "adopted_question_verbatim": "Which book did I say I rushed to finish for a book club meeting?",
+  "adopted_answer_or_rubric_verbatim": "The Hate U Give by Angie Thomas",
+  "english_rubric": "Require The Hate U Give; title alone identifies the work. Do not substitute other recently completed novels or infer a precise completion date.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

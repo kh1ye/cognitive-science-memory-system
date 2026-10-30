@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_31ff4165",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 52,
+  "question_cell": "F52",
+  "answer_cell": "E52",
+  "adopted_question_verbatim": "Which smartwatch model did I say I use to track my daily steps?",
+  "adopted_answer_or_rubric_verbatim": "Fitbit Versa 3",
+  "english_rubric": "Require Fitbit Versa 3; Fitbit alone is insufficient. The step goal is recalled, not prescribed.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

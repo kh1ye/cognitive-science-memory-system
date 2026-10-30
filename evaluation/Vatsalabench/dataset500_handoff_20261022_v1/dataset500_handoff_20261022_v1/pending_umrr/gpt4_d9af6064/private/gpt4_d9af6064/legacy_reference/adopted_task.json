@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_d9af6064",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 171,
+  "question_cell": "F171",
+  "answer_cell": "E171",
+  "adopted_question_verbatim": "On what date did I say I finally set up my smart thermostat?",
+  "adopted_answer_or_rubric_verbatim": "February 10 (2/10)",
+  "english_rubric": "Require February 10 or 2/10. Router acquisition is not proof of router setup date.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

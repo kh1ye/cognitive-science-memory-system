@@ -1,0 +1,133 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "February 8",
+      "rule": "Require February 8, not the Art Cube date or January workshop; no year inference."
+    },
+    "BASE-2": {
+      "expected": "February 8",
+      "rule": "Require February 8, not the Art Cube date or January workshop; no year inference."
+    },
+    "BASE-3": {
+      "expected": "February 8",
+      "rule": "Require February 8, not the Art Cube date or January workshop; no year inference."
+    },
+    "RET-10": {
+      "expected": "February 8",
+      "rule": "Require February 8, not the Art Cube date or January workshop; no year inference."
+    },
+    "RET-30": {
+      "expected": "February 8",
+      "rule": "Require February 8, not the Art Cube date or January workshop; no year inference."
+    },
+    "RET-50": {
+      "expected": "February 8",
+      "rule": "Require February 8, not the Art Cube date or January workshop; no year inference."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Cannot determine the December museum/gallery count. January and February visits do not answer it; no mention does not imply zero.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "February 8",
+        "dinosaur exhibit"
+      ],
+      "intents": [
+        "Date",
+        "Exhibit"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "11:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/03/04 08:00",
+        "old_valid_from": "2023/03/04 08:00",
+        "old_valid_to": "2023/03/05 09:00",
+        "observed_at": "2023/03/05 09:00",
+        "valid_from": "2023/03/05 09:00",
+        "valid_to": null,
+        "query_time": "2023/03/05 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "11:00",
+        "12:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "11:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "11:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 1,
+        "turn_index": 1,
+        "date": "2023/03/03 (Fri) 00:09",
+        "role": "user",
+        "quote": "I'm looking for some art inspiration. Can you recommend any contemporary artists similar to James Parker, whose work I recently saw when I visited The Art Cube on 2/15?"
+      },
+      {
+        "session_index": 9,
+        "turn_index": 1,
+        "date": "2023/03/03 (Fri) 05:32",
+        "role": "user",
+        "quote": "I'm looking for some art inspiration. Can you suggest any local art museums or galleries that offer workshops or classes? By the way, I recently got back into art after attending a guided workshop at the Modern Art Museum in January."
+      },
+      {
+        "session_index": 40,
+        "turn_index": 1,
+        "date": "2023/03/03 (Fri) 21:35",
+        "role": "user",
+        "quote": "I'm looking for some art supply stores in the city. Do you have any recommendations? By the way, I took my niece to the Natural History Museum on 2/8 and she loved the dinosaur exhibit!"
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/03/04 08:00",
+    "old_valid_from": "2023/03/04 08:00",
+    "old_valid_to": "2023/03/05 09:00",
+    "observed_at": "2023/03/05 09:00",
+    "valid_from": "2023/03/05 09:00",
+    "valid_to": null,
+    "query_time": "2023/03/05 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": true,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "80ec1f4f",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

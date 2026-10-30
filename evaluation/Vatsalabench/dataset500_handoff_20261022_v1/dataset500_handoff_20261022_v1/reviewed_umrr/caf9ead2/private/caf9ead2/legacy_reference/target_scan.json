@@ -1,0 +1,125 @@
+{
+  "pattern": "5 hours|five hours|20 minutes|move everything|new apartment",
+  "matching_sentences": [
+    {
+      "session": 14,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/05/21 (Sun) 18:33",
+      "text": "I'm looking for some recommendations on good coffee shops near my new apartment."
+    },
+    {
+      "session": 14,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 18:33",
+      "text": "Congratulations on your new apartment!"
+    },
+    {
+      "session": 14,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/21 (Sun) 18:33",
+      "text": "It's in the city, near my new apartment which is about 20 minutes away from my old place."
+    },
+    {
+      "session": 14,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 18:33",
+      "text": "I'd be happy to help you discover some unique and independent coffee shops near your new apartment."
+    },
+    {
+      "session": 14,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 18:33",
+      "text": "Since you mentioned the drive to your parents' house took around 2 hours, I'm going to take a wild guess that you're not in a super urban area, and your new apartment might be in a suburb or a smaller city."
+    },
+    {
+      "session": 14,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/21 (Sun) 18:33",
+      "text": "I'm actually in the city, and my new apartment is about 20 minutes away from my old place."
+    },
+    {
+      "session": 14,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 18:33",
+      "text": "So you're still in the city, and your new apartment is relatively close to your old place."
+    },
+    {
+      "session": 14,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/21 (Sun) 18:33",
+      "text": "By the way, it took me and my friends around 5 hours to move everything into the new apartment, but it was worth it to be closer to work and save on commute time."
+    },
+    {
+      "session": 14,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 18:33",
+      "text": "Wow, 5 hours is a long time to move, but it's great that you and your friends were able to get everything done!"
+    },
+    {
+      "session": 14,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 18:33",
+      "text": "By the way, have you noticed any other benefits of living in your new apartment, aside from the shorter commute?"
+    },
+    {
+      "session": 14,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 18:33",
+      "text": "How's your new apartment complex?"
+    },
+    {
+      "session": 21,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 13:27",
+      "text": "Day 2: Monterey to Big Sur (120 miles, 2.5 hours)"
+    },
+    {
+      "session": 21,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 13:27",
+      "text": "* Solvang to Napa Valley: 230 miles, 4-5 hours (depending on traffic)"
+    },
+    {
+      "session": 21,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 13:27",
+      "text": "* 8:00 AM: Depart Solvang and drive to Napa Valley (4-5 hours)"
+    },
+    {
+      "session": 21,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 13:27",
+      "text": "* 5:00 PM: Start heading back to Solvang (4-5 hours)"
+    },
+    {
+      "session": 21,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 13:27",
+      "text": "(About 20 minutes from Solvang)"
+    },
+    {
+      "session": 22,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/05/24 (Wed) 14:25",
+      "text": "By the way, I'm still recovering from last week's train delay on Wednesday morning due to a mechanical issue - I was 20 minutes late to work because of it, and it was a real pain."
+    }
+  ],
+  "review_scope": "Selected full source-session context plus programmatic target navigation; not independent full-history acceptance."
+}

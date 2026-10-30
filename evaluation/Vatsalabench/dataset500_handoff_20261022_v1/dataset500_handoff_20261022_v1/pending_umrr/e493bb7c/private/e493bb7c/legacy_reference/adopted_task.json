@@ -1,0 +1,15 @@
+{
+  "sample_id": "e493bb7c",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 198,
+  "question_cell": "F198",
+  "answer_cell": "E198",
+  "adopted_question_verbatim": "Where is the painting 'Ethereal Dreams' by Emma Taylor currently hanging?",
+  "adopted_answer_or_rubric_verbatim": "In the bedroom, above my bed",
+  "english_rubric": "Require bedroom above the bed. Do not substitute Moonlit Ocean, which is a different work.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

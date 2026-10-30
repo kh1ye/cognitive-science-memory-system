@@ -1,0 +1,15 @@
+{
+  "sample_id": "b5ef892d",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 39,
+  "question_cell": "F39",
+  "answer_cell": "E39",
+  "adopted_question_verbatim": "How long did I say my camping trip to Yellowstone National Park lasted?",
+  "adopted_answer_or_rubric_verbatim": "5 days",
+  "english_rubric": "Require five days, not the sum with Big Sur or the planned Colorado visit.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

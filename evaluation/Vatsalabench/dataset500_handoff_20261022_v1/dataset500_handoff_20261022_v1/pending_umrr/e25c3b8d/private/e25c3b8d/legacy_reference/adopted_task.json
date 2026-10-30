@@ -1,0 +1,15 @@
+{
+  "sample_id": "e25c3b8d",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 342,
+  "question_cell": "F342",
+  "answer_cell": "E342",
+  "adopted_question_verbatim": "How much did I save on the designer handbag at TK Maxx?",
+  "adopted_answer_or_rubric_verbatim": "$300 ($500-$200)",
+  "english_rubric": "Require $300, 500-200, under the adopted same-handbag linkage; confirm that linkage in independent review.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "38146c39",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 77,
+  "question_cell": "F77",
+  "answer_cell": "E77",
+  "adopted_question_verbatim": "I've been feeling like my chocolate chip cookies need something extra. Any advice?",
+  "adopted_answer_or_rubric_verbatim": "给出配料或操作层面的改进建议，可结合已尝试的turbinado sugar；不要求唯一配方。",
+  "english_rubric": "Offer ingredient or technique improvements for chocolate-chip cookies. Turbinado experience may be relevant; do not require one recipe or invent taste restrictions.",
+  "mapped_role": "supplementary_open_task_not_scheduled_in_core12",
+  "scheduled_in_core12": false,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

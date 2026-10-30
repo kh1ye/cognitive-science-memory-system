@@ -1,0 +1,15 @@
+{
+  "sample_id": "afdc33df",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 320,
+  "question_cell": "F320",
+  "answer_cell": "E320",
+  "adopted_question_verbatim": "My kitchen's becoming a bit of a mess again. Any tips for keeping it clean?",
+  "adopted_answer_or_rubric_verbatim": "给出可操作清洁建议，结合餐具架与花岗岩台面；必要维护提示可相关。",
+  "english_rubric": "Give practical kitchen-cleaning advice mindful of granite and utensil organisation. Relevant maintenance can be on-task without demanding every historical detail.",
+  "mapped_role": "supplementary_open_task_not_scheduled_in_core12",
+  "scheduled_in_core12": false,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

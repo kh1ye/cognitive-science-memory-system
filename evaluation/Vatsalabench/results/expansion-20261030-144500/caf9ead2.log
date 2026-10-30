@@ -1,0 +1,21 @@
+Ingested BASE:S-0001:0: 0 operations (persist)
+Ingested BASE:S-0002:0: 6 operations (persist)
+Results: D:\桌面\memory\outputs\vatsalabench\expansion-20261030-144500\caf9ead2
+Traceback (most recent call last):
+  File "D:\桌面\memory\scripts\vatsalabench_full.py", line 250, in <module>
+    main()
+  File "D:\桌面\memory\scripts\vatsalabench_full.py", line 201, in main
+    ingest(baseline, "BASE", session)
+  File "D:\桌面\memory\scripts\vatsalabench_full.py", line 156, in ingest
+    analysis = analyze_observation(extraction_model,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\桌面\memory\src\conversation_agent\llm.py", line 159, in analyze_observation
+    ObservationAnalysis.model_validate(JsonOutputParser().parse(response.text)),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\桌面\memory\.venv\Lib\site-packages\pydantic\main.py", line 790, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ObservationAnalysis
+episode_candidates.1.event_kind
+  Input should be 'input', 'action', 'result', 'feedback', 'correction' or 'summary' [type=literal_error, input_value='decision', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.14/v/literal_error

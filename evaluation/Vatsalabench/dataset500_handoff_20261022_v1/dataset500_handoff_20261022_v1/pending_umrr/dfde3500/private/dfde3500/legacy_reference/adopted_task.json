@@ -1,0 +1,15 @@
+{
+  "sample_id": "dfde3500",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 462,
+  "question_cell": "F462",
+  "answer_cell": "E462",
+  "adopted_question_verbatim": "On which day of the week did I say I meet Juan for language exchange?",
+  "adopted_answer_or_rubric_verbatim": "Wednesday evenings",
+  "english_rubric": "Require Wednesday evenings for Juan. Meeting Maria Thursday does not establish Juan was replaced.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

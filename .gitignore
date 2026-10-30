@@ -11,6 +11,9 @@ memory_product/data/
 *.db-shm
 *.db-wal
 *.log
+!evaluation/Vatsalabench/results/**/*.log
+evaluation/Vatsalabench/results/**/*.bak
+evaluation/Vatsalabench/local-originals/
 
 # Secrets
 .env

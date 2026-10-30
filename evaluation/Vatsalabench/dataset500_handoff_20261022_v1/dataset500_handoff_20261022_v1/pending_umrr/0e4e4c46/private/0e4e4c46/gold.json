@@ -1,0 +1,130 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "132 points",
+      "rule": "Require 132 points. Preserve actual user role despite assistant-like wording; do not invent a post-update source-session window."
+    },
+    "BASE-2": {
+      "expected": "132 points",
+      "rule": "Require 132 points. Preserve actual user role despite assistant-like wording; do not invent a post-update source-session window."
+    },
+    "BASE-3": {
+      "expected": "132 points",
+      "rule": "Require 132 points. Preserve actual user role despite assistant-like wording; do not invent a post-update source-session window."
+    },
+    "RET-10": {
+      "expected": "132 points",
+      "rule": "Require 132 points. Preserve actual user role despite assistant-like wording; do not invent a post-update source-session window."
+    },
+    "RET-30": {
+      "expected": "132 points",
+      "rule": "Require 132 points. Preserve actual user role despite assistant-like wording; do not invent a post-update source-session window."
+    },
+    "RET-50": {
+      "expected": "132 points",
+      "rule": "Require 132 points. Preserve actual user role despite assistant-like wording; do not invent a post-update source-session window."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "132 points",
+        "124 points"
+      ],
+      "intents": [
+        "Later record",
+        "Earlier record"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "14:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/06/11 08:00",
+        "old_valid_from": "2023/06/11 08:00",
+        "old_valid_to": "2023/06/12 09:00",
+        "observed_at": "2023/06/12 09:00",
+        "valid_from": "2023/06/12 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/12 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "14:00",
+        "15:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "14:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "14:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 49,
+        "turn_index": 9,
+        "date": "2023/05/25 (Thu) 22:16",
+        "role": "user",
+        "quote": "Building structures and trading resources is indeed a crucial part of the game. By the way, speaking of building and creating things, I just got my highest score in Ticket to Ride - 132 points! Anyway, back to Scythe... Do you want to know more about how to maximize your trade opportunities with other players?"
+      },
+      {
+        "session_index": 9,
+        "turn_index": 3,
+        "date": "2023/05/23 (Tue) 03:08",
+        "role": "user",
+        "quote": "I'm interested in trying out Carcassonne, I've heard great things about it. Do you think it's a good game for a group of 6-8 people, or is it better suited for smaller groups? Also, by the way, I've been crushing it in Ticket to Ride lately - my highest score so far is 124 points, and I'm eager to keep improving."
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/06/11 08:00",
+    "old_valid_from": "2023/06/11 08:00",
+    "old_valid_to": "2023/06/12 09:00",
+    "observed_at": "2023/06/12 09:00",
+    "valid_from": "2023/06/12 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/12 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "0e4e4c46",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

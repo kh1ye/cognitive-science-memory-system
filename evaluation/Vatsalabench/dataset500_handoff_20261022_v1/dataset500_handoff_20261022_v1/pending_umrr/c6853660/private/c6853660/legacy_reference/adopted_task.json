@@ -1,0 +1,15 @@
+{
+  "sample_id": "c6853660",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 218,
+  "question_cell": "F218",
+  "answer_cell": "E218",
+  "adopted_question_verbatim": "Did I mostly recently increase or decrease the limit on the number of cups of coffee in the morning?",
+  "adopted_answer_or_rubric_verbatim": "Increased from one cup to two cups",
+  "english_rubric": "Require increased from one to two. Use the explicit have-increased statement, not only the preceding consideration.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

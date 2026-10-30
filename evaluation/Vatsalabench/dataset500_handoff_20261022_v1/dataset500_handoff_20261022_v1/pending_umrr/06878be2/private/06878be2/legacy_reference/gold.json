@@ -1,0 +1,139 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "Sony A7R IV",
+      "rule": "Require Sony A7R IV; do not substitute a flash model."
+    },
+    "BASE-2": {
+      "expected": "Sony A7R IV",
+      "rule": "Require Sony A7R IV; do not substitute a flash model."
+    },
+    "BASE-3": {
+      "expected": "Sony A7R IV",
+      "rule": "Require Sony A7R IV; do not substitute a flash model."
+    },
+    "RET-10": {
+      "expected": "Sony A7R IV",
+      "rule": "Require Sony A7R IV; do not substitute a flash model."
+    },
+    "RET-30": {
+      "expected": "Sony A7R IV",
+      "rule": "Require Sony A7R IV; do not substitute a flash model."
+    },
+    "RET-50": {
+      "expected": "Sony A7R IV",
+      "rule": "Require Sony A7R IV; do not substitute a flash model."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "Sony A7R IV",
+        "Sony 24-70mm f/2.8"
+      ],
+      "intents": [
+        "Camera model",
+        "Lens specification"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "sling",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "sling",
+        "shoulder bag"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "sling",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "sling",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 36,
+        "turn_index": 1,
+        "date": "2023/05/27 (Sat) 03:28",
+        "role": "user",
+        "quote": "I'm looking to upgrade my camera flash. Can you recommend some good options that are compatible with my Sony A7R IV?"
+      },
+      {
+        "session_index": 36,
+        "turn_index": 3,
+        "date": "2023/05/27 (Sat) 03:28",
+        "role": "user",
+        "quote": "I'm leaning towards the Godox V1, but how does it compare to the Sony HVL-F60RM in terms of build quality and durability?"
+      },
+      {
+        "session_index": 36,
+        "turn_index": 9,
+        "date": "2023/05/27 (Sat) 03:28",
+        "role": "user",
+        "quote": "What's the best way to clean my Sony 24-70mm f/2.8 lens? I've heard that using a soft cloth and some cleaning solution can leave streaks or scratches on the lens."
+      },
+      {
+        "session_index": 36,
+        "turn_index": 15,
+        "date": "2023/05/27 (Sat) 03:28",
+        "role": "user",
+        "quote": "As a Sony camera user, I've been thinking about upgrading my camera bag to something more comfortable and durable. Do you have any recommendations for camera bags that are specifically designed for Sony cameras?\n\nI've been looking at a few options online, but I'd love to hear your thoughts and get some recommendations from someone with more experience."
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": true,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "06878be2",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

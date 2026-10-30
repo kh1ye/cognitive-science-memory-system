@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_d31cdae3",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 173,
+  "question_cell": "F173",
+  "answer_cell": "E173",
+  "adopted_question_verbatim": "How long did I say I spent backpacking through Italy, Switzerland, and Germany on my solo Europe trip?",
+  "adopted_answer_or_rubric_verbatim": "Two weeks",
+  "english_rubric": "Require two weeks. Keep this historical solo trip separate from the planned Arizona visit.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

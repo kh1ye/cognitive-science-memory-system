@@ -1,0 +1,48 @@
+{
+  "pattern": "Evelyn|Hugo|20.30 pages|Last House Guest",
+  "matching_sentences": [
+    {
+      "session": 10,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/05/23 (Tue) 11:27",
+      "text": "By the way, I'm currently devouring \"The Seven Husbands of Evelyn Hugo\" and it's hard to put down!"
+    },
+    {
+      "session": 10,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 11:27",
+      "text": "\"The Seven Husbands of Evelyn Hugo\" is an amazing book!"
+    },
+    {
+      "session": 10,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 11:27",
+      "text": "Enjoy the rest of \"The Seven Husbands of Evelyn Hugo\"!"
+    },
+    {
+      "session": 10,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/23 (Tue) 11:27",
+      "text": "I've been averaging 20-30 pages a night, and some nights I've stayed up way too late reading 50-60 pages in one sitting."
+    },
+    {
+      "session": 10,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/23 (Tue) 11:27",
+      "text": "We're going to discuss \"The Last House Guest\" by Megan Miranda, which I've already read and really enjoyed."
+    },
+    {
+      "session": 10,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 11:27",
+      "text": "\"The Last House Guest\" by Megan Miranda is a great choice for a book club discussion."
+    }
+  ],
+  "review_scope": "Selected full source-session context plus programmatic target navigation; not independent full-history acceptance."
+}

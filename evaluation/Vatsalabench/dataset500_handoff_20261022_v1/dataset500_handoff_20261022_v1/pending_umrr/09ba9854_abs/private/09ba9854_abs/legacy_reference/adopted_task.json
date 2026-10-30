@@ -1,0 +1,15 @@
+{
+  "sample_id": "09ba9854_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 367,
+  "question_cell": "F367",
+  "answer_cell": "E367",
+  "adopted_question_verbatim": "About how much did I say I was told a taxi from the airport to my hotel would cost?",
+  "adopted_answer_or_rubric_verbatim": "about $60",
+  "english_rubric": "Require around $60 as the user's reported quote. Do not substitute assistant estimates or treat historical fares as current travel advice.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

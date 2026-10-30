@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "Did I finish reading 'The Nightingale' by Kristin Hannah?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-04-12T06:37:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-04-12T06:37:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "Had I completed Kristin Hannah's The Nightingale in my later reading report?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-04-12T06:37:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-04-12T06:37:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "Did I eventually get through The Nightingale after putting it aside?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-04-12T06:37:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-04-12T06:37:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact date I finished reading The Nightingale?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-04-12T06:37:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-04-12T06:37:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "Had I finished The Nightingale in the later report, and why had I previously put it down?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-04-12T06:37:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-04-12T06:37:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "Did I finish reading 'The Nightingale' by Kristin Hannah?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-04-14T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-04-12T06:37:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "Did I finish reading 'The Nightingale' by Kristin Hannah?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-04-15T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-04-12T06:37:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "Did I finish reading 'The Nightingale' by Kristin Hannah?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-04-16T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-04-12T06:37:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the start time for a separate future reading discussion session now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-04-14T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-04-14T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/04/14 12:00, what is the start time for a separate future reading discussion session?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-04-14T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-04-14T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/04/14 12:00, what is the start time for a separate future reading discussion session?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-04-14T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-04-14T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/04/14 12:00, what is the start time for a separate future reading discussion session?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-04-14T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-04-14T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "sample_id": "0100672e",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 348,
+  "question_cell": "F348",
+  "answer_cell": "E348",
+  "adopted_question_verbatim": "How many coffee mugs did I say I bought for my coworkers during the holiday season?",
+  "adopted_answer_or_rubric_verbatim": "5",
+  "english_rubric": "Require five. A total divided by five gives an average, not necessarily an equal unit price.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

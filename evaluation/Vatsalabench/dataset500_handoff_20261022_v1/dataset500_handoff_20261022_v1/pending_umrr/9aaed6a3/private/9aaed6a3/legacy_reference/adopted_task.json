@@ -1,0 +1,15 @@
+{
+  "sample_id": "9aaed6a3",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 88,
+  "question_cell": "F88",
+  "answer_cell": "E88",
+  "adopted_question_verbatim": "What cashback rate did I say my SaveMart membership offered on purchases?",
+  "adopted_answer_or_rubric_verbatim": "1%",
+  "english_rubric": "Accept one percent or 0.01 as a fraction. Do not substitute a computed cashback amount.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

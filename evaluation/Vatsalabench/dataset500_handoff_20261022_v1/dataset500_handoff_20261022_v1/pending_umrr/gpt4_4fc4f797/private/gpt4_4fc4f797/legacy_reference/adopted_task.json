@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_4fc4f797",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 379,
+  "question_cell": "F379",
+  "answer_cell": "E379",
+  "adopted_question_verbatim": "What handling problem did I say judges had identified with my car's suspension?",
+  "adopted_answer_or_rubric_verbatim": "the suspension was too soft, affecting handling especially in fast corners",
+  "english_rubric": "Require overly soft suspension affecting handling, especially fast corners. Planned testing is not a completed test.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

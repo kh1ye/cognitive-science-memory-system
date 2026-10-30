@@ -1,0 +1,15 @@
+{
+  "sample_id": "55241a1f",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 358,
+  "question_cell": "F358",
+  "answer_cell": "E358",
+  "adopted_question_verbatim": "What is the total number of comments on my recent Facebook Live session and my most popular YouTube video?",
+  "adopted_answer_or_rubric_verbatim": "33 (12+21)",
+  "english_rubric": "Require 33 comments, 12+21. This is not a deduplicated count of commenters; YouTube identity is established by the surrounding session.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

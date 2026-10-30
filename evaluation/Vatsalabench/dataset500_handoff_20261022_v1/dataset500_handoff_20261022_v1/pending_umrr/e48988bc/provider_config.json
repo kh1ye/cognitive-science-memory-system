@@ -1,0 +1,13 @@
+{
+  "provider": "DeepSeek",
+  "endpoint": "https://api.deepseek.com/chat/completions",
+  "model_requested": "deepseek-flash",
+  "thinking": "disabled",
+  "temperature": 0,
+  "frequency_penalty": 0,
+  "presence_penalty": 0,
+  "max_output_tokens_summary": 2048,
+  "max_output_tokens_answer": 512,
+  "timeout_seconds": 60,
+  "automatic_retries": 0
+}

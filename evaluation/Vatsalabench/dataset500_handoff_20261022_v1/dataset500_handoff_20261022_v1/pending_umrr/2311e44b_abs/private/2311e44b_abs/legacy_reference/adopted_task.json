@@ -1,0 +1,15 @@
+{
+  "sample_id": "2311e44b_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 364,
+  "question_cell": "F364",
+  "answer_cell": "E364",
+  "adopted_question_verbatim": "How many pages do I have left to read in 'Sapiens'?",
+  "adopted_answer_or_rubric_verbatim": "缺少足够的总页数/阅读进度，无法确认剩余页数。",
+  "english_rubric": "The remaining page count cannot be established without sufficient total-length and completed-progress evidence. Weekly pace, another book's length and an assistant's edition estimate do not supply it. Whole-history absence review remains pending.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

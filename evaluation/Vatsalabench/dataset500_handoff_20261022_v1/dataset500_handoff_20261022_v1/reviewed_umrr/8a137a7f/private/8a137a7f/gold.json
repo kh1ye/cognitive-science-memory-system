@@ -1,0 +1,133 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "LED",
+      "rule": "Require LED or light-emitting diode. Philips alone answers the brand, not the technology. Do not presuppose a replacement action."
+    },
+    "BASE-2": {
+      "expected": "LED",
+      "rule": "Require LED or light-emitting diode. Philips alone answers the brand, not the technology. Do not presuppose a replacement action."
+    },
+    "BASE-3": {
+      "expected": "LED",
+      "rule": "Require LED or light-emitting diode. Philips alone answers the brand, not the technology. Do not presuppose a replacement action."
+    },
+    "RET-10": {
+      "expected": "LED",
+      "rule": "Require LED or light-emitting diode. Philips alone answers the brand, not the technology. Do not presuppose a replacement action."
+    },
+    "RET-30": {
+      "expected": "LED",
+      "rule": "Require LED or light-emitting diode. Philips alone answers the brand, not the technology. Do not presuppose a replacement action."
+    },
+    "RET-50": {
+      "expected": "LED",
+      "rule": "Require LED or light-emitting diode. Philips alone answers the brand, not the technology. Do not presuppose a replacement action."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value and no false denial of a known related event. Do not infer that an identifier or certificate exists merely because the question asks for it.",
+      "annotation_status": "targeted_search_only_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "LED",
+        "Philips"
+      ],
+      "intents": [
+        "Technology",
+        "Brand"
+      ],
+      "rule": "TIC counts substantive answers to the two requested slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, separately from correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "60 percent",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "60 percent",
+        "80 percent"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not choose a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "60 percent",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "60 percent",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 10,
+        "turn_index": 3,
+        "date": "2023/05/22 (Mon) 10:10",
+        "role": "user",
+        "quote": "I like those ideas, especially the layered lighting concept. I think I'll try placing a floor lamp behind the sofa. Can you suggest some good floor lamps with a warm tone that would work well with the Philips LED bulb I have in my bedside lamp?"
+      },
+      {
+        "session_index": 10,
+        "turn_index": 11,
+        "date": "2023/05/22 (Mon) 10:10",
+        "role": "user",
+        "quote": "I think I'll start with some warm white bulbs for my kitchen and see how that goes. I've been using a Philips LED bulb in my bedside lamp, and I really like the warm tone it provides."
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional_pending_independent_review"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+    "sheet": "Sheet1",
+    "row": 25,
+    "question_cell": "F25",
+    "answer_cell": "E25",
+    "status": "user_confirmed_reviewed",
+    "adopted_question": "What type of bulb did I say I was using in my bedside lamp?",
+    "adopted_answer": "LED"
+  },
+  "new_content_review": "AI-authored with source-context review; independent acceptance pending",
+  "scope_notes": [
+    "Historical reference remains fixed to the original report, not the query date.",
+    "Recall supplied statements only; no new personal facts are inferred."
+  ],
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10 + 2*r30 + r50)/4.",
+    "resource": "Fresh separate baseline and three resource queries. Native units only. No mixed-unit overall score."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

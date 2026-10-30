@@ -1,0 +1,106 @@
+{
+  "selection_seed": "vatsalabench-expansion-20261030-v1",
+  "population": "reviewed_umrr only",
+  "excluded_seen_samples": [
+    "1faac195",
+    "b86304ba"
+  ],
+  "selected": [
+    {
+      "source_order": 31,
+      "sample_id": "f4f1d8a4",
+      "package_folder": "reviewed_umrr/f4f1d8a4",
+      "suite_file": "reviewed_umrr/f4f1d8a4/suite.json",
+      "umrr_review_status": "supported_by_targeted_context_review_not_full_history",
+      "review_group": "reviewed_umrr",
+      "umrr_question": "What was the exact serial number of the stand mixer I received for my birthday?",
+      "review_record": "review_records/c1a51323824e_review.json",
+      "all_11_metrics_final_approval": false,
+      "independent_acceptance": false
+    },
+    {
+      "source_order": 479,
+      "sample_id": "cc539528",
+      "package_folder": "reviewed_umrr/cc539528",
+      "suite_file": "reviewed_umrr/cc539528/suite.json",
+      "umrr_review_status": "supported_within_explicit_referenced_text",
+      "review_group": "reviewed_umrr",
+      "umrr_question": "What exact course enrolment ID did that response provide for my back-end study?",
+      "review_record": "review_records/78d674cc80fb_context_review.json",
+      "all_11_metrics_final_approval": false,
+      "independent_acceptance": false
+    },
+    {
+      "source_order": 14,
+      "sample_id": "caf9ead2",
+      "package_folder": "reviewed_umrr/caf9ead2",
+      "suite_file": "reviewed_umrr/caf9ead2/suite.json",
+      "umrr_review_status": "supported_by_targeted_context_review_not_full_history",
+      "review_group": "reviewed_umrr",
+      "umrr_question": "What was the exact street address of the new apartment I described moving into?",
+      "review_record": "review_records/2ac20edfc9e1_review.json",
+      "all_11_metrics_final_approval": false,
+      "independent_acceptance": false
+    },
+    {
+      "source_order": 483,
+      "sample_id": "8cf51dda",
+      "package_folder": "reviewed_umrr/8cf51dda",
+      "suite_file": "reviewed_umrr/8cf51dda/suite.json",
+      "umrr_review_status": "supported_within_explicit_referenced_text",
+      "review_group": "reviewed_umrr",
+      "umrr_question": "What exact grant award number did the draft give for the proposed endometrial-cancer project?",
+      "review_record": "review_records/ae8e744b553c_context_review.json",
+      "all_11_metrics_final_approval": false,
+      "independent_acceptance": false
+    },
+    {
+      "source_order": 476,
+      "sample_id": "6ae235be",
+      "package_folder": "reviewed_umrr/6ae235be",
+      "suite_file": "reviewed_umrr/6ae235be/suite.json",
+      "umrr_review_status": "supported_within_explicit_referenced_text",
+      "review_group": "reviewed_umrr",
+      "umrr_question": "What was the exact operating-permit number of Lake Charles Refinery in your previous reply?",
+      "review_record": "review_records/78d674cc80fb_context_review.json",
+      "all_11_metrics_final_approval": false,
+      "independent_acceptance": false
+    }
+  ],
+  "runs": [
+    {
+      "sample_id": "f4f1d8a4",
+      "exit_code": 0,
+      "results": "outputs\\vatsalabench\\expansion-20261030-144500\\f4f1d8a4\\results.json",
+      "log": "outputs\\vatsalabench\\expansion-20261030-144500\\f4f1d8a4.log"
+    },
+    {
+      "sample_id": "cc539528",
+      "exit_code": 0,
+      "results": "outputs\\vatsalabench\\expansion-20261030-144500\\cc539528\\results.json",
+      "log": "outputs\\vatsalabench\\expansion-20261030-144500\\cc539528.log"
+    },
+    {
+      "sample_id": "caf9ead2",
+      "exit_code": 1,
+      "results": "outputs\\vatsalabench\\expansion-20261030-144500\\caf9ead2\\results.json",
+      "log": "outputs\\vatsalabench\\expansion-20261030-144500\\caf9ead2.log"
+    },
+    {
+      "sample_id": "8cf51dda",
+      "exit_code": 1,
+      "results": "outputs\\vatsalabench\\expansion-20261030-144500\\8cf51dda\\results.json",
+      "log": "outputs\\vatsalabench\\expansion-20261030-144500\\8cf51dda.log"
+    },
+    {
+      "sample_id": "6ae235be",
+      "exit_code": 0,
+      "results": "outputs\\vatsalabench\\expansion-20261030-144500\\6ae235be\\results.json",
+      "log": "outputs\\vatsalabench\\expansion-20261030-144500\\6ae235be.log"
+    }
+  ],
+  "concurrency": 1,
+  "automatic_retries": 0,
+  "quality_queries_planned": 60,
+  "resource_queries_planned": 15
+}

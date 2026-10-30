@@ -1,0 +1,125 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "by 7 pm / 19:00",
+      "rule": "Require by 7 pm or no later than 19:00. Accept 7 pm in cutoff context; do not require stopping exactly at that minute."
+    },
+    "BASE-2": {
+      "expected": "by 7 pm / 19:00",
+      "rule": "Require by 7 pm or no later than 19:00. Accept 7 pm in cutoff context; do not require stopping exactly at that minute."
+    },
+    "BASE-3": {
+      "expected": "by 7 pm / 19:00",
+      "rule": "Require by 7 pm or no later than 19:00. Accept 7 pm in cutoff context; do not require stopping exactly at that minute."
+    },
+    "RET-10": {
+      "expected": "by 7 pm / 19:00",
+      "rule": "Require by 7 pm or no later than 19:00. Accept 7 pm in cutoff context; do not require stopping exactly at that minute."
+    },
+    "RET-30": {
+      "expected": "by 7 pm / 19:00",
+      "rule": "Require by 7 pm or no later than 19:00. Accept 7 pm in cutoff context; do not require stopping exactly at that minute."
+    },
+    "RET-50": {
+      "expected": "by 7 pm / 19:00",
+      "rule": "Require by 7 pm or no later than 19:00. Accept 7 pm in cutoff context; do not require stopping exactly at that minute."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value and no false denial of a known related event. Do not infer that an identifier or certificate exists merely because the question asks for it.",
+      "annotation_status": "targeted_search_only_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "by 7 pm",
+        "separate work and personal life and relax without thinking about work"
+      ],
+      "intents": [
+        "Evening cutoff",
+        "Reason for boundary"
+      ],
+      "rule": "TIC counts substantive answers to the two requested slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, separately from correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "18:00",
+      "rule": "Adopt the new effective value after incremental ingestion of the update and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "18:00",
+        "20:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not choose a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "18:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "18:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 42,
+        "turn_index": 5,
+        "date": "2023/05/29 (Mon) 04:01",
+        "role": "user",
+        "quote": "I've heard that this book is a great choice for a evening read, something to unwind with after a long day. Speaking of unwinding, I've been trying to establish a better evening routine, stopping work emails and messages by 7 pm to separate my work and personal life. It's really helped me relax and not think about work during my personal time. Do you have any recommendations for some relaxing evening activities that I could incorporate into my routine?"
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional_pending_independent_review"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+    "sheet": "Sheet1",
+    "row": 18,
+    "question_cell": "F18",
+    "answer_cell": "E18",
+    "status": "user_confirmed_reviewed",
+    "adopted_question": "By what time did I say I stop checking work emails and messages in my evening routine?",
+    "adopted_answer": "by 7 pm / 19:00"
+  },
+  "new_content_review": "AI-authored with source-context review; independent acceptance pending",
+  "scope_notes": [
+    "Historical reference remains fixed to the original report, not the query date.",
+    "Recall supplied statements only; no new personal facts are inferred."
+  ],
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10 + 2*r30 + r50)/4.",
+    "resource": "Fresh separate baseline and three resource queries. Native units only. No mixed-unit overall score."
+  }
+}

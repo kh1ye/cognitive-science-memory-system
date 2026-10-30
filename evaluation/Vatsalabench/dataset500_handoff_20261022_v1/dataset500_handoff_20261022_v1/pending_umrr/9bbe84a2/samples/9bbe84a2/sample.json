@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.1",
+  "sample_id": "9bbe84a2",
+  "source": {
+    "dataset": "LongMemEval",
+    "dataset_version": "s_cleaned_source_sha256",
+    "question_id": "9bbe84a2",
+    "file_sha256": "0a2383ab4ba1e6578fddc00e37c51bd5f46310389c4b1f6511a10cfe1ba73c28"
+  },
+  "target_id": "9bbe84a2-historical-target",
+  "base_visible_cutoff": "2023-10-08T18:03:00",
+  "base_query_time": "2023-10-08T18:03:00",
+  "target_reference_time": {
+    "kind": "historical_event",
+    "value": "the past event identified in the current question, as reported in the original conversation history"
+  },
+  "time_basis": "source_local_unspecified",
+  "history_file": "history.json",
+  "probes_file": "probes.json",
+  "branches_file": "branches.json",
+  "review": {
+    "ai_review": "source_evidence_checked_draft_authored",
+    "independent_review": "pending",
+    "protocol_approved": false,
+    "reviewer_id": null
+  },
+  "temporal_provenance": {
+    "original_base_query_time": "2023-10-08T15:29:00",
+    "original_base_visible_cutoff": "2023-10-08T15:29:00",
+    "max_original_timestamp": "2023-10-08T18:02:00",
+    "synthetic_shift_days": 0,
+    "input_order": "original_file_order",
+    "reference_review": "pending",
+    "reviewer_id": null
+  }
+}

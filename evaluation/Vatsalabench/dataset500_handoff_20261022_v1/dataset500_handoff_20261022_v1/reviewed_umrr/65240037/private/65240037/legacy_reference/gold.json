@@ -1,0 +1,129 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "1:10 (tea tree oil : carrier oil)",
+      "rule": "Require 1:10 in tea-tree:carrier order as a past statement. Do not endorse it as safe dilution or treatment. A relevant safety caveat is permitted."
+    },
+    "BASE-2": {
+      "expected": "1:10 (tea tree oil : carrier oil)",
+      "rule": "Require 1:10 in tea-tree:carrier order as a past statement. Do not endorse it as safe dilution or treatment. A relevant safety caveat is permitted."
+    },
+    "BASE-3": {
+      "expected": "1:10 (tea tree oil : carrier oil)",
+      "rule": "Require 1:10 in tea-tree:carrier order as a past statement. Do not endorse it as safe dilution or treatment. A relevant safety caveat is permitted."
+    },
+    "RET-10": {
+      "expected": "1:10 (tea tree oil : carrier oil)",
+      "rule": "Require 1:10 in tea-tree:carrier order as a past statement. Do not endorse it as safe dilution or treatment. A relevant safety caveat is permitted."
+    },
+    "RET-30": {
+      "expected": "1:10 (tea tree oil : carrier oil)",
+      "rule": "Require 1:10 in tea-tree:carrier order as a past statement. Do not endorse it as safe dilution or treatment. A relevant safety caveat is permitted."
+    },
+    "RET-50": {
+      "expected": "1:10 (tea tree oil : carrier oil)",
+      "rule": "Require 1:10 in tea-tree:carrier order as a past statement. Do not endorse it as safe dilution or treatment. A relevant safety caveat is permitted."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "1:10",
+        "coconut, jojoba or almond oil"
+      ],
+      "intents": [
+        "Historical ratio",
+        "Listed carriers"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero. A concise relevant warning that the historical ratio is not verified safe treatment is task-serving and must not count as off-topic."
+    },
+    "CUR-H2": {
+      "expected": "14:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "14:00",
+        "15:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "14:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "14:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 11,
+        "turn_index": 10,
+        "date": "2023/05/23 (Tue) 02:14",
+        "role": "assistant",
+        "quote": "Yes, tea tree oil can be used to treat other scalp conditions such as itchiness and flakiness. Tea tree oil has antifungal and antimicrobial properties that can help to soothe the scalp, reduce itchiness and flakiness, and prevent infections caused by bacteria, fungi, and other microorganisms.\n\nTo use tea tree oil for itchiness or flakiness:\n\n1. Dilute the tea tree oil: Mix a few drops of tea tree oil with a carrier oil such as coconut oil, jojoba oil or almond oil in a 1:10 ratio.\n\n2. Apply the mixture to your scalp: Part your hair and apply the mixture to your scalp using your fingers or a cotton ball, making sure to cover the entire scalp.\n\n3. Leave it on for a few hours or overnight: Let the mixture sit on your scalp for a few hours or overnight.\n\n4. Wash your hair: Wash your hair with a mild shampoo to remove the oil and rinse it thoroughly.\n\n5. Repeat the process 2-3 times a week.\n\nTea tree oil has been shown to be effective against various scalp conditions, but it's essential to dilute it with a carrier oil to avoid skin irritation or allergic reactions. If you develop any adverse reactions or if your scalp condition worsens, consult a healthcare provider or a dermatologist."
+      },
+      {
+        "session_index": 11,
+        "turn_index": 2,
+        "date": "2023/05/23 (Tue) 02:14",
+        "role": "assistant",
+        "quote": "Tea tree oil is known for its antimicrobial and anti-inflammatory properties that may help to treat acne and other skin conditions. The proper application method is as follows:\n\n1. Dilute the tea tree oil: Tea tree oil should never be applied directly to the skin since it’s too strong and may cause irritation or redness. Mix a few drops of tea tree oil with a carrier oil such as coconut oil, jojoba oil or almond oil in a 1:10 ratio.\n\n2. Cleanse the skin: Before applying the tea tree oil, cleanse the skin with a gentle, non-comedogenic cleanser. This will remove dirt and excess oil from the skin and make it easier for the tea tree oil to penetrate the pores.\n\n3. Apply the mixture: Dip a cotton swab or cotton ball into the diluted tea tree oil mixture and apply it directly onto the affected area. Gently massage it into the skin in circular motions.\n\n4. Leave it to dry: Allow the tea tree oil mixture to dry on the skin. Do not rinse it off immediately. Repeat this process twice a day.\n\nNote: Tea tree oil may cause skin irritation, particularly if it is not diluted. Conduct a patch test first by applying a small amount of diluted tea tree oil to your forearm or another part of your body. If you experience redness or itching, wash the area thoroughly and discontinue use."
+      }
+    ],
+    "scope": "assistant_history",
+    "target_roles": [
+      "assistant"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "65240037",
+  "sensitivity_note": "Historical assistant-text recall only; not independently verified research, treatment, professional guidance or current requirements.",
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "28. Kg3",
+      "rule": "Require 28.Kg3, accepting whitespace variation or unambiguous Kg3. This is transcript recall, not legality or strength assessment."
+    },
+    "BASE-2": {
+      "expected": "28. Kg3",
+      "rule": "Require 28.Kg3, accepting whitespace variation or unambiguous Kg3. This is transcript recall, not legality or strength assessment."
+    },
+    "BASE-3": {
+      "expected": "28. Kg3",
+      "rule": "Require 28.Kg3, accepting whitespace variation or unambiguous Kg3. This is transcript recall, not legality or strength assessment."
+    },
+    "RET-10": {
+      "expected": "28. Kg3",
+      "rule": "Require 28.Kg3, accepting whitespace variation or unambiguous Kg3. This is transcript recall, not legality or strength assessment."
+    },
+    "RET-30": {
+      "expected": "28. Kg3",
+      "rule": "Require 28.Kg3, accepting whitespace variation or unambiguous Kg3. This is transcript recall, not legality or strength assessment."
+    },
+    "RET-50": {
+      "expected": "28. Kg3",
+      "rule": "Require 28.Kg3, accepting whitespace variation or unambiguous Kg3. This is transcript recall, not legality or strength assessment."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "28. Kg3",
+        "28...Be6"
+      ],
+      "intents": [
+        "White continuation",
+        "Black continuation"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "14:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "14:00",
+        "15:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "14:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "14:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 5,
+        "turn_index": 20,
+        "date": "2023/05/21 (Sun) 13:30",
+        "role": "assistant",
+        "quote": "28. Kg3 would be my move."
+      },
+      {
+        "session_index": 5,
+        "turn_index": 22,
+        "date": "2023/05/21 (Sun) 13:30",
+        "role": "assistant",
+        "quote": "Good move, attacking the rook and gaining control of the e-file. The position now is:\n\n1. e4 c5 2. Nf3 Nf6 3. d4 cxd4 4. Nxd4 Nxe4 5. Bd3 d5 6. O-O e5 7. Nc3 Nxc3 8. bxc3 exd4 9. cxd4 Be6 10. Rb1 a5 11. Re1 Bxe1 12. Qxe1 Qe7 13. Ba3 Qxe1+ 14. Rxe1 Nc6 15. Bd6 Kd7 16. Bxb8 Raxb8 17. Rc1 Rhc8 18. a3 h5 19. c4 dxc4 20. Bxc4 Bxc4 21. Re1 Rc7 22. Re5 f6 23. Re3 Rbc8 24. h3 g5 25. g4 hxg4 26. hxg4 Rh8 27. Kg2 Bd5+ 28. Kg3 Be6"
+      }
+    ],
+    "scope": "assistant_history",
+    "target_roles": [
+      "assistant"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "1568498a",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

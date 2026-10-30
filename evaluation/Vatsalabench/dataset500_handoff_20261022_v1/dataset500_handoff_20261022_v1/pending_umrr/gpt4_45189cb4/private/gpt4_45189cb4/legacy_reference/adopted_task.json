@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_45189cb4",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 380,
+  "question_cell": "F380",
+  "answer_cell": "E380",
+  "adopted_question_verbatim": "Where did I say I attended the NBA game with my coworkers?",
+  "adopted_answer_or_rubric_verbatim": "Staples Center in Los Angeles",
+  "english_rubric": "Require Staples Center in Los Angeles as historical self-report; do not correct it using real-world schedules or naming changes.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

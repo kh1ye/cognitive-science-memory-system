@@ -1,0 +1,15 @@
+{
+  "sample_id": "f9e8c073",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 192,
+  "question_cell": "F192",
+  "answer_cell": "E192",
+  "adopted_question_verbatim": "How many bereavement support-group sessions did I recall attending in the October 30 conversation?",
+  "adopted_answer_or_rubric_verbatim": "5 sessions",
+  "english_rubric": "Require five sessions for the October report. Do not sum with the earlier three or assume both reports refer to one continuous cohort.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

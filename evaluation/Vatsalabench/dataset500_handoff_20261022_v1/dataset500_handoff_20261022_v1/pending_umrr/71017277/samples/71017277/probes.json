@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "Who did I say gave me the crystal chandelier on March 4, 2023?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-09T15:47:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "Which relative did I say passed the crystal hanging light to me on March 4, 2023?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-09T15:47:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "Who was the giver of the crystal ceiling fixture in my March 4 account?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-09T15:47:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact maker's serial number on the crystal chandelier I received?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-09T15:47:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "Who gave me the crystal chandelier, and which older relative had previously owned it?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-09T15:47:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "Who did I say gave me the crystal chandelier on March 4, 2023?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-03-11T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "Who did I say gave me the crystal chandelier on March 4, 2023?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-03-12T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "Who did I say gave me the crystal chandelier on March 4, 2023?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-03-13T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the light colour for a separate future desk lamp now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-03-11T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-03-11T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/03/11 12:00, what is the light colour for a separate future desk lamp?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-03-11T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-03-11T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/03/11 12:00, what is the light colour for a separate future desk lamp?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-03-11T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-03-11T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/03/11 12:00, what is the light colour for a separate future desk lamp?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-03-11T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-03-11T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

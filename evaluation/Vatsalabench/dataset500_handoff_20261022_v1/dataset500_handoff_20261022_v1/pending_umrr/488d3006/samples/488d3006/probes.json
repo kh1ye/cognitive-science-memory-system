@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "I'm planning to go back to the Natural Park of Moncayo mountain in Aragón and I was wondering, what was the name of that hiking trail you recommended that takes you through the park's most stunning landscapes and offers panoramic views of the surrounding mountainside?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T23:03:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "Which route identifier did you previously recommend for scenic panoramas in Moncayo Natural Park?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T23:03:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "What was the trail code in your earlier Moncayo hiking recommendation with mountain views?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T23:03:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What exact permit confirmation number did you provide for my GR-90 hike?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T23:03:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "What trail identifier did you recommend, and what approximate length did the same recommendation claim?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T23:03:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "I'm planning to go back to the Natural Park of Moncayo mountain in Aragón and I was wondering, what was the name of that hiking trail you recommended that takes you through the park's most stunning landscapes and offers panoramic views of the surrounding mountainside?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-06-01T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "I'm planning to go back to the Natural Park of Moncayo mountain in Aragón and I was wondering, what was the name of that hiking trail you recommended that takes you through the park's most stunning landscapes and offers panoramic views of the surrounding mountainside?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-06-02T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "I'm planning to go back to the Natural Park of Moncayo mountain in Aragón and I was wondering, what was the name of that hiking trail you recommended that takes you through the park's most stunning landscapes and offers panoramic views of the surrounding mountainside?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-06-03T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the meeting time for a separate future trip-planning discussion now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-06-01T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/06/01 12:00, what is the meeting time for a separate future trip-planning discussion?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-01T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/06/01 12:00, what is the meeting time for a separate future trip-planning discussion?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-01T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/06/01 12:00, what is the meeting time for a separate future trip-planning discussion?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-01T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

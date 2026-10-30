@@ -1,0 +1,15 @@
+{
+  "sample_id": "69fee5aa",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 211,
+  "question_cell": "F211",
+  "answer_cell": "E211",
+  "adopted_question_verbatim": "How many pre-1920 American coins do I have in my collection?",
+  "adopted_answer_or_rubric_verbatim": "38 coins (37 + 1)",
+  "english_rubric": "Require 38, derived as 37 plus one. This is a derived target, not a verbatim stated total; removals or later changes require review.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

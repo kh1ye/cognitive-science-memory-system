@@ -1,0 +1,15 @@
+{
+  "sample_id": "7161e7e2",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 474,
+  "question_cell": "F474",
+  "answer_cell": "E474",
+  "adopted_question_verbatim": "I'm checking our previous chat about the shift rotation sheet for GM social media agents. Can you remind me what was the rotation for Admon on a Sunday?",
+  "adopted_answer_or_rubric_verbatim": "8 am–4 pm (Day Shift)",
+  "english_rubric": "Require 8 AM to 4 PM, day shift. Recall the table cell; do not certify its overall two-days-off constraint.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

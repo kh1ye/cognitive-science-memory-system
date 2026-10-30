@@ -1,0 +1,132 @@
+{
+  "pattern": "Alex|24 hours|marinat|ribs",
+  "matching_sentences": [
+    {
+      "session": 13,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 09:09",
+      "text": "It allows you to program up to 4 start times per day, with a maximum watering duration of 24 hours."
+    },
+    {
+      "session": 27,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 02:48",
+      "text": "* CaribSea"
+    },
+    {
+      "session": 29,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/05/26 (Fri) 10:26",
+      "text": "By the way, I just remembered my friend Alex's amazing BBQ ribs from his party a few weeks ago - they were so tender and flavorful!"
+    },
+    {
+      "session": 29,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:26",
+      "text": "**Proteins**: Burgers, hot dogs, sausages, chicken, ribs (like Alex's famous ones!), and veggies for a variety of options."
+    },
+    {
+      "session": 29,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:26",
+      "text": "Now, about Alex's amazing BBQ ribs..."
+    },
+    {
+      "session": 29,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/26 (Fri) 10:26",
+      "text": "By the way, I was thinking of trying out some BBQ ribs for my party, and I remember Alex telling me he marinated them in a special sauce for 24 hours before grilling them to perfection."
+    },
+    {
+      "session": 29,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:26",
+      "text": "BBQ ribs are a crowd-pleaser, and marinating them in a special sauce for 24 hours will definitely make them tender and flavorful."
+    },
+    {
+      "session": 29,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:26",
+      "text": "It's a great option for ribs, brisket, and pork shoulder."
+    },
+    {
+      "session": 29,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:26",
+      "text": "**Applewood**: Applewood adds a fruity, sweet flavor and is often used for smoking poultry, pork, and ribs."
+    },
+    {
+      "session": 29,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:26",
+      "text": "I hope this helps, and I'm sure your BBQ ribs will turn out amazing!"
+    },
+    {
+      "session": 29,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/26 (Fri) 10:26",
+      "text": "By the way, do you have any recommendations for sides that would pair well with BBQ ribs and brisket?"
+    },
+    {
+      "session": 29,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:26",
+      "text": "Coleslaw is a classic BBQ side dish, and it pairs perfectly with ribs and brisket."
+    },
+    {
+      "session": 29,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:26",
+      "text": "Here are some other delicious side dish ideas that would complement your BBQ ribs and brisket nicely:"
+    },
+    {
+      "session": 29,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:26",
+      "text": "**Baked Beans**: A BBQ staple, baked beans are sweet, smoky, and pair well with the rich flavors of ribs and brisket."
+    },
+    {
+      "session": 29,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:26",
+      "text": "**Collard Greens**: Braised collard greens with a tangy BBQ sauce are a delicious and nutritious side dish that pairs well with ribs and brisket."
+    },
+    {
+      "session": 29,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:26",
+      "text": "Whatever you choose, I'm sure your guests will appreciate the variety of delicious sides to accompany your BBQ ribs and brisket!"
+    },
+    {
+      "session": 29,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/26 (Fri) 10:26",
+      "text": "I think I'll go with the baked beans and potato salad, they sound like they'll pair well with the ribs and brisket."
+    },
+    {
+      "session": 29,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:26",
+      "text": "Baked beans and potato salad are both classic BBQ sides that will complement your ribs and brisket perfectly."
+    }
+  ],
+  "review_scope": "Selected full source-session context plus programmatic target navigation; not independent full-history acceptance."
+}

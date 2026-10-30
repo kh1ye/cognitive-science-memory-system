@@ -1,0 +1,15 @@
+{
+  "sample_id": "25e5aa4f",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 271,
+  "question_cell": "F271",
+  "answer_cell": "E271",
+  "adopted_question_verbatim": "Where did I complete my Bachelor's degree in Computer Science?",
+  "adopted_answer_or_rubric_verbatim": "University of California, Los Angeles (UCLA)",
+  "english_rubric": "Require UCLA. Considering Stanford later does not make it the undergraduate institution.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

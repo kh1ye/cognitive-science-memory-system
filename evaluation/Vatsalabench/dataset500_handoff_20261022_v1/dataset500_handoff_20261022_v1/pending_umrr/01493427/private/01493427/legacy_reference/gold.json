@@ -1,0 +1,125 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "25 new postcards",
+      "rule": "Require 25 additions since restarting, not 42 or the entire collection's size."
+    },
+    "BASE-2": {
+      "expected": "25 new postcards",
+      "rule": "Require 25 additions since restarting, not 42 or the entire collection's size."
+    },
+    "BASE-3": {
+      "expected": "25 new postcards",
+      "rule": "Require 25 additions since restarting, not 42 or the entire collection's size."
+    },
+    "RET-10": {
+      "expected": "25 new postcards",
+      "rule": "Require 25 additions since restarting, not 42 or the entire collection's size."
+    },
+    "RET-30": {
+      "expected": "25 new postcards",
+      "rule": "Require 25 additions since restarting, not 42 or the entire collection's size."
+    },
+    "RET-50": {
+      "expected": "25 new postcards",
+      "rule": "Require 25 additions since restarting, not 42 or the entire collection's size."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "25",
+        "17"
+      ],
+      "intents": [
+        "Later additions total",
+        "Earlier additions total"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "wall board",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/12/22 08:00",
+        "old_valid_from": "2023/12/22 08:00",
+        "old_valid_to": "2023/12/23 09:00",
+        "observed_at": "2023/12/23 09:00",
+        "valid_from": "2023/12/23 09:00",
+        "valid_to": null,
+        "query_time": "2023/12/23 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "wall board",
+        "shelf frame"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "wall board",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "wall board",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 1,
+        "turn_index": 7,
+        "date": "2023/08/11 (Fri) 15:58",
+        "role": "user",
+        "quote": "I didn't know there were so many online communities dedicated to collecting and photography. I'll definitely check some of these out. By the way, speaking of my collection, I was wondering if you could help me generate a list of my postcards? I've added 17 new ones since I started collecting again, and I'd like to keep track of them."
+      },
+      {
+        "session_index": 28,
+        "turn_index": 7,
+        "date": "2023/11/30 (Thu) 18:35",
+        "role": "user",
+        "quote": "I'm really excited to host this collector's gathering and share my passion with like-minded enthusiasts. Speaking of which, I just realized I've added 25 new postcards to my collection since I started collecting again. It's amazing how fast my collection has grown! By the way, do you have any recommendations for creating a simple, yet effective display for my postcard collection?"
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/12/22 08:00",
+    "old_valid_from": "2023/12/22 08:00",
+    "old_valid_to": "2023/12/23 09:00",
+    "observed_at": "2023/12/23 09:00",
+    "valid_from": "2023/12/23 09:00",
+    "valid_to": null,
+    "query_time": "2023/12/23 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "01493427",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

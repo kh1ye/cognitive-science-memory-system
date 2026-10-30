@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "Where is the painting 'Ethereal Dreams' by Emma Taylor currently hanging?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-11-18T19:24:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-11-18T19:24:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "Where had Emma Taylor's Ethereal Dreams been placed after the move described by the original question date?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-11-18T19:24:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-11-18T19:24:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "What was the later reported location of the Ethereal Dreams painting for this historical checkpoint?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-11-18T19:24:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-11-18T19:24:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact purchase receipt number for Ethereal Dreams?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-11-18T19:24:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-11-18T19:24:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "Where was Ethereal Dreams hanging in the later report, and where had it been in the earlier report?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-11-18T19:24:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-11-18T19:24:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "Where is the painting 'Ethereal Dreams' by Emma Taylor currently hanging?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-11-20T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-11-18T19:24:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "Where is the painting 'Ethereal Dreams' by Emma Taylor currently hanging?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-11-21T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-11-18T19:24:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "Where is the painting 'Ethereal Dreams' by Emma Taylor currently hanging?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-11-22T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-11-18T19:24:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the location for a separate future art-supply box now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-11-20T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-11-20T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/11/20 12:00, what is the location for a separate future art-supply box?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-11-20T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-11-20T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/11/20 12:00, what is the location for a separate future art-supply box?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-11-20T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-11-20T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/11/20 12:00, what is the location for a separate future art-supply box?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-11-20T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-11-20T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

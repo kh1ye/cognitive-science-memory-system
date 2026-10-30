@@ -1,0 +1,15 @@
+{
+  "sample_id": "eaca4986",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 247,
+  "question_cell": "F247",
+  "answer_cell": "E247",
+  "adopted_question_verbatim": "In the second song you wrote, what letter sequence appeared above the chorus lines?",
+  "adopted_answer_or_rubric_verbatim": "C D E F G A B A G F E D C",
+  "english_rubric": "Require the full ordered chorus sequence. Normalise whitespace or separators but not order or letters. Do not infer a chord progression or mood from music theory.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

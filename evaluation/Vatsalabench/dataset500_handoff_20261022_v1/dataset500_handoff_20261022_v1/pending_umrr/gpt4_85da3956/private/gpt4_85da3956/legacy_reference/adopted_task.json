@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_85da3956",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 143,
+  "question_cell": "F143",
+  "answer_cell": "E143",
+  "adopted_question_verbatim": "Which two friends did I say went with me to the Summer Nights festival at Universal Studios Hollywood?",
+  "adopted_answer_or_rubric_verbatim": "Rachel and Mike",
+  "english_rubric": "Require both Rachel and Mike, in either order, for binary BASE-1 correctness. Record each name as a component without changing the common denominator.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

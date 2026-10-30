@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_213fd887",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 429,
+  "question_cell": "F429",
+  "answer_cell": "E429",
+  "adopted_question_verbatim": "Which event did I participate in first, the volleyball league or the charity 5K run to raise money for a local children's hospital?",
+  "adopted_answer_or_rubric_verbatim": "volleyball league",
+  "english_rubric": "Require volleyball league first. Approximate durations do not establish exact start dates.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

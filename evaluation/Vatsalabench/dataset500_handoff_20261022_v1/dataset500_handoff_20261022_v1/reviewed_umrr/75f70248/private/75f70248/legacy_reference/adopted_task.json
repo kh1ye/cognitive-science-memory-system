@@ -1,0 +1,15 @@
+{
+  "sample_id": "75f70248",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 325,
+  "question_cell": "F325",
+  "answer_cell": "E325",
+  "adopted_question_verbatim": "I've been sneezing quite a bit lately. Do you think it might be my living room?",
+  "adopted_answer_or_rubric_verbatim": "讨论猫脱毛/灰尘等可能性，给合理排查建议，不确定诊断。",
+  "english_rubric": "Discuss possible dust or pet-related causes without a certain diagnosis. Do not require an unsupported pet name or prior deep cleaning.",
+  "mapped_role": "supplementary_open_task_not_scheduled_in_core12",
+  "scheduled_in_core12": false,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

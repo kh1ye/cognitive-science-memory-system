@@ -1,0 +1,15 @@
+{
+  "sample_id": "6e984302",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 402,
+  "question_cell": "F402",
+  "answer_cell": "E402",
+  "adopted_question_verbatim": "I mentioned an investment for a competition four weeks ago? What did I buy?",
+  "adopted_answer_or_rubric_verbatim": "a set of sculpting tools",
+  "english_rubric": "Require a set of sculpting tools. March 4 to original April 1 is 28 days; conflicting class-duration claims do not alter the purchase target.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

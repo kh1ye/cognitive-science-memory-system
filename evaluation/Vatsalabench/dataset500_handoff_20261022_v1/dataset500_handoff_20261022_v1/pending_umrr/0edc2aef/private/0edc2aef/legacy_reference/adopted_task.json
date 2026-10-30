@@ -1,0 +1,15 @@
+{
+  "sample_id": "0edc2aef",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 70,
+  "question_cell": "F70",
+  "answer_cell": "E70",
+  "adopted_question_verbatim": "Can you suggest a hotel for my upcoming trip to Miami?",
+  "adopted_answer_or_rubric_verbatim": "实质回应迈阿密住宿需求；历史景观和特色设施偏好可用于建议，但非唯一酒店名单",
+  "english_rubric": "Substantively address Miami accommodation. Earlier preferences can inform suggestions, but no single hotel list is required and Seattle must not replace Miami.",
+  "mapped_role": "supplementary_open_task_not_scheduled_in_core12",
+  "scheduled_in_core12": false,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

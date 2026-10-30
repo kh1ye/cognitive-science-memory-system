@@ -1,0 +1,1046 @@
+{
+  "question": "What was the exact certificate ID of my recently completed qualification?",
+  "pattern": "certificate|certification|complete|completed|last|month|qualification|recently",
+  "messages_scanned": 487,
+  "matching_sentences": [
+    {
+      "session": 1,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/05/20 (Sat) 00:04",
+      "text": "By the way, I've been cooking at home a lot lately, like last week when I made chicken parmesan with spaghetti and meatballs on Tuesday, a vegetable stir-fry with tofu on Thursday, and grilled salmon with roasted vegetables on Saturday."
+    },
+    {
+      "session": 1,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/20 (Sat) 00:04",
+      "text": "By the way, I made a vegetable stir-fry with tofu on Thursday last week, and it was delicious!"
+    },
+    {
+      "session": 1,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 00:04",
+      "text": "I'm glad to hear you enjoyed your vegetable stir-fry with tofu last week."
+    },
+    {
+      "session": 1,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/05/20 (Sat) 00:04",
+      "text": "I'm interested in meal prepping and want to make a big batch of rice and roasted vegetables that I can use throughout the week in different meals, like I did last Sunday."
+    },
+    {
+      "session": 1,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 00:04",
+      "text": "* Let cool completely before refrigerating or freezing for later use"
+    },
+    {
+      "session": 2,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 06:01",
+      "text": "**Create a routine checklist**: Write down your morning routine tasks, including listening to your mindfulness podcast, and check them off as you complete them."
+    },
+    {
+      "session": 2,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 06:01",
+      "text": "**Celebrate milestones**: Reward yourself for reaching milestones, such as completing a week or a month of consistent morning routines."
+    },
+    {
+      "session": 3,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 11:25",
+      "text": "**Longer tread life**: All-season tires typically have a longer tread life, with some models lasting up to 80,000 miles or more."
+    },
+    {
+      "session": 3,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 11:25",
+      "text": "**Better resistance to wear**: The tread compound is designed to resist wear and tear, providing a longer-lasting tire."
+    },
+    {
+      "session": 3,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 11:25",
+      "text": "**Shorter tread life**: High-performance tires typically have a shorter tread life, with some models lasting around 20,000 to 40,000 miles."
+    },
+    {
+      "session": 3,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 11:25",
+      "text": "All-season tires can handle rain, but San Francisco's wet roads can be challenging, especially during the winter months."
+    },
+    {
+      "session": 3,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 11:25",
+      "text": "**Rainfall:** San Francisco receives significant rainfall during the winter months (December to March), with an average of 15-20 inches of rain during this period."
+    },
+    {
+      "session": 4,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/20 (Sat) 15:10",
+      "text": "I've been experimenting with different types of plant-based milk and I recently found that oat milk is my favorite."
+    },
+    {
+      "session": 4,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/20 (Sat) 15:10",
+      "text": "By the way, I've been a vegetarian for about 6 months now and I'm always excited to try new recipes that fit my lifestyle."
+    },
+    {
+      "session": 4,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 15:10",
+      "text": "Congratulations on your 6-month vegetarian journey!"
+    },
+    {
+      "session": 4,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 15:10",
+      "text": "Knead the dough on a floured surface for 10-12 minutes, until it becomes smooth and elastic."
+    },
+    {
+      "session": 4,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 15:10",
+      "text": "**Cooling:** Let the bread cool completely on a wire rack before storing."
+    },
+    {
+      "session": 4,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 15:10",
+      "text": "Wrap the bread tightly in plastic wrap or aluminum foil and place it in a freezer-safe bag."
+    },
+    {
+      "session": 4,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 15:10",
+      "text": "Frozen bread can be stored for up to 3 months."
+    },
+    {
+      "session": 5,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/20 (Sat) 16:14",
+      "text": "I'm also curious about the value of my vintage coin collection, specifically the 1893 Morgan dollar coin I recently purchased."
+    },
+    {
+      "session": 5,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 16:14",
+      "text": "**Certification:** Coins certified by reputable third-party grading services, such as the Professional Coin Grading Service (PCGS) or the Numismatic Guaranty Corporation (NGC), can command a premium."
+    },
+    {
+      "session": 5,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 16:14",
+      "text": "**Appraisals and Certificates:** Obtain appraisals or certificates from reputable experts or organizations, such as:"
+    },
+    {
+      "session": 5,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 16:14",
+      "text": "**Document its history:** Gather any documentation, such as receipts or certificates of authenticity, to prove the figure's provenance."
+    },
+    {
+      "session": 6,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/05/20 (Sat) 21:34",
+      "text": "By the way, it's crazy to think that it's already been three months since I received my asylum approval letter - it feels like just yesterday I was waiting anxiously for that letter to arrive!"
+    },
+    {
+      "session": 6,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:34",
+      "text": "**Application process:** Be prepared to provide documentation, such as your asylum approval letter, and complete an application process, which may include an interview or assessment."
+    },
+    {
+      "session": 6,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:34",
+      "text": "**Stay up-to-date with industry certifications:** Consider obtaining industry-recognized certifications, such as CompTIA A+, Cisco CCNA, or AWS Certified Developer, to increase your job prospects."
+    },
+    {
+      "session": 10,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 18:35",
+      "text": "Since you've had your car for 3 years, it's a good idea to check your owner's manual or the maintenance schedule to see when the last oil change was done."
+    },
+    {
+      "session": 10,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 18:35",
+      "text": "* Follow the on-screen instructions on your GPS system to complete the update."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 18:35",
+      "text": "Some may suggest updating every 3-6 months, while others might recommend updating quarterly or annually."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 18:35",
+      "text": "**Map updates:** If you live in an area with frequent road changes, construction, or new developments, you may need to update your maps more frequently (e.g., every 3-6 months)."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 18:35",
+      "text": "In areas with less change, you might be able to update less often (e.g., every 6-12 months)."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 18:35",
+      "text": "* Every 6-12 months for most users"
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 18:35",
+      "text": "* Every 3-6 months if you live in an area with frequent road changes or construction"
+    },
+    {
+      "session": 10,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/21 (Sun) 18:35",
+      "text": "I think I've been driving more aggressively lately, trying to get to work on time, and I've noticed my gas mileage has been getting worse over the past few months."
+    },
+    {
+      "session": 10,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/21 (Sun) 18:35",
+      "text": "I've been keeping a log of my gas mileage, and I've noticed that it's been getting worse over the past few months."
+    },
+    {
+      "session": 11,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 01:22",
+      "text": "What am I looking forward to in the coming weeks or months?"
+    },
+    {
+      "session": 11,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 01:22",
+      "text": "What self-care practices do I want to prioritize in the next month?"
+    },
+    {
+      "session": 11,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/22 (Mon) 01:22",
+      "text": "I recently attended a workshop that opened my eyes to the concept of gender fluidity, and I've been thinking a lot about how it relates to my own experiences."
+    },
+    {
+      "session": 14,
+      "turn": 12,
+      "role": "user",
+      "date": "2023/05/22 (Mon) 13:55",
+      "text": "You have recently become interested in the world of blockchain technology and are eager to learn more about its potential applications and future prospects."
+    },
+    {
+      "session": 17,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/22 (Mon) 23:32",
+      "text": "child\\_under\\_6\\_months - Has regular close contact with a child under the age of six months."
+    },
+    {
+      "session": 22,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/23 (Tue) 20:35",
+      "text": "But I love eating foods like butter and cheese, how can I give them up completely?"
+    },
+    {
+      "session": 22,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 20:35",
+      "text": "While it can be challenging to completely give up these types of foods, there are ways to incorporate them into a healthy diet in moderation."
+    },
+    {
+      "session": 26,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 11:15",
+      "text": "Once the cooking time is complete, allow the Instant Pot to naturally release pressure for 10 minutes before switching the valve to \"Venting\" to release any remaining pressure."
+    },
+    {
+      "session": 27,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/05/24 (Wed) 15:26",
+      "text": "By the way, I've been keeping her flea-free with that prevention medication the groomer recommended, applying it every month."
+    },
+    {
+      "session": 27,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 15:26",
+      "text": "I completely understand your concern!"
+    },
+    {
+      "session": 27,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 15:26",
+      "text": "**Interactive Feeders**: Outdoor interactive feeders made from durable materials like plastic or metal can challenge Luna and keep her engaged."
+    },
+    {
+      "session": 27,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 15:26",
+      "text": "**Recycled Plastic Scratching Posts**: Recycled plastic scratching posts are durable, waterproof, and eco-friendly."
+    },
+    {
+      "session": 29,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/05/24 (Wed) 23:58",
+      "text": "By the way, I had a bit of a setback last week when I overslept by 30 minutes on Tuesday, which made me rush to get ready for work."
+    },
+    {
+      "session": 29,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/24 (Wed) 23:58",
+      "text": "Also, I've been having trouble waking up on Mondays, and I remember that last week I overslept by 30 minutes on Tuesday, which made me rush to get ready for work."
+    },
+    {
+      "session": 31,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "The quietest and most peaceful times to visit Yosemite National Park are in the winter months (December to March), especially during weekdays."
+    },
+    {
+      "session": 31,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "Avoid visiting during holidays, summer months (June to August), and weekends if you are seeking a more peaceful experience."
+    },
+    {
+      "session": 31,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "Why should I avoid visiting during weekends and summer months?"
+    },
+    {
+      "session": 31,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "However, during weekends and summer months, Yosemite National Park can become crowded with visitors, which may lead to traffic congestion, limited parking, long wait times at popular attractions, and crowded trails."
+    },
+    {
+      "session": 31,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "Can I still get a good view of the park's major attractions during the quieter months, or is everything closed off?"
+    },
+    {
+      "session": 31,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "Most of the major attractions and trails in Yosemite National Park are accessible throughout the year, even during the quieter months."
+    },
+    {
+      "session": 31,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "However, during the winter months, some roads and trails may be closed due to snow or other weather-related issues."
+    },
+    {
+      "session": 31,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "Generally, you can still get a good view of Yosemite's major attractions during the quieter months, and you may even enjoy better viewing conditions due to fewer crowds."
+    },
+    {
+      "session": 31,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "Additionally, some activities, such as skiing and snowshoeing, are available during the winter months."
+    },
+    {
+      "session": 31,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "Is there anything else fun to do during the colder months?"
+    },
+    {
+      "session": 31,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "Ice skating: The Yosemite Valley Lodge offers an ice-skating rink during the winter months."
+    },
+    {
+      "session": 31,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "Winter hiking: Many of the park's hiking trails in the lower elevations are accessible during the winter months, offering unique and serene trekking experiences."
+    },
+    {
+      "session": 31,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "Stargazing: Yosemite is known for its clear skies and stargazing opportunities, especially during the colder months when there is less moisture in the air."
+    },
+    {
+      "session": 31,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "These activities offer an excellent way to enjoy Yosemite's beauty during the quieter winter months."
+    },
+    {
+      "session": 31,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "Is it necessary to make advanced reservations for lodging or campsites during the quieter months in Yosemite?"
+    },
+    {
+      "session": 31,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "It's always a good idea to make advanced reservations for lodging or campsites, even during the quieter months in Yosemite National Park."
+    },
+    {
+      "session": 31,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 07:47",
+      "text": "Some areas of the park, such as Yosemite Valley, may have limited availability during the quieter months, and reservations will be necessary to guarantee your accommodation."
+    },
+    {
+      "session": 32,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/05/25 (Thu) 12:46",
+      "text": "I've been thinking about reaching out to a woman I met at a networking breakfast hosted by the Chamber of Commerce last month, who runs a successful marketing agency."
+    },
+    {
+      "session": 32,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 12:46",
+      "text": "I wanted to follow up on our conversation at the Chamber of Commerce breakfast last month."
+    },
+    {
+      "session": 32,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 12:46",
+      "text": "Their Inbound Marketing certification is particularly valuable."
+    },
+    {
+      "session": 32,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 12:46",
+      "text": "**Synthesize feedback and advice**: Once you've completed your conversations, take the time to synthesize the feedback and advice you received."
+    },
+    {
+      "session": 35,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/05/25 (Thu) 23:28",
+      "text": "I've got a bunch of new numbers from a workshop I attended recently, including Emily's - we exchanged numbers with a few fellow participants."
+    },
+    {
+      "session": 35,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 23:28",
+      "text": "**Standardize your naming convention**: Establish a consistent naming convention for your contacts, such as \"First Name Last Name - Workshop\" or \"First Name - Company/Role.\""
+    },
+    {
+      "session": 35,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/25 (Thu) 23:28",
+      "text": "I also want to make sure I don't lose Emily's number, so I'll make sure to add a note about the play she's directing next month."
+    },
+    {
+      "session": 35,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 23:28",
+      "text": "Adding a note about the play she's directing next month is a great idea, too."
+    },
+    {
+      "session": 35,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/25 (Thu) 23:28",
+      "text": "I'm also thinking of looking for some new plays to attend in the upcoming months."
+    },
+    {
+      "session": 35,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 23:28",
+      "text": "By exploring these sources, you should be able to find some exciting plays to attend in the upcoming months."
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "The Adult Education program offers training in food handling and janitorial services, which can lead to certifications or licenses in these fields."
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "**Food Safety Certification**: Learn about food safety practices, handling, and preparation to obtain a food safety certification."
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "By taking advantage of the NYC Department of Education's Adult Education job training and placement services, you can gain the skills and certifications needed to increase your chances of getting hired in food handling or janitorial services."
+    },
+    {
+      "session": 38,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "I'd like to know more about the food safety certification program."
+    },
+    {
+      "session": 38,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "How long does it take to complete, and what are the requirements to get certified?"
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "The Food Safety Certification program is a valuable asset for anyone working in the food industry, and it's great that you're interested in pursuing it."
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "**Food Safety Certification Program:**"
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "The Food Safety Certification program is a training program that teaches food handlers the principles of food safety and sanitation to prevent foodborne illnesses."
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "**Certification Requirements:**"
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "Pay the certification fee (currently $25)"
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "**Certification Validity:**"
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "The Food Safety Certification is valid for 5 years."
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "To maintain your certification, you'll need to complete a refresher course and pass the exam again before the expiration date."
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "**Who Needs Certification:**"
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "In New York City, the following individuals are required to have a Food Safety Certification:"
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "**Benefits of Certification:**"
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "Having a Food Safety Certification can:"
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "By obtaining a Food Safety Certification, you'll not only meet the requirements for food handling jobs in New York City, but you'll also gain valuable knowledge to ensure the safety and well-being of customers."
+    },
+    {
+      "session": 38,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "Can you help me find a training provider authorized by the NYC DOHMH that offers the Food Safety Certification program near my location in Queens?"
+    },
+    {
+      "session": 38,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "The NYC Department of Health and Mental Hygiene (DOHMH) has a list of authorized training providers for the Food Safety Certification program."
+    },
+    {
+      "session": 38,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "**National Restaurant Association Educational Foundation (NRAEF)**: Has a training location in Queens and offers the Food Safety Certification program."
+    },
+    {
+      "session": 38,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "Remember to verify the training provider's authorization and certification before registering for the program."
+    },
+    {
+      "session": 38,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "I'd like to ask about the job readiness training program I attended last week."
+    },
+    {
+      "session": 38,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 10:39",
+      "text": "What are your top skills and qualifications?"
+    },
+    {
+      "session": 39,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/05/27 (Sat) 10:55",
+      "text": "I've been really into hummus lately, I just bought a container of it at Trader Joe's last week along with some Mandarin oranges and a few bottles of wine, that trip came out to be around $40."
+    },
+    {
+      "session": 39,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/27 (Sat) 10:55",
+      "text": "I bought a bunch of them at Whole Foods last month and I'm not really sure where to start."
+    },
+    {
+      "session": 39,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/27 (Sat) 10:55",
+      "text": "I actually bought a bunch of tofu, tempeh, and seitan at Whole Foods last month."
+    },
+    {
+      "session": 39,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/27 (Sat) 10:55",
+      "text": "I actually bought a few bottles of wine at Trader Joe's last week, including their famous Two Buck Chuck."
+    },
+    {
+      "session": 40,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/05/28 (Sun) 00:14",
+      "text": "By the way, I had the carne asada tacos at the new Mexican place that just opened up near my house recently, and it was amazing!"
+    },
+    {
+      "session": 40,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 00:14",
+      "text": "* Add the white wine to the skillet and cook for 1-2 minutes until the liquid has almost completely reduced."
+    },
+    {
+      "session": 40,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/05/28 (Sun) 00:14",
+      "text": "By the way, I had the carne asada tacos at the new Mexican place that just opened up near my house recently, and it was amazing!"
+    },
+    {
+      "session": 40,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 00:14",
+      "text": "Carne asada tacos sound delicious, and it's great that you got a huge portion that lasted you for another meal."
+    },
+    {
+      "session": 41,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "**Include all relevant degrees**: List all your degrees, certifications, and diplomas, even if they're not directly related to your current field."
+    },
+    {
+      "session": 41,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "**Use action verbs**: Use action verbs like \"Earned,\" \"Completed,\" \"Graduated,\" or \"Pursued\" to describe your educational experiences."
+    },
+    {
+      "session": 41,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "\t* Certificates or diplomas"
+    },
+    {
+      "session": 41,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "**Use keywords**: Use relevant keywords from your industry in your education section to help recruiters and others find you when searching for specific skills or qualifications."
+    },
+    {
+      "session": 41,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "\t+ Completed coursework in data structures, algorithms, and computer systems"
+    },
+    {
+      "session": 41,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "I need to add my latest certification in Data Science, which I completed last month, to my profile."
+    },
+    {
+      "session": 41,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "Do you have any specific tips on how to showcase certifications?"
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "Congratulations on your new certification in Data Science!"
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "Showcasing certifications on your LinkedIn profile can help you stand out as an expert in your field and increase your credibility."
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "Here are some tips to help you showcase your Data Science certification:"
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "**Create a separate section for Certifications**: LinkedIn allows you to create a separate section for certifications."
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "This section is specifically designed to highlight your professional certifications, licenses, and permits."
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "**Use the \"Certifications\" section**: Instead of adding your certification to your education or experience sections, use the dedicated \"Certifications\" section."
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "**Add the certification details**: When adding your certification, make sure to include the following details:"
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "\t* **Certification name**: Enter the exact name of the certification, such as \"Certified Data Scientist\" or \"Certified Analytics Professional\"."
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "* **Issuing organization**: Enter the name of the organization that issued the certification, such as \"Data Science Council of America\" or \"International Institute for Analytics\"."
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "* **Issue date**: Enter the date you received the certification."
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "* **Expiration date**: If your certification has an expiration date, enter it."
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "**Add a brief description**: Write a brief description of your certification, highlighting what it demonstrates about your skills and expertise."
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "**Upload the certification document**: If you have a digital copy of your certification, upload it to your LinkedIn profile."
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "This adds an extra layer of credibility and allows others to verify your certification."
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "**Use relevant keywords**: Use relevant keywords from the data science field in your certification description to help recruiters and others find you when searching for specific skills or certifications."
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "**Keep it up-to-date**: Make sure to update your certification section regularly if you earn new certifications or if your existing ones expire."
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "Here's an example of how you could showcase your Data Science certification:"
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "**Certifications**"
+    },
+    {
+      "session": 41,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "By following these tips, you'll be able to showcase your Data Science certification effectively and increase your visibility on LinkedIn."
+    },
+    {
+      "session": 41,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "Can you complete the program in a shorter timeframe or take a break if needed?"
+    },
+    {
+      "session": 41,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "In the meantime, I need to update my LinkedIn profile to reflect my latest certification in Data Science, which I completed last month."
+    },
+    {
+      "session": 41,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "**Highlight your certification**: Make sure to add your Data Science certification to your profile, including the issuing organization, date earned, and a brief description of the certification."
+    },
+    {
+      "session": 41,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 03:42",
+      "text": "**Certifications**:"
+    },
+    {
+      "session": 43,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 13:26",
+      "text": "* Qualifications: Look for teachers with a degree in music performance or education, or those who have experience teaching violin."
+    },
+    {
+      "session": 43,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/28 (Sun) 13:26",
+      "text": "By the way, I've been really into music lately, and I just got my acoustic guitar serviced last week."
+    },
+    {
+      "session": 45,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 00:58",
+      "text": "(Subscription-based, starting at $14.99/month)"
+    },
+    {
+      "session": 45,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 00:58",
+      "text": "(Free trial, then subscription-based, starting at $9.95/month)"
+    },
+    {
+      "session": 45,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 00:58",
+      "text": "(Subscription-based, starting at $7.99/month)"
+    },
+    {
+      "session": 45,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 00:58",
+      "text": "(Subscription-based, starting at $9.99/month)"
+    },
+    {
+      "session": 45,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 00:58",
+      "text": "(Subscription-based, starting at $9.95/month)"
+    },
+    {
+      "session": 45,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 00:58",
+      "text": "(Subscription-based, starting at $9.95/month)"
+    },
+    {
+      "session": 47,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/30 (Tue) 06:29",
+      "text": "It started after my trip to Paris in mid-January, and I'm just now starting to feel better after being diagnosed with pneumonia last week."
+    },
+    {
+      "session": 47,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 06:29",
+      "text": "As you watch the show, keep in mind that the first season is an adaptation of the first book, \"The Last Wish,\" which is a collection of short stories."
+    }
+  ],
+  "scope": "All messages in both roles scanned programmatically; selected cited contexts reviewed. This is not exhaustive semantic reading or proof of absence.",
+  "independent_review": "pending",
+  "eligibility": "provisional_candidate"
+}

@@ -1,0 +1,316 @@
+{
+  "sample_id": "8cf51dda",
+  "judge_prompt_sha256": "1a0a11548c5ca5af3b7bce96c15d57537a80e20ed053097a4e1c365a0b4d14f1",
+  "judge_model": "deepseek-flash",
+  "judge_usage": {
+    "input_tokens": 3818,
+    "output_tokens": 692,
+    "total_tokens": 4510,
+    "input_token_details": {
+      "cache_read": 640
+    },
+    "output_token_details": {}
+  },
+  "judgment": {
+    "answers": [
+      {
+        "probe_id": "BASE-1",
+        "correct": 0,
+        "reason": "Refuses and claims no memory; does not give the three objectives (identify subtypes, investigate significance, develop biomarkers).",
+        "conclusion": "refusal"
+      },
+      {
+        "probe_id": "BASE-2",
+        "correct": 0,
+        "reason": "Refuses; no objectives stated.",
+        "conclusion": "refusal"
+      },
+      {
+        "probe_id": "BASE-3",
+        "correct": 0,
+        "reason": "Refuses; no objectives stated.",
+        "conclusion": "refusal"
+      },
+      {
+        "probe_id": "UMRR-1",
+        "correct": 1,
+        "reason": "Explicit uncertainty, no invented award number; does not assert the draft never existed as a known event, only that memory lacks it.",
+        "conclusion": "Cannot determine from available history."
+      },
+      {
+        "probe_id": "R1R2",
+        "correct": 0,
+        "reason": "Refusal; neither genomic/transcriptomic approaches nor early-detection/prognosis biomarker purpose given.",
+        "conclusion": "refusal"
+      },
+      {
+        "probe_id": "RET-10",
+        "correct": 0,
+        "reason": "Refusal; objectives not provided.",
+        "conclusion": "refusal"
+      },
+      {
+        "probe_id": "RET-30",
+        "correct": 0,
+        "reason": "Refusal; objectives not provided.",
+        "conclusion": "refusal"
+      },
+      {
+        "probe_id": "RET-50",
+        "correct": 0,
+        "reason": "Refusal in Chinese; objectives not provided.",
+        "conclusion": "refusal"
+      },
+      {
+        "probe_id": "CUR-H2",
+        "correct": 1,
+        "reason": "Gives updated effective value 10:00 at query time.",
+        "conclusion": "10:00"
+      },
+      {
+        "probe_id": "CON-U",
+        "correct": 1,
+        "reason": "Acknowledges conflict between 10:00 and 11:00 and asks for confirmation; no unique value chosen.",
+        "conclusion": "unresolved conflict (10:00 vs 11:00)"
+      },
+      {
+        "probe_id": "CON-P",
+        "correct": 1,
+        "reason": "Chooses 10:00 per explicit priority of signed record.",
+        "conclusion": "10:00"
+      },
+      {
+        "probe_id": "CON-N",
+        "correct": 1,
+        "reason": "Gives agreed value 10:00 without inventing conflict.",
+        "conclusion": "10:00"
+      }
+    ],
+    "fsrc_pairs": [
+      {
+        "left": "BASE-1",
+        "right": "BASE-2",
+        "match": 0,
+        "reason": "人工纠正：两个回答均未给出所问事实的明确结论；按照六维文档，两个拒答不算一致。"
+      },
+      {
+        "left": "BASE-1",
+        "right": "BASE-3",
+        "match": 0,
+        "reason": "人工纠正：两个回答均未给出所问事实的明确结论；按照六维文档，两个拒答不算一致。"
+      },
+      {
+        "left": "BASE-2",
+        "right": "BASE-3",
+        "match": 0,
+        "reason": "人工纠正：两个回答均未给出所问事实的明确结论；按照六维文档，两个拒答不算一致。"
+      }
+    ],
+    "tic_slots": [
+      {
+        "intent": "Analysis approaches",
+        "covered": 0,
+        "reason": "No substantive approach given; refusal only."
+      },
+      {
+        "intent": "Biomarker purpose",
+        "covered": 0,
+        "reason": "No substantive biomarker purpose given; refusal only."
+      }
+    ],
+    "afp_units": [
+      {
+        "text": "No available material describes molecular analysis approaches or the intended use of biomarkers",
+        "relevant": 1,
+        "reason": "相关的信息不足说明"
+      },
+      {
+        "text": "Stored records concern blogging, a job promotion, sculpture, and a business deal",
+        "relevant": 0,
+        "reason": "无关话题列表"
+      },
+      {
+        "text": "The purpose labels are metadata, not actual molecular biology content",
+        "relevant": 1,
+        "reason": "说明为什么检索标签不能作为问题答案，保留为证据限制解释"
+      },
+      {
+        "text": "Please point to the source or restate what was proposed",
+        "relevant": 1,
+        "reason": "请求当前任务所需来源，合并同义请求"
+      }
+    ]
+  },
+  "quality": {
+    "AFA": 0,
+    "UMRR": 1,
+    "FSRC": 0.0,
+    "TIC": 0.0,
+    "AFP": 0.75,
+    "CVSAR": 1,
+    "CR-AUC": null,
+    "SCHR": 1,
+    "SCHR_compatible": 1,
+    "SCHR_priority": 1,
+    "SCHR_unresolved": 1
+  },
+  "resource": {
+    "ATC": null,
+    "ATC_known_usage_lower_bound": 28592.0,
+    "L95_seconds": null,
+    "latencies_seconds": [],
+    "planned_queries": 3,
+    "completed_queries": 0,
+    "missing_usage_calls": 0,
+    "provider_calls": 17,
+    "empty_storage_bytes": 204800,
+    "built_storage_bytes": null,
+    "history_bytes": null,
+    "SAF": null
+  },
+  "scoring_status": "model_assisted_with_explicit_manual_audit_provisional_gold",
+  "model_judgment": {
+    "answers": [
+      {
+        "probe_id": "BASE-1",
+        "correct": 0,
+        "reason": "Refuses and claims no memory; does not give the three objectives (identify subtypes, investigate significance, develop biomarkers).",
+        "conclusion": "refusal"
+      },
+      {
+        "probe_id": "BASE-2",
+        "correct": 0,
+        "reason": "Refuses; no objectives stated.",
+        "conclusion": "refusal"
+      },
+      {
+        "probe_id": "BASE-3",
+        "correct": 0,
+        "reason": "Refuses; no objectives stated.",
+        "conclusion": "refusal"
+      },
+      {
+        "probe_id": "UMRR-1",
+        "correct": 1,
+        "reason": "Explicit uncertainty, no invented award number; does not assert the draft never existed as a known event, only that memory lacks it.",
+        "conclusion": "Cannot determine from available history."
+      },
+      {
+        "probe_id": "R1R2",
+        "correct": 0,
+        "reason": "Refusal; neither genomic/transcriptomic approaches nor early-detection/prognosis biomarker purpose given.",
+        "conclusion": "refusal"
+      },
+      {
+        "probe_id": "RET-10",
+        "correct": 0,
+        "reason": "Refusal; objectives not provided.",
+        "conclusion": "refusal"
+      },
+      {
+        "probe_id": "RET-30",
+        "correct": 0,
+        "reason": "Refusal; objectives not provided.",
+        "conclusion": "refusal"
+      },
+      {
+        "probe_id": "RET-50",
+        "correct": 0,
+        "reason": "Refusal in Chinese; objectives not provided.",
+        "conclusion": "refusal"
+      },
+      {
+        "probe_id": "CUR-H2",
+        "correct": 1,
+        "reason": "Gives updated effective value 10:00 at query time.",
+        "conclusion": "10:00"
+      },
+      {
+        "probe_id": "CON-U",
+        "correct": 1,
+        "reason": "Acknowledges conflict between 10:00 and 11:00 and asks for confirmation; no unique value chosen.",
+        "conclusion": "unresolved conflict (10:00 vs 11:00)"
+      },
+      {
+        "probe_id": "CON-P",
+        "correct": 1,
+        "reason": "Chooses 10:00 per explicit priority of signed record.",
+        "conclusion": "10:00"
+      },
+      {
+        "probe_id": "CON-N",
+        "correct": 1,
+        "reason": "Gives agreed value 10:00 without inventing conflict.",
+        "conclusion": "10:00"
+      }
+    ],
+    "fsrc_pairs": [
+      {
+        "left": "BASE-1",
+        "right": "BASE-2",
+        "match": 1,
+        "reason": "Both refuse and state no memory of the objectives; consistent refusal conclusions."
+      },
+      {
+        "left": "BASE-1",
+        "right": "BASE-3",
+        "match": 1,
+        "reason": "Both refuse with no objectives; consistent."
+      },
+      {
+        "left": "BASE-2",
+        "right": "BASE-3",
+        "match": 1,
+        "reason": "Both refuse with no objectives; consistent."
+      }
+    ],
+    "tic_slots": [
+      {
+        "intent": "Analysis approaches",
+        "covered": 0,
+        "reason": "No substantive approach given; refusal only."
+      },
+      {
+        "intent": "Biomarker purpose",
+        "covered": 0,
+        "reason": "No substantive biomarker purpose given; refusal only."
+      }
+    ],
+    "afp_units": [
+      {
+        "text": "No memory/record of molecular analysis approaches or biomarker purpose; stored records are unrelated topics and purpose labels are metadata",
+        "relevant": 1,
+        "reason": "Relevant uncertainty explaining inability to answer the task."
+      },
+      {
+        "text": "If you can point to the specific source or restate what was proposed, I can help analyze it",
+        "relevant": 1,
+        "reason": "Task-serving offer to proceed with user-provided context."
+      }
+    ]
+  },
+  "model_quality": {
+    "AFA": 0,
+    "UMRR": 1,
+    "FSRC": 1.0,
+    "TIC": 0.0,
+    "AFP": 1.0,
+    "CVSAR": 1,
+    "CR-AUC": null,
+    "SCHR": 1,
+    "SCHR_compatible": 1,
+    "SCHR_priority": 1,
+    "SCHR_unresolved": 1
+  },
+  "manual_audit": {
+    "reviewed": [
+      "FSRC全部12回答对",
+      "TIC全部8槽位",
+      "AFP全部内容单元",
+      "当前gold下的AFA/更新/冲突/保持目标值"
+    ],
+    "unit_policy": "按独立事实/建议/解释分单元，语义重复合并；整组无关话题列举作为一个单元；制作流程中的独立步骤分别计单元；相关不确定性可计AFP但不填TIC槽位。",
+    "UMRR": "按照当前gold作暂定核对，不宣称完成独立全历史缺失事实复核。",
+    "test_outputs_modified": false
+  }
+}

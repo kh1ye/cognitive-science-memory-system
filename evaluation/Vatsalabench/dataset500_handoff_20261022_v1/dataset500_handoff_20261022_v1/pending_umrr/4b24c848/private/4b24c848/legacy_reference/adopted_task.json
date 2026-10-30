@@ -1,0 +1,15 @@
+{
+  "sample_id": "4b24c848",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 207,
+  "question_cell": "F207",
+  "answer_cell": "E207",
+  "adopted_question_verbatim": "How many tops have I bought from H&M so far?",
+  "adopted_answer_or_rubric_verbatim": "Five tops",
+  "english_rubric": "Require five. Preserve the adopted purchase question but flag that the later source says got; do not count merely planned purchases.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

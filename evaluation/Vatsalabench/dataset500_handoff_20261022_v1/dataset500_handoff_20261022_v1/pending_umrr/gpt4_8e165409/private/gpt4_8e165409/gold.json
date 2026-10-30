@@ -1,0 +1,126 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "My neighbor, Mrs. Johnson",
+      "rule": "Require Mrs. Johnson; neighbour alone is incomplete where the name is requested. Do not confuse the planned planter gift with an already completed gift."
+    },
+    "BASE-2": {
+      "expected": "My neighbor, Mrs. Johnson",
+      "rule": "Require Mrs. Johnson; neighbour alone is incomplete where the name is requested. Do not confuse the planned planter gift with an already completed gift."
+    },
+    "BASE-3": {
+      "expected": "My neighbor, Mrs. Johnson",
+      "rule": "Require Mrs. Johnson; neighbour alone is incomplete where the name is requested. Do not confuse the planned planter gift with an already completed gift."
+    },
+    "RET-10": {
+      "expected": "My neighbor, Mrs. Johnson",
+      "rule": "Require Mrs. Johnson; neighbour alone is incomplete where the name is requested. Do not confuse the planned planter gift with an already completed gift."
+    },
+    "RET-30": {
+      "expected": "My neighbor, Mrs. Johnson",
+      "rule": "Require Mrs. Johnson; neighbour alone is incomplete where the name is requested. Do not confuse the planned planter gift with an already completed gift."
+    },
+    "RET-50": {
+      "expected": "My neighbor, Mrs. Johnson",
+      "rule": "Require Mrs. Johnson; neighbour alone is incomplete where the name is requested. Do not confuse the planned planter gift with an already completed gift."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "my neighbour Mrs. Johnson",
+        "potting soil and compost"
+      ],
+      "intents": [
+        "Recipient",
+        "Soil mixture"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "blue",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/03/27 08:00",
+        "old_valid_from": "2023/03/27 08:00",
+        "old_valid_to": "2023/03/28 09:00",
+        "observed_at": "2023/03/28 09:00",
+        "valid_from": "2023/03/28 09:00",
+        "valid_to": null,
+        "query_time": "2023/03/28 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "blue",
+        "green"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "blue",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "blue",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 31,
+        "turn_index": 9,
+        "date": "2023/03/18 (Sat) 08:49",
+        "role": "user",
+        "quote": "That's really helpful! I'll make sure to inspect my succulents carefully when they arrive. By the way, I gave my neighbor, Mrs. Johnson, a few cuttings from my spider plant today, and I'm thinking of getting her a small planter and some potting mix to help her get started with her indoor garden. Do you think that's a good idea?"
+      },
+      {
+        "session_index": 4,
+        "turn_index": 1,
+        "date": "2023/03/04 (Sat) 12:05",
+        "role": "user",
+        "quote": "I'm planning to create a new succulent arrangement on my dining table. Can you give me some tips on how to care for succulents? By the way, I repot the previous spider plant today, and it's now enjoying its new pot with a mix of potting soil and compost."
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/03/27 08:00",
+    "old_valid_from": "2023/03/27 08:00",
+    "old_valid_to": "2023/03/28 09:00",
+    "observed_at": "2023/03/28 09:00",
+    "valid_from": "2023/03/28 09:00",
+    "valid_to": null,
+    "query_time": "2023/03/28 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "gpt4_8e165409",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

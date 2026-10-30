@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_4edbafa2",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 416,
+  "question_cell": "F416",
+  "answer_cell": "E416",
+  "adopted_question_verbatim": "On what date in June did I say I attended a backyard BBQ at my colleague's house?",
+  "adopted_answer_or_rubric_verbatim": "June 3",
+  "english_rubric": "Require June 3 for the specified event, not an unsupported earliest-event claim.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

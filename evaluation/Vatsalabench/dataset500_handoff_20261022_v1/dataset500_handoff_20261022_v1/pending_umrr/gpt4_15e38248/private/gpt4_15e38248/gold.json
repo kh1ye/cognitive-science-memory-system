@@ -1,0 +1,144 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "West Elm",
+      "rule": "Require West Elm; do not substitute Casper or IKEA."
+    },
+    "BASE-2": {
+      "expected": "West Elm",
+      "rule": "Require West Elm; do not substitute Casper or IKEA."
+    },
+    "BASE-3": {
+      "expected": "West Elm",
+      "rule": "Require West Elm; do not substitute Casper or IKEA."
+    },
+    "RET-10": {
+      "expected": "West Elm",
+      "rule": "Require West Elm; do not substitute Casper or IKEA."
+    },
+    "RET-30": {
+      "expected": "West Elm",
+      "rule": "Require West Elm; do not substitute Casper or IKEA."
+    },
+    "RET-50": {
+      "expected": "West Elm",
+      "rule": "Require West Elm; do not substitute Casper or IKEA."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "West Elm",
+        "wooden table with metal legs"
+      ],
+      "intents": [
+        "Retailer",
+        "Materials"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "14:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "14:00",
+        "15:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "14:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "14:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 28,
+        "turn_index": 1,
+        "date": "2023/05/26 (Fri) 03:20",
+        "role": "user",
+        "quote": "I need some help finding new throw pillows for my couch. I just got a new coffee table from West Elm about three weeks ago, and it's really made my living room feel modern, but my old pillows are looking worn out. Can you give me some recommendations on where to find some affordable and stylish ones?"
+      },
+      {
+        "session_index": 7,
+        "turn_index": 1,
+        "date": "2023/05/21 (Sun) 03:13",
+        "role": "user",
+        "quote": "I'm looking for some recommendations on throw pillows for my couch. I just got a new coffee table and rearranged my living room, and now the old pillows are looking a bit worn out. By the way, I've been meaning to get a new mattress for ages, and last week I finally took the plunge and ordered one from Casper. It's supposed to arrive next Wednesday, and I'm really looking forward to getting a good night's sleep."
+      },
+      {
+        "session_index": 33,
+        "turn_index": 3,
+        "date": "2023/05/26 (Fri) 17:21",
+        "role": "user",
+        "quote": "My living room has a modern feel, and the dominant color scheme is a mix of neutral tones like beige, gray, and white. The new coffee table is wooden with metal legs, and I've been loving how it's added a touch of modernity to the room. By the way, speaking of fixing things around the house, I finally got around to fixing the wobbly leg on my kitchen table last weekend - it was driving me crazy for months, and all it took was a few minutes with a screwdriver to tighten the screw. Anyway, back to the throw pillows, I'd like something that will complement the modern feel and add a pop of color."
+      },
+      {
+        "session_index": 43,
+        "turn_index": 1,
+        "date": "2023/05/29 (Mon) 09:49",
+        "role": "user",
+        "quote": "I'm thinking of getting some new throw pillows for my couch, can you recommend some good online stores that sell a wide variety of patterns and fabrics? Oh, and speaking of organizing, I finally assembled that IKEA bookshelf for my home office about two months ago, and it's been a game-changer for my productivity."
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "gpt4_15e38248",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

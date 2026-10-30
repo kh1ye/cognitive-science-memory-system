@@ -1,0 +1,132 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "Irish and Italian",
+      "rule": "Require both Irish and Italian as explicitly self-described ethnic backgrounds. Do not infer nationality, citizenship, ancestry proportions or appearance. Either background alone is incomplete."
+    },
+    "BASE-2": {
+      "expected": "Irish and Italian",
+      "rule": "Require both Irish and Italian as explicitly self-described ethnic backgrounds. Do not infer nationality, citizenship, ancestry proportions or appearance. Either background alone is incomplete."
+    },
+    "BASE-3": {
+      "expected": "Irish and Italian",
+      "rule": "Require both Irish and Italian as explicitly self-described ethnic backgrounds. Do not infer nationality, citizenship, ancestry proportions or appearance. Either background alone is incomplete."
+    },
+    "RET-10": {
+      "expected": "Irish and Italian",
+      "rule": "Require both Irish and Italian as explicitly self-described ethnic backgrounds. Do not infer nationality, citizenship, ancestry proportions or appearance. Either background alone is incomplete."
+    },
+    "RET-30": {
+      "expected": "Irish and Italian",
+      "rule": "Require both Irish and Italian as explicitly self-described ethnic backgrounds. Do not infer nationality, citizenship, ancestry proportions or appearance. Either background alone is incomplete."
+    },
+    "RET-50": {
+      "expected": "Irish and Italian",
+      "rule": "Require both Irish and Italian as explicitly self-described ethnic backgrounds. Do not infer nationality, citizenship, ancestry proportions or appearance. Either background alone is incomplete."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value and no false denial of a known related event. Do not infer that an identifier or certificate exists merely because the question asks for it.",
+      "annotation_status": "targeted_search_only_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "Irish and Italian",
+        "Irish"
+      ],
+      "intents": [
+        "Both self-described backgrounds",
+        "Heritage named for music/dance learning"
+      ],
+      "rule": "TIC counts substantive answers to the two requested slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, separately from correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "in person",
+      "rule": "Adopt the new effective value after incremental ingestion of the update and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "in person",
+        "hybrid"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not choose a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "in person",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "in person",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 50,
+        "turn_index": 3,
+        "date": "2023/05/30 (Tue) 15:59",
+        "role": "user",
+        "quote": "That helps! I didn't know Italian citizenship would allow me to live and work in any EU country. That's really appealing. By the way, I've been thinking about my family tree and cultural heritage a lot lately, and it's interesting to consider how my mixed ethnicity - Irish and Italian - has shaped my upbringing."
+      },
+      {
+        "session_index": 50,
+        "turn_index": 5,
+        "date": "2023/05/30 (Tue) 15:59",
+        "role": "user",
+        "quote": "I'm actually considering learning more about my Irish heritage, especially the music and dance. Do you know any good resources for learning traditional Irish music, such as online tutorials or classes in my area?"
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional_pending_independent_review"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+    "sheet": "Sheet1",
+    "row": 29,
+    "question_cell": "F29",
+    "answer_cell": "E29",
+    "status": "user_confirmed_reviewed",
+    "adopted_question": "Which ethnic backgrounds did I explicitly describe as my own?",
+    "adopted_answer": "Irish and Italian"
+  },
+  "new_content_review": "AI-authored with source-context review; independent acceptance pending",
+  "scope_notes": [
+    "Historical reference remains fixed to the original report, not the query date.",
+    "Recall explicit self-disclosure only. Never infer ethnicity from names, passports, nationality or appearance. Review data license and privacy before public release."
+  ],
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10 + 2*r30 + r50)/4.",
+    "resource": "Fresh separate baseline and three resource queries. Native units only. No mixed-unit overall score."
+  }
+}

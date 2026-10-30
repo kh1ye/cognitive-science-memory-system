@@ -1,0 +1,15 @@
+{
+  "sample_id": "d7c942c3",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 186,
+  "question_cell": "F186",
+  "answer_cell": "E186",
+  "adopted_question_verbatim": "Is my mom using the same grocery list method as me?",
+  "adopted_answer_or_rubric_verbatim": "Yes; she now uses the same grocery-list app as me",
+  "english_rubric": "Require yes or an equivalent explicit statement that she uses the same app. No app brand is established; do not invent one.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

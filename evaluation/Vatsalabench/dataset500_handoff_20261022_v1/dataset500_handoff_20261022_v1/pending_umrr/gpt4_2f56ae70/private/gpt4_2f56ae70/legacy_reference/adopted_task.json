@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_2f56ae70",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 177,
+  "question_cell": "F177",
+  "answer_cell": "E177",
+  "adopted_question_verbatim": "On which streaming service did I say I had watched a documentary during a free trial?",
+  "adopted_answer_or_rubric_verbatim": "Disney+",
+  "english_rubric": "Require Disney+ or Disney Plus. A past free trial is not proof of an active paid subscription.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

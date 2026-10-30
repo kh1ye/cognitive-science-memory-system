@@ -1,0 +1,129 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "about 9 months",
+      "rule": "Require about nine months in the November 30 report. Elapsed ownership time is not necessarily a revised historical fact."
+    },
+    "BASE-2": {
+      "expected": "about 9 months",
+      "rule": "Require about nine months in the November 30 report. Elapsed ownership time is not necessarily a revised historical fact."
+    },
+    "BASE-3": {
+      "expected": "about 9 months",
+      "rule": "Require about nine months in the November 30 report. Elapsed ownership time is not necessarily a revised historical fact."
+    },
+    "RET-10": {
+      "expected": "about 9 months",
+      "rule": "Require about nine months in the November 30 report. Elapsed ownership time is not necessarily a revised historical fact."
+    },
+    "RET-30": {
+      "expected": "about 9 months",
+      "rule": "Require about nine months in the November 30 report. Elapsed ownership time is not necessarily a revised historical fact."
+    },
+    "RET-50": {
+      "expected": "about 9 months",
+      "rule": "Require about nine months in the November 30 report. Elapsed ownership time is not necessarily a revised historical fact."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "about nine months",
+        "about six months"
+      ],
+      "intents": [
+        "November duration",
+        "August duration"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "10:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/12/01 08:00",
+        "old_valid_from": "2023/12/01 08:00",
+        "old_valid_to": "2023/12/02 09:00",
+        "observed_at": "2023/12/02 09:00",
+        "valid_from": "2023/12/02 09:00",
+        "valid_to": null,
+        "query_time": "2023/12/02 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "10:00",
+        "11:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "10:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "10:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 32,
+        "turn_index": 7,
+        "date": "2023/11/30 (Thu) 10:31",
+        "role": "user",
+        "quote": "I've had my cat, Luna, for about 9 months now, and I've been trying to keep her active and engaged. I've set up her cat tree, and she loves climbing up and down it. I've also been rotating her toys every week to keep things fresh for her. Do you think the interactive toys you recommended would be a good addition to her playtime routine?"
+      },
+      {
+        "session_index": 17,
+        "turn_index": 11,
+        "date": "2023/08/11 (Fri) 16:53",
+        "role": "user",
+        "quote": "I've had Luna for about 6 months now, and I've been meaning to get her microchipped for a while. I've heard horror stories about pets getting lost, and I don't want to take any chances. I've already scheduled an appointment for next Friday to get it done."
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/12/01 08:00",
+    "old_valid_from": "2023/12/01 08:00",
+    "old_valid_to": "2023/12/02 09:00",
+    "observed_at": "2023/12/02 09:00",
+    "valid_from": "2023/12/02 09:00",
+    "valid_to": null,
+    "query_time": "2023/12/02 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "e61a7584",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

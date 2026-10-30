@@ -1,0 +1,15 @@
+{
+  "sample_id": "8a2466db",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 317,
+  "question_cell": "F317",
+  "answer_cell": "E317",
+  "adopted_question_verbatim": "Can you recommend some resources where I can learn more about video editing?",
+  "adopted_answer_or_rubric_verbatim": "提供贴合Adobe Premiere Pro进阶设置的学习资源；不强制唯一推荐。",
+  "english_rubric": "Recommend learning resources suited to advanced Premiere Pro settings. Recommendations have no unique gold answer; current availability needs a separate check.",
+  "mapped_role": "supplementary_open_task_not_scheduled_in_core12",
+  "scheduled_in_core12": false,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

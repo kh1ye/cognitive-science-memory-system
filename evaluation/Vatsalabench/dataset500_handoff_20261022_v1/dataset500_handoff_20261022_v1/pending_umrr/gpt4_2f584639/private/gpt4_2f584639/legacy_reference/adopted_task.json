@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_2f584639",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 179,
+  "question_cell": "F179",
+  "answer_cell": "E179",
+  "adopted_question_verbatim": "About how much did the customized photo album for my mom's anniversary cost?",
+  "adopted_answer_or_rubric_verbatim": "About $50",
+  "english_rubric": "Require about fifty dollars; bare 50 is acceptable in context. Do not confuse it with the sister's necklace or planned gift card.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

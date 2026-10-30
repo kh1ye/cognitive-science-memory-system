@@ -1,0 +1,41 @@
+{
+  "pattern": "bedroom|gray|grey|repaint",
+  "matching_sentences": [
+    {
+      "session": 30,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 07:11",
+      "text": "It challenges the reader to consider the gray areas between right and wrong."
+    },
+    {
+      "session": 38,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/27 (Sat) 19:51",
+      "text": "By the way, I've been doing some redecorating and recently repainted my bedroom walls a lighter shade of gray - it's made the room feel so much brighter!"
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 19:51",
+      "text": "It's great to hear that you've been redecorating and repainted your bedroom walls a lighter shade of gray!"
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 19:51",
+      "text": "Now, imagine adding a ZZ Plant to your bedroom to complement your new gray walls."
+    },
+    {
+      "session": 38,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/27 (Sat) 19:51",
+      "text": "I'm also thinking of creating a home office nook in the spare bedroom."
+    }
+  ],
+  "review_scope": "Selected full source-session context plus programmatic target navigation; not independent full-history acceptance."
+}

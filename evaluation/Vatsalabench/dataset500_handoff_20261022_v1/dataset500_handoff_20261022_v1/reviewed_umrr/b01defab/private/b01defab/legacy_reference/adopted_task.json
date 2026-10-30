@@ -1,0 +1,15 @@
+{
+  "sample_id": "b01defab",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 452,
+  "question_cell": "F452",
+  "answer_cell": "E452",
+  "adopted_question_verbatim": "Did I finish reading 'The Nightingale' by Kristin Hannah?",
+  "adopted_answer_or_rubric_verbatim": "Yes, finished",
+  "english_rubric": "Require yes, finished. Recently finished does not supply an exact completion date.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,129 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "7 calendar days",
+      "rule": "Require seven calendar days, not inclusive eight. The team meeting was planned, not already completed."
+    },
+    "BASE-2": {
+      "expected": "7 calendar days",
+      "rule": "Require seven calendar days, not inclusive eight. The team meeting was planned, not already completed."
+    },
+    "BASE-3": {
+      "expected": "7 calendar days",
+      "rule": "Require seven calendar days, not inclusive eight. The team meeting was planned, not already completed."
+    },
+    "RET-10": {
+      "expected": "7 calendar days",
+      "rule": "Require seven calendar days, not inclusive eight. The team meeting was planned, not already completed."
+    },
+    "RET-30": {
+      "expected": "7 calendar days",
+      "rule": "Require seven calendar days, not inclusive eight. The team meeting was planned, not already completed."
+    },
+    "RET-50": {
+      "expected": "7 calendar days",
+      "rule": "Require seven calendar days, not inclusive eight. The team meeting was planned, not already completed."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "January 10",
+        "January 17"
+      ],
+      "intents": [
+        "Workshop date",
+        "Planned meeting date"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "10:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/01/14 08:00",
+        "old_valid_from": "2023/01/14 08:00",
+        "old_valid_to": "2023/01/15 09:00",
+        "observed_at": "2023/01/15 09:00",
+        "valid_from": "2023/01/15 09:00",
+        "valid_to": null,
+        "query_time": "2023/01/15 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "10:00",
+        "11:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "10:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "10:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 6,
+        "turn_index": 1,
+        "date": "2023/01/13 (Fri) 01:02",
+        "role": "user",
+        "quote": "I'm preparing for an upcoming meeting with my team and I want to make sure I'm effectively communicating our project updates. I recently attended a workshop on \"Effective Communication in the Workplace\" on January 10th, which was really helpful in improving my active listening and conflict resolution skills. Can you provide some tips on structuring my presentation to keep my team engaged?"
+      },
+      {
+        "session_index": 20,
+        "turn_index": 1,
+        "date": "2023/01/13 (Fri) 13:59",
+        "role": "user",
+        "quote": "I'm preparing for an upcoming team meeting and want to make sure I'm well-prepared to communicate effectively. I remember making a note to myself to practice those skills in my upcoming team meeting on January 17th, and I'm looking for some tips on active listening and conflict resolution. Can you provide some resources or advice on those topics?"
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/01/14 08:00",
+    "old_valid_from": "2023/01/14 08:00",
+    "old_valid_to": "2023/01/15 09:00",
+    "observed_at": "2023/01/15 09:00",
+    "valid_from": "2023/01/15 09:00",
+    "valid_to": null,
+    "query_time": "2023/01/15 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "0bb5a684",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

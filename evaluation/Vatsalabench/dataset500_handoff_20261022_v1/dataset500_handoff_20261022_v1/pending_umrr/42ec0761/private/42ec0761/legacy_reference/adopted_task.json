@@ -1,0 +1,15 @@
+{
+  "sample_id": "42ec0761",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 217,
+  "question_cell": "F217",
+  "answer_cell": "E217",
+  "adopted_question_verbatim": "Do I have a spare screwdriver for opening up my laptop?",
+  "adopted_answer_or_rubric_verbatim": "Yes, I have a spare screwdriver",
+  "english_rubric": "Require yes or an explicit availability statement. Do not invent a purchase date or treat the misplaced tool as proof no spare exists.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

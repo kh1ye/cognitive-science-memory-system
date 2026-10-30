@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "What sports event did I say I would participate in on June 17, 2023?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-07-01T13:38:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "Which athletic event did I say I planned to join on June 17, 2023?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-07-01T13:38:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "What sporting competition was I intending to take part in according to my June 17 report?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-07-01T13:38:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was my exact player registration number for the company charity soccer tournament?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-07-01T13:38:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "What event did I plan to participate in on June 17, and which two kinds of advice did I request for its players?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-07-01T13:38:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "What sports event did I say I would participate in on June 17, 2023?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-07-03T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "What sports event did I say I would participate in on June 17, 2023?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-07-04T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "What sports event did I say I would participate in on June 17, 2023?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-07-05T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the start time for a separate future sports-planning meeting now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-07-03T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-07-03T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/07/03 12:00, what is the start time for a separate future sports-planning meeting?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-07-03T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-07-03T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/07/03 12:00, what is the start time for a separate future sports-planning meeting?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-07-03T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-07-03T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/07/03 12:00, what is the start time for a separate future sports-planning meeting?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-07-03T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-07-03T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

@@ -1,0 +1,126 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "In the bedroom, above my bed",
+      "rule": "Require bedroom above the bed. Do not substitute Moonlit Ocean, which is a different work."
+    },
+    "BASE-2": {
+      "expected": "In the bedroom, above my bed",
+      "rule": "Require bedroom above the bed. Do not substitute Moonlit Ocean, which is a different work."
+    },
+    "BASE-3": {
+      "expected": "In the bedroom, above my bed",
+      "rule": "Require bedroom above the bed. Do not substitute Moonlit Ocean, which is a different work."
+    },
+    "RET-10": {
+      "expected": "In the bedroom, above my bed",
+      "rule": "Require bedroom above the bed. Do not substitute Moonlit Ocean, which is a different work."
+    },
+    "RET-30": {
+      "expected": "In the bedroom, above my bed",
+      "rule": "Require bedroom above the bed. Do not substitute Moonlit Ocean, which is a different work."
+    },
+    "RET-50": {
+      "expected": "In the bedroom, above my bed",
+      "rule": "Require bedroom above the bed. Do not substitute Moonlit Ocean, which is a different work."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "in the bedroom above my bed",
+        "above the living-room sofa"
+      ],
+      "intents": [
+        "Later location",
+        "Earlier location"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "studio shelf",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/11/19 08:00",
+        "old_valid_from": "2023/11/19 08:00",
+        "old_valid_to": "2023/11/20 09:00",
+        "observed_at": "2023/11/20 09:00",
+        "valid_from": "2023/11/20 09:00",
+        "valid_to": null,
+        "query_time": "2023/11/20 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "studio shelf",
+        "utility cabinet"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "studio shelf",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "studio shelf",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 9,
+        "turn_index": 5,
+        "date": "2023/07/11 (Tue) 09:13",
+        "role": "user",
+        "quote": "I'm also thinking of creating a cozy atmosphere by displaying some of my own art pieces around the party area. I have a beautiful digital print of \"Moonlit Ocean\" by Jack Harris that I plan to frame and hang in my bedroom, but I could temporarily move it to the party area to add some visual interest. And of course, I'll make sure to leave the \"Ethereal Dreams\" painting above my living room sofa as is, since it's already a great conversation starter. Do you have any other ideas on how to create a welcoming ambiance for my guests?"
+      },
+      {
+        "session_index": 31,
+        "turn_index": 7,
+        "date": "2023/10/30 (Mon) 16:38",
+        "role": "user",
+        "quote": "I'm actually planning to work on a piece that incorporates a figure in a dreamlike environment. I've been inspired by the \"Moonlit Ocean\" print in my bedroom, and I think I can use some of the techniques you mentioned to create a sense of atmosphere and mood. By the way, speaking of my bedroom, I recently moved the \"Ethereal Dreams\" painting by Emma Taylor above my bed, and it adds a nice touch to the space."
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/11/19 08:00",
+    "old_valid_from": "2023/11/19 08:00",
+    "old_valid_to": "2023/11/20 09:00",
+    "observed_at": "2023/11/20 09:00",
+    "valid_from": "2023/11/20 09:00",
+    "valid_to": null,
+    "query_time": "2023/11/20 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "e493bb7c",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

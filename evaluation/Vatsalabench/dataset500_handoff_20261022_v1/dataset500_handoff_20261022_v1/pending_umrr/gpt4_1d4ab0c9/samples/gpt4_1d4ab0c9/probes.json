@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "How often did I say I started watering my herb garden in the March 22 conversation?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-04-18T10:43:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "What daily watering schedule did I report starting for the herb patch on March 22?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-04-18T10:43:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "At what frequency did I say I began irrigating the herb garden in the March 22 chat?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-04-18T10:43:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact measured volume of water I gave each herb plant every morning?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-04-18T10:43:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "What watering frequency did I report starting on March 22, and on which date did I report my first harvest?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-04-18T10:43:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "How often did I say I started watering my herb garden in the March 22 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-04-20T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "How often did I say I started watering my herb garden in the March 22 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-04-21T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "How often did I say I started watering my herb garden in the March 22 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-04-22T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the container colour for a separate future garden-storage plan now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-04-20T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-04-20T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/04/20 12:00, what is the container colour for a separate future garden-storage plan?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-04-20T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-04-20T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/04/20 12:00, what is the container colour for a separate future garden-storage plan?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-04-20T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-04-20T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/04/20 12:00, what is the container colour for a separate future garden-storage plan?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-04-20T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-04-20T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

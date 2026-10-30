@@ -1,0 +1,15 @@
+{
+  "sample_id": "af082822",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 370,
+  "question_cell": "F370",
+  "answer_cell": "E370",
+  "adopted_question_verbatim": "How many weeks ago did I attend the friends and family sale at Nordstrom?",
+  "adopted_answer_or_rubric_verbatim": "2 weeks (Nov 17 to Dec 1)",
+  "english_rubric": "Require two weeks: November 17 to December 1 is fourteen calendar days. Yesterday in the November 18 message identifies November 17.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_e414231e",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 393,
+  "question_cell": "F393",
+  "answer_cell": "E393",
+  "adopted_question_verbatim": "How many days passed between the day I fixed my mountain bike and the day I decided to upgrade my road bike's pedals?",
+  "adopted_answer_or_rubric_verbatim": "4 calendar days",
+  "english_rubric": "Require four calendar days, March 15 to 19. A decision to upgrade is not proof of installation.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

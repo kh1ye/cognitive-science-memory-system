@@ -1,0 +1,15 @@
+{
+  "sample_id": "89527b6b",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 224,
+  "question_cell": "F224",
+  "answer_cell": "E224",
+  "adopted_question_verbatim": "In the Plesiosaur illustration description you wrote for the children's book, what color was its scaly body?",
+  "adopted_answer_or_rubric_verbatim": "Blue",
+  "english_rubric": "Require blue as previously written. The source is an assistant-authored description, not a viewed image or palaeontological evidence.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

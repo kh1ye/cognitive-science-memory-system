@@ -1,0 +1,15 @@
+{
+  "sample_id": "bf659f65",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 62,
+  "question_cell": "F62",
+  "answer_cell": "E62",
+  "adopted_question_verbatim": "What was the title of the EP I said I bought from The Whiskey Wanderers?",
+  "adopted_answer_or_rubric_verbatim": "Midnight Sky",
+  "english_rubric": "Require Midnight Sky, not another artist's album or a repeated purchase count.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

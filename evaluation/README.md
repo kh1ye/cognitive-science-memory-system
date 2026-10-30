@@ -1,5 +1,7 @@
 # 记忆例子与评测资料
 
+[Vatsalabench 500条数据与实验记录](Vatsalabench/README.md)：含六维指标原文、逐轮原始结果、评分和失败日志。最新扩大测试记录见[六维报告](Vatsalabench/results/expansion-20261030-144500/report.md)。
+
 代码修订后的[新旧分类与实际分流对照](memory-classifier-v2/README.md)：原100条本轮基线95/100、新版99/100；新编32条28/32→32/32；实际分流开发检查最终15/16。
 
 针对6条分类分歧的[102次对照诊断](memory-boundary-diagnostic/results/20261027-231131/interpretation.md)：区分重复波动、语序影响、提示边界与参考标注歧义；不改动原100条成绩。

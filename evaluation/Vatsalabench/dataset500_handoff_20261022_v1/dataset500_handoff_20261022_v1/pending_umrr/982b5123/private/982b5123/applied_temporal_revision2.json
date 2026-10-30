@@ -1,0 +1,74 @@
+{
+  "sample_id": "982b5123",
+  "source_order": 414,
+  "status": "accepted_edits_applied_validation_passed",
+  "authorization": "User explicitly requested applying the consolidated suggestions; no experiment or independent acceptance authorized.",
+  "parent_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1\\packages\\982b5123",
+  "parent_suite_sha256": "c0758846fc9c7256c7093e300bcd0234519ab1dfe1fce41665b810c13c647fc3",
+  "revised_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1_review2\\packages\\982b5123",
+  "revised_suite_sha256": "c26fd5b8de6c404335e6f9df0023d48142cc8b3059919b7af8ede5f45c34dff6",
+  "proposal_file": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch07_v1\\pending_edits_all_batches.json",
+  "proposal_sha256": "3407de41004d56cd559b1fe0cb938f21362c02f9caa4ba68469decfe323abd54",
+  "source_proposal": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch06_v1\\proposed_edits.json",
+  "applied_edits": [
+    {
+      "file": "samples/982b5123/probes.json",
+      "probe_id": "BASE-1",
+      "field": "question",
+      "old": "How many months ago did I book the Airbnb in San Francisco?",
+      "proposed": "Treating the two mentions of my past San Francisco wedding trip as the same visit, and the advance booking interval as measured from that stay, how many months before the May 21 account did I reserve its Airbnb?"
+    },
+    {
+      "file": "samples/982b5123/probes.json",
+      "probe_id": "BASE-2",
+      "field": "question",
+      "old": "How many months before the original question did I reserve the San Francisco Airbnb for the wedding trip?",
+      "proposed": "If the recalled wedding visit and advance reservation refer to the same past stay, how many months before my May 21 report was that San Francisco accommodation booked?"
+    },
+    {
+      "file": "samples/982b5123/probes.json",
+      "probe_id": "BASE-3",
+      "field": "question",
+      "old": "What booking recency follows from that wedding visit and the stated advance-reservation interval?",
+      "proposed": "Using the reported time since the past wedding visit and the reservation lead time for that same stay, how many months before the May 21 account did I make the booking?"
+    },
+    {
+      "file": "samples/982b5123/probes.json",
+      "probe_id": "RET-10",
+      "field": "question",
+      "old": "How many months ago did I book the Airbnb in San Francisco?",
+      "proposed": "Treating the two mentions of my past San Francisco wedding trip as the same visit, and the advance booking interval as measured from that stay, how many months before the May 21 account did I reserve its Airbnb?"
+    },
+    {
+      "file": "samples/982b5123/probes.json",
+      "probe_id": "RET-30",
+      "field": "question",
+      "old": "How many months ago did I book the Airbnb in San Francisco?",
+      "proposed": "Treating the two mentions of my past San Francisco wedding trip as the same visit, and the advance booking interval as measured from that stay, how many months before the May 21 account did I reserve its Airbnb?"
+    },
+    {
+      "file": "samples/982b5123/probes.json",
+      "probe_id": "RET-50",
+      "field": "question",
+      "old": "How many months ago did I book the Airbnb in San Francisco?",
+      "proposed": "Treating the two mentions of my past San Francisco wedding trip as the same visit, and the advance booking interval as measured from that stay, how many months before the May 21 account did I reserve its Airbnb?"
+    }
+  ],
+  "changed_public_files": [
+    "samples/982b5123/probes.json"
+  ],
+  "history_byte_identical": true,
+  "branches_byte_identical": true,
+  "gold_byte_identical": true,
+  "private_gold_sha256": "6b445c261a1abca426c947dfffa2a13644c1fd60e540cfb681e51838e273899b",
+  "query_times_and_checkpoints_unchanged": true,
+  "protocol_and_provider_unchanged": true,
+  "question_edit_count": 6,
+  "reference_edit_count": 0,
+  "quality_probes": 12,
+  "metrics": 11,
+  "live_review_gate_passed": false,
+  "independent_review": "pending",
+  "api_calls": 0,
+  "inherited_audit_note": "Copied audit files describe their earlier source version. This revision record and current public inputs describe the applied wording."
+}

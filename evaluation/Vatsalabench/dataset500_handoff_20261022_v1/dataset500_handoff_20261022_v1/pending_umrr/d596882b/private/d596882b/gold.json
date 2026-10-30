@@ -1,0 +1,123 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "By Chloe",
+      "rule": "Require By Chloe as the prior recommendation. No claim about present branding, branches or operation."
+    },
+    "BASE-2": {
+      "expected": "By Chloe",
+      "rule": "Require By Chloe as the prior recommendation. No claim about present branding, branches or operation."
+    },
+    "BASE-3": {
+      "expected": "By Chloe",
+      "rule": "Require By Chloe as the prior recommendation. No claim about present branding, branches or operation."
+    },
+    "RET-10": {
+      "expected": "By Chloe",
+      "rule": "Require By Chloe as the prior recommendation. No claim about present branding, branches or operation."
+    },
+    "RET-30": {
+      "expected": "By Chloe",
+      "rule": "Require By Chloe as the prior recommendation. No claim about present branding, branches or operation."
+    },
+    "RET-50": {
+      "expected": "By Chloe",
+      "rule": "Require By Chloe as the prior recommendation. No claim about present branding, branches or operation."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "By Chloe",
+        "Candle 79"
+      ],
+      "intents": [
+        "Multiple-location example",
+        "Upper East Side example"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "14:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "14:00",
+        "15:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "14:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "14:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 24,
+        "turn_index": 6,
+        "date": "2023/05/25 (Thu) 21:36",
+        "role": "assistant",
+        "quote": "Absolutely! New York City is very vegan and vegetarian friendly, and there are countless options to choose from. Here are some recommendations:\n\n1. Check out By Chloe, a popular plant-based eatery with multiple locations throughout the city. They offer vegan burgers, salads, pastas, and baked goods.\n\n2. Visit Candle 79 in the Upper East Side. This restaurant offers upscale vegan cuisine made from organic, locally-sourced ingredients.\n\n3. Try Superiority Burger, a small spot in the East Village that is very popular for its plant-based burger and unique vegetarian sides.\n\n4. Look for juice bars like Juice Generation and Pure Green, which offer a variety of healthy, plant-based bowls, smoothies, and juices. \n\n5. Pop into Peacefood Cafe, a cozy spot offering a wide variety of vegan soups, sandwiches, salads, and desserts. \n\nThese are just a few of the many vegan and vegetarian options available in New York City. Be sure to do some research in advance and ask locals for recommendations, as there are a ton of hidden gems throughout the city!"
+      }
+    ],
+    "scope": "assistant_history",
+    "target_roles": [
+      "assistant"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "d596882b",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

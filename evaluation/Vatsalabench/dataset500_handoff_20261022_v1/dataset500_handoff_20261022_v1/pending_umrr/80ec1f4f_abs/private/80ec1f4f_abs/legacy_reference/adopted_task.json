@@ -1,0 +1,15 @@
+{
+  "sample_id": "80ec1f4f_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 66,
+  "question_cell": "F66",
+  "answer_cell": "E66",
+  "adopted_question_verbatim": "How many different museums or galleries did I visit in December?",
+  "adopted_answer_or_rubric_verbatim": "无法根据现有信息确定12月次数；未提及不能推出0次",
+  "english_rubric": "Cannot determine the December museum/gallery count. January and February visits do not answer it; no mention does not imply zero.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "4baee567",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 497,
+  "question_cell": "F497",
+  "answer_cell": "E497",
+  "adopted_question_verbatim": "How many Chiefs–Jaguars games at Arrowhead Stadium did you state in our previous chat?",
+  "adopted_answer_or_rubric_verbatim": "12 regular-season games",
+  "english_rubric": "Require twelve regular-season games as a historical assistant claim. Do not validate current or actual sports statistics.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

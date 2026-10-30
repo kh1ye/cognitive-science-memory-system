@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_af6db32f",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 389,
+  "question_cell": "F389",
+  "answer_cell": "E389",
+  "adopted_question_verbatim": "How many days ago did I watch the Super Bowl?",
+  "adopted_answer_or_rubric_verbatim": "17 calendar days",
+  "english_rubric": "Require seventeen calendar days, February 12 to March 1. Use reported dates, not real-world broadcast/time-zone correction.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

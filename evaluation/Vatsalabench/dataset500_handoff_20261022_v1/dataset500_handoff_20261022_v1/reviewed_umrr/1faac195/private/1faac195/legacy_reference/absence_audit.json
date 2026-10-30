@@ -1,0 +1,654 @@
+{
+  "question": "What was the exact street address where I planned to meet my sister Emily in Denver?",
+  "pattern": "Emily|Denver|address|street|meet",
+  "messages_scanned": 494,
+  "matching_sentences": [
+    {
+      "session": 3,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/20 (Sat) 19:54",
+      "text": "I'm currently 10 books ahead of schedule to meet my goal of 30 books by the end of the year."
+    },
+    {
+      "session": 4,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "\t* Pier 39 (sea lions, arcade games, and street performers)"
+    },
+    {
+      "session": 4,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "**Denver, Colorado**: Denver Zoo (naturalistic habitats and a playground)"
+    },
+    {
+      "session": 4,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "I'm thinking of visiting my sister Emily in Denver soon, and I was wondering if you knew any kid-friendly attractions there?"
+    },
+    {
+      "session": 4,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "Denver is a great destination!"
+    },
+    {
+      "session": 4,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "**Denver Zoo**: Home to over 4,000 animals, the Denver Zoo offers a variety of exhibits, including the popular African Savannah and the new Elephant Passage."
+    },
+    {
+      "session": 4,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "**Children's Museum of Denver at Marsico Campus**: This museum features interactive exhibits focused on art, science, and imagination."
+    },
+    {
+      "session": 4,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "**Denver Museum of Nature & Science**: While not exclusively a children's museum, the DMNS has plenty of kid-friendly exhibits, including dinosaur fossils, a hands-on space exhibit, and an IMAX theater."
+    },
+    {
+      "session": 4,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "**Denver Art Museum**: The DAM offers family-friendly activities and tours, including the Family Center, which features art projects and play areas."
+    },
+    {
+      "session": 4,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "**Denver Botanic Gardens**: The gardens offer a variety of kid-friendly activities, including a children's garden with a maze, a treehouse, and a play area."
+    },
+    {
+      "session": 4,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "**Dinosaur Ridge**: Just west of Denver, Dinosaur Ridge is a famous fossil site with over 1,000 dinosaur footprints and 300 dinosaur tracks."
+    },
+    {
+      "session": 4,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "**Confluence Park**: This park is located where the South Platte River meets the Cherry Creek, offering a playground, a splash pad, and a skate park."
+    },
+    {
+      "session": 4,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "These are just a few of the many kid-friendly attractions in Denver."
+    },
+    {
+      "session": 4,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "Have a great time visiting your sister and exploring Denver with the kids!"
+    },
+    {
+      "session": 4,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "Do you have any suggestions for kid-friendly performances or events in Denver that might inspire her love for music?"
+    },
+    {
+      "session": 4,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "Denver has a vibrant performing arts scene, and there are plenty of kid-friendly options to choose from."
+    },
+    {
+      "session": 4,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "**The Denver Philharmonic Orchestra**: The DPO offers a variety of concerts and events, including family-friendly performances."
+    },
+    {
+      "session": 4,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "**The Denver Center for the Performing Arts**: The DCPA offers a range of productions, including musicals, plays, and concerts."
+    },
+    {
+      "session": 4,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "**The Denver Young Artists Orchestra**: This orchestra features talented young musicians from the Denver area."
+    },
+    {
+      "session": 4,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "**The Denver Children's Theatre**: This theatre company produces shows specifically designed for children, featuring familiar stories and characters."
+    },
+    {
+      "session": 4,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "Some popular kid-friendly shows and events in Denver include:"
+    },
+    {
+      "session": 4,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "* \"The Wizard of Oz\" at the Denver Children's Theatre"
+    },
+    {
+      "session": 4,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "I hope this helps, and I'm sure Emma will have a blast attending a live performance in Denver!"
+    },
+    {
+      "session": 4,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "I think the Denver Philharmonic Orchestra's Family Concerts series sounds like a great idea."
+    },
+    {
+      "session": 4,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "The Denver Philharmonic Orchestra's Family Concerts series is a fantastic way to introduce kids to classical music in a fun and engaging way."
+    },
+    {
+      "session": 4,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "**\"Young Artist Showcase\"**: This concert features talented young musicians from the Denver area, including pianists."
+    },
+    {
+      "session": 4,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "Please note that the schedule is subject to change, so I recommend checking the Denver Philharmonic Orchestra's website or contacting them directly to confirm the dates and times."
+    },
+    {
+      "session": 4,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "The McNichols Civic Center Building is located in the heart of Denver, at 144 W."
+    },
+    {
+      "session": 4,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "Colfax Ave, Denver, CO 80202."
+    },
+    {
+      "session": 4,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "* Street parking: Metered parking spots are available along Colfax Avenue and surrounding streets."
+    },
+    {
+      "session": 4,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "Colfax Ave) and the Denver Justice Center Parking Garage (490 W."
+    },
+    {
+      "session": 4,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "**The Denver Central Market**: This food hall is about a 5-minute walk from the McNichols Civic Center Building and features a variety of vendors, including a deli, a bakery, and a coffee shop."
+    },
+    {
+      "session": 4,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 21:14",
+      "text": "**The Kitchen Denver**: This farm-to-table restaurant is about a 10-minute walk from the McNichols Civic Center Building and has a kid-friendly menu and atmosphere."
+    },
+    {
+      "session": 7,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 14:27",
+      "text": "Finding local dance classes or workshops can be an excellent way to continue learning and practicing Bollywood dance, as well as meet like-minded people who share your interest."
+    },
+    {
+      "session": 7,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 14:27",
+      "text": "**Meetup.com**: Meetup.com is a great resource to find groups of people with shared interests."
+    },
+    {
+      "session": 7,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 14:27",
+      "text": "Additionally, you can also consider hosting your own Bollywood dance meetup or workshop in your area!"
+    },
+    {
+      "session": 7,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 14:27",
+      "text": "**Search online**: Use search engines like Google or online directories like Meetup.com to search for keywords like \"Bollywood-Salsa fusion classes,\" \"Global Dance classes,\" or \"Urban Dance classes\" in your area."
+    },
+    {
+      "session": 7,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 14:27",
+      "text": "**Search online**: Use search engines like Google or online directories like Meetup.com to search for keywords like \"Bollywood-Hip Hop fusion classes,\" \"Bollywood-Hip Hop dance classes,\" or \"BollyHop classes\" in your area."
+    },
+    {
+      "session": 8,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/21 (Sun) 19:19",
+      "text": "For City 2, I think I went to Chicago on February 10th for a business meeting, and I flew with United Airlines."
+    },
+    {
+      "session": 8,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 19:19",
+      "text": "\t* Notes: Business meeting"
+    },
+    {
+      "session": 8,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 19:19",
+      "text": "\t* Notes: Business meeting"
+    },
+    {
+      "session": 8,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 19:19",
+      "text": "\t* Notes: Business meeting"
+    },
+    {
+      "session": 8,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 19:19",
+      "text": "\t* Notes: Business meeting"
+    },
+    {
+      "session": 12,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 02:55",
+      "text": "If your rabbit has constant trouble with the matting of their fur, it could indicate some underlying health issues, and it is important to consult a veterinarian to address the issue."
+    },
+    {
+      "session": 14,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 06:19",
+      "text": "- \"Baker Street\" by Gerry Rafferty"
+    },
+    {
+      "session": 22,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:29",
+      "text": "\t* Exclusive access to event attendees (e.g., VIP access, meet-and-greets)"
+    },
+    {
+      "session": 22,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:29",
+      "text": "**Personalize your approach**: Address the business owner or decision-maker by name, and reference any existing connections or relationships."
+    },
+    {
+      "session": 22,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:29",
+      "text": "Be prepared to address any concerns or objections they may have."
+    },
+    {
+      "session": 22,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:29",
+      "text": "**Be respectful and flexible**: Be open to negotiating sponsorship levels or benefits to meet the business's needs and budget."
+    },
+    {
+      "session": 22,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:29",
+      "text": "In-person meetings or visits"
+    },
+    {
+      "session": 22,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:29",
+      "text": "I'd be happy to set up a meeting or provide more information via email.\""
+    },
+    {
+      "session": 22,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:29",
+      "text": "Avoid busy streets or highways, especially if you're expecting a large number of participants."
+    },
+    {
+      "session": 24,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 03:33",
+      "text": "* **Canada**: Authors like Emily St."
+    },
+    {
+      "session": 24,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/24 (Wed) 03:33",
+      "text": "I'd love to attend some and meet local authors and like-minded readers."
+    },
+    {
+      "session": 24,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 03:33",
+      "text": "**Volunteer**: Consider volunteering at the event to get behind-the-scenes experience, meet authors, and connect with organizers."
+    },
+    {
+      "session": 24,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 03:33",
+      "text": "Literary festivals and author events are opportunities to celebrate literature, meet new people, and learn from others."
+    },
+    {
+      "session": 24,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/24 (Wed) 03:33",
+      "text": "Plus, I got to meet some of the festival organizers, who were really passionate about promoting literature and supporting local writers."
+    },
+    {
+      "session": 24,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 03:33",
+      "text": "Seeing the festival come together behind the scenes and meeting the passionate organizers must have been a great experience."
+    },
+    {
+      "session": 24,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 03:33",
+      "text": "Did you have a chance to meet Colson Whitehead or get your book signed after the event?"
+    },
+    {
+      "session": 24,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/05/24 (Wed) 03:33",
+      "text": "I didn't get a chance to meet Colson Whitehead or get my book signed, but that's okay."
+    },
+    {
+      "session": 24,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 03:33",
+      "text": "You can also search online event calendars like Eventbrite, Meetup, or Lanyrd to find literary events in your area."
+    },
+    {
+      "session": 28,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 07:37",
+      "text": "**Takoyaki**: A classic Osaka street food, takoyaki is a must-try."
+    },
+    {
+      "session": 28,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 07:37",
+      "text": "* In Kyoto, visit the Nishiki Market, a narrow shopping street lined with over 100 food stalls and shops offering local specialties."
+    },
+    {
+      "session": 28,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 07:37",
+      "text": "\t* Conveniently located near Kawaramachi Shopping Street and Kiyomizu-dera Temple"
+    },
+    {
+      "session": 28,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 07:37",
+      "text": "* Sanjo Shopping Street (10-15 minute walk)"
+    },
+    {
+      "session": 28,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 07:37",
+      "text": "You can also show them the address of your destination written in Japanese."
+    },
+    {
+      "session": 28,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 07:37",
+      "text": "* **Dress comfortably:** Kyoto's streets can be narrow and winding, so wear comfortable shoes and dress appropriately for the weather."
+    },
+    {
+      "session": 32,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 05:09",
+      "text": "Remember, the most important thing is to find a device that meets your needs, is comfortable to wear, and provides the data you need to track your progress."
+    },
+    {
+      "session": 34,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 07:32",
+      "text": "This could involve finding a solution that addresses both of your concerns or agreeing to disagree."
+    },
+    {
+      "session": 35,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 08:41",
+      "text": "**Meetup.com**: Join local music-related Meetup groups, which often organize outings to concerts and music events."
+    },
+    {
+      "session": 35,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 08:41",
+      "text": "**Meetup.com**: Join music-related Meetup groups in your area, which often organize workshops, jam sessions, or classes for musicians."
+    },
+    {
+      "session": 35,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/27 (Sat) 08:41",
+      "text": "Do you think I could find any local art or craft classes, like painting or pottery, where I could meet new people with similar interests?"
+    },
+    {
+      "session": 35,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 08:41",
+      "text": "**Meetup.com**: Join art-related Meetup groups in your area, which often organize classes, workshops, or art meetups."
+    },
+    {
+      "session": 35,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 08:41",
+      "text": "Meeting new people with similar interests is a great way to build connections and friendships."
+    },
+    {
+      "session": 35,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 08:41",
+      "text": "Plus, it's a great way to meet new people who share your interest in art and crafting."
+    },
+    {
+      "session": 38,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/28 (Sun) 04:48",
+      "text": "I'm really looking forward to the festival, and I think it'll be a great opportunity to learn more about the local food scene and meet like-minded people."
+    },
+    {
+      "session": 38,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 04:48",
+      "text": "Meeting like-minded people and learning about the local food scene can be incredibly inspiring and motivating."
+    },
+    {
+      "session": 40,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:24",
+      "text": "This will encourage the plant to produce new growth from the nodes (where the leaves meet the stem)."
+    },
+    {
+      "session": 41,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 09:52",
+      "text": "**Workshop and Meeting Space**: The chalets have a communal workshop and meeting space that can be used for photography-related activities, such as editing or printing your photos."
+    },
+    {
+      "session": 42,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 18:10",
+      "text": "This will give you time to set up your bike, meet the instructor, and get settled before the class starts."
+    },
+    {
+      "session": 42,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/28 (Sun) 18:10",
+      "text": "I'm thinking of trying spinning because my friend Emily recommended it, and I've been doing Zumba for 3 months now and want to mix up my routine."
+    },
+    {
+      "session": 44,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 00:28",
+      "text": "Can you please tell me the address of your apartment or the nearest landmark?"
+    },
+    {
+      "session": 44,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/30 (Tue) 00:28",
+      "text": "I live near 33rd street and 3rd avenue."
+    },
+    {
+      "session": 44,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/30 (Tue) 00:28",
+      "text": "I'm still not used to the streets here and my English isn't good enough to ask for help when I need it."
+    },
+    {
+      "session": 44,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 00:28",
+      "text": "Okay, so you're near 33rd Street and 3rd Avenue."
+    },
+    {
+      "session": 44,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 00:28",
+      "text": "From 33rd Street and 3rd Avenue, head north on 3rd Avenue towards 34th Street."
+    },
+    {
+      "session": 44,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 00:28",
+      "text": "From 33rd Street and 3rd Avenue, head south on 3rd Avenue towards 24th Street."
+    },
+    {
+      "session": 44,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 00:28",
+      "text": "If you're looking for a more specialty grocery store, there's a Trader Joe's located at 213 W 28th Street, New York, NY 10001."
+    },
+    {
+      "session": 44,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 00:28",
+      "text": "From 33rd Street and 3rd Avenue, head south on 3rd Avenue towards 28th Street, then turn left onto 28th Street."
+    },
+    {
+      "session": 45,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 08:24",
+      "text": "Do you have any fixed appointments or commitments already scheduled for the week (e.g., meetings, classes, family time)?"
+    },
+    {
+      "session": 45,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 08:24",
+      "text": "Are there any deadlines or priorities you need to meet for the tasks you're trying to catch up on?"
+    },
+    {
+      "session": 45,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 08:24",
+      "text": "Do you have any existing commitments, such as regular meetings or appointments, that you need to work around?"
+    }
+  ],
+  "coverage": "All messages in both roles scanned programmatically. Regex matches are navigation, not proof of absence.",
+  "independent_full_history_review": "pending",
+  "eligibility": "provisional_candidate"
+}

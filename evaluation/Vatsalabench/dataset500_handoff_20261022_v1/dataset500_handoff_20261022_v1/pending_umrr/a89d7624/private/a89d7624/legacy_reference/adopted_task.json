@@ -1,0 +1,15 @@
+{
+  "sample_id": "a89d7624",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 329,
+  "question_cell": "F329",
+  "answer_cell": "E329",
+  "adopted_question_verbatim": "I'm planning a trip to Denver soon. Any suggestions on what to do there?",
+  "adopted_answer_or_rubric_verbatim": "建议丹佛音乐相关活动，可结合餐饮需求，不把非音乐活动一概判跑题。",
+  "english_rubric": "Offer Denver activities considering music and reasonable supporting activities such as dining. Non-music suggestions are not automatically off-task.",
+  "mapped_role": "supplementary_open_task_not_scheduled_in_core12",
+  "scheduled_in_core12": false,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

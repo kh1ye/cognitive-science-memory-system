@@ -1,0 +1,216 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "IKEA",
+      "rule": "Accept IKEA regardless of capitalization; reject an unsupported alternative retailer."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Candidate only. Require explicit uncertainty, no invented target value, and no false denial of related known events. Independent whole-history absence review is required. A stated lack of evidence must not be replaced by a claim that the identifier or underlying event never existed. This stricter draft policy is not retroactive to previous pilot scores.",
+      "annotation_status": "AI_search_found_no_support; independent_full_history_review_pending"
+    },
+    "R1R2": {
+      "expected": [
+        "IKEA",
+        "books"
+      ],
+      "rule": "TIC proposed answer-slot rule: a substantive proposed value addresses an intent even if incorrect; refusal alone does not fill a requested value. AFP counts deduplicated task-serving units, including relevant uncertainty; empty answer zero. Freeze this convention before live execution.",
+      "intents": [
+        "Retailer",
+        "Items organized"
+      ]
+    },
+    "CUR-H2": {
+      "expected": "study",
+      "rule": "Adopt the new effective value after incremental ingestion of the update and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "study",
+        "bedroom"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not choose a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "study",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "study",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    },
+    "BASE-2": {
+      "expected": "IKEA",
+      "rule": "Accept IKEA regardless of capitalization; reject an unsupported alternative retailer."
+    },
+    "BASE-3": {
+      "expected": "IKEA",
+      "rule": "Accept IKEA regardless of capitalization; reject an unsupported alternative retailer."
+    },
+    "RET-10": {
+      "expected": "IKEA",
+      "rule": "Accept IKEA regardless of capitalization; reject an unsupported alternative retailer."
+    },
+    "RET-30": {
+      "expected": "IKEA",
+      "rule": "Accept IKEA regardless of capitalization; reject an unsupported alternative retailer."
+    },
+    "RET-50": {
+      "expected": "IKEA",
+      "rule": "Accept IKEA regardless of capitalization; reject an unsupported alternative retailer."
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 36,
+        "turn_index": 9,
+        "date": "2023/05/28 (Sun) 00:00",
+        "quote": "I just kind of went for it and started moving things around until it felt right. I wanted to create more space and make the room feel less cluttered. The new bookshelf is from IKEA, and I'm really happy with it. It's exactly what I needed to get my books organized."
+      }
+    ],
+    "reviewed_question": "Where did I buy my new bookshelf from?",
+    "reviewed_answer": "IKEA",
+    "scoring_answer": "IKEA",
+    "normalization": "English scoring form preserves reviewed meaning and source units.",
+    "effective_question": "Where did I say my new bookshelf was from?"
+  },
+  "negative_review": {
+    "question": "What was the exact purchase receipt number associated with the new bookshelf I mentioned?",
+    "scan": "All messages, both roles; regex is navigation only, not proof of absence.",
+    "pattern": "receipt|order number|IKEA|bookshelf",
+    "matching_messages": [
+      {
+        "session_index": 14,
+        "turn_index": 6,
+        "role": "assistant",
+        "date": "2023/05/24 (Wed) 01:15",
+        "content": "Gathering documents can be a chore, but it's a necessary step for a passport renewal.\n\n**Required Documents for Passport Renewal:**\n\n1. **Current Passport:** Your current passport, which is near expiration or has already expired.\n2. **Completed Form DS-82:** You can download and print the form from the U.S. Department of State's website or fill it out online and print it. Make sure to sign it in front of a witness.\n3. **Proof of U.S. Citizenship:** One of the following:\n\t* Birth Certificate (issued by the city, county, or state)\n\t* Naturalization Certificate\n\t* Prior U.S. Passport\n\t* Consular Report of Birth Abroad or Certification of Birth\n4. **Proof of Identity:** One of the following:\n\t* Valid Driver's License\n\t* Government-issued ID\n\t* Current Military ID\n5. **Photocopy of Both Sides of ID:** A photocopy of the front and back of your ID.\n6. **Passport Photo:** One recent, color photograph that meets the Department of State's requirements.\n\n**Expedited Passport Renewal Options:**\n\n1. **Expedited Service at a Regional Passport Agency:** You can make an appointment at a Regional Passport Agency or Center to submit your application in person. This service typically takes 1-2 weeks, and you'll need to pay an additional expedite fee.\n2. **Expedited Service by Mail:** You can use a regional passport agency's expedited service by mail, which takes 2-3 weeks. You'll need to pay an additional expedite fee and provide a prepaid return envelope with overnight delivery.\n3. **Private Passport Expediting Companies:** There are private companies that offer expedited passport renewal services, which can take as little as 24 hours. These services typically charge an additional fee, and you'll need to carefully research and choose a reputable company.\n\n**Tips:**\n\n1. **Use a secure and trackable delivery method:** When sending your application, use a secure and trackable delivery method, such as USPS Priority Mail with Return Receipt Requested.\n2. **Make sure your application is complete:** Double-check that your application is complete and accurate to avoid delays.\n3. **Pay the expedite fee:** If you need expedited service, make sure to include the additional fee with your application.\n4. **Check the status of your application:** You can track the status of your application online or by contacting the National Passport Information Center.\n\nRemember to plan ahead, and it's always a good idea to apply for a passport renewal well in advance of your trip to India."
+      },
+      {
+        "session_index": 20,
+        "turn_index": 5,
+        "role": "assistant",
+        "date": "2023/05/24 (Wed) 21:32",
+        "content": "The next crucial element to include in your written request for an extension of time is the details of the delay. You need to provide a clear and concise explanation of what caused the delay and how it affected your ability to complete the project on time. Be sure to include any supporting evidence, such as weather reports or delivery receipts, that can help bolster your case. It is essential to be as specific as possible when describing the delay and its impact on the project timeline. This will help the other party better understand the situation and make an informed decision about whether to grant the extension of time."
+      },
+      {
+        "session_index": 21,
+        "turn_index": 1,
+        "role": "assistant",
+        "date": "2023/05/25 (Thu) 00:14",
+        "content": "The gallery space is a crucible in which the contradictions of our capitalist and consumerist culture are magnified and exposed. The centerpiece of this exhibition is a handmade rug that serves as a powerful symbol of the fetishization of adulthood, the relentless march of corporate interests, and the insidious nature of our society's capitalist and consumerist structures.\n\nThe rug, an appropriation of the IKEA logo with the type changed to MERDA, is a metaphor for the waste and excrement that is produced by our society's obsession with acquiring more, consuming more, and ignoring the toll that this takes on our environment, our communities, and our humanity. This rug is a commentary on the dynamics of big corporation lobbies, where politics and money often triumph over the needs of the people, and the consumer is made to bear the brunt of the blame.\n\nTo accompany the rug, the exhibition features a range of art pieces that explore this theme, including video art, art installations, art performances, and low budget ready-made projects. These pieces expose the viewer to a world of contradictions and complexities, offering a glimpse into the machinery of our capitalist and consumerist culture.\n\nThe artists featured in this exhibition are all experts in deconstructing and exposing the inner workings of our society, from the exploitation of labor and resources, to the manipulation of consumer desires and needs. They range from conceptual artists who work with a variety of media, to contemporary artists who utilize new technologies and multimedia to critique and challenge the status quo.\n\nThe exhibition is entitled \"The Plastic Wasteland\" and it is a call to arms for all who are concerned with the future of our planet and the well-being of our communities. It invites the viewer to consider the impact of our consumerist culture on our world, and to question the systems of power that are at work, shaping our lives and our world.\n\nThe exhibition features works by 50 contemporary artists and 50 conceptual artists, including Ai Wei Wei, Banksy, Yoko Ono, Felix Gonzalez-Torres, Jenny Holzer, and many more. These artists offer a range of perspectives and approaches to the theme, from satirical and humorous, to thought-provoking and introspective.\n\nIn conclusion, this exhibition is a powerful and thought-provoking examination of the capitalist and consumerist culture that pervades our society. It invites the viewer to consider the impact of this culture on our world and to question the systems of power that are at work, shaping our lives and our world. Whether you are an artist, a critic, or simply someone who cares about the future of our planet and the well-being of our communities, this exhibition is a must-see."
+      },
+      {
+        "session_index": 36,
+        "turn_index": 4,
+        "role": "assistant",
+        "date": "2023/05/28 (Sun) 00:00",
+        "content": "Congratulations on taking the first step towards organizing your closet and decluttering your books! It's a great feeling, isn't it?\n\nAh, tracking your book collection is a great idea! I've got some fantastic app recommendations for you:\n\n1. **Goodreads** (iOS, Android): Goodreads is a popular app for book lovers. You can create a virtual bookshelf, add books you've read or want to read, and rate/review them. It's an excellent way to keep track of your books and discover new titles.\n2. **LibraryThing** (iOS, Android): LibraryThing is a comprehensive app for cataloging your book collection. You can add books by scanning barcodes, searching, or importing from Goodreads. It also allows you to add tags, ratings, and reviews.\n3. **Shelfari** (iOS, Android): Shelfari is another popular app for tracking your book collection. You can add books, rate them, and write reviews. It also features a social aspect, allowing you to connect with other readers and join book clubs.\n4. **BookNerd** (iOS): BookNerd is a simple yet effective app for tracking your books. You can add books, set a reading status (e.g., \"read,\" \"currently reading,\" or \"want to read\"), and add ratings and reviews.\n5. **Calibre** (Desktop app, iOS, Android companion app): Calibre is a powerful e-book management app that allows you to organize your digital book collection. It's primarily a desktop app, but it has companion apps for iOS and Android to sync your library across devices.\n6. **Litsy** (iOS, Android): Litsy is a visually appealing app for book lovers. You can add books, share quotes, and connect with other readers. It's a great way to discover new books and join book-related discussions.\n\nBefore choosing an app, consider the following factors:\n\n* Ease of use: Which app's interface do you find most intuitive?\n* Features: Do you want features like rating systems, reviews, or social sharing?\n* Barcode scanning: Does the app allow you to quickly add books by scanning barcodes?\n* Syncing: If you have multiple devices, does the app sync your library across them?\n\nTry out a few apps to see which one works best for you and your book collection!\n\nBy the way, it's great that you donated your old books to the local library! You're not only decluttering but also contributing to your community's literary ecosystem."
+      },
+      {
+        "session_index": 36,
+        "turn_index": 7,
+        "role": "user",
+        "date": "2023/05/28 (Sun) 00:00",
+        "content": "I recently rearranged the furniture in my living room to create more space, and it's made a huge difference. I swapped the couch and armchair, and now I have more room to move around. I also got a new bookshelf, which has helped me declutter my book collection."
+      },
+      {
+        "session_index": 36,
+        "turn_index": 8,
+        "role": "assistant",
+        "date": "2023/05/28 (Sun) 00:00",
+        "content": "That sounds like a great rearrangement! Swapping the couch and armchair can make a big impact on the layout and flow of the room. And congratulations on getting a new bookshelf! Decluttering your book collection can be a therapeutic experience, isn't it?\n\nIt's amazing how a simple rearrangement of furniture can make a room feel more spacious and inviting. By creating more room to move around, you've not only improved the functionality of the space but also made it feel more comfortable and relaxing.\n\nThe new bookshelf is a great addition, too! Having a dedicated space for your books can help keep them organized and make it easier to find the one you want to read next. Plus, it's a great way to showcase your favorite titles and add a personal touch to the room.\n\nDid you have a particular goal in mind when you rearranged your furniture, or was it more of a spontaneous decision? And how do you like the new bookshelf? Is it a specific style or material that you've been wanting for a while?"
+      },
+      {
+        "session_index": 36,
+        "turn_index": 9,
+        "role": "user",
+        "date": "2023/05/28 (Sun) 00:00",
+        "content": "I just kind of went for it and started moving things around until it felt right. I wanted to create more space and make the room feel less cluttered. The new bookshelf is from IKEA, and I'm really happy with it. It's exactly what I needed to get my books organized."
+      },
+      {
+        "session_index": 36,
+        "turn_index": 10,
+        "role": "assistant",
+        "date": "2023/05/28 (Sun) 00:00",
+        "content": "The old \" winging it\" approach! Sometimes, that's the best way to get things done, especially when it comes to rearranging furniture. You just need to trust your instincts and go with what feels right.\n\nIt's great that you had a clear goal in mind – creating more space and reducing clutter – and that you were able to achieve it. That sense of accomplishment can be very motivating, isn't it?\n\nIKEA is a great choice for furniture, by the way! They have a wide range of affordable and stylish options, and their products are often designed with functionality in mind. It's perfect for people who want to get organized without breaking the bank.\n\nSo, now that you've got your books organized, do you find yourself enjoying your reading time more? Are there any particular books or authors that you're excited to dive into now that your collection is more accessible?\n\nAnd, on a related note, have you considered using any book-related accessories, like bookmarks, booklights, or reading journals, to enhance your reading experience?"
+      },
+      {
+        "session_index": 36,
+        "turn_index": 11,
+        "role": "user",
+        "date": "2023/05/28 (Sun) 00:00",
+        "content": "I think I'll just stick with reading for now, but it's good to know those options are out there. I'm just happy to have my books organized and within reach. It's amazing how something as simple as a new bookshelf can make such a big difference!"
+      },
+      {
+        "session_index": 36,
+        "turn_index": 12,
+        "role": "assistant",
+        "date": "2023/05/28 (Sun) 00:00",
+        "content": "I completely understand! Sometimes, it's the small changes that can make the biggest impact. A new bookshelf can be a game-changer for book lovers, and it's wonderful that you're enjoying the benefits of having your books organized and easily accessible.\n\nIt's great that you're appreciating the simple joys of having your books within reach. There's something special about being able to browse through your collection, running your fingers over the spines, and picking out a new title to read.\n\nRemember, it's all about finding joy in the little things and making small changes that bring happiness into your daily life. You've taken a great step in organizing your book collection, and I'm sure you'll continue to enjoy the benefits of having a more organized and peaceful living space.\n\nKeep reading, and happy organizing!"
+      },
+      {
+        "session_index": 39,
+        "turn_index": 8,
+        "role": "assistant",
+        "date": "2023/05/28 (Sun) 15:06",
+        "content": "New lamp shades can totally refresh the look of your dining room table lamps.\n\nThere are many options to consider, depending on your personal style, the lamp's design, and the overall aesthetic you want to achieve. Here are some popular styles and places to check out:\n\n1. **Classic and Traditional**: Look for linen or cotton shades with a soft, rounded shape. These work well with traditional or vintage-style lamps.\n\t* Check out: Pottery Barn, West Elm, or Crate & Barrel for a wide selection of classic shades.\n2. **Modern and Sleek**: Opt for glass or metal shades with clean lines and a minimalist design. These pair well with modern or industrial-style lamps.\n\t* Check out: IKEA, CB2, or AllModern for affordable and trendy options.\n3. **Rustic and Natural**: Consider burlap, rattan, or woven shades for a cozy, earthy feel. These work well with rustic or farmhouse-style lamps.\n\t* Check out: World Market, Pier 1 Imports, or Etsy for unique, handmade options.\n4. **Bold and Statement-Making**: Go for shades with bold patterns, bright colors, or unique shapes. These can add a pop of personality to your dining room.\n\t* Check out: Anthropologie, Urban Outfitters, or Jonathan Adler for statement-making shades.\n\nOnline Marketplaces:\n\n* Amazon: Offers a vast selection of lamp shades from various brands, often with customer reviews and competitive pricing.\n* Wayfair: Carries a wide range of lamp shades from different brands, with frequent sales and discounts.\n* Etsy: A great platform for finding unique, handmade, or vintage lamp shades from independent sellers.\n\nWhen shopping for lamp shades, make sure to consider the following factors:\n\n* Size: Ensure the shade is proportional to the lamp and the room.\n* Material: Choose a material that fits your desired aesthetic and is easy to clean.\n* Color: Select a shade that complements the lamp's finish and the room's color scheme.\n* Style: Pick a shade that aligns with your personal taste and the overall style of your dining room.\n\nRemember to read reviews, check the return policies, and measure your lamp carefully before making a purchase."
+      },
+      {
+        "session_index": 42,
+        "turn_index": 6,
+        "role": "assistant",
+        "date": "2023/05/29 (Mon) 03:42",
+        "content": "To help you organize your grocery spending and track your weekly expenses, I'll need some information from you. Please provide the following:\n\n1. **Grocery receipts**: Collect your grocery receipts for the past 4-6 weeks. This will give us a good sample size to work with.\n2. **Grocery categories**: Think about the categories you'd like to track your spending in. Common categories include:\n\t* Meat/poultry/seafood\n\t* Produce\n\t* Dairy/eggs\n\t* Canned goods\n\t* Grains (bread, pasta, rice, etc.)\n\t* Snacks\n\t* Beverages\n\t* Pantry items (oils, spices, etc.)\n\t* Miscellaneous (pet food, household items, etc.)\n3. **Spending frequency**: How often do you go grocery shopping? Weekly, bi-weekly, or monthly?\n\nOnce you have this information, you can start organizing your grocery spending. Here's a simple way to do it:\n\n**Step 1: Categorize your receipts**\n\nGo through each receipt and categorize the items into your chosen categories. You can use a spreadsheet, a budgeting app, or even just a notebook to do this.\n\n**Step 2: Calculate weekly spending**\n\nAdd up the total amount spent in each category for each week. If you shop bi-weekly or monthly, you'll need to calculate the weekly average.\n\n**Step 3: Calculate overall weekly spending**\n\nAdd up the total amount spent across all categories for each week. This will give you your overall weekly grocery spending.\n\n**Step 4: Analyze and adjust**\n\nReview your spending patterns and identify areas where you can cut back or optimize your spending. You may find that you're spending too much on snacks or meat, or that you can save money by buying in bulk.\n\nHere's an example of what your organized grocery spending might look like:\n\n| Category | Week 1 | Week 2 | Week 3 | Week 4 | Average Weekly Spending |\n| --- | --- | --- | --- | --- | --- |\n| Meat/poultry/seafood | $30 | $40 | $35 | $30 | $33.75 |\n| Produce | $20 | $25 | $30 | $20 | $23.75 |\n| Dairy/eggs | $15 | $20 | $15 | $18 | $17.00 |\n| ... | ... | ... | ... | ... | ... |\n| Total | $120 | $150 | $140 | $130 | $135.00 |\n\nIn this example, your average weekly grocery spending is $135.00. You can use this information to set a budget and make adjustments to your spending habits.\n\nRemember, tracking your spending is just the first step. The key is to use this information to make conscious decisions about your grocery shopping and meal planning."
+      },
+      {
+        "session_index": 42,
+        "turn_index": 7,
+        "role": "user",
+        "date": "2023/05/29 (Mon) 03:42",
+        "content": "I actually have the receipts from the past few weeks, and I've been trying to keep track of my spending. Let me see... I think I spent around $120 at Walmart last Sunday, $50 at Trader Joe's the week before, $80 with Instacart earlier this month, and $15 on almonds from Costco last month. I also spent $20 on ingredients for lentil soup at the Indian grocery store last week."
+      },
+      {
+        "session_index": 42,
+        "turn_index": 8,
+        "role": "assistant",
+        "date": "2023/05/29 (Mon) 03:42",
+        "content": "Let's organize your spending into categories and calculate your average weekly grocery spending.\n\n**Receipts:**\n\n1. Walmart (last Sunday): $120\n2. Trader Joe's (week before): $50\n3. Instacart (earlier this month): $80\n4. Costco (last month): $15\n5. Indian grocery store (last week): $20\n\n**Categories:**\n\n1. **Grocery stores**: Walmart, Trader Joe's, and Instacart\n2. **Warehouse clubs**: Costco\n3. **Specialty stores**: Indian grocery store\n\n**Weekly Spending:**\n\nTo calculate your weekly spending, we'll need to adjust the receipts to fit into a weekly timeframe. Since you have receipts from different weeks, we'll average them out.\n\n1. Grocery stores: ($120 + $50 + $80) / 3 = $83.33 per week\n2. Warehouse clubs: $15 (this is a one-time purchase, so we'll divide it by 4 to get a weekly average) = $3.75 per week\n3. Specialty stores: $20 (this is a one-time purchase, so we'll divide it by 4 to get a weekly average) = $5 per week\n\n**Total Weekly Spending:**\n\n$83.33 + $3.75 + $5 = $92.08 per week\n\nSo, your average weekly grocery spending is around $92.08. This will give you a good baseline to work with as you continue to track your spending and make adjustments to your grocery shopping habits.\n\nSome questions to consider:\n\n* Are there any areas where you'd like to cut back on spending?\n* Are there any categories where you feel like you're overspending?\n* Are there any ways you can optimize your shopping habits to reduce waste or save money?\n\nRemember, tracking your spending is just the first step. The key is to use this information to make conscious decisions about your grocery shopping and meal planning."
+      }
+    ],
+    "independent_full_history_review": "pending",
+    "second_pass_status": "No supporting answer identified in targeted and identifier searches; provisional."
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "annotation_revision": {
+    "field": "CUR-H2.rule",
+    "prior_text": "Adopt the new value after two later sessions; do not treat the old value as current. This is cold-build version selection, not online update latency.",
+    "reason": "Align stale procedural wording with the unified incremental protocol; expected answer unchanged."
+  }
+}

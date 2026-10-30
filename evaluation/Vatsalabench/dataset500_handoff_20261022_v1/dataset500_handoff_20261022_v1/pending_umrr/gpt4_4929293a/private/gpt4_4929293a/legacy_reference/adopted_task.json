@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_4929293a",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 371,
+  "question_cell": "F371",
+  "answer_cell": "E371",
+  "adopted_question_verbatim": "Which event happened first, my cousin's wedding or Michael's engagement party?",
+  "adopted_answer_or_rubric_verbatim": "Michael's engagement party",
+  "english_rubric": "Require Michael's engagement party first: May 6 precedes June 15. Both statements say today.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

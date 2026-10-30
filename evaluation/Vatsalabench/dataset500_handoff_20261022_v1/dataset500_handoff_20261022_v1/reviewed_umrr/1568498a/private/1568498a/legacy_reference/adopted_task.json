@@ -1,0 +1,15 @@
+{
+  "sample_id": "1568498a",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 489,
+  "question_cell": "F489",
+  "answer_cell": "E489",
+  "adopted_question_verbatim": "I'm looking back at our previous chess game and I was wondering, what was the move you made after 27. Kg2 Bd5+?",
+  "adopted_answer_or_rubric_verbatim": "28. Kg3",
+  "english_rubric": "Require 28.Kg3, accepting whitespace variation or unambiguous Kg3. This is transcript recall, not legality or strength assessment.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

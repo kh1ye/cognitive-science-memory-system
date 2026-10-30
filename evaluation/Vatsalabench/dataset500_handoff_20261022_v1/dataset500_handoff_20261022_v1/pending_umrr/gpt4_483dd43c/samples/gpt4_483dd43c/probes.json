@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "About how long ago did I say I started Game of Thrones in the May 29 conversation?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-29T23:31:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 29, 2023 account of starting Game of Thrones; interpret elapsed-time phrases as originally reported in that account, not relative to the experiment query time"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "In my May 29 account, roughly how long before that chat had I begun Game of Thrones?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-29T23:31:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 29, 2023 account of starting Game of Thrones; interpret elapsed-time phrases as originally reported in that account, not relative to the experiment query time"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "What approximate interval since starting Game of Thrones did I report on May 29?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-29T23:31:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 29, 2023 account of starting Game of Thrones; interpret elapsed-time phrases as originally reported in that account, not relative to the experiment query time"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact account identifier I used to stream Game of Thrones?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-29T23:31:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 29, 2023 account of starting Game of Thrones; interpret elapsed-time phrases as originally reported in that account, not relative to the experiment query time"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "About how long before the May 29 discussion had I started Game of Thrones, and how many seasons had I finished by that report?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-29T23:31:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 29, 2023 account of starting Game of Thrones; interpret elapsed-time phrases as originally reported in that account, not relative to the experiment query time"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "About how long ago did I say I started Game of Thrones in the May 29 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-05-31T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 29, 2023 account of starting Game of Thrones; interpret elapsed-time phrases as originally reported in that account, not relative to the experiment query time"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "About how long ago did I say I started Game of Thrones in the May 29 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-06-01T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 29, 2023 account of starting Game of Thrones; interpret elapsed-time phrases as originally reported in that account, not relative to the experiment query time"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "About how long ago did I say I started Game of Thrones in the May 29 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-06-02T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 29, 2023 account of starting Game of Thrones; interpret elapsed-time phrases as originally reported in that account, not relative to the experiment query time"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the duration planned for a separate future television session now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-05-31T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-05-31T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/05/31 12:00, what is the duration planned for a separate future television session?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-05-31T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-05-31T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/05/31 12:00, what is the duration planned for a separate future television session?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-05-31T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-05-31T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/05/31 12:00, what is the duration planned for a separate future television session?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-05-31T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-05-31T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

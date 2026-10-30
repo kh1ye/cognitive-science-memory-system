@@ -1,0 +1,7 @@
+{
+  "original_prefix": "outputs/vatsalabench/",
+  "current_prefix": "evaluation/Vatsalabench/results/",
+  "policy": "Original run JSON and logs retained byte-for-byte. Old recorded paths are provenance; resolve their original prefix to the current prefix.",
+  "provider_check_renamed_from": "outputs/vatsalabench/provider-check.json",
+  "provider_check_current": "evaluation/Vatsalabench/results/provider-check/result.json"
+}

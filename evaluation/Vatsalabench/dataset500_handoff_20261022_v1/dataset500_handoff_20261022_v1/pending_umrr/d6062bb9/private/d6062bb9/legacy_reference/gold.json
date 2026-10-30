@@ -1,0 +1,136 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "1,456",
+      "rule": "Require 1,456 for the specified clip. Doing well does not establish it was the most popular TikTok video."
+    },
+    "BASE-2": {
+      "expected": "1,456",
+      "rule": "Require 1,456 for the specified clip. Doing well does not establish it was the most popular TikTok video."
+    },
+    "BASE-3": {
+      "expected": "1,456",
+      "rule": "Require 1,456 for the specified clip. Doing well does not establish it was the most popular TikTok video."
+    },
+    "RET-10": {
+      "expected": "1,456",
+      "rule": "Require 1,456 for the specified clip. Doing well does not establish it was the most popular TikTok video."
+    },
+    "RET-30": {
+      "expected": "1,456",
+      "rule": "Require 1,456 for the specified clip. Doing well does not establish it was the most popular TikTok video."
+    },
+    "RET-50": {
+      "expected": "1,456",
+      "rule": "Require 1,456 for the specified clip. Doing well does not establish it was the most popular TikTok video."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "1,456",
+        "542"
+      ],
+      "intents": [
+        "TikTok count",
+        "YouTube count"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "10:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "10:00",
+        "11:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "10:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "10:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 15,
+        "turn_index": 1,
+        "date": "2023/05/22 (Mon) 20:16",
+        "role": "user",
+        "quote": "I'm trying to increase my online presence, and I was wondering if you could help me come up with some ideas for pet-centric content on TikTok, since my video of Luna chasing a laser pointer has been doing really well - it has 1,456 views."
+      },
+      {
+        "session_index": 20,
+        "turn_index": 1,
+        "date": "2023/05/23 (Tue) 23:22",
+        "role": "user",
+        "quote": "I'm trying to improve my social media presence and was wondering if you could give me some tips on creating engaging content for my Twitter account. I recently started participating in a weekly Twitter chat on Thursdays about social media marketing, and it's been helpful, but I want to do more. By the way, I've noticed that my tutorial on social media analytics on YouTube has been doing well, with 542 views, and I'm thinking of creating more content around that topic."
+      },
+      {
+        "session_index": 20,
+        "turn_index": 5,
+        "date": "2023/05/23 (Tue) 23:22",
+        "role": "user",
+        "quote": "I'm thinking of creating a Twitter thread that summarizes the key takeaways from my social media analytics tutorial on YouTube, which is my most popular video. Do you think I should include some visuals like infographics or charts to make it more engaging?"
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "d6062bb9",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "Which three back-end programming languages did you list in the 'Learn a back-end programming language' step of your full-stack development advice?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T19:20:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "What three server-side languages appeared in the back-end-learning step of your earlier full-stack tips?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T19:20:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "Which language examples did you give specifically in the step about learning a back-end programming language?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T19:20:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What exact course enrolment ID did that response provide for my back-end study?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T19:20:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "Which three back-end languages were in that step, and which three basics were in the first step?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T19:20:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "Which three back-end programming languages did you list in the 'Learn a back-end programming language' step of your full-stack development advice?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-06-01T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "Which three back-end programming languages did you list in the 'Learn a back-end programming language' step of your full-stack development advice?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-06-02T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "Which three back-end programming languages did you list in the 'Learn a back-end programming language' step of your full-stack development advice?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-06-03T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "The specific earlier conversation statement or supplied text identified in the question. Recall that text and its actual speaker; do not treat it as independently verified reality or current advice."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the start time for a separate future programming study session now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-06-01T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/06/01 12:00, what is the start time for a separate future programming study session?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-01T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/06/01 12:00, what is the start time for a separate future programming study session?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-01T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/06/01 12:00, what is the start time for a separate future programming study session?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-06-01T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-06-01T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

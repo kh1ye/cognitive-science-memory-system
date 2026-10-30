@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "How long did I say I had been taking Spanish classes in the May 27 conversation?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-27T23:54:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "What length of time did I report studying Spanish in classes as of the May 27 chat?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-27T23:54:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "For how many months had I been attending Spanish lessons according to my May 27 account?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-27T23:54:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact enrolment number for my Spanish classes?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-27T23:54:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "How long had I been taking Spanish classes, and which two other languages did I ask about similarities with?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-27T23:54:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "How long did I say I had been taking Spanish classes in the May 27 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-05-29T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "How long did I say I had been taking Spanish classes in the May 27 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-05-30T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "How long did I say I had been taking Spanish classes in the May 27 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-05-31T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 27, 2023 report about Spanish classes and comparisons with French and German; interpret the study duration as originally reported in that account, not relative to the experiment query time"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the weekly study goal for a separate future language course now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-05-29T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-05-29T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/05/29 12:00, what is the weekly study goal for a separate future language course?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-05-29T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-05-29T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/05/29 12:00, what is the weekly study goal for a separate future language course?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-05-29T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-05-29T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/05/29 12:00, what is the weekly study goal for a separate future language course?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-05-29T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-05-29T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

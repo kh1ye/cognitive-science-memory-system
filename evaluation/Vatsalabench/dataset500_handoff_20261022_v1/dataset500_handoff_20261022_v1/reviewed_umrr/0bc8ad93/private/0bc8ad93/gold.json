@@ -1,0 +1,121 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "History Museum",
+      "rule": "Require History Museum, not Science Museum or Natural History Museum. January 11 is the mention date; the exact lecture date is not established."
+    },
+    "BASE-2": {
+      "expected": "History Museum",
+      "rule": "Require History Museum, not Science Museum or Natural History Museum. January 11 is the mention date; the exact lecture date is not established."
+    },
+    "BASE-3": {
+      "expected": "History Museum",
+      "rule": "Require History Museum, not Science Museum or Natural History Museum. January 11 is the mention date; the exact lecture date is not established."
+    },
+    "RET-10": {
+      "expected": "History Museum",
+      "rule": "Require History Museum, not Science Museum or Natural History Museum. January 11 is the mention date; the exact lecture date is not established."
+    },
+    "RET-30": {
+      "expected": "History Museum",
+      "rule": "Require History Museum, not Science Museum or Natural History Museum. January 11 is the mention date; the exact lecture date is not established."
+    },
+    "RET-50": {
+      "expected": "History Museum",
+      "rule": "Require History Museum, not Science Museum or Natural History Museum. January 11 is the mention date; the exact lecture date is not established."
+    },
+    "UMRR-1": {
+      "expected": "I did not specify the lecture's duration in that message.",
+      "rule": "Accept a clear statement that the referenced message does not specify the lecture duration, or that its duration cannot be determined from that message. Do not invent a number of minutes. 'This month' describes when the lecture occurred, not its duration; the session timestamp is not the lecture duration. Do not infer that the lecture did not happen. A number guessed from general museum knowledge does not satisfy the question.",
+      "annotation_status": "explicit_utterance_scope_reviewed_independent_acceptance_pending"
+    },
+    "R1R2": {
+      "expected": [
+        "History Museum",
+        "Petra"
+      ],
+      "intents": [
+        "Lecture venue",
+        "Planned ancient-city destination"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "11:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/03/12 08:00",
+        "old_valid_from": "2023/03/12 08:00",
+        "old_valid_to": "2023/03/13 09:00",
+        "observed_at": "2023/03/13 09:00",
+        "valid_from": "2023/03/13 09:00",
+        "valid_to": null,
+        "query_time": "2023/03/13 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "11:00",
+        "12:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "11:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "11:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 12,
+        "turn_index": 1,
+        "date": "2023/01/11 (Wed) 06:16",
+        "role": "user",
+        "quote": "I'm planning a trip to Jordan and I'm really interested in visiting Petra. Can you tell me more about the history of the city and its significance? By the way, I just learned a lot about it in a lecture at the History Museum about ancient civilizations this month."
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "umrr_replacement_review4.json",
+    "status": "explicit_utterance_scope_reviewed",
+    "scope": "The complete uniquely identified user message, not global history absence.",
+    "independent_acceptance": "pending"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/03/12 08:00",
+    "old_valid_from": "2023/03/12 08:00",
+    "old_valid_to": "2023/03/13 09:00",
+    "observed_at": "2023/03/13 09:00",
+    "valid_from": "2023/03/13 09:00",
+    "valid_to": null,
+    "query_time": "2023/03/13 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": true,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "0bc8ad93",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

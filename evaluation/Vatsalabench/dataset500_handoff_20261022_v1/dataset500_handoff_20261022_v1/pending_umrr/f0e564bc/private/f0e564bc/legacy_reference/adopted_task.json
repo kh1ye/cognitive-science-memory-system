@@ -1,0 +1,15 @@
+{
+  "sample_id": "f0e564bc",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 112,
+  "question_cell": "F112",
+  "answer_cell": "E112",
+  "adopted_question_verbatim": "How much did I say my Coach handbag cost?",
+  "adopted_answer_or_rubric_verbatim": "$800",
+  "english_rubric": "Require 800 dollars, not combined spending or the price of a merely considered watch.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

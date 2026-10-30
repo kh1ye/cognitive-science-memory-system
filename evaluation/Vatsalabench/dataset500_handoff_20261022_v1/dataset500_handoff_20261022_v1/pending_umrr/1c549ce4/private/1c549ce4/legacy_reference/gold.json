@@ -1,0 +1,125 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "$120",
+      "rule": "Require 120 dollars; do not add detailing spray or an intended dash cam purchase."
+    },
+    "BASE-2": {
+      "expected": "$120",
+      "rule": "Require 120 dollars; do not add detailing spray or an intended dash cam purchase."
+    },
+    "BASE-3": {
+      "expected": "$120",
+      "rule": "Require 120 dollars; do not add detailing spray or an intended dash cam purchase."
+    },
+    "RET-10": {
+      "expected": "$120",
+      "rule": "Require 120 dollars; do not add detailing spray or an intended dash cam purchase."
+    },
+    "RET-30": {
+      "expected": "$120",
+      "rule": "Require 120 dollars; do not add detailing spray or an intended dash cam purchase."
+    },
+    "RET-50": {
+      "expected": "$120",
+      "rule": "Require 120 dollars; do not add detailing spray or an intended dash cam purchase."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "$120",
+        "$20"
+      ],
+      "intents": [
+        "Cover price",
+        "Spray price"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "silver",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "silver",
+        "blue"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "silver",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "silver",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 22,
+        "turn_index": 9,
+        "date": "2023/05/25 (Thu) 12:36",
+        "role": "user",
+        "quote": "I think I'll go ahead and get the dash cam. One more thing, do you know if I can claim the cost of the waterproof car cover on my car insurance? I remember it cost me $120, and it's been working great in protecting my car's paint from the elements."
+      },
+      {
+        "session_index": 34,
+        "turn_index": 11,
+        "date": "2023/05/28 (Sun) 14:56",
+        "role": "user",
+        "quote": "I'm also thinking of getting a detailing spray to keep my car's exterior clean. I've had good experiences with detailing sprays in the past, like the one I got from Amazon for $20 that removed tar and bug stains from my car's paint."
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "1c549ce4",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

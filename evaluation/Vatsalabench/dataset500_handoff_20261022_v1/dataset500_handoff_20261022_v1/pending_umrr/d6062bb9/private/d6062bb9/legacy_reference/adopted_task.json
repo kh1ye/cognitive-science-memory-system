@@ -1,0 +1,15 @@
+{
+  "sample_id": "d6062bb9",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 356,
+  "question_cell": "F356",
+  "answer_cell": "E356",
+  "adopted_question_verbatim": "How many views did I report for the TikTok video of Luna chasing a laser pointer?",
+  "adopted_answer_or_rubric_verbatim": "1,456",
+  "english_rubric": "Require 1,456 for the specified clip. Doing well does not establish it was the most popular TikTok video.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

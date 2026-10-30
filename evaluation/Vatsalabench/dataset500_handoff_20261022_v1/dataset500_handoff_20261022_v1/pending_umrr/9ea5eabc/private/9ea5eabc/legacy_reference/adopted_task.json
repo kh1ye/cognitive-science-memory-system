@@ -1,0 +1,15 @@
+{
+  "sample_id": "9ea5eabc",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 188,
+  "question_cell": "F188",
+  "answer_cell": "E188",
+  "adopted_question_verbatim": "Which family-trip destination did I mention while discussing hidden gems in Tokyo?",
+  "adopted_answer_or_rubric_verbatim": "Paris",
+  "english_rubric": "Require Paris in the specified discussion. Later mention does not prove this was the latest family trip.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

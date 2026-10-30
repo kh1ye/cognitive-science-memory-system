@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_194be4b3",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 56,
+  "question_cell": "F56",
+  "answer_cell": "E56",
+  "adopted_question_verbatim": "What model did I say my acoustic guitar was?",
+  "adopted_answer_or_rubric_verbatim": "Yamaha FG800",
+  "english_rubric": "Require Yamaha FG800; distinguish planned instruments from already owned ones.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

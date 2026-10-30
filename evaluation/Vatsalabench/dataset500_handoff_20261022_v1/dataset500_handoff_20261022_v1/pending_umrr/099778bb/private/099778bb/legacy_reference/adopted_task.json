@@ -1,0 +1,15 @@
+{
+  "sample_id": "099778bb",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 108,
+  "question_cell": "F108",
+  "answer_cell": "E108",
+  "adopted_question_verbatim": "How many leadership positions did I report women held in my company?",
+  "adopted_answer_or_rubric_verbatim": "20 positions",
+  "english_rubric": "Require twenty positions, not a percentage or externally inferred workforce demographics.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

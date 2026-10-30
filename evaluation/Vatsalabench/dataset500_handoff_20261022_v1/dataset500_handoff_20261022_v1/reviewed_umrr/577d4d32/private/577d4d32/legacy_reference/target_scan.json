@@ -1,0 +1,20 @@
+{
+  "pattern": "7 pm|19:00|work emails|evening routine",
+  "matching_sentences": [
+    {
+      "session": 42,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 04:01",
+      "text": "Speaking of unwinding, I've been trying to establish a better evening routine, stopping work emails and messages by 7 pm to separate my work and personal life."
+    },
+    {
+      "session": 42,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 04:01",
+      "text": "It sounds like you're already making great progress in establishing a relaxing evening routine."
+    }
+  ],
+  "review_scope": "Selected full source-session context plus programmatic target navigation; not independent full-history acceptance."
+}

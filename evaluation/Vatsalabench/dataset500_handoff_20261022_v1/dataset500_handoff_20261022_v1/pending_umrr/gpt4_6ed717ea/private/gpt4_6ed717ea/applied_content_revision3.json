@@ -1,0 +1,68 @@
+{
+  "sample_id": "gpt4_6ed717ea",
+  "source_order": 411,
+  "parent_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1\\packages\\gpt4_6ed717ea",
+  "package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1_review3\\packages\\gpt4_6ed717ea",
+  "applied_proposal": {
+    "sample_id": "gpt4_6ed717ea",
+    "status": "proposed_not_applied",
+    "edits": [
+      {
+        "probe_id": "BASE-1",
+        "field": "question",
+        "old": "Which item did I purchase first, the dog bed for Max or the training pads for Luna?",
+        "proposed": "Based on the approximate time intervals I reported, which purchase appears to have happened earlier: the dog bed for Max or the training pads for Luna?"
+      },
+      {
+        "probe_id": "BASE-2",
+        "field": "question",
+        "old": "Which pet supply did I buy earlier, Luna's house-training pads or Max's bed?",
+        "proposed": "Judging by my rough descriptions of how long ago I bought them, which came earlier: Luna's house-training supplies or Max's sleeping cushion?"
+      },
+      {
+        "probe_id": "BASE-3",
+        "field": "question",
+        "old": "Did the training-pad purchase for Luna precede the new bed for Max?",
+        "proposed": "According to the approximate purchase timing in my account, did the puppy-training absorbent sheets or the canine sleeping pad come first?"
+      },
+      {
+        "probe_id": "RET-10",
+        "field": "question",
+        "old": "Which item did I purchase first, the dog bed for Max or the training pads for Luna?",
+        "proposed": "Based on the approximate time intervals I reported, which purchase appears to have happened earlier: the dog bed for Max or the training pads for Luna?"
+      },
+      {
+        "probe_id": "RET-30",
+        "field": "question",
+        "old": "Which item did I purchase first, the dog bed for Max or the training pads for Luna?",
+        "proposed": "Based on the approximate time intervals I reported, which purchase appears to have happened earlier: the dog bed for Max or the training pads for Luna?"
+      },
+      {
+        "probe_id": "RET-50",
+        "field": "question",
+        "old": "Which item did I purchase first, the dog bed for Max or the training pads for Luna?",
+        "proposed": "Based on the approximate time intervals I reported, which purchase appears to have happened earlier: the dog bed for Max or the training pads for Luna?"
+      }
+    ],
+    "scoring_note": "Preserve the existing ordering answer. Accept qualifications such as appears earlier or based on the reported approximate intervals. Do not require exact dates or strict mathematical certainty. An answer giving no ordering at all is not automatically correct."
+  },
+  "changed_files": [
+    "private/gpt4_6ed717ea/gold.json",
+    "samples/gpt4_6ed717ea/probes.json",
+    "suite.json"
+  ],
+  "gold_sha256": "f41575246ba672f068282a001a9be11240bf88a8b3f793ca70af256b89df8c07",
+  "suite_sha256": "2f8f9d63b4561aa7d8d0636fdd88fc6e7c88893b07b1a236d17f2e961b4e7b78",
+  "expected_answers_unchanged": true,
+  "history_branches_times_configuration_unchanged": true,
+  "scoring_rule_fields_updated": [
+    "BASE-1",
+    "BASE-2",
+    "BASE-3",
+    "RET-10",
+    "RET-30",
+    "RET-50"
+  ],
+  "live_approved": false,
+  "api_calls": 0
+}

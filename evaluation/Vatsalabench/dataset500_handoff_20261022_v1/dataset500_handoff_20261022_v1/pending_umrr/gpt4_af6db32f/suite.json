@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.1",
+  "suite_id": "unified-next70-331-400-gpt4_af6db32f-memorybank-live-v2-full-history-v1",
+  "protocol_file": "protocol.json",
+  "config_file": "run_config.json",
+  "instruction_file": "answer_instruction.txt",
+  "samples": [
+    "samples/gpt4_af6db32f/sample.json"
+  ],
+  "public_sha256": {
+    "protocol.json": "766f167f97ce6e8e42ab79a0151b607586819e98a3bef58c7c8736104660219c",
+    "run_config.json": "97275fb6735397c61e2e8979ee12830bd88f82dcf411d1182cccf67d867b6ab4",
+    "adapter_config.json": "ae290ca9ea3e6ddc1346c6d44462410dd80f7e5d89866dbe7e7201f68efc4c4f",
+    "provider_config.json": "ee301bae5cd2adbaca56c938080478e05d68af8a44f8a54604156b002f2742a9",
+    "answer_instruction.txt": "8ff253b4f1e4564d7bb64630f490413e884a1114a80a446b1634c08fa65f817f",
+    "samples/gpt4_af6db32f/sample.json": "0acd179c9be17e98efab0c5ac1de898f12701639e263c61f0f08107cdda9e2c8",
+    "samples/gpt4_af6db32f/history.json": "452b32cd24c25e43e056bd5f0530048095c4810be089b26875a28840c125ad45",
+    "samples/gpt4_af6db32f/probes.json": "da01e44744d1753a9ad765818b94ff95f46bbb226175520049967ce89eb2bfb5",
+    "samples/gpt4_af6db32f/branches.json": "6f21a1d473808b22493eaaf06beb75359fb3e5f8d5fa4e653b817048af39c9e6"
+  }
+}

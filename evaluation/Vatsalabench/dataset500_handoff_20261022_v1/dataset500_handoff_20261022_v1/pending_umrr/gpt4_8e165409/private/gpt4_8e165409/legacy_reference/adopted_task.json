@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_8e165409",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 138,
+  "question_cell": "F138",
+  "answer_cell": "E138",
+  "adopted_question_verbatim": "Who did I say I gave spider plant cuttings to on March 18, 2023?",
+  "adopted_answer_or_rubric_verbatim": "My neighbor, Mrs. Johnson",
+  "english_rubric": "Require Mrs. Johnson; neighbour alone is incomplete where the name is requested. Do not confuse the planned planter gift with an already completed gift.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

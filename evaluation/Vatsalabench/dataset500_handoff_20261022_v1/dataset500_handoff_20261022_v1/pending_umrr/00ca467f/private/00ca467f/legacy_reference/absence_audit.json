@@ -1,0 +1,598 @@
+{
+  "question": "What was the exact appointment confirmation number for my March 20 visit?",
+  "pattern": "appointment|appointments|confirmation|doctor's|march|number|visit",
+  "messages_scanned": 486,
+  "matching_sentences": [
+    {
+      "session": 2,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/03/27 (Mon) 00:55",
+      "text": "By the way, I recently had a follow-up appointment with my orthopedic surgeon, Dr."
+    },
+    {
+      "session": 2,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/03/27 (Mon) 00:55",
+      "text": "Thompson, on March 20th, and it was a relief to hear that my knee is healing well."
+    },
+    {
+      "session": 2,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/03/27 (Mon) 00:55",
+      "text": "I'm considering scheduling an appointment with my gastroenterologist, Dr."
+    },
+    {
+      "session": 2,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 00:55",
+      "text": "When you schedule your appointment with Dr."
+    },
+    {
+      "session": 2,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 00:55",
+      "text": "Feel better soon, and I hope your appointment with Dr."
+    },
+    {
+      "session": 3,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 03:05",
+      "text": "** Confirmation bias**: People may be prone to confirmation bias when interpreting their birth chart, cherry-picking information that confirms their existing beliefs and ignoring contradictory evidence."
+    },
+    {
+      "session": 4,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 03:15",
+      "text": "His message of extremism and his call for a global jihad against the West attracted a large number of followers from countries like Afghanistan, Pakistan, and Saudi Arabia."
+    },
+    {
+      "session": 6,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 04:25",
+      "text": "* **Yare yare** (): Oh dear, oh my (used to express surprise or disappointment)"
+    },
+    {
+      "session": 7,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/03/27 (Mon) 04:38",
+      "text": "What other dishes should I try when I visit Provence or Languedoc?"
+    },
+    {
+      "session": 7,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 04:38",
+      "text": "There are many delicious dishes to try when visiting Provence or Languedoc, here are some popular regional specialties to try out:"
+    },
+    {
+      "session": 7,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 04:38",
+      "text": "There are many great restaurants and markets to visit throughout the region of Provence and Languedoc, but here are some top recommendations:"
+    },
+    {
+      "session": 7,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/03/27 (Mon) 04:38",
+      "text": "Can you recommend any specific wineries to visit in Provence or Languedoc?"
+    },
+    {
+      "session": 7,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 04:38",
+      "text": "Yes, here are some wineries to visit in Provence and Languedoc:"
+    },
+    {
+      "session": 7,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 04:38",
+      "text": "Planning a visit to these wineries can also be a great way to learn more about the wine-making process and history of the region."
+    },
+    {
+      "session": 7,
+      "turn": 13,
+      "role": "user",
+      "date": "2023/03/27 (Mon) 04:38",
+      "text": "Do you have any suggestions on which towns I should visit to get the full Provençal and Languedoc experience?"
+    },
+    {
+      "session": 7,
+      "turn": 14,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 04:38",
+      "text": "Here are some of the top destinations to consider visiting:"
+    },
+    {
+      "session": 7,
+      "turn": 14,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 04:38",
+      "text": "Nîmes - A Roman city famous for its impressive arena, Nîmes is also the birthplace of brandade and has a number of excellent restaurants and bars."
+    },
+    {
+      "session": 8,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 04:44",
+      "text": "High-Quality Content: Produce informative, compelling, and unique content that can engage your visitors."
+    },
+    {
+      "session": 8,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 04:44",
+      "text": "Internal Link Building: Link to other pages within your site, making it easier for site visitors to explore your content while also benefitting SEO rankings."
+    },
+    {
+      "session": 8,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 04:44",
+      "text": "High-quality content that is informative, engaging, and unique can attract more visitors to your site, encourage social shares, and gain more links."
+    },
+    {
+      "session": 8,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 04:44",
+      "text": "User Experience: A great user experience can help to retain visitors on your website, which is an important ranking factor for SEO."
+    },
+    {
+      "session": 8,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 04:44",
+      "text": "You can use the search console to monitor your website's indexing status, fix crawl errors, monitor backlinks or links to your website, and identify which keywords visitors are using to find your website."
+    },
+    {
+      "session": 8,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 04:44",
+      "text": "Google Analytics: It's a free tool that offers insights into your website's traffic and visitor behavior."
+    },
+    {
+      "session": 12,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 06:33",
+      "text": "* Visit a local electronics store or a gaming event to try out a Razer keyboard with proprietary switches."
+    },
+    {
+      "session": 13,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/03/27 (Mon) 08:05",
+      "text": "I had an appointment with my primary care physician, but the antibiotic didn't fully clear it up."
+    },
+    {
+      "session": 13,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 08:05",
+      "text": "The EMG test typically takes 30-60 minutes, depending on the number of muscles being tested and the complexity of the procedure."
+    },
+    {
+      "session": 13,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/03/27 (Mon) 08:05",
+      "text": "I'm scheduled to start physical therapy sessions twice a week since March 25th to strengthen my leg muscles after my orthopedic surgeon, Dr."
+    },
+    {
+      "session": 14,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 08:33",
+      "text": "However, according to a report by the Swedish Migration Agency, the number of newly arrived immigrants and refugees gaining employment, starting their own businesses or entering education has increased significantly over the years."
+    },
+    {
+      "session": 19,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 10:13",
+      "text": "however, the summer months (july and august) tend to be the busiest with crowds of tourists, while the autumnal months (september and october) offer amazing fall foliage and fewer visitors."
+    },
+    {
+      "session": 22,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 10:35",
+      "text": "visit shakespeare's birthplace: the birthplace of shakespeare is now a museum that showcases his life and works."
+    },
+    {
+      "session": 22,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 10:35",
+      "text": "visit anne hathaway's cottage: a short distance from stratford-upon-avon, anne hathaway's cottage is where shakespeare's wife lived."
+    },
+    {
+      "session": 22,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 10:35",
+      "text": "visit the shakespeare family homes: other shakespeare family homes to visit include hall's croft, the home of shakespeare's daughter and her husband, nash's house and new place which is the site of shakespeare's final residence."
+    },
+    {
+      "session": 23,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 10:41",
+      "text": "Visitors may be required to go through security checks and screening before entering the site."
+    },
+    {
+      "session": 23,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 10:41",
+      "text": "Virtual and augmented reality technologies can be used to create immersive educational experiences for visitors and help safeguard the site from overcrowding which can lead to physical wear and tear."
+    },
+    {
+      "session": 27,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 13:05",
+      "text": "The result is a rich, flavorful cuisine that is beloved by locals and visitors alike."
+    },
+    {
+      "session": 27,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/03/27 (Mon) 13:05",
+      "text": "I'll have to try some next time I visit China."
+    },
+    {
+      "session": 27,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/03/27 (Mon) 13:05",
+      "text": "I can't wait to try them all when I visit China."
+    },
+    {
+      "session": 27,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 13:05",
+      "text": "Try visiting the Jiaochangkou night market for street food or Yiliang Roast Duck for a delicious roasted duck dish!"
+    },
+    {
+      "session": 27,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/03/27 (Mon) 13:05",
+      "text": "I'm excited to explore Yunnan cuisine when I visit China."
+    },
+    {
+      "session": 29,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 13:26",
+      "text": "Look for markings, signatures, or serial numbers that can help identify the item."
+    },
+    {
+      "session": 30,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 14:20",
+      "text": "Visit their website to learn more about their mission, programs, and impact."
+    },
+    {
+      "session": 32,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 14:48",
+      "text": "Visit the USPS website ([www.usps.com](http://www.usps.com)) and click on \"Change of Address\" at the top of the page."
+    },
+    {
+      "session": 32,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 14:48",
+      "text": "Visit a DMV office:"
+    },
+    {
+      "session": 32,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 14:48",
+      "text": "Visit a DMV office:"
+    },
+    {
+      "session": 33,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 15:02",
+      "text": "**Category** | **Number of Pairs** | **Shoe Description** | **Condition** | **Size**"
+    },
+    {
+      "session": 33,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 15:02",
+      "text": "**Total number of shoes:** [Insert total number]"
+    },
+    {
+      "session": 33,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 15:02",
+      "text": "* I added the Adidas sneakers to your inventory, including the purchase date, last worn date, and number of times worn."
+    },
+    {
+      "session": 36,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 18:59",
+      "text": "** Uno** (6+ years): A simple, fast-paced card game where players try to get rid of all their cards by matching colors or numbers."
+    },
+    {
+      "session": 37,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 19:30",
+      "text": "**Petco's Coupon Page**: Visit Petco's coupon page, which lists all their current promo codes and discounts."
+    },
+    {
+      "session": 37,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 19:30",
+      "text": "**RetailMeNot**: Visit RetailMeNot, a popular coupon aggregator website, to search for Petco promo codes and discounts."
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 19:56",
+      "text": "* You'll need to manage your tile collection, as you can only hold a limited number of tiles at a time."
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 19:56",
+      "text": "**Automa**: Scythe features an automa system, which allows you to play solo or with a variable number of players."
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 19:56",
+      "text": "The automa is a deck of cards that simulates an opponent's actions, making it a great way to play solo or with an odd number of players."
+    },
+    {
+      "session": 38,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 19:56",
+      "text": "**Start with a simple game**: Consider starting with a simplified version of the game, such as playing with only two players or using a reduced number of tiles."
+    },
+    {
+      "session": 40,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 20:49",
+      "text": "\t* If you plan to visit upscale restaurants, attend a special event, or want to dress up for a particular occasion"
+    },
+    {
+      "session": 40,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 20:49",
+      "text": "\t* For warmer days or visiting the beach (if you plan to)"
+    },
+    {
+      "session": 40,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 20:49",
+      "text": "Consider the activities you'll be doing, the weather, and your personal style to adjust the numbers."
+    },
+    {
+      "session": 41,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/03/27 (Mon) 20:56",
+      "text": "Smith, on March 3rd, and he diagnosed me with bronchitis."
+    },
+    {
+      "session": 41,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/03/27 (Mon) 20:56",
+      "text": "I'm also concerned about the numbness in my left hand, which I noticed around March 15th."
+    },
+    {
+      "session": 41,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 20:56",
+      "text": "Before your appointments, consider keeping a symptom journal to track the numbness in your left hand, including:"
+    },
+    {
+      "session": 41,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 20:56",
+      "text": "Please keep me updated on your appointments and any new developments."
+    },
+    {
+      "session": 41,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/03/27 (Mon) 20:56",
+      "text": "I'll schedule an appointment with Dr."
+    },
+    {
+      "session": 41,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 20:56",
+      "text": "Don't hesitate to reach out to me if you have any more questions or concerns before your appointments."
+    },
+    {
+      "session": 43,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 22:01",
+      "text": "Practice solving problems related to numbers, algebra, geometry, and data interpretation."
+    },
+    {
+      "session": 44,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 22:36",
+      "text": "Enjoy your visit to the College Football Hall of Fame!"
+    },
+    {
+      "session": 44,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 22:36",
+      "text": "As an AI language model, I don't have the ability to visit places or have physical experiences, but I have information about various places and things, including the College Football Hall of Fame."
+    },
+    {
+      "session": 44,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/03/27 (Mon) 22:36",
+      "text": "That's too bad that you can't visit places, but I appreciate all the information you can provide!"
+    },
+    {
+      "session": 44,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 22:36",
+      "text": "Sure, here are some other football-related attractions or museums that you might be interested in visiting:"
+    },
+    {
+      "session": 45,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 23:14",
+      "text": "* Page views: The number of times your page has been viewed."
+    },
+    {
+      "session": 45,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 23:14",
+      "text": "* Page engagements: The number of times people have engaged with your page, including likes, comments, shares, and reactions."
+    },
+    {
+      "session": 45,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 23:14",
+      "text": "* Reach: The number of people who have seen your posts."
+    },
+    {
+      "session": 45,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 23:14",
+      "text": "* Organic reach: The number of people who saw your posts without paid promotion."
+    },
+    {
+      "session": 45,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 23:14",
+      "text": "* Paid reach: The number of people who saw your posts with paid promotion."
+    },
+    {
+      "session": 45,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 23:14",
+      "text": "* Total reach: The total number of people who saw your posts."
+    },
+    {
+      "session": 45,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 23:14",
+      "text": "* Comments: Number of comments on your posts."
+    },
+    {
+      "session": 45,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 23:14",
+      "text": "* Shares: Number of shares of your posts."
+    },
+    {
+      "session": 45,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 23:14",
+      "text": "\t* Total reach (number of people who saw your posts)."
+    },
+    {
+      "session": 45,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 23:14",
+      "text": "\t* Website visitors from social media channels."
+    },
+    {
+      "session": 45,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 23:14",
+      "text": "* Bounce rate (percentage of visitors who leave immediately)."
+    },
+    {
+      "session": 45,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 23:14",
+      "text": "\t* Mentions (number of times your brand is mentioned)."
+    },
+    {
+      "session": 45,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 23:14",
+      "text": "* The total number of people who saw your post"
+    },
+    {
+      "session": 46,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 23:15",
+      "text": "* Jira's pricing model is based on the number of users, so freelancers only pay for the features they need."
+    },
+    {
+      "session": 46,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 23:15",
+      "text": "* Trello's pricing model is based on the number of users, so freelancers only pay for the features they need."
+    },
+    {
+      "session": 47,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/27 (Mon) 23:28",
+      "text": "Visit a specialty running store for a gait analysis and shoe fitting."
+    }
+  ],
+  "scope": "All messages in both roles scanned programmatically; selected cited contexts reviewed. This is not exhaustive semantic reading or proof of absence.",
+  "independent_review": "pending",
+  "eligibility": "provisional_candidate"
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "4adc0475",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 92,
+  "question_cell": "F92",
+  "answer_cell": "E92",
+  "adopted_question_verbatim": "How many goals did I report scoring in the recreational indoor soccer league on May 26?",
+  "adopted_answer_or_rubric_verbatim": "3 goals",
+  "english_rubric": "Require three goals at the named report; do not combine cumulative figures from different reporting dates.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

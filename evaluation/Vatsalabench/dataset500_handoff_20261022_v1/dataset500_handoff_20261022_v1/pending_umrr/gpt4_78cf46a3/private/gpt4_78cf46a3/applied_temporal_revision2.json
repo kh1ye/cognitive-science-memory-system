@@ -1,0 +1,39 @@
+{
+  "sample_id": "gpt4_78cf46a3",
+  "source_order": 425,
+  "status": "accepted_edits_applied_validation_passed",
+  "authorization": "User explicitly requested applying the consolidated suggestions; no experiment or independent acceptance authorized.",
+  "parent_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1\\packages\\gpt4_78cf46a3",
+  "parent_suite_sha256": "cefacd5ae2fe5e28de5c0e68c176cfd1c24173f9c4134634283d1ae365e6ae2a",
+  "revised_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1_review2\\packages\\gpt4_78cf46a3",
+  "revised_suite_sha256": "b4c8d42c4754df4a7e2c0a13caa19786145c416eb86847843fe890cf4efb354c",
+  "proposal_file": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch07_v1\\pending_edits_all_batches.json",
+  "proposal_sha256": "3407de41004d56cd559b1fe0cb938f21362c02f9caa4ba68469decfe323abd54",
+  "source_proposal": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch07_v1\\proposed_edits.json",
+  "applied_edits": [
+    {
+      "file": "samples/gpt4_78cf46a3/probes.json",
+      "probe_id": "BASE-2",
+      "field": "question",
+      "old": "Did receiving the replacement phone cover or losing the charger happen earlier?",
+      "proposed": "Did receiving the new phone cover or losing the charger happen earlier?"
+    }
+  ],
+  "changed_public_files": [
+    "samples/gpt4_78cf46a3/probes.json"
+  ],
+  "history_byte_identical": true,
+  "branches_byte_identical": true,
+  "gold_byte_identical": true,
+  "private_gold_sha256": "62feaed4eec9a5070946c8fa83ac83a871c9ab75c68669a80de1ce4917f35c8b",
+  "query_times_and_checkpoints_unchanged": true,
+  "protocol_and_provider_unchanged": true,
+  "question_edit_count": 1,
+  "reference_edit_count": 0,
+  "quality_probes": 12,
+  "metrics": 11,
+  "live_review_gate_passed": false,
+  "independent_review": "pending",
+  "api_calls": 0,
+  "inherited_audit_note": "Copied audit files describe their earlier source version. This revision record and current public inputs describe the applied wording."
+}

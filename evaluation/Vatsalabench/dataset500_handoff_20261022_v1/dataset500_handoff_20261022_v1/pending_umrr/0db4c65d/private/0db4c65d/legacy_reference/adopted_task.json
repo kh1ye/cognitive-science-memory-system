@@ -1,0 +1,15 @@
+{
+  "sample_id": "0db4c65d",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 126,
+  "question_cell": "F126",
+  "answer_cell": "E126",
+  "adopted_question_verbatim": "On which platform did I say my online book club discussed the Taylor Jenkins Reid novel?",
+  "adopted_answer_or_rubric_verbatim": "Facebook",
+  "english_rubric": "Require Facebook. Preserve source title irregularities without requiring or silently correcting them in the answer.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "2ebe6c92",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 145,
+  "question_cell": "F145",
+  "answer_cell": "E145",
+  "adopted_question_verbatim": "Which book did I finish a week ago?",
+  "adopted_answer_or_rubric_verbatim": "The Nightingale by Kristin Hannah",
+  "english_rubric": "Require The Nightingale; title alone is sufficient. 'A week ago' is anchored to the original February 7, 2023 question, including at later retention probes.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

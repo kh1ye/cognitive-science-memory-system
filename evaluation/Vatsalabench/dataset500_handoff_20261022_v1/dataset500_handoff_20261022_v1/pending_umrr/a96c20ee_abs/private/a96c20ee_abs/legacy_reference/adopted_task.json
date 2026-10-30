@@ -1,0 +1,15 @@
+{
+  "sample_id": "a96c20ee_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 118,
+  "question_cell": "F118",
+  "answer_cell": "E118",
+  "adopted_question_verbatim": "At which university did I present a poster for my undergrad course research project?",
+  "adopted_answer_or_rubric_verbatim": "说明无法确认本科课程研究海报所在大学，不能直接挪用论文研究会议地点。",
+  "english_rubric": "The university for an undergraduate-course research poster cannot be established solely from the thesis-conference evidence. Do not automatically transfer Harvard to an unverified undergraduate-course event. The relationship between the events needs independent review.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

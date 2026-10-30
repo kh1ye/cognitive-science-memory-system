@@ -1,0 +1,15 @@
+{
+  "sample_id": "2133c1b5_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 221,
+  "question_cell": "F221",
+  "answer_cell": "E221",
+  "adopted_question_verbatim": "How long have I been living in my current apartment in Shinjuku?",
+  "adopted_answer_or_rubric_verbatim": "无法确认Shinjuku公寓居住时长；Harajuku信息不能直接替代。",
+  "english_rubric": "The duration of residence in a Shinjuku apartment is not established. Harajuku residence cannot be substituted, and transit mentions of Shinjuku do not establish a home there.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

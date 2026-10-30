@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_98f46fc6",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 388,
+  "question_cell": "F388",
+  "answer_cell": "E388",
+  "adopted_question_verbatim": "What type of charity event did I say I was helping organize at my office?",
+  "adopted_answer_or_rubric_verbatim": "a charity bake sale",
+  "english_rubric": "Require charity bake sale. Planned gala attendance later that month is not completed attendance.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

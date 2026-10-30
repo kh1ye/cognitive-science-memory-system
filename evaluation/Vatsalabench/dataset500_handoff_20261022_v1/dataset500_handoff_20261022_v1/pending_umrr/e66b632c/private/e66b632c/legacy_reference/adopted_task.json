@@ -1,0 +1,15 @@
+{
+  "sample_id": "e66b632c",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 208,
+  "question_cell": "F208",
+  "answer_cell": "E208",
+  "adopted_question_verbatim": "What personal-best time for the charity 5K did I report in the April 11 conversation?",
+  "adopted_answer_or_rubric_verbatim": "27 minutes 45 seconds",
+  "english_rubric": "Require 27:45 for the dated historical report, not the later 26:30. No fitness recommendation is requested.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "9d25d4e0",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 55,
+  "question_cell": "F55",
+  "answer_cell": "E55",
+  "adopted_question_verbatim": "What gemstone did I say was in the earrings I bought at the flea market?",
+  "adopted_answer_or_rubric_verbatim": "emerald",
+  "english_rubric": "Require emerald/emeralds; do not transfer the diamonds from a different pair.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

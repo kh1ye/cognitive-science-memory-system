@@ -1,0 +1,15 @@
+{
+  "sample_id": "0bb5a684",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 408,
+  "question_cell": "F408",
+  "answer_cell": "E408",
+  "adopted_question_verbatim": "How many days before the team meeting I was preparing for did I attend the workshop on 'Effective Communication in the Workplace'?",
+  "adopted_answer_or_rubric_verbatim": "7 calendar days",
+  "english_rubric": "Require seven calendar days, not inclusive eight. The team meeting was planned, not already completed.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

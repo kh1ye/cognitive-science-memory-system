@@ -1,0 +1,164 @@
+{
+  "protocol_version": "unified-v1.1-full-history",
+  "status": "structural_migration_temporal_content_review_pending",
+  "original_history": "verbatim_content_roles_dates_order",
+  "equal_timestamps": "stable_session_ids_and_source_order_not_timestamp_mutation",
+  "base_build": "one_incremental_ingestion_then_exact_checkpoint",
+  "quality_probes": [
+    {
+      "id": "BASE-1",
+      "context": "BASE",
+      "metrics": [
+        "AFA",
+        "FSRC",
+        "CR-AUC_D0"
+      ]
+    },
+    {
+      "id": "BASE-2",
+      "context": "BASE",
+      "metrics": [
+        "FSRC"
+      ]
+    },
+    {
+      "id": "BASE-3",
+      "context": "BASE",
+      "metrics": [
+        "FSRC"
+      ]
+    },
+    {
+      "id": "UMRR-1",
+      "context": "BASE",
+      "metrics": [
+        "UMRR"
+      ]
+    },
+    {
+      "id": "R1R2",
+      "context": "BASE",
+      "metrics": [
+        "TIC",
+        "AFP"
+      ]
+    },
+    {
+      "id": "RET-10",
+      "context": "retention",
+      "metrics": [
+        "CR-AUC"
+      ],
+      "delay_sessions": 10
+    },
+    {
+      "id": "RET-30",
+      "context": "retention",
+      "metrics": [
+        "CR-AUC"
+      ],
+      "delay_sessions": 30
+    },
+    {
+      "id": "RET-50",
+      "context": "retention",
+      "metrics": [
+        "CR-AUC"
+      ],
+      "delay_sessions": 50
+    },
+    {
+      "id": "CUR-H2",
+      "context": "currency",
+      "metrics": [
+        "CVSAR"
+      ],
+      "post_update_sessions": 2
+    },
+    {
+      "id": "CON-U",
+      "context": "conflict_unresolved",
+      "metrics": [
+        "SCHR"
+      ]
+    },
+    {
+      "id": "CON-P",
+      "context": "conflict_priority",
+      "metrics": [
+        "SCHR"
+      ]
+    },
+    {
+      "id": "CON-N",
+      "context": "conflict_compatible",
+      "metrics": [
+        "SCHR"
+      ]
+    }
+  ],
+  "probe_writeback": false,
+  "probe_isolation": "exact_checkpoint_fork",
+  "retention": {
+    "sessions": 50,
+    "checks": [
+      10,
+      30,
+      50
+    ],
+    "reference_time": "fixed_historical_target",
+    "d0": "reuse_BASE-1",
+    "incorrect_d0": "not_applicable",
+    "failed_call": "incomplete_run",
+    "rebuild_at_checkpoint": false
+  },
+  "currency": {
+    "incremental": true,
+    "post_update_sessions": 2,
+    "cold_rebuild": false
+  },
+  "resource": {
+    "namespace": "separate_fresh_instance",
+    "queries": [
+      "BASE-1",
+      "BASE-2",
+      "BASE-3"
+    ],
+    "quality_scoring": false,
+    "count": 3,
+    "scope": "development_pilot",
+    "percentile": "nearest_rank",
+    "unknown_usage": "exact_ATC_NA_known_usage_lower_bound",
+    "history_encoding": "UTF8_compact_date_messages_role_content_verbatim_source_time",
+    "latency_timing": {
+      "version": "query-only-v2",
+      "start": "after_checkpoint_fork_validation_and_index_restoration_before_question_embedding",
+      "end": "after_complete_answer_before_isolation_validation_and_answer_file_write",
+      "setup": "excluded_record_separately",
+      "included": "query_embedding_retrieval_prompt_construction_provider_generation_and_inline_logging"
+    }
+  },
+  "scoring": {
+    "TIC": "answer_slot_coverage_refusal_alone_zero",
+    "UMRR": "explicit_uncertainty_no_invention_no_false_denial_of_known_event",
+    "resource_units": "native",
+    "overall_score": null,
+    "aggregate": "equal_sample_quality_means_with_valid_n_and_coverage"
+  },
+  "execution": {
+    "concurrency": 1,
+    "automatic_retries": 0,
+    "overwrite": false,
+    "live_authorization": "required",
+    "preflight_auth": "same_in_memory_key_diagnostic_before_dataset_upload"
+  },
+  "time_policy": {
+    "ingestion": "original_file_order",
+    "ties": "earlier_source_index_first",
+    "source_dates": "preserve_verbatim_not_ingestion_clock",
+    "baseline_query": "max_original_query_or_max_history_plus_one_minute",
+    "reference_time": "review_question_semantics_separately",
+    "synthetic_schedule": "shift_forward_by_whole_days_only_if_needed",
+    "live_gate": "explicit_temporal_content_review_required"
+  }
+}

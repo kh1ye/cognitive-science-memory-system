@@ -1,0 +1,137 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "2: Data Mining and Database Systems",
+      "rule": "Require two, Data Mining and Database Systems; exclude thesis and deduplicate repeated mentions."
+    },
+    "BASE-2": {
+      "expected": "2: Data Mining and Database Systems",
+      "rule": "Require two, Data Mining and Database Systems; exclude thesis and deduplicate repeated mentions."
+    },
+    "BASE-3": {
+      "expected": "2: Data Mining and Database Systems",
+      "rule": "Require two, Data Mining and Database Systems; exclude thesis and deduplicate repeated mentions."
+    },
+    "RET-10": {
+      "expected": "2: Data Mining and Database Systems",
+      "rule": "Require two, Data Mining and Database Systems; exclude thesis and deduplicate repeated mentions."
+    },
+    "RET-30": {
+      "expected": "2: Data Mining and Database Systems",
+      "rule": "Require two, Data Mining and Database Systems; exclude thesis and deduplicate repeated mentions."
+    },
+    "RET-50": {
+      "expected": "2: Data Mining and Database Systems",
+      "rule": "Require two, Data Mining and Database Systems; exclude thesis and deduplicate repeated mentions."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "Data Mining and Database Systems",
+        "Trello"
+      ],
+      "intents": [
+        "Non-thesis projects",
+        "Planning tool"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "10:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "10:00",
+        "11:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "10:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "10:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 30,
+        "turn_index": 1,
+        "date": "2023/05/26 (Fri) 15:03",
+        "role": "user",
+        "quote": "I'm struggling to find relevant datasets for my thesis on AI's impact on healthcare outcomes. Can you suggest some reliable sources or repositories where I can find datasets related to medical diagnosis? By the way, I've been learning a lot about data analysis in my Data Mining course, which has a group project that's keeping me pretty busy."
+      },
+      {
+        "session_index": 38,
+        "turn_index": 1,
+        "date": "2023/05/28 (Sun) 03:58",
+        "role": "user",
+        "quote": "I'm trying to find some relevant research papers on AI in medical diagnosis, specifically on image classification. Can you suggest some databases or search engines I can use? By the way, I've also been working on a group project for my Database Systems course, so I'm juggling multiple projects at the moment."
+      },
+      {
+        "session_index": 25,
+        "turn_index": 11,
+        "date": "2023/05/25 (Thu) 11:44",
+        "role": "user",
+        "quote": "I'm actually working on a Master's thesis in AI and healthcare, and I've been using Trello to manage my project. I've created separate boards for my thesis, Data Mining project, and Database Systems project. It's been really helpful in staying organized and prioritizing tasks."
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "60472f9c",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

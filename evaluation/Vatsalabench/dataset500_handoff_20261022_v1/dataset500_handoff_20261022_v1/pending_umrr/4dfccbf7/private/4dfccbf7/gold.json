@@ -1,0 +1,126 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "Rachel",
+      "rule": "Require Rachel as companion, not an inferred teacher."
+    },
+    "BASE-2": {
+      "expected": "Rachel",
+      "rule": "Require Rachel as companion, not an inferred teacher."
+    },
+    "BASE-3": {
+      "expected": "Rachel",
+      "rule": "Require Rachel as companion, not an inferred teacher."
+    },
+    "RET-10": {
+      "expected": "Rachel",
+      "rule": "Require Rachel as companion, not an inferred teacher."
+    },
+    "RET-30": {
+      "expected": "Rachel",
+      "rule": "Require Rachel as companion, not an inferred teacher."
+    },
+    "RET-50": {
+      "expected": "Rachel",
+      "rule": "Require Rachel as companion, not an inferred teacher."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "Rachel",
+        "Taylor GS Mini"
+      ],
+      "intents": [
+        "Lesson companion",
+        "Serviced guitar"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "25 minutes",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/04/02 08:00",
+        "old_valid_from": "2023/04/02 08:00",
+        "old_valid_to": "2023/04/03 09:00",
+        "observed_at": "2023/04/03 09:00",
+        "valid_from": "2023/04/03 09:00",
+        "valid_to": null,
+        "query_time": "2023/04/03 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "25 minutes",
+        "35 minutes"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "25 minutes",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "25 minutes",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 36,
+        "turn_index": 5,
+        "date": "2023/02/01 (Wed) 08:58",
+        "role": "user",
+        "quote": "I'm still not sure about the keyboards, but I was thinking about my ukulele lessons. I just started taking ukulele lessons with my friend Rachel today and it's been really fun so far. Can you give me some tips on how to practice effectively and improve my chord changes?"
+      },
+      {
+        "session_index": 39,
+        "turn_index": 9,
+        "date": "2023/02/25 (Sat) 13:54",
+        "role": "user",
+        "quote": "I think I'll try out the Fender Acoustic 40 and Fishman Loudbox Mini. Both seem like great options for my Taylor GS Mini. I'll also consider the AER Compact 60, but it's a bit above my budget. By the way, I just got back from Joe's shop. I decided to take my Taylor GS Mini, to the guitar tech for servicing today - the action's been a bit high and it's been causing some discomfort in my left hand. The action is now perfect, and it feels so much more comfortable to play."
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/04/02 08:00",
+    "old_valid_from": "2023/04/02 08:00",
+    "old_valid_to": "2023/04/03 09:00",
+    "observed_at": "2023/04/03 09:00",
+    "valid_from": "2023/04/03 09:00",
+    "valid_to": null,
+    "query_time": "2023/04/03 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "4dfccbf7",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

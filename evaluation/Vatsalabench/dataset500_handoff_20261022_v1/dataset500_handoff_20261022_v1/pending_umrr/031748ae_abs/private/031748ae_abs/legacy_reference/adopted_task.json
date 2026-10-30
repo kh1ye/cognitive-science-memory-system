@@ -1,0 +1,15 @@
+{
+  "sample_id": "031748ae_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 220,
+  "question_cell": "F220",
+  "answer_cell": "E220",
+  "adopted_question_verbatim": "How many engineers do I lead when I just started my new role as Software Engineer Manager?",
+  "adopted_answer_or_rubric_verbatim": "经理职位未获证实；可澄清是否指Senior Software Engineer，并说明其记录为初期4名、后来5名。",
+  "english_rubric": "Manager as a formal title is not established. Accept a request for clarification or correction of the title followed by a conditional answer of four for the Senior Software Engineer role. Do not mark all substantive answers as hallucinations. An unqualified assertion that the user held Software Engineer Manager is not supported.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

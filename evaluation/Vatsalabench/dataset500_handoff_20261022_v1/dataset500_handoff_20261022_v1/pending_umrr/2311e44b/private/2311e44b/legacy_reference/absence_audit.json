@@ -1,0 +1,430 @@
+{
+  "question": "What was the exact ISBN of my 440-page copy of The Nightingale?",
+  "pattern": "copy|isbn|nightingale|page|pages",
+  "messages_scanned": 493,
+  "matching_sentences": [
+    {
+      "session": 16,
+      "turn": 3,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:51",
+      "text": "The owner or Global Administrator of the external SharePoint site can then navigate to the SharePoint site's API management page and request API access for the Azure AD application by entering the client ID."
+    },
+    {
+      "session": 16,
+      "turn": 3,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:51",
+      "text": "Navigate to the SharePoint site's API management page."
+    },
+    {
+      "session": 16,
+      "turn": 4,
+      "role": "user",
+      "date": "2023/05/23 (Tue) 15:51",
+      "text": "Can you give further detailed explanations of those with examples and URL links to setting pages?"
+    },
+    {
+      "session": 16,
+      "turn": 5,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:51",
+      "text": "The owner or Global Administrator of the external SharePoint site can then navigate to the SharePoint site's API management page by going to the SharePoint Admin Center, clicking on \"API access\" under \"Settings\", and then clicking on \"Request API access\"."
+    },
+    {
+      "session": 16,
+      "turn": 5,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:51",
+      "text": "The owner or Global Administrator of the external SharePoint site will then enter the client ID for the Azure AD application in the \"Request API access\" page and submit the request."
+    },
+    {
+      "session": 16,
+      "turn": 5,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:51",
+      "text": "Navigate to the SharePoint site's API management page by going to the SharePoint Admin Center, clicking on \"API access\" under \"Settings\", and then clicking on \"Apps with access to SharePoint\"."
+    },
+    {
+      "session": 16,
+      "turn": 7,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:51",
+      "text": "Typically, the process for granting API permissions involves the Azure AD application owner providing the client ID of the Azure AD application to the SharePoint owner/admin, and the SharePoint owner/admin manually granting API permissions in the SharePoint API management page."
+    },
+    {
+      "session": 16,
+      "turn": 11,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:51",
+      "text": "In step 4 of \"Requesting API Permissions\", the Global Admin approves the request for API access by using the SharePoint API management page."
+    },
+    {
+      "session": 16,
+      "turn": 11,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:51",
+      "text": "Access the SharePoint API management page: The Global Admin navigates to the SharePoint API management page, which is typically found in the SharePoint admin center."
+    },
+    {
+      "session": 16,
+      "turn": 11,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:51",
+      "text": "View the API permission request: In the API management page, the Global Admin views the API permission request for the Azure AD application."
+    },
+    {
+      "session": 16,
+      "turn": 11,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:51",
+      "text": "Approve the API permission request: The Global Admin approves the API permission request by clicking an \"Approve\" or \"Grant\" button in the API management page."
+    },
+    {
+      "session": 16,
+      "turn": 11,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:51",
+      "text": "Verify the API permission: The Global Admin verifies that the API permission has been granted by viewing the API permissions list in the API management page and verifying that the Azure AD application is listed as having API access."
+    },
+    {
+      "session": 16,
+      "turn": 11,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 15:51",
+      "text": "Please note that the specific steps for approving the API permission request may vary depending on the version of SharePoint being used and the specific implementation of the SharePoint API management page."
+    },
+    {
+      "session": 17,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 18:13",
+      "text": "Give each guest a copy of the scrambled words and see who can unscramble them all first."
+    },
+    {
+      "session": 38,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "Can you help me calculate how many pages I need to read per day to reach my goal of 50 books by the end of the year, considering I've already read 12 books so far?"
+    },
+    {
+      "session": 38,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "By the way, I just got back to reading \"The Nightingale\" and I'm excited to finally finish it - it's a long one with 440 pages!"
+    },
+    {
+      "session": 38,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "I'd be happy to help you calculate your daily page goal."
+    },
+    {
+      "session": 38,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "Since you didn't specify the average page count of the books you read, we'll use the page count of \"The Nightingale\" as a rough estimate."
+    },
+    {
+      "session": 38,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "Let's assume an average page count of 400 pages per book (which is a reasonable estimate, given the length of \"The Nightingale\")."
+    },
+    {
+      "session": 38,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "To calculate the total number of pages you need to read:"
+    },
+    {
+      "session": 38,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "38 books × 400 pages/book ≈ 15,200 pages"
+    },
+    {
+      "session": 38,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "To find out how many pages you need to read per day:"
+    },
+    {
+      "session": 38,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "15,200 pages ÷ 154 days ≈ 99 pages per day"
+    },
+    {
+      "session": 38,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "So, you would need to read approximately 99 pages per day to reach your goal of 50 books by the end of the year."
+    },
+    {
+      "session": 38,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "Keep in mind that this is just an estimate, and you can adjust it based on your actual reading speed and the page counts of your future reads."
+    },
+    {
+      "session": 38,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "Good luck with your reading challenge, and I hope you enjoy finishing \"The Nightingale\"!"
+    },
+    {
+      "session": 38,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "For example, I've been reading \"Sapiens\" at a pace of 10-20 pages a week."
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "Since you've been reading \"Sapiens\" at a pace of 10-20 pages a week, we can use that as a rough estimate of your average reading speed."
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "Let's assume you read 15 pages per week, which translates to:"
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "15 pages/week ÷ 7 days/week = approximately 2.14 pages per day"
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "Now, let's go back to the total number of pages you need to read:"
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "15,200 pages"
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "15,200 pages ÷ 2.14 pages/day ≈ 7,099 days"
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "Let's calculate a daily page goal that's challenging yet achievable for you:"
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "15,200 pages ÷ 154 days ≈ 98.7 pages per day (initial calculation)"
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "Since you read at a pace of 2.14 pages per day, we'll adjust this goal downward:"
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "98.7 pages/day ÷ 2.14 pages/day (your reading speed) ≈ 46 days' worth of reading per day"
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "So, to reach your goal, you might aim to read around 46 days' worth of your usual reading (approximately 92-100 pages) every day."
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "Instead of trying to read a large number of pages daily, you could dedicate more days to reading."
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "Assuming you currently read 2.14 pages per day, 3-4 days a week (as you mentioned with \"Sapiens\"), let's calculate the number of days you'd need to dedicate to reading to reach your goal:"
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "15,200 pages ÷ 2.14 pages/day ≈ 7,099 days (as calculated earlier)"
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "**Set a timer and challenge yourself**: Set a timer for a specific amount of time (e.g., 25 minutes) and challenge yourself to read a certain number of pages during that time."
+    },
+    {
+      "session": 38,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "By implementing these strategies, you might be able to increase your daily reading speed to 3-4 pages per day, which would put you on track to reach your goal."
+    },
+    {
+      "session": 38,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "**Boost your page count**: As you mentioned, graphic novels and manga tend to be quicker to get through, which can help you make progress toward your page count goal."
+    },
+    {
+      "session": 38,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 08:47",
+      "text": "* Setting aside dedicated days for graphic novels/manga, and using those days to catch up on your page count."
+    },
+    {
+      "session": 39,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 17:40",
+      "text": "**On-page optimization**: Ensuring your website's title tags, meta descriptions, headings, and content are optimized for your target keywords."
+    },
+    {
+      "session": 39,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/28 (Sun) 17:40",
+      "text": "I plan to measure the success of my SEO efforts by tracking metrics such as website traffic, page views, bounce rate, and search engine rankings."
+    },
+    {
+      "session": 39,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 17:40",
+      "text": "**Page views**: The number of pages viewed by visitors on your website."
+    },
+    {
+      "session": 39,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 17:40",
+      "text": "**Search engine rankings**: The position of your website in search engine results pages (SERPs) for specific keywords."
+    },
+    {
+      "session": 39,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 17:40",
+      "text": "* **Technical SEO audits**: Regularly review your website's technical performance, including page speed, mobile responsiveness, and SSL encryption."
+    },
+    {
+      "session": 39,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 17:40",
+      "text": "**Optimize on-page elements**: Ensure your website's on-page elements, such as title tags, meta descriptions, headings, and content, are optimized for your target keywords."
+    },
+    {
+      "session": 39,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 17:40",
+      "text": "**Technical optimization**: Ensure your website is technically sound by optimizing page speed, mobile responsiveness, and SSL encryption."
+    },
+    {
+      "session": 39,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 17:40",
+      "text": "This can be achieved through guest blogging, broken link building, or resource pages."
+    },
+    {
+      "session": 45,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 19:46",
+      "text": "* You can also check out their social media pages or sign up for their texts to stay informed about flash sales or exclusive promotions."
+    },
+    {
+      "session": 46,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/30 (Tue) 01:32",
+      "text": "I'm currently on page 250 of 'The Nightingale' by Kristin Hannah, and I'm really getting into it."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 01:32",
+      "text": "Given your current progress in 'The Nightingale', I'll suggest a plan that's tailored to your reading style and schedule."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 01:32",
+      "text": "**Set a specific goal**: Commit to reading a certain number of pages or a specific amount of time each day/week."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 01:32",
+      "text": "For example, aim to read 30-40 pages or 30-60 minutes daily."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 01:32",
+      "text": "**Start small**: Begin with a manageable goal, and gradually increase your reading time or page count as you build your habit."
+    },
+    {
+      "session": 46,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 01:32",
+      "text": "Good luck, and enjoy the rest of 'The Nightingale'!"
+    }
+  ],
+  "scope": "All messages in both roles scanned programmatically; selected cited contexts reviewed. This is not exhaustive semantic reading or proof of absence.",
+  "independent_review": "pending",
+  "eligibility": "provisional_candidate"
+}

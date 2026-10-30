@@ -1,0 +1,132 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "An Italian feast",
+      "rule": "Require Italian. Do not replace it with the Global Street Food theme merely being considered."
+    },
+    "BASE-2": {
+      "expected": "An Italian feast",
+      "rule": "Require Italian. Do not replace it with the Global Street Food theme merely being considered."
+    },
+    "BASE-3": {
+      "expected": "An Italian feast",
+      "rule": "Require Italian. Do not replace it with the Global Street Food theme merely being considered."
+    },
+    "RET-10": {
+      "expected": "An Italian feast",
+      "rule": "Require Italian. Do not replace it with the Global Street Food theme merely being considered."
+    },
+    "RET-30": {
+      "expected": "An Italian feast",
+      "rule": "Require Italian. Do not replace it with the Global Street Food theme merely being considered."
+    },
+    "RET-50": {
+      "expected": "An Italian feast",
+      "rule": "Require Italian. Do not replace it with the Global Street Food theme merely being considered."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "Italian",
+        "BBQ"
+      ],
+      "intents": [
+        "Sarah cuisine",
+        "Mike meal type"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "19:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "19:00",
+        "20:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "19:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "19:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 9,
+        "turn_index": 1,
+        "date": "2023/05/22 (Mon) 10:28",
+        "role": "user",
+        "quote": "I'm looking for some Italian recipe ideas for a dinner party I'm hosting soon. I attended a lovely Italian feast at Sarah's place last week, and it inspired me to try out some new dishes. Do you have any recommendations for a beginner like me?"
+      },
+      {
+        "session_index": 5,
+        "turn_index": 5,
+        "date": "2023/05/21 (Sun) 19:16",
+        "role": "user",
+        "quote": "That's great! I think I'll have a mix of grilled and non-grilled dishes to cater to different tastes. By the way, I've also had experience with dinner parties that are more low-key, like the ones we had at Alex's place yesterday, where we had a potluck and tried out different cuisines from around the world, and also at Mike's place, where we had a BBQ and watched a football game together. Do you have any tips on how to make the party more interactive and engaging for guests?"
+      },
+      {
+        "session_index": 5,
+        "turn_index": 3,
+        "date": "2023/05/21 (Sun) 19:16",
+        "role": "user",
+        "quote": "I love these ideas! I'm definitely going to consider the Global Street Food theme. By the way, I've also had a great experience with a BBQ theme, like the one we had at Mike's place two weeks ago, where we watched a football game together. Do you have any BBQ recipe ideas that would fit well with the Global Street Food theme?"
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "60159905",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

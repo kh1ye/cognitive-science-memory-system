@@ -1,0 +1,15 @@
+{
+  "sample_id": "80ec1f4f",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 48,
+  "question_cell": "F48",
+  "answer_cell": "E48",
+  "adopted_question_verbatim": "On what date did I say I took my niece to the Natural History Museum?",
+  "adopted_answer_or_rubric_verbatim": "February 8",
+  "english_rubric": "Accept February 8 or 2/8 in source context. Do not invent a year or confuse the January workshop.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

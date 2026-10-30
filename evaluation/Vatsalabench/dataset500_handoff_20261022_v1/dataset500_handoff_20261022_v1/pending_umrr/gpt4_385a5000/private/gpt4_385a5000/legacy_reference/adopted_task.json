@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_385a5000",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 158,
+  "question_cell": "F158",
+  "answer_cell": "E158",
+  "adopted_question_verbatim": "From what date did I say I had been starting seeds indoors under grow lights in my basement?",
+  "adopted_answer_or_rubric_verbatim": "February 20",
+  "english_rubric": "Require February 20. It is not the March 3 seed delivery date. This gold is evidence-backed only after the 17:13 source message is visible; it is not available at the original 15:30 cutoff.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

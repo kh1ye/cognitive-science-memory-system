@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "What did I say I got on March 8 as a graduation gift for my brother?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-29T23:50:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "Which item did I say I got on March 8 to celebrate my brother finishing his studies?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-29T23:50:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "Which present did I report getting on March 8 for my brother's graduation?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-29T23:50:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact serial number of the wireless headphones bought for my brother?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-29T23:50:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "What was my brother's graduation gift, and what type of jewellery did I get my best friend for her birthday?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-29T23:50:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "What did I say I got on March 8 as a graduation gift for my brother?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-03-31T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "What did I say I got on March 8 as a graduation gift for my brother?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-04-01T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "What did I say I got on March 8 as a graduation gift for my brother?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-04-02T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the budget for a separate future celebration gift now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-03-31T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-03-31T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/03/31 12:00, what is the budget for a separate future celebration gift?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-03-31T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-03-31T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/03/31 12:00, what is the budget for a separate future celebration gift?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-03-31T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-03-31T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/03/31 12:00, what is the budget for a separate future celebration gift?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-03-31T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-03-31T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

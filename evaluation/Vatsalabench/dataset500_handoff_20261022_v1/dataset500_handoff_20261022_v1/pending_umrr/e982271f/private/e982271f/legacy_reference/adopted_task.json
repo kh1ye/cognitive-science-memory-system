@@ -1,0 +1,15 @@
+{
+  "sample_id": "e982271f",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 240,
+  "question_cell": "F240",
+  "answer_cell": "E240",
+  "adopted_question_verbatim": "I was going through our previous chat. Can you remind me of the name of the last venue you recommended in the list of popular venues in Portland for indie music shows?",
+  "adopted_answer_or_rubric_verbatim": "Revolution Hall",
+  "english_rubric": "Require Revolution Hall as the original last item. Do not rank current venues.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

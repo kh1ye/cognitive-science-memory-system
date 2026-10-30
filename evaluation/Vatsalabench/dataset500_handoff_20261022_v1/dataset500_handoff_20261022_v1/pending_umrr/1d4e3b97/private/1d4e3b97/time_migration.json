@@ -1,0 +1,42 @@
+{
+  "sample_id": "1d4e3b97",
+  "source_order": 80,
+  "protocol_version": "unified-v1.1-full-history",
+  "previous_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified_next70_v2\\1d4e3b97",
+  "previous_suite_sha256": "f036e0ed7c9bbb1128e04cfb4eb461e2b75cbf760e436fb22700c3c229a36e16",
+  "source_question_date": "2024/02/20 (Tue) 23:40",
+  "previous_base_query_time": "2024-02-20T23:40:00",
+  "experiment_base_query_time": "2024-02-20T23:40:00",
+  "max_original_timestamp": "2024-02-20T22:21:00",
+  "last_file_session_timestamp": "2024-02-20T22:21:00",
+  "baseline_retimed": false,
+  "duplicate_timestamp_excess": 1,
+  "adjacent_timestamp_inversions": 0,
+  "original_sessions": 45,
+  "synthetic_shift_days": 0,
+  "history_file_byte_identical": true,
+  "branches_file_byte_identical": true,
+  "questions_unchanged": true,
+  "target_references_unchanged": true,
+  "expected_answers_unchanged": true,
+  "source_projection_verified": true,
+  "adapter_storage_round_trip_verified": true,
+  "relative_wording_navigation_candidates": [
+    "CUR-H2"
+  ],
+  "review_status": "pending",
+  "live_review_gate_passed": false,
+  "review_required": [
+    "question_reference_and_answer_validity_at_new_checkpoint",
+    "full_history_unsupported_question_absence",
+    "paraphrase_equivalence",
+    "synthetic_update_conflict_and_interference_semantics"
+  ],
+  "earlier_intake_question_match": null,
+  "warning": "Keyword hits only guide review; neither a hit nor its absence proves semantic correctness.",
+  "private_gold_source": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified_next70_v2\\1d4e3b97\\private\\1d4e3b97\\gold.json",
+  "private_gold_source_sha256": "96395a4463d9f8d17d6dd930455bc7b5f301c13d2ccf83538bcaf0edb52501cd",
+  "api_calls": 0,
+  "experiments_started": 0,
+  "structural_validation": "passed"
+}

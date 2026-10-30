@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_2f91af09",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 64,
+  "question_cell": "F64",
+  "answer_cell": "E64",
+  "adopted_question_verbatim": "What title did I give the piece I wrote for the 'forgotten memories' writing prompt?",
+  "adopted_answer_or_rubric_verbatim": "The Smell of Old Books",
+  "english_rubric": "Require The Smell of Old Books, allowing punctuation and initial-article variation; do not sum overlapping writing counts.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

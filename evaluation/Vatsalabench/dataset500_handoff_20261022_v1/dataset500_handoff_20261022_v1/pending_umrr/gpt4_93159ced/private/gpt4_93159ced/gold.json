@@ -1,0 +1,130 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "about 4 years and 9 months",
+      "rule": "Accept approximately 57 months, four years nine months, or an equivalent duration from subtracting approximately 51 months from 108 months under the assumptions stated in the question. Do not require additional proof about gaps, overlapping jobs, or exact pre-NovaTech employment dates."
+    },
+    "BASE-2": {
+      "expected": "about 4 years and 9 months",
+      "rule": "Accept approximately 57 months, four years nine months, or an equivalent duration from subtracting approximately 51 months from 108 months under the assumptions stated in the question. Do not require additional proof about gaps, overlapping jobs, or exact pre-NovaTech employment dates."
+    },
+    "BASE-3": {
+      "expected": "about 4 years and 9 months",
+      "rule": "Accept approximately 57 months, four years nine months, or an equivalent duration from subtracting approximately 51 months from 108 months under the assumptions stated in the question. Do not require additional proof about gaps, overlapping jobs, or exact pre-NovaTech employment dates."
+    },
+    "RET-10": {
+      "expected": "about 4 years and 9 months",
+      "rule": "Accept approximately 57 months, four years nine months, or an equivalent duration from subtracting approximately 51 months from 108 months under the assumptions stated in the question. Do not require additional proof about gaps, overlapping jobs, or exact pre-NovaTech employment dates."
+    },
+    "RET-30": {
+      "expected": "about 4 years and 9 months",
+      "rule": "Accept approximately 57 months, four years nine months, or an equivalent duration from subtracting approximately 51 months from 108 months under the assumptions stated in the question. Do not require additional proof about gaps, overlapping jobs, or exact pre-NovaTech employment dates."
+    },
+    "RET-50": {
+      "expected": "about 4 years and 9 months",
+      "rule": "Accept approximately 57 months, four years nine months, or an equivalent duration from subtracting approximately 51 months from 108 months under the assumptions stated in the question. Do not require additional proof about gaps, overlapping jobs, or exact pre-NovaTech employment dates."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "9 years",
+        "about 4 years and 3 months"
+      ],
+      "intents": [
+        "Total career duration",
+        "NovaTech duration"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "10:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/26 08:00",
+        "old_valid_from": "2023/05/26 08:00",
+        "old_valid_to": "2023/05/27 09:00",
+        "observed_at": "2023/05/27 09:00",
+        "valid_from": "2023/05/27 09:00",
+        "valid_to": null,
+        "query_time": "2023/05/27 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "10:00",
+        "11:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "10:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "10:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 1,
+        "turn_index": 5,
+        "date": "2023/05/25 (Thu) 01:29",
+        "role": "user",
+        "quote": "I'm a software engineer, specifically a backend developer, and I've been in this field since I graduated with a degree in Computer Science from the University of California, Berkeley. I've been working at NovaTech for about 4 years and 3 months now. Given my experience, I'm looking for a tool that's easy to use and can provide detailed insights into our API's performance. I've heard of New Relic and Datadog, but I'm not sure which one would be the best fit for our team. Can you give me a brief comparison of these two tools?"
+      },
+      {
+        "session_index": 24,
+        "turn_index": 3,
+        "date": "2023/05/25 (Thu) 00:34",
+        "role": "user",
+        "quote": "I'll definitely try to implement these tips. One thing I'm struggling with is keeping track of my tasks and projects. I've been working professionally for 9 years and I'm currently using a physical notebook to jot down notes and reminders, but I'm not sure if that's the most efficient way. Do you have any recommendations for digital tools or apps that can help me stay organized?"
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/26 08:00",
+    "old_valid_from": "2023/05/26 08:00",
+    "old_valid_to": "2023/05/27 09:00",
+    "observed_at": "2023/05/27 09:00",
+    "valid_from": "2023/05/27 09:00",
+    "valid_to": null,
+    "query_time": "2023/05/27 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "gpt4_93159ced",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

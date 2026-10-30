@@ -1,0 +1,15 @@
+{
+  "sample_id": "2b8f3739",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 60,
+  "question_cell": "F60",
+  "answer_cell": "E60",
+  "adopted_question_verbatim": "How much did I say I earned from selling jam at the Homemade and Handmade Market on May 29?",
+  "adopted_answer_or_rubric_verbatim": "$225",
+  "english_rubric": "Require 225 dollars of reported proceeds; do not call it net profit or add other markets.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

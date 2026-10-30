@@ -1,0 +1,45 @@
+{
+  "question": "What was the exact ISBN of the edition of The Seven Husbands of Evelyn Hugo I was reading?",
+  "pattern": "ISBN|edition|Evelyn|Hugo|Seven Husbands|hardcover|paperback",
+  "messages_scanned": 503,
+  "matching_sentences": [
+    {
+      "session": 10,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/05/23 (Tue) 11:27",
+      "text": "By the way, I'm currently devouring \"The Seven Husbands of Evelyn Hugo\" and it's hard to put down!"
+    },
+    {
+      "session": 10,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 11:27",
+      "text": "\"The Seven Husbands of Evelyn Hugo\" is an amazing book!"
+    },
+    {
+      "session": 10,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 11:27",
+      "text": "Enjoy the rest of \"The Seven Husbands of Evelyn Hugo\"!"
+    },
+    {
+      "session": 38,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 20:07",
+      "text": "I have a few rare prints and limited edition pieces that I'd like to get appraised."
+    },
+    {
+      "session": 38,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 20:07",
+      "text": "**Experience**: Ensure the appraiser or conservator has experience with your type of art (e.g., prints, limited edition pieces)."
+    }
+  ],
+  "coverage": "All messages in both roles scanned programmatically. Regex matches are navigation, not proof of absence.",
+  "independent_full_history_review": "pending",
+  "eligibility": "provisional_candidate"
+}

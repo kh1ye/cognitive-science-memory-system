@@ -1,0 +1,15 @@
+{
+  "sample_id": "29f2956b_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 286,
+  "question_cell": "F286",
+  "answer_cell": "E286",
+  "adopted_question_verbatim": "How much time do I dedicate to practicing violin every day?",
+  "adopted_answer_or_rubric_verbatim": "无法确认小提琴每日练习时长；吉他数据不能替代。",
+  "english_rubric": "Do not transfer guitar practice duration to violin. Acknowledge that the requested violin duration is not established; absence requires independent review.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

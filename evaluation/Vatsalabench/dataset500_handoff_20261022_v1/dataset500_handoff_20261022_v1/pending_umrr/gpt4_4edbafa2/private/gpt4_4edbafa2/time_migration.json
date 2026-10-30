@@ -1,0 +1,42 @@
+{
+  "sample_id": "gpt4_4edbafa2",
+  "source_order": 415,
+  "protocol_version": "unified-v1.1-full-history",
+  "previous_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified_next50_401_450_v2\\gpt4_4edbafa2",
+  "previous_suite_sha256": "5f9822d9bfa4b554bfc402b295a247781ef20128125ef89496c980fe1660eb3f",
+  "source_question_date": "2023/07/01 (Sat) 02:36",
+  "previous_base_query_time": "2023-07-01T02:36:00",
+  "experiment_base_query_time": "2023-07-01T23:52:00",
+  "max_original_timestamp": "2023-07-01T23:51:00",
+  "last_file_session_timestamp": "2023-07-01T06:18:00",
+  "baseline_retimed": true,
+  "duplicate_timestamp_excess": 2,
+  "adjacent_timestamp_inversions": 14,
+  "original_sessions": 41,
+  "synthetic_shift_days": 0,
+  "history_file_byte_identical": true,
+  "branches_file_byte_identical": true,
+  "questions_unchanged": true,
+  "target_references_unchanged": true,
+  "expected_answers_unchanged": true,
+  "source_projection_verified": true,
+  "adapter_storage_round_trip_verified": true,
+  "relative_wording_navigation_candidates": [
+    "CUR-H2"
+  ],
+  "review_status": "pending",
+  "live_review_gate_passed": false,
+  "review_required": [
+    "question_reference_and_answer_validity_at_new_checkpoint",
+    "full_history_unsupported_question_absence",
+    "paraphrase_equivalence",
+    "synthetic_update_conflict_and_interference_semantics"
+  ],
+  "earlier_intake_question_match": null,
+  "warning": "Keyword hits only guide review; neither a hit nor its absence proves semantic correctness.",
+  "private_gold_source": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified_next50_401_450_v2\\gpt4_4edbafa2\\private\\gpt4_4edbafa2\\gold.json",
+  "private_gold_source_sha256": "45da72b1150edfe213164bbebe170f52c1a4425d3e3020c6a6cd2e0e20d5fd1c",
+  "api_calls": 0,
+  "experiments_started": 0,
+  "structural_validation": "passed"
+}

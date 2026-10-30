@@ -1,0 +1,15 @@
+{
+  "sample_id": "1d4e3b97",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 81,
+  "question_cell": "F81",
+  "answer_cell": "E81",
+  "adopted_question_verbatim": "I noticed my bike seems to be performing even better during my Sunday group rides. Could there be a reason for this?",
+  "adopted_answer_or_rubric_verbatim": "可引用更换链条和飞轮作为用户已报告的相关因素；对因果解释保留适当限定。",
+  "english_rubric": "Use the reported chain/cassette replacement as a possible contributor, with suitable causal qualification. Planned Garmin tracking is not proof of improved mechanical performance.",
+  "mapped_role": "supplementary_open_task_not_scheduled_in_core12",
+  "scheduled_in_core12": false,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

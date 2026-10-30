@@ -1,0 +1,37 @@
+{
+  "adapter_version": "memorybank-live-source-order-v2",
+  "source": {
+    "directory": "D:\\vatsalabench\\MemoryBank-SiliconFriend-main",
+    "files_sha256": {
+      "SiliconFriend-ChatGLM-BELLE/cli_demo.py": "115b27bbe43b856277490b99f3339c592a78a33f085a4206454f355cad2734dc",
+      "utils/sys_args.py": "9750dea0647d204c68638435d54d2fbfbd280fe88da9538deadf9a53380d1212",
+      "utils/memory_utils.py": "320db88cf93b2f8ddc2b0e33250cc59dd82c3bb07047eb1b6d19bbc50b53d2fa",
+      "utils/prompt_utils.py": "dcce80020952bbf72ad450e8a4d035d6304bdd26b1c3b4feb6cfab4aa86c02b4",
+      "memory_bank/summarize_memory.py": "a78e708b41b89591dcf2bd716e718cc2b80fa5b8db50d596eedcc5e1c7a68213",
+      "memory_bank/memory_retrieval/local_doc_qa.py": "854539a4fd60a0d4fcf3e4fe3bf510596f38af2c7a6eb0bf957c2c9c51c3f184",
+      "memory_bank/memory_retrieval/configs/model_config.py": "6c14cf64aeebadcf14bc157ec816d5e137d9cd8669c9c7e621e0a9ba0284e16c",
+      "memory_bank/memory_retrieval/forget_memory.py": "d9b6d689fbaa4cb14b65f67f36e38cbafb70475e870f4c6a6f9cbc33ae5d55d0",
+      "LICENSE": "38a553151ada2b1518ab5ac469de7d04d35923b3510aea17b1156a2ce9ce50cf"
+    }
+  },
+  "retrieval": {
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "embedding_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "device": "cpu",
+    "max_sequence_tokens": 256,
+    "top_k": 2,
+    "neighbor_expansion_characters": 200,
+    "distance": "squared_L2",
+    "local_files_only": true
+  },
+  "policy": {
+    "baseline": "ingest_source_sessions_then_generate_each_day_once_and_globals_once",
+    "appended_session": "regenerate_affected_day_and_globals_after_every_session",
+    "index": "reuse_unchanged_document_vectors_within_state_only",
+    "probe": "restore_exact_vectors_and_summaries_in_disposable_fork",
+    "forgetting": false,
+    "duplicate_timestamps": "distinct_session_ids_preserve_source_order",
+    "language_model": "deepseek_live",
+    "input_order": "original_file_order_max_timestamp_clock"
+  }
+}

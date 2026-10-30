@@ -1,0 +1,125 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "March 7",
+      "rule": "Require March 7 for the reported cleanup. Do not import the original interval answer into this adopted date question."
+    },
+    "BASE-2": {
+      "expected": "March 7",
+      "rule": "Require March 7 for the reported cleanup. Do not import the original interval answer into this adopted date question."
+    },
+    "BASE-3": {
+      "expected": "March 7",
+      "rule": "Require March 7 for the reported cleanup. Do not import the original interval answer into this adopted date question."
+    },
+    "RET-10": {
+      "expected": "March 7",
+      "rule": "Require March 7 for the reported cleanup. Do not import the original interval answer into this adopted date question."
+    },
+    "RET-30": {
+      "expected": "March 7",
+      "rule": "Require March 7 for the reported cleanup. Do not import the original interval answer into this adopted date question."
+    },
+    "RET-50": {
+      "expected": "March 7",
+      "rule": "Require March 7 for the reported cleanup. Do not import the original interval answer into this adopted date question."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "March 7",
+        "February 21"
+      ],
+      "intents": [
+        "Cleanup date",
+        "Charity-walk date"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "09:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/03/15 08:00",
+        "old_valid_from": "2023/03/15 08:00",
+        "old_valid_to": "2023/03/16 09:00",
+        "observed_at": "2023/03/16 09:00",
+        "valid_from": "2023/03/16 09:00",
+        "valid_to": null,
+        "query_time": "2023/03/16 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "09:00",
+        "10:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "09:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "09:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 19,
+        "turn_index": 1,
+        "date": "2023/03/14 (Tue) 16:33",
+        "role": "user",
+        "quote": "I'm planning a beach trip to Santa Monica soon and I was wondering if you could recommend some eco-friendly sunscreen brands. By the way, I recently volunteered at the Coastal Cleanup event on March 7th and it was amazing to see the impact we made on keeping our beaches clean."
+      },
+      {
+        "session_index": 23,
+        "turn_index": 1,
+        "date": "2023/03/14 (Tue) 03:59",
+        "role": "user",
+        "quote": "I'm looking to find some new charity events to participate in, particularly ones that involve walking or running. I just did the \"Walk for Hunger\" 5K walk on February 21st and had a great time, so I'm looking for something similar. Do you have any recommendations?"
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/03/15 08:00",
+    "old_valid_from": "2023/03/15 08:00",
+    "old_valid_to": "2023/03/16 09:00",
+    "observed_at": "2023/03/16 09:00",
+    "valid_from": "2023/03/16 09:00",
+    "valid_to": null,
+    "query_time": "2023/03/16 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "f0853d11",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

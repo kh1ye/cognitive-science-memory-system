@@ -1,0 +1,15 @@
+{
+  "sample_id": "73d42213",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 106,
+  "question_cell": "F106",
+  "answer_cell": "E106",
+  "adopted_question_verbatim": "What time did I say I left home on Monday for my doctor's appointment?",
+  "adopted_answer_or_rubric_verbatim": "7:00 AM",
+  "english_rubric": "Require 7 AM departure, not inferred 9 AM arrival. Do not join potentially different appointments.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,6 +1,7 @@
 """Offline behavioral tests for module boundaries; no external provider/API key."""
 
 import sqlite3
+from contextlib import closing
 import unittest
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -300,7 +301,7 @@ class ArchitectureTests(unittest.TestCase):
                         ],
                         "legacy_unverified",
                     )
-            with sqlite3.connect(str(path) + ".pre-coala-v1.bak") as backup:
+            with closing(sqlite3.connect(str(path) + ".pre-coala-v1.bak")) as backup:
                 self.assertEqual(
                     backup.execute("SELECT COUNT(*) FROM memories").fetchone()[0], 4
                 )

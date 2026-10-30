@@ -1,0 +1,144 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "initially 4; now 5",
+      "rule": "Require both initial four and later five. Use the explicit early correction; outing attendees including the manager are not direct reports."
+    },
+    "BASE-2": {
+      "expected": "initially 4; now 5",
+      "rule": "Require both initial four and later five. Use the explicit early correction; outing attendees including the manager are not direct reports."
+    },
+    "BASE-3": {
+      "expected": "initially 4; now 5",
+      "rule": "Require both initial four and later five. Use the explicit early correction; outing attendees including the manager are not direct reports."
+    },
+    "RET-10": {
+      "expected": "initially 4; now 5",
+      "rule": "Require both initial four and later five. Use the explicit early correction; outing attendees including the manager are not direct reports."
+    },
+    "RET-30": {
+      "expected": "initially 4; now 5",
+      "rule": "Require both initial four and later five. Use the explicit early correction; outing attendees including the manager are not direct reports."
+    },
+    "RET-50": {
+      "expected": "initially 4; now 5",
+      "rule": "Require both initial four and later five. Use the explicit early correction; outing attendees including the manager are not direct reports."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "four",
+        "five"
+      ],
+      "intents": [
+        "Initial engineers",
+        "Later engineers"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "14:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/11/11 08:00",
+        "old_valid_from": "2023/11/11 08:00",
+        "old_valid_to": "2023/11/12 09:00",
+        "observed_at": "2023/11/12 09:00",
+        "valid_from": "2023/11/12 09:00",
+        "valid_to": null,
+        "query_time": "2023/11/12 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "14:00",
+        "15:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "14:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "14:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 1,
+        "turn_index": 11,
+        "date": "2023/05/11 (Thu) 02:02",
+        "role": "user",
+        "quote": "I apologize for the confusion! I lead a team of 4 engineers in my new role as Senior Software Engineer. So, we'll have 4 engineers, plus my manager Rachel, making it a total of 5 people from our team attending the outing."
+      },
+      {
+        "session_index": 7,
+        "turn_index": 3,
+        "date": "2023/10/24 (Tue) 13:53",
+        "role": "user",
+        "quote": "That's a great list! I think I'll go with the group hike option. Do you know if there are any nearby parks or nature reserves that are suitable for a 6-person group? And by the way, I've been enjoying my role as Senior Software Engineer for a while, especially the part where I now lead a team of five engineers - it's been a great experience so far, and I'm excited to see how they'll grow under my guidance."
+      },
+      {
+        "session_index": 1,
+        "turn_index": 5,
+        "date": "2023/05/11 (Thu) 02:02",
+        "role": "user",
+        "quote": "I think City View Rooftop sounds like a great option. Do you think they have any discounts or packages for corporate teams? Also, by the way, I'm planning to invite my manager Rachel to join us, so we'll be a group of 5 engineers and a manager."
+      },
+      {
+        "session_index": 1,
+        "turn_index": 7,
+        "date": "2023/05/11 (Thu) 02:02",
+        "role": "user",
+        "quote": "I'll reach out to Samantha and ask about the Corporate Team Building Package for 6 people. Also, do you know what's the typical format for a team outing like this? Should we plan for a specific agenda or just let everyone mingle and have fun?"
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/11/11 08:00",
+    "old_valid_from": "2023/11/11 08:00",
+    "old_valid_to": "2023/11/12 09:00",
+    "observed_at": "2023/11/12 09:00",
+    "valid_from": "2023/11/12 09:00",
+    "valid_to": null,
+    "query_time": "2023/11/12 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "031748ae",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

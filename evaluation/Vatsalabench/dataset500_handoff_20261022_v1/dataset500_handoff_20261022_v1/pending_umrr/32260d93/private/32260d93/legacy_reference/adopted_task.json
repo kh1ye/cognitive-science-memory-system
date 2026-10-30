@@ -1,0 +1,15 @@
+{
+  "sample_id": "32260d93",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 72,
+  "question_cell": "F72",
+  "answer_cell": "E72",
+  "adopted_question_verbatim": "Can you recommend a show or movie for me to watch tonight?",
+  "adopted_answer_or_rubric_verbatim": "给出具体可观看的节目或电影建议；历史支持偏好叙事型单口喜剧，但不排斥所有其他类型。",
+  "english_rubric": "Recommend a concrete show or movie. Storytelling stand-up is supported as an interest but does not exclude all other genres. Verify availability separately when needed.",
+  "mapped_role": "supplementary_open_task_not_scheduled_in_core12",
+  "scheduled_in_core12": false,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

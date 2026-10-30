@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "I mentioned cooking something for my friend a couple of days ago. What was it?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2022-04-12T22:57:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2022-04-12T22:57:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "What food for my friend's celebration did I mention in the April 10, 2022 conversation?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2022-04-12T22:57:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2022-04-12T22:57:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "Which cake did I report making for a friend's birthday in the chat two days before April 12, 2022?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2022-04-12T22:57:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2022-04-12T22:57:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact URL of the online cake recipe used for my friend's birthday?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2022-04-12T22:57:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2022-04-12T22:57:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "What cake did I mention making for my friend's birthday, and what ingredient did the recipe use to intensify its flavour?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2022-04-12T22:57:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2022-04-12T22:57:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "I mentioned cooking something for my friend a couple of days ago. What was it?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2022-04-14T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2022-04-12T22:57:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "I mentioned cooking something for my friend a couple of days ago. What was it?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2022-04-15T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2022-04-12T22:57:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "I mentioned cooking something for my friend a couple of days ago. What was it?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2022-04-16T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2022-04-12T22:57:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the start time for a separate future baking session now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2022-04-14T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2022-04-14T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2022/04/14 12:00, what is the start time for a separate future baking session?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2022-04-14T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2022-04-14T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2022/04/14 12:00, what is the start time for a separate future baking session?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2022-04-14T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2022-04-14T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2022/04/14 12:00, what is the start time for a separate future baking session?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2022-04-14T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2022-04-14T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

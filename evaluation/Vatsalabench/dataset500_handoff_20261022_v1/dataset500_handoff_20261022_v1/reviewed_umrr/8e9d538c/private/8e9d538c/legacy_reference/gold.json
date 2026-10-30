@@ -1,0 +1,132 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "17 skeins",
+      "rule": "Require seventeen skeins of worsted-weight yarn as the amount found. Do not infer that seventeen remained after subsequent use."
+    },
+    "BASE-2": {
+      "expected": "17 skeins",
+      "rule": "Require seventeen skeins of worsted-weight yarn as the amount found. Do not infer that seventeen remained after subsequent use."
+    },
+    "BASE-3": {
+      "expected": "17 skeins",
+      "rule": "Require seventeen skeins of worsted-weight yarn as the amount found. Do not infer that seventeen remained after subsequent use."
+    },
+    "RET-10": {
+      "expected": "17 skeins",
+      "rule": "Require seventeen skeins of worsted-weight yarn as the amount found. Do not infer that seventeen remained after subsequent use."
+    },
+    "RET-30": {
+      "expected": "17 skeins",
+      "rule": "Require seventeen skeins of worsted-weight yarn as the amount found. Do not infer that seventeen remained after subsequent use."
+    },
+    "RET-50": {
+      "expected": "17 skeins",
+      "rule": "Require seventeen skeins of worsted-weight yarn as the amount found. Do not infer that seventeen remained after subsequent use."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value and no false denial of a known related event. Do not infer that an identifier or certificate exists merely because the question asks for it.",
+      "annotation_status": "targeted_search_only_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "17 skeins",
+        "a pair of fingerless gloves"
+      ],
+      "intents": [
+        "Quantity found",
+        "Completed gift"
+      ],
+      "rule": "TIC counts substantive answers to the two requested slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, separately from correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "8 skeins",
+      "rule": "Adopt the new effective value after incremental ingestion of the update and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "8 skeins",
+        "10 skeins"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not choose a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "8 skeins",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "8 skeins",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 35,
+        "turn_index": 3,
+        "date": "2023/05/27 (Sat) 11:27",
+        "role": "user",
+        "quote": "What about the yarn I already have? Can I use some of my worsted weight yarn for the amigurumi toys? I have a stash of 17 skeins that I found recently, and I'd love to use them up."
+      },
+      {
+        "session_index": 35,
+        "turn_index": 7,
+        "date": "2023/05/27 (Sat) 11:27",
+        "role": "user",
+        "quote": "I've already made a pair of fingerless gloves for my sister's birthday, and I'm thinking of making a few more as gifts. I used some of my worsted weight yarn stash, and I was wondering if I could use the same yarn and hook size for the other gloves, or if I should adjust them for different hand sizes."
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional_pending_independent_review"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+    "sheet": "Sheet1",
+    "row": 27,
+    "question_cell": "F27",
+    "answer_cell": "E27",
+    "status": "user_confirmed_reviewed",
+    "adopted_question": "How many skeins of worsted weight yarn did I find in my stash?",
+    "adopted_answer": "17 skeins"
+  },
+  "new_content_review": "AI-authored with source-context review; independent acceptance pending",
+  "scope_notes": [
+    "Historical reference remains fixed to the original report, not the query date.",
+    "Recall supplied statements only; no new personal facts are inferred."
+  ],
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10 + 2*r30 + r50)/4.",
+    "resource": "Fresh separate baseline and three resource queries. Native units only. No mixed-unit overall score."
+  }
+}

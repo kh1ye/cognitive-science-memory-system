@@ -1,0 +1,15 @@
+{
+  "sample_id": "3fdac837",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 346,
+  "question_cell": "F346",
+  "answer_cell": "E346",
+  "adopted_question_verbatim": "How many days did I say my last Chicago trip lasted?",
+  "adopted_answer_or_rubric_verbatim": "4 days",
+  "english_rubric": "Require four days. No Japan date arithmetic is needed.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

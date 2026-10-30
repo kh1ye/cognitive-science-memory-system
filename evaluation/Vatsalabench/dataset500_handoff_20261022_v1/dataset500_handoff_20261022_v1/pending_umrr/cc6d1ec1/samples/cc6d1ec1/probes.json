@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "About how long did I say I had been interested in bird watching in the May 21 conversation?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-21T23:55:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 21, 2023 accounts of birdwatching interest and the workshop; interpret durations as originally reported in the respective accounts, not relative to the experiment query time"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "In the May 21 chat, roughly how long had I been interested in observing birds?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-21T23:55:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 21, 2023 accounts of birdwatching interest and the workshop; interpret durations as originally reported in the respective accounts, not relative to the experiment query time"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "What approximate duration did I give for my birdwatching interest in that May 21 account?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-21T23:55:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 21, 2023 accounts of birdwatching interest and the workshop; interpret durations as originally reported in the respective accounts, not relative to the experiment query time"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact registration number for my Audubon bird-watching workshop?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-21T23:55:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 21, 2023 accounts of birdwatching interest and the workshop; interpret durations as originally reported in the respective accounts, not relative to the experiment query time"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "About how long had I been bird watching in the May 21 report, and what local organisation hosted the workshop I mentioned?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-21T23:55:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 21, 2023 accounts of birdwatching interest and the workshop; interpret durations as originally reported in the respective accounts, not relative to the experiment query time"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "About how long did I say I had been interested in bird watching in the May 21 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-05-23T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 21, 2023 accounts of birdwatching interest and the workshop; interpret durations as originally reported in the respective accounts, not relative to the experiment query time"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "About how long did I say I had been interested in bird watching in the May 21 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-05-24T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 21, 2023 accounts of birdwatching interest and the workshop; interpret durations as originally reported in the respective accounts, not relative to the experiment query time"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "About how long did I say I had been interested in bird watching in the May 21 conversation?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-05-25T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the user's May 21, 2023 accounts of birdwatching interest and the workshop; interpret durations as originally reported in the respective accounts, not relative to the experiment query time"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the start time for a separate future nature walk now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-05-23T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-05-23T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/05/23 12:00, what is the start time for a separate future nature walk?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-05-23T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-05-23T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/05/23 12:00, what is the start time for a separate future nature walk?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-05-23T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-05-23T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/05/23 12:00, what is the start time for a separate future nature walk?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-05-23T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-05-23T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

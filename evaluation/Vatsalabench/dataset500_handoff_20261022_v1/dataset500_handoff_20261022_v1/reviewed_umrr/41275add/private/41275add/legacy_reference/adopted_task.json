@@ -1,0 +1,15 @@
+{
+  "sample_id": "41275add",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 495,
+  "question_cell": "F495",
+  "answer_cell": "E495",
+  "adopted_question_verbatim": "I wanted to follow up on our previous conversation about YouTube videos for workplace posture. Can you remind me of the Mayo Clinic video you recommended?",
+  "adopted_answer_or_rubric_verbatim": "How to Sit Properly at a Desk to Avoid Back Pain; https://www.youtube.com/watch?v=UfOvNlX9Hh0",
+  "english_rubric": "Require both the title (semantic wording equivalent acceptable) and the exact case-sensitive YouTube video ID UfOvNlX9Hh0. Harmless URL wrappers are ignored. The historical title/link and publisher attribution are unverified, not medical advice.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

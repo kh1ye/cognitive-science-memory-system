@@ -1,0 +1,130 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "20 dozen eggs",
+      "rule": "Require 20 dozen, equivalent to 240 eggs if the conversion is explicit. Twenty individual eggs is incorrect; do not sum stocks."
+    },
+    "BASE-2": {
+      "expected": "20 dozen eggs",
+      "rule": "Require 20 dozen, equivalent to 240 eggs if the conversion is explicit. Twenty individual eggs is incorrect; do not sum stocks."
+    },
+    "BASE-3": {
+      "expected": "20 dozen eggs",
+      "rule": "Require 20 dozen, equivalent to 240 eggs if the conversion is explicit. Twenty individual eggs is incorrect; do not sum stocks."
+    },
+    "RET-10": {
+      "expected": "20 dozen eggs",
+      "rule": "Require 20 dozen, equivalent to 240 eggs if the conversion is explicit. Twenty individual eggs is incorrect; do not sum stocks."
+    },
+    "RET-30": {
+      "expected": "20 dozen eggs",
+      "rule": "Require 20 dozen, equivalent to 240 eggs if the conversion is explicit. Twenty individual eggs is incorrect; do not sum stocks."
+    },
+    "RET-50": {
+      "expected": "20 dozen eggs",
+      "rule": "Require 20 dozen, equivalent to 240 eggs if the conversion is explicit. Twenty individual eggs is incorrect; do not sum stocks."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "20 dozen",
+        "30 dozen"
+      ],
+      "intents": [
+        "Later stock",
+        "Earlier stock"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "green",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/03/17 08:00",
+        "old_valid_from": "2023/03/17 08:00",
+        "old_valid_to": "2023/03/18 09:00",
+        "observed_at": "2023/03/18 09:00",
+        "valid_from": "2023/03/18 09:00",
+        "valid_to": null,
+        "query_time": "2023/03/18 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "green",
+        "white"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "green",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "green",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 2,
+        "turn_index": 3,
+        "date": "2023/01/11 (Wed) 23:15",
+        "role": "user",
+        "quote": "I was thinking of making some egg salad for a quick lunch. Do you have a simple recipe that I can try? And by the way, I need to start using up some of our eggs, we have a lot stocked up in the fridge - 30 dozen at the moment!"
+      },
+      {
+        "session_index": 41,
+        "turn_index": 3,
+        "date": "2023/03/15 (Wed) 08:18",
+        "role": "user",
+        "quote": "I think I'll try the spinach and feta variation, sounds delicious. By the way, I was thinking of using some of our fresh eggs from the coop - we've got 20 dozen stocked up in the fridge right now. Do you have any tips on how to store eggs properly to keep them fresh for a longer period?"
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/03/17 08:00",
+    "old_valid_from": "2023/03/17 08:00",
+    "old_valid_to": "2023/03/18 09:00",
+    "observed_at": "2023/03/18 09:00",
+    "valid_from": "2023/03/18 09:00",
+    "valid_to": null,
+    "query_time": "2023/03/18 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "ed4ddc30",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

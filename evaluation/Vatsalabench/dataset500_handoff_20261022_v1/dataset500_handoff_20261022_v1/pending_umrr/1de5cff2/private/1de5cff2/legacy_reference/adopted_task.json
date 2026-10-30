@@ -1,0 +1,15 @@
+{
+  "sample_id": "1de5cff2",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 250,
+  "question_cell": "F250",
+  "answer_cell": "E250",
+  "adopted_question_verbatim": "I was going through our previous conversation about high-end fashion brands, and I was wondering if you could remind me of the brand that uses wild rubber sourced from the Amazon rainforest?",
+  "adopted_answer_or_rubric_verbatim": "Veja",
+  "english_rubric": "Require Veja from the stored list. Do not verify present sourcing or prestige positioning.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

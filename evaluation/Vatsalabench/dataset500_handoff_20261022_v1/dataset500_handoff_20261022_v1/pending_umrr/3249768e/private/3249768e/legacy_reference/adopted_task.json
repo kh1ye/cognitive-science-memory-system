@@ -1,0 +1,15 @@
+{
+  "sample_id": "3249768e",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 234,
+  "question_cell": "F234",
+  "answer_cell": "E234",
+  "adopted_question_verbatim": "I'm looking back at our previous conversation about building a cocktail bar. You recommended five bottles to make the widest variety of gin-based cocktails. Can you remind me what the fifth bottle was?",
+  "adopted_answer_or_rubric_verbatim": "Absinthe",
+  "english_rubric": "Require Absinthe as the stored list item, not a new recommendation or judgement of the best drinks.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,129 @@
+{
+  "question": "What was the exact airline booking reference associated with the Costa Rica trip I described?",
+  "pattern": "Costa Rica|booking|reservation|airline|confirmation|reference",
+  "messages_scanned": 495,
+  "matching_sentences": [
+    {
+      "session": 2,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 17:07",
+      "text": "**Letters of Recommendation**: Most programs require 2-3 letters from academic or professional references who can speak to your skills, work ethic, and potential in the field of Data Science."
+    },
+    {
+      "session": 3,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/05/21 (Sun) 05:49",
+      "text": "The muscles, and the neural pathways, atrophy (or “lose preference”); the brain “forgets” them."
+    },
+    {
+      "session": 7,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 09:54",
+      "text": "In this example, `dispatch` is a function returned by the `useDispatch` hook, and `navigation` is a reference to the navigation object provided by the `useNavigation` hook."
+    },
+    {
+      "session": 17,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 22:46",
+      "text": "Here's a makeup-themed pun that doesn't specifically reference foundation:"
+    },
+    {
+      "session": 24,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 18:23",
+      "text": "* Discuss the importance of tailoring the sales message to the customer's unique needs and preferences"
+    },
+    {
+      "session": 25,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 04:25",
+      "text": "The mix of finger foods and sweet treats will cater to different tastes and dietary preferences, and the DIY food stations will add an interactive element to the party."
+    },
+    {
+      "session": 32,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 19:31",
+      "text": "As for the timing, it's entirely up to you and your personal preferences."
+    },
+    {
+      "session": 35,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 13:57",
+      "text": "\t* Ensure the truck is suitable for your move, and ask about any special equipment requirements (e.g., elevator reservations)."
+    },
+    {
+      "session": 38,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 23:58",
+      "text": "Plus, you can easily switch between titles or adjust the playback speed to suit your preferences."
+    },
+    {
+      "session": 39,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 09:12",
+      "text": "While a general-purpose potting mix can work, basil plants have specific soil preferences to thrive."
+    },
+    {
+      "session": 45,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 11:53",
+      "text": "* Travel itinerary and hotel reservation"
+    },
+    {
+      "session": 45,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 11:53",
+      "text": "Remember to check with your airline for any specific luggage restrictions or requirements before your trip."
+    },
+    {
+      "session": 45,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 11:53",
+      "text": "\t+ Travel documents (e.g., boarding pass, hotel reservation)"
+    },
+    {
+      "session": 45,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 11:53",
+      "text": "Remember to check with your airline for specific carry-on and checked luggage size and weight restrictions before your trip."
+    },
+    {
+      "session": 45,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/29 (Mon) 11:53",
+      "text": "Like, on my last trip to Costa Rica, I brought 7 shirts and 5 pairs of shorts, but I only ended up wearing 3 of the shirts and 2 of the shorts."
+    },
+    {
+      "session": 45,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 11:53",
+      "text": "For example, if you're going to Costa Rica, you might prioritize packing:"
+    },
+    {
+      "session": 47,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/29 (Mon) 20:16",
+      "text": "**Racing-Reference.info**: A comprehensive resource for endurance racing, with information on cars, tracks, and events."
+    }
+  ],
+  "coverage": "All messages in both roles scanned programmatically. Regex matches are navigation, not proof of absence.",
+  "independent_full_history_review": "pending",
+  "eligibility": "provisional_candidate"
+}

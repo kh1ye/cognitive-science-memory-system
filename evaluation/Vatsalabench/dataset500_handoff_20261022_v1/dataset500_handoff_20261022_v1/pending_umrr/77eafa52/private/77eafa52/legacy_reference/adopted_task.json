@@ -1,0 +1,15 @@
+{
+  "sample_id": "77eafa52",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 347,
+  "question_cell": "F347",
+  "answer_cell": "E347",
+  "adopted_question_verbatim": "How much more did I have to pay for the trip after the initial quote?",
+  "adopted_answer_or_rubric_verbatim": "$300 ($2,800-$2,500)",
+  "english_rubric": "Require $300, 2800-2500. A later mention of the initial quote is not a new revision. Price owed is not proof of payment.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

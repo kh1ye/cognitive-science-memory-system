@@ -1,0 +1,15 @@
+{
+  "sample_id": "e3fc4d6e",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 238,
+  "question_cell": "F238",
+  "answer_cell": "E238",
+  "adopted_question_verbatim": "I wanted to follow up on our previous conversation about the fusion breakthrough at Lawrence Livermore National Laboratory. Can you remind me who is the President's Chief Advisor for Science and Technology mentioned in the article?",
+  "adopted_answer_or_rubric_verbatim": "Dr. Arati Prabhakar",
+  "english_rubric": "Require Arati Prabhakar from the pasted article. Do not substitute a current officeholder. The user-supplied article, not entity adjacency alone, supports the role.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

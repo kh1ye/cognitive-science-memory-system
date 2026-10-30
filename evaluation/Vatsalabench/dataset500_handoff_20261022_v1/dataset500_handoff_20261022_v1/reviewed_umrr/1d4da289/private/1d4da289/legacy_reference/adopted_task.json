@@ -1,0 +1,15 @@
+{
+  "sample_id": "1d4da289",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 485,
+  "question_cell": "F485",
+  "answer_cell": "E485",
+  "adopted_question_verbatim": "I was thinking about our previous conversation about data privacy and security. You mentioned that companies use two-factor authentication to enhance security. Can you remind me what kind of two-factor authentication methods you were referring to?",
+  "adopted_answer_or_rubric_verbatim": "biometric authentication and one-time passwords (OTP)",
+  "english_rubric": "Require both biometrics and OTP as named examples. Neither isolated mechanism is automatically proof of a complete two-factor design.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

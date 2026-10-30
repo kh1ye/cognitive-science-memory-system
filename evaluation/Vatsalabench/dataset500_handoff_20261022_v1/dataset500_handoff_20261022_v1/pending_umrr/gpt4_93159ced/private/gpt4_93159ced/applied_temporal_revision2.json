@@ -1,0 +1,74 @@
+{
+  "sample_id": "gpt4_93159ced",
+  "source_order": 413,
+  "status": "accepted_edits_applied_validation_passed",
+  "authorization": "User explicitly requested applying the consolidated suggestions; no experiment or independent acceptance authorized.",
+  "parent_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1\\packages\\gpt4_93159ced",
+  "parent_suite_sha256": "a4971d62596dd44f1961e25f1dc7109e92f35518d15776b67072ec6794464033",
+  "revised_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1_review2\\packages\\gpt4_93159ced",
+  "revised_suite_sha256": "c8b0de3d5332bea2b9659b58b7e466541f004edf1b57f47583d0cf3430960ce4",
+  "proposal_file": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch07_v1\\pending_edits_all_batches.json",
+  "proposal_sha256": "3407de41004d56cd559b1fe0cb938f21362c02f9caa4ba68469decfe323abd54",
+  "source_proposal": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch06_v1\\proposed_edits.json",
+  "applied_edits": [
+    {
+      "file": "samples/gpt4_93159ced/probes.json",
+      "probe_id": "BASE-1",
+      "field": "question",
+      "old": "How long have I been working before I started my current job at NovaTech?",
+      "proposed": "Treating my reported NovaTech tenure as part of my total professional experience, what approximate duration remains after subtracting that tenure from the total?"
+    },
+    {
+      "file": "samples/gpt4_93159ced/probes.json",
+      "probe_id": "BASE-2",
+      "field": "question",
+      "old": "What approximate prior-career duration follows before joining NovaTech?",
+      "proposed": "If my stated career total includes my time at NovaTech once, roughly how much of that total is left after removing the company tenure?"
+    },
+    {
+      "file": "samples/gpt4_93159ced/probes.json",
+      "probe_id": "BASE-3",
+      "field": "question",
+      "old": "Subtracting my NovaTech tenure from the total professional time I reported, how long had I worked beforehand?",
+      "proposed": "Using the overall professional experience and NovaTech service I reported as comparable durations, what is their approximate difference?"
+    },
+    {
+      "file": "samples/gpt4_93159ced/probes.json",
+      "probe_id": "RET-10",
+      "field": "question",
+      "old": "How long have I been working before I started my current job at NovaTech?",
+      "proposed": "Treating my reported NovaTech tenure as part of my total professional experience, what approximate duration remains after subtracting that tenure from the total?"
+    },
+    {
+      "file": "samples/gpt4_93159ced/probes.json",
+      "probe_id": "RET-30",
+      "field": "question",
+      "old": "How long have I been working before I started my current job at NovaTech?",
+      "proposed": "Treating my reported NovaTech tenure as part of my total professional experience, what approximate duration remains after subtracting that tenure from the total?"
+    },
+    {
+      "file": "samples/gpt4_93159ced/probes.json",
+      "probe_id": "RET-50",
+      "field": "question",
+      "old": "How long have I been working before I started my current job at NovaTech?",
+      "proposed": "Treating my reported NovaTech tenure as part of my total professional experience, what approximate duration remains after subtracting that tenure from the total?"
+    }
+  ],
+  "changed_public_files": [
+    "samples/gpt4_93159ced/probes.json"
+  ],
+  "history_byte_identical": true,
+  "branches_byte_identical": true,
+  "gold_byte_identical": true,
+  "private_gold_sha256": "33026d19370b5b8e7b9e616ab22313693811f8410be968f1e25e37642dab814a",
+  "query_times_and_checkpoints_unchanged": true,
+  "protocol_and_provider_unchanged": true,
+  "question_edit_count": 6,
+  "reference_edit_count": 0,
+  "quality_probes": 12,
+  "metrics": 11,
+  "live_review_gate_passed": false,
+  "independent_review": "pending",
+  "api_calls": 0,
+  "inherited_audit_note": "Copied audit files describe their earlier source version. This revision record and current public inputs describe the applied wording."
+}

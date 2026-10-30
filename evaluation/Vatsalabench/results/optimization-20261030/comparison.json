@@ -1,0 +1,209 @@
+{
+  "development_before": {
+    "folder": "native-20261030-135946",
+    "sample_id": "b86304ba",
+    "complete": true,
+    "checkpoint_isolation": true,
+    "failed_operations": 0,
+    "reply_usage": {
+      "input_tokens": 65587,
+      "output_tokens": 2128
+    },
+    "mean_references": 5.0,
+    "mean_reply_seconds": 2.3238247250001223,
+    "manual_review": {
+      "base": [
+        false,
+        false,
+        false
+      ],
+      "slots": 0,
+      "retention": [
+        false,
+        false,
+        false
+      ],
+      "currency": true,
+      "conflict": [
+        false,
+        false,
+        false
+      ]
+    }
+  },
+  "development_after": {
+    "folder": "native-20261030-141954",
+    "sample_id": "b86304ba",
+    "complete": true,
+    "checkpoint_isolation": true,
+    "failed_operations": 0,
+    "reply_usage": {
+      "input_tokens": 218544,
+      "output_tokens": 1358
+    },
+    "mean_references": 10.0,
+    "mean_reply_seconds": 1.968136883333197,
+    "manual_review": {
+      "base": [
+        true,
+        true,
+        true
+      ],
+      "slots": 2,
+      "retention": [
+        true,
+        true,
+        true
+      ],
+      "currency": true,
+      "conflict": [
+        true,
+        true,
+        true
+      ]
+    }
+  },
+  "validation_before": {
+    "folder": "native-20261030-141309",
+    "sample_id": "1faac195",
+    "complete": true,
+    "checkpoint_isolation": true,
+    "failed_operations": 0,
+    "reply_usage": {
+      "input_tokens": 65645,
+      "output_tokens": 1408
+    },
+    "mean_references": 5.0,
+    "mean_reply_seconds": 1.597873458332894,
+    "manual_review": {
+      "base": [
+        true,
+        false,
+        true
+      ],
+      "slots": 1,
+      "retention": [
+        true,
+        true,
+        true
+      ],
+      "currency": true,
+      "conflict": [
+        false,
+        false,
+        false
+      ]
+    }
+  },
+  "validation_after": {
+    "folder": "native-20261030-142006",
+    "sample_id": "1faac195",
+    "complete": true,
+    "checkpoint_isolation": true,
+    "failed_operations": 0,
+    "reply_usage": {
+      "input_tokens": 228586,
+      "output_tokens": 2274
+    },
+    "mean_references": 10.0,
+    "mean_reply_seconds": 2.3441490999998678,
+    "manual_review": {
+      "base": [
+        true,
+        true,
+        false
+      ],
+      "slots": 2,
+      "retention": [
+        true,
+        true,
+        true
+      ],
+      "currency": true,
+      "conflict": [
+        true,
+        true,
+        true
+      ]
+    }
+  },
+  "development_frozen_extraction": {
+    "folder": "native-20261030-142347",
+    "sample_id": "b86304ba",
+    "complete": true,
+    "checkpoint_isolation": true,
+    "failed_operations": 0,
+    "reply_usage": {
+      "input_tokens": 220260,
+      "output_tokens": 2084
+    },
+    "mean_references": 10.0,
+    "mean_reply_seconds": 2.248514433333488,
+    "manual_review": {
+      "base": [
+        true,
+        true,
+        true
+      ],
+      "slots": 2,
+      "retention": [
+        true,
+        true,
+        true
+      ],
+      "currency": true,
+      "conflict": [
+        false,
+        false,
+        true
+      ]
+    }
+  },
+  "validation_frozen_extraction": {
+    "folder": "native-20261030-142730",
+    "sample_id": "1faac195",
+    "complete": true,
+    "checkpoint_isolation": true,
+    "failed_operations": 0,
+    "reply_usage": {
+      "input_tokens": 223110,
+      "output_tokens": 2162
+    },
+    "mean_references": 10.0,
+    "mean_reply_seconds": 2.4083075583334903,
+    "manual_review": {
+      "base": [
+        true,
+        true,
+        true
+      ],
+      "slots": 2,
+      "retention": [
+        true,
+        true,
+        true
+      ],
+      "currency": true,
+      "conflict": [
+        false,
+        false,
+        false
+      ]
+    }
+  },
+  "review_notes": [
+    "UMRR只记录未编造目标值的表现；标签仍待独立复核，不给正式通过率。",
+    "验证样本旧BASE-3已引用Denver，尽管对family outing语境保留意见，仍按目标事实判正确。",
+    "验证样本新BASE-3虽找回Denver，但擅自说姐姐住在那里，违反gold禁止推断永久居住地的规则，严格判错。",
+    "冻结提取对照复用旧分析，不再次调用提取模型；检索及回答提示均为新版，不能将收益完全归因于单一排序算法。",
+    "保持分支无新增长期候选，不能证明在记忆竞争或遗忘机制下的普遍保持能力。"
+  ],
+  "code_sha256": {
+    "src/cognitive_memory/architecture.py": "be3adba7149ee0e35de83479867b50e212349166cd08025734379e8aee63b3d7",
+    "src/cognitive_memory/catalog.py": "3c882925ffda314c64850817fa3132dbf2b54907d85b450cad4f2fb980707d5b",
+    "src/cognitive_memory/retrieval/evidence.py": "870bb25de5d9e3f75549b1787dd301447ea378da823e47d9170f6d8e01776773",
+    "src/conversation_agent/graph.py": "b998d87a2a730367789a8ea30b276db0a00b3cd7a5dd97418e71c8f933c6f2d8",
+    "src/conversation_agent/prompts.py": "7ffd14b475602bbbf5bc07ddaef7311729b815def1878341bea99ebfdd8c3846",
+    "api/routers/architecture.py": "887dcf361c1664e05a4049581245b2d86e9fdb6184ac289dad4c34602d8e93dc"
+  }
+}

@@ -1,0 +1,290 @@
+{
+  "question": "What was the exact batch number of the vermouth bottle used in the martini recipe I described?",
+  "pattern": "martini|vermouth|batch|lot number|bottle",
+  "messages_scanned": 534,
+  "matching_sentences": [
+    {
+      "session": 10,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "I've also been experimenting with different garnishes for my cocktails, and I recently made a batch of pickled onions that are really tasty."
+    },
+    {
+      "session": 10,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "Do you have any suggestions for other garnishes that would pair well with a classic gin martini?"
+    },
+    {
+      "session": 10,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "For a classic gin martini, here are some garnish suggestions that pair beautifully:"
+    },
+    {
+      "session": 10,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "**Green olives**: A classic martini garnish, green olives provide a salty, briny flavor that complements the botanicals in gin."
+    },
+    {
+      "session": 10,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "**Lemon twist**: A thin, citrusy lemon twist adds a bright, uplifting note to the martini."
+    },
+    {
+      "session": 10,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "They add a sweet and tangy flavor to the martini."
+    },
+    {
+      "session": 10,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "This pairs particularly well with a classic gin martini."
+    },
+    {
+      "session": 10,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "**Rosemary sprig**: A small sprig of rosemary can add a fragrant, herbaceous note to the martini."
+    },
+    {
+      "session": 10,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "**Citrus wheel**: A thin slice of citrus, such as a lemon or orange wheel, can add a pop of color and a touch of citrus flavor to the martini."
+    },
+    {
+      "session": 10,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "Strain the infusion and use the resulting liquid as a garnish or add a few of the infused botanicals to the martini."
+    },
+    {
+      "session": 10,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "**Pickle spears**: Thin slices of dill or sweet pickles can add a tangy, salty flavor to the martini."
+    },
+    {
+      "session": 10,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "**Capers**: These tiny pickled flower buds add a salty, tangy flavor and a touch of umami to the martini."
+    },
+    {
+      "session": 10,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "**Edible flowers**: Edible flowers like hibiscus, lavender, or violas can add a delicate, floral touch to the martini."
+    },
+    {
+      "session": 10,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "Experiment with different combinations to find the perfect pairing for your classic gin martini."
+    },
+    {
+      "session": 10,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "I've actually been experimenting with different gin-to-vermouth ratios in my classic martini recipe, and I've settled on a 3:1 ratio with a dash of citrus bitters."
+    },
+    {
+      "session": 10,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "Do you have any recommendations for a good vermouth brand to pair with my gin?"
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "Vermouth is a crucial component in a classic martini, and the right brand can make a big difference."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "Here are some popular and highly-regarded vermouth brands that pair well with a variety of gins:"
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "**Dolin**: A French vermouth with a light, crisp flavor profile that won't overpower the gin."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "Dolin is a great choice for those who prefer a drier martini."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "**Noilly Prat**: Another French vermouth with a slightly sweeter and more complex flavor profile than Dolin."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "**Carpano Antica**: An Italian vermouth with a rich, herbal flavor profile that pairs well with gins that have a more delicate flavor profile."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "Carpano Antica is a good choice for those who prefer a slightly sweeter martini."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "**Cocchi**: An Italian vermouth with a bold, bitter flavor profile that pairs well with gins that have a strong juniper flavor."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "Cocchi is a good choice for those who prefer a more bitter martini."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "**Maurin**: A French vermouth with a light, floral flavor profile that pairs well with gins that have a more delicate flavor profile."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "Maurin is a good choice for those who prefer a lighter, more elegant martini."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "**Vermouth Routin**: A French vermouth with a rich, herbal flavor profile that pairs well with gins that have a more complex flavor profile."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "Vermouth Routin is a good choice for those who prefer a more complex martini."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "These are just a few examples of the many great vermouth brands available."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "When selecting a vermouth, consider the flavor profile of your gin and the style of martini you're trying to create."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "You may also want to experiment with different vermouths to find the one that you enjoy the most."
+    },
+    {
+      "session": 10,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "Remember to always store your vermouth in the refrigerator and use it within 6-12 months of opening, as it can oxidize and lose its flavor over time."
+    },
+    {
+      "session": 10,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 03:39",
+      "text": "**Mezcal Negroni**: A variation of the classic Negroni, featuring mezcal instead of gin, Campari, and sweet vermouth."
+    },
+    {
+      "session": 11,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/05/22 (Mon) 08:43",
+      "text": "**Plan your route**: Take a few minutes to review your route and identify any potential bottlenecks or areas where you can optimize your travel time."
+    },
+    {
+      "session": 40,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 06:12",
+      "text": "**Recipe size**: If your aunt likes to make large batches of soup or stew, a larger slow cooker (6-7 quarts) might be necessary."
+    },
+    {
+      "session": 43,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 21:00",
+      "text": "The water fountains are located near the playground and picnic areas, so you can plan to stop by one of those spots to refill your water bottle or take a quick drink."
+    },
+    {
+      "session": 43,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 21:00",
+      "text": "It's always a good idea to stay hydrated during exercise, and having your own water bottle ensures you'll have enough to drink throughout your jog."
+    },
+    {
+      "session": 43,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 21:00",
+      "text": "You can also consider bringing a small hydration pack or armband to carry your water bottle and other essentials, like your phone, keys, and snacks."
+    },
+    {
+      "session": 49,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/30 (Tue) 09:33",
+      "text": "You can use a plastic cup, a porcelain palette with a built-in well, or a water bottle with a built-in palette."
+    }
+  ],
+  "coverage": "All messages in both roles scanned programmatically. Regex matches are navigation, not proof of absence.",
+  "independent_full_history_review": "pending",
+  "eligibility": "provisional_candidate"
+}

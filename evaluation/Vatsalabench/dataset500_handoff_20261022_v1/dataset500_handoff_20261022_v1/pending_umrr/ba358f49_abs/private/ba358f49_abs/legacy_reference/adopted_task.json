@@ -1,0 +1,15 @@
+{
+  "sample_id": "ba358f49_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 366,
+  "question_cell": "F366",
+  "answer_cell": "E366",
+  "adopted_question_verbatim": "How old will Rachel be when I get married?",
+  "adopted_answer_or_rubric_verbatim": "无法确认；需要Rachel年龄基准与明确婚期。",
+  "english_rubric": "Rachel's planned wedding next year is not the user's wedding date. Rachel's age at the user's wedding cannot be inferred without the relevant age and wedding-date evidence.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

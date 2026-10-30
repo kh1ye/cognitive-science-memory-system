@@ -1,0 +1,15 @@
+{
+  "sample_id": "59524333",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 456,
+  "question_cell": "F456",
+  "answer_cell": "E456",
+  "adopted_question_verbatim": "What gym time did I mention while discussing a Tuesday meeting at 2:00 pm?",
+  "adopted_answer_or_rubric_verbatim": "6:00 pm",
+  "english_rubric": "Require 6 PM in the specified context. Different weekday conditions need not be a global schedule change.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_2f8be40d",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 46,
+  "question_cell": "F46",
+  "answer_cell": "E46",
+  "adopted_question_verbatim": "What kind of venue did I describe for my friend Jen's wedding?",
+  "adopted_answer_or_rubric_verbatim": "rustic barn",
+  "english_rubric": "Require rustic barn; distinguish Jen from relatives and other weddings. Do not infer event dates.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

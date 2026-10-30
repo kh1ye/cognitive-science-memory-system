@@ -1,0 +1,15 @@
+{
+  "sample_id": "70b3e69b",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 232,
+  "question_cell": "F232",
+  "answer_cell": "E232",
+  "adopted_question_verbatim": "I was going through our previous conversation about the impact of the political climate in Catalonia on its literature and music. Can you remind me of the example you gave of a Spanish-Catalan singer-songwriter who supports unity between Catalonia and Spain?",
+  "adopted_answer_or_rubric_verbatim": "Manolo García",
+  "english_rubric": "Require Manolo Garcia or Manolo García as the previous textual example. Do not assert or update the real person's political beliefs.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

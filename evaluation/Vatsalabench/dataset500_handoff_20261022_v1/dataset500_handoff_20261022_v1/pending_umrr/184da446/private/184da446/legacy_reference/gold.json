@@ -1,0 +1,125 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "Page 220",
+      "rule": "Require page 220 as position, not proof that 220 entire pages were finished. Do not add the two positions."
+    },
+    "BASE-2": {
+      "expected": "Page 220",
+      "rule": "Require page 220 as position, not proof that 220 entire pages were finished. Do not add the two positions."
+    },
+    "BASE-3": {
+      "expected": "Page 220",
+      "rule": "Require page 220 as position, not proof that 220 entire pages were finished. Do not add the two positions."
+    },
+    "RET-10": {
+      "expected": "Page 220",
+      "rule": "Require page 220 as position, not proof that 220 entire pages were finished. Do not add the two positions."
+    },
+    "RET-30": {
+      "expected": "Page 220",
+      "rule": "Require page 220 as position, not proof that 220 entire pages were finished. Do not add the two positions."
+    },
+    "RET-50": {
+      "expected": "Page 220",
+      "rule": "Require page 220 as position, not proof that 220 entire pages were finished. Do not add the two positions."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "page 220",
+        "page 200"
+      ],
+      "intents": [
+        "Later page position",
+        "Earlier page position"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "20 pages",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/06/18 08:00",
+        "old_valid_from": "2023/06/18 08:00",
+        "old_valid_to": "2023/06/19 09:00",
+        "observed_at": "2023/06/19 09:00",
+        "valid_from": "2023/06/19 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/19 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "20 pages",
+        "30 pages"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "20 pages",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "20 pages",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 2,
+        "turn_index": 1,
+        "date": "2023/05/20 (Sat) 21:24",
+        "role": "user",
+        "quote": "I'm trying to learn more about AI-powered medical diagnosis. Can you recommend some online resources or articles that might help me understand the concept better? By the way, I've been reading \"A Short History of Nearly Everything\" and I'm currently on page 200, which has some interesting insights on the history of medicine."
+      },
+      {
+        "session_index": 41,
+        "turn_index": 1,
+        "date": "2023/05/29 (Mon) 09:12",
+        "role": "user",
+        "quote": "I'm interested in learning more about renewable energy, can you recommend some online resources or documentaries that I can check out? By the way, I just finished reading about the discovery of DNA structure in \"A Short History of Nearly Everything\" - I'm now on page 220, and it's amazing how much I've learned so far!"
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/06/18 08:00",
+    "old_valid_from": "2023/06/18 08:00",
+    "old_valid_to": "2023/06/19 09:00",
+    "observed_at": "2023/06/19 09:00",
+    "valid_from": "2023/06/19 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/19 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "184da446",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

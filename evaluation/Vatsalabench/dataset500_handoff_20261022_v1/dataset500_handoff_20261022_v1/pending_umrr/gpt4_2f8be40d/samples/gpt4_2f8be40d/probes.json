@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "What kind of venue did I describe for my friend Jen's wedding?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-10-15T23:47:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "What sort of setting did I say hosted Jen's marriage celebration?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-10-15T23:47:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "Which type of location did I recall for the wedding of my friend Jen?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-10-15T23:47:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact street address of the venue for Jen's wedding?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-10-15T23:47:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "What type of venue hosted Jen's wedding, and approximately how many guests did I say I wanted at my own small ceremony?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-10-15T23:47:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "What kind of venue did I describe for my friend Jen's wedding?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-10-17T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "What kind of venue did I describe for my friend Jen's wedding?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-10-18T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "What kind of venue did I describe for my friend Jen's wedding?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-10-19T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the guest-count target for a separate new celebration plan now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-10-17T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-10-17T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/10/17 12:00, what is the guest-count target for a separate new celebration plan?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-10-17T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-10-17T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/10/17 12:00, what is the guest-count target for a separate new celebration plan?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-10-17T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-10-17T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/10/17 12:00, what is the guest-count target for a separate new celebration plan?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-10-17T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-10-17T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "sample_id": "75f70248",
+  "source_order": 324,
+  "old_probe": {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact name of my shedding cat?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-05-30T17:51:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "Interpret all relative phrases in the question using the original question timestamp 2023-05-30T17:51:00, not the later execution query time. Preserve the originally reported event or entitlement. Mention date is not automatically event date."
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  "old_label": {
+    "expected": "Cannot determine from available history.",
+    "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+    "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+  },
+  "old_negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "replacement": {
+    "session": 26,
+    "turn": 3,
+    "quote": "What are some simple ways to keep my living room dust-free, especially with a cat that sheds a lot?",
+    "question": "In my message asking for simple ways to keep the living room dust-free with a heavily shedding cat, what age did I give for the cat?",
+    "expected": "I did not specify the cat's age in that message.",
+    "rule": "Accept a clear statement that the referenced message does not specify the cat's age, or that its age cannot be determined from that message. Do not invent an age or infer it from shedding. Luna or Max is not an age and does not resolve this question. Do not claim that the user has no cat, or that no age appears anywhere in the entire history.",
+    "finding": "The complete referenced message establishes a shedding cat and a cleaning question, but states no age. The question concerns the content of that particular message; it does not require resolving whether the cat is Luna."
+  },
+  "old_original_answer_conflict": "The user would prefer responses that consider the potential impact of their cat, Luna, and her shedding on their sneezing, as well as the recent deep clean of the living room and its possible effect on stirring up dust. They might not prefer responses that fail to take into account these specific details previously mentioned, such as generic suggestions or unrelated factors.",
+  "scope_change": "Personal-fact/global uncertainty replaced by explicit-utterance missing-detail uncertainty.",
+  "human_read_complete_target_message": true,
+  "whole_history_semantic_absence_review_claimed": false,
+  "original_history_role_content_order_verified": true,
+  "target_message_occurrences": 1,
+  "other_eleven_quality_probes_unchanged": true,
+  "branches_times_configuration_unchanged": true,
+  "old_probe_hold": "Superseded for this version only; old versions retain their review history.",
+  "independent_acceptance": "pending",
+  "api_calls": 0
+}

@@ -1,0 +1,74 @@
+{
+  "sample_id": "gpt4_1a1dc16d",
+  "source_order": 427,
+  "status": "accepted_edits_applied_validation_passed",
+  "authorization": "User explicitly requested applying the consolidated suggestions; no experiment or independent acceptance authorized.",
+  "parent_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1\\packages\\gpt4_1a1dc16d",
+  "parent_suite_sha256": "a4aacae0b0310d8aa159cd8162c97594c0238ee48837740dc42d6b978de2afdb",
+  "revised_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1_review2\\packages\\gpt4_1a1dc16d",
+  "revised_suite_sha256": "b951323bcad249ed248b925ac8634f8848d298418edd55279c7be20327eaa45d",
+  "proposal_file": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch07_v1\\pending_edits_all_batches.json",
+  "proposal_sha256": "3407de41004d56cd559b1fe0cb938f21362c02f9caa4ba68469decfe323abd54",
+  "source_proposal": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch07_v1\\proposed_edits.json",
+  "applied_edits": [
+    {
+      "file": "samples/gpt4_1a1dc16d/probes.json",
+      "probe_id": "BASE-1",
+      "field": "question",
+      "old": "Which event happened first, the meeting with Rachel or the pride parade?",
+      "proposed": "Which event happened first, the meeting with my mentor Rachel or the pride parade?"
+    },
+    {
+      "file": "samples/gpt4_1a1dc16d/probes.json",
+      "probe_id": "BASE-3",
+      "field": "question",
+      "old": "Which happened first: my meeting with Rachel or the city's pride parade?",
+      "proposed": "Which happened first: my meeting with my mentor Rachel or the city's pride parade?"
+    },
+    {
+      "file": "samples/gpt4_1a1dc16d/probes.json",
+      "probe_id": "R1R2",
+      "field": "question",
+      "old": "On what date did I meet Rachel, and on what date did I attend the parade?",
+      "proposed": "On what date did I meet my mentor Rachel, and on what date did I attend the parade?"
+    },
+    {
+      "file": "samples/gpt4_1a1dc16d/probes.json",
+      "probe_id": "RET-10",
+      "field": "question",
+      "old": "Which event happened first, the meeting with Rachel or the pride parade?",
+      "proposed": "Which event happened first, the meeting with my mentor Rachel or the pride parade?"
+    },
+    {
+      "file": "samples/gpt4_1a1dc16d/probes.json",
+      "probe_id": "RET-30",
+      "field": "question",
+      "old": "Which event happened first, the meeting with Rachel or the pride parade?",
+      "proposed": "Which event happened first, the meeting with my mentor Rachel or the pride parade?"
+    },
+    {
+      "file": "samples/gpt4_1a1dc16d/probes.json",
+      "probe_id": "RET-50",
+      "field": "question",
+      "old": "Which event happened first, the meeting with Rachel or the pride parade?",
+      "proposed": "Which event happened first, the meeting with my mentor Rachel or the pride parade?"
+    }
+  ],
+  "changed_public_files": [
+    "samples/gpt4_1a1dc16d/probes.json"
+  ],
+  "history_byte_identical": true,
+  "branches_byte_identical": true,
+  "gold_byte_identical": true,
+  "private_gold_sha256": "02838a538ebab9aa63895742e68a65e22a35eab67ba9908f06c245a695e29b70",
+  "query_times_and_checkpoints_unchanged": true,
+  "protocol_and_provider_unchanged": true,
+  "question_edit_count": 6,
+  "reference_edit_count": 0,
+  "quality_probes": 12,
+  "metrics": 11,
+  "live_review_gate_passed": false,
+  "independent_review": "pending",
+  "api_calls": 0,
+  "inherited_audit_note": "Copied audit files describe their earlier source version. This revision record and current public inputs describe the applied wording."
+}

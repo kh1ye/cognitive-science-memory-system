@@ -3,6 +3,7 @@
 import hashlib
 import json
 import sqlite3
+from contextlib import closing
 from pathlib import Path
 
 from ..models import iso_now
@@ -46,7 +47,7 @@ class ArchitectureRepository:
                     raise ValueError(
                         f"Migration backup already exists: {backup}; verify/rename before retry"
                     )
-                with sqlite3.connect(backup) as target:
+                with closing(sqlite3.connect(backup)) as target:
                     self.conn.backup(target)
             with self.storage.transaction():
                 self.conn.execute(

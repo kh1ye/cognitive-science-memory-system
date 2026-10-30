@@ -1,0 +1,15 @@
+{
+  "sample_id": "36b9f61e",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 292,
+  "question_cell": "F292",
+  "answer_cell": "E292",
+  "adopted_question_verbatim": "What is the total amount I spent on luxury items in the past few months?",
+  "adopted_answer_or_rubric_verbatim": "$2,500 ($800 + $1,200 + $500)",
+  "english_rubric": "Require $2,500 from 800+1200+500 within recorded purchases. Do not claim a complete audit of unreported spending.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

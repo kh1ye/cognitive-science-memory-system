@@ -1,0 +1,15 @@
+{
+  "sample_id": "06878be2",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 69,
+  "question_cell": "F69",
+  "answer_cell": "E69",
+  "adopted_question_verbatim": "Can you suggest some accessories that would complement my current photography setup?",
+  "adopted_answer_or_rubric_verbatim": "允许多种建议；须实质回应配件需求，不能用唯一产品列表评分",
+  "english_rubric": "Give substantive photography-accessory suggestions compatible with the stated setup when compatibility matters. Multiple answers are valid; no Sony-only restriction.",
+  "mapped_role": "supplementary_open_task_not_scheduled_in_core12",
+  "scheduled_in_core12": false,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

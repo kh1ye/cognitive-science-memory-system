@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_fe651585_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 184,
+  "question_cell": "F184",
+  "answer_cell": "E184",
+  "adopted_question_verbatim": "Who became a parent first, Tom or Alex?",
+  "adopted_answer_or_rubric_verbatim": "无法确认先后；缺少Tom成为父母的时间，也不能默认Alex首次成为父母就在领养当月。",
+  "english_rubric": "Do not choose who became a parent first. The selected evidence supplies neither Tom's parenthood timing nor proof that Alex first became a parent through this adoption. Insufficient evidence must not become a claim that either person has no children.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

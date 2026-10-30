@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_74aed68e",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 139,
+  "question_cell": "F139",
+  "answer_cell": "E139",
+  "adopted_question_verbatim": "Which brand of spark plugs did I say I installed on February 14, 2023?",
+  "adopted_answer_or_rubric_verbatim": "NGK",
+  "english_rubric": "Require NGK. No automotive performance advice or independently verified result is requested.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

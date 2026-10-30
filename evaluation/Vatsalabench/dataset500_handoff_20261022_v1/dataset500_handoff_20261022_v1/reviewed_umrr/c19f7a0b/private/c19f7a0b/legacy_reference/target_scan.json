@@ -1,0 +1,20 @@
+{
+  "pattern": "6:30|18:30|weekdays|Tuesdays and Thursdays",
+  "matching_sentences": [
+    {
+      "session": 20,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/23 (Tue) 20:28",
+      "text": "I've been trying to dedicate an hour on Tuesdays and Thursdays to language learning, and I've been making slow but steady progress."
+    },
+    {
+      "session": 20,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/23 (Tue) 20:28",
+      "text": "I usually get home from work around 6:30 pm on weekdays, and then I start making dinner and doing some yoga before dedicating an hour to language learning on Tuesdays and Thursdays."
+    }
+  ],
+  "review_scope": "Selected full source-session context plus programmatic target navigation; not independent full-history acceptance."
+}

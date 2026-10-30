@@ -1,0 +1,15 @@
+{
+  "sample_id": "f35224e0",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 89,
+  "question_cell": "F89",
+  "answer_cell": "E89",
+  "adopted_question_verbatim": "About how many episodes of How I Built This did I say I had finished in the May 29 conversation?",
+  "adopted_answer_or_rubric_verbatim": "About 15 episodes",
+  "english_rubric": "Require approximately fifteen; bare 15 is acceptable in context but do not demand exactness or add episode 12 of another show.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

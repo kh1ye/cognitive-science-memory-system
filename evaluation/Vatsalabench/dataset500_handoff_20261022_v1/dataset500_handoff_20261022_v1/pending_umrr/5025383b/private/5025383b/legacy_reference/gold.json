@@ -1,0 +1,125 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "photography and cooking",
+      "rule": "Require both photography and cooking. Score the designated baseline as correct only when both are present; record each component without changing the denominator. This is a composite target."
+    },
+    "BASE-2": {
+      "expected": "photography and cooking",
+      "rule": "Require both photography and cooking. Score the designated baseline as correct only when both are present; record each component without changing the denominator. This is a composite target."
+    },
+    "BASE-3": {
+      "expected": "photography and cooking",
+      "rule": "Require both photography and cooking. Score the designated baseline as correct only when both are present; record each component without changing the denominator. This is a composite target."
+    },
+    "RET-10": {
+      "expected": "photography and cooking",
+      "rule": "Require both photography and cooking. Score the designated baseline as correct only when both are present; record each component without changing the denominator. This is a composite target."
+    },
+    "RET-30": {
+      "expected": "photography and cooking",
+      "rule": "Require both photography and cooking. Score the designated baseline as correct only when both are present; record each component without changing the denominator. This is a composite target."
+    },
+    "RET-50": {
+      "expected": "photography and cooking",
+      "rule": "Require both photography and cooking. Score the designated baseline as correct only when both are present; record each component without changing the denominator. This is a composite target."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "photography",
+        "cooking"
+      ],
+      "intents": [
+        "Photo community topic",
+        "Recipe community topic"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "in person",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "in person",
+        "hybrid"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "in person",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "in person",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 42,
+        "turn_index": 5,
+        "date": "2023/05/29 (Mon) 18:43",
+        "role": "user",
+        "quote": "I think I'll go with the Canon EF 35mm f/2 IS USM. I've heard great things about it, and it seems like a great all-around lens for street photography. By the way, I've been really enjoying editing my photos in Lightroom - the online communities I've joined have been super helpful in learning new techniques and getting feedback on my work."
+      },
+      {
+        "session_index": 46,
+        "turn_index": 3,
+        "date": "2023/05/30 (Tue) 18:40",
+        "role": "user",
+        "quote": "I'm really interested in learning more about cooking techniques. Can you recommend some online communities or forums where I can engage with other food enthusiasts and learn from their experiences? I've already joined a few online communities related to cooking, which led me to engage in discussions about recipe techniques and share my thoughts on food-related posts."
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "5025383b",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

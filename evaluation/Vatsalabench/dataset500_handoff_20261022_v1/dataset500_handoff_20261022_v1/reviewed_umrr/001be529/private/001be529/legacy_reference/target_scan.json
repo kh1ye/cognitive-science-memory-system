@@ -1,0 +1,146 @@
+{
+  "pattern": "asylum|over a year|application|800",
+  "matching_sentences": [
+    {
+      "session": 9,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 08:43",
+      "text": "Note that this calculation assumes no friction losses and perfect force transmission, which might not be the case in real-world applications."
+    },
+    {
+      "session": 9,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 08:43",
+      "text": "You should consider these factors and use proper torque wrenches and lubrication to ensure accurate torque application."
+    },
+    {
+      "session": 12,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/21 (Sun) 22:59",
+      "text": "I didn't realize it had practical applications in other industries."
+    },
+    {
+      "session": 12,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 22:59",
+      "text": "While psychology certainly has applications in the therapy and counseling fields, it also has practical applications in a wide range of other industries and settings, including business, education, government, and more."
+    },
+    {
+      "session": 18,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/05/23 (Tue) 22:46",
+      "text": "Can you recommend some resources or websites to learn about the history of immigration in the US, particularly during the late 1800s and early 1900s?"
+    },
+    {
+      "session": 18,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 22:46",
+      "text": "Here are some excellent resources to help you learn more about the history of immigration in the US, particularly during the late 1800s and early 1900s:"
+    },
+    {
+      "session": 18,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 22:46",
+      "text": "These resources will provide a solid foundation for exploring the history of immigration in the US during the late 1800s and early 1900s."
+    },
+    {
+      "session": 18,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/05/23 (Tue) 22:46",
+      "text": "Since my great-great-grandfather immigrated to the US from Ireland in the late 1800s, I'm particularly interested in learning more about the Irish immigrant experience during that time period."
+    },
+    {
+      "session": 30,
+      "turn": 1,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 23:22",
+      "text": "The entry fee for adults is 800 THB and 600 THB for children."
+    },
+    {
+      "session": 30,
+      "turn": 9,
+      "role": "assistant",
+      "date": "2023/05/25 (Thu) 23:22",
+      "text": "* 1:30pm: Drive to Chiang Mai Night Safari (8.0/10, 18.7 km from Khao Soi Khun Yai, entrance fee: 800 THB per adult, 400 THB per child)"
+    },
+    {
+      "session": 37,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/26 (Fri) 22:21",
+      "text": "The application process typically opens in March, and licenses are issued through a random draw."
+    },
+    {
+      "session": 41,
+      "turn": 3,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 08:20",
+      "text": "Additionally, newer implementations of MapReduce like Apache Spark, progress and status updates are reported by the Application Master."
+    },
+    {
+      "session": 41,
+      "turn": 5,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 08:20",
+      "text": "Additionally, newer implementations of MapReduce like Apache Spark, the job completion process is handled by the Application Master."
+    },
+    {
+      "session": 43,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/28 (Sun) 18:12",
+      "text": "My maximum monthly rent budget is $800."
+    },
+    {
+      "session": 43,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 18:12",
+      "text": "With a budget of $800/month, you'll want to focus on finding affordable options that meet your location and safety requirements."
+    },
+    {
+      "session": 43,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 18:12",
+      "text": "* Set your budget filter to $800 or less to avoid seeing properties outside your price range."
+    },
+    {
+      "session": 43,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/28 (Sun) 18:12",
+      "text": "By the way, speaking of waiting, it's crazy how long it took for my asylum application to get approved."
+    },
+    {
+      "session": 43,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/28 (Sun) 18:12",
+      "text": "Over a year of uncertainty was really tough."
+    },
+    {
+      "session": 43,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 18:12",
+      "text": "I'm so glad to hear that your asylum application has been approved!"
+    },
+    {
+      "session": 43,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/28 (Sun) 18:12",
+      "text": "It's known for being relatively affordable, with prices around $700-800/month for a 1-bedroom apartment."
+    }
+  ],
+  "review_scope": "Selected full source-session context plus programmatic target navigation; not independent full-history acceptance."
+}

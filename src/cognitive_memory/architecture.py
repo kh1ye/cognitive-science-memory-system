@@ -19,6 +19,7 @@ from .architecture_models import (
 from .models import iso_now
 from .provenance import source_span
 from .retrieval.lexical import cosine_similarity as lexical_score
+from .retrieval.evidence import rank as rank_evidence
 from .storage.architecture import TABLES, ArchitectureRepository, stable_id
 
 
@@ -741,15 +742,34 @@ class MemoryArchitecture:
             and (task is None or r.get("task_id") == task)
             and (outcome is None or r.get("outcome") == outcome)
         ]
-        return sorted(
-            rows,
-            key=lambda r: (
-                lexical_score(query, r.get("observation", "")),
-                r.get("occurred_at") or "",
-                r["sequence_no"],
-            ),
-            reverse=True,
-        )[:20]
+        return self._rank_evidence(user, rows, query, scope=scope)[:20]
+
+    def _rank_evidence(self, user, rows, query, *, scope="user"):
+        if not query.strip():
+            return rows
+        documents, contexts = [], []
+        sources = {}
+        for row in rows:
+            evidence = row.get("evidence_text") or row.get("observation") or row.get("content", "")
+            context = []
+            for ref in row.get("source_refs", [])[:3]:
+                if ref not in sources:
+                    sources[ref] = self.repo.get("source_records", user, ref)
+                source = sources[ref]
+                if not source or source.get("scope", "user") != scope:
+                    continue
+                body = source.get("content") or ""
+                position = body.find(evidence) if evidence else -1
+                if position >= 0:
+                    context.append(body[max(0, position - 400):position + len(evidence) + 400])
+            context = "\n".join(context)
+            contexts.append(context)
+            documents.append(" ".join([str(row.get("subject", "")), str(row.get("predicate", "")),
+                json.dumps(row.get("value", ""), ensure_ascii=False), evidence, context]))
+        scores = rank_evidence(query, documents)
+        ranked = [{**row, "_retrieval_score": score, "_retrieval_context": context}
+                  for row, score, context in zip(rows, scores, contexts) if score > 0]
+        return sorted(ranked, key=lambda row: row["_retrieval_score"], reverse=True)
 
     def retrieve_knowledge(
         self,
@@ -774,11 +794,7 @@ class MemoryArchitecture:
             and (not r.get("valid_from") or r["valid_from"] <= (at or iso_now()))
             and (not r.get("valid_to") or r["valid_to"] > (at or iso_now()))
         ]
-        return sorted(
-            rows,
-            key=lambda r: lexical_score(query, json.dumps(r, ensure_ascii=False)),
-            reverse=True,
-        )[:20]
+        return self._rank_evidence(user, rows, query, scope=scope)[:20]
 
     def retrieve_procedures(self, user, query="", *, kind=None, scope="user"):
         rows = [
@@ -822,6 +838,8 @@ class MemoryArchitecture:
                     "id": r["id"],
                     "memory_type": module,
                     "state_role": r.get("status", "recorded"),
+                    "score": r.get("_retrieval_score", 0),
+                    "evidence_context": r.get("_retrieval_context", ""),
                     "content": r.get("content")
                     or r.get("evidence_text")
                     or r.get("observation")

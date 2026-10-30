@@ -1,0 +1,69 @@
+{
+  "pattern": "Imagine Dragons|Xfinity|June 15|Radioactive|Demons",
+  "matching_sentences": [
+    {
+      "session": 8,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 18:25",
+      "text": "This will demonstrate your interest in the company and the position, and give you a better understanding of how you can add value to the team."
+    },
+    {
+      "session": 10,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 22:20",
+      "text": "These instances demonstrate the importance of addressing and reducing biases in AI models to ensure that they are accurate, equitable, and inclusive for all individuals."
+    },
+    {
+      "session": 23,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 10:17",
+      "text": "**Product Demo**: Create a short video or Boomerang demonstrating the features and quality of a specific product."
+    },
+    {
+      "session": 24,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/24 (Wed) 01:28",
+      "text": "Oh, and I just remembered I went to an amazing Imagine Dragons concert recently, it was at the Xfinity Center on June 15th - what a show!"
+    },
+    {
+      "session": 24,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 01:28",
+      "text": "* June 15th: Imagine Dragons at Xfinity Center (you've already attended this one!)"
+    },
+    {
+      "session": 24,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/24 (Wed) 01:28",
+      "text": "Also, how was the Imagine Dragons concert?"
+    },
+    {
+      "session": 24,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/05/24 (Wed) 01:28",
+      "text": "They played all their hits, including Radioactive and Demons."
+    },
+    {
+      "session": 44,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 21:23",
+      "text": "this demonstrates the willingness of the private sector to take responsibility for their impact on the environment."
+    },
+    {
+      "session": 45,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/05/27 (Sat) 22:18",
+      "text": "Celeste: A platformer game that follows a young girl named Madeline as she climbs a treacherous mountain while battling her inner demons."
+    }
+  ],
+  "review_scope": "Selected full source-session context plus programmatic target navigation; not independent full-history acceptance."
+}

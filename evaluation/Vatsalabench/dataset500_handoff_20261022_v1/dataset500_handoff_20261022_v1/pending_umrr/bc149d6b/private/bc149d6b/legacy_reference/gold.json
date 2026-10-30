@@ -1,0 +1,125 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "50 pounds",
+      "rule": "Require fifty pounds. Keep layer feed separate from scratch grains."
+    },
+    "BASE-2": {
+      "expected": "50 pounds",
+      "rule": "Require fifty pounds. Keep layer feed separate from scratch grains."
+    },
+    "BASE-3": {
+      "expected": "50 pounds",
+      "rule": "Require fifty pounds. Keep layer feed separate from scratch grains."
+    },
+    "RET-10": {
+      "expected": "50 pounds",
+      "rule": "Require fifty pounds. Keep layer feed separate from scratch grains."
+    },
+    "RET-30": {
+      "expected": "50 pounds",
+      "rule": "Require fifty pounds. Keep layer feed separate from scratch grains."
+    },
+    "RET-50": {
+      "expected": "50 pounds",
+      "rule": "Require fifty pounds. Keep layer feed separate from scratch grains."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "50 pounds",
+        "20 pounds"
+      ],
+      "intents": [
+        "Layer feed weight",
+        "Scratch grain weight"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "15 litres",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "15 litres",
+        "20 litres"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "15 litres",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "15 litres",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 10,
+        "turn_index": 1,
+        "date": "2023/05/22 (Mon) 14:05",
+        "role": "user",
+        "quote": "I'm wondering if you can help me calculate the cost per pound of the layer feed I recently purchased. I got a 50-pound batch, and I'm trying to track my expenses for the farm."
+      },
+      {
+        "session_index": 11,
+        "turn_index": 1,
+        "date": "2023/05/22 (Mon) 16:34",
+        "role": "user",
+        "quote": "I'm thinking of expanding my farm's product line to include homemade jam and honey. Can you help me find information on the regulations and permits required for selling these products at the local farmer's market? By the way, I also bought 20 pounds of organic scratch grains for my chickens recently, and I've noticed an improvement in the quality of eggs."
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "bc149d6b",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

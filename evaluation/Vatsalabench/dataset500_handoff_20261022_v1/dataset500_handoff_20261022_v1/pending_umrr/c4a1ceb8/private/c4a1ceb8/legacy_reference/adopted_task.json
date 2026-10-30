@@ -1,0 +1,15 @@
+{
+  "sample_id": "c4a1ceb8",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 290,
+  "question_cell": "F290",
+  "answer_cell": "E290",
+  "adopted_question_verbatim": "How many different types of citrus fruits have I used in my cocktail recipes?",
+  "adopted_answer_or_rubric_verbatim": "3: orange, lime, lemon",
+  "english_rubric": "Require three distinct types: orange, lime and lemon. Earlier Sangria use supports lemon; a future menu alone would not.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

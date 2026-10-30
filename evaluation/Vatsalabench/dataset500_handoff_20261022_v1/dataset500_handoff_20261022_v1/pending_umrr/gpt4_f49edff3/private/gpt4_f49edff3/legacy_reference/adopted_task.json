@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_f49edff3",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 369,
+  "question_cell": "F369",
+  "answer_cell": "E369",
+  "adopted_question_verbatim": "Which three events happened in the order from first to last: the day I helped my friend prepare the nursery, the day I helped my cousin pick out stuff for her baby shower, and the day I ordered a customized phone case for my friend's birthday?",
+  "adopted_answer_or_rubric_verbatim": "nursery preparation → baby-shower shopping → customized phone-case order",
+  "english_rubric": "The adopted ordering is nursery preparation, baby-shower shopping, phone-case order. The middle just-helped report lacks an exact event date; this chronology remains a provisional interpretation, not independently accepted.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,125 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "John Mulaney",
+      "rule": "Require John Mulaney. Do not infer an exact elapsed interval from about three months and last month."
+    },
+    "BASE-2": {
+      "expected": "John Mulaney",
+      "rule": "Require John Mulaney. Do not infer an exact elapsed interval from about three months and last month."
+    },
+    "BASE-3": {
+      "expected": "John Mulaney",
+      "rule": "Require John Mulaney. Do not infer an exact elapsed interval from about three months and last month."
+    },
+    "RET-10": {
+      "expected": "John Mulaney",
+      "rule": "Require John Mulaney. Do not infer an exact elapsed interval from about three months and last month."
+    },
+    "RET-30": {
+      "expected": "John Mulaney",
+      "rule": "Require John Mulaney. Do not infer an exact elapsed interval from about three months and last month."
+    },
+    "RET-50": {
+      "expected": "John Mulaney",
+      "rule": "Require John Mulaney. Do not infer an exact elapsed interval from about three months and last month."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "John Mulaney",
+        "an open mic night"
+      ],
+      "intents": [
+        "Comedian",
+        "Live event type"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "19:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/21 08:00",
+        "old_valid_from": "2023/05/21 08:00",
+        "old_valid_to": "2023/05/22 09:00",
+        "observed_at": "2023/05/22 09:00",
+        "valid_from": "2023/05/22 09:00",
+        "valid_to": null,
+        "query_time": "2023/05/22 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "19:00",
+        "20:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "19:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "19:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 5,
+        "turn_index": 1,
+        "date": "2023/05/20 (Sat) 12:45",
+        "role": "user",
+        "quote": "I'm looking for some comedy recommendations. I've been really into stand-up lately - I think it started about 3 months ago when I watched that Netflix special by John Mulaney, and I've been watching stand-ups regularly ever since. Can you suggest some comedians or specials I might enjoy?"
+      },
+      {
+        "session_index": 35,
+        "turn_index": 1,
+        "date": "2023/05/20 (Sat) 09:41",
+        "role": "user",
+        "quote": "I'm looking for some advice on writing jokes. I've recently gotten into stand-up comedy and I'm trying to improve my craft. Last month, I finally worked up the courage to attend an open mic night at a local comedy club, and it was amazing to see people trying out their material in front of a live audience."
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/21 08:00",
+    "old_valid_from": "2023/05/21 08:00",
+    "old_valid_to": "2023/05/22 09:00",
+    "observed_at": "2023/05/22 09:00",
+    "valid_from": "2023/05/22 09:00",
+    "valid_to": null,
+    "query_time": "2023/05/22 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "c9f37c46",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

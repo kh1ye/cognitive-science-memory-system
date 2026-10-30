@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_7ca326fa",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 144,
+  "question_cell": "F144",
+  "answer_cell": "E144",
+  "adopted_question_verbatim": "What level of degree did I say my friend Rachel had just graduated with in the June 22 conversation?",
+  "adopted_answer_or_rubric_verbatim": "A master's degree",
+  "english_rubric": "Require master's degree. Do not infer Rachel's field from John's engineering degree.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

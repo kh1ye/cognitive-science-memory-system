@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_70e84552_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 431,
+  "question_cell": "F431",
+  "answer_cell": "E431",
+  "adopted_question_verbatim": "Which task did I complete first, fixing the fence or purchasing three cows from Peter?",
+  "adopted_answer_or_rubric_verbatim": "无法确认先后；未找到向Peter购买三头牛的充分依据。",
+  "english_rubric": "The fence repair is supported, but purchasing three cows from Peter is not established by the cited contexts. Planned cow acquisition is not a completed transaction. Do not deny that it could ever have happened; whole-history absence review remains pending.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

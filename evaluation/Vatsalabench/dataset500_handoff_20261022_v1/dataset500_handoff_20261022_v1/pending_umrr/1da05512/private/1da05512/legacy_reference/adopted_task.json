@@ -1,0 +1,15 @@
+{
+  "sample_id": "1da05512",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 327,
+  "question_cell": "F327",
+  "answer_cell": "E327",
+  "adopted_question_verbatim": "I'm trying to decide whether to buy a NAS device now or wait. What do you think?",
+  "adopted_answer_or_rubric_verbatim": "比较目前存储不足、外置硬盘与NAS需求，允许等待或购买两种合理结论。",
+  "english_rubric": "Compare existing external backup, storage needs, central access and security. Waiting and buying may both be reasonable without a known budget.",
+  "mapped_role": "supplementary_open_task_not_scheduled_in_core12",
+  "scheduled_in_core12": false,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

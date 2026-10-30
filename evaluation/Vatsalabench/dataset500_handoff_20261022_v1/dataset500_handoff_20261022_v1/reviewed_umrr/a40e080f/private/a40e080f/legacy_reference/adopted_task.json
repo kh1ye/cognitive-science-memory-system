@@ -1,0 +1,15 @@
+{
+  "sample_id": "a40e080f",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 493,
+  "question_cell": "F493",
+  "answer_cell": "E493",
+  "adopted_question_verbatim": "I was going through our previous conversation and I was wondering if you could remind me of the two companies you mentioned that prioritize employee safety and well-being like Triumvirate?",
+  "adopted_answer_or_rubric_verbatim": "Patagonia and Southwest Airlines",
+  "english_rubric": "Require both Patagonia and Southwest Airlines, any order. Do not verify employer claims or awards.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

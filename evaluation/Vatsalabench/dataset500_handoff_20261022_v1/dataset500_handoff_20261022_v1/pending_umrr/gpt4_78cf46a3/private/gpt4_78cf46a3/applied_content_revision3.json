@@ -1,0 +1,68 @@
+{
+  "sample_id": "gpt4_78cf46a3",
+  "source_order": 425,
+  "parent_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1_review2\\packages\\gpt4_78cf46a3",
+  "package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1_review3\\packages\\gpt4_78cf46a3",
+  "applied_proposal": {
+    "sample_id": "gpt4_78cf46a3",
+    "status": "proposed_not_applied",
+    "edits": [
+      {
+        "probe_id": "BASE-1",
+        "field": "question",
+        "old": "Which event happened first, the narrator losing their phone charger or the narrator receiving their new phone case?",
+        "proposed": "Based on the approximate time intervals I reported, which appears to have happened earlier: receiving my new phone case or losing my phone charger?"
+      },
+      {
+        "probe_id": "BASE-2",
+        "field": "question",
+        "old": "Did receiving the new phone cover or losing the charger happen earlier?",
+        "proposed": "Judging by my rough timing descriptions, did getting the handset cover or misplacing the charging adapter come first?"
+      },
+      {
+        "probe_id": "BASE-3",
+        "field": "question",
+        "old": "Which came first in my account: the new case arriving or misplacing the phone charger?",
+        "proposed": "According to the approximate timing in my account, which came earlier: obtaining the protective phone shell or losing the device power supply?"
+      },
+      {
+        "probe_id": "RET-10",
+        "field": "question",
+        "old": "Which event happened first, the narrator losing their phone charger or the narrator receiving their new phone case?",
+        "proposed": "Based on the approximate time intervals I reported, which appears to have happened earlier: receiving my new phone case or losing my phone charger?"
+      },
+      {
+        "probe_id": "RET-30",
+        "field": "question",
+        "old": "Which event happened first, the narrator losing their phone charger or the narrator receiving their new phone case?",
+        "proposed": "Based on the approximate time intervals I reported, which appears to have happened earlier: receiving my new phone case or losing my phone charger?"
+      },
+      {
+        "probe_id": "RET-50",
+        "field": "question",
+        "old": "Which event happened first, the narrator losing their phone charger or the narrator receiving their new phone case?",
+        "proposed": "Based on the approximate time intervals I reported, which appears to have happened earlier: receiving my new phone case or losing my phone charger?"
+      }
+    ],
+    "scoring_note": "Preserve the existing ordering answer. Accept qualifications such as appears earlier or based on the reported approximate intervals. Do not require exact dates or strict mathematical certainty. An answer giving no ordering at all is not automatically correct."
+  },
+  "changed_files": [
+    "private/gpt4_78cf46a3/gold.json",
+    "samples/gpt4_78cf46a3/probes.json",
+    "suite.json"
+  ],
+  "gold_sha256": "a7f3951703cc9ddfdb8e62409532832a4c98b1b9d60e35abf40d466ea20dad60",
+  "suite_sha256": "cb6dd4ee3025785446f9911390fb07b069cd98d45eac330851d42431c7421bb7",
+  "expected_answers_unchanged": true,
+  "history_branches_times_configuration_unchanged": true,
+  "scoring_rule_fields_updated": [
+    "BASE-1",
+    "BASE-2",
+    "BASE-3",
+    "RET-10",
+    "RET-30",
+    "RET-50"
+  ],
+  "live_approved": false,
+  "api_calls": 0
+}

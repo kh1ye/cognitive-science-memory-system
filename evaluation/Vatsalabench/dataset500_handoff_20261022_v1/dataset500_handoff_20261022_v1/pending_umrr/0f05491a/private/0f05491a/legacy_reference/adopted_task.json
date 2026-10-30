@@ -1,0 +1,15 @@
+{
+  "sample_id": "0f05491a",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 443,
+  "question_cell": "F443",
+  "answer_cell": "E443",
+  "adopted_question_verbatim": "How many stars do I need to reach the gold level on my Starbucks Rewards app?",
+  "adopted_answer_or_rubric_verbatim": "120 stars",
+  "english_rubric": "Require 120 according to the latest user correction, not rejected assistant values 300/400. This is history recall, not verification of actual Starbucks policy.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

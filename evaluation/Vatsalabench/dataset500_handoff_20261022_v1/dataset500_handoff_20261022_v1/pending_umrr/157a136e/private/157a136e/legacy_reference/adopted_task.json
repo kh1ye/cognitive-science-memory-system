@@ -1,0 +1,15 @@
+{
+  "sample_id": "157a136e",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 109,
+  "question_cell": "F109",
+  "answer_cell": "E109",
+  "adopted_question_verbatim": "Which birthday of my grandma's did I say we celebrated at my aunt's house?",
+  "adopted_answer_or_rubric_verbatim": "Her 75th birthday",
+  "english_rubric": "Require 75th. Do not infer the speaker's exact age from a question about being 32.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

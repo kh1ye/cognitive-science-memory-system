@@ -1,0 +1,173 @@
+[
+  {
+    "probe_id": "BASE-1",
+    "question": "From what date did I say I had been starting seeds indoors under grow lights in my basement?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-10T23:40:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "AFA",
+      "FSRC",
+      "CR-AUC_D0"
+    ]
+  },
+  {
+    "probe_id": "BASE-2",
+    "question": "Since what date did I report raising seedlings inside under artificial growing lamps in the basement?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-10T23:40:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "BASE-3",
+    "question": "When did I say I began indoor seed-starting beneath grow lamps downstairs?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-10T23:40:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "FSRC"
+    ]
+  },
+  {
+    "probe_id": "UMRR-1",
+    "question": "What was the exact model number of the grow lights used for my basement seedlings?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-10T23:40:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "UMRR"
+    ]
+  },
+  {
+    "probe_id": "R1R2",
+    "question": "From what date did I say I had been starting seeds indoors, and where in my home were those seedlings growing?",
+    "branch_id": "BASE",
+    "checkpoint_id": "BASE",
+    "query_time": "2023-03-10T23:40:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "TIC",
+      "AFP"
+    ]
+  },
+  {
+    "probe_id": "RET-10",
+    "question": "From what date did I say I had been starting seeds indoors under grow lights in my basement?",
+    "branch_id": "retention",
+    "checkpoint_id": "D10",
+    "query_time": "2023-03-12T19:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-30",
+    "question": "From what date did I say I had been starting seeds indoors under grow lights in my basement?",
+    "branch_id": "retention",
+    "checkpoint_id": "D30",
+    "query_time": "2023-03-13T15:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "RET-50",
+    "question": "From what date did I say I had been starting seeds indoors under grow lights in my basement?",
+    "branch_id": "retention",
+    "checkpoint_id": "D50",
+    "query_time": "2023-03-14T11:01:00",
+    "target_reference_time": {
+      "kind": "historical_event",
+      "value": "the past event identified in the current question, as reported in the original conversation history"
+    },
+    "metrics": [
+      "CR-AUC"
+    ]
+  },
+  {
+    "probe_id": "CUR-H2",
+    "question": "What is the container colour for a separate future garden-storage plan now?",
+    "branch_id": "currency",
+    "checkpoint_id": "H2",
+    "query_time": "2023-03-12T11:01:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-03-12T11:01:00"
+    },
+    "metrics": [
+      "CVSAR"
+    ]
+  },
+  {
+    "probe_id": "CON-U",
+    "question": "At 2023/03/12 12:00, what is the container colour for a separate future garden-storage plan?",
+    "branch_id": "conflict_unresolved",
+    "checkpoint_id": "END",
+    "query_time": "2023-03-12T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-03-12T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-P",
+    "question": "At 2023/03/12 12:00, what is the container colour for a separate future garden-storage plan?",
+    "branch_id": "conflict_priority",
+    "checkpoint_id": "END",
+    "query_time": "2023-03-12T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-03-12T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  },
+  {
+    "probe_id": "CON-N",
+    "question": "At 2023/03/12 12:00, what is the container colour for a separate future garden-storage plan?",
+    "branch_id": "conflict_compatible",
+    "checkpoint_id": "END",
+    "query_time": "2023-03-12T12:10:00",
+    "target_reference_time": {
+      "kind": "instant",
+      "value": "2023-03-12T12:00:00"
+    },
+    "metrics": [
+      "SCHR"
+    ]
+  }
+]

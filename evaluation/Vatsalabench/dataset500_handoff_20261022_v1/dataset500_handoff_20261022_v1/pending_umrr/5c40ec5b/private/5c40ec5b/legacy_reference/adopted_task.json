@@ -1,0 +1,15 @@
+{
+  "sample_id": "5c40ec5b",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 468,
+  "question_cell": "F468",
+  "answer_cell": "E468",
+  "adopted_question_verbatim": "How many times have I met up with Alex from Germany?",
+  "adopted_answer_or_rubric_verbatim": "twice",
+  "english_rubric": "Require twice. A prior mention of meeting at a festival does not prove the earlier total was exactly one.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

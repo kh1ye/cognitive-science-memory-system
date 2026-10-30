@@ -1,0 +1,15 @@
+{
+  "sample_id": "19b5f2b3_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 285,
+  "question_cell": "F285",
+  "answer_cell": "E285",
+  "adopted_question_verbatim": "How long was I in Korea for?",
+  "adopted_answer_or_rubric_verbatim": "无法确认；不能把日本停留时间移用于韩国。",
+  "english_rubric": "A planned trip to Seoul is mentioned, but no completed Korean-stay duration is established by these contexts. Do not deny all Korea mentions or transfer Tokyo residence to Korea.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "c2ac3c61",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 61,
+  "question_cell": "F61",
+  "answer_cell": "E61",
+  "adopted_question_verbatim": "How many courses did I say I had completed on Coursera when discussing CNNs for text classification?",
+  "adopted_answer_or_rubric_verbatim": "3",
+  "english_rubric": "Require three completed Coursera courses; do not add edX courses or current interests.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

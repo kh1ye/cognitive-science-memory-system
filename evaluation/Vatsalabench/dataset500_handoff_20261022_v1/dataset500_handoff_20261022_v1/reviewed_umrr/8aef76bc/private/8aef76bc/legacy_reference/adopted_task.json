@@ -1,0 +1,15 @@
+{
+  "sample_id": "8aef76bc",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 486,
+  "question_cell": "F486",
+  "answer_cell": "E486",
+  "adopted_question_verbatim": "I'm going back to our previous conversation about DIY home decor projects using recycled materials. Can you remind me what sealant you recommended for the newspaper flower vase?",
+  "adopted_answer_or_rubric_verbatim": "Mod Podge (or another sealant)",
+  "english_rubric": "Require Mod Podge, allowing mention of another sealant as the original alternative; generic sealant alone omits the named recall target. No water-safety certification is implied.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

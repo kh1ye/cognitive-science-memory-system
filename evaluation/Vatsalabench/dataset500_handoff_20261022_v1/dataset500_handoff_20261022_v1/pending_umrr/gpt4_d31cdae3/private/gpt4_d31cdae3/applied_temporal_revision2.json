@@ -1,0 +1,46 @@
+{
+  "sample_id": "gpt4_d31cdae3",
+  "source_order": 172,
+  "status": "accepted_edits_applied_validation_passed",
+  "authorization": "User explicitly requested applying the consolidated suggestions; no experiment or independent acceptance authorized.",
+  "parent_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1\\packages\\gpt4_d31cdae3",
+  "parent_suite_sha256": "581d5413a36f9238dea29da85bd59764aa3789dcff643925c377a797d80294f4",
+  "revised_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1_review2\\packages\\gpt4_d31cdae3",
+  "revised_suite_sha256": "171a73ed54ca5539fc699ee29c703748b2bd65fc364850f8fb530502ec31df96",
+  "proposal_file": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch07_v1\\pending_edits_all_batches.json",
+  "proposal_sha256": "3407de41004d56cd559b1fe0cb938f21362c02f9caa4ba68469decfe323abd54",
+  "source_proposal": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_165_174_v1\\proposed_edits.json",
+  "applied_edits": [
+    {
+      "file": "samples/gpt4_d31cdae3/probes.json",
+      "probe_id": "BASE-3",
+      "field": "question",
+      "old": "What was the stated length of my independent European backpacking trip across those three countries?",
+      "proposed": "While discussing Munich's Deutsches Museum, what duration did I report for my past solo backpacking journey in Europe?"
+    },
+    {
+      "file": "samples/gpt4_d31cdae3/probes.json",
+      "probe_id": "R1R2",
+      "field": "question",
+      "old": "How long was that solo backpacking trip, and which three countries did I name?",
+      "proposed": "For the past solo European backpacking trip I recalled in the Munich museum discussion, how long did I travel, and which three countries did I name?"
+    }
+  ],
+  "changed_public_files": [
+    "samples/gpt4_d31cdae3/probes.json"
+  ],
+  "history_byte_identical": true,
+  "branches_byte_identical": true,
+  "gold_byte_identical": true,
+  "private_gold_sha256": "877f174e07a03d48cd857530c7511dffe4119aed2c288b48ece1f5997d45024a",
+  "query_times_and_checkpoints_unchanged": true,
+  "protocol_and_provider_unchanged": true,
+  "question_edit_count": 2,
+  "reference_edit_count": 0,
+  "quality_probes": 12,
+  "metrics": 11,
+  "live_review_gate_passed": false,
+  "independent_review": "pending",
+  "api_calls": 0,
+  "inherited_audit_note": "Copied audit files describe their earlier source version. This revision record and current public inputs describe the applied wording."
+}

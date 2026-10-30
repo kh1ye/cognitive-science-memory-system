@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_18c2b244",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 128,
+  "question_cell": "F128",
+  "answer_cell": "E128",
+  "adopted_question_verbatim": "Which store's rewards program did I say I signed up for on April 15, 2023?",
+  "adopted_answer_or_rubric_verbatim": "ShopRite",
+  "english_rubric": "Require ShopRite, not Walmart, Target, Ibotta or Amazon from separate transactions.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

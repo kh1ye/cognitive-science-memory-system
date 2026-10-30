@@ -1,0 +1,129 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "10 pounds",
+      "rule": "Require ten pounds for the stated window. Earlier five pounds in one month is a different window, not a value to add or automatically supersede."
+    },
+    "BASE-2": {
+      "expected": "10 pounds",
+      "rule": "Require ten pounds for the stated window. Earlier five pounds in one month is a different window, not a value to add or automatically supersede."
+    },
+    "BASE-3": {
+      "expected": "10 pounds",
+      "rule": "Require ten pounds for the stated window. Earlier five pounds in one month is a different window, not a value to add or automatically supersede."
+    },
+    "RET-10": {
+      "expected": "10 pounds",
+      "rule": "Require ten pounds for the stated window. Earlier five pounds in one month is a different window, not a value to add or automatically supersede."
+    },
+    "RET-30": {
+      "expected": "10 pounds",
+      "rule": "Require ten pounds for the stated window. Earlier five pounds in one month is a different window, not a value to add or automatically supersede."
+    },
+    "RET-50": {
+      "expected": "10 pounds",
+      "rule": "Require ten pounds for the stated window. Earlier five pounds in one month is a different window, not a value to add or automatically supersede."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "10 pounds",
+        "three months"
+      ],
+      "intents": [
+        "Reported weight change",
+        "Routine duration"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "10:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/06/24 08:00",
+        "old_valid_from": "2023/06/24 08:00",
+        "old_valid_to": "2023/06/25 09:00",
+        "observed_at": "2023/06/25 09:00",
+        "valid_from": "2023/06/25 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/25 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "10:00",
+        "11:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "10:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "10:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 54,
+        "turn_index": 3,
+        "date": "2023/06/21 (Wed) 05:37",
+        "role": "user",
+        "quote": "That's a lot of options! I'll check out a few of those playlists, thanks. By the way, speaking of my cardio days, I've been doing great and I just realized I've lost 10 pounds since I started going consistently to the gym 3 months ago. Do you have any tips on how to keep my energy levels up during my workouts?"
+      },
+      {
+        "session_index": 29,
+        "turn_index": 9,
+        "date": "2023/05/21 (Sun) 12:29",
+        "role": "user",
+        "quote": "I think I'll try to find a running buddy through online platforms or local running groups. That way, I can find someone with a similar fitness level and goal. And thanks for the hydration tips! I'll make sure to drink plenty of water before and during my runs.\n\nBy the way, I was thinking about my progress so far, and I realized that I've been doing pretty well with my workouts and diet. I've lost 5 pounds in the past month, which is slow but steady progress. I'm hoping to continue this trend and reach my goal weight by the end of the summer. Do you have any tips on how to stay motivated and focused on my long-term goals?"
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/06/24 08:00",
+    "old_valid_from": "2023/06/24 08:00",
+    "old_valid_to": "2023/06/25 09:00",
+    "observed_at": "2023/06/25 09:00",
+    "valid_from": "2023/06/25 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/25 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "cf22b7bf",
+  "sensitivity_note": "Historical self-report only; do not assess weight-loss safety, desirability or treatment.",
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

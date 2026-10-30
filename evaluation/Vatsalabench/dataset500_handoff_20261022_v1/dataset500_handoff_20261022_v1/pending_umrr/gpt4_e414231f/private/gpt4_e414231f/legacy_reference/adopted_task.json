@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_e414231f",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 397,
+  "question_cell": "F397",
+  "answer_cell": "E397",
+  "adopted_question_verbatim": "Which bike did I say I decided to upgrade to Shimano Ultegra clipless pedals?",
+  "adopted_answer_or_rubric_verbatim": "road bike",
+  "english_rubric": "Require road bike. This is a decision, not confirmation that the upgrade was finished.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

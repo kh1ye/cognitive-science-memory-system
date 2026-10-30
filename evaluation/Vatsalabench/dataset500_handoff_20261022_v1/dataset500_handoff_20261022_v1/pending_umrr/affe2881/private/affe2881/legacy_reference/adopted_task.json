@@ -1,0 +1,15 @@
+{
+  "sample_id": "affe2881",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 459,
+  "question_cell": "F459",
+  "answer_cell": "E459",
+  "adopted_question_verbatim": "How many different species of birds have I seen in my local park?",
+  "adopted_answer_or_rubric_verbatim": "32",
+  "english_rubric": "Require 32 species, not individual birds. One named addition does not imply all increase from 27 was one.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

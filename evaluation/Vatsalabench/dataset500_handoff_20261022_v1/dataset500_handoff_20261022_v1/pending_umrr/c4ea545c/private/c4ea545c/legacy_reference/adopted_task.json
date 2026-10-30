@@ -1,0 +1,15 @@
+{
+  "sample_id": "c4ea545c",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 199,
+  "question_cell": "F199",
+  "answer_cell": "E199",
+  "adopted_question_verbatim": "How many times per week did I say I went to the gym in the August 15 conversation?",
+  "adopted_answer_or_rubric_verbatim": "Four times per week",
+  "english_rubric": "Require four times weekly. A list of three days is not automatically three visits; do not infer a quantified increase.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -57,7 +57,7 @@ class RetrieveRequest(Owned):
     thread_id: str
     task_id: str
     modules: list[Literal["working", "semantic", "episodic", "procedural"]] = Field(
-        default_factory=lambda: ["semantic"]
+        default_factory=lambda: ["semantic", "episodic"]
     )
     scope: str = "user"
 

@@ -1,0 +1,15 @@
+{
+  "sample_id": "6456829e_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 365,
+  "question_cell": "F365",
+  "answer_cell": "E365",
+  "adopted_question_verbatim": "How many plants did I initially plant for tomatoes and chili peppers?",
+  "adopted_answer_or_rubric_verbatim": "已知番茄5株，但辣椒最初株数缺失，无法合计。",
+  "english_rubric": "Five initial tomato plants are supported, but the initial chilli-pepper count is not established. Do not substitute ingredient mentions or unrelated plant counts; decline to invent a total.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

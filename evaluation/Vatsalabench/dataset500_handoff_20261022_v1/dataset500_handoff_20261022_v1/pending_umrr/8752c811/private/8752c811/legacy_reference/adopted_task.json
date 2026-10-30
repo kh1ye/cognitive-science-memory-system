@@ -1,0 +1,15 @@
+{
+  "sample_id": "8752c811",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 233,
+  "question_cell": "F233",
+  "answer_cell": "E233",
+  "adopted_question_verbatim": "I remember you provided a list of 100 prompt parameters that I can specify to influence your output. Can you remind me what was the 27th parameter on that list?",
+  "adopted_answer_or_rubric_verbatim": "Sound effects",
+  "english_rubric": "Require Sound effects. Examples in parentheses are optional; the prose list is not an actual API specification.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

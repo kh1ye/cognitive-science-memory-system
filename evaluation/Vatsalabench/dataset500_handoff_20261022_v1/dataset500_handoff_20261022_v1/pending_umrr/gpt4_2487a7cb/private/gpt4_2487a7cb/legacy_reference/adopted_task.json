@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_2487a7cb",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 405,
+  "question_cell": "F405",
+  "answer_cell": "E405",
+  "adopted_question_verbatim": "Which event did I attend first, the 'Effective Time Management' workshop or the 'Data Analysis using Python' webinar?",
+  "adopted_answer_or_rubric_verbatim": "Data Analysis using Python webinar",
+  "english_rubric": "Require Data Analysis using Python webinar first: two months earlier precedes last Saturday. Future-visible evidence must not be used at an earlier cutoff.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

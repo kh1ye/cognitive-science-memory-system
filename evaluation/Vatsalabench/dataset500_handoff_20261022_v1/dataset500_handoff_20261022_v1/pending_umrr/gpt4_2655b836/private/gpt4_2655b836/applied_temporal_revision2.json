@@ -1,0 +1,39 @@
+{
+  "sample_id": "gpt4_2655b836",
+  "source_order": 403,
+  "status": "accepted_edits_applied_validation_passed",
+  "authorization": "User explicitly requested applying the consolidated suggestions; no experiment or independent acceptance authorized.",
+  "parent_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1\\packages\\gpt4_2655b836",
+  "parent_suite_sha256": "b1cbe7f9a6fef0743391f1b8dbfc54db2a456d6b891e6ea873a72e0699829389",
+  "revised_package": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\unified500_full_history_v1_review2\\packages\\gpt4_2655b836",
+  "revised_suite_sha256": "8b102e6276e0fbc4d1d730f45a46374483a8aeb8c02291134dba7423e58a0218",
+  "proposal_file": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch07_v1\\pending_edits_all_batches.json",
+  "proposal_sha256": "3407de41004d56cd559b1fe0cb938f21362c02f9caa4ba68469decfe323abd54",
+  "source_proposal": "C:\\Users\\86138\\Documents\\Codex\\2026-07-12\\beyond-accuracy-introducing-cognitive-benchmarks-for\\outputs\\temporal_reference_review_batch05_v1\\proposed_edits.json",
+  "applied_edits": [
+    {
+      "file": "samples/gpt4_2655b836/probes.json",
+      "probe_id": "BASE-2",
+      "field": "question",
+      "old": "When did I report a fault with the car's navigation system?",
+      "proposed": "On what date did the fault with my car's navigation system occur, according to my account?"
+    }
+  ],
+  "changed_public_files": [
+    "samples/gpt4_2655b836/probes.json"
+  ],
+  "history_byte_identical": true,
+  "branches_byte_identical": true,
+  "gold_byte_identical": true,
+  "private_gold_sha256": "9d520e2b801740ba6b14b93d2f74e47f7e963de98d7bcafa2eb83cf5be0e4095",
+  "query_times_and_checkpoints_unchanged": true,
+  "protocol_and_provider_unchanged": true,
+  "question_edit_count": 1,
+  "reference_edit_count": 0,
+  "quality_probes": 12,
+  "metrics": 11,
+  "live_review_gate_passed": false,
+  "independent_review": "pending",
+  "api_calls": 0,
+  "inherited_audit_note": "Copied audit files describe their earlier source version. This revision record and current public inputs describe the applied wording."
+}

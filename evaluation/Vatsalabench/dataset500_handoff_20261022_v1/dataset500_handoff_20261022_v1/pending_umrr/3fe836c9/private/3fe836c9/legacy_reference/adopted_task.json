@@ -1,0 +1,15 @@
+{
+  "sample_id": "3fe836c9",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 350,
+  "question_cell": "F350",
+  "answer_cell": "E350",
+  "adopted_question_verbatim": "How much more was the pre-approval amount than the final sale price of the house?",
+  "adopted_answer_or_rubric_verbatim": "$25,000 ($350,000-$325,000)",
+  "english_rubric": "Require $25,000 under the adopted comparison. Preserve inconsistent buying-status narratives; do not infer a settled chronological purchase sequence.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "e4e14d04",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 418,
+  "question_cell": "F418",
+  "answer_cell": "E418",
+  "adopted_question_verbatim": "What was the name of the Facebook book group I said I joined?",
+  "adopted_answer_or_rubric_verbatim": "Book Lovers Unite",
+  "english_rubric": "Require Book Lovers Unite. Last week does not necessarily mean exactly seven days ago.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

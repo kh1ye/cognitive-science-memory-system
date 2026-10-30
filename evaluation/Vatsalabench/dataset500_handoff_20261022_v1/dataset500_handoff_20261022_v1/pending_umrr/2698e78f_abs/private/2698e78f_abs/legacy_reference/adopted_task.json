@@ -1,0 +1,15 @@
+{
+  "sample_id": "2698e78f_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 471,
+  "question_cell": "F471",
+  "answer_cell": "E471",
+  "adopted_question_verbatim": "How often do I see Dr. Johnson?",
+  "adopted_answer_or_rubric_verbatim": "没有足够依据确认Dr. Johnson的就诊频次。",
+  "english_rubric": "Dr. Smith's recorded frequency does not establish visits to Dr. Johnson. Do not transfer another clinician's schedule or deny an undocumented visit could occur. Whole-history absence review remains pending.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

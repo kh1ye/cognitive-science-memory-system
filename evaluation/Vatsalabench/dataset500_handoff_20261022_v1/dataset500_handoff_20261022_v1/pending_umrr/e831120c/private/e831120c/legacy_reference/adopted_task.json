@@ -1,0 +1,15 @@
+{
+  "sample_id": "e831120c",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 40,
+  "question_cell": "F40",
+  "answer_cell": "E40",
+  "adopted_question_verbatim": "How long did I say it took me to watch the 22 Marvel Cinematic Universe movies?",
+  "adopted_answer_or_rubric_verbatim": "two weeks",
+  "english_rubric": "Accept two weeks or fourteen days. Do not add the Star Wars duration.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

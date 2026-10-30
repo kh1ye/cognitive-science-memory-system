@@ -330,7 +330,7 @@ class MemoryCatalog:
             pool = [r for r in [*typed, *additions] if r["module"] == module]
             if module != "working":
                 pool.sort(
-                    key=lambda r: cosine_similarity(query, r.get("content", "")),
+                    key=lambda r: r.get("score", cosine_similarity(query, r.get("content", ""))),
                     reverse=True,
                 )
             result.extend(pool[:5])

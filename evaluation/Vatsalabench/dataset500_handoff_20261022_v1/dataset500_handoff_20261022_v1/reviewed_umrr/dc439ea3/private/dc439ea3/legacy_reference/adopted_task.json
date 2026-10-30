@@ -1,0 +1,15 @@
+{
+  "sample_id": "dc439ea3",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 481,
+  "question_cell": "F481",
+  "answer_cell": "E481",
+  "adopted_question_verbatim": "Which dance did you describe in our earlier chat as involving multiple hoops and being performed at powwows?",
+  "adopted_answer_or_rubric_verbatim": "Hoop Dance",
+  "english_rubric": "Require Hoop Dance as the prior description, not an externally verified classification of every listed activity.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

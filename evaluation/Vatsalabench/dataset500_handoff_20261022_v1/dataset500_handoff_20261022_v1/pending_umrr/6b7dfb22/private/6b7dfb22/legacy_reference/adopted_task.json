@@ -1,0 +1,15 @@
+{
+  "sample_id": "6b7dfb22",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 74,
+  "question_cell": "F74",
+  "answer_cell": "E74",
+  "adopted_question_verbatim": "I've been feeling a bit stuck with my paintings lately. Do you have any ideas on how I can find new inspiration?",
+  "adopted_answer_or_rubric_verbatim": "提出可执行的绘画灵感方法，可结合社交媒体、30天挑战或已提到的画法；允许新的灵感来源。",
+  "english_rubric": "Offer actionable ways to find painting inspiration. Social media, challenges and known interests can inform the answer but are not mandatory separate intents.",
+  "mapped_role": "supplementary_open_task_not_scheduled_in_core12",
+  "scheduled_in_core12": false,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

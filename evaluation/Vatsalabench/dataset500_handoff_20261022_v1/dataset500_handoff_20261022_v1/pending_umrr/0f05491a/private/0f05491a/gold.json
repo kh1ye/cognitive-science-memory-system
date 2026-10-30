@@ -1,0 +1,144 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "120 stars",
+      "rule": "Require 120 according to the latest user correction, not rejected assistant values 300/400. This is history recall, not verification of actual Starbucks policy."
+    },
+    "BASE-2": {
+      "expected": "120 stars",
+      "rule": "Require 120 according to the latest user correction, not rejected assistant values 300/400. This is history recall, not verification of actual Starbucks policy."
+    },
+    "BASE-3": {
+      "expected": "120 stars",
+      "rule": "Require 120 according to the latest user correction, not rejected assistant values 300/400. This is history recall, not verification of actual Starbucks policy."
+    },
+    "RET-10": {
+      "expected": "120 stars",
+      "rule": "Require 120 according to the latest user correction, not rejected assistant values 300/400. This is history recall, not verification of actual Starbucks policy."
+    },
+    "RET-30": {
+      "expected": "120 stars",
+      "rule": "Require 120 according to the latest user correction, not rejected assistant values 300/400. This is history recall, not verification of actual Starbucks policy."
+    },
+    "RET-50": {
+      "expected": "120 stars",
+      "rule": "Require 120 according to the latest user correction, not rejected assistant values 300/400. This is history recall, not verification of actual Starbucks policy."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "120 stars",
+        "125 stars"
+      ],
+      "intents": [
+        "Later user correction",
+        "Earlier user correction"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "14:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/08/02 08:00",
+        "old_valid_from": "2023/08/02 08:00",
+        "old_valid_to": "2023/08/03 09:00",
+        "observed_at": "2023/08/03 09:00",
+        "valid_from": "2023/08/03 09:00",
+        "valid_to": null,
+        "query_time": "2023/08/03 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "14:00",
+        "15:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "14:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "14:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 44,
+        "turn_index": 7,
+        "date": "2023/07/30 (Sun) 02:08",
+        "role": "user",
+        "quote": "Actually, I need 120 stars to reach the gold level, not 300. Anyway, thanks for the tips on earning stars. I'll try to make the most out of my Starbucks visits. By the way, do you know what's the best way to organize my loyalty cards and rewards points? I've been using a spreadsheet, but I'm open to other suggestions."
+      },
+      {
+        "session_index": 5,
+        "turn_index": 11,
+        "date": "2023/07/11 (Tue) 00:07",
+        "role": "user",
+        "quote": "Wait, I apologize for the mistake earlier! To correct myself, I actually need **125 stars** to reach the Gold level on the Starbucks Rewards app, not 400."
+      },
+      {
+        "session_index": 5,
+        "turn_index": 10,
+        "date": "2023/07/11 (Tue) 00:07",
+        "role": "assistant",
+        "quote": "I'm happy to help! To reach the Gold level on the Starbucks Rewards app, you need to earn a total of **400 stars** within a 12-month period. This will unlock all the exclusive benefits that come with being a Gold member.\n\nRemember, you can earn stars by making purchases, completing challenges, and participating in bonus star offers through the app. Keep track of your progress and stay on top of your star earnings to reach Gold level in no time!\n\nIf you have any more questions or need further assistance, feel free to ask!"
+      },
+      {
+        "session_index": 44,
+        "turn_index": 6,
+        "date": "2023/07/30 (Sun) 02:08",
+        "role": "assistant",
+        "quote": "You're aiming for gold! To reach the Gold level on your Starbucks Rewards app, you need to earn a total of **300 stars** within a 12-month period. Once you reach 300 stars, you'll be upgraded to Gold status, which comes with some fantastic benefits, such as:\n\n* Free drinks and treats: Redeem stars for free drinks and food items\n* Extra stars: Earn 2x stars on every dollar spent\n* Priority service: Get priority service at participating stores\n* Free refills: Enjoy free refills on brewed coffee and tea\n* Personalized offers: Receive exclusive offers and discounts\n\nTo track your progress, open your Starbucks Rewards app and check your star balance. You can also view your star history and see how many stars you need to reach the next level.\n\nRemember, you can earn stars through various methods, such as making purchases, paying with the app, ordering ahead, and participating in special promotions. Good luck, and I hope you reach Gold status soon!"
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/08/02 08:00",
+    "old_valid_from": "2023/08/02 08:00",
+    "old_valid_to": "2023/08/03 09:00",
+    "observed_at": "2023/08/03 09:00",
+    "valid_from": "2023/08/03 09:00",
+    "valid_to": null,
+    "query_time": "2023/08/03 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "0f05491a",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

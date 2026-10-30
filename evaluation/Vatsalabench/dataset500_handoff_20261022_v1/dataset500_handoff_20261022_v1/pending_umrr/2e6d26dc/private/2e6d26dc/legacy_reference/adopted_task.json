@@ -1,0 +1,15 @@
+{
+  "sample_id": "2e6d26dc",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 294,
+  "question_cell": "F294",
+  "answer_cell": "E294",
+  "adopted_question_verbatim": "How many babies were born to friends and family members in the last few months?",
+  "adopted_answer_or_rubric_verbatim": "5: Jasper, Ava, Lily, Max, Charlotte",
+  "english_rubric": "Require five: Jasper, Ava, Lily, Max and Charlotte. Twins count as two; a parent's third child counts once.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

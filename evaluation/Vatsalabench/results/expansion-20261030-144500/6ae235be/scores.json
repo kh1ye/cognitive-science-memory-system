@@ -1,0 +1,315 @@
+{
+  "sample_id": "6ae235be",
+  "judge_prompt_sha256": "1a0a11548c5ca5af3b7bce96c15d57537a80e20ed053097a4e1c365a0b4d14f1",
+  "judge_model": "deepseek-flash",
+  "judge_usage": {
+    "input_tokens": 3975,
+    "output_tokens": 685,
+    "total_tokens": 4660,
+    "input_token_details": {
+      "cache_read": 640
+    },
+    "output_token_details": {}
+  },
+  "judgment": {
+    "answers": [
+      {
+        "probe_id": "BASE-1",
+        "correct": 0,
+        "reason": "Refuses and gives no list; gold requires all four processes.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "BASE-2",
+        "correct": 0,
+        "reason": "Refuses; does not name the four methods.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "BASE-3",
+        "correct": 0,
+        "reason": "Refuses; does not give the set.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "UMRR-1",
+        "correct": 1,
+        "reason": "Explicit uncertainty, no invented permit number, no false denial of a known event.",
+        "conclusion": "Cannot determine; no permit number in available history."
+      },
+      {
+        "probe_id": "R1R2",
+        "correct": 0,
+        "reason": "Refusal only; neither slot filled.",
+        "conclusion": "Refusal; no list found."
+      },
+      {
+        "probe_id": "RET-10",
+        "correct": 0,
+        "reason": "Refuses; does not give the four processes.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "RET-30",
+        "correct": 0,
+        "reason": "Refuses; does not give the four processes.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "RET-50",
+        "correct": 0,
+        "reason": "Refuses; does not give the four processes.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "CUR-H2",
+        "correct": 1,
+        "reason": "Selects the effective 14:00 value at query time.",
+        "conclusion": "14:00"
+      },
+      {
+        "probe_id": "CON-U",
+        "correct": 1,
+        "reason": "Acknowledges unresolved conflict and asks for confirmation; no unique value chosen.",
+        "conclusion": "Conflict between 14:00 and 15:00; unresolved."
+      },
+      {
+        "probe_id": "CON-P",
+        "correct": 1,
+        "reason": "Chooses signed-record 14:00 per explicit priority.",
+        "conclusion": "14:00"
+      },
+      {
+        "probe_id": "CON-N",
+        "correct": 1,
+        "reason": "Gives agreed 14:00 without inventing conflict.",
+        "conclusion": "14:00"
+      }
+    ],
+    "fsrc_pairs": [
+      {
+        "left": "BASE-1",
+        "right": "BASE-2",
+        "match": 0,
+        "reason": "人工纠正：两个回答均未给出所问事实的明确结论；按照六维文档，两个拒答不算一致。"
+      },
+      {
+        "left": "BASE-1",
+        "right": "BASE-3",
+        "match": 0,
+        "reason": "人工纠正：两个回答均未给出所问事实的明确结论；按照六维文档，两个拒答不算一致。"
+      },
+      {
+        "left": "BASE-2",
+        "right": "BASE-3",
+        "match": 0,
+        "reason": "人工纠正：两个回答均未给出所问事实的明确结论；按照六维文档，两个拒答不算一致。"
+      }
+    ],
+    "tic_slots": [
+      {
+        "intent": "Initial process",
+        "covered": 0,
+        "reason": "Answer refuses and names no initial process."
+      },
+      {
+        "intent": "Impurity-removal process",
+        "covered": 0,
+        "reason": "Answer refuses and names no impurity-removal process."
+      }
+    ],
+    "afp_units": [
+      {
+        "text": "没有找到所问流程清单，无法确认初始分离及去杂质工艺",
+        "relevant": 1,
+        "reason": "相关的信息不足说明；合并末段重复拒答"
+      },
+      {
+        "text": "现有资料涉及死海疗养、健身目标、纽约旅行和论文投稿",
+        "relevant": 0,
+        "reason": "与当前两项工艺任务无关的话题列举"
+      },
+      {
+        "text": "请提供清单出处或相关原文以便核对",
+        "relevant": 1,
+        "reason": "当前任务所需的来源请求"
+      }
+    ]
+  },
+  "quality": {
+    "AFA": 0,
+    "UMRR": 1,
+    "FSRC": 0.0,
+    "TIC": 0.0,
+    "AFP": 0.6666666666666666,
+    "CVSAR": 1,
+    "CR-AUC": null,
+    "SCHR": 1,
+    "SCHR_compatible": 1,
+    "SCHR_priority": 1,
+    "SCHR_unresolved": 1
+  },
+  "resource": {
+    "ATC": 104963.0,
+    "ATC_known_usage_lower_bound": 104963.0,
+    "L95_seconds": 2.8952090999991924,
+    "latencies_seconds": [
+      2.6132175999991887,
+      2.6669351999989885,
+      2.8952090999991924
+    ],
+    "planned_queries": 3,
+    "completed_queries": 3,
+    "missing_usage_calls": 0,
+    "provider_calls": 60,
+    "empty_storage_bytes": 204800,
+    "built_storage_bytes": 1683456,
+    "history_bytes": 519685,
+    "SAF": 2.8452928216130924
+  },
+  "scoring_status": "model_assisted_with_explicit_manual_audit_provisional_gold",
+  "model_judgment": {
+    "answers": [
+      {
+        "probe_id": "BASE-1",
+        "correct": 0,
+        "reason": "Refuses and gives no list; gold requires all four processes.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "BASE-2",
+        "correct": 0,
+        "reason": "Refuses; does not name the four methods.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "BASE-3",
+        "correct": 0,
+        "reason": "Refuses; does not give the set.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "UMRR-1",
+        "correct": 1,
+        "reason": "Explicit uncertainty, no invented permit number, no false denial of a known event.",
+        "conclusion": "Cannot determine; no permit number in available history."
+      },
+      {
+        "probe_id": "R1R2",
+        "correct": 0,
+        "reason": "Refusal only; neither slot filled.",
+        "conclusion": "Refusal; no list found."
+      },
+      {
+        "probe_id": "RET-10",
+        "correct": 0,
+        "reason": "Refuses; does not give the four processes.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "RET-30",
+        "correct": 0,
+        "reason": "Refuses; does not give the four processes.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "RET-50",
+        "correct": 0,
+        "reason": "Refuses; does not give the four processes.",
+        "conclusion": "Refusal; no processes named."
+      },
+      {
+        "probe_id": "CUR-H2",
+        "correct": 1,
+        "reason": "Selects the effective 14:00 value at query time.",
+        "conclusion": "14:00"
+      },
+      {
+        "probe_id": "CON-U",
+        "correct": 1,
+        "reason": "Acknowledges unresolved conflict and asks for confirmation; no unique value chosen.",
+        "conclusion": "Conflict between 14:00 and 15:00; unresolved."
+      },
+      {
+        "probe_id": "CON-P",
+        "correct": 1,
+        "reason": "Chooses signed-record 14:00 per explicit priority.",
+        "conclusion": "14:00"
+      },
+      {
+        "probe_id": "CON-N",
+        "correct": 1,
+        "reason": "Gives agreed 14:00 without inventing conflict.",
+        "conclusion": "14:00"
+      }
+    ],
+    "fsrc_pairs": [
+      {
+        "left": "BASE-1",
+        "right": "BASE-2",
+        "match": 1,
+        "reason": "Both refuse to provide the process list; consistent target conclusion (no recall)."
+      },
+      {
+        "left": "BASE-1",
+        "right": "BASE-3",
+        "match": 1,
+        "reason": "Both refuse; consistent no-recall conclusion."
+      },
+      {
+        "left": "BASE-2",
+        "right": "BASE-3",
+        "match": 1,
+        "reason": "Both refuse; consistent no-recall conclusion."
+      }
+    ],
+    "tic_slots": [
+      {
+        "intent": "Initial process",
+        "covered": 0,
+        "reason": "Answer refuses and names no initial process."
+      },
+      {
+        "intent": "Impurity-removal process",
+        "covered": 0,
+        "reason": "Answer refuses and names no impurity-removal process."
+      }
+    ],
+    "afp_units": [
+      {
+        "text": "No such process list appears in available conversation records or long-term memory; existing material concerns unrelated topics.",
+        "relevant": 1,
+        "reason": "Relevant uncertainty explaining inability to answer."
+      },
+      {
+        "text": "Cannot answer; asks for the source or original text of the list.",
+        "relevant": 1,
+        "reason": "Task-serving request for needed context."
+      }
+    ]
+  },
+  "model_quality": {
+    "AFA": 0,
+    "UMRR": 1,
+    "FSRC": 1.0,
+    "TIC": 0.0,
+    "AFP": 1.0,
+    "CVSAR": 1,
+    "CR-AUC": null,
+    "SCHR": 1,
+    "SCHR_compatible": 1,
+    "SCHR_priority": 1,
+    "SCHR_unresolved": 1
+  },
+  "manual_audit": {
+    "reviewed": [
+      "FSRC全部12回答对",
+      "TIC全部8槽位",
+      "AFP全部内容单元",
+      "当前gold下的AFA/更新/冲突/保持目标值"
+    ],
+    "unit_policy": "按独立事实/建议/解释分单元，语义重复合并；整组无关话题列举作为一个单元；制作流程中的独立步骤分别计单元；相关不确定性可计AFP但不填TIC槽位。",
+    "UMRR": "按照当前gold作暂定核对，不宣称完成独立全历史缺失事实复核。",
+    "test_outputs_modified": false
+  }
+}

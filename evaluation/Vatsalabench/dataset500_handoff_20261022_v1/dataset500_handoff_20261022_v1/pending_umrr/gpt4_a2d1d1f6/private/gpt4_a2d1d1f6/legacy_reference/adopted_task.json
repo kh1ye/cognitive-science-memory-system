@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_a2d1d1f6",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 142,
+  "question_cell": "F142",
+  "answer_cell": "E142",
+  "adopted_question_verbatim": "Which herb did I say I had been harvesting a lot of and wanted to use in soups or stews?",
+  "adopted_answer_or_rubric_verbatim": "Thyme",
+  "english_rubric": "Require thyme, not basil merely offered as another recipe example.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

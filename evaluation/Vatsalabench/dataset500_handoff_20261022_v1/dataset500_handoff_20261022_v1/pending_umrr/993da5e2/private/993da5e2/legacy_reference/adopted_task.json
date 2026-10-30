@@ -1,0 +1,15 @@
+{
+  "sample_id": "993da5e2",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 423,
+  "question_cell": "F423",
+  "answer_cell": "E423",
+  "adopted_question_verbatim": "What new floor furnishing did I say I got for my living room about a month earlier?",
+  "adopted_answer_or_rubric_verbatim": "an area rug",
+  "english_rubric": "Require an area rug. One month is not necessarily 28 days, and acquisition does not prove immediate use.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

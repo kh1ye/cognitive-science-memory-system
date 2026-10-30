@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_61e13b3c",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 133,
+  "question_cell": "F133",
+  "answer_cell": "E133",
+  "adopted_question_verbatim": "What two types of items did I say I was selling at the Spring Fling Market?",
+  "adopted_answer_or_rubric_verbatim": "Handmade jewelry and candles",
+  "english_rubric": "Require both handmade jewelry and candles for the unified binary BASE-1 correctness. Retain two component annotations for review; do not silently change the common AFA denominator to two. British jewellery is equivalent.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

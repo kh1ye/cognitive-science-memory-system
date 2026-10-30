@@ -1,0 +1,139 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "French and Spanish",
+      "rule": "Require both French and Spanish. One alone is incomplete; do not invent local events."
+    },
+    "BASE-2": {
+      "expected": "French and Spanish",
+      "rule": "Require both French and Spanish. One alone is incomplete; do not invent local events."
+    },
+    "BASE-3": {
+      "expected": "French and Spanish",
+      "rule": "Require both French and Spanish. One alone is incomplete; do not invent local events."
+    },
+    "RET-10": {
+      "expected": "French and Spanish",
+      "rule": "Require both French and Spanish. One alone is incomplete; do not invent local events."
+    },
+    "RET-30": {
+      "expected": "French and Spanish",
+      "rule": "Require both French and Spanish. One alone is incomplete; do not invent local events."
+    },
+    "RET-50": {
+      "expected": "French and Spanish",
+      "rule": "Require both French and Spanish. One alone is incomplete; do not invent local events."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "French and Spanish",
+        "Juan"
+      ],
+      "intents": [
+        "Both languages",
+        "Tutor name"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "in person",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "in person",
+        "hybrid"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "in person",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "in person",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 41,
+        "turn_index": 3,
+        "date": "2023/05/29 (Mon) 12:32",
+        "role": "user",
+        "quote": "What are some cultural events or festivals in my area that celebrate language diversity and cultural exchange? I'd love to attend something like the cultural festival I volunteered at last month."
+      },
+      {
+        "session_index": 41,
+        "turn_index": 5,
+        "date": "2023/05/29 (Mon) 12:32",
+        "role": "user",
+        "quote": "Can you recommend any language learning apps or websites that focus on idiomatic expressions and colloquialisms in French and Spanish? I've been trying to improve my conversational skills and want to learn more informal language."
+      },
+      {
+        "session_index": 41,
+        "turn_index": 13,
+        "date": "2023/05/29 (Mon) 12:32",
+        "role": "user",
+        "quote": "I'd like to explore more language exchange opportunities and cultural events in my area. Can you suggest some ways to find language exchange partners or events that focus on French and Spanish languages?"
+      },
+      {
+        "session_index": 44,
+        "turn_index": 11,
+        "date": "2023/05/30 (Tue) 01:37",
+        "role": "user",
+        "quote": "I'm doing well, thanks for asking! I've been enjoying my classes with Juan, and I feel like I'm making progress with my Spanish. He's a great tutor, and I appreciate how he's been sharing insights about Colombian culture and customs with me. It's been really helpful in understanding the language better."
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": true,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "35a27287",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

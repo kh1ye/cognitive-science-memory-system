@@ -1,0 +1,15 @@
+{
+  "sample_id": "0a34ad58",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 83,
+  "question_cell": "F83",
+  "answer_cell": "E83",
+  "adopted_question_verbatim": "I’m a bit anxious about getting around Tokyo. Do you have any helpful tips?",
+  "adopted_answer_or_rubric_verbatim": "回应交通使用与出行焦虑，可结合已有Suica卡和TripIt应用，必要时澄清路线。",
+  "english_rubric": "Address getting around Tokyo and travel anxiety. Existing Suica/TripIt can help; route details may need clarification and current facts require separate verification.",
+  "mapped_role": "supplementary_open_task_not_scheduled_in_core12",
+  "scheduled_in_core12": false,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

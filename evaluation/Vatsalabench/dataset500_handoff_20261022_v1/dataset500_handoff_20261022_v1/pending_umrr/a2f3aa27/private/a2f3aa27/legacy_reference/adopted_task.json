@@ -1,0 +1,15 @@
+{
+  "sample_id": "a2f3aa27",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 463,
+  "question_cell": "F463",
+  "answer_cell": "E463",
+  "adopted_question_verbatim": "What approximate Instagram follower count did I say I thought I was close to in the later conversation?",
+  "adopted_answer_or_rubric_verbatim": "close to 1,300 (an estimate)",
+  "english_rubric": "Require close to 1,300 as an estimate; an exact verified 1,300 overstates the source.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

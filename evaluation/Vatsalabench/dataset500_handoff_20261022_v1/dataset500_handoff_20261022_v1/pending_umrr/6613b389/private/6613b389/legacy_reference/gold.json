@@ -1,0 +1,132 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "July 22",
+      "rule": "Require July 22. Use the earlier July 7 04:44 statement as target evidence, not only the later 19:55 mention."
+    },
+    "BASE-2": {
+      "expected": "July 22",
+      "rule": "Require July 22. Use the earlier July 7 04:44 statement as target evidence, not only the later 19:55 mention."
+    },
+    "BASE-3": {
+      "expected": "July 22",
+      "rule": "Require July 22. Use the earlier July 7 04:44 statement as target evidence, not only the later 19:55 mention."
+    },
+    "RET-10": {
+      "expected": "July 22",
+      "rule": "Require July 22. Use the earlier July 7 04:44 statement as target evidence, not only the later 19:55 mention."
+    },
+    "RET-30": {
+      "expected": "July 22",
+      "rule": "Require July 22. Use the earlier July 7 04:44 statement as target evidence, not only the later 19:55 mention."
+    },
+    "RET-50": {
+      "expected": "July 22",
+      "rule": "Require July 22. Use the earlier July 7 04:44 statement as target evidence, not only the later 19:55 mention."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "July 22",
+        "a staycation"
+      ],
+      "intents": [
+        "Anniversary date",
+        "Requested holiday type"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "14:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/07/08 08:00",
+        "old_valid_from": "2023/07/08 08:00",
+        "old_valid_to": "2023/07/09 09:00",
+        "observed_at": "2023/07/09 09:00",
+        "valid_from": "2023/07/09 09:00",
+        "valid_to": null,
+        "query_time": "2023/07/09 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "14:00",
+        "15:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "14:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "14:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 3,
+        "turn_index": 1,
+        "date": "2023/07/07 (Fri) 19:55",
+        "role": "user",
+        "quote": "I'm looking for some romantic getaway ideas for my partner and me. Our anniversary is coming up on July 22nd and I want to make it special."
+      },
+      {
+        "session_index": 13,
+        "turn_index": 1,
+        "date": "2023/07/07 (Fri) 04:44",
+        "role": "user",
+        "quote": "I'm looking for some gift ideas for my sister-in-law's sister, who got married last December. I finally got around to buying a kitchen appliance from their registry, but I want to add a more personal touch to the gift. Do you have any suggestions? By the way, speaking of weddings and engagements, my close friend Rachel got engaged last month on May 15th, and we're already planning her bachelorette party!"
+      },
+      {
+        "session_index": 13,
+        "turn_index": 11,
+        "date": "2023/07/07 (Fri) 04:44",
+        "role": "user",
+        "quote": "I like those tips! I'll definitely keep them in mind when writing the letter to Rachel. You know, I've been thinking about my own wedding anniversary which is coming up on July 22nd. I want to make it a special celebration, but I'm not sure what to do. Do you have any ideas for a romantic staycation?"
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/07/08 08:00",
+    "old_valid_from": "2023/07/08 08:00",
+    "old_valid_to": "2023/07/09 09:00",
+    "observed_at": "2023/07/09 09:00",
+    "valid_from": "2023/07/09 09:00",
+    "valid_to": null,
+    "query_time": "2023/07/09 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "6613b389",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

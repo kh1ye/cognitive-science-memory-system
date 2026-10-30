@@ -1,0 +1,129 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "$300 ($2,800-$2,500)",
+      "rule": "Require $300, 2800-2500. A later mention of the initial quote is not a new revision. Price owed is not proof of payment."
+    },
+    "BASE-2": {
+      "expected": "$300 ($2,800-$2,500)",
+      "rule": "Require $300, 2800-2500. A later mention of the initial quote is not a new revision. Price owed is not proof of payment."
+    },
+    "BASE-3": {
+      "expected": "$300 ($2,800-$2,500)",
+      "rule": "Require $300, 2800-2500. A later mention of the initial quote is not a new revision. Price owed is not proof of payment."
+    },
+    "RET-10": {
+      "expected": "$300 ($2,800-$2,500)",
+      "rule": "Require $300, 2800-2500. A later mention of the initial quote is not a new revision. Price owed is not proof of payment."
+    },
+    "RET-30": {
+      "expected": "$300 ($2,800-$2,500)",
+      "rule": "Require $300, 2800-2500. A later mention of the initial quote is not a new revision. Price owed is not proof of payment."
+    },
+    "RET-50": {
+      "expected": "$300 ($2,800-$2,500)",
+      "rule": "Require $300, 2800-2500. A later mention of the initial quote is not a new revision. Price owed is not proof of payment."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "$2,500",
+        "$2,800"
+      ],
+      "intents": [
+        "Initial quote",
+        "Corrected price"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "14:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "14:00",
+        "15:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "14:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "14:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 2,
+        "turn_index": 1,
+        "date": "2023/05/21 (Sun) 05:47",
+        "role": "user",
+        "quote": "I'm planning a trip to Japan and I'm trying to finalize my travel arrangements. I've booked a trip with Sakura Travel Agency, but I'm still waiting to hear back about my flight tickets. Do you know if there's anything I can do to speed up the process? By the way, the corrected price for the entire trip was $2,800."
+      },
+      {
+        "session_index": 35,
+        "turn_index": 3,
+        "date": "2023/05/27 (Sat) 00:38",
+        "role": "user",
+        "quote": "I'm also trying to finalize the payment for my flight tickets with Sakura Travel Agency. They initially quoted me $2,500 for the entire trip, but I'm still waiting for them to confirm my tickets. Do you have any tips on how to follow up with travel agencies or what I can do if they're not responding promptly?"
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "77eafa52",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

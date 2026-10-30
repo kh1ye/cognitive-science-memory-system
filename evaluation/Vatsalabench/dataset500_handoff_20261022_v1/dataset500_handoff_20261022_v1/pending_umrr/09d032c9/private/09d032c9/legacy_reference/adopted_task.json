@@ -1,0 +1,15 @@
+{
+  "sample_id": "09d032c9",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 76,
+  "question_cell": "F76",
+  "answer_cell": "E76",
+  "adopted_question_verbatim": "I've been having trouble with the battery life on my phone lately. Any tips?",
+  "adopted_answer_or_rubric_verbatim": "提出针对续航的可执行建议；可利用现有充电宝，也允许系统设置、用电排查等方案。",
+  "english_rubric": "Give actionable battery-life advice. Existing accessories are available context, not a requirement to recommend buying another power bank.",
+  "mapped_role": "supplementary_open_task_not_scheduled_in_core12",
+  "scheduled_in_core12": false,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

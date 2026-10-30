@@ -1,0 +1,15 @@
+{
+  "sample_id": "d596882b",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 237,
+  "question_cell": "F237",
+  "answer_cell": "E237",
+  "adopted_question_verbatim": "I'm planning another trip to New York City and I was wondering if you could remind me of that vegan eatery you recommended last time, the one with multiple locations throughout the city?",
+  "adopted_answer_or_rubric_verbatim": "By Chloe",
+  "english_rubric": "Require By Chloe as the prior recommendation. No claim about present branding, branches or operation.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

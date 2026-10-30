@@ -1,0 +1,129 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "5",
+      "rule": "Require five. A total divided by five gives an average, not necessarily an equal unit price."
+    },
+    "BASE-2": {
+      "expected": "5",
+      "rule": "Require five. A total divided by five gives an average, not necessarily an equal unit price."
+    },
+    "BASE-3": {
+      "expected": "5",
+      "rule": "Require five. A total divided by five gives an average, not necessarily an equal unit price."
+    },
+    "RET-10": {
+      "expected": "5",
+      "rule": "Require five. A total divided by five gives an average, not necessarily an equal unit price."
+    },
+    "RET-30": {
+      "expected": "5",
+      "rule": "Require five. A total divided by five gives an average, not necessarily an equal unit price."
+    },
+    "RET-50": {
+      "expected": "5",
+      "rule": "Require five. A total divided by five gives an average, not necessarily an equal unit price."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "5",
+        "funny quotes related to our profession"
+      ],
+      "intents": [
+        "Mug count",
+        "Printed theme"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "10:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "10:00",
+        "11:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "10:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "10:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 46,
+        "turn_index": 1,
+        "date": "2023/05/28 (Sun) 19:13",
+        "role": "user",
+        "quote": "I'm looking for some gift ideas for my coworkers' birthdays, which are coming up soon. I want to get something nice, but not too expensive. By the way, I already got them a nice gesture during the holiday season - I purchased 5 coffee mugs with funny quotes related to our profession, one for each of them."
+      },
+      {
+        "session_index": 37,
+        "turn_index": 1,
+        "date": "2023/05/27 (Sat) 22:31",
+        "role": "user",
+        "quote": "I'm trying to get a better grip on my finances, especially when it comes to gift-giving. I've been tracking my expenses and noticed I've been spending a lot on gifts lately. Can you help me come up with a budgeting plan to stick to, so I don't overspend? By the way, speaking of gifts, I once spent $60 on some coffee mugs for my coworkers, and it was a bit of a splurge, but they loved them."
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "0100672e",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

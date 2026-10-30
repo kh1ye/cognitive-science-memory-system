@@ -1,0 +1,15 @@
+{
+  "sample_id": "852ce960",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 437,
+  "question_cell": "F437",
+  "answer_cell": "E437",
+  "adopted_question_verbatim": "What Wells Fargo pre-approval amount did I mention in my November 30 conversation?",
+  "adopted_answer_or_rubric_verbatim": "$400,000",
+  "english_rubric": "Require $400,000 as the specific November 30 statement. Do not assert an explicitly confirmed corrected approval or verified current lender decision.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "f4f1d8a4_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 36,
+  "question_cell": "F36",
+  "answer_cell": "E36",
+  "adopted_question_verbatim": "What did my dad give me as a birthday gift?",
+  "adopted_answer_or_rubric_verbatim": "合理说明无法确认，不能挪用姐妹送的搅拌机",
+  "english_rubric": "Cannot determine the father's gift. Do not transfer the sister's mixer or assume a gift was never given.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

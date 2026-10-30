@@ -1,0 +1,137 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "4",
+      "rule": "Require four. The purchase explicitly links the trip's four-bike list to ownership; do not add old and new totals."
+    },
+    "BASE-2": {
+      "expected": "4",
+      "rule": "Require four. The purchase explicitly links the trip's four-bike list to ownership; do not add old and new totals."
+    },
+    "BASE-3": {
+      "expected": "4",
+      "rule": "Require four. The purchase explicitly links the trip's four-bike list to ownership; do not add old and new totals."
+    },
+    "RET-10": {
+      "expected": "4",
+      "rule": "Require four. The purchase explicitly links the trip's four-bike list to ownership; do not add old and new totals."
+    },
+    "RET-30": {
+      "expected": "4",
+      "rule": "Require four. The purchase explicitly links the trip's four-bike list to ownership; do not add old and new totals."
+    },
+    "RET-50": {
+      "expected": "4",
+      "rule": "Require four. The purchase explicitly links the trip's four-bike list to ownership; do not add old and new totals."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "four",
+        "a hybrid bike"
+      ],
+      "intents": [
+        "New total",
+        "New bike type"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "10:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/10/28 08:00",
+        "old_valid_from": "2023/10/28 08:00",
+        "old_valid_to": "2023/10/29 09:00",
+        "observed_at": "2023/10/29 09:00",
+        "valid_from": "2023/10/29 09:00",
+        "valid_to": null,
+        "query_time": "2023/10/29 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "10:00",
+        "11:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "10:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "10:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 30,
+        "turn_index": 5,
+        "date": "2023/10/10 (Tue) 01:12",
+        "role": "user",
+        "quote": "That sounds like an amazing itinerary! I'm really excited about the scenic routes and bike-friendly stops. Since I'll have four bikes with me, I'll make sure to book the accommodations with bike storage in advance to ensure they can accommodate all my bikes. By the way, speaking of bikes, I just got a new one recently, so I'll actually have four bikes with me on this trip - my road bike, mountain bike, commuter bike, and a new hybrid bike I just purchased."
+      },
+      {
+        "session_index": 7,
+        "turn_index": 5,
+        "date": "2023/02/22 (Wed) 20:54",
+        "role": "user",
+        "quote": "I'm actually thinking of doing a century ride soon, do you think my current road bike is ready for that distance, considering I've already done 2,000 miles on it? And by the way, I've been using it along with my other two bikes, a mountain bike and a commuter bike."
+      },
+      {
+        "session_index": 7,
+        "turn_index": 7,
+        "date": "2023/02/22 (Wed) 20:54",
+        "role": "user",
+        "quote": "I'm planning to use my road bike for the century ride, and I've been using it for long rides on the weekends. I've also been using my mountain bike for trail rides and my commuter bike for daily commutes. By the way, I currently have three bikes, and I'm wondering if that's too many."
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/10/28 08:00",
+    "old_valid_from": "2023/10/28 08:00",
+    "old_valid_to": "2023/10/29 09:00",
+    "observed_at": "2023/10/29 09:00",
+    "valid_from": "2023/10/29 09:00",
+    "valid_to": null,
+    "query_time": "2023/10/29 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "89941a93",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

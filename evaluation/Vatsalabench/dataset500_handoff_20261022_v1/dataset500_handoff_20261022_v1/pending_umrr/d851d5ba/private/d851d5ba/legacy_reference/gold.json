@@ -1,0 +1,164 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "$250",
+      "rule": "Require $250 for this event; do not add other or lower-bounded collective totals."
+    },
+    "BASE-2": {
+      "expected": "$250",
+      "rule": "Require $250 for this event; do not add other or lower-bounded collective totals."
+    },
+    "BASE-3": {
+      "expected": "$250",
+      "rule": "Require $250 for this event; do not add other or lower-bounded collective totals."
+    },
+    "RET-10": {
+      "expected": "$250",
+      "rule": "Require $250 for this event; do not add other or lower-bounded collective totals."
+    },
+    "RET-30": {
+      "expected": "$250",
+      "rule": "Require $250 for this event; do not add other or lower-bounded collective totals."
+    },
+    "RET-50": {
+      "expected": "$250",
+      "rule": "Require $250 for this event; do not add other or lower-bounded collective totals."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "$250",
+        "5 kilometres"
+      ],
+      "intents": [
+        "Amount",
+        "Distance"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "10:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/03/21 08:00",
+        "old_valid_from": "2023/03/21 08:00",
+        "old_valid_to": "2023/03/22 09:00",
+        "observed_at": "2023/03/22 09:00",
+        "valid_from": "2023/03/22 09:00",
+        "valid_to": null,
+        "query_time": "2023/03/22 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "10:00",
+        "11:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "10:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "10:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 15,
+        "turn_index": 1,
+        "date": "2023/03/20 (Mon) 08:00",
+        "role": "user",
+        "quote": "I'm looking for some advice on finding volunteer opportunities in my area. I've been trying to attend at least one charity event per month, and it's been an incredible experience so far. By the way, I just ran 5 kilometers in the \"Run for Hunger\" charity event on March 12th and raised $250 for a local food bank."
+      },
+      {
+        "session_index": 8,
+        "turn_index": 7,
+        "date": "2023/03/20 (Mon) 04:17",
+        "role": "user",
+        "quote": "I'm thinking about fundraising strategies for my cycling event. I've had some experience with fundraising in the past, like when I helped raise over $1,000 for the local children's hospital at a charity bake sale. Do you have any tips on how to effectively fundraise for a charity cycling event?"
+      },
+      {
+        "session_index": 32,
+        "turn_index": 1,
+        "date": "2023/03/20 (Mon) 18:35",
+        "role": "user",
+        "quote": "I'm planning to participate in another charity run soon, do you have any tips on how to stay motivated during training? By the way, I recently completed a charity fitness challenge in February and managed to raise $500 for the American Cancer Society, which was a great feeling!"
+      },
+      {
+        "session_index": 37,
+        "turn_index": 1,
+        "date": "2023/03/20 (Mon) 19:19",
+        "role": "user",
+        "quote": "I'm planning to participate in a charity cycling event next month and I want to make sure I'm prepared. Can you give me some tips on how to train for it? By the way, I've been getting more into charity events lately - I helped raise $2,000 for a local animal shelter on January 20th, and it was an amazing experience!"
+      },
+      {
+        "session_index": 8,
+        "turn_index": 1,
+        "date": "2023/03/20 (Mon) 04:17",
+        "role": "user",
+        "quote": "I'm looking for some tips on how to stay motivated to exercise regularly. I've been doing pretty well so far, but I want to keep the momentum going. By the way, I recently volunteered at a charity bake sale and it was amazing to see how much of an impact we can make - we raised $1,000 for the local children's hospital!"
+      },
+      {
+        "session_index": 37,
+        "turn_index": 7,
+        "date": "2023/03/20 (Mon) 19:19",
+        "role": "user",
+        "quote": "I'm glad you provided those tips. I've had some experience with fundraising, like I said, I helped raise over $2,000 for a local animal shelter on January 20th. I'll definitely use some of those ideas to reach my fundraising goal for this cycling event. Do you have any information on how to stay safe while cycling, especially in a charity event with many participants?"
+      },
+      {
+        "session_index": 44,
+        "turn_index": 7,
+        "date": "2023/03/20 (Mon) 22:05",
+        "role": "user",
+        "quote": "I actually helped organize a music benefit concert at the Independent back in April, which was a huge success and raised over $5,000 for the local music education program. My friend Jake's band, The Whiskey Wanderers, headlined the event. I'm actually taking guitar lessons now and trying to learn some new songs and techniques, focusing on indie rock and folk music. Do you know of any good resources for learning guitar online or in the Bay Area?"
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/03/21 08:00",
+    "old_valid_from": "2023/03/21 08:00",
+    "old_valid_to": "2023/03/22 09:00",
+    "observed_at": "2023/03/22 09:00",
+    "valid_from": "2023/03/22 09:00",
+    "valid_to": null,
+    "query_time": "2023/03/22 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "d851d5ba",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

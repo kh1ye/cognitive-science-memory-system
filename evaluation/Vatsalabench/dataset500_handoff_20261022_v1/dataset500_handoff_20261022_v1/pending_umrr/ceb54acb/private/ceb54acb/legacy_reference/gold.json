@@ -1,0 +1,122 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "Sexual fixations; problematic sexual behaviors; sexual impulsivity; compulsive sexuality",
+      "rule": "Require all four specified expressions, allowing British spellings and order changes for BASE questions. Retain four component labels but use complete-answer binary AFA under the shared protocol, not an unannounced denominator of four."
+    },
+    "BASE-2": {
+      "expected": "Sexual fixations; problematic sexual behaviors; sexual impulsivity; compulsive sexuality",
+      "rule": "Require all four specified expressions, allowing British spellings and order changes for BASE questions. Retain four component labels but use complete-answer binary AFA under the shared protocol, not an unannounced denominator of four."
+    },
+    "BASE-3": {
+      "expected": "Sexual fixations; problematic sexual behaviors; sexual impulsivity; compulsive sexuality",
+      "rule": "Require all four specified expressions, allowing British spellings and order changes for BASE questions. Retain four component labels but use complete-answer binary AFA under the shared protocol, not an unannounced denominator of four."
+    },
+    "RET-10": {
+      "expected": "Sexual fixations; problematic sexual behaviors; sexual impulsivity; compulsive sexuality",
+      "rule": "Require all four specified expressions, allowing British spellings and order changes for BASE questions. Retain four component labels but use complete-answer binary AFA under the shared protocol, not an unannounced denominator of four."
+    },
+    "RET-30": {
+      "expected": "Sexual fixations; problematic sexual behaviors; sexual impulsivity; compulsive sexuality",
+      "rule": "Require all four specified expressions, allowing British spellings and order changes for BASE questions. Retain four component labels but use complete-answer binary AFA under the shared protocol, not an unannounced denominator of four."
+    },
+    "RET-50": {
+      "expected": "Sexual fixations; problematic sexual behaviors; sexual impulsivity; compulsive sexuality",
+      "rule": "Require all four specified expressions, allowing British spellings and order changes for BASE questions. Retain four component labels but use complete-answer binary AFA under the shared protocol, not an unannounced denominator of four."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "Sexual fixations; problematic sexual behaviors",
+        "Sexual impulsivity; compulsive sexuality"
+      ],
+      "intents": [
+        "First two terms",
+        "Last two terms"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "bulleted",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "bulleted",
+        "plain text"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "bulleted",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "bulleted",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 30,
+        "turn_index": 4,
+        "date": "2023/05/27 (Sat) 11:16",
+        "role": "assistant",
+        "quote": "I apologize if my previous suggestions were not helpful. Here are some other alternatives:\n\n1. Sexual fixations - This term implies a strong preoccupation with sexual thoughts or behaviors that may interfere with other areas of life.\n2. Problematic sexual behaviors - This phrase is straightforward and describes behaviors that cause problems or difficulties in an individual's life.\n3. Sexual impulsivity - This term emphasizes the impulsive or compulsive nature of certain sexual behaviors and the difficulties individuals may face in controlling them.\n4. Compulsive sexuality - This phrase emphasizes the compulsive nature of certain sexual behaviors and the difficulties individuals may face in breaking free from them.\n\nI hope these suggestions are more helpful for you."
+      }
+    ],
+    "scope": "assistant_history",
+    "target_roles": [
+      "assistant"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "ceb54acb",
+  "sensitivity_note": "These are historical wording suggestions, not diagnoses or claims that the user has a condition. Workbook component-scoring notes remain preserved; independent review must acknowledge the common binary AFA mapping.",
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

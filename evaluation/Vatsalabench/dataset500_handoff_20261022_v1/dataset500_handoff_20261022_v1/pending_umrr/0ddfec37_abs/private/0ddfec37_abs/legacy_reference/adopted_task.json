@@ -1,0 +1,15 @@
+{
+  "sample_id": "0ddfec37_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 222,
+  "question_cell": "F222",
+  "answer_cell": "E222",
+  "adopted_question_verbatim": "How many autographed football have I added to my collection in the first three months of collection?",
+  "adopted_answer_or_rubric_verbatim": "无法确认签名football收藏数；不能使用baseball数量。",
+  "english_rubric": "The autographed-football count is unknown from the selected evidence. Do not transfer baseball counts or assert that the user has never collected footballs.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

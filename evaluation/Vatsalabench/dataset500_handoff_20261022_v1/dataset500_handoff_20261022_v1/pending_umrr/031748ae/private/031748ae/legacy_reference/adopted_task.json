@@ -1,0 +1,15 @@
+{
+  "sample_id": "031748ae",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 441,
+  "question_cell": "F441",
+  "answer_cell": "E441",
+  "adopted_question_verbatim": "How many engineers do I lead when I just started my new role as Senior Software Engineer? How many engineers do I lead now?",
+  "adopted_answer_or_rubric_verbatim": "initially 4; now 5",
+  "english_rubric": "Require both initial four and later five. Use the explicit early correction; outing attendees including the manager are not direct reports.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

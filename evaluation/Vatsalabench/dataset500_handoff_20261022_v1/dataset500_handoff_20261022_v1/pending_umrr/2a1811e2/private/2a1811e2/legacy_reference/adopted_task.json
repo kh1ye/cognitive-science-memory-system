@@ -1,0 +1,15 @@
+{
+  "sample_id": "2a1811e2",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 409,
+  "question_cell": "F409",
+  "answer_cell": "E409",
+  "adopted_question_verbatim": "How many days had passed between the Hindu festival of Holi and the Sunday mass at St. Mary's Church?",
+  "adopted_answer_or_rubric_verbatim": "21 calendar days",
+  "english_rubric": "Require twenty-one calendar days using the user-reported dates, not external festival calendars.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

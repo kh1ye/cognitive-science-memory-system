@@ -1,0 +1,15 @@
+{
+  "sample_id": "71a3fd6b",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 487,
+  "question_cell": "F487",
+  "answer_cell": "E487",
+  "adopted_question_verbatim": "I'm planning my trip to Speyer again and I wanted to confirm, what's the phone number of the Speyer tourism board that you provided me earlier?",
+  "adopted_answer_or_rubric_verbatim": "+49 (0) 62 32 / 14 23 - 0",
+  "english_rubric": "Recall +49 (0) 62 32 / 14 23 - 0. Ignore spacing/separator formatting, not digit changes; preserve optional trunk-zero interpretation. Do not claim current dialability.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

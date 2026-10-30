@@ -1,0 +1,15 @@
+{
+  "sample_id": "57f827a0",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 79,
+  "question_cell": "F79",
+  "answer_cell": "E79",
+  "adopted_question_verbatim": "I was thinking about rearranging the furniture in my bedroom this weekend. Any tips?",
+  "adopted_answer_or_rubric_verbatim": "提出可操作的卧室布局建议，可考虑计划中的斗柜和mid-century modern风格；尺寸未知时可请求尺寸。",
+  "english_rubric": "Offer actionable bedroom-layout advice, clarifying dimensions when necessary. The dresser and style are context; do not assume purchase or replacement occurred.",
+  "mapped_role": "supplementary_open_task_not_scheduled_in_core12",
+  "scheduled_in_core12": false,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

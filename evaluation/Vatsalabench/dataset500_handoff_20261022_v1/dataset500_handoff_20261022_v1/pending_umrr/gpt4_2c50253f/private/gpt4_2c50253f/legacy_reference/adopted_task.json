@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_2c50253f",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 419,
+  "question_cell": "F419",
+  "answer_cell": "E419",
+  "adopted_question_verbatim": "On which two weekdays did I say I wake up 15 minutes earlier to meditate and practice yoga?",
+  "adopted_answer_or_rubric_verbatim": "Tuesdays and Thursdays",
+  "english_rubric": "Require both Tuesday and Thursday. Do not assume the separately reported 7 AM is the relevant baseline and infer 6:45.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

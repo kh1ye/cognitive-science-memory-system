@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_fa19884c",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 121,
+  "question_cell": "F121",
+  "answer_cell": "E121",
+  "adopted_question_verbatim": "What old instrument did I say I started playing along to my favorite songs on March 25, 2023?",
+  "adopted_answer_or_rubric_verbatim": "My old keyboard",
+  "english_rubric": "Require keyboard; piano-inspired listening does not prove the old instrument was an acoustic piano or a purchased ukulele.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

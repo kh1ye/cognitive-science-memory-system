@@ -1,0 +1,15 @@
+{
+  "sample_id": "c8f1aeed",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 500,
+  "question_cell": "F500",
+  "answer_cell": "E500",
+  "adopted_question_verbatim": "I wanted to follow up on our previous conversation about fracking in the Marcellus Shale region. You mentioned that some states require fracking companies to monitor groundwater quality at nearby wells before drilling and for a certain period after drilling is complete. Can you remind me which state you mentioned as an example that has this requirement?",
+  "adopted_answer_or_rubric_verbatim": "Pennsylvania",
+  "english_rubric": "Require Pennsylvania as the historical example only. No current legal requirement is verified or recommended.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

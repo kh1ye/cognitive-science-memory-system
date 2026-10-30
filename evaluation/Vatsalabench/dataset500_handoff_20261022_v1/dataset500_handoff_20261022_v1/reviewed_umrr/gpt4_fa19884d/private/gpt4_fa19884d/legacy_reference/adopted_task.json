@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_fa19884d",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 400,
+  "question_cell": "F400",
+  "answer_cell": "E400",
+  "adopted_question_verbatim": "Which instrument did the bluegrass band I started listening to feature?",
+  "adopted_answer_or_rubric_verbatim": "banjo",
+  "english_rubric": "Require banjo; no specific band name is established by the cited source.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

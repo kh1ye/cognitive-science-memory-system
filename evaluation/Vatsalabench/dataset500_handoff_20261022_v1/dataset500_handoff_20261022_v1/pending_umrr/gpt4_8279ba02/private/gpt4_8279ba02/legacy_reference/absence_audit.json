@@ -1,0 +1,675 @@
+{
+  "question": "What was the exact serial number of my smoker?",
+  "pattern": "ago|buy|days|number|serial|smoker",
+  "messages_scanned": 489,
+  "matching_sentences": [
+    {
+      "session": 5,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/02/20 (Mon) 00:04",
+      "text": "I saw them at the BST Hyde Park festival in London a few weeks ago, and they were incredible."
+    },
+    {
+      "session": 5,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/02/20 (Mon) 00:04",
+      "text": "Foals: An Oxford-based indie rock band with a similar blend of math rock and atmospheric soundscapes, as seen in songs like \"My Number\" and \"Inhaler.\""
+    },
+    {
+      "session": 6,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/02/20 (Mon) 05:36",
+      "text": "**Be clear and concise:** Clearly state the resource or helpline, including the phone number or website, and a brief description of what it offers."
+    },
+    {
+      "session": 8,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/02/27 (Mon) 03:28",
+      "text": "* **Capacity:** Choose a feeder that can hold enough nectar to feed the number of hummingbirds you expect to attract."
+    },
+    {
+      "session": 9,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/02/27 (Mon) 02:29",
+      "text": "If you're someone who enjoys devouring books in a few sittings, you might finish it in 2-3 days."
+    },
+    {
+      "session": 9,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/02/27 (Mon) 02:29",
+      "text": "**Relatable Protagonists and Quirky Stories:**"
+    },
+    {
+      "session": 9,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/02/27 (Mon) 02:29",
+      "text": "These books all share some elements of Fangirl's themes, tone, and relatable protagonists."
+    },
+    {
+      "session": 9,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/02/27 (Mon) 02:29",
+      "text": "**Relatable Protagonists and Quirky Stories:**"
+    },
+    {
+      "session": 10,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/03/01 (Wed) 14:27",
+      "text": "To ensure that its shelves are stocked for the holidays, Walmart has taken drastic measures, including using air freight and chartering its own cargo ships."
+    },
+    {
+      "session": 10,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/01 (Wed) 14:27",
+      "text": "Walmart has taken drastic measures to ensure its shelves are stocked for the holidays, but this has come at a cost."
+    },
+    {
+      "session": 11,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 10:40",
+      "text": "By the way, I've stayed in the area before, at the Hotel Zelos after a work conference in Chicago."
+    },
+    {
+      "session": 11,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 10:40",
+      "text": "What are the best ways to get around Fisherman's Wharf without a car, since I'll be staying at a hotel in the area, like I did at Hotel Zelos after coming from Chicago?"
+    },
+    {
+      "session": 11,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 10:40",
+      "text": "As you approach the Ferry Building, you'll pass by the **Ferry Plaza Farmers Market** (on Tuesdays, Thursdays, and Saturdays)."
+    },
+    {
+      "session": 11,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 10:40",
+      "text": "* The Ferry Building Marketplace is open seven days a week, but the hours vary depending on the vendor or restaurant."
+    },
+    {
+      "session": 11,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 10:40",
+      "text": "* Many vendors offer free samples, so don't be afraid to try before you buy."
+    },
+    {
+      "session": 11,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 10:40",
+      "text": "* **Kids' Activities**: Face painting, arts and crafts, and educational workshops focused on sustainable farming and healthy eating (select Saturdays)"
+    },
+    {
+      "session": 11,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 10:40",
+      "text": "* Tuesdays: 10 am – 2 pm (year-round)"
+    },
+    {
+      "session": 11,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 10:40",
+      "text": "* Thursdays: 10 am – 2 pm (year-round)"
+    },
+    {
+      "session": 11,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 10:40",
+      "text": "* Saturdays: 8 am – 2 pm (year-round)"
+    },
+    {
+      "session": 12,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 06:05",
+      "text": "I just got a smoker today and I'm excited to experiment with different types of wood and meats."
+    },
+    {
+      "session": 12,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 06:05",
+      "text": "Congratulations on your smoker!"
+    },
+    {
+      "session": 12,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 06:05",
+      "text": "* Wood chips are perfect for smaller smokers or for adding flavor to meats that don't require a long smoke time."
+    },
+    {
+      "session": 12,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 06:05",
+      "text": "* Wood chunks are perfect for larger smokers or for meats that require a longer smoke time, like brisket or pork shoulders."
+    },
+    {
+      "session": 12,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 06:05",
+      "text": "* Add the wood chips or chunks to your smoker, either directly on the coals or in a smoker box."
+    },
+    {
+      "session": 12,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 06:05",
+      "text": "Remember to always follow the manufacturer's instructions for your specific smoker, and adjust the amount of wood chips or chunks based on your personal taste preferences."
+    },
+    {
+      "session": 12,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 06:05",
+      "text": "Simply add them to your smoker or grill, and they'll start producing smoke."
+    },
+    {
+      "session": 12,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 06:05",
+      "text": "* **Space-Saving:** Wood pellets take up less storage space than logs, chips, or chunks, making them ideal for small smokers or grillers."
+    },
+    {
+      "session": 12,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 06:05",
+      "text": "* **Cost-Effective:** Wood pellets can be more cost-effective than logs or chunks, especially for frequent smokers."
+    },
+    {
+      "session": 12,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 06:05",
+      "text": "* Use a pellet smoker or a pellet tube to contain the pellets and direct the smoke."
+    },
+    {
+      "session": 12,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 06:05",
+      "text": "I've been considering trying out wood pellets for my smoker, especially since I've heard they're more efficient and produce a consistent smoke flavor."
+    },
+    {
+      "session": 13,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 15:36",
+      "text": "**Market research**: Researching the market value of your records and providing guidance on buying, selling, or trading them."
+    },
+    {
+      "session": 16,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 07:24",
+      "text": "Bex, in particular, is a relatable and endearing protagonist."
+    },
+    {
+      "session": 16,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 07:24",
+      "text": "The authors do an excellent job of portraying her growth, struggles, and complexities, making her a relatable and endearing protagonist."
+    },
+    {
+      "session": 16,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 07:24",
+      "text": "The authors handle her struggles with identity, class, and privilege with sensitivity, nuance, and humor, making her a relatable and memorable protagonist."
+    },
+    {
+      "session": 17,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 00:32",
+      "text": "I'm heading to a business conference in Chicago and need some recommendations for good restaurants near my hotel."
+    },
+    {
+      "session": 17,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 00:32",
+      "text": "I just checked into the Hilton Hotel in downtown Chicago and was wondering if you could suggest some spots within walking distance."
+    },
+    {
+      "session": 17,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 00:32",
+      "text": "The Hilton Hotel in downtown Chicago is located in a fantastic area with plenty of great dining options within walking distance."
+    },
+    {
+      "session": 17,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 00:32",
+      "text": "**The Berghoff** (0.2 miles, 4-minute walk) - A Chicago institution since 1887, this historic restaurant serves top-notch steaks, seafood, and German-inspired dishes."
+    },
+    {
+      "session": 17,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 00:32",
+      "text": "Enjoy your stay in Chicago and your dining experiences!"
+    },
+    {
+      "session": 17,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 00:32",
+      "text": "* **Address:** 500 N Michigan Ave, Chicago, IL 60611 (about a 6-minute walk from the Hilton Hotel)"
+    },
+    {
+      "session": 17,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 00:32",
+      "text": "* **Atmosphere:** Rooftop dining with stunning views of the Chicago skyline and the Chicago River."
+    },
+    {
+      "session": 17,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 00:32",
+      "text": "* **Address:** 201 N State St, Chicago, IL 60601 (about an 8-minute walk from the Hilton Hotel)"
+    },
+    {
+      "session": 17,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 00:32",
+      "text": "By the way, since I'm staying at the Hilton Hotel in downtown Chicago, do you think it's within walking distance to The Gage?"
+    },
+    {
+      "session": 17,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 00:32",
+      "text": "The Hilton Hotel in downtown Chicago is actually just a stone's throw away from The Gage."
+    },
+    {
+      "session": 17,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 00:32",
+      "text": "* **Hilton Hotel:** 720 S Michigan Ave, Chicago, IL 60605"
+    },
+    {
+      "session": 17,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 00:32",
+      "text": "* **The Gage:** 24 S Michigan Ave, Chicago, IL 60603"
+    },
+    {
+      "session": 23,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 18:31",
+      "text": "**Trip #1** was a weekend getaway to the mountains with friends about 3 months ago."
+    },
+    {
+      "session": 23,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 18:31",
+      "text": "We rented a cabin and spent two days hiking and exploring the area."
+    },
+    {
+      "session": 23,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 18:31",
+      "text": "Since you mentioned it was about 3 months ago, I'll assume it was in the current year."
+    },
+    {
+      "session": 23,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 18:31",
+      "text": "* Dates of travel: Approximately 3 months ago (I'll assume it was a weekend, so Friday to Sunday)"
+    },
+    {
+      "session": 23,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 18:31",
+      "text": "Which month was it approximately 3 months ago?"
+    },
+    {
+      "session": 23,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 18:31",
+      "text": "And yeah, it was just a random weekend, no holidays or anything."
+    },
+    {
+      "session": 23,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 18:31",
+      "text": "Ah yes, about a month after that mountain trip, I took a solo trip to the beach for a few days."
+    },
+    {
+      "session": 25,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 12:03",
+      "text": "* Are you interested in reading about strong female protagonists or diverse characters?"
+    },
+    {
+      "session": 25,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 12:03",
+      "text": "I'd like to explore more books with strong female protagonists."
+    },
+    {
+      "session": 25,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 12:03",
+      "text": "I'm so glad you're interested in reading more books with strong female protagonists!"
+    },
+    {
+      "session": 25,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 12:03",
+      "text": "Since you mentioned you prefer character-driven novels, I've focused on books that delve deep into the inner lives and emotions of the protagonists."
+    },
+    {
+      "session": 25,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 12:03",
+      "text": "If you enjoy historical fiction, strong female protagonists, and stories that explore the complexities of family relationships, you'll likely find **The Song of the Jade Lily** a compelling read."
+    },
+    {
+      "session": 26,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 17:53",
+      "text": "**Small hexagons**: A small, repeating hexagon pattern can add a touch of modernity to your outfit."
+    },
+    {
+      "session": 27,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 08:52",
+      "text": "I actually took a hip hop class at The Dance Loft with my friend Rachel a few weeks ago, and we had a blast."
+    },
+    {
+      "session": 30,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 09:52",
+      "text": "* **Rotate puzzle toys:** To keep things interesting, rotate the puzzle toys every few days or weeks."
+    },
+    {
+      "session": 31,
+      "turn": 1,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 10:01",
+      "text": "Make sure to cite results using [[number], Year, Author(URL)] notation after the reference."
+    },
+    {
+      "session": 31,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 10:01",
+      "text": "Make sure to cite results using [[number,(Year, Author)](URL)] notation after the reference."
+    },
+    {
+      "session": 31,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 10:01",
+      "text": "Unlike the Journal Impact Factor (IF), which is based on the total number of citations received by a journal's articles in a given period, the Citation Success Index takes into account the broadness and shape of citation distributions [[3, (2017, T."
+    },
+    {
+      "session": 31,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 10:01",
+      "text": "Make sure to cite results using [[number, Year, Author](URL)] notation after the reference."
+    },
+    {
+      "session": 31,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 10:01",
+      "text": "At the end, please list the reference using [[number, Year, Author](URL)]."
+    },
+    {
+      "session": 31,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 10:01",
+      "text": "Unlike the journal impact factor (IF), which is based on the number of citations received by a journal's articles in a given year divided by the total number of articles published in the two preceding years, the citation success index depends on the broadness and the shape of citation distributions."
+    },
+    {
+      "session": 32,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 00:41",
+      "text": "**Jersey Garland**: Hang jerseys of the team members or create a garland with numbers and names to add a personal touch."
+    },
+    {
+      "session": 33,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 13:41",
+      "text": "**Juno** (2007) - A quirky, offbeat comedy with a strong protagonist and a unique voice."
+    },
+    {
+      "session": 33,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 13:41",
+      "text": "**Exploit the fish-out-of-water scenario**: Your protagonist could be a small-town filmmaker or a film enthusiast who's never been to a major film festival before."
+    },
+    {
+      "session": 33,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 13:41",
+      "text": "For example, what if the protagonist falls in love with a rival filmmaker, or if the love story is threatened by a film festival scandal?"
+    },
+    {
+      "session": 33,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 13:41",
+      "text": "**Use the festival's setting to create a sense of urgency**: The film festival setting provides a natural ticking clock, as the festival only lasts for a few days."
+    },
+    {
+      "session": 34,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 09:11",
+      "text": "I'll be gone for about 5 days, and the weather is supposed to be pretty mild."
+    },
+    {
+      "session": 34,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 09:11",
+      "text": "Do you think I should organize them chronologically or by theme, like vacations or holidays?"
+    },
+    {
+      "session": 34,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 09:11",
+      "text": "* Section 3: Holidays and Celebrations (thematic, showcasing photos from special occasions)"
+    },
+    {
+      "session": 34,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 09:11",
+      "text": "Within each section, I can group similar photos together, like vacations or holidays."
+    },
+    {
+      "session": 34,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 09:11",
+      "text": "By the way, speaking of recent events, I just remembered that I have some photos from a project I finished a month ago that I'd like to share with my family."
+    },
+    {
+      "session": 37,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 12:35",
+      "text": "Number of bikes: How many bikes do you want to carry?"
+    },
+    {
+      "session": 39,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 08:54",
+      "text": "**Set a timer**: Challenge yourself to read a certain number of pages or a specific section within a set time frame (e.g., 20-30 minutes)."
+    },
+    {
+      "session": 39,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 08:54",
+      "text": "**Read until a natural stopping point**: Instead of focusing on a specific number of chapters, read until you reach a natural stopping point, such as the end of a section or a cliffhanger."
+    },
+    {
+      "session": 40,
+      "turn": 2,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 03:31",
+      "text": "**Request a confirmation or reference number**: Ask the agency to provide a confirmation number or reference number for your booking, which can help you track the status of your tickets."
+    },
+    {
+      "session": 40,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 03:31",
+      "text": "PayPal, on the other hand, offers an additional layer of protection and buyer protection."
+    },
+    {
+      "session": 40,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 03:31",
+      "text": "You can buy these at electronics stores or online."
+    },
+    {
+      "session": 40,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 03:31",
+      "text": "**All Nippon Airways (ANA) Holidays**: ANA's official vacation package arm, providing flights, hotels, and activities."
+    },
+    {
+      "session": 42,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 06:36",
+      "text": "**Gradual Adjustment**: Instead of trying to switch to 10:30 PM immediately, try adjusting your bedtime by 15-30 minutes every few days."
+    },
+    {
+      "session": 42,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 06:36",
+      "text": "**Be Consistent**: Stick to your new bedtime routine and sleep schedule, even on weekends or days off."
+    },
+    {
+      "session": 42,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 06:36",
+      "text": "Remember, consistency is key, so try to stick to this routine as closely as possible, even on weekends or days off."
+    },
+    {
+      "session": 42,
+      "turn": 11,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 06:36",
+      "text": "I think I'll try to slowly adjust my bedtime by 15-minute increments every few days to help my body get used to the new sleep schedule."
+    },
+    {
+      "session": 42,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 06:36",
+      "text": "Adjusting your bedtime by 15-minute increments every few days is a gentle way to help your body adjust to the new sleep schedule."
+    },
+    {
+      "session": 46,
+      "turn": 5,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 12:33",
+      "text": "I've been thinking about buying a new laptop, and I tend to associate luxury brands with higher quality."
+    },
+    {
+      "session": 46,
+      "turn": 9,
+      "role": "user",
+      "date": "2023/03/15 (Wed) 12:33",
+      "text": "I've been thinking about buying a new handbag, and I want to explore options that won't break the bank."
+    },
+    {
+      "session": 46,
+      "turn": 12,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 12:33",
+      "text": "Also, what are some key things I should look for when buying a handbag?"
+    },
+    {
+      "session": 47,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 07:55",
+      "text": "* Break duration: April 10th to 17th (7 days)"
+    },
+    {
+      "session": 47,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 07:55",
+      "text": "**Set the Schedule**: Choose the days of the week you want to block social media."
+    },
+    {
+      "session": 47,
+      "turn": 10,
+      "role": "assistant",
+      "date": "2023/03/15 (Wed) 07:55",
+      "text": "\t* For: 7 days"
+    }
+  ],
+  "scope": "All messages in both roles scanned programmatically; selected cited contexts reviewed. This is not exhaustive semantic reading or proof of absence.",
+  "independent_review": "pending",
+  "eligibility": "provisional_candidate"
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "a4996e51",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 340,
+  "question_cell": "F340",
+  "answer_cell": "E340",
+  "adopted_question_verbatim": "How many hours do I work in a typical week during peak campaign seasons?",
+  "adopted_answer_or_rubric_verbatim": "50 hours (40+10)",
+  "english_rubric": "Require 50 hours, 40+10. A generally busy 45-hour week is a different condition, not the peak-campaign total.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

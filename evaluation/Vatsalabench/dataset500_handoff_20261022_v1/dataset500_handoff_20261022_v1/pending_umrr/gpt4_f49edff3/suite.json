@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.1",
+  "suite_id": "unified-next70-331-400-gpt4_f49edff3-memorybank-live-v2-full-history-v1",
+  "protocol_file": "protocol.json",
+  "config_file": "run_config.json",
+  "instruction_file": "answer_instruction.txt",
+  "samples": [
+    "samples/gpt4_f49edff3/sample.json"
+  ],
+  "public_sha256": {
+    "protocol.json": "766f167f97ce6e8e42ab79a0151b607586819e98a3bef58c7c8736104660219c",
+    "run_config.json": "97275fb6735397c61e2e8979ee12830bd88f82dcf411d1182cccf67d867b6ab4",
+    "adapter_config.json": "ae290ca9ea3e6ddc1346c6d44462410dd80f7e5d89866dbe7e7201f68efc4c4f",
+    "provider_config.json": "ee301bae5cd2adbaca56c938080478e05d68af8a44f8a54604156b002f2742a9",
+    "answer_instruction.txt": "8ff253b4f1e4564d7bb64630f490413e884a1114a80a446b1634c08fa65f817f",
+    "samples/gpt4_f49edff3/sample.json": "b35d86c6d9fe27321ad80e003849ef73ad5f23bdffd83e01801cdef3534705dd",
+    "samples/gpt4_f49edff3/history.json": "32c7d2ce03b8de14bc95605006d352b3552fc8d8ca050b2b68fcd4915b4bc313",
+    "samples/gpt4_f49edff3/probes.json": "6b9ad5954e525ceffc86b6ca49c8b93f006b733962aa2a2766945fbc1ecd08ef",
+    "samples/gpt4_f49edff3/branches.json": "ad5ac13c46e6eab8ff05331166a8bc7d0c7de481722cd83778fef8c1a33c1cc7"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "6222b6eb",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 236,
+  "question_cell": "F236",
+  "answer_cell": "E236",
+  "adopted_question_verbatim": "In your earlier comparison of SIAC_GEE and Sen2Cor, which model did you say SIAC_GEE used?",
+  "adopted_answer_or_rubric_verbatim": "6S radiative transfer model",
+  "english_rubric": "Require 6S; radiative transfer wording may be included. Normalise escaped underscores. This tests prior text, not technical correctness.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

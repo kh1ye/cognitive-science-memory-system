@@ -1,0 +1,133 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "30 minutes",
+      "rule": "Accept thirty minutes or half an hour. Do not infer a weekly total or no yoga from reduced activity."
+    },
+    "BASE-2": {
+      "expected": "30 minutes",
+      "rule": "Accept thirty minutes or half an hour. Do not infer a weekly total or no yoga from reduced activity."
+    },
+    "BASE-3": {
+      "expected": "30 minutes",
+      "rule": "Accept thirty minutes or half an hour. Do not infer a weekly total or no yoga from reduced activity."
+    },
+    "RET-10": {
+      "expected": "30 minutes",
+      "rule": "Accept thirty minutes or half an hour. Do not infer a weekly total or no yoga from reduced activity."
+    },
+    "RET-30": {
+      "expected": "30 minutes",
+      "rule": "Accept thirty minutes or half an hour. Do not infer a weekly total or no yoga from reduced activity."
+    },
+    "RET-50": {
+      "expected": "30 minutes",
+      "rule": "Accept thirty minutes or half an hour. Do not infer a weekly total or no yoga from reduced activity."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "30 minutes",
+        "2 hours"
+      ],
+      "intents": [
+        "Jog duration",
+        "Former yoga-session duration"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "20 minutes",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "20 minutes",
+        "25 minutes"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "20 minutes",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "20 minutes",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 5,
+        "turn_index": 1,
+        "date": "2023/05/20 (Sat) 18:15",
+        "role": "user",
+        "quote": "I'm trying to get more organized with my fitness routine. Can you help me track my workouts? I went for a 30-minute jog around the neighborhood on Saturday, and I'd like to keep a record of that."
+      },
+      {
+        "session_index": 23,
+        "turn_index": 1,
+        "date": "2023/05/22 (Mon) 23:10",
+        "role": "user",
+        "quote": "I've been trying to get more organized with my time, so I was wondering if you could suggest some apps or tools to help me plan out my daily tasks and stay on top of my schedule? By the way, I used to practice yoga three times a week, each time for 2 hours, but I've been slacking off for this month and I'm trying to get back into it."
+      },
+      {
+        "session_index": 27,
+        "turn_index": 1,
+        "date": "2023/05/23 (Tue) 18:03",
+        "role": "user",
+        "quote": "I'm looking for some healthy lunch ideas that are quick to prepare and won't take up too much of my lunch break. I've been trying to squeeze in a workout during lunch, so I need something fast and easy. By the way, I'm hoping to get back into yoga this week, maybe by starting with just one or two sessions a week."
+      }
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "7024f17c",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "078150f1",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 359,
+  "question_cell": "F359",
+  "answer_cell": "E359",
+  "adopted_question_verbatim": "How much more money did I raise than my initial goal in the charity cycling event?",
+  "adopted_answer_or_rubric_verbatim": "$50 ($250-$200)",
+  "english_rubric": "Require $50 under the adopted same-event linkage; a goal and an outcome are not contradictory states.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

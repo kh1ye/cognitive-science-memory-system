@@ -1,0 +1,118 @@
+{
+  "pattern": "handbag|purse|800|beauty box",
+  "matching_sentences": [
+    {
+      "session": 5,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 20:59",
+      "text": "\t+ Chicken: ¥800 - ¥1,500 (around $7 - $14 USD) per 100g serving"
+    },
+    {
+      "session": 5,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/20 (Sat) 20:59",
+      "text": "\t+ Beer: ¥500 - ¥800 (around $5 - $7 USD) per glass"
+    },
+    {
+      "session": 10,
+      "turn": 1,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 22:29",
+      "text": "        var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'gameDiv');"
+    },
+    {
+      "session": 10,
+      "turn": 1,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 22:29",
+      "text": "        var renderer = PIXI.autoDetectRenderer(800, 600);"
+    },
+    {
+      "session": 10,
+      "turn": 3,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 22:29",
+      "text": "    width: 800,"
+    },
+    {
+      "session": 10,
+      "turn": 3,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 22:29",
+      "text": "  const game = new Phaser.Game(800, 600, Phaser.CANVAS, \"game-canvas\");"
+    },
+    {
+      "session": 10,
+      "turn": 5,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 22:29",
+      "text": "<canvas id=\"game\" width=\"800\" height=\"600\"></canvas>"
+    },
+    {
+      "session": 10,
+      "turn": 5,
+      "role": "assistant",
+      "date": "2023/05/21 (Sun) 22:29",
+      "text": "var game = new me.Game(\"game\", 800, 600, {});"
+    },
+    {
+      "session": 16,
+      "turn": 3,
+      "role": "user",
+      "date": "2023/05/23 (Tue) 08:15",
+      "text": "I remember buying a designer handbag for a pretty penny - $800, to be exact."
+    },
+    {
+      "session": 16,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 08:15",
+      "text": "Now, about that designer handbag..."
+    },
+    {
+      "session": 16,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 08:15",
+      "text": "$800 is a significant expense, and it's great that you're aware of it."
+    },
+    {
+      "session": 16,
+      "turn": 4,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 08:15",
+      "text": "Consider categorizing that handbag as a luxury item or a \"want\" rather than a \"need.\" This will help you identify areas where you can cut back and allocate your funds more wisely."
+    },
+    {
+      "session": 16,
+      "turn": 6,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 08:15",
+      "text": "Those $800 handbags and designer clothing can add up quickly!"
+    },
+    {
+      "session": 16,
+      "turn": 7,
+      "role": "user",
+      "date": "2023/05/23 (Tue) 08:15",
+      "text": "I'm also considering canceling my subscription to a monthly beauty box, which was costing me $50 a month."
+    },
+    {
+      "session": 16,
+      "turn": 8,
+      "role": "assistant",
+      "date": "2023/05/23 (Tue) 08:15",
+      "text": "Canceling your monthly beauty box subscription is also a smart move."
+    },
+    {
+      "session": 21,
+      "turn": 15,
+      "role": "user",
+      "date": "2023/05/25 (Thu) 07:27",
+      "text": "The article should have a total word count of 800 to 1,300 words."
+    }
+  ],
+  "review_scope": "Selected full source-session context plus programmatic target navigation; not independent full-history acceptance."
+}

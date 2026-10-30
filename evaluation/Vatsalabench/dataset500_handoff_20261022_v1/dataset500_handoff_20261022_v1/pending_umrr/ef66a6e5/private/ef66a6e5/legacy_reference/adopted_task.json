@@ -1,0 +1,15 @@
+{
+  "sample_id": "ef66a6e5",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 344,
+  "question_cell": "F344",
+  "answer_cell": "E344",
+  "adopted_question_verbatim": "How many sports have I played competitively in the past?",
+  "adopted_answer_or_rubric_verbatim": "2: swimming and tennis",
+  "english_rubric": "Require two, swimming and tennis; planned training does not add competitive history.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

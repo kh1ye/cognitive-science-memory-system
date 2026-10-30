@@ -1,0 +1,325 @@
+{
+  "sample_id": "f4f1d8a4",
+  "judge_prompt_sha256": "1a0a11548c5ca5af3b7bce96c15d57537a80e20ed053097a4e1c365a0b4d14f1",
+  "judge_model": "deepseek-flash",
+  "judge_usage": {
+    "input_tokens": 2524,
+    "output_tokens": 691,
+    "total_tokens": 3215,
+    "input_token_details": {
+      "cache_read": 512
+    },
+    "output_token_details": {}
+  },
+  "judgment": {
+    "answers": [
+      {
+        "probe_id": "BASE-1",
+        "correct": 1,
+        "reason": "States sister gave the stand mixer as birthday gift; preserves object, giver, occasion.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "BASE-2",
+        "correct": 1,
+        "reason": "States sister gave the stand mixer as birthday gift, with mild uncertainty but correct value.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "BASE-3",
+        "correct": 1,
+        "reason": "States sister gave the stand mixer as birthday gift.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "UMRR-1",
+        "correct": 1,
+        "reason": "Explicitly says serial number is not in memory, invents no value, and does not deny the known gift event.",
+        "conclusion": "Cannot determine from available history."
+      },
+      {
+        "probe_id": "R1R2",
+        "correct": 1,
+        "reason": "Gives sister and caramel sauce, matching both gold slots.",
+        "conclusion": "sister; caramel sauce"
+      },
+      {
+        "probe_id": "RET-10",
+        "correct": 1,
+        "reason": "Sister given as birthday gift giver.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "RET-30",
+        "correct": 1,
+        "reason": "Sister given as birthday gift giver.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "RET-50",
+        "correct": 1,
+        "reason": "Sister given as birthday gift giver.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "CUR-H2",
+        "correct": 1,
+        "reason": "Selects medium as effective from 2023-06-01 09:00, before query time 11:01.",
+        "conclusion": "medium"
+      },
+      {
+        "probe_id": "CON-U",
+        "correct": 1,
+        "reason": "Acknowledges conflict between medium and high and declines to pick one.",
+        "conclusion": "unresolved conflict between medium and high"
+      },
+      {
+        "probe_id": "CON-P",
+        "correct": 1,
+        "reason": "Chooses medium per explicit signed-record priority.",
+        "conclusion": "medium"
+      },
+      {
+        "probe_id": "CON-N",
+        "correct": 1,
+        "reason": "Gives agreed value medium without inventing conflict.",
+        "conclusion": "medium"
+      }
+    ],
+    "fsrc_pairs": [
+      {
+        "left": "BASE-1",
+        "right": "BASE-2",
+        "match": 1,
+        "reason": "Both conclude sister gave the stand mixer as birthday gift."
+      },
+      {
+        "left": "BASE-1",
+        "right": "BASE-3",
+        "match": 1,
+        "reason": "Both conclude sister gave the stand mixer as birthday gift."
+      },
+      {
+        "left": "BASE-2",
+        "right": "BASE-3",
+        "match": 1,
+        "reason": "Both conclude sister gave the stand mixer as birthday gift."
+      }
+    ],
+    "tic_slots": [
+      {
+        "intent": "Gift giver",
+        "covered": 1,
+        "reason": "Answer states sister gave the stand mixer."
+      },
+      {
+        "intent": "Sauce",
+        "covered": 1,
+        "reason": "Answer states caramel sauce."
+      }
+    ],
+    "afp_units": [
+      {
+        "text": "Your sister gave you the stand mixer — it was a birthday gift from her last month.",
+        "relevant": 1,
+        "reason": "识别赠送者及同一礼物"
+      },
+      {
+        "text": "You said it's been a game-changer for making caramel",
+        "relevant": 1,
+        "reason": "回答酱料种类"
+      },
+      {
+        "text": "you melt sugar and butter together",
+        "relevant": 0,
+        "reason": "制作步骤不是当前所问的赠送者或酱料名称"
+      },
+      {
+        "text": "then slowly add heavy cream to create a smooth caramel sauce",
+        "relevant": 0,
+        "reason": "另一制作步骤；同主题但不是完成当前任务所需"
+      }
+    ]
+  },
+  "quality": {
+    "AFA": 1,
+    "UMRR": 1,
+    "FSRC": 1.0,
+    "TIC": 1.0,
+    "AFP": 0.5,
+    "CVSAR": 1,
+    "CR-AUC": 1.0,
+    "SCHR": 1,
+    "SCHR_compatible": 1,
+    "SCHR_priority": 1,
+    "SCHR_unresolved": 1
+  },
+  "resource": {
+    "ATC": 107838.33333333333,
+    "ATC_known_usage_lower_bound": 107838.33333333333,
+    "L95_seconds": 2.107395400002133,
+    "latencies_seconds": [
+      2.107395400002133,
+      1.3751217999997607,
+      1.4779557999972894
+    ],
+    "planned_queries": 3,
+    "completed_queries": 3,
+    "missing_usage_calls": 0,
+    "provider_calls": 61,
+    "empty_storage_bytes": 204800,
+    "built_storage_bytes": 1757184,
+    "history_bytes": 523080,
+    "SAF": 2.9677754836736256
+  },
+  "scoring_status": "model_assisted_with_explicit_manual_audit_provisional_gold",
+  "model_judgment": {
+    "answers": [
+      {
+        "probe_id": "BASE-1",
+        "correct": 1,
+        "reason": "States sister gave the stand mixer as birthday gift; preserves object, giver, occasion.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "BASE-2",
+        "correct": 1,
+        "reason": "States sister gave the stand mixer as birthday gift, with mild uncertainty but correct value.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "BASE-3",
+        "correct": 1,
+        "reason": "States sister gave the stand mixer as birthday gift.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "UMRR-1",
+        "correct": 1,
+        "reason": "Explicitly says serial number is not in memory, invents no value, and does not deny the known gift event.",
+        "conclusion": "Cannot determine from available history."
+      },
+      {
+        "probe_id": "R1R2",
+        "correct": 1,
+        "reason": "Gives sister and caramel sauce, matching both gold slots.",
+        "conclusion": "sister; caramel sauce"
+      },
+      {
+        "probe_id": "RET-10",
+        "correct": 1,
+        "reason": "Sister given as birthday gift giver.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "RET-30",
+        "correct": 1,
+        "reason": "Sister given as birthday gift giver.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "RET-50",
+        "correct": 1,
+        "reason": "Sister given as birthday gift giver.",
+        "conclusion": "my sister"
+      },
+      {
+        "probe_id": "CUR-H2",
+        "correct": 1,
+        "reason": "Selects medium as effective from 2023-06-01 09:00, before query time 11:01.",
+        "conclusion": "medium"
+      },
+      {
+        "probe_id": "CON-U",
+        "correct": 1,
+        "reason": "Acknowledges conflict between medium and high and declines to pick one.",
+        "conclusion": "unresolved conflict between medium and high"
+      },
+      {
+        "probe_id": "CON-P",
+        "correct": 1,
+        "reason": "Chooses medium per explicit signed-record priority.",
+        "conclusion": "medium"
+      },
+      {
+        "probe_id": "CON-N",
+        "correct": 1,
+        "reason": "Gives agreed value medium without inventing conflict.",
+        "conclusion": "medium"
+      }
+    ],
+    "fsrc_pairs": [
+      {
+        "left": "BASE-1",
+        "right": "BASE-2",
+        "match": 1,
+        "reason": "Both conclude sister gave the stand mixer as birthday gift."
+      },
+      {
+        "left": "BASE-1",
+        "right": "BASE-3",
+        "match": 1,
+        "reason": "Both conclude sister gave the stand mixer as birthday gift."
+      },
+      {
+        "left": "BASE-2",
+        "right": "BASE-3",
+        "match": 1,
+        "reason": "Both conclude sister gave the stand mixer as birthday gift."
+      }
+    ],
+    "tic_slots": [
+      {
+        "intent": "Gift giver",
+        "covered": 1,
+        "reason": "Answer states sister gave the stand mixer."
+      },
+      {
+        "intent": "Sauce",
+        "covered": 1,
+        "reason": "Answer states caramel sauce."
+      }
+    ],
+    "afp_units": [
+      {
+        "text": "Your sister gave you the stand mixer as a birthday gift last month.",
+        "relevant": 1,
+        "reason": "Directly answers gift giver slot."
+      },
+      {
+        "text": "You said it's been a game-changer for making caramel.",
+        "relevant": 1,
+        "reason": "Supports sauce slot."
+      },
+      {
+        "text": "You melt sugar and butter together, then slowly add heavy cream to create a smooth caramel sauce.",
+        "relevant": 1,
+        "reason": "Explains the caramel sauce mentioned."
+      }
+    ]
+  },
+  "model_quality": {
+    "AFA": 1,
+    "UMRR": 1,
+    "FSRC": 1.0,
+    "TIC": 1.0,
+    "AFP": 1.0,
+    "CVSAR": 1,
+    "CR-AUC": 1.0,
+    "SCHR": 1,
+    "SCHR_compatible": 1,
+    "SCHR_priority": 1,
+    "SCHR_unresolved": 1
+  },
+  "manual_audit": {
+    "reviewed": [
+      "FSRC全部12回答对",
+      "TIC全部8槽位",
+      "AFP全部内容单元",
+      "当前gold下的AFA/更新/冲突/保持目标值"
+    ],
+    "unit_policy": "按独立事实/建议/解释分单元，语义重复合并；整组无关话题列举作为一个单元；制作流程中的独立步骤分别计单元；相关不确定性可计AFP但不填TIC槽位。",
+    "UMRR": "按照当前gold作暂定核对，不宣称完成独立全历史缺失事实复核。",
+    "test_outputs_modified": false
+  }
+}

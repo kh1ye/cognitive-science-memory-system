@@ -1,0 +1,15 @@
+{
+  "sample_id": "2133c1b5",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 201,
+  "question_cell": "F201",
+  "answer_cell": "E201",
+  "adopted_question_verbatim": "How long did I say I had been living in my Harajuku studio apartment in the April 11 conversation?",
+  "adopted_answer_or_rubric_verbatim": "One month",
+  "english_rubric": "Require one month in the April report. A later Harajuku statement does not prove continuous residence in the same apartment or overwrite this historical answer.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

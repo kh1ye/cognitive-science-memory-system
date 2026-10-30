@@ -1,0 +1,15 @@
+{
+  "sample_id": "0e5e2d1a",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 479,
+  "question_cell": "F479",
+  "answer_cell": "E479",
+  "adopted_question_verbatim": "In our earlier chat, how many participants did you claim were in the Music and Medicine study?",
+  "adopted_answer_or_rubric_verbatim": "38",
+  "english_rubric": "Require 38 as the assistant's prior claim. This does not verify the study, efficacy or medical advice.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

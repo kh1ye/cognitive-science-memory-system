@@ -1,0 +1,123 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "center: any one of its hexagons; circumference: inaccessible",
+      "rule": "Require both: any hexagon as centre and inaccessible circumference. Recall the prior quotation; do not verify all attributions in the essay."
+    },
+    "BASE-2": {
+      "expected": "center: any one of its hexagons; circumference: inaccessible",
+      "rule": "Require both: any hexagon as centre and inaccessible circumference. Recall the prior quotation; do not verify all attributions in the essay."
+    },
+    "BASE-3": {
+      "expected": "center: any one of its hexagons; circumference: inaccessible",
+      "rule": "Require both: any hexagon as centre and inaccessible circumference. Recall the prior quotation; do not verify all attributions in the essay."
+    },
+    "RET-10": {
+      "expected": "center: any one of its hexagons; circumference: inaccessible",
+      "rule": "Require both: any hexagon as centre and inaccessible circumference. Recall the prior quotation; do not verify all attributions in the essay."
+    },
+    "RET-30": {
+      "expected": "center: any one of its hexagons; circumference: inaccessible",
+      "rule": "Require both: any hexagon as centre and inaccessible circumference. Recall the prior quotation; do not verify all attributions in the essay."
+    },
+    "RET-50": {
+      "expected": "center: any one of its hexagons; circumference: inaccessible",
+      "rule": "Require both: any hexagon as centre and inaccessible circumference. Recall the prior quotation; do not verify all attributions in the essay."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "any one of its hexagons",
+        "inaccessible"
+      ],
+      "intents": [
+        "Centre",
+        "Circumference"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "14:00",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "14:00",
+        "15:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "14:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "14:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 38,
+        "turn_index": 1,
+        "date": "2023/05/28 (Sun) 05:25",
+        "role": "assistant",
+        "quote": "The Library of Babel, a short story by Jorge Luis Borges, is a fascinating exploration of the relationship between language and reality. Through its portrayal of a vast, labyrinthine library containing every possible combination of letters and symbols, the story challenges our understanding of the power and limitations of language. In this essay, I will explore three major themes in The Library of Babel: the structure of the library and its impact on language, the paradox of infinite language and meaningless communication, and the impact of the library on reality and knowledge.\n\nA. The structure of the library and its impact on language\n\nThe library in The Library of Babel is a remarkable creation, a seemingly infinite collection of books containing every possible combination of letters and symbols. The library's structure reflects the boundless potential of language, and its ability to generate new meanings and ideas. Borges writes, \"The universe (which others call the Library) is composed of an indefinite, perhaps infinite number of hexagonal galleries… in the remote depths of the past, the books also corresponded to the chance combinations of twenty-five orthographic symbols.\" (Borges, 1941)\n\nThis structure highlights the infinite possibilities of language, as every conceivable combination of symbols is represented in the library. However, it also suggests that this infinite potential creates its own limitations, as the sheer volume of possibilities leads to meaninglessness. Borges notes, \"The Library is a sphere whose exact center is any one of its hexagons and whose circumference is inaccessible.\" (Borges, 1941) The structure of the library, with its infinite possibilities and lack of organization, creates a paradox in which the potential for meaning is vast, but the ability to create meaning is limited.\n\nB. The paradox of infinite language and meaningless communication\n\nDespite the vastness of the library, the story illustrates the limitations of language in conveying meaning. The characters in the story are unable to make sense of the books, which contain a dizzying array of conflicting and nonsensical statements. Borges writes, \"All men, in the vertiginous moment of coitus, are the same man. All men who repeat a line from Shakespeare are William Shakespeare.\" (Borges, 1941) This illustrates the paradox of infinite language, in which the sheer volume of possibilities leads to meaninglessness.\n\nThe characters in the story, known as \"the searchers,\" spend their lives in pursuit of meaning in the books of the library. They organize themselves into groups based on their interpretations of the books, but ultimately, their efforts are futile. Borges notes, \"In the vast Library there are no two identical books… From these incontrovertible premises he deduced that the Library is total and that its shelves register all the possible combinations of the twenty-odd orthographical symbols.\" (Borges, 1941) The paradox of infinite language creates a sense of futility in the searchers' efforts to find meaning, as they are faced with a seemingly infinite number of possibilities.\n\nC. The impact of the library on reality and knowledge\n\nThe library in The Library of Babel challenges our understanding of reality and knowledge, as it suggests that the limitations of language make it impossible to achieve a complete understanding of the world. The library's infinite possibilities suggest that knowledge is always provisional and that truth is always relative. Borges writes, \"The truth is that we live out our lives amid surfaces, and the true nature of things is a secret. Perhaps this is what attracts people to the Library: it is not the possession of truth, but the hope of finding it.\" (Borges, 1941)\n\nThe library's impact on reality and knowledge is further underscored by the fact that the characters in the story are unable to distinguish between the real and the imaginary. Borges notes,"
+      }
+    ],
+    "scope": "assistant_history",
+    "target_roles": [
+      "assistant"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "58470ed2",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

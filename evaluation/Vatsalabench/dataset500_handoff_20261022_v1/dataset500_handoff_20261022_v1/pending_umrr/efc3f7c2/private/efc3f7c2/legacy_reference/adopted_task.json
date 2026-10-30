@@ -1,0 +1,15 @@
+{
+  "sample_id": "efc3f7c2",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 362,
+  "question_cell": "F362",
+  "answer_cell": "E362",
+  "adopted_question_verbatim": "What Friday wake-up time did I report in my latest scheduling conversation?",
+  "adopted_answer_or_rubric_verbatim": "6:00 AM",
+  "english_rubric": "Require 6 AM in the latest Friday-specific account, not the earlier generic weekday or everyday claims.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

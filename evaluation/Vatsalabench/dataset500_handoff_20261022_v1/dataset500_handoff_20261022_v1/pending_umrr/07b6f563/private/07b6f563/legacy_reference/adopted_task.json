@@ -1,0 +1,15 @@
+{
+  "sample_id": "07b6f563",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 82,
+  "question_cell": "F82",
+  "answer_cell": "E82",
+  "adopted_question_verbatim": "Can you suggest some useful accessories for my phone?",
+  "adopted_answer_or_rubric_verbatim": "给出服务于手机保护或使用的配件建议，涉及具体适配时应符合iPhone 13 Pro。",
+  "english_rubric": "Suggest useful phone accessories; compatibility should fit iPhone 13 Pro when relevant. Apple branding is not required, and relevance is separate from factual compatibility.",
+  "mapped_role": "supplementary_open_task_not_scheduled_in_core12",
+  "scheduled_in_core12": false,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "aae3761f",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 288,
+  "question_cell": "F288",
+  "answer_cell": "E288",
+  "adopted_question_verbatim": "How many hours in total did I spend driving to my three road trip destinations combined?",
+  "adopted_answer_or_rubric_verbatim": "15 hours (4 + 5 + 6; outbound only)",
+  "english_rubric": "Require 15 hours, 4+5+6, outward journeys only. Return-trip durations are not stated.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

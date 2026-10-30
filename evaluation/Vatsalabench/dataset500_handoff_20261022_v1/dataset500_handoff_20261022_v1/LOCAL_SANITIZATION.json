@@ -1,0 +1,25 @@
+{
+  "purpose": "Local Git-safe export; upstream provenance and VALIDATION describe the original handoff, not this redaction.",
+  "sample_id": "gpt4_7a0daae1",
+  "replacement": "[REDACTED_GITHUB_TOKEN]",
+  "replacement_count": 3,
+  "originals_local_only": "evaluation/Vatsalabench/local-originals/ (ignored by Git)",
+  "changes": [
+    {
+      "file": "pending_umrr/gpt4_7a0daae1/samples/gpt4_7a0daae1/history.json",
+      "before_sha256": "c1a774fd062a8444d7e6f3e266677c470831a6371c7d4167dbc439da69e9c1f9",
+      "after_sha256": "aa9a6bd578a4d4730f332fc70adb89034f294b5796b527e1d06dfe63440b1430"
+    },
+    {
+      "file": "pending_umrr/gpt4_7a0daae1/suite.json",
+      "before_sha256": "27dad179beef0f0ac4972518092e83c1527d16ec4df557dfb017c4456e3c1eac",
+      "after_sha256": "36095c6ba3761e45d4cd18471e921f7c664c596da0e7d302bcc95e1fe9cef47c"
+    },
+    {
+      "file": "checksums.json",
+      "before_sha256": "b4e95e9f9ce918bfa5491af096a48fde57fa8053c03d79586d573d9e43363f8a",
+      "after_sha256": "68db373ca98e6c7fe792d643f59f18e3a9030fb112211e062a630f57fd76055b"
+    }
+  ],
+  "note": "One history has a credential-like literal redacted. No probe, branch, gold or tested sample was changed. Public suite and affected inventory hashes updated."
+}

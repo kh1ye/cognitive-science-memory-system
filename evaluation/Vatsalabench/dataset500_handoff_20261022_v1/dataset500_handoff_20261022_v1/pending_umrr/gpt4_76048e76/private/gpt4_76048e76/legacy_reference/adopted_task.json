@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_76048e76",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 406,
+  "question_cell": "F406",
+  "answer_cell": "E406",
+  "adopted_question_verbatim": "Which vehicle did I take care of first in February, the bike or the car?",
+  "adopted_answer_or_rubric_verbatim": "bike",
+  "english_rubric": "Require the bike, repaired in mid-February before the February 27 car wash. No precise mid-February day is inferred.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

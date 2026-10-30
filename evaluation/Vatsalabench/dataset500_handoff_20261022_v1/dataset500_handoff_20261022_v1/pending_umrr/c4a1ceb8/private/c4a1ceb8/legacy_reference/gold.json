@@ -1,0 +1,150 @@
+{
+  "status": "pending_independent_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "3: orange, lime, lemon",
+      "rule": "Require three distinct types: orange, lime and lemon. Earlier Sangria use supports lemon; a future menu alone would not."
+    },
+    "BASE-2": {
+      "expected": "3: orange, lime, lemon",
+      "rule": "Require three distinct types: orange, lime and lemon. Earlier Sangria use supports lemon; a future menu alone would not."
+    },
+    "BASE-3": {
+      "expected": "3: orange, lime, lemon",
+      "rule": "Require three distinct types: orange, lime and lemon. Earlier Sangria use supports lemon; a future menu alone would not."
+    },
+    "RET-10": {
+      "expected": "3: orange, lime, lemon",
+      "rule": "Require three distinct types: orange, lime and lemon. Earlier Sangria use supports lemon; a future menu alone would not."
+    },
+    "RET-30": {
+      "expected": "3: orange, lime, lemon",
+      "rule": "Require three distinct types: orange, lime and lemon. Earlier Sangria use supports lemon; a future menu alone would not."
+    },
+    "RET-50": {
+      "expected": "3: orange, lime, lemon",
+      "rule": "Require three distinct types: orange, lime and lemon. Earlier Sangria use supports lemon; a future menu alone would not."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "lime juice",
+        "orange and lemon"
+      ],
+      "intents": [
+        "Gimlet juice",
+        "Earlier Sangria fruit"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "10:00",
+      "rule": "Adopt the new effective value after incremental ingestion and two subsequent sessions. Do not use the old value as current. No cold rebuild.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "10:00",
+        "11:00"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "10:00",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "10:00",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 49,
+        "turn_index": 1,
+        "date": "2023/05/30 (Tue) 23:20",
+        "role": "user",
+        "quote": "I'm looking for some inspiration for my next dinner party. Do you have any recommendations for a refreshing summer cocktail that pairs well with Paella? By the way, I recently made a Cucumber Gimlet by infusing the gin with sliced cucumbers and mixed it with lime juice and simple syrup - it was a hit at my last party!"
+      },
+      {
+        "session_index": 4,
+        "turn_index": 1,
+        "date": "2023/05/21 (Sun) 04:58",
+        "role": "user",
+        "quote": "I'm looking for some new cocktail recipes to try out. I've been experimenting with bitters lately and recently made my own orange bitters using orange peels and vodka. Do you have any Whiskey Sour recipes that use orange bitters?"
+      },
+      {
+        "session_index": 22,
+        "turn_index": 1,
+        "date": "2023/05/25 (Thu) 13:21",
+        "role": "user",
+        "quote": "I'm planning a summer party and I want to serve some refreshing cocktails. Can you give me some ideas for summer-inspired drinks that use fresh lime juice? By the way, I recently learned how to make a classic Daiquiri the right way, using fresh lime juice and simple syrup in a mixology class."
+      },
+      {
+        "session_index": 32,
+        "turn_index": 1,
+        "date": "2023/05/27 (Sat) 03:44",
+        "role": "user",
+        "quote": "I'm planning a dinner party next weekend and I want to serve a Spanish-inspired menu. Can you give me some ideas for tapas that would pair well with Paella, which I'm planning to make with chorizo, shrimp, and chicken, using a combination of saffron and smoked paprika to give it that authentic Spanish flavor, and serving it with a pitcher of Sangria made with Rioja wine and slices of orange and lemon?"
+      },
+      {
+        "session_index": 32,
+        "turn_index": 9,
+        "date": "2023/05/27 (Sat) 03:44",
+        "role": "user",
+        "quote": "I'm thinking of serving the Sangria in a large pitcher with slices of orange and lemon, just like I did for my dinner party two weeks ago. Do you think that's a good idea?"
+      }
+    ],
+    "scope": "user_personal_report",
+    "target_roles": [
+      "user"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "c4a1ceb8",
+  "sensitivity_note": null,
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  }
+}

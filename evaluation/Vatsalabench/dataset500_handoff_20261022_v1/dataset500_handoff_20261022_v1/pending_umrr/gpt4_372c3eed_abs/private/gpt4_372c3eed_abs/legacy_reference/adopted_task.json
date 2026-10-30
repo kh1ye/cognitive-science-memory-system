@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_372c3eed_abs",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 68,
+  "question_cell": "F68",
+  "answer_cell": "E68",
+  "adopted_question_verbatim": "How many years in total did I spend in formal education from high school to the completion of my Master's degree?",
+  "adopted_answer_or_rubric_verbatim": "历史只说考虑攻读硕士，未确认完成及年数，不能确定总年数",
+  "english_rubric": "Cannot determine the total through master's completion: only considering a master's is stated. Do not assume a standard duration or assert the user never completed one.",
+  "mapped_role": "UMRR-1",
+  "scheduled_in_core12": true,
+  "baseline_added": true,
+  "authorization": "User authorized adding an evidence-backed factual baseline while retaining adopted questions and their separate purposes."
+}

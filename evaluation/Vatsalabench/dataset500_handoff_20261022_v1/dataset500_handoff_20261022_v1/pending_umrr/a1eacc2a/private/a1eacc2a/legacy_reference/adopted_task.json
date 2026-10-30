@@ -1,0 +1,15 @@
+{
+  "sample_id": "a1eacc2a",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 190,
+  "question_cell": "F190",
+  "answer_cell": "E190",
+  "adopted_question_verbatim": "How many short stories have I written since I started writing regularly?",
+  "adopted_answer_or_rubric_verbatim": "7 short stories",
+  "english_rubric": "Require seven, not eleven. Four and seven are successive cumulative counts, not disjoint additions.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}

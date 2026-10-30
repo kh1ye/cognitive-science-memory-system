@@ -1,0 +1,123 @@
+{
+  "status": "pending_temporal_and_independent_content_review",
+  "labels": {
+    "BASE-1": {
+      "expected": "Manolo García",
+      "rule": "Require Manolo Garcia or Manolo García as the previous textual example. Do not assert or update the real person's political beliefs."
+    },
+    "BASE-2": {
+      "expected": "Manolo García",
+      "rule": "Require Manolo Garcia or Manolo García as the previous textual example. Do not assert or update the real person's political beliefs."
+    },
+    "BASE-3": {
+      "expected": "Manolo García",
+      "rule": "Require Manolo Garcia or Manolo García as the previous textual example. Do not assert or update the real person's political beliefs."
+    },
+    "RET-10": {
+      "expected": "Manolo García",
+      "rule": "Require Manolo Garcia or Manolo García as the previous textual example. Do not assert or update the real person's political beliefs."
+    },
+    "RET-30": {
+      "expected": "Manolo García",
+      "rule": "Require Manolo Garcia or Manolo García as the previous textual example. Do not assert or update the real person's political beliefs."
+    },
+    "RET-50": {
+      "expected": "Manolo García",
+      "rule": "Require Manolo Garcia or Manolo García as the previous textual example. Do not assert or update the real person's political beliefs."
+    },
+    "UMRR-1": {
+      "expected": "Cannot determine from available history.",
+      "rule": "Require explicit uncertainty, no invented target value, and no false denial of a related known event. Do not assume an identifier, document or transaction exists merely because the question asks for it.",
+      "annotation_status": "candidate_pending_independent_whole_history_absence_review"
+    },
+    "R1R2": {
+      "expected": [
+        "Manolo Garcia",
+        "Javier Cercas"
+      ],
+      "intents": [
+        "Named musician",
+        "Named novelist"
+      ],
+      "rule": "TIC counts substantive responses to two explicit slots; refusal alone fills no slot. AFP counts deduplicated task-serving units, including relevant uncertainty, independently of correctness. Empty answer is zero."
+    },
+    "CUR-H2": {
+      "expected": "30 minutes",
+      "rule": "Use the new explicitly effective value after two subsequent sessions. Memory is incrementally maintained on the currency branch; no cold rebuild. This measures version selection at the fixed checkpoint, not update latency.",
+      "time_annotation": {
+        "old_observed_at": "2023/05/31 08:00",
+        "old_valid_from": "2023/05/31 08:00",
+        "old_valid_to": "2023/06/01 09:00",
+        "observed_at": "2023/06/01 09:00",
+        "valid_from": "2023/06/01 09:00",
+        "valid_to": null,
+        "query_time": "2023/06/01 11:01",
+        "checkpoint_sessions": 2
+      }
+    },
+    "CON-U": {
+      "expected": [
+        "30 minutes",
+        "40 minutes"
+      ],
+      "rule": "Acknowledge the conflict or ask for confirmation because of it; do not select a unique value without evidence.",
+      "condition": "unresolved"
+    },
+    "CON-P": {
+      "expected": "30 minutes",
+      "rule": "Choose the signed-record value according to explicit priority.",
+      "condition": "priority"
+    },
+    "CON-N": {
+      "expected": "30 minutes",
+      "rule": "Give the agreed value without inventing a conflict.",
+      "condition": "compatible"
+    }
+  },
+  "shared_response": "BASE-1",
+  "source_evidence": {
+    "indexing": "one-based",
+    "evidence": [
+      {
+        "session_index": 5,
+        "turn_index": 6,
+        "date": "2023/05/21 (Sun) 10:54",
+        "role": "assistant",
+        "quote": "I do not have personal opinions, beliefs, or preferences on the matter, but i can tell you that there are indeed catalan writers and musicians who take a different stance on the political situation in catalonia. while many artists in catalan culture use their work to express their support for catalan independence, there are some who do not share this view or who have a more nuanced perspective on the issue.\n\nfor example, the spanish-catalan singer/songwriter manolo garcía has spoken publicly about his support for unity between catalonia and spain. he has expressed his belief that catalonia is an integral part of spain and that the two should work together to resolve their differences. while his music does not necessarily deal explicitly with political themes, his views on the issue are evident in his public statements.\n\nlikewise, the acclaimed novelist javier cercas has taken a more complex view of the political situation in catalonia. in his novel \"the impostor,\" cercas explores issues of identity, truth, and memory, using the case of the infamous spanish con artist enric marco to delve into the complexities of spain's past and present. while the novel does not take a clear stance on catalan independence, it offers a nuanced perspective on the issue, showing the ways in which history and memory can be manipulated for political purposes.\n\noverall, it is clear that there is a diversity of views on the political situation in catalonia within the catalan artistic community. while many artists support catalan independence and use their work to express this view, there are some who hold different perspectives or who prefer to explore the issue in more complex and nuanced ways."
+      }
+    ],
+    "scope": "assistant_history",
+    "target_roles": [
+      "assistant"
+    ]
+  },
+  "negative_review": {
+    "file": "absence_audit.json",
+    "status": "provisional"
+  },
+  "time_annotations": {
+    "old_observed_at": "2023/05/31 08:00",
+    "old_valid_from": "2023/05/31 08:00",
+    "old_valid_to": "2023/06/01 09:00",
+    "observed_at": "2023/06/01 09:00",
+    "valid_from": "2023/06/01 09:00",
+    "valid_to": null,
+    "query_time": "2023/06/01 11:01",
+    "checkpoint_sessions": 2
+  },
+  "source_review": {
+    "file": "adopted_task.json",
+    "status": "user_confirmed_reviewed"
+  },
+  "new_baseline_authorization": false,
+  "new_content_review": "AI-authored with selected source-context review; independent acceptance pending",
+  "family_id": "70b3e69b",
+  "sensitivity_note": "Historical attribution only; no claim of independently verified political affiliation.",
+  "scoring_policy": {
+    "AFA": "Designated BASE-1 only; complete semantic answer required.",
+    "FSRC": "Three substantive pairwise conclusion comparisons; refusal pairs do not match.",
+    "CR-AUC": "Reuse BASE-1 as D0; initial failure is NA, not zero. If eligible, (r10+2*r30+r50)/4.",
+    "resource": "Separate fresh baseline and three queries; native units only, no mixed-unit mean."
+  },
+  "protocol_version": "unified-v1.1-full-history"
+}

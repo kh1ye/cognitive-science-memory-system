@@ -1,0 +1,15 @@
+{
+  "sample_id": "gpt4_d6585ce8",
+  "source_workbook_sha256": "4de28105543f9cb0c7d393d926b93bc6f1f76d2b1e031de6219ae1b72bd3d440",
+  "source_sheet": "Sheet1",
+  "source_excel_row": 383,
+  "question_cell": "F383",
+  "answer_cell": "E383",
+  "adopted_question_verbatim": "At which venue did I say I saw Billie Eilish with my sister?",
+  "adopted_answer_or_rubric_verbatim": "Wells Fargo Center in Philadelphia",
+  "english_rubric": "Require Wells Fargo Center, Philadelphia or Philly. No exact ordering of all other concerts is required.",
+  "mapped_role": "BASE-1",
+  "scheduled_in_core12": true,
+  "baseline_added": false,
+  "authorization": "Use the approved factual question and answer unchanged."
+}
