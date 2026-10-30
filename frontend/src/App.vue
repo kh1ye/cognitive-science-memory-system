@@ -77,13 +77,22 @@ watch(() => [route.name, route.query.record, state.loading, state.user], ([name,
     workspace.inspectMemory(id);
   }
 });
-const navigation = [
-  { name: "install", title: "安装与接入", icon: "layers" },
-  { name: "overview", title: "系统总览", icon: "overview" },
-  { name: "assistant", title: "个人助手", icon: "chat" },
-  { name: "memories", title: "记忆管理", icon: "memory" },
-  { name: "memory-gallery", title: "记忆展示", icon: "constellation" },
-  { name: "evolution", title: "记忆演化", icon: "activity" },
+const navigationGroups = [
+  { title: "开始使用", items: [
+    { path: "/", title: "产品首页", icon: "layers" },
+    { name: "overview", title: "系统总览", icon: "overview" },
+  ] },
+  { title: "记忆工作台", items: [
+    { name: "assistant", title: "个人助手", icon: "chat" },
+    { name: "memories", title: "记忆管理", icon: "memory" },
+    { name: "memory-gallery", title: "记忆展示", icon: "constellation" },
+    { name: "evolution", title: "记忆演化", icon: "activity" },
+  ] },
+  { title: "开发与设置", items: [
+    { name: "connections", title: "接入管理", icon: "database" },
+    { name: "install", title: "安装与接入", icon: "layers" },
+    { href: "/docs", title: "接口文档", icon: "book" },
+  ] },
 ];
 </script>
 <template>
@@ -94,30 +103,21 @@ const navigation = [
         ><span class="brand-mark">m<span /></span
         ><span class="brand-copy brand-name">Cognitive Science<br />Memory System</span></RouterLink
       >
-      <div class="nav-label">工作空间</div>
-      <nav aria-label="主导航">
-        <RouterLink
-          v-for="item in navigation"
-          :key="item.name"
-          :to="{ name: item.name }"
-          active-class="active"
-          class="sidebar-link"
-          :aria-label="item.title"
-          :data-tooltip="sidebarCollapsed ? item.title : null"
-          ><AppIcon :name="item.icon" /><span class="nav-name">{{ item.title }}</span><span class="nav-count" v-if="item.name === 'memories'">{{
-            state.overview?.total_count ?? "—"
-          }}</span></RouterLink
-        >
+      <nav aria-label="主导航" class="grouped-navigation">
+        <section v-for="group in navigationGroups" :key="group.title" class="nav-group" :aria-label="group.title">
+          <div class="nav-label nav-group-label">{{ group.title }}</div>
+          <template v-for="item in group.items" :key="item.title">
+            <a v-if="item.href" :href="item.href" target="_blank" rel="noopener" class="sidebar-link" :aria-label="`${item.title}（新窗口）`" :data-tooltip="sidebarCollapsed ? item.title : null"><AppIcon :name="item.icon" /><span class="nav-name">{{ item.title }}</span></a>
+            <RouterLink v-else :to="item.path || { name: item.name }" active-class="active" class="sidebar-link" :aria-label="item.title" :data-tooltip="sidebarCollapsed ? item.title : null"><AppIcon :name="item.icon" /><span class="nav-name">{{ item.title }}</span><span v-if="item.name === 'memories'" class="nav-count">{{ state.overview?.total_count ?? "—" }}</span></RouterLink>
+          </template>
+        </section>
       </nav>
       <div class="sidebar-note">
         <span class="small-dot" />本地记忆空间
         <p>保留重要的事，让每次对话有迹可循。</p>
       </div>
       <div class="sidebar-bottom">
-        <RouterLink to="/" class="sidebar-link" aria-label="产品首页" :data-tooltip="sidebarCollapsed ? '产品首页' : null"><AppIcon name="layers" /><span class="nav-name">产品首页</span></RouterLink>
-        <a class="sidebar-link" href="/docs" target="_blank" rel="noopener" aria-label="接口文档（新窗口）" :data-tooltip="sidebarCollapsed ? '接口文档' : null"
-          ><AppIcon name="book" /><span class="nav-name">接口文档</span><AppIcon name="external" /></a
-        ><button class="profile sidebar-link" :aria-label="`切换用户空间：${state.user}`" :data-tooltip="sidebarCollapsed ? `切换用户空间：${state.user}` : null" :disabled="state.sending" @click="openProfile">
+        <button class="profile sidebar-link" :aria-label="`切换用户空间：${state.user}`" :data-tooltip="sidebarCollapsed ? `切换用户空间：${state.user}` : null" :disabled="state.sending" @click="openProfile">
           <span class="avatar">U</span
           ><span
             ><b>{{ state.user }}</b

@@ -9,7 +9,7 @@ beforeEach(()=>{localStorage.clear();});
 afterEach(()=>{wrapper?.unmount();wrapper=null;vi.unstubAllGlobals();});
 function routerFor(){return createRouter({history:createMemoryHistory(),routes:[
   {path:'/',name:'home',component:LandingView,meta:{landing:true,title:'认知记忆系统'}},
-  ...['overview','install','assistant','memories','memory-gallery', 'evolution'].map(name=>({path:`/${name}`,name,component:{template:'<div>工作台</div>'}})),
+  ...['connections','overview','install','assistant','memories','memory-gallery', 'evolution'].map(name=>({path:`/${name}`,name,component:{template:'<div>工作台</div>'}})),
 ]});}
 it('switches code examples, copies the displayed code and explores an illustrative lifecycle without API writes',async()=>{
   const router=routerFor();await router.push('/');await router.isReady();

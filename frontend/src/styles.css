@@ -2046,3 +2046,13 @@ dialog textarea::placeholder {
 @media (max-width:650px) {
   .layout:not(.sidebar-collapsed) .sidebar-toggle { position:fixed; left:216px; top:11px; z-index:30; background:#fff; box-shadow:0 2px 8px #16203318; }
 }
+
+/* Navigation groups keep the existing destinations and compact rail. */
+.grouped-navigation { gap:0; }
+.nav-group { display:grid; gap:4px; }
+.nav-group + .nav-group { margin-top:20px; padding-top:17px; border-top:1px solid var(--line); }
+.sidebar .nav-group-label { margin-bottom:5px; padding-inline:14px; font-size:10px; font-weight:500; }
+.sidebar-collapsed .nav-group-label { display:none; }
+.sidebar-collapsed .nav-group + .nav-group { margin-top:12px; padding-top:12px; }
+@media(max-height:760px) { .sidebar .brand { margin-bottom:18px; } .nav-group + .nav-group { margin-top:12px; padding-top:12px; } .sidebar .sidebar-note { margin-top:14px; padding-top:14px; } .sidebar-bottom { padding-top:16px; } }
+@media(max-height:610px) { .sidebar .sidebar-note { display:none; } .sidebar .nav-group + .nav-group { margin-top:8px; padding-top:8px; } .sidebar nav a { padding-block:7px; } }
