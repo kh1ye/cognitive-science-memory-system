@@ -7,7 +7,7 @@ from cognitive_memory import Memory
 from cognitive_memory.architecture_models import Observation, ObservationAnalysis, SemanticAssertion
 from conversation_agent import ConversationAgent
 from langchain_core.messages import AIMessage
-from scripts.vatsalabench_full import chunks, fork, ProbeModel
+from scripts.vatsalabench_full import analyze_block, chunks, fork, ProbeModel
 
 
 class AnswerModel:
@@ -15,6 +15,26 @@ class AnswerModel:
         assert any("Query time: 2023-06-01" in str(m.content) for m in messages)
         assert any("hallway" in str(m.content) for m in messages)
         return AIMessage(content="hallway")
+
+
+class FailingExtractionModel:
+    def with_structured_output(self, *args, **kwargs):
+        return self
+
+    def invoke(self, messages):
+        raise RuntimeError("schema rejected")
+
+
+class StubExtractionModel:
+    def with_structured_output(self, *args, **kwargs):
+        class Structured:
+            def invoke(self, messages):
+                return {"parsed": ObservationAnalysis()}
+
+        return Structured()
+
+    def invoke(self, messages):
+        raise AssertionError("fallback must not run")
 
 
 class VatsalaAdapterTests(unittest.TestCase):
@@ -46,6 +66,17 @@ class VatsalaAdapterTests(unittest.TestCase):
                 finally:
                     agent.close()
             self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(), before)
+
+    def test_analyze_block_failure_is_reported_not_raised(self):
+        analysis, error = analyze_block(FailingExtractionModel(), "user message", "user message")
+        self.assertIsNone(analysis)
+        self.assertEqual(error["type"], "RuntimeError")
+        self.assertIn("schema rejected", error["messages"])
+
+    def test_analyze_block_returns_analysis_on_success(self):
+        analysis, error = analyze_block(StubExtractionModel(), "user message", "user message")
+        self.assertIsInstance(analysis, ObservationAnalysis)
+        self.assertIsNone(error)
 
 
 if __name__ == "__main__":

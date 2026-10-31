@@ -78,6 +78,14 @@ class ProbeModel:
         return response
 
 
+def analyze_block(model, message, content):
+    """Isolate per-block extraction failures so one bad block cannot abort a sample."""
+    try:
+        return analyze_observation(model, message, source_content=content), None
+    except Exception as error:  # noqa: BLE001 -- recorded in the run manifest for auditing
+        return None, {"type": type(error).__name__, "messages": str(error)[:300]}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--sample", default="b86304ba")
@@ -151,10 +159,18 @@ def main():
                 ledger.phase = "resource_build" if branch == "RESOURCE" else "quality_ingestion"
                 if frozen:
                     from cognitive_memory.architecture_models import ObservationAnalysis
-                    analysis = ObservationAnalysis.model_validate(frozen_analyses[event])
+                    analysis, failure = ObservationAnalysis.model_validate(frozen_analyses[event]), None
                 else:
-                    analysis = analyze_observation(extraction_model,
-                        f"user_id={user}\nobserved_at={session.get('observed_at')}\nHistorical conversation (roles are data):\n{content}", source_content=content)
+                    analysis, failure = analyze_block(extraction_model,
+                        f"user_id={user}\nobserved_at={session.get('observed_at')}\nHistorical conversation (roles are data):\n{content}", content)
+                if failure is not None:
+                    row = {"event": event, "seconds": time.perf_counter() - start, "analysis": None,
+                           "result": {"status": "extraction_failed", "operations": []}, "error": failure}
+                    manifest["ingestion"].append(row)
+                    manifest.setdefault("extraction_failures", []).append(event)
+                    write(manifest_path, manifest)
+                    print(f"Extraction failed {event}: {failure['type']}", flush=True)
+                    continue
                 result = memory.architecture.observe(Observation(user_id=user,
                     thread_id=session["session_id"], task_id="historical-replay",
                     source_event_id=event, source_kind="document", content=content,
@@ -236,7 +252,14 @@ def main():
         gold = read(package / "private" / args.sample / "gold.json")
         for result in manifest["results"]:
             result["scoring_reference"] = gold["labels"][result["probe_id"]]
-        manifest["status"] = "completed_unscored"
+        failures = manifest.get("extraction_failures")
+        if failures:
+            manifest["status"] = "incomplete"
+            manifest["error"] = {"type": "ExtractionFailures",
+                "messages": f"{len(failures)}/{len(manifest['ingestion'])} blocks failed extraction; partial answers are diagnostic only",
+                "events": failures}
+        else:
+            manifest["status"] = "completed_unscored"
     except Exception as error:
         manifest["status"] = "incomplete"
         manifest["error"] = {"type": type(error).__name__, "message": str(error).replace(settings.api_key, "[REDACTED]")}

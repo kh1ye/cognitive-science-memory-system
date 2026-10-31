@@ -10,10 +10,10 @@ working_state_patch 只允许 goals、constraints、open_questions（均为字�
 “以后请用中文回复我”“今后回答简短些”“默认用 Python”明确表示跨会话偏好，必须提取 semantic_candidates，不得改写为“本次任务”的临时约束。
 纯问候、在线确认、感谢、附和、无意义字符和测试噪声不提取长期候选；短句中明确的个人事实或偏好仍应保留。
 普通知识提问、试发消息不属于值得长期保存的个人经历；不得因为用户发出了一条消息就生成 event_kind=input 的长期情景记录。问题中另有明确陈述的稳定个人事实时，仅提取有依据的事实片段。
-subject 对用户自身用实际 user_id。每个语义候选必须提供 evidence_text（用户原文连续片段）。明确修正自身长期偏好时 correction=true。
+subject 对用户自身用实际 user_id。每个语义候选必须提供 evidence_text（来源原文的连续片段）。明确修正自身长期偏好时 correction=true。
 未知内容不默认成为事实。事实保留有效时间，不推测精确时间；仅从原文提取，区分 explicit/inferred。
 只有原文明确报告的具体经历才进入 episode_candidates；普通偏好、问题和当前指令不必形成经历候选。
-episode_candidates.observation 和 semantic_candidates.evidence_text 必须逐字复制用户原文连续片段，不能翻译、概括或加入 user_id 前缀。
+episode_candidates.observation 和 semantic_candidates.evidence_text 必须逐字复制其来源角色的原文连续片段（源自用户复制用户片段，源自助手复制助手片段），不能翻译、概括或加入 user_id 前缀。
 actor 区分 user/system/tool/model；未知结果不得填 succeeded。
 流程文字只有明确提出登记能力时才形成 procedure_proposals，implementation_ref 默认 null。
 一条输入可以产生多个不同类型候选，也可以全部为空。约束只适用于当前任务。
@@ -37,6 +37,11 @@ actor 区分 user/system/tool/model；未知结果不得填 succeeded。
 用户明确报告自己收到或持有多份资料、记录或通知，这是有来源的报告经历；资料之间有分歧时，可在 episode_candidates 保留完整的报告片段（含来源、各自说法、有效时间和明确给出的优先级），不只放在临时 open_questions。
 上述情景事件证明的是“这些记录如此记载”，不证明其中任一说法为真；不得据此推断未知事实、替用户选择来源优先级，或生成程序提议。仅有问题或假设而没有实际记录报告时不生成此类事件。
 语义事实仍需明确依据；矛盾而未解决的值不得标成唯一已确认事实。同一对象同一属性的两个相容记录也不应凭空制造冲突。
+观察内容含助手教学性输出时（如文档回放、资料导入，原文中助手发言有角色标注），“只提取用户明确表达”的规则有唯一例外：
+助手明确讲授的稳定领域知识可提取为 semantic_candidates：subject 用知识所属的主题实体（企业、工艺、概念等），不得写成 user_id；evidence_text 逐字复制助手原文连续片段；epistemic_status=explicit；不推测原文未说明的数值与因果。
+仅在助手提供新信息时提取；寒暄、确认、复述用户刚说过的话、或转述本系统已提供的记忆内容不提取，避免把既有记忆再次入库。
+用户只提问而未陈述时，问题本身仍不产生候选；助手答案中的稳定知识按本条入库，与用户自述事实并列时 subject 各归其主、分别提取。
+对话中共同创建的文档、方案、计划、草稿（如助手起草的标书、信件、清单、行程）是用户的任务产物，同样适用上述例外：其关键内容提取为 semantic_candidates，subject 用产物名称（如“基金标书草稿”），predicate 用内容维度（如“研究目标”“核心条款”），value 保留原文要点，evidence_text 逐字复制助手原文连续片段；同一产物被修改时按新内容另行提取，用户日后应能查问到其内容。
 """
 )
 
