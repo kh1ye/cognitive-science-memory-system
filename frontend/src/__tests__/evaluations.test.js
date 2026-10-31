@@ -48,3 +48,17 @@ it('starts a data-check task only after submission and opens its progress',async
  expect(wrapper.find('[role="dialog"]').exists()).toBe(false);
  expect(wrapper.text()).toContain('Checking samples');
 });
+it('selects the newest run by default even when a batch run exists',async()=>{
+ const newer={id:'new-run',dataset:'vatsalabench',kind:'quality',name:'native-20261031',completed:12,planned:12,model:'deepseek-flash',created_at:'2026-10-31T20:57:14+08:00',status:'completed'};
+ vi.stubGlobal('fetch',vi.fn(async(path)=>{
+   let data;
+   if(path==='/api/evaluations/datasets') data={items:[{id:'vatsalabench',name:'Vatsalabench',count:500,metrics:['AFA']}],model_configured:false};
+   else if(path==='/api/evaluations/runs') data={items:[newer,record]};
+   else if(path==='/api/evaluations/runs/new-run') data={...newer,metrics:[],samples:[],path:'p',review:'unreviewed'};
+   else data={items:[]};
+   return {ok:true,json:async()=>data};
+ }));
+ wrapper=mount(EvaluationsView);await flushPromises();
+ expect(fetch.mock.calls.some(([path])=>path==='/api/evaluations/runs/new-run')).toBe(true);
+ expect(fetch.mock.calls.some(([path])=>path==='/api/evaluations/runs/run')).toBe(false);
+});

@@ -98,8 +98,12 @@ class EvaluationCenter:
             item.update(kind="comparison", completed=2, planned=2)
         elif result is not None:
             scores = load(folder / "scores.json", {})
-            item.update(completed=len(result.get("results", [])), planned=12, model=result.get("requested_model", ""),
-                        status="failed" if result.get("status") == "incomplete" else "completed", metrics=self._metric_rows(scores.get("quality", {})))
+            answered = len(result.get("results", []))
+            status = "completed" if result.get("status") != "incomplete" else ("partial" if answered else "failed")
+            item.update(completed=answered, planned=12, model=result.get("requested_model", ""),
+                        status=status, metrics=self._metric_rows(scores.get("quality", {})))
+            if scores.get("manual_audit"):
+                item["review"] = "reviewed"
         elif summary is not None:
             config = load(folder / "manifest.json", {})
             item.update(model=summary.get("model") or config.get("model", ""), completed=summary.get("total", summary.get("attempted", 0)), planned=150 if dataset == "memory-150" else 100)

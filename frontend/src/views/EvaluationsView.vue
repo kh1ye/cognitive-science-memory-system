@@ -12,11 +12,12 @@ const form = reactive({ mode: "check", count: 1, model: "deepseek-v4-flash", bas
 const info = computed(() => datasets.value.find(d => d.id === dataset.value));
 const filtered = computed(() => runs.value.filter(r => r.dataset === dataset.value && `${r.name} ${r.model}`.toLowerCase().includes(search.value.toLowerCase())));
 const visibleJobs = computed(() => jobs.value.filter(j => j.dataset === dataset.value));
+const activeJobs = computed(() => visibleJobs.value.filter(j => ["running", "queued", "cancelling"].includes(j.status)));
 const busy = computed(() => jobs.value.some(j => ["running", "queued", "cancelling"].includes(j.status)));
 const samples = computed(() => detail.value?.samples || []);
 const answers = computed(() => (sample.value?.answers || []).filter(a => answerFilter.value === "all" || (answerFilter.value === "wrong" ? a.verdict?.correct === 0 : a.verdict?.correct === 1)));
-const states = { completed: "已完成", partial: "部分完成", failed: "未完成", running: "运行中", queued: "等待中", cancelling: "取消中", cancelled: "已取消", interrupted: "已中断" };
-const kinds = { batch: "六维评测", quality: "历史回放", check: "数据检查", comparison: "方法对照" };
+const states = { completed: "已完成", partial: "部分完成", failed: "失败", running: "运行中", queued: "等待中", cancelling: "取消中", cancelled: "已取消", interrupted: "已中断" };
+const kinds = { batch: "六维评测", quality: "单样本回放", check: "数据检查", comparison: "方法对照" };
 let timer, selectionVersion = 0, sampleVersion = 0, disposed = false, polling = false;
 
 function value(metric) {
@@ -30,13 +31,13 @@ function predicted(row) { const item = row.actual ?? row.predicted ?? row.predic
 async function refreshRuns() {
   runs.value = (await api("/api/evaluations/runs")).items;
   const choices = runs.value.filter(r => r.dataset === dataset.value);
-  if (!choices.some(r => r.id === selectedId.value)) await selectRun(choices.find(r => r.kind === "batch") || choices[0]);
+  if (!choices.some(r => r.id === selectedId.value)) await selectRun(choices[0]);
 }
 async function chooseDataset(id) {
   if (dataset.value === id) return;
   dataset.value = id; sample.value = null; predictions.value = []; search.value = "";
   const choices = runs.value.filter(r => r.dataset === id);
-  await selectRun(choices.find(r => r.kind === "batch") || choices[0]);
+  await selectRun(choices[0]);
 }
 async function selectRun(run) {
   const version = ++selectionVersion; ++sampleVersion;
@@ -112,7 +113,7 @@ onUnmounted(() => { disposed = true; clearInterval(timer); ++selectionVersion; +
       </button>
       <div v-if="loading" class="eval-loading">正在读取本地数据集…</div>
     </div>
-    <nav class="eval-nav" aria-label="评测视图"><button :class="{active:pane==='history'}" @click="pane='history'">评测记录 <span>{{ filtered.length }}</span></button><button :class="{active:pane==='tasks'}" @click="pane='tasks'">运行任务 <span :class="{pulsing:busy}">{{ visibleJobs.length }}</span></button><div class="eval-nav-note"><AppIcon name="database"/>{{ info?.name }}<span>·</span>{{ info?.metrics.length }} 项指标</div></nav>
+    <nav class="eval-nav" aria-label="评测视图"><button :class="{active:pane==='history'}" @click="pane='history'">评测记录 <span>{{ filtered.length }}</span></button><button :class="{active:pane==='tasks'}" @click="pane='tasks'">运行任务 <span :class="{pulsing:busy}">{{ activeJobs.length }}</span></button><div class="eval-nav-note"><AppIcon name="database"/>{{ info?.name }}<span>·</span>{{ info?.metrics.length }} 项指标</div></nav>
 
     <div v-if="pane==='history'" class="eval-workbench">
       <aside class="eval-runs"><div class="eval-runs-heading"><h3>历史批次</h3><span>{{ filtered.length }} RUNS</span></div><label class="eval-search"><AppIcon name="search"/><input v-model="search" placeholder="搜索批次或模型" aria-label="搜索评测记录"/></label><div class="eval-runlist">

@@ -146,6 +146,35 @@ class AssistantKnowledgeExtractionTests(unittest.TestCase):
         self.assertIn("生物标志物", match[0]["value"])
         self.assertIn(receipt["source_id"], match[0]["source_refs"])
 
+    def test_notification_style_schedule_update_is_stored(self):
+        self.assertIn("安排事实", OBSERVATION_ANALYSIS_PROMPT)
+        chunk = (
+            "[user 2023-06-01T08:00:00+00:00] Effective now, the scheduled start "
+            "time of a separate upcoming furniture delivery has changed from 09:00 "
+            "to 14:00. The previous value is no longer current."
+        )
+        schedule = SemanticAssertion(
+            subject="家具配送",
+            predicate="开始时间",
+            value="14:00",
+            evidence_text="has changed from 09:00 to 14:00",
+        )
+        observation = Observation(
+            user_id="alice",
+            thread_id="replay",
+            task_id="replay",
+            source_event_id="delivery-1",
+            content=chunk,
+            source_kind="document",
+        )
+        self.architecture.observe(
+            observation, ObservationAnalysis(semantic_candidates=[schedule])
+        )
+        rows = self.architecture.repo.rows("semantic_assertions", "alice")
+        match = [r for r in rows if r["subject"] == "家具配送"]
+        self.assertEqual(len(match), 1)
+        self.assertEqual(match[0]["value"], "14:00")
+
 
 if __name__ == "__main__":
     unittest.main()
