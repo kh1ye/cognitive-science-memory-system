@@ -1,0 +1,23 @@
+{
+  "memories_preserved": 28,
+  "memory_evidence_preserved": 30,
+  "migration_version": 2,
+  "memories_storage_object": "view",
+  "integrity": "ok",
+  "backup": "memory_product/data/memory_demo.db.before-typed-storage-20261101T145332402575Z.bak",
+  "/api/health": {
+    "status": "ok",
+    "service": "Cognitive Science Memory System",
+    "version": "1.0.0"
+  },
+  "/api/chat/status": {
+    "configured": true,
+    "model": "MiniMax-M3"
+  },
+  "audit_preserved": {
+    "audit_events": {
+      "rows": 64,
+      "unchanged": true
+    }
+  }
+}

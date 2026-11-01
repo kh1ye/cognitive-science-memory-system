@@ -115,6 +115,7 @@ class ConversationAgent:
             thread_id=state["thread_id"],
             task_id=state["task_id"],
             source_event_id=state["observation_id"],
+            message_id=state["observation_id"],
             content=message,
             observed_at=iso_now(),
             retention_policy="no_long_term"
@@ -246,6 +247,7 @@ class ConversationAgent:
                             thread_id=state["thread_id"],
                             task_id=state["task_id"],
                             source_event_id=state["observation_id"],
+                            message_id=state["observation_id"],
                             content=content,
                         ),
                         state["analysis"],

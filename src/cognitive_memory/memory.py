@@ -31,14 +31,23 @@ class Memory:
     ):
         self.config = config or MemoryConfig()
         self.storage = storage if storage is not None else SQLiteStorage(db_path)
-        from .architecture import MemoryArchitecture
-        self.architecture = MemoryArchitecture(self.storage) if isinstance(self.storage, SQLiteStorage) else None
-        from .catalog import MemoryCatalog
-        self.catalog = MemoryCatalog(self) if self.architecture is not None else None
-        self.encoder = Encoder(self.storage)
-        self.consolidator = Consolidator(self.storage, self.config)
-        self.retriever = Retriever(self.storage, self.config)
-        self.retention = RetentionManager(self.storage, self.config)
+        try:
+            from .architecture import MemoryArchitecture
+            self.architecture = MemoryArchitecture(self.storage) if isinstance(self.storage, SQLiteStorage) else None
+            from .catalog import MemoryCatalog
+            self.catalog = MemoryCatalog(self) if self.architecture is not None else None
+            if self.architecture is not None:
+                from .storage.typed_records import enable
+                enable(self.storage, self.architecture.repo)
+                self.architecture.policy_engine = self
+            self.encoder = Encoder(self.storage)
+            self.consolidator = Consolidator(self.storage, self.config)
+            self.retriever = Retriever(self.storage, self.config)
+            self.retention = RetentionManager(self.storage, self.config)
+        except BaseException:
+            if storage is None:
+                self.storage.close()
+            raise
 
     def close(self) -> None:
         self.storage.close()
@@ -71,12 +80,7 @@ class Memory:
         return self.retention.run_retention(user_id, reference_time)
 
     def add_memory(self, payload: dict[str, Any]) -> WriteResult:
-        """Legacy protocol only. New callers use architecture.observe and typed services.
-
-        This compatibility path intentionally retains the original scoring/state semantics;
-        the catalog exposes eligible rows to chat without making them typed assertions.
-        Migrated rows remain unverified and working text is never restored across tasks.
-        """
+        """Original admission/update policies operating on typed storage projections."""
         user_id = (
             normalize_text(str(payload.get("user_id", "demo-user"))) or "demo-user"
         )
@@ -195,6 +199,41 @@ class Memory:
                 self.storage.archive_supports([(iso_now(), duplicate["id"])])
             return result
 
+    def store_native(self, user_id, module, prototype):
+        """Run the existing admission/consolidation policy for a validated native candidate."""
+        import json
+        from .storage.architecture import stable_id
+        source = self.architecture.repo.get("source_records", user_id, prototype["source_refs"][0])
+        content = prototype.get("evidence_text") or prototype.get("observation") or prototype.get("content") or prototype.get("description", "")
+        key = prototype.get("predicate", "")
+        if module == "semantic" and (prototype.get("subject") != user_id or prototype.get("scope", "user") != "user" or prototype.get("cardinality") == "multiple" or prototype.get("valid_from") or prototype.get("valid_to")):
+            key = "relation_" + stable_id(prototype.get("subject"), key, prototype.get("scope", "user"),
+                prototype.get("value") if prototype.get("cardinality") == "multiple" else None,
+                prototype.get("valid_from"), prototype.get("valid_to"))
+        if module == "procedural":
+            key = "program_" + stable_id(prototype.get("procedure_id"), prototype.get("version"))
+        value = prototype.get("value", "")
+        value = value if isinstance(value, str) else json.dumps(value, ensure_ascii=False, sort_keys=True)
+        from .provenance import source_message_context
+        thread, message = source_message_context(source)
+        metadata = {"thread_id": thread, "message_id": message, "event_id": source["evidence_identity"],
+            "scope": prototype.get("scope", source.get("scope", "user"))}
+        with self.storage.native_context(prototype):
+            result = self.add_memory({"user_id": user_id, "content": content,
+                "memory_type": module, "memory_key": key, "memory_value": value,
+                "source": source.get("metadata", {}).get("client") or source["source_kind"],
+                "confidence": prototype.get("confidence", .8), "importance": prototype.get("importance", .7),
+                "tags": prototype.get("tags") or source.get("metadata", {}).get("tags", []),
+                "consent": source.get("consent", False), "metadata": metadata})
+        record = result.get("memory")
+        if record is None:
+            raise ValueError("Candidate did not pass memory admission")
+        for table in ("working_states", "episode_events", "semantic_assertions", "semantic_documents", "procedure_versions"):
+            native = self.architecture.repo.get(table, user_id, record["id"])
+            if native is not None:
+                return native
+        raise ValueError("Missing stored native object")
+
     def evidence(self, user_id: str, memory_id: str):
         user_id = normalize_text(user_id) or "demo-user"
         with self.storage.transaction():
@@ -209,29 +248,11 @@ class Memory:
     def delete_memory(self, user_id: str, memory_id: str) -> bool:
         user_id = normalize_text(user_id) or "demo-user"
         with self.storage.transaction():
-            row = self.storage.find_owned(memory_id, user_id)
-            if not row:
-                record = self.catalog.get(user_id, memory_id) if self.catalog else None
-                if not record or record["storage_kind"] != "typed":
-                    return False
-                self.architecture.delete_object(user_id, record["module"], memory_id)
-            else:
-                self.storage.delete_owned(memory_id, user_id)
-            if row and self.architecture is not None:
-                migrated = self.storage._conn.execute(
-                    "SELECT target_table, target_id FROM legacy_memory_map WHERE legacy_id=?", (memory_id,)
-                ).fetchone()
-                if migrated:
-                    self.architecture.repo.delete(migrated["target_table"], user_id, migrated["target_id"])
-                    self.storage._conn.execute("DELETE FROM legacy_memory_map WHERE legacy_id=?", (memory_id,))
-            if row and self.architecture is not None:
-                self.architecture.remove_object_references(user_id, {memory_id})
-            self.storage.audit(
-                user_id,
-                "USER_DELETE",
-                "用户主动删除记忆；正文已物理删除，审计仅保留记录 ID。",
-                memory_id,
-            )
+            record = self.catalog.get(user_id, memory_id) if self.catalog else None
+            if record is None:
+                return False
+            self.architecture.delete_object(user_id, record["module"], memory_id)
+            self.storage.audit(user_id, "USER_DELETE", "用户主动删除记忆；正文已物理删除，审计仅保留记录 ID。", memory_id)
             return True
 
     def list_audit(self, user_id: str, limit: int = 100) -> list[dict[str, Any]]:
@@ -306,4 +327,8 @@ class Memory:
         user_id = normalize_text(user_id) or "demo-user"
         with self.storage.transaction():
             self.storage.clear_memories(user_id)
+            if getattr(self.storage, "_typed_enabled", False):
+                from .storage.architecture import TABLES
+                for table in TABLES:
+                    self.storage._conn.execute(f"DELETE FROM {table} WHERE user_id=?", (user_id,))
             self.storage.clear_audit(user_id)

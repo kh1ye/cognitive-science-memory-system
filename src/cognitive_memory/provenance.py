@@ -10,6 +10,27 @@ def source_id(value):
     return value.strip() if isinstance(value, str) and value.strip() else None
 
 
+def source_message_context(source):
+    """Return recorded conversation IDs, independently of evidence-event IDs."""
+    metadata = source.get("metadata") or {}
+    if "client" in metadata:
+        # Policy sources keep the original IDs here, including explicit absence.
+        message = source_id(metadata.get("message_id"))
+        thread = metadata.get("thread_id", source.get("thread_id"))
+        if "thread_id" not in metadata and thread == "manual" and not message:
+            thread = None  # Compatibility with the first typed-storage adapter.
+        return source_id(thread), message
+    if "message_id" in source:
+        message = source_id(source["message_id"])
+        return (source_id(source.get("thread_id")) if message else None), message
+    # Older native sources did not distinguish task events from chat messages.
+    # Keep their known session context, but do not invent a message identity.
+    thread = source_id(source.get("thread_id"))
+    if source.get("source_kind") != "user_report" or thread in {"manual", "system"}:
+        thread = None
+    return thread, None
+
+
 def evidence_origin(values):
     metadata = values.get("metadata") or {}
     message_id = source_id(metadata.get("message_id"))

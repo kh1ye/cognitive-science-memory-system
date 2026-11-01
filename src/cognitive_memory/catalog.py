@@ -1,4 +1,4 @@
-"""One read model over typed objects and compatibility records; no dual writes."""
+"""One read model over typed objects; policy rows are storage projections, not a legacy store."""
 
 import json
 from collections import Counter
@@ -6,6 +6,7 @@ from datetime import datetime
 
 from .retrieval.lexical import cosine_similarity, normalize_text
 from .storage.architecture import stable_id
+from .provenance import source_message_context
 
 MODULE_TYPES = {
     "working_states": "working",
@@ -29,7 +30,7 @@ class MemoryCatalog:
         self.storage = memory.storage
         self.architecture = memory.architecture
 
-    def _legacy(self, user):
+    def _policy_records(self, user):
         # No 1000-row API cap here: aggregate counts must cover the whole user.
         return [
             self.storage._row_to_dict(row)
@@ -38,28 +39,17 @@ class MemoryCatalog:
             )
         ]
 
-    def _migration_ids(self):
-        return {
-            r["legacy_id"]
-            for r in self.storage._conn.execute(
-                "SELECT legacy_id FROM legacy_memory_map"
-            )
-        }
-
     def _rows(self, user):
-        legacy = self._legacy(user)
-        migrated = self._migration_ids()
-        result = [
-            {
-                **row,
-                "storage_kind": "legacy",
-                "can_delete": True,
-                "migration_unverified": row["id"] in migrated,
-            }
-            for row in legacy
-        ]
+        records = self._policy_records(user)
+        objects = {r["id"]: (table, r) for table in MODULE_TYPES for r in self.architecture.repo.rows(table, user) if "id" in r}
+        result = [{**row, "storage_kind": "typed", "can_delete": True,
+            "module": objects[row["id"]][0], "native_status": objects[row["id"]][1].get("status"),
+            "source_refs": objects[row["id"]][1].get("source_refs", [])} for row in records if row["id"] in objects]
+        represented = {row["id"] for row in result}
         for module, kind in MODULE_TYPES.items():
             for row in self.architecture.repo.rows(module, user):
+                if row.get("id") in represented:
+                    continue
                 # Quarantined migration copies are represented by their original
                 # compatibility row, including after that original is deleted.
                 if (
@@ -182,25 +172,38 @@ class MemoryCatalog:
                 self.architecture.repo.get("source_records", user, ref)
                 for ref in record["source_refs"]
             ]
-            items = [
-                {
+            # These relations retain original policy provenance, even for v2
+            # sources whose missing thread was once filled with "manual".
+            links = {
+                link["to"]: link
+                for link in self.architecture.repo.rows("memory_links", user)
+                if link.get("relation") == "policy_evidence"
+                and link.get("from") == memory_id
+            }
+            items = []
+            for s in sources:
+                if not s:
+                    continue
+                thread, message = source_message_context(s)
+                link = links.get(s["id"])
+                if link and "client" in (s.get("metadata") or {}):
+                    thread, message = link.get("thread_id"), link.get("message_id")
+                items.append({
                     "id": s["id"],
                     "content": s["content"],
                     "source": s["source_kind"],
-                    "thread_id": s["thread_id"],
-                    "message_id": s["source_event_id"],
+                    "thread_id": thread,
+                    "message_id": message,
+                    "source_event_id": s["source_event_id"],
                     "created_at": s["recorded_at"],
-                    "legacy": False,
-                }
-                for s in sources
-                if s
-            ]
+                    "legacy": bool(link.get("legacy")) if link else False,
+                })
             return {
                 "memory_id": memory_id,
                 "items": items,
                 "total_count": len(items),
                 "evidence_count": record["evidence_count"],
-                "legacy_gap": 0,
+                "legacy_gap": max(0, record["evidence_count"] - len(items)),
             }
 
     def activity(self, user, limit=8):
@@ -252,90 +255,7 @@ class MemoryCatalog:
                 events, key=lambda e: timestamp(e.get("created_at")), reverse=True
             )[:limit]
 
-    def retrieve(
-        self, user, thread, task, query, *, modules=("semantic",), scope="user"
-    ):
-        """Activate compatible knowledge alongside native objects, without copying it.
-
-        Old flow text is knowledge, never an executable procedure. Old working
-        records are not restored into a different task. Migrated/unverified data
-        stays explicitly unverified in context, rather than becoming trusted facts.
-        """
+    def retrieve(self, user, thread, task, query, *, modules=("semantic",), scope="user"):
+        """Read the four-module store using the original policy ranker."""
         user = normalize_text(user) or "demo-user"
-        typed = self.architecture.retrieve(
-            user, thread, task, query, modules=modules, scope=scope
-        )
-        with self.storage._lock:
-            legacy, migrated = self._legacy(user), self._migration_ids()
-        history = any(
-            word in normalize_text(query)
-            for word in ("以前", "过去", "历史", "原来", "之前", "history")
-        )
-        additions = []
-        for row in legacy:
-            kind = row["memory_type"]
-            module = "semantic" if kind == "procedural" else kind
-            if module not in modules or module not in ("semantic", "episodic"):
-                continue
-            if row["state_role"] not in (
-                ("current", "history") if history else ("current",)
-            ):
-                continue
-            if row.get("metadata", {}).get("scope", "user") != scope:
-                continue
-            score = cosine_similarity(
-                query,
-                " ".join(
-                    [
-                        row["content"],
-                        row.get("memory_key") or "",
-                        row.get("memory_value") or "",
-                    ]
-                ),
-            )
-            if score <= 0:
-                continue
-            unverified = row["id"] in migrated
-            record = {
-                **row,
-                "epistemic_status": "legacy_unverified"
-                if unverified
-                else "user_report",
-            }
-            if unverified:
-                record.update(
-                    legacy_state_role=row["state_role"], state_role="candidate"
-                )
-            additions.append(
-                {
-                    "module": module,
-                    "memory_id": row["id"],
-                    "id": row["id"],
-                    "version": None,
-                    "source_refs": [],
-                    "purpose": query,
-                    "record": record,
-                    "memory_type": module,
-                    "content": row["content"],
-                    "storage_kind": "legacy",
-                    "state_role": "candidate" if unverified else row["state_role"],
-                    "epistemic_status": "legacy_unverified"
-                    if unverified
-                    else "user_report",
-                    "score": score,
-                }
-            )
-        result = []
-        for module in modules:
-            pool = [r for r in [*typed, *additions] if r["module"] == module]
-            if module != "working":
-                pool.sort(
-                    key=lambda r: r.get("score", cosine_similarity(query, r.get("content", ""))),
-                    reverse=True,
-                )
-            result.extend(pool[:5])
-        if additions:
-            self.architecture.update_working_state(
-                user, thread, task, {"active_knowledge": result}
-            )
-        return result
+        return self.architecture.retrieve(user, thread, task, query, modules=modules, scope=scope)

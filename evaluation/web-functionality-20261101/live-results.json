@@ -1,0 +1,244 @@
+{
+  "base_url": "http://127.0.0.1:8766",
+  "test_user": "qa-http-20261101-3ea3fd74",
+  "checks": 18,
+  "passed": 18,
+  "results": [
+    {
+      "name": "健康、配置及接口文档",
+      "passed": true,
+      "detail": {
+        "configured": true,
+        "model": "MiniMax-M3[1m]"
+      },
+      "seconds": 0.006
+    },
+    {
+      "name": "手动写入与新架构共同存储、读取和来源",
+      "passed": true,
+      "detail": {
+        "id": "2ee58e63-f3c2-428c-bbc3-5d75aac89563",
+        "evidence_count": 1
+      },
+      "seconds": 0.005
+    },
+    {
+      "name": "重复强化与同事件幂等",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.003
+    },
+    {
+      "name": "冲突候选、双证据巩固与当前/历史检索",
+      "passed": true,
+      "detail": {
+        "candidate": "CANDIDATE",
+        "update": "CONSOLIDATED"
+      },
+      "seconds": 0.008
+    },
+    {
+      "name": "低分留工作层、隐私拒写及原评分门槛",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.004
+    },
+    {
+      "name": "类型化写入复用更新门控、更正不直接替换",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.008
+    },
+    {
+      "name": "来源幂等、无原文依据拒写和用户隔离",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.006
+    },
+    {
+      "name": "任务约束隔离和不长期保存/不持久化策略",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.011
+    },
+    {
+      "name": "用户经历同文强化、事件重试和情景召回",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.006
+    },
+    {
+      "name": "结构化演化实际写入与新架构召回",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.004
+    },
+    {
+      "name": "程序登记、执行成功、幂等、参数失败及停用限制",
+      "passed": true,
+      "detail": {
+        "result": {
+          "text": "one two three"
+        },
+        "failed_status": "failed"
+      },
+      "seconds": 0.013
+    },
+    {
+      "name": "普通程序文本不会自动成为执行能力",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.003
+    },
+    {
+      "name": "总览、主列表和分类计数一致",
+      "passed": true,
+      "detail": {
+        "total": 22,
+        "by_type": {
+          "working": 2,
+          "procedural": 6,
+          "episodic": 3,
+          "semantic": 11
+        }
+      },
+      "seconds": 0.005
+    },
+    {
+      "name": "保留度检查可调用且保护偏好保持当前",
+      "passed": true,
+      "detail": {
+        "archived_ids": [
+          "627eb277-bc02-4327-939a-95592fb7cfe4"
+        ],
+        "evaluated": [
+          {
+            "id": "627eb277-bc02-4327-939a-95592fb7cfe4",
+            "retention": 0.0,
+            "protected": false,
+            "archived": true
+          },
+          {
+            "id": "2125e4e1-b738-42f7-a676-2a36e12f00d0",
+            "retention": 0.613115,
+            "protected": false,
+            "archived": false
+          },
+          {
+            "id": "3800c4c9775f52a4b1797885703df50c19c7762f1158957a81421ded8b3c47dc",
+            "retention": 0.604,
+            "protected": false,
+            "archived": false
+          },
+          {
+            "id": "e6ea5caf3df61e54734fa5e643188533637accc340665f716456643f43574637",
+            "retention": 0.604,
+            "protected": false,
+            "archived": false
+          },
+          {
+            "id": "2ee58e63-f3c2-428c-bbc3-5d75aac89563",
+            "retention": 0.604,
+            "protected": true,
+            "archived": false
+          },
+          {
+            "id": "78915e30-6c9b-4e4d-86f8-bb4770148f15",
+            "retention": 0.717215,
+            "protected": true,
+            "archived": false
+          },
+          {
+            "id": "cfff90a3-d7d1-4a28-a9d1-f2cb35627605",
+            "retention": 0.646574,
+            "protected": false,
+            "archived": false
+          },
+          {
+            "id": "cf9169e7-de06-4e46-9023-3b1b083b59aa",
+            "retention": 0.701183,
+            "protected": false,
+            "archived": false
+          },
+          {
+            "id": "075170aa-af94-4f84-9c74-391a8359bc88",
+            "retention": 0.604,
+            "protected": false,
+            "archived": false
+          },
+          {
+            "id": "38c84780-d944-40a4-9dec-a31252ce54b0",
+            "retention": 0.604,
+            "protected": false,
+            "archived": false
+          },
+          {
+            "id": "417ebf711e000f18baddb865e3d67f64893c3ac3fe997344ed74b9d748114644",
+            "retention": 0.604,
+            "protected": true,
+            "archived": false
+          },
+          {
+            "id": "e961353ae8f8b2cae8cde2ac3f655646b8c2e85835a6aa08174952c26ada5caa",
+            "retention": 0.604,
+            "protected": true,
+            "archived": false
+          },
+          {
+            "id": "0306ad21bc08a7de48a819c458023bdbb672350126dd9446df94360a7d55f489",
+            "retention": 0.604,
+            "protected": true,
+            "archived": false
+          },
+          {
+            "id": "8c2cfd4f7a73f0f8094d1f92a00e5c32f7383182327a1c1122e6f34436e9aed5",
+            "retention": 0.604,
+            "protected": true,
+            "archived": false
+          },
+          {
+            "id": "030c9abacb52e4b9caa163e27de498059fca4f307b0ab728c59addade698b5e5",
+            "retention": 0.604,
+            "protected": true,
+            "archived": false
+          },
+          {
+            "id": "dde52ce4e4a6346b4c8dc3a70804200904f87cfc2f5701a303a93ea45461bce0",
+            "retention": 0.612562,
+            "protected": true,
+            "archived": false
+          }
+        ]
+      },
+      "seconds": 0.003
+    },
+    {
+      "name": "会话创建、读取、隔离和删除",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.003
+    },
+    {
+      "name": "删除记忆及来源派生记录",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.008
+    },
+    {
+      "name": "错误输入、未知接口和默认关闭的演示重置",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.003
+    },
+    {
+      "name": "评测中心数据集、历史、结果和样本读取",
+      "passed": true,
+      "detail": {
+        "datasets": 3,
+        "runs": 18,
+        "samples_in_checked_run": 5
+      },
+      "seconds": 0.445
+    }
+  ]
+}

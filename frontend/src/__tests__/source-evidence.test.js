@@ -21,6 +21,25 @@ it("ignores old-user evidence responses", async () => {
   finish(response({total_count:1,items:[{id:"old",content:"alice private"}]}));await flushPromises();
   expect(wrapper.text()).not.toContain("alice private");
 });
+it("keeps non-chat evidence visible without inventing a source-message link", async () => {
+  vi.stubGlobal("fetch", vi.fn(async()=>response({total_count:1,evidence_count:1,items:[{
+    id:"manual",content:"手动添加的偏好",source:"user_report",thread_id:null,message_id:null,source_event_id:"evidence-event",
+  }]})));
+  const wrapper=mount(SourceEvidence,{props:{userId:"alice",memoryId:"m1"}});wrappers.push(wrapper);
+  await flushPromises();
+  expect(wrapper.text()).toContain("手动添加的偏好");
+  expect(wrapper.text()).toContain("未记录来源会话");
+  expect(wrapper.find("a").exists()).toBe(false);
+});
+it("offers only a session link when the original message was not recorded", async () => {
+  vi.stubGlobal("fetch", vi.fn(async()=>response({total_count:1,evidence_count:1,items:[{
+    id:"old",content:"旧会话原话",source:"conversation_agent",thread_id:"old-chat",message_id:null,source_event_id:"event-hash",
+  }]})));
+  const wrapper=mount(SourceEvidence,{props:{userId:"alice",memoryId:"m1"}});wrappers.push(wrapper);
+  await flushPromises();
+  expect(wrapper.find("a").attributes("href")).toBe("#/assistant?thread=old-chat");
+  expect(wrapper.find("a").text()).toContain("查看来源会话");
+});
 it("loads a source session with message identity and resolves reference details", async () => {
   vi.stubGlobal("fetch",vi.fn(async path=>response(path.startsWith("/api/sessions/")?{id:"older-thread",persisted:true,messages:[{id:"source-message",role:"user",text:"原话"}]}:{id:"record",content:"来源记录"})));
   const workspace=createWorkspace();workspaces.push(workspace);

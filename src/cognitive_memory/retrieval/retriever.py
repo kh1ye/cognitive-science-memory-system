@@ -15,6 +15,72 @@ class Retriever:
         self.storage = storage
         self.config = config
 
+    def rank_candidates(self, rows, query, active_goal="", recent_focus=""):
+        dynamic_state = " ".join(
+            part for part in (query, active_goal, recent_focus) if part
+        )
+        history_intent = any(
+            word in normalize_text(query)
+            for word in ("之前", "过去", "历史", "以前", "原来", "history")
+        )
+        scored: list[dict[str, Any]] = []
+        for row in rows:
+            memory = row
+            assert memory is not None
+            comparison_text = " ".join(
+                filter(
+                    None,
+                    [
+                        memory["content"],
+                        memory.get("memory_key") or "",
+                        memory.get("memory_value") or "",
+                        " ".join(memory["tags"]),
+                    ],
+                )
+            )
+            base_relevance = cosine_similarity(query, comparison_text)
+            context_match = cosine_similarity(dynamic_state, comparison_text)
+            if base_relevance < 0.025:
+                continue
+            role = memory["state_role"]
+            if history_intent:
+                role_factor = {
+                    "history": 1.25,
+                    "current": 1.0,
+                    "candidate": 0.55,
+                    "working": 0.45,
+                }.get(role, 0.5)
+            else:
+                role_factor = {
+                    "current": 1.18,
+                    "history": 0.62,
+                    "candidate": 0.58,
+                    "working": 0.45,
+                }.get(role, 0.5)
+            attention_factor = (
+                1.0 + self.config.retrieval_lambda_bias * memory["attention_bias"]
+            )
+            context_factor = (
+                1.0 + self.config.retrieval_delta_context * context_match
+            )
+            score = base_relevance * attention_factor * context_factor * role_factor
+            if "noise" in memory["tags"] or "噪声" in memory["tags"]:
+                score *= 0.4
+            scored.append(
+                {
+                    **memory,
+                    "retrieval": {
+                        "score": round(score, 6),
+                        "base_relevance": round(base_relevance, 6),
+                        "attention_bias": round(memory["attention_bias"], 6),
+                        "context_match": round(context_match, 6),
+                        "role_factor": role_factor,
+                    },
+                }
+            )
+        scored.sort(key=lambda item: item["retrieval"]["score"], reverse=True)
+        return scored
+
     def search(
         self,
         user_id: str,
@@ -27,71 +93,10 @@ class Retriever:
         query = query.strip()
         if not query:
             raise ValueError("query 不能为空")
-        dynamic_state = " ".join(
-            part for part in (query, active_goal, recent_focus) if part
-        )
-        history_intent = any(
-            word in normalize_text(query)
-            for word in ("之前", "过去", "历史", "以前", "原来", "history")
-        )
+        history_intent = any(word in normalize_text(query) for word in ("之前", "过去", "历史", "以前", "原来", "history"))
         with self.storage.transaction():
             rows = self.storage.retrievable_rows(user_id)
-            scored: list[dict[str, Any]] = []
-            for row in rows:
-                memory = row
-                assert memory is not None
-                comparison_text = " ".join(
-                    filter(
-                        None,
-                        [
-                            memory["content"],
-                            memory.get("memory_key") or "",
-                            memory.get("memory_value") or "",
-                            " ".join(memory["tags"]),
-                        ],
-                    )
-                )
-                base_relevance = cosine_similarity(query, comparison_text)
-                context_match = cosine_similarity(dynamic_state, comparison_text)
-                if base_relevance < 0.025:
-                    continue
-                role = memory["state_role"]
-                if history_intent:
-                    role_factor = {
-                        "history": 1.25,
-                        "current": 1.0,
-                        "candidate": 0.55,
-                        "working": 0.45,
-                    }.get(role, 0.5)
-                else:
-                    role_factor = {
-                        "current": 1.18,
-                        "history": 0.62,
-                        "candidate": 0.58,
-                        "working": 0.45,
-                    }.get(role, 0.5)
-                attention_factor = (
-                    1.0 + self.config.retrieval_lambda_bias * memory["attention_bias"]
-                )
-                context_factor = (
-                    1.0 + self.config.retrieval_delta_context * context_match
-                )
-                score = base_relevance * attention_factor * context_factor * role_factor
-                if "noise" in memory["tags"] or "噪声" in memory["tags"]:
-                    score *= 0.4
-                scored.append(
-                    {
-                        **memory,
-                        "retrieval": {
-                            "score": round(score, 6),
-                            "base_relevance": round(base_relevance, 6),
-                            "attention_bias": round(memory["attention_bias"], 6),
-                            "context_match": round(context_match, 6),
-                            "role_factor": role_factor,
-                        },
-                    }
-                )
-            scored.sort(key=lambda item: item["retrieval"]["score"], reverse=True)
+            scored = self.rank_candidates(rows, query, active_goal, recent_focus)
             results = scored[: max(1, min(int(top_k), 20))]
             now = iso_now()
             self.storage.touch_memories([(now, result["id"]) for result in results])

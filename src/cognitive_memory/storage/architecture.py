@@ -125,10 +125,16 @@ class ArchitectureRepository:
         if table not in TABLES:
             raise ValueError("Unknown module")
         scope = scope or data.get("scope", "user")
+        if getattr(self.storage, "_typed_enabled", False):
+            from .typed_records import prepare_native
+            data = prepare_native(self.storage, table, user_id, data)
         self.conn.execute(
             f"INSERT INTO {table} VALUES (?, ?, ?, ?) ON CONFLICT(id) DO UPDATE SET data=excluded.data, scope=excluded.scope WHERE user_id=excluded.user_id",
             (object_id, user_id, scope, json.dumps(data, ensure_ascii=False)),
         )
+        if getattr(self.storage, "_typed_enabled", False) and "_policy" in data:
+            from .typed_records import attach_sources
+            attach_sources(self.storage, user_id, data)
         return data
 
     def delete(self, table, user_id, object_id):

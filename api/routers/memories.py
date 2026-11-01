@@ -35,7 +35,9 @@ def add_memory(payload: MemoryRequest, memory: MemoryDependency):
 
 @router.get("/memories/{memory_id}/evidence")
 def evidence(memory_id: str, memory: MemoryDependency, user_id: str = "demo-user"):
-    result = memory.evidence(user_id, memory_id)
+    result = (memory.catalog.evidence(user_id, memory_id)
+              if getattr(memory.storage, "_typed_enabled", False)
+              else memory.evidence(user_id, memory_id))
     if result is None and memory.catalog is not None:
         result = memory.catalog.evidence(user_id, memory_id)
     return (
@@ -52,6 +54,10 @@ def get_memory(memory_id: str, memory: MemoryDependency, user_id: str = "demo-us
     from cognitive_memory.retrieval.lexical import normalize_text
 
     with memory.storage.transaction():
+        if getattr(memory.storage, "_typed_enabled", False):
+            record = memory.catalog.get(user_id, memory_id)
+            if record is not None:
+                return record
         if memory.storage.find_owned(memory_id, normalize_text(user_id) or "demo-user"):
             return memory.storage.get_memory(memory_id)
         if memory.catalog is not None:
