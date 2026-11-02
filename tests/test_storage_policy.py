@@ -3,6 +3,7 @@
 from datetime import timedelta
 from pathlib import Path
 import sqlite3
+from contextlib import closing
 from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import patch
@@ -199,7 +200,7 @@ class StoragePolicyTests(unittest.TestCase):
                     self.assertEqual(count, len(before))
             backups = list(path.parent.glob("*.before-typed-storage-*.bak"))
             self.assertEqual(len(backups), 1)
-            with sqlite3.connect(backups[0]) as backup:
+            with closing(sqlite3.connect(backups[0])) as backup:
                 self.assertEqual(
                     backup.execute("SELECT COUNT(*) FROM memories").fetchone()[0],
                     len(before),
@@ -218,7 +219,7 @@ class StoragePolicyTests(unittest.TestCase):
             ):
                 with self.assertRaisesRegex(RuntimeError, "migration failure"):
                     Memory(path)
-            with sqlite3.connect(path) as original:
+            with closing(sqlite3.connect(path)) as original:
                 self.assertEqual(
                     original.execute("SELECT id FROM memories").fetchone()[0],
                     saved["id"],
