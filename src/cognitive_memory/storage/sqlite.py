@@ -37,6 +37,16 @@ class SQLiteStorage:
             self._conn.close()
             raise
 
+    @contextmanager
+    def native_context(self, data):
+        with self._lock:
+            previous = getattr(self, "_typed_context", None)
+            self._typed_context = data
+            try:
+                yield
+            finally:
+                self._typed_context = previous
+
     def list_memories_all_for_migration(self):
         return [self._row_to_dict(row) for row in self._conn.execute("SELECT * FROM memories")]
 
@@ -45,6 +55,12 @@ class SQLiteStorage:
             self._conn.close()
 
     def _create_schema(self) -> None:
+        existing = self._conn.execute("SELECT type FROM sqlite_master WHERE name='memories'").fetchone()
+        if existing and existing[0] == 'view':
+            from .architecture import ArchitectureRepository
+            from .typed_records import enable
+            enable(self, ArchitectureRepository(self))
+            return
         self._conn.executescript(
             """
             CREATE TABLE IF NOT EXISTS memories (
@@ -250,7 +266,7 @@ class SQLiteStorage:
         return self._row_to_dict(row)
 
     def insert_memory(self, values: dict[str, Any]) -> str:
-        memory_id = values.get("id") or str(uuid.uuid4())
+        memory_id = values.get("id") or (getattr(self, "_typed_context", None) or {}).get("id") or str(uuid.uuid4())
         now = values.get("created_at") or iso_now()
         self._conn.execute(
             """

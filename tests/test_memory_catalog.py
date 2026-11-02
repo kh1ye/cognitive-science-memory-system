@@ -89,7 +89,7 @@ class MemoryCatalogTests(unittest.TestCase):
             for text in ("Python", "Rust", "乌龙茶"):
                 self.assertIn(text, contents)
                 self.assertIn(text, model.calls[-1][0].content)
-            self.assertTrue(any(r.get("storage_kind") == "legacy" for r in refs))
+            self.assertTrue(all(r.get("storage_kind") == "typed" for r in refs))
             self.assertTrue(any(r["record"].get("value") == "乌龙茶" for r in refs))
             isolated = client.post(
                 "/api/chat",
@@ -134,11 +134,11 @@ class MemoryCatalogTests(unittest.TestCase):
                 {"working", "semantic", "episodic", "procedural"},
             )
             self.assertEqual(
-                overview["by_storage"], {"legacy": 1, "typed": len(rows) - 1}
+                overview["by_storage"], {"typed": len(rows)}
             )
             old_api = client.get("/api/memories?user_id=alice").json()["items"]
-            self.assertEqual(old_api, [legacy])
-            native = next(r for r in rows if r.get("module") == "semantic_assertions")
+            self.assertEqual({r["id"] for r in old_api}, {r["id"] for r in rows if r["memory_type"] != "working"})
+            native = next(r for r in rows if r.get("module") == "semantic_assertions" and "乌龙茶" in r["content"])
             path = "/api/memories/" + native["id"]
             self.assertEqual(
                 client.get(path + "?user_id=alice").json()["storage_kind"], "typed"
@@ -153,7 +153,7 @@ class MemoryCatalogTests(unittest.TestCase):
             self.assertEqual(
                 client.get(path + "/evidence?user_id=bob").status_code, 404
             )
-            self.assertIsNone(native["importance"])
+            self.assertEqual(native["importance"], 0.7)
             self.assertTrue(native["can_delete"])
             self.assertTrue(
                 any(
@@ -247,9 +247,12 @@ class MemoryCatalogTests(unittest.TestCase):
                         (kind, role, record["id"]),
                     )
             refs = memory.catalog.retrieve("alice", "new", "task", "Python")
-            self.assertEqual(len(refs), 1)
-            self.assertEqual(refs[0]["module"], "semantic")
-            self.assertEqual(refs[0]["record"]["memory_type"], "procedural")
+            self.assertEqual(len(refs), 2)
+            self.assertTrue(all(r["module"] == "semantic" for r in refs))
+            workflow = next(r for r in refs if r["record"]["memory_type"] == "procedural")
+            self.assertEqual(workflow["state_role"], "current")
+            candidate = next(r for r in refs if r["record"]["memory_type"] == "semantic")
+            self.assertEqual(candidate["state_role"], "candidate")
             self.assertEqual(
                 memory.catalog.retrieve(
                     "alice", "new", "task", "Python", modules=("procedural",)

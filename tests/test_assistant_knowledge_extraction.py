@@ -57,7 +57,7 @@ def make_observation(source_event_id):
 
 class AssistantKnowledgeExtractionTests(unittest.TestCase):
     def setUp(self):
-        self._ctx = TestClient(create_app())
+        self._ctx = TestClient(create_app(":memory:"))
         self.client = self._ctx.__enter__()
         self.architecture = self.client.app.state.memory.architecture
 

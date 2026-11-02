@@ -30,6 +30,9 @@ class WorkingState(Contract):
 
 
 class EpisodeEvent(Contract):
+    importance: float = Field(default=0.7, ge=0, le=1)
+    confidence: float = Field(default=0.8, ge=0, le=1)
+    tags: list[str] = Field(default_factory=list)
     observation: str
     actor: Literal["user", "system", "tool", "model"] = "user"
     event_kind: Literal[
@@ -44,6 +47,8 @@ class EpisodeEvent(Contract):
 
 
 class SemanticAssertion(Contract):
+    importance: float = Field(default=0.7, ge=0, le=1)
+    tags: list[str] = Field(default_factory=list)
     sensitive: bool = False
     evidence_text: str = Field(min_length=1)
     subject: str = Field(min_length=1)
@@ -74,6 +79,9 @@ class SemanticDocument(Contract):
 
 
 class ProcedureProposal(Contract):
+    importance: float = Field(default=0.7, ge=0, le=1)
+    confidence: float = Field(default=0.8, ge=0, le=1)
+    tags: list[str] = Field(default_factory=list)
     description: str = Field(min_length=1)
     kind: Literal["reasoning", "retrieval", "learning", "grounding", "decision"]
     implementation_ref: str | None = None
@@ -116,6 +124,7 @@ class Observation(Contract):
         "document",
     ] = "user_report"
     source_event_id: str = Field(min_length=1)
+    message_id: str | None = None
     source_ref: str = ""
     observed_at: str | None = None
     content: str = Field(min_length=1, max_length=20000)

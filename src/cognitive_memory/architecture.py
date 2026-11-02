@@ -80,6 +80,7 @@ class MemoryArchitecture:
         self.storage = storage
         self.repo = ArchitectureRepository(storage)
         self.analyzer = analyzer
+        self.policy_engine = None
         # Cross-database transcript cleanup is coordinated by the execution layer.
         self.source_delete_hooks = []
 
@@ -150,6 +151,7 @@ class MemoryArchitecture:
             "id": key,
             "source_kind": o.source_kind,
             "source_event_id": o.source_event_id,
+            "message_id": o.message_id,
             "source_ref": o.source_ref,
             "scope": o.scope,
             "thread_id": o.thread_id,
@@ -162,6 +164,7 @@ class MemoryArchitecture:
             ),
             "content": o.content if o.retention_policy == "persist" else None,
             "retention_policy": o.retention_policy,
+            "consent": o.consent,
         }
         return self.repo.put("source_records", o.user_id, key, data, o.scope)
 
@@ -210,6 +213,16 @@ class MemoryArchitecture:
                 )
                 + 1
             )
+            if self.policy_engine is not None and e.actor == "user":
+                prototype = {**e.model_dump(), "source_refs": sources, "thread_id": thread, "task_id": task,
+                    "episode_id": episode, "sequence_no": sequence,
+                    "scope": self.repo.get("source_records", user, sources[0])["scope"]}
+                result = self.policy_engine.store_native(user, "episodic", prototype)
+                for source in sources:
+                    self._link(user, "derived_from", result["id"], source)
+                if e.corrects:
+                    self._link(user, "corrects", result["id"], e.corrects)
+                return result
             data = {
                 **e.model_dump(),
                 "id": key,
@@ -255,6 +268,8 @@ class MemoryArchitecture:
             if evidence is None:
                 raise ValueError("Assertion has no source evidence")
             a = a.model_copy(update={"evidence_text": evidence})
+            if self.policy_engine is not None and a.epistemic_status != "inferred" and a.status == "current":
+                return self.policy_engine.store_native(user, "semantic", {**a.model_dump(), "source_refs": sources})
             rows = self.repo.rows("semantic_assertions", user, a.scope)
             same_relation = [
                 r
@@ -380,7 +395,7 @@ class MemoryArchitecture:
             pid = stable_id(user, procedure)
             versions = [
                 r
-                for r in self.repo.rows("procedure_versions", user)
+                for r in [*self.repo.rows("procedure_versions", user), *self.repo.rows("working_states", user)]
                 if r.get("procedure_id") == pid
             ]
             registry = self.repo.get("procedures", user, pid) or {}
@@ -413,6 +428,8 @@ class MemoryArchitecture:
                         "scope": scope,
                     },
                 )
+            if self.policy_engine is not None:
+                return self.policy_engine.store_native(user, "procedural", data)
             return self.repo.put("procedure_versions", user, vid, data)
 
     def validate_procedure(self, user, version_id):
@@ -712,7 +729,7 @@ class MemoryArchitecture:
                         operation.update(status="succeeded", result_refs=[result["id"]])
                         if module == "semantic":
                             operation.update(
-                                result_status=result["status"],
+                                result_status=result.get("_policy", {}).get("state_role", result["status"]),
                                 epistemic_status=result["epistemic_status"],
                             )
                     except Exception as error:  # noqa: BLE001 -- isolate partial learning failure
@@ -738,7 +755,7 @@ class MemoryArchitecture:
         rows = [
             r
             for r in self.repo.rows("episode_events", user, scope)
-            if r.get("status") != "legacy_unverified"
+            if r.get("status") not in ("legacy_unverified", "archived")
             and (task is None or r.get("task_id") == task)
             and (outcome is None or r.get("outcome") == outcome)
         ]
@@ -766,6 +783,17 @@ class MemoryArchitecture:
             contexts.append(context)
             documents.append(" ".join([str(row.get("subject", "")), str(row.get("predicate", "")),
                 json.dumps(row.get("value", ""), ensure_ascii=False), evidence, context]))
+        if self.policy_engine is not None:
+            policies = []
+            original = {row["id"]: (row, context) for row, context in zip(rows, contexts)}
+            for row, context in zip(rows, contexts):
+                policy = self.storage.get_memory(row["id"])
+                if policy is not None:
+                    # Native evidence keeps bounded provenance context for pronoun resolution.
+                    policies.append({**policy, "content": policy["content"] + " " + context})
+            ranked = self.policy_engine.retriever.rank_candidates(policies, query)
+            return [{**original[r["id"]][0], "_retrieval_score": r["retrieval"]["score"],
+                "_retrieval_context": original[r["id"]][1]} for r in ranked]
         scores = rank_evidence(query, documents)
         ranked = [{**row, "_retrieval_score": score, "_retrieval_context": context}
                   for row, score, context in zip(rows, scores, contexts) if score > 0]
@@ -785,10 +813,17 @@ class MemoryArchitecture:
         rows = self.repo.rows("semantic_assertions", user, scope) + self.repo.rows(
             "semantic_documents", user, scope
         )
+        # Flow text remains searchable knowledge, not an executable capability.
+        rows += [r for r in self.repo.rows("procedure_versions", user, scope)
+                 if r.get("implementation_ref") is None and r.get("_policy", {}).get("state_role") == "current"]
         rows = [
             r
             for r in rows
-            if (history or r["status"] in ("current", "disputed"))
+            if r.get("_policy", {}).get("state_role") not in ("working", "archived")
+            and (r["status"] in (("current", "disputed", "history", "candidate", "legacy_unverified", "draft")
+                if history or query.strip() else ("current", "disputed", "draft")))
+            and r.get("epistemic_status") != "inferred"
+            and (query.strip() or history or r.get("epistemic_status") != "legacy_unverified")
             and (subject is None or r.get("subject") == subject)
             and (predicate is None or r.get("predicate") == predicate)
             and (not r.get("valid_from") or r["valid_from"] <= (at or iso_now()))
@@ -834,10 +869,12 @@ class MemoryArchitecture:
                     "version": r.get("version", r.get("document_version", 1)),
                     "source_refs": r.get("source_refs", []),
                     "purpose": query,
-                    "record": r,
+                    "record": {**r, "state_role": "candidate" if r.get("epistemic_status") == "legacy_unverified" else r.get("_policy", {}).get("state_role", r.get("status", "recorded"))},
                     "id": r["id"],
                     "memory_type": module,
-                    "state_role": r.get("status", "recorded"),
+                    "state_role": "candidate" if r.get("epistemic_status") == "legacy_unverified" else r.get("_policy", {}).get("state_role", r.get("status", "recorded")),
+                    "epistemic_status": r.get("epistemic_status"),
+                    "storage_kind": "typed",
                     "score": r.get("_retrieval_score", 0),
                     "evidence_context": r.get("_retrieval_context", ""),
                     "content": r.get("content")

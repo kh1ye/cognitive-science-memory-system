@@ -59,16 +59,20 @@ class ArchitectureTests(unittest.TestCase):
         )
         self.assertEqual(self.a.working_state("alice", "chat", "new").constraints, [])
 
-    def test_explicit_preference_correction_preserves_history(self):
+    def test_native_preference_uses_existing_evidence_gate_and_preserves_history(self):
         self.save()
         self.save(
             self.observe("以后默认用英文", "new"),
             self.assertion("英文", "以后默认用英文", correction=True),
         )
+        self.assertEqual(self.a.retrieve_knowledge("alice")[0]["value"], "中文")
+        self.save(self.observe("再次确认以后用英文", "confirm"),
+                  self.assertion("英文", "再次确认以后用英文", correction=True))
         self.assertEqual(self.a.retrieve_knowledge("alice")[0]["value"], "英文")
         rows = self.a.retrieve_knowledge("alice", history=True)
         self.assertEqual({r["status"] for r in rows}, {"current", "history"})
-        self.assertEqual(len(rows[0]["evidence_ids"]), 1)
+        current = next(r for r in rows if r["status"] == "current")
+        self.assertEqual(len(current["evidence_ids"]), 2)
 
     def test_same_text_different_event_and_retry(self):
         for event, date in [
@@ -83,8 +87,9 @@ class ArchitectureTests(unittest.TestCase):
                 ),
             )
         rows = self.a.retrieve_episodes("alice")
-        self.assertEqual(len(rows), 2)
-        self.assertEqual({r["occurred_at"] for r in rows}, {"2025-01-01", "2026-01-01"})
+        self.assertEqual(len(rows), 1)  # Existing exact-duplicate policy reinforces one record.
+        self.assertEqual(rows[0]["occurred_at"], "2025-01-01")
+        self.assertEqual(rows[0]["_policy"]["evidence_count"], 2)
 
     def test_same_source_extraction_summary_not_independent_evidence(self):
         result = self.save()
@@ -119,9 +124,8 @@ class ArchitectureTests(unittest.TestCase):
         )
         self.assertEqual(len(self.a.retrieve_knowledge("alice")), 2)
         self.save(self.observe("日语", "e"), self.assertion("日语", "日语"))
-        self.assertTrue(
-            all(r["status"] == "disputed" for r in self.a.retrieve_knowledge("alice"))
-        )
+        # Multi-valued attributes remain distinct; no new automatic conflict policy is introduced.
+        self.assertEqual(len(self.a.retrieve_knowledge("alice")), 3)
         self.save(
             self.observe("法语", "f", scope="future"),
             self.assertion("法语", "法语", scope="future", valid_from="2099-01-01"),
@@ -247,11 +251,11 @@ class ArchitectureTests(unittest.TestCase):
                     m.storage._conn.execute(
                         "SELECT COUNT(*) FROM architecture_migrations"
                     ).fetchone()[0],
-                    1,
+                    2,
                 )
             self.assertTrue(Path(str(path) + ".pre-coala-v1.bak").exists())
 
-    def test_old_data_migration_ids_quarantine_and_backup(self):
+    def test_old_data_migration_preserves_ids_policy_fields_and_backup(self):
         from cognitive_memory.storage.sqlite import SQLiteStorage
 
         with TemporaryDirectory() as tmp:
@@ -287,7 +291,7 @@ class ArchitectureTests(unittest.TestCase):
                         engine.storage._conn.execute(
                             "SELECT COUNT(*) FROM legacy_memory_map"
                         ).fetchone()[0],
-                        4,
+                        0,
                     )
                     self.assertEqual(len(engine.list_memories("alice")), 4)
                     self.assertEqual(a.retrieve_procedures("alice"), [])
@@ -299,8 +303,10 @@ class ArchitectureTests(unittest.TestCase):
                         a.repo.get("procedure_versions", "alice", "procedural")[
                             "status"
                         ],
-                        "legacy_unverified",
+                        "draft",  # Stored workflow text never becomes executable.
                     )
+                    self.assertEqual(engine.storage._conn.execute(
+                        "SELECT type FROM sqlite_master WHERE name='memories'").fetchone()[0], "view")
             with closing(sqlite3.connect(str(path) + ".pre-coala-v1.bak")) as backup:
                 self.assertEqual(
                     backup.execute("SELECT COUNT(*) FROM memories").fetchone()[0], 4

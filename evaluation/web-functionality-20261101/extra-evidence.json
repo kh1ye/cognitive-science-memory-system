@@ -1,0 +1,35 @@
+{
+  "manual_evidence": {
+    "memory_id": "ac74eb49-3dff-4a05-89c0-e055fe780670",
+    "items": [
+      {
+        "id": "bdd6d71fa14cf1dd6e9ba61062c7cf49bf4188e61c956687287cde6f1ae28809",
+        "content": "我平时喜欢喝乌龙茶。",
+        "source": "user_report",
+        "thread_id": "manual",
+        "message_id": "8aa87536-569f-45b9-a9c1-5d71e46fecfc",
+        "created_at": "2026-11-01T14:02:27+00:00",
+        "legacy": false
+      }
+    ],
+    "total_count": 1,
+    "evidence_count": 1,
+    "legacy_gap": 0
+  },
+  "evaluation_job": {
+    "id": "center-20261101-221314-7fff1c",
+    "dataset": "vatsalabench",
+    "mode": "check",
+    "count": 500,
+    "status": "completed",
+    "created_at": "2026-11-01T22:13:14.286520+08:00",
+    "path": "evaluation/Vatsalabench/results/center-20261101-221314-7fff1c",
+    "model": "",
+    "auto_score": true,
+    "message": "数据检查完成 · 500 条样本",
+    "exit_code": 0,
+    "finished_at": "2026-11-01T22:13:16.522566+08:00",
+    "log": "{\n  \"mode\": \"offline_preflight_not_quality_evaluation\",\n  \"dataset_root\": \"/Users/flipped/Documents/记忆系统/cognitive-science-memory-system/evaluation/Vatsalabench/dataset500_handoff_20261022_v1/dataset500_handoff_20261022_v1\",\n  \"declared_samples\": 500,\n  \"checked_samples\": 500,\n  \"sample_count_matches\": true,\n  \"samples_with_errors\": 0,\n  \"review_groups\": {\n    \"reviewed_umrr\": 66,\n    \"pending_umrr\": 434\n  },\n  \"protocol_approved_samples\": 0,\n  \"totals\": {\n    \"sessions\": 23867,\n    \"messages\": 246750,\n    \"history_characters\": 244648697,\n    \"probes\": 6000\n  }\n}\nReport: /Users/flipped/Documents/记忆系统/cognitive-science-memory-system/evaluation/Vatsalabench/results/center-20261101-221314-7fff1c/preflight.json",
+    "progress": []
+  }
+}

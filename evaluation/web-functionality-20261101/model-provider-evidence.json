@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-01",
+  "test": "Direct model invocation using the same settings, with one synthetic connection-test message",
+  "provider": "anthropic",
+  "model": "MiniMax-M3[1m]",
+  "configured": true,
+  "success": false,
+  "error_type": "AnthropicInvalidRequestError",
+  "provider_http_status": 400,
+  "provider_error_type": "invalid_request_error",
+  "provider_error_message": "invalid params, unknown model 'MiniMax-M3[1m]' (2013)",
+  "chat_http_status": 502,
+  "evolution_analyze_http_status": 502,
+  "configuration_modified": false
+}
