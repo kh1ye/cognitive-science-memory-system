@@ -28,6 +28,20 @@ def load(path, default=None):
         return default
 
 
+def usage_summary(result, scores):
+    """Aggregate provider usage already recorded by the run ledger; None when unrecorded."""
+    calls = (result or {}).get("provider_calls", [])
+    judge = (scores or {}).get("judge_usage") or {}
+    input_tokens = sum((c.get("usage") or {}).get("input_tokens", 0) for c in calls) + judge.get("input_tokens", 0)
+    output_tokens = sum((c.get("usage") or {}).get("output_tokens", 0) for c in calls) + judge.get("output_tokens", 0)
+    if not input_tokens and not output_tokens:
+        return None
+    price_in = float(os.getenv("EVAL_PRICE_INPUT_CNY_PER_MTOK", "2"))
+    price_out = float(os.getenv("EVAL_PRICE_OUTPUT_CNY_PER_MTOK", "8"))
+    return {"input_tokens": input_tokens, "output_tokens": output_tokens, "calls": len(calls),
+            "cost_cny": round(input_tokens / 1e6 * price_in + output_tokens / 1e6 * price_out, 2)}
+
+
 class EvaluationCenter:
     def __init__(self, root):
         self.root = Path(root).resolve()
@@ -102,6 +116,7 @@ class EvaluationCenter:
             status = "completed" if result.get("status") != "incomplete" else ("partial" if answered else "failed")
             item.update(completed=answered, planned=12, model=result.get("requested_model", ""),
                         status=status, metrics=self._metric_rows(scores.get("quality", {})))
+            item["usage"] = usage_summary(result, scores)
             if scores.get("manual_audit"):
                 item["review"] = "reviewed"
         elif summary is not None:
