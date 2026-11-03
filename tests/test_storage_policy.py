@@ -1,6 +1,6 @@
 """Storage-only equivalence against the original algorithms on the original SQL tables."""
 
-from datetime import timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import sqlite3
 from contextlib import closing
@@ -38,7 +38,15 @@ def original_table_engine(path=":memory:"):
 
 class StoragePolicyTests(unittest.TestCase):
     def test_same_inputs_produce_identical_scores_decisions_rankings_and_decay(self):
-        with original_table_engine() as old, Memory() as new:
+        # Retention is now also part of ranking: compare both adapters at one clock.
+        clock = datetime(2026, 11, 3, tzinfo=timezone.utc)
+        with (
+            original_table_engine() as old,
+            Memory() as new,
+            patch("cognitive_memory.models.utc_now", return_value=clock),
+            patch("cognitive_memory.retention.utc_now", return_value=clock),
+            patch("cognitive_memory.retrieval.retriever.utc_now", return_value=clock),
+        ):
             events = [
                 {
                     "content": "我喜欢用Python",

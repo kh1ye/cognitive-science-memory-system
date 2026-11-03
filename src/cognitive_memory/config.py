@@ -14,3 +14,5 @@ class MemoryConfig:
     retention_decay: float = 0.04
     retrieval_lambda_bias: float = 0.65
     retrieval_delta_context: float = 0.45
+    retrieval_retention_weight: float = 0.15  # Maximum fraction discounted by decay.
+    retention_importance_threshold: float = 0.80  # Protect important untagged facts.

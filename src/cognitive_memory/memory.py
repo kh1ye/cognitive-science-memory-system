@@ -129,6 +129,7 @@ class Memory:
                 self.storage.reinforce_duplicate(
                     count, iso_now(), importance, confidence, duplicate["id"]
                 )
+                self.retention.reinforce(duplicate)
                 self.storage.audit(
                     user_id,
                     "REINFORCE",

@@ -5,6 +5,7 @@ from typing import Any
 from .config import MemoryConfig
 from .encoding import clamp
 from .models import WriteResult, iso_now
+from .retention import RetentionManager
 from .retrieval.lexical import cosine_similarity, jaccard, normalize_text
 from .storage.base import Storage
 
@@ -18,6 +19,7 @@ class Consolidator:
     def __init__(self, storage: Storage, config: MemoryConfig):
         self.storage = storage
         self.config = config
+        self.retention = RetentionManager(storage, config)
 
     def _prediction_error(
         self,
@@ -74,6 +76,7 @@ class Consolidator:
                     attention_bias,
                     current["id"],
                 )
+                self.retention.reinforce(current)
                 self.storage.audit(
                     user_id,
                     "REINFORCE",

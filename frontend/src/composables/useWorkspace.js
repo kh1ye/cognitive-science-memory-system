@@ -224,6 +224,10 @@ export function createWorkspace() {
       const result = await post("/api/maintenance/retention", {
         user_id: user,
       });
+      if (result.enabled === false) {
+        notify("记忆遗忘已关闭，未执行归档。");
+        return;
+      }
       notify(`检查完成，归档 ${result.archived_ids.length} 条记忆`);
       await refresh();
     } catch (error) {

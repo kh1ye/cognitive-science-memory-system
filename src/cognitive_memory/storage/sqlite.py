@@ -55,6 +55,10 @@ class SQLiteStorage:
             self._conn.close()
 
     def _create_schema(self) -> None:
+        self._conn.execute(
+            "CREATE TABLE IF NOT EXISTS memory_retention_settings ("
+            "user_id TEXT PRIMARY KEY, enabled INTEGER NOT NULL DEFAULT 1 CHECK(enabled IN (0,1)))"
+        )
         existing = self._conn.execute("SELECT type FROM sqlite_master WHERE name='memories'").fetchone()
         if existing and existing[0] == 'view':
             from .architecture import ArchitectureRepository
@@ -487,6 +491,25 @@ class SQLiteStorage:
         params = updates
         self._conn.executemany(
             "UPDATE memories SET last_accessed_at = ? WHERE id = ?", params
+        )
+
+    def update_retention(self, memory_id: str, metadata: dict[str, Any]) -> None:
+        self._conn.execute(
+            "UPDATE memories SET metadata_json = ? WHERE id = ?",
+            (json.dumps(metadata, ensure_ascii=False, sort_keys=True), memory_id),
+        )
+
+    def get_retention_enabled(self, user_id: str) -> bool:
+        row = self._conn.execute(
+            "SELECT enabled FROM memory_retention_settings WHERE user_id=?", (user_id,)
+        ).fetchone()
+        return bool(row[0]) if row else True
+
+    def set_retention_enabled(self, user_id: str, enabled: bool) -> None:
+        self._conn.execute(
+            "INSERT INTO memory_retention_settings(user_id,enabled) VALUES (?,?) "
+            "ON CONFLICT(user_id) DO UPDATE SET enabled=excluded.enabled",
+            (user_id, int(enabled)),
         )
 
     def retention_rows(self, user_id: str) -> list[MemoryRecord]:

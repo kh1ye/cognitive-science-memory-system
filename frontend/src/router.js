@@ -8,6 +8,7 @@ import AssistantView from "./views/AssistantView.vue";
 import MemoriesView from "./views/MemoriesView.vue";
 import MemoryGalaxyView from "./views/MemoryGalaxyView.vue";
 import EvolutionView from "./views/EvolutionView.vue";
+import ForgettingView from "./views/ForgettingView.vue";
 // Preserve links from the previous vanilla frontend.
 if (/^#(overview|assistant|memories)$/.test(location.hash)) {
   history.replaceState(null, "", `#/${location.hash.slice(1)}`);
@@ -38,6 +39,7 @@ export default createRouter({
       meta: { title: "记忆管理" },
     },
     { path: "/memory-gallery", name: "memory-gallery", component: MemoryGalaxyView, meta: { title: "记忆展示" } },
+    { path: "/forgetting", name: "forgetting", component: ForgettingView, meta: { title: "记忆遗忘" } },
     {
       path: "/evolution",
       name: "evolution",

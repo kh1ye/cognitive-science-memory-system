@@ -3,7 +3,8 @@ from __future__ import annotations
 from typing import Any
 
 from ..config import MemoryConfig
-from ..models import iso_now
+from ..models import iso_now, utc_now
+from ..retention import RetentionManager
 from ..storage.base import Storage
 from .lexical import cosine_similarity, normalize_text
 
@@ -14,6 +15,7 @@ class Retriever:
     def __init__(self, storage: Storage, config: MemoryConfig):
         self.storage = storage
         self.config = config
+        self.retention = RetentionManager(storage, config)
 
     def rank_candidates(self, rows, query, active_goal="", recent_focus=""):
         dynamic_state = " ".join(
@@ -24,6 +26,9 @@ class Retriever:
             for word in ("之前", "过去", "历史", "以前", "原来", "history")
         )
         scored: list[dict[str, Any]] = []
+        now = utc_now()
+        retention_weight = max(0.0, min(1.0, self.config.retrieval_retention_weight))
+        enabled_by_user = {}
         for row in rows:
             memory = row
             assert memory is not None
@@ -64,6 +69,12 @@ class Retriever:
                 1.0 + self.config.retrieval_delta_context * context_match
             )
             score = base_relevance * attention_factor * context_factor * role_factor
+            retention = self.retention.state(memory, now)["retention_probability"]
+            owner = memory["user_id"]
+            if owner not in enabled_by_user:
+                enabled_by_user[owner] = self.retention.is_enabled(owner)
+            retention_factor = 1.0 - retention_weight * (1.0 - retention) if enabled_by_user[owner] else 1.0
+            score *= retention_factor
             if "noise" in memory["tags"] or "噪声" in memory["tags"]:
                 score *= 0.4
             scored.append(
@@ -75,6 +86,8 @@ class Retriever:
                         "attention_bias": round(memory["attention_bias"], 6),
                         "context_match": round(context_match, 6),
                         "role_factor": role_factor,
+                        "retention": round(retention, 6),
+                        "retention_factor": round(retention_factor, 6),
                     },
                 }
             )

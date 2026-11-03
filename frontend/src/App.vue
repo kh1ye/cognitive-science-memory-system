@@ -86,6 +86,7 @@ const navigationGroups = [
     { name: "assistant", title: "个人助手", icon: "chat" },
     { name: "memories", title: "记忆管理", icon: "memory" },
     { name: "memory-gallery", title: "记忆展示", icon: "constellation" },
+    { name: "forgetting", title: "记忆遗忘", icon: "brain" },
     { name: "evolution", title: "记忆演化", icon: "activity" },
   ] },
   { title: "开发与设置", items: [

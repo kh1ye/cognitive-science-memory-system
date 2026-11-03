@@ -28,6 +28,7 @@ export const eventNames = {
   CONSOLIDATE: "完成证据巩固",
   RETRIEVE: "检索记忆",
   RETENTION: "检查保留度",
+  RETENTION_SETTING: "调整记忆遗忘",
   USER_DELETE: "删除记忆",
   DROP_PRIVACY: "隐私门拦截",
   TYPED_LEARNING: "四类记忆写入",

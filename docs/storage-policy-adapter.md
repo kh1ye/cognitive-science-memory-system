@@ -35,3 +35,26 @@ SQL 触发器用 Python JSON 编码策略数值，避免 SQLite JSON 数字格�
 本轮先使用临时库和默认库的临时副本验证迁移。工作区中曾中止的另一种重构触发过测试迁移，已从其迁移前备份恢复，并额外保留中止时快照。2026-11-01 网页功能修复复测后，默认服务已启动并完成本适配迁移：自动备份为 `memory_demo.db.before-typed-storage-20261101T145332402575Z.bak`，原 28 条记忆和 30 条来源投影逐字段保持一致，正式库通过 `PRAGMA integrity_check`。
 
 来源回溯区分证据事件标识与真实消息标识。策略来源保留原 thread/message 字段，缺失会话不再用 `manual` 代替；首次适配版本已生成的来源通过原证据关系恢复正确的已知字段。新聊天显式携带 `message_id`，任务观察和系统来源不会生成聊天链接。旧类型化来源缺少真实消息标识时只保留已知会话定位，不用事件 ID 伪造消息定位。
+
+## 艾宾浩斯遗忘曲线（2026-11-03）
+
+在以上存储适配基础上，`RetentionManager` 现在统一计算遗忘和强化，四模块、选择性编码、冲突检测、证据巩固及来源门控保持原流程。机制参考 [MemoryBank 的遗忘与强化实现](https://github.com/zhongwanjun/MemoryBank-SiliconFriend/blob/main/memory_bank/memory_retrieval/forget_memory.py) 中的逐条强度与重置计时思路；本系统严格实现 `exp(-t/S)`，采用确定性的归档阈值。
+
+- `t` 与 `S` 均以天为单位。`t` 从最近一次新证据确认计时，尚未确认则从 `created_at` 计时；未来时间差按零处理，无时区的旧时间按 UTC 解释。
+- 未保存强化状态的记录按 `S = (1 / retention_decay) × (0.5 + 0.5 × importance) × max(1, evidence_count)` 独立计算稳定性。默认 `retention_decay=0.04`，单条、重要性 0.7 的记录初始稳定性为 21.25 天。证据巩固后的记录沿用其证据数。
+- 完全重复、同键同值的独立新证据沿用原强化路径，同时将 `S` 增加一份该记录的初始稳定性，并将计时起点重置为确认时间。`metadata.retention` 保存 `stability_days` 和 `last_reinforced_at`；其余 metadata 原样保留。来源事件重放、冲突候选、普通检索和生命周期变动不会触发强化。
+- 排序在原相关性门槛、注意力、上下文、状态和噪声因子基础上乘以 `1 - w × (1 - R)`，默认 `retrieval_retention_weight=0.15`，因此最多降低 15%。已有类型化检索复用同一排序函数。`retrieval.retention` 返回纯保持度，`retention_factor` 返回实际排序因子；归档仍由显式维护接口触发。
+- 维护接口原有 `evaluated[].retention` 继续表示 `write_score × R`，新增 `retention_probability`（纯保持度）、`stability_days`、`last_reinforced_at` 和 `forget_at`。`forget_at` 是加权保持度达到 `retention_threshold=0.30` 的理论时间，每次计算都会更新；它不是删除日期或自动任务。低于阈值且未受保护的记录转为 archived，正文、证据和支持链仍保留。
+- 原保护标签、程序记忆，以及 `importance >= retention_importance_threshold` 的记录不会因衰减归档，默认重要性保护阈值为 0.80。其保持度仍自然下降并小幅影响排序。`retention_decay=0` 保留关闭时间衰减的行为；`retrieval_retention_weight=0` 可关闭排序中的保持度因子。
+
+不增加表、列、视图或后台模块，不执行新的批量迁移。旧 SQL 表、已迁移的类型化对象和原生对象缺少强化状态时使用上述默认值；可选状态损坏时回退，首次确认后通过兼容视图将状态写入对象现有 `_policy.metadata_json`。确认、证据计数、保持状态和审计在同一事务中提交，失败一起回滚。旧记录缺少可靠确认时间时使用创建时间，不把访问或状态修改时间当作用户确认。
+
+`tests/test_retention.py` 覆盖指数曲线、独立稳定性、时区、旧状态回退、两条强化路径、来源重放、只读检索、冲突与巩固边界、回滚、非破坏归档、重要性保护、用户隔离、排序幅度、关闭衰减、旧表迁移和类型化库重开。
+
+### 遗忘工作台与用户开关（2026-11-04）
+
+侧栏「记忆遗忘」（`/#/forgetting`）提供真实记忆的曲线、当前自然保持度、稳定性、保护状态与归档操作。`GET /api/retention` 返回与 `RetentionManager.state()` 相同的参数和只读归档预览；图表从最近编码/确认起绘制 `exp(-t/S)`，支持时间范围、逐条选择和天数查看。单次编码参考使用该记录的初始稳定性，不是固定示意图。空空间不生成虚构记忆。
+
+`PUT /api/retention/settings` 接受 `{user_id, enabled}`，在 SQLite 的轻量 `memory_retention_settings` 表中按空间保存开关，默认开启。设置表在旧表库、现有类型化库重开时均可创建；它不改变原对象表、视图和证据结构。关闭时检索不再应用保持度降权，维护接口不归档；时间锚点与证据不变。再次开启按实际经过时间计算，因此界面在关闭时仍显示明确标记的理论曲线。开启开关不会自行触发归档，页面提供显式归档按钮，重要记忆继续受保护。
+
+`tests/test_retention_controls.py` 覆盖只读参数、设置持久化与用户隔离、关闭与恢复行为、实际检索评分和失败回滚。前端测试覆盖指数曲线取值、独立稳定性、真实设置请求、失败反馈、空状态和跨空间迟到响应。

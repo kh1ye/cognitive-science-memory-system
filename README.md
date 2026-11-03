@@ -3,6 +3,7 @@
 > **架构更新（2026-10-27）**：新会话已接入 CoALA 启发的独立工作状态、情景、语义和程序服务。使用 `memory.architecture`、`/api/architecture/*` 或管理页顶部的四类记忆面板。
 > [完整架构、迁移/恢复、API、隐私与兼容说明](docs/coala-architecture.md)；离线运行示例：`uv run python scripts/coala_example.py`。
 > **存储统一（2026-11-01）**：保留原有写入评分、证据巩固、注意力检索和衰减规则，将持久化统一到四模块对象。`memories` / `memory_evidence` 是 SQL 兼容视图，不再是第二套活动记忆表；现有 API 和演化页面继续使用原策略。详见 [存储适配、策略保留和迁移说明](docs/storage-policy-adapter.md)。
+> **遗忘曲线（2026-11-03）**：复用 `RetentionManager`，采用逐条稳定性的 `R(t)=exp(-t/S)`；新证据确认提高稳定性并重置计时，保持度以小权重参与检索。低价值记录只归档，保护记录和高重要性记录保留。详见 [遗忘、强化与兼容说明](docs/storage-policy-adapter.md#艾宾浩斯遗忘曲线2026-11-03)。
 
 
 面向 AI Agent 的认知科学启发式长期记忆系统原型。
@@ -19,6 +20,8 @@
 - Current、Candidate、History 状态演化
 - 单次冲突进入候选区，重复一致证据触发巩固
 - 注意力调制检索与历史状态查询
+- 记忆遗忘工作台：真实艾宾浩斯曲线、独立稳定性、用户空间遗忘开关与重要记忆保护
+- [遗忘测试样例](evaluation/forgetting-demo/README.md)：24 组模拟历史记忆、41 份证据，使用独立空间查看与验证
 - 隐私写入门、遗忘、物理删除和审计记录
 - SQLite 本地持久化
 - 可视化 Web 工作台

@@ -1,6 +1,7 @@
 <script setup>
 defineProps({ name: { type: String, default: "memory" } });
 const icons = {
+  brain: '<path d="M12 5a3 3 0 0 0-5.8-1A4 4 0 0 0 3 10a4 4 0 0 0 1 7.5A4 4 0 0 0 12 19V5Zm0 0a3 3 0 0 1 5.8-1A4 4 0 0 1 21 10a4 4 0 0 1-1 7.5A4 4 0 0 1 12 19M8 4v4l-2 2m6 3H8l-2 3m10-12v4l2 2m-6 3h4l2 3M8 17v3m8-3v3"/>',
   flask: '<path d="M9 3h6m-5 0v6L4 19a1.3 1.3 0 0 0 1 2h14a1.3 1.3 0 0 0 1-2L14 9V3M7 15h10"/><path d="M10 17h.01M14 18h.01"/>',
   play: '<path d="m8 5 11 7-11 7V5Z"/>',
   check: '<path d="m5 12 4 4L19 6"/>',

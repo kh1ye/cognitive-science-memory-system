@@ -1,0 +1,30 @@
+{
+  "version": "retention-demo-v1",
+  "description": "合成样例；所有经过时间通过测试时钟模拟，不代表真实用户经历。age_days 是距最后一次编码或确认的天数。",
+  "cases": [
+    {"id": "fresh", "label": "刚编码", "content": "项目临时名称是极光。", "age_days": 0},
+    {"id": "age-1", "label": "1 天未确认", "content": "在演示环境完成了一次数据导入。", "memory_type": "episodic", "age_days": 1},
+    {"id": "age-7", "label": "7 天未确认", "content": "参加了一次产品原型讨论。", "memory_type": "episodic", "age_days": 7},
+    {"id": "age-15", "label": "15 天未确认", "content": "临时会议安排在蓝色会议室。", "age_days": 15},
+    {"id": "age-30", "label": "30 天未确认", "content": "普通观察记录：演示项目采用周报同步进展。", "age_days": 30},
+    {"id": "age-60", "label": "60 天未确认", "content": "一次旧版本界面评审已经结束。", "memory_type": "episodic", "age_days": 60},
+    {"id": "age-120", "label": "120 天未确认", "content": "上一个临时活动使用过纸质签到表。", "memory_type": "episodic", "age_days": 120},
+    {"id": "importance-low", "label": "低重要性，同为 20 天", "content": "一份可替换的演示草稿使用绿色封面。", "age_days": 20, "importance": 0.45, "confidence": 0.95},
+    {"id": "importance-medium", "label": "较高重要性，同为 20 天", "content": "演示项目的验收清单包含可访问性检查。", "age_days": 20, "importance": 0.79, "confidence": 0.95},
+    {"id": "evidence-2", "label": "2 份证据，30 天未确认", "content": "普通观察记录：演示项目采用月报同步进展。", "age_days": 30, "evidence_count": 2},
+    {"id": "evidence-4", "label": "4 份证据，30 天未确认", "content": "普通观察记录：演示项目采用双周报告同步进展。", "age_days": 30, "evidence_count": 4, "confirmation_mode": "same_value"},
+    {"id": "evidence-7", "label": "7 份证据，30 天未确认", "content": "普通观察记录：演示项目采用看板同步进展。", "age_days": 30, "evidence_count": 7},
+    {"id": "evidence-7-old", "label": "7 份证据，60 天未确认", "content": "评审完成后会记录本轮改动清单。", "age_days": 60, "evidence_count": 7, "confirmation_mode": "same_value"},
+    {"id": "recent-confirmation", "label": "180 天前创建，2 天前再确认", "content": "演示库的临时导出格式是 JSON。", "age_days": 2, "created_age_days": 180, "evidence_count": 2},
+    {"id": "protected-preference", "label": "长期偏好保护，180 天", "content": "演示用户偏好简洁的图文说明。", "age_days": 180, "tags": ["preference"]},
+    {"id": "protected-goal", "label": "目标保护，120 天", "content": "演示阶段目标是完成离线检索验收。", "age_days": 120, "tags": ["goal"]},
+    {"id": "protected-procedure", "label": "程序记忆保护，365 天", "content": "发布流程：先运行测试，再构建页面，最后检查健康接口。", "age_days": 365, "memory_type": "procedural"},
+    {"id": "protected-importance", "label": "高重要性无标签保护，180 天", "content": "关键项目约定：发布前保留可恢复的版本快照。", "age_days": 180, "importance": 0.95},
+    {"id": "working-noise-old", "label": "工作层低价值片段，45 天", "content": "临时草稿片段：先把标题留空。", "age_days": 45, "importance": 0.1, "confidence": 0.2, "tags": ["noise"]},
+    {"id": "working-noise-recent", "label": "工作层低价值片段，1 天", "content": "临时草稿片段：随后再补一个占位词。", "age_days": 1, "importance": 0.15, "confidence": 0.2, "tags": ["noise"]},
+    {"id": "knowledge-90", "label": "过期临时知识，90 天", "content": "旧活动的报名入口曾放在测试页底部。", "age_days": 90},
+    {"id": "episode-365", "label": "普通旧经历，365 天", "content": "参加过一次已经结束的演示彩排。", "memory_type": "episodic", "age_days": 365},
+    {"id": "procedure-30", "label": "近期程序记忆，30 天", "content": "排查连接问题时依次检查端口、健康接口和请求日志。", "memory_type": "procedural", "age_days": 30},
+    {"id": "protected-workflow", "label": "工作流程保护，365 天", "content": "交接工作时附上变更说明和验证记录。", "age_days": 365, "tags": ["workflow"]}
+  ]
+}

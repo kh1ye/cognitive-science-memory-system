@@ -11,6 +11,10 @@ class NamespaceRequest(BaseModel):
     user_id: str = "demo-user"
 
 
+class RetentionSettingsRequest(NamespaceRequest):
+    enabled: bool
+
+
 class MemoryRequest(NamespaceRequest):
     model_config = ConfigDict(extra="allow")
 

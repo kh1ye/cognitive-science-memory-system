@@ -6,7 +6,7 @@ from fastapi import APIRouter, Query
 from fastapi.responses import JSONResponse
 
 from ..dependencies import MemoryDependency
-from ..schemas import MemoryRequest, NamespaceRequest
+from ..schemas import MemoryRequest, NamespaceRequest, RetentionSettingsRequest
 
 router = APIRouter(prefix="/api", tags=["memories"])
 
@@ -84,3 +84,13 @@ def audit(memory: MemoryDependency, user_id: str = "demo-user"):
 @router.post("/maintenance/retention")
 def retention(memory: MemoryDependency, payload: NamespaceRequest | None = None):
     return memory.run_retention((payload or NamespaceRequest()).user_id)
+
+
+@router.get("/retention")
+def retention_overview(memory: MemoryDependency, user_id: str = "demo-user", limit: int = Query(200, ge=1, le=1000)):
+    return memory.retention.overview(user_id, limit)
+
+
+@router.put("/retention/settings")
+def retention_settings(payload: RetentionSettingsRequest, memory: MemoryDependency):
+    return memory.retention.set_enabled(payload.user_id, payload.enabled)
