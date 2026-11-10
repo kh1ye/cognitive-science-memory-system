@@ -14,7 +14,7 @@ from cognitive_memory import Memory
 from cognitive_memory.models import utc_now
 
 ROOT = Path(__file__).resolve().parents[1]
-FIXTURE = json.loads((ROOT / "evaluation/forgetting-demo/cases.json").read_text())
+FIXTURE = json.loads((ROOT / "evaluation/forgetting-demo/cases.json").read_text(encoding="utf-8"))
 VERSION = FIXTURE["version"]
 CASES = FIXTURE["cases"]
 DEMO_USER = "forgetting-demo"
