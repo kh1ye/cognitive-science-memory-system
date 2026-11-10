@@ -81,7 +81,8 @@ def resource_metrics(run):
 def score_run(folder, judge_model):
     run = read(folder / "results.json")
     assert len(run["results"]) == 12, "Incomplete quality run"
-    root = next(Path("evaluation/Vatsalabench").rglob("index.json")).parent
+    root = sorted(Path("evaluation/Vatsalabench").rglob("index.json"),
+        key=lambda p: "vatsalaset" not in str(p).lower())[0].parent
     entry = next(e for e in read(root / "index.json")["samples"] if e["sample_id"] == run["sample_id"])
     gold = read(root / entry["package_folder"] / "private" / run["sample_id"] / "gold.json")
     data = {"required_probe_ids": [x["probe_id"] for x in run["results"]],

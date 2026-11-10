@@ -95,7 +95,8 @@ def main():
     parser.add_argument("--replay-extraction", type=Path,
         help="Reuse frozen extraction analyses from a prior run, isolating retrieval changes")
     args = parser.parse_args()
-    root = next(Path("evaluation/Vatsalabench").rglob("index.json")).parent
+    root = sorted(Path("evaluation/Vatsalabench").rglob("index.json"),
+        key=lambda p: "vatsalaset" not in str(p).lower())[0].parent
     entry = next(e for e in read(root / "index.json")["samples"] if e["sample_id"] == args.sample)
     package = root / entry["package_folder"]
     suite = read(package / "suite.json")
