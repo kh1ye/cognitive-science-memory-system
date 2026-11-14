@@ -11,5 +11,5 @@ export default defineConfig({
       "/openapi.json": "http://127.0.0.1:8765",
     },
   },
-  test: { environment: "happy-dom", clearMocks: true },
+  test: { environment: "happy-dom", clearMocks: true, setupFiles: ["./src/__tests__/setup.js"] },
 });

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { afterState, decisionSummary, evidenceParts, metricExplanation } from "../lib/evolution";
+import { setLanguage } from "../lib/i18n";
 
 function trace(decision) {
   return {
@@ -39,6 +40,16 @@ describe("记忆演化解释", () => {
     expect(metricExplanation({ label: "一致证据数量", value: 1 }, candidate)).toContain("数量尚不足");
     expect(metricExplanation({ label: "写入分数", value: 0.2 }, candidate)).toContain("低于写入门槛 0.42");
     expect(metricExplanation({ label: "证据一致性", value: 1 }, candidate)).toContain("不能代替数量要求");
+  });
+  it("translates explanations and counts without changing source evidence", () => {
+    setLanguage("en");
+    const candidate = trace("CANDIDATE");
+    expect(decisionSummary(candidate)).toContain("existing current memory remains unchanged");
+    expect(metricExplanation({ label: "写入分数", value: 0.2 }, candidate)).toContain("Below the encoding threshold 0.42");
+    expect(metricExplanation({ label: "一致证据数量", value: 1 }, candidate)).toContain("1 accumulated; at least 2 required");
+    const parts = evidenceParts("我喜欢喝茶。", [{ content: "我喜欢喝茶。" }]);
+    expect(parts[0].text).toBe("我喜欢喝茶。");
+    expect(parts[0].label).toBe("Source evidence for candidate 1");
   });
   it("keeps privacy and working-layer summaries accurate", () => {
     const blocked = { result: { decision: "DROP", reason: "consent_required", memory: null }, previous: null };

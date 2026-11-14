@@ -11,45 +11,49 @@ import {
 } from "../lib/format";
 import AppIcon from "../components/AppIcon.vue";
 import { moduleState, recentChange } from "../lib/overview";
+import { language, t } from "../lib/i18n";
 const { state, refresh } = useWorkspace();
 const overview = computed(() => state.overview);
 const snapshot = computed(() => {
-  if (!overview.value) return state.loading ? "正在读取你的记忆空间…" : "暂未取得记忆数据，请刷新重试。";
-  if (overview.value.total_count === 0) return "你的记忆空间还是空的，从一句话开始观察记忆如何形成。";
+  if (!overview.value) return t(state.loading ? "正在读取你的记忆空间…" : "暂未取得记忆数据，请刷新重试。");
+  if (overview.value.total_count === 0) return t("你的记忆空间还是空的，从一句话开始观察记忆如何形成。");
   const current = overview.value.by_role.current || 0;
   const candidate = overview.value.by_role.candidate || 0;
-  return `当前用户共 ${overview.value.total_count} 条记录，其中 ${current} 条为当前记忆，${candidate ? `${candidate} 条候选证据等待巩固。` : "暂无待巩固的候选证据。"}`;
+  return t(candidate
+    ? "当前用户共 {total} 条记录，其中 {current} 条为当前记忆，{candidate} 条候选证据等待巩固。"
+    : "当前用户共 {total} 条记录，其中 {current} 条为当前记忆，暂无待巩固的候选证据。",
+  { total: overview.value.total_count, current, candidate });
 });
-const today = new Intl.DateTimeFormat("zh-CN", {
+const today = computed(() => new Intl.DateTimeFormat(language.value === "zh" ? "zh-CN" : "en-US", {
   year: "numeric",
   month: "long",
   day: "numeric",
   weekday: "short",
-}).format(new Date());
+}).format(new Date()));
 const metrics = computed(() => [
   {
-    label: "记忆总量",
+    label: t("记忆总量"),
     value: overview.value?.total_count ?? "—",
     icon: "memory",
     color: "blue",
-    hint: "包含历史与已归档记录",
+    hint: t("包含历史与已归档记录"),
   },
   {
-    label: "活跃记忆",
+    label: t("活跃记忆"),
     value: overview.value?.active_count ?? "—",
     icon: "activity",
     color: "green",
-    hint: "当前参与记忆生命周期",
+    hint: t("当前参与记忆生命周期"),
   },
   {
-    label: "待巩固证据",
+    label: t("待巩固证据"),
     value: overview.value ? overview.value.by_role.candidate || 0 : "—",
     icon: "layers",
     color: "amber",
-    hint: "等待更多一致证据",
+    hint: t("等待更多一致证据"),
   },
   {
-    label: "本地存储",
+    label: t("本地存储"),
     value: overview.value
       ? bytes(
           overview.value.storage.mode === "memory"
@@ -60,7 +64,7 @@ const metrics = computed(() => [
       : "—",
     icon: "database",
     color: "gray",
-    hint: "数据库及日志 · 全部用户",
+    hint: t("数据库及日志 · 全部用户"),
   },
 ]);
 const donut = computed(() => {
@@ -86,12 +90,12 @@ const donut = computed(() => {
       <div class="heading-actions">
         <span class="date-chip">{{ today }}</span
         ><button class="button" :disabled="state.loading" @click="refresh">
-          <AppIcon name="refresh" />刷新
+          <AppIcon name="refresh" />{{ $t("刷新") }}
         </button>
       </div>
     </div>
     <section class="panel snapshot-panel" :aria-label="$t('当前近况')">
-      <div class="snapshot-copy"><span class="snapshot-caption">当前近况 · {{ state.user }}</span><h2>{{ snapshot }}</h2><p>{{ $t(state.error ? '同步未成功；已有数据为上次成功同步的快照。' : state.loading ? '正在同步，已有数据为上次快照。' : '总量汇总四类记忆对象与兼容记录，包含工作状态、程序版本、历史及归档；迁移副本不重复计数。') }}</p></div>
+      <div class="snapshot-copy"><span class="snapshot-caption">{{ $t("当前近况") }} · {{ state.user }}</span><h2>{{ snapshot }}</h2><p>{{ $t(state.error ? '同步未成功；已有数据为上次成功同步的快照。' : state.loading ? '正在同步，已有数据为上次快照。' : '总量汇总四类记忆对象与兼容记录，包含工作状态、程序版本、历史及归档；迁移副本不重复计数。') }}</p></div>
       <div class="snapshot-actions"><RouterLink class="button primary" to="/evolution"><AppIcon name="activity" />{{ $t("体验记忆演化") }}</RouterLink><RouterLink class="button" to="/memories"><AppIcon name="memory" />{{ $t("管理记忆") }}</RouterLink></div>
     </section>
     <div class="metrics">
@@ -121,7 +125,7 @@ const donut = computed(() => {
               <div
                 class="bar-track"
                 role="img"
-                :aria-label="`${type.label} ${overview?.by_type[key] || 0} 条`"
+                :aria-label="`${$t(type.label)} ${overview?.by_type[key] || 0}`"
               >
                 <div
                   class="bar-fill"
@@ -145,7 +149,7 @@ const donut = computed(() => {
           </div>
           <template v-if="overview?.recent_activity.length"
             ><div class="activity-head">
-              <span>最近 {{ overview.recent_activity.length }} 项操作 · 当前用户</span><span style="text-align: right">{{ $t("时间") }}</span>
+              <span>{{ $t("最近 {count} 项操作 · 当前用户", { count: overview.recent_activity.length }) }}</span><span style="text-align: right">{{ $t("时间") }}</span>
             </div>
             <div
               v-for="event in overview.recent_activity"
@@ -165,7 +169,7 @@ const donut = computed(() => {
                 <div>
                   <b>{{ $t(eventNames[event.event_type] || event.event_type) }}</b>
                   <p class="change-explanation">{{ recentChange(event) }}</p>
-                  <div v-if="event.related_memory && event.event_type !== 'USER_DELETE'" class="related-record"><span>关联记忆 · 当前快照 / {{ roles[event.related_memory.state_role]?.label || event.related_memory.state_role }}</span><blockquote>{{ event.related_memory.content }}</blockquote></div>
+                  <div v-if="event.related_memory && event.event_type !== 'USER_DELETE'" class="related-record"><span>{{ $t("关联记忆 · 当前快照 / {role}", { role: $t(roles[event.related_memory.state_role]?.label || event.related_memory.state_role) }) }}</span><blockquote>{{ event.related_memory.content }}</blockquote></div>
                   <small v-else-if="event.memory_id" class="missing-record">{{ $t(event.event_type === 'USER_DELETE' || event.related_memory === null ? '关联正文已删除或不可用，仅展示操作。' : '尚未提供关联正文；升级后端后可查看。') }}</small>
                 </div>
               </div>
@@ -189,7 +193,7 @@ const donut = computed(() => {
             <div
               class="donut"
               :style="{ background: donut }"
-              :aria-label="`共 ${overview?.total_count || 0} 条记忆，状态详见右侧`"
+              :aria-label="$t('共 {count} 条记忆，状态详见右侧', { count: overview?.total_count || 0 })"
             >
               <div>
                 <strong>{{ overview?.total_count || 0 }}</strong
@@ -201,7 +205,7 @@ const donut = computed(() => {
                 <span
                   class="legend-dot"
                   :style="{ background: role.color }"
-                />{{ role.label
+                />{{ $t(role.label)
                 }}<strong>{{ overview?.by_role[key] || 0 }}</strong>
               </div>
             </div>
@@ -219,8 +223,8 @@ const donut = computed(() => {
               class="module-row"
             >
               <div>
-                <b>{{ module.name }}</b
-                ><small>{{ module.description }}</small>
+                <b>{{ $t(module.name) }}</b
+                ><small>{{ $t(module.description) }}</small>
               </div>
               <span
                 class="module-status"
@@ -239,10 +243,10 @@ const donut = computed(() => {
       <span
         >SQLite ·
         {{ $t(overview?.storage.mode === "memory" ? "内存模式" : "本地持久化") }}<template v-if="overview">
-          · 数据页 {{ bytes(overview.storage.allocated_bytes) }}</template
+          · {{ $t("数据页") }} {{ bytes(overview.storage.allocated_bytes) }}</template
         ></span
       ><span>{{
-        state.updatedAt ? `更新于 ${state.updatedAt}` : "等待同步"
+        state.updatedAt ? `${$t("更新于")} ${state.updatedAt}` : $t("等待同步")
       }}</span>
     </footer>
   </div>

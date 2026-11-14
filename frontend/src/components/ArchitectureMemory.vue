@@ -28,17 +28,17 @@ async function toggle(){expanded.value=!expanded.value;if(expanded.value)await l
 </script>
 <template>
 <section class="panel architecture-memory">
-  <button class="button" @click="toggle">{{ $t(expanded ? '收起' : '打开') }}四类记忆 · 任务与来源</button>
+  <button class="button" @click="toggle">{{ $t(expanded ? '收起四类记忆 · 任务与来源' : '打开四类记忆 · 任务与来源') }}</button>
   <div v-if="expanded">
     <p>{{ $t("工作状态按任务恢复；事件、知识和程序分别保存。下方列表汇总四类对象与兼容记录，此处可查看专属字段、来源与执行结果。") }}</p>
-    <label>{{ $t("模块") }}<select v-model="module"><option v-for="(label,key) in modules" :key="key" :value="key">{{label}}</option></select></label>
+    <label>{{ $t("模块") }}<select v-model="module"><option v-for="(label,key) in modules" :key="key" :value="key">{{ $t(label) }}</option></select></label>
     <button @click="load" :disabled="busy">{{ $t("刷新") }}</button>
-    <p v-if="error" role="alert">{{error}}</p>
+    <p v-if="error" role="alert">{{ $t(error) }}</p>
     <form @submit.prevent="observe">
       <label>{{ $t("会话") }}<input v-model="thread" required></label><label>{{ $t("任务") }}<input v-model="task" required></label>
       <label>{{ $t("观察") }}<textarea v-model="content" required :placeholder="$t('输入原始观察；自动语义提取可使用个人助手')"></textarea></label>
       <label>{{ $t("保存策略") }}<select v-model="policy"><option value="persist">{{ $t("允许长期保存") }}</option><option value="no_long_term">{{ $t("仅任务状态（仍持久化）") }}</option><option value="no_persist">{{ $t("不持久化正文或检查点") }}</option></select></label>
-      <details><summary>{{ $t("结构化分流（可选 JSON，离线校验）") }}</summary><textarea v-model="analysis" :aria-label="$t('结构化分流')"></textarea><p>默认 {} 只记录工作观察。语义候选需 evidence_text 原文依据；程序提议需验证后启用。</p></details>
+      <details><summary>{{ $t("结构化分流（可选 JSON，离线校验）") }}</summary><textarea v-model="analysis" :aria-label="$t('结构化分流')"></textarea><p>{{ $t("默认 {} 只记录工作观察。语义候选需 evidence_text 原文依据；程序提议需验证后启用。") }}</p></details>
       <button type="submit">{{ $t("提交观察") }}</button>
     </form>
     <template v-if="module==='procedure_versions'"><button @click="install">{{ $t("登记内置程序") }}</button><label>{{ $t("执行参数 JSON") }}<input v-model="argumentsText"></label></template>

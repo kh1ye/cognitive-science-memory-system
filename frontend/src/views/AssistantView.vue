@@ -136,7 +136,7 @@ function keydown(event) {
             <input v-else v-model="preferences[field.key]" :placeholder="$t(field.placeholder)" maxlength="500" />
           </label>
           <button type="button" class="text-button" @click="previewOpen = !previewOpen">{{ $t(previewOpen ? '收起' : '预览') }} Markdown</button>
-          <pre v-if="previewOpen" class="preferences-preview">{{ preferenceMarkdown || '填写偏好后生成' }}</pre>
+          <pre v-if="previewOpen" class="preferences-preview">{{ preferenceMarkdown || $t('填写偏好后生成') }}</pre>
           <button class="button full" :disabled="!preferenceMarkdown || state.sending || state.sessionsLoading">{{ $t("保存并开始对话") }}</button>
         </form>
       <button class="text-button preferences-skip" @click="preferencesOpen = false">{{ $t("稍后填写") }}</button>
@@ -151,7 +151,7 @@ function keydown(event) {
           :disabled="state.sending || state.sessionsLoading"
           @click="createChat"
         >
-          <AppIcon name="plus" />新建会话
+          <AppIcon name="plus" />{{ $t("新建会话") }}
         </button>
         <div class="nav-label">{{ $t("最近会话") }}</div>
         <div class="conversation-list">
@@ -261,7 +261,7 @@ function keydown(event) {
                 >{{ $t("正在思考并检索记忆…") }}</small
               >
               <details v-if="message.refs?.length" class="evidence-list">
-                <summary>参考了 {{ message.refs.length }} 条记忆</summary>
+                <summary>{{ $t("参考了 {count} 条记忆", { count: message.refs.length }) }}</summary>
                 <div
                   v-for="reference in message.refs"
                   :key="reference.id"
@@ -270,25 +270,25 @@ function keydown(event) {
                   <p>{{ reference.content }}</p>
                   <small
                     >{{
-                      types[reference.memory_type]?.label ||
-                      reference.memory_type
+                      $t(types[reference.memory_type]?.label ||
+                      reference.memory_type)
                     }}
                     ·
                     {{
-                      roles[reference.state_role]?.label || reference.state_role
+                      $t(roles[reference.state_role]?.label || reference.state_role)
                     }}
-                    <template v-if="reference.version"> · 版本 {{reference.version}} · 来源 {{reference.source_refs?.length || 0}}</template>
-                    <template v-else> · 匹配分数 {{ Number(reference.score || 0).toFixed(3) }}</template></small
+                    <template v-if="reference.version"> · {{ $t("版本") }} {{reference.version}} · {{ $t("来源") }} {{reference.source_refs?.length || 0}}</template>
+                    <template v-else> · {{ $t("匹配分数") }} {{ Number(reference.score || 0).toFixed(3) }}</template></small
                   >
                   <RouterLink class="text-button" :to="{ name: 'memories', query: { record: reference.id } }">{{ $t("查看记忆与来源 ↗") }}</RouterLink>
                 </div>
               </details>
               <small v-for="warning in message.warnings || []" :key="warning" class="subtle">{{ warning }}</small>
-              <small v-if="message.memory_results?.length" class="subtle">自动记忆结果：{{ message.memory_results.map(formatMemoryDecision).join('；') }}</small>
+              <small v-if="message.memory_results?.length" class="subtle">{{ $t("自动记忆结果：") }}{{ message.memory_results.map(formatMemoryDecision).join('；') }}</small>
               <small v-if="memoryStatusNames[message.memory_status]" class="subtle memory-processing-status">{{ $t(memoryStatusNames[message.memory_status]) }}</small>
               <div v-if="message.role === 'user'" class="message-actions">
                 <button class="text-button" @click="openMemory(message.text)">
-                  保存为记忆
+                  {{ $t("保存为记忆") }}
                 </button>
               </div>
             </div>

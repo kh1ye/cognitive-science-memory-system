@@ -144,8 +144,8 @@ describe("Vue workspace migration", () => {
     );
     const value = workspace();
     const wrapper = mountView(AssistantView, value);
-    await wrapper.get("textarea").setValue("我喜欢什么？");
-    await wrapper.get("form").trigger("submit");
+    await wrapper.get(".composer textarea").setValue("我喜欢什么？");
+    await wrapper.get(".composer").trigger("submit");
     await flushPromises();
     expect(value.state.sending).toBe(true);
     expect(wrapper.get('input[type="checkbox"]').element.disabled).toBe(true);
@@ -243,6 +243,7 @@ describe("Vue workspace migration", () => {
     const call = fetch.mock.calls.find(([path]) => path === "/api/chat");
     expect(JSON.parse(call[1].body)).toEqual({
       user_id: "demo-user", thread_id: "server-thread", message: "我叫什么？", auto_remember: false,
+      preference_context: "",
     });
     expect(value.currentChat.value.messages[3].text).toBe("你叫小明");
   });

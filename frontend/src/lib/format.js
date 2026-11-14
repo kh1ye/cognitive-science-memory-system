@@ -57,11 +57,11 @@ export function formatMemoryDecision(result) {
     }
     return `${types[result.target_module]?.label || result.target_module}：${t(label)}`;
   }
-  if (result.reason === "no_source_evidence") return "未写入：提取内容没有原话依据";
-  if (result.reason === "consent_required") return "未写入：敏感信息需要手动确认同意";
+  if (result.reason === "no_source_evidence") return t("未写入：提取内容没有原话依据");
+  if (result.reason === "consent_required") return t("未写入：敏感信息需要手动确认同意");
   return t(decisionNames[result.decision] || result.decision);
 }
-export const formatDate = (value) => !value || !Number.isFinite(new Date(value).getTime()) ? "未记录" :
+export const formatDate = (value) => !value || !Number.isFinite(new Date(value).getTime()) ? t("未记录") :
   new Intl.DateTimeFormat(language.value === "zh" ? "zh-CN" : "en-US", {
     month: "2-digit",
     day: "2-digit",

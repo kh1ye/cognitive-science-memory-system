@@ -133,6 +133,7 @@ def upload_dataset(payload: UploadedDataset, request: Request):
 def run_uploaded(identifier: str, request: Request):
     require_local(request)
     import json, re, time
+    from datetime import datetime, timezone
     from uuid import uuid4
     from conversation_agent.memory_concepts import classify_memory_concept
     if not re.fullmatch(r"[a-f0-9]{32}", identifier):
@@ -151,13 +152,13 @@ def run_uploaded(identifier: str, request: Request):
         start = time.monotonic()
         try:
             prediction, usage = classify_memory_concept(model, case["text"])
-            results.append({**case, "actual": prediction.label, "reason": prediction.reason,
+            results.append({"id": f"case-{len(results)+1}", **case, "actual": prediction.label, "reason": prediction.reason,
                             "correct": prediction.label == case["expected"], "seconds": time.monotonic()-start})
         except Exception:
-            results.append({**case, "actual": None, "correct": False, "error": "模型调用失败"})
+            results.append({"id": f"case-{len(results)+1}", **case, "actual": None, "correct": False, "error": "模型调用失败"})
     report = {"id": uuid4().hex, "dataset": identifier, "model": settings.model, "planned": len(results),
               "total": dataset["count"], "accuracy": sum(r["correct"] for r in results)/len(results),
-              "failed": sum("error" in r for r in results), "results": results}
+              "failed": sum("error" in r for r in results), "created_at": datetime.now(timezone.utc).isoformat(), "results": results}
     output = folder / "results" / report["id"]
     output.mkdir(parents=True)
     (output / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")

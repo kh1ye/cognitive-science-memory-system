@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onMounted, onUnmounted, provide, ref, watch } from "vue";
-import { language, setLanguage } from "./lib/i18n";
+import { language, setLanguage, t } from "./lib/i18n";
 import { useRoute } from "vue-router";
 import AppIcon from "./components/AppIcon.vue";
 import AppDialog from "./components/AppDialog.vue";
@@ -26,9 +26,9 @@ function toggleSidebar() {
 const profileOpen = ref(false),
   userInput = ref("");
 watch(
-  title,
-  (value) => {
-    document.title = `${value} · Cognitive Science Memory System`;
+  [title, language],
+  () => {
+    document.title = `${t(title.value)} · Cognitive Science Memory System`;
   },
   { immediate: true },
 );
@@ -41,7 +41,7 @@ function submitProfile() {
   switchUser(userInput.value);
   profileOpen.value = false;
 }
-watch(() => Boolean(route.name), (workspaceVisible) => {
+watch(() => Boolean(route.name) && !route.meta.landing, (workspaceVisible) => {
   if (workspaceVisible) initialize();
 }, { immediate: true });
 onUnmounted(dispose);
@@ -101,31 +101,31 @@ const navigationGroups = [
   <div class="language-picker"><select :value="language" aria-label="Language" @change="setLanguage($event.target.value)"><option value="en">English</option><option value="zh">{{ $t("中文") }}</option></select></div>
   <RouterView v-if="route.meta.landing" />
   <div v-else-if="route.name === 'assistant'" class="standalone-assistant">
-    <header class="standalone-assistant-header"><RouterLink to="/">{{ $t("← 返回首页") }}</RouterLink><strong>{{ $t("个人助手") }}</strong><button class="text-button" :disabled="state.sending" @click="openProfile">当前空间：{{ state.user }}</button></header>
+    <header class="standalone-assistant-header"><RouterLink to="/">{{ $t("← 返回首页") }}</RouterLink><strong>{{ $t("个人助手") }}</strong><button class="text-button" :disabled="state.sending" @click="openProfile">{{ $t("当前空间：") }}{{ state.user }}</button></header>
     <RouterView :key="state.user" />
-    <div v-if="state.error" class="load-error" role="alert">{{ state.error }}<button class="text-button" :disabled="state.loading" @click="refresh">{{ $t("刷新") }}</button></div>
+    <div v-if="state.error" class="load-error" role="alert">{{ $t(state.error) }}<button class="text-button" :disabled="state.loading" @click="refresh">{{ $t("刷新") }}</button></div>
   </div>
   <div v-else class="layout" :class="{ 'sidebar-collapsed': sidebarCollapsed }">
     <aside id="workspace-sidebar" class="sidebar">
-      <RouterLink class="brand sidebar-link" to="/overview" :aria-label="$t('记忆工作台首页')" :data-tooltip="sidebarCollapsed ? '记忆工作台首页' : null"
+      <RouterLink class="brand sidebar-link" to="/overview" :aria-label="$t('记忆工作台首页')" :data-tooltip="sidebarCollapsed ? $t('记忆工作台首页') : null"
         ><span class="brand-mark">m<span /></span
         ><span class="brand-copy brand-name">Cognitive Science<br />Memory System</span></RouterLink
       >
       <nav :aria-label="$t('主导航')" class="grouped-navigation">
-        <section v-for="group in navigationGroups" :key="group.title" class="nav-group" :aria-label="group.title">
+        <section v-for="group in navigationGroups" :key="group.title" class="nav-group" :aria-label="$t(group.title)">
           <div class="nav-label nav-group-label">{{ $t(group.title) }}</div>
           <template v-for="item in group.items" :key="item.title">
-            <a v-if="item.href" :href="item.href" target="_blank" rel="noopener" class="sidebar-link" :aria-label="`${item.title}（新窗口）`" :data-tooltip="sidebarCollapsed ? item.title : null"><AppIcon :name="item.icon" /><span class="nav-name">{{ $t(item.title) }}</span></a>
-            <RouterLink v-else :to="item.path || { name: item.name }" active-class="active" class="sidebar-link" :aria-label="item.title" :data-tooltip="sidebarCollapsed ? item.title : null"><AppIcon :name="item.icon" /><span class="nav-name">{{ $t(item.title) }}</span><span v-if="item.name === 'memories'" class="nav-count">{{ state.overview?.total_count ?? "—" }}</span></RouterLink>
+            <a v-if="item.href" :href="item.href" target="_blank" rel="noopener" class="sidebar-link" :aria-label="$t('{title}（新窗口）', { title: $t(item.title) })" :data-tooltip="sidebarCollapsed ? $t(item.title) : null"><AppIcon :name="item.icon" /><span class="nav-name">{{ $t(item.title) }}</span></a>
+            <RouterLink v-else :to="item.path || { name: item.name }" active-class="active" class="sidebar-link" :aria-label="$t(item.title)" :data-tooltip="sidebarCollapsed ? $t(item.title) : null"><AppIcon :name="item.icon" /><span class="nav-name">{{ $t(item.title) }}</span><span v-if="item.name === 'memories'" class="nav-count">{{ state.overview?.total_count ?? "—" }}</span></RouterLink>
           </template>
         </section>
       </nav>
       <div class="sidebar-note">
-        <span class="small-dot" />本地记忆空间
+        <span class="small-dot" />{{ $t("本地记忆空间") }}
         <p>{{ $t("保留重要的事，让每次对话有迹可循。") }}</p>
       </div>
       <div class="sidebar-bottom">
-        <button class="profile sidebar-link" :aria-label="`切换用户空间：${state.user}`" :data-tooltip="sidebarCollapsed ? `切换用户空间：${state.user}` : null" :disabled="state.sending" @click="openProfile">
+        <button class="profile sidebar-link" :aria-label="$t('切换用户空间：{user}', { user: state.user })" :data-tooltip="sidebarCollapsed ? $t('切换用户空间：{user}', { user: state.user }) : null" :disabled="state.sending" @click="openProfile">
           <span class="avatar">U</span
           ><span
             ><b>{{ state.user }}</b
@@ -137,7 +137,7 @@ const navigationGroups = [
     <main>
       <header class="topbar">
         <div class="topbar-leading">
-          <button class="icon-button sidebar-toggle" :aria-label="sidebarCollapsed ? '展开侧边栏' : '收起侧边栏'" :title="sidebarCollapsed ? '展开侧边栏' : '收起侧边栏'" :aria-expanded="!sidebarCollapsed" aria-controls="workspace-sidebar" @click="toggleSidebar"><AppIcon name="sidebar" /></button>
+          <button class="icon-button sidebar-toggle" :aria-label="$t(sidebarCollapsed ? '展开侧边栏' : '收起侧边栏')" :title="$t(sidebarCollapsed ? '展开侧边栏' : '收起侧边栏')" :aria-expanded="!sidebarCollapsed" aria-controls="workspace-sidebar" @click="toggleSidebar"><AppIcon name="sidebar" /></button>
           <div class="breadcrumb">{{ $t("工作空间") }}<span>/</span><b>{{ $t(title) }}</b></div>
         </div>
         <div class="connection">
@@ -153,9 +153,9 @@ const navigationGroups = [
       </header>
       <RouterView :key="state.user" />
       <div v-if="state.error" class="load-error" role="alert">
-        {{ state.error }}
+        {{ $t(state.error) }}
         <button class="text-button" :disabled="state.loading" @click="refresh">
-          刷新
+          {{ $t("刷新") }}
         </button>
       </div>
     </main>
@@ -167,32 +167,32 @@ const navigationGroups = [
         >{{ $t("用户 ID") }}<input v-model="userInput" required maxlength="100"
       /></label>
       <p class="form-hint">
-        记忆与会话按用户 ID 区分。这是本地空间切换，不提供身份认证。
+        {{ $t("记忆与会话按用户 ID 区分。这是本地空间切换，不提供身份认证。") }}
       </p>
       <div class="dialog-actions">
         <button type="button" class="button" @click="profileOpen = false">
-          取消</button
+          {{ $t("取消") }}</button
         ><button class="button primary" :disabled="state.sending">
-          切换空间
+          {{ $t("切换空间") }}
         </button>
       </div>
     </form></AppDialog
   >
   <AppDialog
     :open="!!state.confirm"
-    :title="state.confirm?.title || '确认操作'"
+    :title="$t(state.confirm?.title || '确认操作')"
     @update:open="resolveConfirm(false)"
     ><template v-if="state.confirm"
-      ><p class="confirm-text">{{ state.confirm.text }}</p>
+      ><p class="confirm-text">{{ $t(state.confirm.text) }}</p>
       <div class="dialog-actions">
         <button class="button" @click="resolveConfirm(false)">{{ $t("取消") }}</button
         ><button class="button danger" @click="resolveConfirm(true)">
-          {{ state.confirm.action }}
+          {{ $t(state.confirm.action) }}
         </button>
       </div></template
     ></AppDialog
   >
-  <div v-if="state.toast" class="toast" role="status">{{ state.toast }}</div>
+  <div v-if="state.toast" class="toast" role="status">{{ $t(state.toast) }}</div>
 </template>
 
 <style>

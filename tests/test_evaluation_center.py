@@ -80,6 +80,81 @@ class EvaluationCenterTests(unittest.TestCase):
                 self.center.start(TaskRequest(dataset="vatsalabench", mode="full", base_url="https://different.example"))
         self.assertEqual(self.center.jobs, {})
 
+    def test_uploaded_dataset_runs_into_history_with_mocked_model(self):
+        from types import SimpleNamespace
+
+        app = create_app(":memory:")
+        settings = LLMSettings(model="mock-classifier", api_key="test-secret")
+        prediction = SimpleNamespace(label="semantic", reason="mocked")
+        with TestClient(app, client=("127.0.0.1", 50000)) as client:
+            app.state.evaluation_center = self.center
+            response = client.post("/api/evaluations/uploads", json={"name": "custom.json", "content": json.dumps([
+                {"text": "I like tea", "expected": "semantic"},
+                {"text": "I walked yesterday", "expected": "episodic"},
+            ])})
+            self.assertEqual(response.status_code, 201, response.text)
+            identifier = response.json()["id"]
+            info = next(item for item in client.get("/api/evaluations/datasets").json()["items"] if item["id"] == identifier)
+            self.assertEqual(info["source"], "upload")
+            self.assertEqual(info["modes"], ["classify"])
+            self.assertEqual(info["count"], 2)
+            self.assertEqual(client.get("/api/evaluations/runs", params={"dataset": identifier}).json()["items"], [])
+
+            with patch("api.routers.evaluations.LLMSettings.from_env", return_value=settings), \
+                    patch.object(LLMSettings, "create_model", return_value=object()), \
+                    patch("conversation_agent.memory_concepts.classify_memory_concept",
+                          side_effect=[(prediction, {}), RuntimeError("mock failure")]) as classify:
+                response = client.post(f"/api/evaluations/uploads/{identifier}/run")
+            self.assertEqual(response.status_code, 200, response.text)
+            self.assertEqual(classify.call_count, 2)
+            report = response.json()
+            self.assertEqual(report["planned"], 2)
+            self.assertEqual(report["failed"], 1)
+            self.assertEqual(report["accuracy"], .5)
+            self.assertTrue(report["created_at"])
+            self.assertEqual([row["id"] for row in report["results"]], ["case-1", "case-2"])
+
+            runs = client.get("/api/evaluations/runs", params={"dataset": identifier}).json()["items"]
+            self.assertEqual(len(runs), 1)
+            self.assertEqual(runs[0]["id"], report["id"])
+            self.assertEqual(runs[0]["kind"], "classification")
+            self.assertEqual(runs[0]["status"], "partial")
+            self.assertEqual((runs[0]["completed"], runs[0]["planned"]), (1, 2))
+            detail = client.get(f"/api/evaluations/runs/{report['id']}").json()
+            self.assertEqual(detail["metrics"][0]["key"], "Accuracy")
+            self.assertEqual(detail["metrics"][0]["value"], .5)
+            self.assertEqual(detail["model"], "mock-classifier")
+            self.assertNotIn("results", detail["config"])
+            predictions = client.get(f"/api/evaluations/runs/{report['id']}/predictions").json()["items"]
+            self.assertEqual([row["id"] for row in predictions], ["case-1", "case-2"])
+            self.assertEqual(predictions[1]["error"], "模型调用失败")
+
+            rejected = client.post("/api/evaluations/tasks", json={"dataset": identifier, "mode": "check"})
+            self.assertEqual(rejected.status_code, 400)
+            self.assertEqual(client.post("/api/evaluations/uploads/not-a-uuid/run").status_code, 404)
+            self.assertEqual(client.get("/api/evaluations/runs", params={"dataset": "not-a-uuid"}).status_code, 400)
+
+    def test_legacy_uploaded_dataset_and_report_remain_discoverable(self):
+        identifier = "a" * 32
+        self.put(f"evaluation/uploads/{identifier}/dataset.json", {
+            "id": identifier, "name": "legacy.json", "count": 1,
+            "cases": [{"text": "I like tea", "expected": "semantic"}],
+        })
+        self.put(f"evaluation/uploads/{identifier}/results/legacy/report.json", {
+            "id": "legacy-report", "dataset": identifier, "model": "legacy-model",
+            "planned": 1, "total": 1, "accuracy": 1, "failed": 0,
+            "results": [{"text": "I like tea", "expected": "semantic", "actual": "semantic", "correct": True}],
+        })
+        info = next(item for item in self.center.datasets() if item["id"] == identifier)
+        self.assertEqual(info["name"], "legacy.json")
+        record = self.center.history(identifier)[0]
+        self.assertEqual(record["id"], "legacy-report")
+        self.assertEqual(record["status"], "completed")
+        detail = self.center.detail(record["id"])
+        self.assertEqual(detail["metrics"][0]["value"], 1)
+        self.assertNotIn("results", detail["config"])
+        self.assertEqual(self.center.flat_predictions(record["id"])[0]["id"], "case-1")
+
 
 if __name__ == "__main__":
     unittest.main()

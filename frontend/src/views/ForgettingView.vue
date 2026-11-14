@@ -92,7 +92,7 @@ onBeforeUnmount(() => { ++version; window.removeEventListener('focus', load); })
       <div class="forget-intro">
         <div class="forget-kicker"><span />{{ $t("有选择地遗忘，有意义地记住") }}</div>
         <h2>{{ $t("让重要的记忆，") }}<br /><em>{{ $t("留得更久。") }}</em></h2>
-        <div class="forget-philosophy"><p>{{ $t("记忆不应无限累积，而应有选择地遗忘。") }}</p><p>{{ $t("冗余召回可能造成") }}<span>{{ $t("上下文膨胀") }}</span>{{ $t("与") }}<span>{{ $t("Token 消耗激增") }}</span>。</p></div>
+        <div class="forget-philosophy"><p>{{ $t("记忆不应无限累积，而应有选择地遗忘。") }}</p><p>{{ $t("冗余召回可能造成") }}<span>{{ $t("上下文膨胀") }}</span>{{ $t("与") }}<span>{{ $t("Token 消耗激增") }}</span>{{ $t("。") }}</p></div>
         <div class="forget-hero-stats">
           <div><span>{{ $t("纳入评估") }}</span><strong>{{ data?.summary.total ?? '—' }}<small>{{ $t("条") }}</small></strong></div>
           <div><span>{{ $t("重要记忆保护") }}</span><strong>{{ data?.summary.protected ?? '—' }}<small>{{ $t("条") }}</small></strong></div>
@@ -131,17 +131,17 @@ onBeforeUnmount(() => { ++version; window.removeEventListener('focus', load); })
       </div>
     </section>
 
-    <div v-if="error" class="forget-error" role="alert">暂时无法读取遗忘数据：{{ error }}<button @click="load">{{ $t("重新加载") }}</button></div>
+    <div v-if="error" class="forget-error" role="alert">{{ $t("暂时无法读取遗忘数据：") }}{{ $t(error) }}<button @click="load">{{ $t("重新加载") }}</button></div>
 
     <section class="forget-analysis">
       <div class="forget-chart-panel">
-        <div class="forget-panel-top"><div><span class="forget-section-index">01 / RETENTION</span><h2>{{ $t("艾宾浩斯遗忘曲线") }}</h2></div><div class="forget-period" :aria-label="$t('曲线时间范围')"><button v-for="n in [30, 90, 180, 365]" :key="n" :aria-pressed="horizon === n" @click="horizon = n">{{ n }} 天</button></div></div>
+        <div class="forget-panel-top"><div><span class="forget-section-index">01 / RETENTION</span><h2>{{ $t("艾宾浩斯遗忘曲线") }}</h2></div><div class="forget-period" :aria-label="$t('曲线时间范围')"><button v-for="n in [30, 90, 180, 365]" :key="n" :aria-pressed="horizon === n" @click="horizon = n">{{ $t("{count} 天", { count: n }) }}</button></div></div>
         <div class="forget-chart-meta"><div class="forget-chart-legend"><span><i />{{ $t("当前记忆") }}</span><span><i class="baseline" />{{ $t("单次编码参考") }}</span></div><code>R(t) = e<sup>−t / S</sup></code></div>
         <div class="forget-chart-wrap">
-          <svg viewBox="0 0 760 282" role="img" :aria-label="selected ? `记忆遗忘曲线，稳定性 ${decimal(selected.stability_days)} 天` : '暂无记忆可绘制遗忘曲线'" @pointermove="inspect">
+          <svg viewBox="0 0 760 282" role="img" :aria-label="$t(selected ? '记忆遗忘曲线，稳定性 {days} 天' : '暂无记忆可绘制遗忘曲线', { days: selected ? decimal(selected.stability_days) : 0 })" @pointermove="inspect">
             <defs><linearGradient id="retention-area" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9bd9bf" stop-opacity=".16"/><stop offset="1" stop-color="#9bd9bf" stop-opacity="0"/></linearGradient></defs>
             <g v-for="tick in [1, .75, .5, .25, 0]" :key="tick" class="forget-grid"><line x1="54" x2="720" :y1="y(tick)" :y2="y(tick)"/><text x="40" :y="y(tick) + 4" text-anchor="end">{{ tick * 100 }}%</text></g>
-            <g v-for="tick in [0, 1, 2, 3, 4, 5, 6]" :key="tick" class="forget-grid"><text :x="x(tick * horizon / 6)" y="260" text-anchor="middle">{{ Math.round(tick * horizon / 6) }} 天</text></g>
+            <g v-for="tick in [0, 1, 2, 3, 4, 5, 6]" :key="tick" class="forget-grid"><text :x="x(tick * horizon / 6)" y="260" text-anchor="middle">{{ $t("{count} 天", { count: Math.round(tick * horizon / 6) }) }}</text></g>
             <template v-if="selected">
               <path :d="`${curve} L720,236 L54,236 Z`" fill="url(#retention-area)"/>
               <line x1="54" x2="720" :y1="y(archiveLine)" :y2="y(archiveLine)" class="forget-threshold"/>
@@ -153,7 +153,7 @@ onBeforeUnmount(() => { ++version; window.removeEventListener('focus', load); })
           </svg>
           <div v-if="!selected" class="forget-chart-empty"><AppIcon name="brain" /><strong>{{ $t(loading ? '正在读取真实记忆…' : '从第一段记忆开始') }}</strong><p>{{ $t("保存记忆后，这里会呈现它随时间变化的真实曲线。") }}</p><button class="button" @click="openMemory()">{{ $t("添加记忆") }}</button></div>
         </div>
-        <div v-if="selected" class="forget-scrubber"><span>{{ $t("第") }}<b>{{ day }}</b>{{ $t("天") }}</span><input v-model.number="day" type="range" min="0" :max="horizon" :aria-label="$t('查看指定天数的保持度')" /><strong>{{ percent(inspectedRetention) }}</strong></div>
+        <div v-if="selected" class="forget-scrubber"><span>{{ $t("第 {day} 天", { day }) }}</span><input v-model.number="day" type="range" min="0" :max="horizon" :aria-label="$t('查看指定天数的保持度')" /><strong>{{ percent(inspectedRetention) }}</strong></div>
         <p class="forget-chart-note">{{ $t(enabled ? '按真实稳定性计算' : '当前为理论曲线 · 遗忘已关闭') }}<span>{{ $t("虚线为单次编码参考 · 水平线为归档阈值参考") }}</span></p>
       </div>
 
@@ -162,8 +162,8 @@ onBeforeUnmount(() => { ++version; window.removeEventListener('focus', load); })
         <template v-if="selected">
           <div class="forget-inspector-tags"><span>{{ $t(types[selected.memory_type]?.label || '记忆') }}</span><span :class="{ protected: selected.protected }">{{ $t(selected.protected ? '重要记忆保护' : selected.archive_eligible ? '可归档' : '保持中') }}</span></div>
           <p class="forget-selected-content">{{ selected.content }}</p>
-          <div class="forget-current"><span>{{ $t("当前自然保持度") }}</span><strong>{{ percent(selected.retention_probability) }}</strong><small>距最近编码 / 确认 {{ decimal(selected.elapsed_days) }} 天</small></div>
-          <dl><div><dt>{{ $t("记忆稳定性 S") }}</dt><dd>{{ decimal(selected.stability_days) }} 天</dd></div><div><dt>{{ $t("支持证据") }}</dt><dd>{{ selected.evidence_count }} 条</dd></div><div><dt>{{ $t(selected.protected ? '保留策略' : '归档参考时间') }}</dt><dd>{{ $t(selected.protected ? '持续保护' : selected.forget_at ? formatDate(selected.forget_at) : '不受时间衰减') }}</dd></div></dl>
+          <div class="forget-current"><span>{{ $t("当前自然保持度") }}</span><strong>{{ percent(selected.retention_probability) }}</strong><small>{{ $t("距最近编码 / 确认 {count} 天", { count: decimal(selected.elapsed_days) }) }}</small></div>
+          <dl><div><dt>{{ $t("记忆稳定性 S") }}</dt><dd>{{ $t("{count} 天", { count: decimal(selected.stability_days) }) }}</dd></div><div><dt>{{ $t("支持证据") }}</dt><dd>{{ $t("{count} 条", { count: selected.evidence_count }) }}</dd></div><div><dt>{{ $t(selected.protected ? '保留策略' : '归档参考时间') }}</dt><dd>{{ $t(selected.protected ? '持续保护' : selected.forget_at ? formatDate(selected.forget_at) : '不受时间衰减') }}</dd></div></dl>
           <RouterLink class="forget-detail-link" :to="{ name: 'memories', query: { record: selected.id } }">{{ $t("查看记忆与证据") }}<AppIcon name="external" /></RouterLink>
         </template>
         <div v-else class="forget-inspector-empty"><AppIcon name="brain" /><p>{{ $t("选择一段记忆，") }}<br />{{ $t("了解它的保持与强化。") }}</p></div>
@@ -172,12 +172,12 @@ onBeforeUnmount(() => { ++version; window.removeEventListener('focus', load); })
 
     <section class="forget-records">
       <div class="forget-panel-top"><div><span class="forget-section-index">02 / MEMORY TRACES</span><h2>{{ $t("每段记忆，都有自己的节奏") }}</h2></div><button class="button" :disabled="!enabled || loading || saving || archiving || !data?.summary.archive_eligible" @click="archive"><AppIcon name="layers" />{{ $t(archiving ? '正在检查…' : '归档低价值记忆') }}</button></div>
-      <div class="forget-table-tools"><label><AppIcon name="search" /><input v-model="query" :placeholder="$t('寻找一段记忆…')" :aria-label="$t('搜索遗忘记忆')" /></label><select v-model="kind" :aria-label="$t('筛选遗忘记忆类型')"><option value="">{{ $t("全部记忆类型") }}</option><option v-for="(type, key) in types" :key="key" :value="key">{{ $t(type.label) }}</option></select><span>当前空间 · {{ state.user }}</span></div>
-      <div class="forget-table-scroll"><table class="forget-table"><thead><tr><th>{{ $t("记忆内容") }}</th><th>{{ $t("自然保持度") }}</th><th>{{ $t("稳定性") }}</th><th>{{ $t("证据") }}</th><th>{{ $t("保留状态") }}</th></tr></thead><tbody><tr v-for="m in rows" :key="m.id" :class="{ selected: selected?.id === m.id }"><td><button :aria-pressed="selected?.id === m.id" @click="selectedId = m.id"><AppIcon name="brain" /><span>{{ m.content }}<small>{{ types[m.memory_type]?.label }} · {{ formatDate(m.created_at) }}</small></span></button></td><td><div class="forget-retention-cell"><span>{{ percent(m.retention_probability) }}</span><i><b :style="{ width: `${m.retention_probability * 100}%` }" /></i></div></td><td>{{ decimal(m.stability_days) }} 天</td><td>{{ m.evidence_count }} 条</td><td><span class="forget-status" :class="{ protected: m.protected, eligible: m.archive_eligible }">{{ $t(m.protected ? '受保护' : m.archive_eligible ? '可归档' : '保持中') }}</span></td></tr></tbody></table></div>
+      <div class="forget-table-tools"><label><AppIcon name="search" /><input v-model="query" :placeholder="$t('寻找一段记忆…')" :aria-label="$t('搜索遗忘记忆')" /></label><select v-model="kind" :aria-label="$t('筛选遗忘记忆类型')"><option value="">{{ $t("全部记忆类型") }}</option><option v-for="(type, key) in types" :key="key" :value="key">{{ $t(type.label) }}</option></select><span>{{ $t("当前空间") }} · {{ state.user }}</span></div>
+      <div class="forget-table-scroll"><table class="forget-table"><thead><tr><th>{{ $t("记忆内容") }}</th><th>{{ $t("自然保持度") }}</th><th>{{ $t("稳定性") }}</th><th>{{ $t("证据") }}</th><th>{{ $t("保留状态") }}</th></tr></thead><tbody><tr v-for="m in rows" :key="m.id" :class="{ selected: selected?.id === m.id }"><td><button :aria-pressed="selected?.id === m.id" @click="selectedId = m.id"><AppIcon name="brain" /><span>{{ m.content }}<small>{{ $t(types[m.memory_type]?.label) }} · {{ formatDate(m.created_at) }}</small></span></button></td><td><div class="forget-retention-cell"><span>{{ percent(m.retention_probability) }}</span><i><b :style="{ width: `${m.retention_probability * 100}%` }" /></i></div></td><td>{{ $t("{count} 天", { count: decimal(m.stability_days) }) }}</td><td>{{ $t("{count} 条", { count: m.evidence_count }) }}</td><td><span class="forget-status" :class="{ protected: m.protected, eligible: m.archive_eligible }">{{ $t(m.protected ? '受保护' : m.archive_eligible ? '可归档' : '保持中') }}</span></td></tr></tbody></table></div>
       <div v-if="!rows.length" class="forget-list-empty">{{ $t(loading ? '正在同步记忆…' : items.length ? '没有找到匹配的记忆。' : '这个空间还没有可评估的记忆。') }}</div>
-      <footer class="forget-table-footer"><span>{{ filtered.length }} 条已加载记录<span v-if="data?.truncated"> · 全空间共 {{ data.summary.total }} 条，仅显示前 1000 条</span>{{ $t("· 已归档记录请在记忆管理中查看") }}</span><div><button :disabled="page <= 1" :aria-label="$t('上一页记忆')" @click="page--">←</button><span>{{ page }} / {{ pages }}</span><button :disabled="page >= pages" :aria-label="$t('下一页记忆')" @click="page++">→</button></div></footer>
+      <footer class="forget-table-footer"><span>{{ $t("{count} 条已加载记录", { count: filtered.length }) }}<span v-if="data?.truncated"> · {{ $t("全空间共 {total} 条，仅显示前 1000 条", { total: data.summary.total }) }}</span>{{ $t("· 已归档记录请在记忆管理中查看") }}</span><div><button :disabled="page <= 1" :aria-label="$t('上一页记忆')" @click="page--">←</button><span>{{ page }} / {{ pages }}</span><button :disabled="page >= pages" :aria-label="$t('下一页记忆')" @click="page++">→</button></div></footer>
     </section>
-    <footer class="forget-footer"><AppIcon name="check" /><p>{{ $t("重要记忆持续受保护。归档保留正文与证据，不会因时间流逝被删除。") }}</p><span>更新于 {{ data ? formatDate(data.evaluated_at) : '—' }} · 归档由你手动执行</span></footer>
+    <footer class="forget-footer"><AppIcon name="check" /><p>{{ $t("重要记忆持续受保护。归档保留正文与证据，不会因时间流逝被删除。") }}</p><span>{{ $t("更新于 {date}", { date: data ? formatDate(data.evaluated_at) : '—' }) }} · {{ $t("归档由你手动执行") }}</span></footer>
   </div>
 </template>
 

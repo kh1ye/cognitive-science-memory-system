@@ -3,6 +3,7 @@ import { mount } from '@vue/test-utils';
 import { reactive } from 'vue';
 import MemoriesView from '../views/MemoriesView.vue';
 import { WorkspaceKey } from '../composables/useWorkspace';
+import { setLanguage } from '../lib/i18n';
 
 it('combines source filters, candidate comparison and read-only inspection without mixing users', async () => {
   const base = { memory_type:'semantic', tags:[], evidence_count:1, importance:0.7, created_at:'2026-10-18T00:00:00Z', updated_at:'2026-10-18T00:00:00Z', support_ids:[], memory_key:'drink' };
@@ -27,4 +28,21 @@ it('combines source filters, candidate comparison and read-only inspection witho
   expect(wrapper.find('[aria-label="筛选来源"]').element.value).toBe('');
   expect(wrapper.text()).not.toContain('喜欢咖啡');
   wrapper.unmount(); vi.unstubAllGlobals();
+});
+
+it('translates loaded counts without translating user content or topic keys', async () => {
+  setLanguage('en');
+  const state = reactive({ user:'alice', memories:[{
+    id:'one', content:'我喜欢喝茶', memory_type:'semantic', tags:['当前'], memory_key:'当前', memory_value:'候选',
+    evidence_count:1, state_role:'current', source:'manual', created_at:'2026-10-18T00:00:00Z', updated_at:'2026-10-18T00:00:00Z', support_ids:[],
+  }]});
+  const wrapper = mount(MemoriesView,{global:{provide:{[WorkspaceKey]:{state,openMemory:vi.fn(),deleteMemory:vi.fn(),runRetention:vi.fn()}}}});
+  expect(wrapper.find('.memory-scope').text()).toContain('Filters and health checks use the 1 memories currently loaded');
+  expect(wrapper.find('.memory-toolbar .subtle').text()).toBe('1 records');
+  expect(wrapper.find('.table-footer').text()).toContain('Page 1 of 1');
+  expect(wrapper.find('.memory-content').text()).toBe('我喜欢喝茶');
+  expect(wrapper.find('.memory-tags').text()).toBe('#当前');
+  await wrapper.findAll('button').find(button=>button.text()==='Memory health').trigger('click');
+  expect(wrapper.text()).toContain('Identical content · 0 groups');
+  wrapper.unmount();
 });

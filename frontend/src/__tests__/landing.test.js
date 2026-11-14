@@ -47,3 +47,29 @@ it('renders a standalone home and initializes the existing workspace only on ent
   await wrapper.find('[aria-label="产品首页"]').trigger('click');await flushPromises();
   expect(wrapper.find('.lp-root').exists()).toBe(true);
 });
+it('links a completed homepage classification report to its exact evaluation record',async()=>{
+ const dataset='b'.repeat(32);
+ const report={id:'homepage-report',dataset,model:'mock',planned:1,total:1,accuracy:1,failed:0,results:[{text:'I like tea',expected:'semantic',actual:'semantic',correct:true}]};
+ const fetchMock=vi.fn(async(path,options={})=>{
+   let data;
+   if(path==='/api/evaluations/uploads'&&options.method==='POST') data={id:dataset,name:'custom.json',count:1};
+   else if(path===`/api/evaluations/uploads/${dataset}/run`&&options.method==='POST') data=report;
+   else throw new Error(`Unexpected request: ${path}`);
+   return {ok:true,json:async()=>data};
+ });
+ vi.stubGlobal('fetch',fetchMock);
+ const router=routerFor();await router.push('/');await router.isReady();
+ wrapper=mount(LandingView,{global:{plugins:[router]}});
+ const input=wrapper.find('input[aria-label="选择评测数据集"]');
+ const file=new File(['[]'],'custom.json',{type:'application/json'});
+ Object.defineProperty(file,'text',{value:vi.fn().mockResolvedValue(JSON.stringify([{text:'I like tea',expected:'semantic'}]))});
+ Object.defineProperty(input.element,'files',{configurable:true,value:[file]});
+ await input.trigger('change');
+ await wrapper.find('.le-actions button').trigger('click');await flushPromises();
+ await wrapper.find('.le-result button').trigger('click');await flushPromises();
+ const link=wrapper.findAll('a').find(a=>a.text()==='在评测中心查看 ↗');
+ expect(link).toBeTruthy();
+ await link.trigger('click');await flushPromises();
+ expect(router.currentRoute.value.name).toBe('evaluations');
+ expect(router.currentRoute.value.query).toEqual({dataset,run:report.id});
+});

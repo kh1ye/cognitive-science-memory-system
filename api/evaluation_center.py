@@ -50,7 +50,7 @@ class EvaluationCenter:
         self.process = None
 
     def datasets(self):
-        return [
+        items = [
             {"id": "vatsalabench", "name": "Vatsalabench", "count": 500, "label": "长期记忆 · 六维评测",
              "description": "完整历史回放，检查事实回忆、冲突、更新与长期保持。", "color": "violet",
              "metrics": [q[0] for q in QUALITY] + ["L95", "ATC", "SAF"], "modes": ["check", "full"], "version": "500 samples · handoff v1"},
@@ -61,12 +61,29 @@ class EvaluationCenter:
              "description": "四种记忆各 25 条生活化例子，检查分类边界。", "color": "amber",
              "metrics": ["Accuracy", "Macro F1"], "modes": ["check", "full"], "version": "examples-v3"},
         ]
+        uploaded = []
+        for path in (self.root / "evaluation" / "uploads").glob("*/dataset.json"):
+            record = load(path, {})
+            identifier = record.get("id")
+            if identifier != path.parent.name or not re.fullmatch(r"[a-f0-9]{32}", identifier or ""):
+                continue
+            created_at = record.get("created_at") or datetime.fromtimestamp(path.stat().st_mtime).astimezone().isoformat()
+            uploaded.append({"id": identifier, "name": record.get("name") or identifier,
+                "count": record.get("count", len(record.get("cases", []))), "label": "上传数据集 · 概念分类",
+                "description": "导入的记忆分类数据集，每次按原顺序评测前 20 条。", "color": "violet",
+                "metrics": ["Accuracy"], "modes": ["classify"], "version": "上传数据集",
+                "source": "upload", "created_at": created_at})
+        return items + sorted(uploaded, key=lambda item: item["created_at"], reverse=True)
 
     def dataset_dir(self, dataset):
         names = {"vatsalabench": "Vatsalabench", "memory-150": "memory-150", "concept-100": "project-memory-100"}
-        if dataset not in names:
-            raise ValueError("未知数据集")
-        return self.root / "evaluation" / names[dataset]
+        if dataset in names:
+            return self.root / "evaluation" / names[dataset]
+        if re.fullmatch(r"[a-f0-9]{32}", dataset):
+            folder = self.root / "evaluation" / "uploads" / dataset
+            if (folder / "dataset.json").is_file():
+                return folder
+        raise ValueError("未知数据集")
 
     def _metric_rows(self, values):
         rows = []
@@ -86,7 +103,8 @@ class EvaluationCenter:
         check = load(folder / "preflight.json")
         comparison = load(folder / "comparison.json")
         batch_record = load(folder / "batch.json")
-        if not any(x is not None for x in (aggregate, result, summary, check, comparison, batch_record)):
+        upload_report = load(folder / "report.json")
+        if not any(x is not None for x in (aggregate, result, summary, check, comparison, batch_record, upload_report)):
             return None
         relative = folder.relative_to(self.root).as_posix()
         item = {"id": hashlib.sha256(relative.encode()).hexdigest()[:18], "dataset": dataset,
@@ -96,7 +114,16 @@ class EvaluationCenter:
         stamp = re.search(r"(20\d{6})-(\d{6})", folder.name)
         if stamp:
             item["created_at"] = datetime.strptime("".join(stamp.groups()), "%Y%m%d%H%M%S").isoformat() + "+08:00"
-        if aggregate is not None or batch_record is not None:
+        if upload_report is not None:
+            planned = upload_report.get("planned", len(upload_report.get("results", [])))
+            failed = upload_report.get("failed", 0)
+            item.update(id=upload_report.get("id", item["id"]), kind="classification",
+                created_at=upload_report.get("created_at") or item["created_at"],
+                completed=max(0, planned-failed), planned=planned, model=upload_report.get("model", ""), review="model",
+                status="failed" if planned and failed >= planned else "partial" if failed else "completed",
+                metrics=[{"key": "Accuracy", "name": "分类准确率", "dimension": "分类",
+                    "value": upload_report.get("accuracy"), "unit": "percent", "valid_n": planned}])
+        elif aggregate is not None or batch_record is not None:
             batch = batch_record or {}
             aggregate = aggregate or {}
             completed = sum(len(load(folder / e["sample_id"] / "results.json", {}).get("results", [])) == 12 for e in batch.get("selected", []))
@@ -168,6 +195,7 @@ class EvaluationCenter:
         samples = []
         batch = load(folder / "batch.json", {})
         aggregate = load(folder / "aggregate.json", {})
+        upload_report = load(folder / "report.json", {})
         if item["kind"] == "batch":
             for entry in batch.get("selected", []):
                 sid = entry["sample_id"]
@@ -187,8 +215,10 @@ class EvaluationCenter:
             run = load(folder / "results.json", {})
             samples = [{"id": run.get("sample_id", "sample"), "completed": len(run.get("results", [])), "planned": 12,
                         "status": item["status"], "error": run.get("error", {}).get("message", "")}]
-        item.update(samples=samples, report=(folder / "report.md").read_text(encoding="utf-8") if (folder / "report.md").exists() else "",
-                    config=load(folder / "manifest.json") or load(folder / "metadata.json") or {k: v for k, v in batch.items() if k != "selected"})
+        config = load(folder / "manifest.json") or load(folder / "metadata.json") or {k: v for k, v in batch.items() if k != "selected"}
+        if item["kind"] == "classification":
+            config = {k: v for k, v in upload_report.items() if k != "results"}
+        item.update(samples=samples, report=(folder / "report.md").read_text(encoding="utf-8") if (folder / "report.md").exists() else "", config=config)
         if item["kind"] == "check":
             item["check"] = load(folder / "preflight.json", {})
         return item
@@ -233,6 +263,10 @@ class EvaluationCenter:
                     rows.append(json.loads(line))
                 except ValueError:
                     continue
+        if not rows and item["kind"] == "classification":
+            report = load(item["_folder"] / "report.json", {})
+            rows = [{**row, "id": row.get("id") or f"case-{index}"}
+                    for index, row in enumerate(report.get("results", []), 1)]
         return rows
 
     def _save_job(self, job):

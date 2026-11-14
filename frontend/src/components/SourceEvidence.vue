@@ -26,10 +26,10 @@ const sourceLink = (item) => `#/assistant?thread=${encodeURIComponent(item.threa
   <section class="source-evidence" :aria-label="$t('来源证据')">
     <h3>{{ $t("来源证据") }}</h3>
     <p v-if="loading" class="subtle" role="status">{{ $t("正在读取来源…") }}</p>
-    <p v-else-if="error" class="error-text" role="alert">{{ error }}</p>
+    <p v-else-if="error" class="error-text" role="alert">{{ $t(error) }}</p>
     <template v-else-if="result">
-      <p class="form-hint">可查看 {{ result.total_count }} 条来源记录 · 累计证据计数 {{ result.evidence_count }}</p>
-      <p v-if="result.legacy_gap" class="memory-notice">历史记录有 {{ result.legacy_gap }} 条计数未保留逐条原文，无法完整回溯。</p>
+      <p class="form-hint">{{ $t("可查看 {count} 条来源记录 · 累计证据计数 {evidence}", { count: result.total_count, evidence: result.evidence_count }) }}</p>
+      <p v-if="result.legacy_gap" class="memory-notice">{{ $t("历史记录有 {count} 条计数未保留逐条原文，无法完整回溯。", { count: result.legacy_gap }) }}</p>
       <article v-for="item in result.items" :key="item.id" class="source-item">
         <blockquote>{{ item.content }}</blockquote>
         <p class="subtle">{{ item.source }} · {{ $t(item.created_at ? formatDate(item.created_at) : '时间未记录') }}</p>
@@ -37,7 +37,7 @@ const sourceLink = (item) => `#/assistant?thread=${encodeURIComponent(item.threa
         <a v-if="item.thread_id" class="text-button" :href="sourceLink(item)">{{ $t(item.message_id ? '查看原始消息' : '查看来源会话') }} ↗</a>
         <small v-else class="subtle">{{ $t("未记录来源会话") }}</small>
       </article>
-      <p v-if="result.total_count > result.items.length" class="form-hint">当前显示 {{ result.items.length }} 条来源，合计 {{ result.total_count }} 条。</p>
+      <p v-if="result.total_count > result.items.length" class="form-hint">{{ $t("当前显示 {shown} 条来源，合计 {total} 条。", { shown: result.items.length, total: result.total_count }) }}</p>
     </template>
   </section>
 </template>

@@ -2,6 +2,7 @@
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import { useWorkspace } from '../composables/useWorkspace';
 import { api } from '../lib/api';
+import { t } from '../lib/i18n';
 
 const { state, refresh: load } = useWorkspace();
 const filter = ref(''), query = ref('');
@@ -15,7 +16,7 @@ const kinds = [
   { id:'procedural', label:'程序记忆', subtitle:'方法与行动能力', color:'#c5a3ee' },
 ];
 const owner=computed(()=>state.user);
-function content(record) { return record.content || '未记录正文'; }
+function content(record) { return record.content || t('未记录正文'); }
 const all = computed(()=>records.value.filter(r=>kinds.some(k=>k.id===r.memory_type)).map(r=>({...r,display:content(r)})));
 const visible = computed(()=>all.value.filter(r=>(!filter.value||r.memory_type===filter.value)&&(!query.value.trim()||r.display.toLowerCase().includes(query.value.trim().toLowerCase()))));
 const selected=computed(()=>all.value.find(r=>r.id===selectedId.value));
@@ -95,21 +96,21 @@ onUnmounted(()=>{++detailVersion;clearInterval(timer);releaseDialog();});
 <template>
   <section class="galaxy-page">
     <header class="galaxy-heading">
-      <div><div class="galaxy-eyebrow">MEMORY ATLAS <span> / </span>{{ $t("记忆星图") }}</div><h1>{{ $t("让记忆，有迹可循") }}<span>。</span></h1><p>{{ $t("每一个光点，都是一段可以重新打开的记忆。") }}</p></div>
-      <div class="galaxy-source"><span>当前空间 · {{ state.user }}<small>{{ $t("与记忆管理同步") }}</small></span><button @click="load" :disabled="loading" :aria-label="$t('刷新记忆星图')">↻</button></div>
+      <div><div class="galaxy-eyebrow">MEMORY ATLAS <span> / </span>{{ $t("记忆星图") }}</div><h1>{{ $t("让记忆，有迹可循") }}<span>{{ $t("。") }}</span></h1><p>{{ $t("每一个光点，都是一段可以重新打开的记忆。") }}</p></div>
+      <div class="galaxy-source"><span>{{ $t("当前空间") }} · {{ state.user }}<small>{{ $t("与记忆管理同步") }}</small></span><button @click="load" :disabled="loading" :aria-label="$t('刷新记忆星图')">↻</button></div>
     </header>
-    <div class="galaxy-filters"><button :class="{active:!filter}" @click="filter=''">{{ $t("全部记忆") }}<span>{{ all.length }}</span></button><button v-for="k in kinds" :key="k.id" :class="{active:filter===k.id}" :style="{'--type':k.color}" @click="filter=filter===k.id?'':k.id"><i :style="{background:k.color}"/>{{ k.label }}<span>{{ all.filter(r=>r.memory_type===k.id).length }}</span></button><input v-model="query" :aria-label="$t('搜索星图记忆')" :placeholder="$t('搜索一段记忆…')" /></div>
+    <div class="galaxy-filters"><button :class="{active:!filter}" @click="filter=''">{{ $t("全部记忆") }}<span>{{ all.length }}</span></button><button v-for="k in kinds" :key="k.id" :class="{active:filter===k.id}" :style="{'--type':k.color}" @click="filter=filter===k.id?'':k.id"><i :style="{background:k.color}"/>{{ $t(k.label) }}<span>{{ all.filter(r=>r.memory_type===k.id).length }}</span></button><input v-model="query" :aria-label="$t('搜索星图记忆')" :placeholder="$t('搜索一段记忆…')" /></div>
     <div class="galaxy-layout">
       <div ref="stage" class="galaxy-stage" :class="{dragging}" @pointerdown="down" @pointermove="move" @pointerup="up" @pointercancel="up" @wheel.prevent="zoom=Math.max(.55,Math.min(1.8,zoom-$event.deltaY*.001))">
-        <div class="galaxy-stage-title"><span class="galaxy-live"/>{{ $t("我的记忆星图") }}<small>{{ visible.length }} 个记忆节点</small></div>
+        <div class="galaxy-stage-title"><span class="galaxy-live"/>{{ $t("我的记忆星图") }}<small>{{ $t("{count} 个记忆节点", { count: visible.length }) }}</small></div>
         <svg viewBox="0 0 1000 800" class="galaxy-svg" :aria-label="$t('记忆节点星图')">
           <defs><radialGradient id="atlas-haze"><stop stop-color="#88d3d2" stop-opacity=".15"/><stop offset="1" stop-color="#88d3d2" stop-opacity="0"/></radialGradient><filter id="atlas-glow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="3"/></filter></defs>
           <ellipse cx="500" cy="440" rx="315" ry="340" fill="url(#atlas-haze)" transform="rotate(-25 500 440)"/>
           <circle cx="500" cy="400" :r="335*zoom" fill="none" stroke="#a5d4d4" stroke-opacity=".055"/>
           <g aria-hidden="true"><circle v-for="(s,i) in projectedStars" :key="i" :cx="s.x" :cy="s.y" :r="s.radius*s.scale" :fill="i%13===0?'#83dcd7':'#d9e8ee'" :opacity="s.opacity*(s.depth+2)/3"/></g>
           <g aria-hidden="true"><path v-for="n in nodes" :key="n.id" :d="`M${n.hub.x},${n.hub.y} Q${(n.x+n.hub.x)/2+35},${(n.y+n.hub.y)/2-25} ${n.x},${n.y}`" fill="none" :stroke="n.color" :stroke-opacity="selectedId===n.id?.65:.12" :stroke-width="selectedId===n.id?1.4:.7"/></g>
-          <g v-for="g in groups" :key="g.id" v-show="!filter||filter===g.id" aria-hidden="true"><circle :cx="g.x" :cy="g.y" r="15" :fill="g.color" filter="url(#atlas-glow)" opacity=".5"/><circle :cx="g.x" :cy="g.y" r="4.2" :fill="g.color"/><text :x="g.x+14" :y="g.y-7" fill="#e8eff1" font-size="12">{{ g.label }}</text></g>
-          <g v-for="n in nodes" :key="n.id" data-node role="button" tabindex="0" :aria-label="`查看记忆：${n.display}`" :aria-pressed="selectedId===n.id" class="galaxy-node" @click.stop="selectedId=n.id" @keydown.enter.prevent="selectedId=n.id" @keydown.space.prevent="selectedId=n.id">
+          <g v-for="g in groups" :key="g.id" v-show="!filter||filter===g.id" aria-hidden="true"><circle :cx="g.x" :cy="g.y" r="15" :fill="g.color" filter="url(#atlas-glow)" opacity=".5"/><circle :cx="g.x" :cy="g.y" r="4.2" :fill="g.color"/><text :x="g.x+14" :y="g.y-7" fill="#e8eff1" font-size="12">{{ $t(g.label) }}</text></g>
+          <g v-for="n in nodes" :key="n.id" data-node role="button" tabindex="0" :aria-label="$t('查看记忆：{content}', { content: n.display })" :aria-pressed="selectedId===n.id" class="galaxy-node" @click.stop="selectedId=n.id" @keydown.enter.prevent="selectedId=n.id" @keydown.space.prevent="selectedId=n.id">
             <title>{{ n.display }}</title><circle :cx="n.x" :cy="n.y" r="14" fill="transparent"/><circle :cx="n.x" :cy="n.y" :r="selectedId===n.id?13:8" :fill="n.color" filter="url(#atlas-glow)" :opacity="selectedId===n.id?.8:.4"/><circle :cx="n.x" :cy="n.y" :r="selectedId===n.id?4.5:2.6" :fill="n.color"/><circle v-if="selectedId===n.id" :cx="n.x" :cy="n.y" r="12" fill="none" :stroke="n.color" stroke-opacity=".65"/>
           </g>
         </svg>
@@ -124,11 +125,11 @@ onUnmounted(()=>{++detailVersion;clearInterval(timer);releaseDialog();});
         <p class="galaxy-memory-body">{{ selected.display }}</p>
         <h3 class="galaxy-fields-title">{{ $t("记忆字段") }}</h3>
         <p v-if="detailLoading" class="galaxy-detail-note" role="status">{{ $t("正在读取记忆字段…") }}</p>
-        <p v-else-if="detailError" class="galaxy-detail-note" role="alert">{{ detailError }}</p>
+        <p v-else-if="detailError" class="galaxy-detail-note" role="alert">{{ $t(detailError) }}</p>
         <dl v-else-if="rawRecord" class="galaxy-record-fields"><template v-for="(value,key) in rawRecord" :key="key"><dt>{{ key }}</dt><dd><pre>{{ fieldValue(value) }}</pre></dd></template></dl>
       </div>
     </dialog>
-    <footer class="galaxy-footer"><span>当前空间 · {{ state.user }} · 展示已加载的 {{ all.length }} 条长期记忆</span><span>{{ $t("与记忆管理共用数据；工作记忆在对话中查看。") }}</span></footer>
+    <footer class="galaxy-footer"><span>{{ $t("当前空间") }} · {{ state.user }} · {{ $t("展示已加载的 {count} 条长期记忆", { count: all.length }) }}</span><span>{{ $t("与记忆管理共用数据；工作记忆在对话中查看。") }}</span></footer>
   </section>
 </template>
 
