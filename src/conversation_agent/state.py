@@ -32,6 +32,7 @@ class MemoryExtraction(BaseModel):
 
 
 class ConversationState(MessagesState):
+    preference_context: str
     user_id: str
     thread_id: str
     auto_remember: bool

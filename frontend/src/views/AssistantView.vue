@@ -1,5 +1,6 @@
 <script setup>
-import { computed, nextTick, ref, watch } from "vue";
+import { computed, nextTick, reactive, ref, watch } from "vue";
+import AppDialog from "../components/AppDialog.vue";
 import WorkingMemoryPanel from "../components/WorkingMemoryPanel.vue";
 import AppIcon from "../components/AppIcon.vue";
 import { useWorkspace } from "../composables/useWorkspace";
@@ -16,6 +17,55 @@ const {
 const input = ref(""),
   inputElement = ref(null),
   messagesElement = ref(null);
+const preferencesOpen = ref(false), previewOpen = ref(false);
+const profilesOpen = ref(false), activeProfile = ref("");
+const profiles = [
+  { id: "daily", title: "日常陪伴", icon: "chat", description: "轻松交流，关注日常生活与兴趣。", instruction: "请采用自然、温和、简洁的交流方式，优先关注我的日常生活与兴趣。" },
+  { id: "work", title: "专注工作", icon: "layers", description: "先给结论，再提供清晰可执行的步骤。", instruction: "请先给结论，再给可执行的步骤。表达简洁，明确区分已知信息与需要确认的事项。" },
+  { id: "study", title: "学习探索", icon: "book", description: "循序渐进，用例子帮助理解。", instruction: "请循序渐进地解释，结合具体例子，必要时通过提问确认我的理解。" },
+];
+async function applyProfile(profile) {
+  if (state.sending || state.sessionsLoading) return;
+  if (!currentChat.value) newChat();
+  currentChat.value.preference_context = `# 对话偏好\n${preferenceMarkdown.value}\n\n## 当前场景：${profile.title}\n${profile.instruction}`;
+  activeProfile.value = profile.id;
+  profilesOpen.value = false;
+}
+watch(() => state.currentChatId, () => { activeProfile.value = ""; });
+const preferences = reactive({ name: "", language: "", style: "", tools: "", interests: "", notes: "" });
+const preferenceFields = [
+  { key: "name", label: "如何称呼你", placeholder: "例如：小林" },
+  { key: "language", label: "交流语言", options: ["中文", "English", "中英双语"] },
+  { key: "style", label: "回答风格", options: ["简洁直接", "详细解释", "先结论后解释", "分步骤说明"] },
+  { key: "tools", label: "常用工具", placeholder: "例如：Python、VS Code" },
+  { key: "interests", label: "兴趣与关注", placeholder: "例如：阅读、跑步、人工智能" },
+  { key: "notes", label: "其他偏好", placeholder: "还有什么希望助手了解的？" },
+];
+const preferenceMarkdown = computed(() => {
+  const rows = preferenceFields.filter(field => preferences[field.key].trim()).map(field => `## ${field.label}\n${preferences[field.key].trim()}`);
+  return rows.length ? `# 我的个人偏好\n\n${rows.join("\n\n")}\n\n请根据这些偏好与我交流，并记住适合长期保留的信息。` : "";
+});
+function preferenceStorageKey(user) { return `cm.assistant.preferences.${encodeURIComponent(user)}`; }
+watch(() => state.user, (user) => {
+  for (const key of Object.keys(preferences)) preferences[key] = "";
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(preferenceStorageKey(user)) || "null"); } catch {}
+  if (saved) for (const key of Object.keys(preferences)) if (typeof saved[key] === "string") preferences[key] = saved[key];
+  previewOpen.value = false;
+  let visited = false;
+  try {
+    visited = localStorage.getItem(preferenceStorageKey(user) + ".visited") === "true";
+    localStorage.setItem(preferenceStorageKey(user) + ".visited", "true");
+  } catch {}
+  preferencesOpen.value = !saved && !visited;
+}, { immediate: true, flush: "sync" });
+async function submitPreferences() {
+  if (!preferenceMarkdown.value || state.sending || state.sessionsLoading) return;
+  if (!currentChat.value) newChat();
+  currentChat.value.preference_context = preferenceMarkdown.value;
+  try { localStorage.setItem(preferenceStorageKey(state.user), JSON.stringify({ ...preferences })); } catch {}
+  preferencesOpen.value = false;
+}
 const suggestions = [
   "我现在主要使用什么编程语言？",
   "我以前有哪些编程偏好？",
@@ -57,6 +107,8 @@ async function createChat() {
 async function send(text = input.value) {
   if (!text.trim() || state.sending || state.sessionsLoading) return;
   input.value = "";
+  if (!currentChat.value) newChat();
+  if (!currentChat.value.preference_context) currentChat.value.preference_context = preferenceMarkdown.value;
   const pending = sendMessage(text);
   await scroll();
   await pending;
@@ -71,10 +123,29 @@ function keydown(event) {
 }
 </script>
 <template>
-  <div class="page assistant-page">
-    <div v-if="state.sessionsLoading" class="subtle" role="status">正在恢复服务端会话…</div>
+  <div id="lp-assistant" class="page assistant-page">
+    <AppDialog v-model:open="profilesOpen" title="选择对话偏好">
+      <div class="preference-cards"><button v-for="profile in profiles" :key="profile.id" class="preference-card" :class="{ selected: activeProfile === profile.id }" :disabled="state.sending || state.sessionsLoading" @click="applyProfile(profile)"><AppIcon :name="profile.icon"/><strong>{{ profile.title }}</strong><span>{{ profile.description }}</span><small>{{ activeProfile === profile.id ? '当前模式' : '应用到当前对话 →' }}</small></button></div>
+    </AppDialog>
+    <div v-if="state.sessionsLoading" class="subtle" role="status">正在加载会话…</div>
+    <AppDialog v-model:open="preferencesOpen" title="让助手先了解你">
+        <form class="preferences-form" @submit.prevent="submitPreferences">
+          <label v-for="field in preferenceFields" :key="field.key">{{ field.label }}
+            <select v-if="field.options" v-model="preferences[field.key]"><option value="">请选择</option><option v-for="option in field.options" :key="option">{{ option }}</option></select>
+            <textarea v-else-if="field.key === 'notes'" v-model="preferences[field.key]" :placeholder="field.placeholder" rows="2" maxlength="2000" />
+            <input v-else v-model="preferences[field.key]" :placeholder="field.placeholder" maxlength="500" />
+          </label>
+          <button type="button" class="text-button" @click="previewOpen = !previewOpen">{{ previewOpen ? '收起' : '预览' }} Markdown</button>
+          <pre v-if="previewOpen" class="preferences-preview">{{ preferenceMarkdown || '填写偏好后生成' }}</pre>
+          <button class="button full" :disabled="!preferenceMarkdown || state.sending || state.sessionsLoading">保存并开始对话</button>
+        </form>
+      <button class="text-button preferences-skip" @click="preferencesOpen = false">稍后填写</button>
+    </AppDialog>
     <div class="assistant-shell">
       <aside class="conversation-sidebar">
+        <button class="button full preferences-trigger" :disabled="state.sending || state.sessionsLoading" @click="profilesOpen = true">切换偏好 <AppIcon name="layers"/></button>
+        <button class="button full preferences-trigger" @click="preferencesOpen = !preferencesOpen">偏好设置 <span>{{ preferencesOpen ? '−' : '+' }}</span></button>
+
         <button
           class="button full"
           :disabled="state.sending || state.sessionsLoading"
@@ -95,9 +166,6 @@ function keydown(event) {
             <AppIcon name="chat" /><span>{{ chat.title }}</span>
           </button>
         </div>
-        <p class="conversation-note">
-          会话保存在服务端 SQLite<br />按用户空间分别记录
-        </p>
       </aside>
       <div class="conversation-main">
         <div class="chat-topline">
@@ -139,9 +207,6 @@ function keydown(event) {
           <div v-if="!currentChat?.messages.length" class="chat-empty">
             <div class="chat-empty-mark"><AppIcon name="chat" /></div>
             <h2>今天，从哪件事聊起？</h2>
-            <p>
-              关于你的偏好、过去的经历，或熟悉的工作方式。<br />我会先从已有记忆中寻找线索。
-            </p>
             <div class="suggestions">
               <button
                 v-for="question in suggestions"
@@ -256,9 +321,6 @@ function keydown(event) {
               </button>
             </div>
           </form>
-          <p class="composer-note">
-            会话用于连续对话；自动记忆会提取可长期保留的信息。敏感信息请手动确认保存。
-          </p>
         </div>
       </div>
       <WorkingMemoryPanel :memory="currentChat?.working_state || null" :sending="state.sending" />
@@ -266,6 +328,8 @@ function keydown(event) {
   </div>
 </template>
 <style scoped>
+.preference-cards{display:grid;gap:12px;padding:20px 24px 24px}.preference-card{display:grid;grid-template-columns:25px 1fr;gap:8px 12px;padding:18px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);text-align:left;cursor:pointer}.preference-card:hover,.preference-card.selected{border-color:var(--blue,#a48bc8)}.preference-card>svg{width:20px;height:20px;grid-row:1/4}.preference-card>strong{font-size:14px}.preference-card>span{font-size:12px;color:var(--muted)}.preference-card>small{font-size:11px;color:var(--blue,#a48bc8);margin-top:5px}
+.preferences-skip{margin:0 24px 20px}.preferences-trigger{display:flex;justify-content:space-between;margin-bottom:12px}.preferences-form{padding:20px 24px;display:grid;gap:13px;margin:0 0 20px;padding-bottom:18px;border-bottom:1px solid var(--line)}.preferences-form label{display:grid;gap:6px;font-size:11px;color:var(--muted)}.preferences-form input,.preferences-form select,.preferences-form textarea{width:100%;min-width:0;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--text);font:inherit}.preferences-preview{white-space:pre-wrap;overflow-wrap:anywhere;max-height:180px;overflow:auto;font-size:10px;line-height:1.7}.conversation-sidebar:has(.preferences-form){overflow:auto}.conversation-sidebar:has(.preferences-form) .conversation-list{flex:none;max-height:250px}
 .assistant-shell{display:grid;grid-template-columns:190px minmax(0,1fr) 265px;grid-template-rows:minmax(0,1fr)}
 .conversation-sidebar{width:auto;min-height:0;overflow:hidden}
 .conversation-list{flex:1;min-height:0;overscroll-behavior:contain}

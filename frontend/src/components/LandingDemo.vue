@@ -35,7 +35,7 @@ onUnmounted(()=>{clearInterval(timer);observer?.disconnect();document.removeEven
 </script>
 <template>
  <section ref="section" id="lp-live-demo" class="ld-section" aria-labelledby="ld-heading">
-  <div class="ld-intro"><div><span class="ld-kicker">SEE MEMORY IN MOTION</span><h2 id="ld-heading">记忆如何发生，<br />亲眼看一遍。</h2></div><p>从一句话开始，看信息被选择、被更新、被追溯。<br />让记忆的每一步，都有清晰的解释。</p></div>
+  <div class="ld-intro"><div><span class="ld-kicker">SEE MEMORY IN MOTION</span><h2 id="ld-heading">记忆如何发生，<br />亲眼看一遍。</h2><RouterLink to="/assistant" class="ld-assistant-cta">体验个人助手 <span>↗</span></RouterLink></div><p>从一句话开始，看信息被选择、被更新、被追溯。<br />让记忆的每一步，都有清晰的解释。</p></div>
   <div class="ld-window">
    <div class="ld-titlebar"><span class="ld-dots"><i/><i/><i/></span><span>Cognitive Memory</span></div>
    <div class="ld-tabs" role="group" aria-label="动态演示场景"><div v-for="(item,index) in scenes" :key="item.label" :class="{active:active===index}" :aria-current="active===index?'step':undefined"><span>{{ item.label }}</span><span class="ld-tab-indicator"/><span class="ld-progress" :style="{width:active===index?`${progress}%`:'0%'}"/></div></div>
@@ -99,4 +99,8 @@ onUnmounted(()=>{clearInterval(timer);observer?.disconnect();document.removeEven
 .ld-phone{box-shadow:0 20px 40px #4b24642b}
 .ld-result-slot .ld-result{background:#fffcfff2;border-color:#ffffffa1;box-shadow:0 8px 25px #593c7514}
 @media(prefers-reduced-motion:reduce){.ld-backdrop{transition:none}.ld-dissolve-enter-from,.ld-dissolve-leave-to{filter:none}}
+</style>
+
+<style scoped>
+.ld-assistant-cta{display:inline-flex;align-items:center;gap:20px;margin-top:20px;padding:11px 18px;border-radius:7px;background:#28232e;color:#fff;font-size:12px;text-decoration:none}
 </style>

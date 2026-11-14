@@ -4,12 +4,10 @@ defineProps({ memory: { type: Object, default: null }, sending: Boolean });
 <template>
   <aside class="working-panel" aria-label="当前对话工作记忆">
     <header><span class="working-dot"/><h2>工作记忆</h2><span class="working-live">{{ sending?'更新中':memory?'当前任务':'尚未开始' }}</span></header>
-    <p class="working-intro">当前对话正在处理的目标与上下文。</p>
     <section><h3>当前目标 <small>goals</small></h3><ul v-if="memory?.goals?.length"><li v-for="(goal,i) in memory.goals" :key="i">{{ goal }}</li></ul><p v-else class="working-empty">尚未提取到明确目标</p></section>
     <section><h3>临时约束 <small>constraints</small></h3><ul v-if="memory?.constraints?.length"><li v-for="(item,i) in memory.constraints" :key="i">{{ item }}</li></ul><p v-else class="working-empty">暂无本次任务约束</p></section>
     <section><h3>待确认问题 <small>open_questions</small></h3><ul v-if="memory?.open_questions?.length"><li v-for="(item,i) in memory.open_questions" :key="i">{{ item }}</li></ul><p v-else class="working-empty">暂无待确认问题</p></section>
     <details v-if="memory"><summary>查看完整工作状态</summary><pre>{{ JSON.stringify(memory,null,2) }}</pre></details>
-    <footer>随本次对话更新；切换会话后显示对应任务。它不属于长期记忆星图。</footer>
   </aside>
 </template>
 <style scoped>

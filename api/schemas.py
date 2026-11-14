@@ -55,6 +55,7 @@ class SessionRequest(BaseModel):
 
 
 class ChatRequest(SessionRequest):
+    preference_context: str = Field(default="", max_length=12000)
     message: str = Field(min_length=1, max_length=10000)
     auto_remember: bool = True
     task_id: str | None = None

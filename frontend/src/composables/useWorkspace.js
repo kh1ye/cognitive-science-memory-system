@@ -328,6 +328,7 @@ export function createWorkspace() {
         user_id: user,
         thread_id: chat.id,
         message: text,
+        preference_context: chat.preference_context || "",
         auto_remember: state.autoRemember,
       }, { timeoutMs: 300000 });
       chat.persisted = true;

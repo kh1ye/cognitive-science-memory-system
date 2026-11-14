@@ -26,12 +26,7 @@ export default createRouter({
       component: OverviewView,
       meta: { title: "系统总览" },
     },
-    {
-      path: "/assistant",
-      name: "assistant",
-      component: AssistantView,
-      meta: { title: "个人助手" },
-    },
+    { path: "/assistant", name: "assistant", component: AssistantView, meta: { title: "个人助手" } },
     {
       path: "/memories",
       name: "memories",

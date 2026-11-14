@@ -310,6 +310,7 @@ class ConversationAgent:
                 content=DIALOGUE_PROMPT
                 + json.dumps(
                     {
+                        "preference_context": state.get("preference_context", ""),
                         "retrieved": state["references"],
                         "working": self.memory.engine.architecture.working_state(
                             state["user_id"], state["thread_id"], state["task_id"]
@@ -362,6 +363,7 @@ class ConversationAgent:
         message: str,
         *,
         auto_remember=True,
+        preference_context="",
         task_id=None,
         source_event_id=None,
         retention_policy="persist",
@@ -396,6 +398,7 @@ class ConversationAgent:
                     "user_id": user_id,
                     "thread_id": thread_id,
                     "auto_remember": auto_remember,
+                    "preference_context": preference_context,
                     "task_id": task_id or thread_id,
                     "observation_id": observation_id,
                     "retention_policy": "no_long_term"

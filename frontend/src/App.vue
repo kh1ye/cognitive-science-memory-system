@@ -40,7 +40,7 @@ function submitProfile() {
   switchUser(userInput.value);
   profileOpen.value = false;
 }
-watch(() => Boolean(route.name && !route.meta.landing), (workspaceVisible) => {
+watch(() => Boolean(route.name), (workspaceVisible) => {
   if (workspaceVisible) initialize();
 }, { immediate: true });
 onUnmounted(dispose);
@@ -83,7 +83,6 @@ const navigationGroups = [
     { name: "overview", title: "系统总览", icon: "overview" },
   ] },
   { title: "记忆工作台", items: [
-    { name: "assistant", title: "个人助手", icon: "chat" },
     { name: "memories", title: "记忆管理", icon: "memory" },
     { name: "memory-gallery", title: "记忆展示", icon: "constellation" },
     { name: "forgetting", title: "记忆遗忘", icon: "brain" },
@@ -99,6 +98,11 @@ const navigationGroups = [
 </script>
 <template>
   <RouterView v-if="route.meta.landing" />
+  <div v-else-if="route.name === 'assistant'" class="standalone-assistant">
+    <header class="standalone-assistant-header"><RouterLink to="/">← 返回首页</RouterLink><strong>个人助手</strong><button class="text-button" :disabled="state.sending" @click="openProfile">当前空间：{{ state.user }}</button></header>
+    <RouterView :key="state.user" />
+    <div v-if="state.error" class="load-error" role="alert">{{ state.error }}<button class="text-button" :disabled="state.loading" @click="refresh">刷新</button></div>
+  </div>
   <div v-else class="layout" :class="{ 'sidebar-collapsed': sidebarCollapsed }">
     <aside id="workspace-sidebar" class="sidebar">
       <RouterLink class="brand sidebar-link" to="/overview" aria-label="记忆工作台首页" :data-tooltip="sidebarCollapsed ? '记忆工作台首页' : null"
@@ -190,3 +194,13 @@ const navigationGroups = [
   >
   <div v-if="state.toast" class="toast" role="status">{{ state.toast }}</div>
 </template>
+
+<style>
+.standalone-assistant{min-height:100dvh;background:var(--bg);color:var(--text)}
+.standalone-assistant-header{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 28px;border-bottom:1px solid var(--line);background:var(--surface)}
+.standalone-assistant-header>a{font-size:13px;color:var(--muted);text-decoration:none}
+.standalone-assistant-header>strong{font-size:15px;font-weight:600}
+.standalone-assistant>.assistant-page{width:100%;max-width:none;margin:0;padding:0;height:calc(100dvh - 64px);min-height:0}
+.standalone-assistant .assistant-shell{border:0;border-radius:0;width:100%}
+@media(max-width:700px){.standalone-assistant-header{padding:0 14px;gap:10px}.standalone-assistant-header>.text-button{max-width:40%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+</style>

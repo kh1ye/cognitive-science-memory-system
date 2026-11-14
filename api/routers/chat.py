@@ -33,6 +33,7 @@ def chat(payload: ChatRequest, agent: AgentDependency):
             payload.thread_id,
             payload.message,
             auto_remember=payload.auto_remember,
+            preference_context=payload.preference_context,
             task_id=payload.task_id, source_event_id=payload.source_event_id,
             retention_policy=payload.retention_policy,
         )
