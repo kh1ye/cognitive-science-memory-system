@@ -53,3 +53,6 @@ outputs/**/*.inspect.ndjson
 outputs/**/node_modules
 outputs/memory150-eval/build.mjs
 outputs/memory150-eval/preview.png
+
+# Private uploaded evaluation datasets and results
+evaluation/uploads/

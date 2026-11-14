@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from "vue";
 import LandingHowItWorks from "../components/LandingHowItWorks.vue";
+import LandingEvaluation from "../components/LandingEvaluation.vue";
 import LandingDemo from "../components/LandingDemo.vue";
 import AppIcon from "../components/AppIcon.vue";
 import IntegrationLogo from "../components/IntegrationLogo.vue";
@@ -46,7 +47,8 @@ async function copyCode() {
 
       <section id="lp-capabilities" class="lp-capabilities" aria-labelledby="lp-capabilities-title"><div class="lp-section-heading"><span class="lp-section-kicker">MORE THAN A CHAT HISTORY</span><h2 id="lp-capabilities-title">记忆可以更新，<br />来路始终可查。</h2><p>将一次次对话，变成有状态、有依据、可管理的长期记忆。</p><RouterLink to="/overview" class="lp-action lp-action-dark lp-memory-flow-cta">体验记忆流程 <span>↗</span></RouterLink></div><div class="lp-features"><article><span class="lp-feature-icon"><AppIcon name="memory" /></span><h3>记住，分清是什么。</h3><p>事实与偏好、具体经历、工作流程，分为三类内容；临时信息可保留在工作层。</p><div class="lp-memory-types"><span>语义</span><span>情景</span><span>程序</span></div></article><article><span class="lp-feature-icon"><AppIcon name="activity" /></span><h3>改变，需要有依据。</h3><p>新旧信息发生冲突时先进入候选区，新的偏好得到确认后，再更新当前状态。</p><div class="lp-state-flow"><span>当前</span><b>→</b><span>候选</span><b>→</b><span>巩固</span></div></article><article><span class="lp-feature-icon"><AppIcon name="database" /></span><h3>管理，始终在你手中。</h3><p>在本地工作台查看来源、关联记录与历史状态，手动添加或删除记忆。</p><RouterLink to="/memories" class="lp-feature-link">打开记忆管理 →</RouterLink></article></div></section>
       <LandingHowItWorks />
-<section class="lp-bottom-cta"><span class="lp-section-kicker">START WITH ONE MEMORY</span><h2>让下一次对话，<span>从了解你开始。</span></h2><div><RouterLink to="/overview" class="lp-action lp-action-dark">进入工作台 <span>↗</span></RouterLink><RouterLink to="/install" class="lp-action lp-action-light">查看接入指南 <span>→</span></RouterLink></div></section>
+<LandingEvaluation />
+      <section class="lp-bottom-cta"><span class="lp-section-kicker">START WITH ONE MEMORY</span><h2>让下一次对话，<span>从了解你开始。</span></h2><div><RouterLink to="/overview" class="lp-action lp-action-dark">进入工作台 <span>↗</span></RouterLink><RouterLink to="/install" class="lp-action lp-action-light">查看接入指南 <span>→</span></RouterLink></div></section>
       <section class="lp-showcase lp-showcase-bottom" aria-label="接入代码与记忆演化">
         <div class="lp-code-side">
           <div class="lp-code-toolbar"><div role="group" aria-label="接入代码示例"><button :class="{active:language==='python'}" :aria-pressed="language==='python'" @click="language='python';copyMessage='' "><IntegrationLogo name="python" />Python</button><button :class="{active:language==='http'}" :aria-pressed="language==='http'" @click="language='http';copyMessage='' "><AppIcon name="external" />HTTP API</button></div><button class="lp-copy" aria-label="复制接入示例" @click="copyCode"><AppIcon name="book" />复制</button></div>
