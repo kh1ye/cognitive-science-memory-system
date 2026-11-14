@@ -23,19 +23,19 @@ onUnmounted(() => { version++; });
 const sourceLink = (item) => `#/assistant?thread=${encodeURIComponent(item.thread_id)}${item.message_id ? `&message=${encodeURIComponent(item.message_id)}` : ""}`;
 </script>
 <template>
-  <section class="source-evidence" aria-label="来源证据">
-    <h3>来源证据</h3>
-    <p v-if="loading" class="subtle" role="status">正在读取来源…</p>
+  <section class="source-evidence" :aria-label="$t('来源证据')">
+    <h3>{{ $t("来源证据") }}</h3>
+    <p v-if="loading" class="subtle" role="status">{{ $t("正在读取来源…") }}</p>
     <p v-else-if="error" class="error-text" role="alert">{{ error }}</p>
     <template v-else-if="result">
       <p class="form-hint">可查看 {{ result.total_count }} 条来源记录 · 累计证据计数 {{ result.evidence_count }}</p>
       <p v-if="result.legacy_gap" class="memory-notice">历史记录有 {{ result.legacy_gap }} 条计数未保留逐条原文，无法完整回溯。</p>
       <article v-for="item in result.items" :key="item.id" class="source-item">
         <blockquote>{{ item.content }}</blockquote>
-        <p class="subtle">{{ item.source }} · {{ item.created_at ? formatDate(item.created_at) : '时间未记录' }}</p>
-        <p v-if="item.legacy" class="form-hint">从历史记录恢复的已知来源；不代表全部历史证据。</p>
-        <a v-if="item.thread_id" class="text-button" :href="sourceLink(item)">{{ item.message_id ? '查看原始消息' : '查看来源会话' }} ↗</a>
-        <small v-else class="subtle">未记录来源会话</small>
+        <p class="subtle">{{ item.source }} · {{ $t(item.created_at ? formatDate(item.created_at) : '时间未记录') }}</p>
+        <p v-if="item.legacy" class="form-hint">{{ $t("从历史记录恢复的已知来源；不代表全部历史证据。") }}</p>
+        <a v-if="item.thread_id" class="text-button" :href="sourceLink(item)">{{ $t(item.message_id ? '查看原始消息' : '查看来源会话') }} ↗</a>
+        <small v-else class="subtle">{{ $t("未记录来源会话") }}</small>
       </article>
       <p v-if="result.total_count > result.items.length" class="form-hint">当前显示 {{ result.items.length }} 条来源，合计 {{ result.total_count }} 条。</p>
     </template>

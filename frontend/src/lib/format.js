@@ -1,23 +1,24 @@
+import { t, language } from "./i18n";
 export const types = {
-  working: { label: "工作记忆", description: "当前任务状态与临时约束", color: "#b6a6ca" },
+  working: { get label() { return t("工作记忆"); }, get description() { return t("当前任务状态与临时约束"); }, color: "#b6a6ca" },
   semantic: {
-    label: "语义记忆",
-    description: "事实、偏好与个人画像",
+    get label() { return t("语义记忆"); },
+    get description() { return t("事实、偏好与个人画像"); },
     color: "#6384c8",
   },
-  episodic: { label: "情景记忆", description: "经历与事件", color: "#81a692" },
+  episodic: { get label() { return t("情景记忆"); }, get description() { return t("经历与事件"); }, color: "#81a692" },
   procedural: {
-    label: "程序记忆",
-    description: "方法、流程与习惯",
+    get label() { return t("程序记忆"); },
+    get description() { return t("方法、流程与习惯"); },
     color: "#b5a3c9",
   },
 };
 export const roles = {
-  current: { label: "当前", color: "#6689c9" },
-  candidate: { label: "候选", color: "#d1b174" },
-  history: { label: "历史", color: "#9aaacc" },
-  working: { label: "工作层", color: "#b6a6ca" },
-  archived: { label: "已归档", color: "#d6dce5" },
+  current: { get label() { return t("当前"); }, color: "#6689c9" },
+  candidate: { get label() { return t("候选"); }, color: "#d1b174" },
+  history: { get label() { return t("历史"); }, color: "#9aaacc" },
+  working: { get label() { return t("工作层"); }, color: "#b6a6ca" },
+  archived: { get label() { return t("已归档"); }, color: "#d6dce5" },
 };
 export const eventNames = {
   WRITE_CURRENT: "写入长期记忆",
@@ -54,14 +55,14 @@ export function formatMemoryDecision(result) {
     if (result.status === 'succeeded' && result.target_module === 'semantic') {
       label = {current:'已保存为当前记忆', candidate:'已保存为待确认候选', disputed:'存在冲突，待确认', history:'已保留为历史记忆', deleted:'对应记忆已删除'}[result.result_status] || '已保存（状态未记录）';
     }
-    return `${types[result.target_module]?.label || result.target_module}：${label}`;
+    return `${types[result.target_module]?.label || result.target_module}：${t(label)}`;
   }
   if (result.reason === "no_source_evidence") return "未写入：提取内容没有原话依据";
   if (result.reason === "consent_required") return "未写入：敏感信息需要手动确认同意";
-  return decisionNames[result.decision] || result.decision;
+  return t(decisionNames[result.decision] || result.decision);
 }
 export const formatDate = (value) => !value || !Number.isFinite(new Date(value).getTime()) ? "未记录" :
-  new Intl.DateTimeFormat("zh-CN", {
+  new Intl.DateTimeFormat(language.value === "zh" ? "zh-CN" : "en-US", {
     month: "2-digit",
     day: "2-digit",
     hour: "2-digit",
@@ -71,11 +72,11 @@ export const formatDate = (value) => !value || !Number.isFinite(new Date(value).
 export function age(value) {
   const seconds = Math.max(0, (Date.now() - new Date(value).getTime()) / 1000);
   return seconds < 60
-    ? "刚刚"
+    ? t("刚刚")
     : seconds < 3600
-      ? `${Math.floor(seconds / 60)} 分钟前`
+      ? language.value === "zh" ? `${Math.floor(seconds / 60)} 分钟前` : `${Math.floor(seconds / 60)} min ago`
       : seconds < 86400
-        ? `${Math.floor(seconds / 3600)} 小时前`
+        ? language.value === "zh" ? `${Math.floor(seconds / 3600)} 小时前` : `${Math.floor(seconds / 3600)} hr ago`
         : formatDate(value);
 }
 export function bytes(value) {

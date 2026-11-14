@@ -27,7 +27,7 @@ onMounted(sync);
       <button
         type="button"
         class="icon-button"
-        aria-label="关闭"
+        :aria-label="$t('关闭')"
         @click="emit('update:open', false)"
       >
         ×

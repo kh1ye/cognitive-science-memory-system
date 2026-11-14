@@ -124,27 +124,27 @@ function keydown(event) {
 </script>
 <template>
   <div id="lp-assistant" class="page assistant-page">
-    <AppDialog v-model:open="profilesOpen" title="选择对话偏好">
-      <div class="preference-cards"><button v-for="profile in profiles" :key="profile.id" class="preference-card" :class="{ selected: activeProfile === profile.id }" :disabled="state.sending || state.sessionsLoading" @click="applyProfile(profile)"><AppIcon :name="profile.icon"/><strong>{{ profile.title }}</strong><span>{{ profile.description }}</span><small>{{ activeProfile === profile.id ? '当前模式' : '应用到当前对话 →' }}</small></button></div>
+    <AppDialog v-model:open="profilesOpen" :title="$t('选择对话偏好')">
+      <div class="preference-cards"><button v-for="profile in profiles" :key="profile.id" class="preference-card" :class="{ selected: activeProfile === profile.id }" :disabled="state.sending || state.sessionsLoading" @click="applyProfile(profile)"><AppIcon :name="profile.icon"/><strong>{{ $t(profile.title) }}</strong><span>{{ $t(profile.description) }}</span><small>{{ $t(activeProfile === profile.id ? '当前模式' : '应用到当前对话 →') }}</small></button></div>
     </AppDialog>
-    <div v-if="state.sessionsLoading" class="subtle" role="status">正在加载会话…</div>
-    <AppDialog v-model:open="preferencesOpen" title="让助手先了解你">
+    <div v-if="state.sessionsLoading" class="subtle" role="status">{{ $t("正在加载会话…") }}</div>
+    <AppDialog v-model:open="preferencesOpen" :title="$t('让助手先了解你')">
         <form class="preferences-form" @submit.prevent="submitPreferences">
-          <label v-for="field in preferenceFields" :key="field.key">{{ field.label }}
-            <select v-if="field.options" v-model="preferences[field.key]"><option value="">请选择</option><option v-for="option in field.options" :key="option">{{ option }}</option></select>
-            <textarea v-else-if="field.key === 'notes'" v-model="preferences[field.key]" :placeholder="field.placeholder" rows="2" maxlength="2000" />
-            <input v-else v-model="preferences[field.key]" :placeholder="field.placeholder" maxlength="500" />
+          <label v-for="field in preferenceFields" :key="field.key">{{ $t(field.label) }}
+            <select v-if="field.options" v-model="preferences[field.key]"><option value="">{{ $t("请选择") }}</option><option v-for="option in field.options" :key="option">{{ $t(option) }}</option></select>
+            <textarea v-else-if="field.key === 'notes'" v-model="preferences[field.key]" :placeholder="$t(field.placeholder)" rows="2" maxlength="2000" />
+            <input v-else v-model="preferences[field.key]" :placeholder="$t(field.placeholder)" maxlength="500" />
           </label>
-          <button type="button" class="text-button" @click="previewOpen = !previewOpen">{{ previewOpen ? '收起' : '预览' }} Markdown</button>
+          <button type="button" class="text-button" @click="previewOpen = !previewOpen">{{ $t(previewOpen ? '收起' : '预览') }} Markdown</button>
           <pre v-if="previewOpen" class="preferences-preview">{{ preferenceMarkdown || '填写偏好后生成' }}</pre>
-          <button class="button full" :disabled="!preferenceMarkdown || state.sending || state.sessionsLoading">保存并开始对话</button>
+          <button class="button full" :disabled="!preferenceMarkdown || state.sending || state.sessionsLoading">{{ $t("保存并开始对话") }}</button>
         </form>
-      <button class="text-button preferences-skip" @click="preferencesOpen = false">稍后填写</button>
+      <button class="text-button preferences-skip" @click="preferencesOpen = false">{{ $t("稍后填写") }}</button>
     </AppDialog>
     <div class="assistant-shell">
       <aside class="conversation-sidebar">
-        <button class="button full preferences-trigger" :disabled="state.sending || state.sessionsLoading" @click="profilesOpen = true">切换偏好 <AppIcon name="layers"/></button>
-        <button class="button full preferences-trigger" @click="preferencesOpen = !preferencesOpen">偏好设置 <span>{{ preferencesOpen ? '−' : '+' }}</span></button>
+        <button class="button full preferences-trigger" :disabled="state.sending || state.sessionsLoading" @click="profilesOpen = true">{{ $t("切换偏好") }}<AppIcon name="layers"/></button>
+        <button class="button full preferences-trigger" @click="preferencesOpen = !preferencesOpen">{{ $t("偏好设置") }}<span>{{ preferencesOpen ? '−' : '+' }}</span></button>
 
         <button
           class="button full"
@@ -153,7 +153,7 @@ function keydown(event) {
         >
           <AppIcon name="plus" />新建会话
         </button>
-        <div class="nav-label">最近会话</div>
+        <div class="nav-label">{{ $t("最近会话") }}</div>
         <div class="conversation-list">
           <button
             v-for="chat in state.chats"
@@ -169,15 +169,15 @@ function keydown(event) {
       </aside>
       <div class="conversation-main">
         <div class="chat-topline">
-          <span>{{ currentChat?.title || "新会话" }}</span>
+          <span>{{ $t(currentChat?.title || "新会话") }}</span>
           <div class="mobile-chat-tools">
             <select
               :value="state.currentChatId"
               :disabled="state.sending || state.sessionsLoading"
-              aria-label="选择会话"
+              :aria-label="$t('选择会话')"
               @change="selectChat($event.target.value)"
             >
-              <option v-if="!state.chats.length">新会话</option>
+              <option v-if="!state.chats.length">{{ $t("新会话") }}</option>
               <option
                 v-for="chat in state.chats"
                 :key="chat.id"
@@ -188,7 +188,7 @@ function keydown(event) {
             ><button
               class="icon-button"
               :disabled="state.sending || state.sessionsLoading"
-              aria-label="新建会话"
+              :aria-label="$t('新建会话')"
               @click="createChat"
             >
               <AppIcon name="plus" />
@@ -197,7 +197,7 @@ function keydown(event) {
           <button
             class="icon-button"
             :disabled="state.sending || !currentChat"
-            aria-label="删除当前会话"
+            :aria-label="$t('删除当前会话')"
             @click="deleteChat"
           >
             <AppIcon name="trash" />
@@ -206,7 +206,7 @@ function keydown(event) {
         <div ref="messagesElement" class="messages" aria-live="polite">
           <div v-if="!currentChat?.messages.length" class="chat-empty">
             <div class="chat-empty-mark"><AppIcon name="chat" /></div>
-            <h2>今天，从哪件事聊起？</h2>
+            <h2>{{ $t("今天，从哪件事聊起？") }}</h2>
             <div class="suggestions">
               <button
                 v-for="question in suggestions"
@@ -214,13 +214,13 @@ function keydown(event) {
                 class="suggestion"
                 @click="send(question)"
               >
-                {{ question }}<span>↗</span>
+                {{ $t(question) }}<span>↗</span>
               </button>
             </div>
             <div v-if="recentMemories.length" class="chat-recent">
               <div class="chat-recent-heading">
-                <span>最近记住的事</span
-                ><RouterLink to="/memories">管理记忆 ↗</RouterLink>
+                <span>{{ $t("最近记住的事") }}</span
+                ><RouterLink to="/memories">{{ $t("管理记忆 ↗") }}</RouterLink>
               </div>
               <button
                 v-for="memory in recentMemories"
@@ -251,14 +251,14 @@ function keydown(event) {
             "
           >
             <div class="message-avatar">
-              <template v-if="message.role === 'user'">你</template
+              <template v-if="message.role === 'user'">{{ $t("你") }}</template
               ><AppIcon v-else name="memory" />
             </div>
             <div class="message-body">
-              <b>{{ message.role === "user" ? "你" : "个人助手" }}</b>
+              <b>{{ $t(message.role === "user" ? "你" : "个人助手") }}</b>
               <p>{{ message.text }}</p>
               <small v-if="message.pending" class="subtle"
-                >正在思考并检索记忆…</small
+                >{{ $t("正在思考并检索记忆…") }}</small
               >
               <details v-if="message.refs?.length" class="evidence-list">
                 <summary>参考了 {{ message.refs.length }} 条记忆</summary>
@@ -280,12 +280,12 @@ function keydown(event) {
                     <template v-if="reference.version"> · 版本 {{reference.version}} · 来源 {{reference.source_refs?.length || 0}}</template>
                     <template v-else> · 匹配分数 {{ Number(reference.score || 0).toFixed(3) }}</template></small
                   >
-                  <RouterLink class="text-button" :to="{ name: 'memories', query: { record: reference.id } }">查看记忆与来源 ↗</RouterLink>
+                  <RouterLink class="text-button" :to="{ name: 'memories', query: { record: reference.id } }">{{ $t("查看记忆与来源 ↗") }}</RouterLink>
                 </div>
               </details>
               <small v-for="warning in message.warnings || []" :key="warning" class="subtle">{{ warning }}</small>
               <small v-if="message.memory_results?.length" class="subtle">自动记忆结果：{{ message.memory_results.map(formatMemoryDecision).join('；') }}</small>
-              <small v-if="memoryStatusNames[message.memory_status]" class="subtle memory-processing-status">{{ memoryStatusNames[message.memory_status] }}</small>
+              <small v-if="memoryStatusNames[message.memory_status]" class="subtle memory-processing-status">{{ $t(memoryStatusNames[message.memory_status]) }}</small>
               <div v-if="message.role === 'user'" class="message-actions">
                 <button class="text-button" @click="openMemory(message.text)">
                   保存为记忆
@@ -300,8 +300,8 @@ function keydown(event) {
               ref="inputElement"
               v-model="input"
               rows="2"
-              aria-label="发送消息"
-              placeholder="问问与自己有关的事…"
+              :aria-label="$t('发送消息')"
+              :placeholder="$t('问问与自己有关的事…')"
               maxlength="10000"
               required
               @keydown="keydown"
@@ -311,11 +311,11 @@ function keydown(event) {
                 v-model="state.autoRemember"
                 type="checkbox"
                 :disabled="state.sending"
-              />自动记忆</label
+              />{{ $t("自动记忆") }}</label
               ><button
                 class="send-button"
                 :disabled="state.sending || state.sessionsLoading || !input.trim()"
-                aria-label="发送"
+                :aria-label="$t('发送')"
               >
                 <AppIcon name="arrowUp" />
               </button>

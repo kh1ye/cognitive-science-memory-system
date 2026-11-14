@@ -99,25 +99,25 @@ onUnmounted(()=>{effects.forEach(effect=>effect.cancel());observer?.disconnect()
 </script>
 <template>
  <section id="lp-evolution" ref="root" class="hw-section" :style="{'--hw-play':running?'running':'paused'}" aria-labelledby="hw-heading">
-  <div class="hw-heading"><span>HOW IT WORKS</span><h2 id="hw-heading">从一句话开始，<br /><strong>记住，再自然地想起。</strong></h2></div>
+  <div class="hw-heading"><span>HOW IT WORKS</span><h2 id="hw-heading">{{ $t("从一句话开始，") }}<br /><strong>{{ $t("记住，再自然地想起。") }}</strong></h2></div>
   <div class="hw-panel">
-   <ol class="hw-steps"><li><span class="hw-node"/><div><span class="hw-number">01</span><h3>添加</h3><p>输入一段对话或明确的事实，<br />从你的原话开始。</p></div></li><li><span class="hw-node"/><div><span class="hw-number">02</span><h3>学习</h3><p>提取有依据的信息，检查隐私条件，<br />交给记忆规则判断如何保存。</p></div></li><li><span class="hw-node"/><div><span class="hw-number">03</span><h3>取回</h3><p>当下一次问题到来，<br />找回相关记忆作为回答依据。</p></div></li></ol>
-   <div class="hw-stage" role="img" aria-label="记忆流程：添加 Python 偏好，提取并保存，在后续问题中找回相关记忆。">
+   <ol class="hw-steps"><li><span class="hw-node"/><div><span class="hw-number">01</span><h3>{{ $t("添加") }}</h3><p>{{ $t("输入一段对话或明确的事实，") }}<br />{{ $t("从你的原话开始。") }}</p></div></li><li><span class="hw-node"/><div><span class="hw-number">02</span><h3>{{ $t("学习") }}</h3><p>{{ $t("提取有依据的信息，检查隐私条件，") }}<br />{{ $t("交给记忆规则判断如何保存。") }}</p></div></li><li><span class="hw-node"/><div><span class="hw-number">03</span><h3>{{ $t("取回") }}</h3><p>{{ $t("当下一次问题到来，") }}<br />{{ $t("找回相关记忆作为回答依据。") }}</p></div></li></ol>
+   <div class="hw-stage" role="img" :aria-label="$t('记忆流程：添加 Python 偏好，提取并保存，在后续问题中找回相关记忆。')">
     <div class="hw-grain"/>
     <div class="hw-orbit hw-orbit-one"/><div class="hw-orbit hw-orbit-two"/>
     <div class="hw-caption">COGNITIVE MEMORY / REMEMBER & RECALL</div>
-    <div class="hw-input hw-animated"><div class="hw-bubble-icon">A</div><div><small>用户原话</small><p>我喜欢用 Python 写自动化脚本。</p></div><AppIcon name="arrowUp"/></div>
+    <div class="hw-input hw-animated"><div class="hw-bubble-icon">A</div><div><small>{{ $t("用户原话") }}</small><p>{{ $t("我喜欢用 Python 写自动化脚本。") }}</p></div><AppIcon name="arrowUp"/></div>
     <div class="hw-stream hw-animated"><span/><span/><span/><span/></div>
-    <div class="hw-learning hw-animated"><div class="hw-card-top"><span><AppIcon name="memory"/>选择性编码</span><b>原文证据</b></div><div class="hw-field"><span>主题</span><strong>编程语言偏好</strong></div><div class="hw-field"><span>取值</span><strong>Python</strong></div><div class="hw-field hw-gate"><span>写入条件</span><strong>通过后写入当前记忆</strong></div><div class="hw-scan"/></div>
-    <div class="hw-memory hw-animated"><span class="hw-mini-mark">m</span><span><small>已记住偏好</small><strong>偏好使用 Python</strong></span><span class="hw-check">✓</span></div>
-    <div class="hw-question hw-animated"><span>下一次对话</span><p>写自动化脚本，我适合用什么？</p></div>
-    <div class="hw-evidence hw-animated"><AppIcon name="database"/><span>从记忆找回：<strong>偏好使用 Python</strong></span></div>
-    <div class="hw-answer hw-animated"><span class="hw-mini-mark">m</span><p>可以从 Python 开始，<br /><strong>这也是你之前提到的偏好。</strong></p></div>
-    <div class="hw-status-save hw-animated">✓ 记忆已更新</div><div class="hw-status-recall hw-animated">✓ 已找到相关记忆</div>
+    <div class="hw-learning hw-animated"><div class="hw-card-top"><span><AppIcon name="memory"/>{{ $t("选择性编码") }}</span><b>{{ $t("原文证据") }}</b></div><div class="hw-field"><span>{{ $t("主题") }}</span><strong>{{ $t("编程语言偏好") }}</strong></div><div class="hw-field"><span>{{ $t("取值") }}</span><strong>Python</strong></div><div class="hw-field hw-gate"><span>{{ $t("写入条件") }}</span><strong>{{ $t("通过后写入当前记忆") }}</strong></div><div class="hw-scan"/></div>
+    <div class="hw-memory hw-animated"><span class="hw-mini-mark">m</span><span><small>{{ $t("已记住偏好") }}</small><strong>{{ $t("偏好使用 Python") }}</strong></span><span class="hw-check">✓</span></div>
+    <div class="hw-question hw-animated"><span>{{ $t("下一次对话") }}</span><p>{{ $t("写自动化脚本，我适合用什么？") }}</p></div>
+    <div class="hw-evidence hw-animated"><AppIcon name="database"/><span>{{ $t("从记忆找回：") }}<strong>{{ $t("偏好使用 Python") }}</strong></span></div>
+    <div class="hw-answer hw-animated"><span class="hw-mini-mark">m</span><p>{{ $t("可以从 Python 开始，") }}<br /><strong>{{ $t("这也是你之前提到的偏好。") }}</strong></p></div>
+    <div class="hw-status-save hw-animated">{{ $t("✓ 记忆已更新") }}</div><div class="hw-status-recall hw-animated">{{ $t("✓ 已找到相关记忆") }}</div>
     <div class="hw-timeline"><span/></div>
    </div>
   </div>
-  <div class="hw-footnote"><RouterLink to="/evolution">体验记忆流程 →</RouterLink></div>
+  <div class="hw-footnote"><RouterLink to="/evolution">{{ $t("体验记忆流程 →") }}</RouterLink></div>
  </section>
 </template>
 <style scoped>

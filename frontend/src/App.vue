@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onMounted, onUnmounted, provide, ref, watch } from "vue";
+import { language, setLanguage } from "./lib/i18n";
 import { useRoute } from "vue-router";
 import AppIcon from "./components/AppIcon.vue";
 import AppDialog from "./components/AppDialog.vue";
@@ -97,37 +98,38 @@ const navigationGroups = [
 ];
 </script>
 <template>
+  <div class="language-picker"><select :value="language" aria-label="Language" @change="setLanguage($event.target.value)"><option value="en">English</option><option value="zh">{{ $t("中文") }}</option></select></div>
   <RouterView v-if="route.meta.landing" />
   <div v-else-if="route.name === 'assistant'" class="standalone-assistant">
-    <header class="standalone-assistant-header"><RouterLink to="/">← 返回首页</RouterLink><strong>个人助手</strong><button class="text-button" :disabled="state.sending" @click="openProfile">当前空间：{{ state.user }}</button></header>
+    <header class="standalone-assistant-header"><RouterLink to="/">{{ $t("← 返回首页") }}</RouterLink><strong>{{ $t("个人助手") }}</strong><button class="text-button" :disabled="state.sending" @click="openProfile">当前空间：{{ state.user }}</button></header>
     <RouterView :key="state.user" />
-    <div v-if="state.error" class="load-error" role="alert">{{ state.error }}<button class="text-button" :disabled="state.loading" @click="refresh">刷新</button></div>
+    <div v-if="state.error" class="load-error" role="alert">{{ state.error }}<button class="text-button" :disabled="state.loading" @click="refresh">{{ $t("刷新") }}</button></div>
   </div>
   <div v-else class="layout" :class="{ 'sidebar-collapsed': sidebarCollapsed }">
     <aside id="workspace-sidebar" class="sidebar">
-      <RouterLink class="brand sidebar-link" to="/overview" aria-label="记忆工作台首页" :data-tooltip="sidebarCollapsed ? '记忆工作台首页' : null"
+      <RouterLink class="brand sidebar-link" to="/overview" :aria-label="$t('记忆工作台首页')" :data-tooltip="sidebarCollapsed ? '记忆工作台首页' : null"
         ><span class="brand-mark">m<span /></span
         ><span class="brand-copy brand-name">Cognitive Science<br />Memory System</span></RouterLink
       >
-      <nav aria-label="主导航" class="grouped-navigation">
+      <nav :aria-label="$t('主导航')" class="grouped-navigation">
         <section v-for="group in navigationGroups" :key="group.title" class="nav-group" :aria-label="group.title">
-          <div class="nav-label nav-group-label">{{ group.title }}</div>
+          <div class="nav-label nav-group-label">{{ $t(group.title) }}</div>
           <template v-for="item in group.items" :key="item.title">
-            <a v-if="item.href" :href="item.href" target="_blank" rel="noopener" class="sidebar-link" :aria-label="`${item.title}（新窗口）`" :data-tooltip="sidebarCollapsed ? item.title : null"><AppIcon :name="item.icon" /><span class="nav-name">{{ item.title }}</span></a>
-            <RouterLink v-else :to="item.path || { name: item.name }" active-class="active" class="sidebar-link" :aria-label="item.title" :data-tooltip="sidebarCollapsed ? item.title : null"><AppIcon :name="item.icon" /><span class="nav-name">{{ item.title }}</span><span v-if="item.name === 'memories'" class="nav-count">{{ state.overview?.total_count ?? "—" }}</span></RouterLink>
+            <a v-if="item.href" :href="item.href" target="_blank" rel="noopener" class="sidebar-link" :aria-label="`${item.title}（新窗口）`" :data-tooltip="sidebarCollapsed ? item.title : null"><AppIcon :name="item.icon" /><span class="nav-name">{{ $t(item.title) }}</span></a>
+            <RouterLink v-else :to="item.path || { name: item.name }" active-class="active" class="sidebar-link" :aria-label="item.title" :data-tooltip="sidebarCollapsed ? item.title : null"><AppIcon :name="item.icon" /><span class="nav-name">{{ $t(item.title) }}</span><span v-if="item.name === 'memories'" class="nav-count">{{ state.overview?.total_count ?? "—" }}</span></RouterLink>
           </template>
         </section>
       </nav>
       <div class="sidebar-note">
         <span class="small-dot" />本地记忆空间
-        <p>保留重要的事，让每次对话有迹可循。</p>
+        <p>{{ $t("保留重要的事，让每次对话有迹可循。") }}</p>
       </div>
       <div class="sidebar-bottom">
         <button class="profile sidebar-link" :aria-label="`切换用户空间：${state.user}`" :data-tooltip="sidebarCollapsed ? `切换用户空间：${state.user}` : null" :disabled="state.sending" @click="openProfile">
           <span class="avatar">U</span
           ><span
             ><b>{{ state.user }}</b
-            ><small>个人工作空间</small></span
+            ><small>{{ $t("个人工作空间") }}</small></span
           ><AppIcon name="chevron" />
         </button>
       </div>
@@ -136,19 +138,17 @@ const navigationGroups = [
       <header class="topbar">
         <div class="topbar-leading">
           <button class="icon-button sidebar-toggle" :aria-label="sidebarCollapsed ? '展开侧边栏' : '收起侧边栏'" :title="sidebarCollapsed ? '展开侧边栏' : '收起侧边栏'" :aria-expanded="!sidebarCollapsed" aria-controls="workspace-sidebar" @click="toggleSidebar"><AppIcon name="sidebar" /></button>
-          <div class="breadcrumb">工作空间 <span>/</span><b>{{ title }}</b></div>
+          <div class="breadcrumb">{{ $t("工作空间") }}<span>/</span><b>{{ $t(title) }}</b></div>
         </div>
         <div class="connection">
           <span
             class="small-dot"
             :style="{ background: state.connected ? '#84a18d' : '#c79383' }"
-          /><span>{{
-            state.connected
+          /><span>{{ $t(state.connected
               ? "本地服务已连接"
               : state.loading
                 ? "连接中"
-                : "连接异常"
-          }}</span>
+                : "连接异常") }}</span>
         </div>
       </header>
       <RouterView :key="state.user" />
@@ -161,10 +161,10 @@ const navigationGroups = [
     </main>
   </div>
   <MemoryForm />
-  <AppDialog v-model:open="profileOpen" title="切换用户空间"
+  <AppDialog v-model:open="profileOpen" :title="$t('切换用户空间')"
     ><form @submit.prevent="submitProfile">
       <label
-        >用户 ID<input v-model="userInput" required maxlength="100"
+        >{{ $t("用户 ID") }}<input v-model="userInput" required maxlength="100"
       /></label>
       <p class="form-hint">
         记忆与会话按用户 ID 区分。这是本地空间切换，不提供身份认证。
@@ -185,7 +185,7 @@ const navigationGroups = [
     ><template v-if="state.confirm"
       ><p class="confirm-text">{{ state.confirm.text }}</p>
       <div class="dialog-actions">
-        <button class="button" @click="resolveConfirm(false)">取消</button
+        <button class="button" @click="resolveConfirm(false)">{{ $t("取消") }}</button
         ><button class="button danger" @click="resolveConfirm(true)">
           {{ state.confirm.action }}
         </button>
@@ -203,4 +203,8 @@ const navigationGroups = [
 .standalone-assistant>.assistant-page{width:100%;max-width:none;margin:0;padding:0;height:calc(100dvh - 64px);min-height:0}
 .standalone-assistant .assistant-shell{border:0;border-radius:0;width:100%}
 @media(max-width:700px){.standalone-assistant-header{padding:0 14px;gap:10px}.standalone-assistant-header>.text-button{max-width:40%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+</style>
+
+<style>
+.language-picker{position:fixed;right:18px;top:12px;z-index:1000}.language-picker select{padding:7px 10px;border:1px solid var(--line,#ddd);border-radius:7px;background:var(--surface,#fff);color:var(--ink,#222);font-size:12px}.lp-header,.standalone-assistant-header,.topbar{padding-right:130px!important}
 </style>

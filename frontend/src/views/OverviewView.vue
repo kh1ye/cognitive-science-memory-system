@@ -80,8 +80,8 @@ const donut = computed(() => {
   <div class="page overview-page">
     <div class="page-heading">
       <div>
-        <h1>系统总览</h1>
-        <p>你的记忆空间，近况一目了然。</p>
+        <h1>{{ $t("系统总览") }}</h1>
+        <p>{{ $t("你的记忆空间，近况一目了然。") }}</p>
       </div>
       <div class="heading-actions">
         <span class="date-chip">{{ today }}</span
@@ -90,9 +90,9 @@ const donut = computed(() => {
         </button>
       </div>
     </div>
-    <section class="panel snapshot-panel" aria-label="当前近况">
-      <div class="snapshot-copy"><span class="snapshot-caption">当前近况 · {{ state.user }}</span><h2>{{ snapshot }}</h2><p>{{ state.error ? '同步未成功；已有数据为上次成功同步的快照。' : state.loading ? '正在同步，已有数据为上次快照。' : '总量汇总四类记忆对象与兼容记录，包含工作状态、程序版本、历史及归档；迁移副本不重复计数。' }}</p></div>
-      <div class="snapshot-actions"><RouterLink class="button primary" to="/evolution"><AppIcon name="activity" />体验记忆演化</RouterLink><RouterLink class="button" to="/memories"><AppIcon name="memory" />管理记忆</RouterLink></div>
+    <section class="panel snapshot-panel" :aria-label="$t('当前近况')">
+      <div class="snapshot-copy"><span class="snapshot-caption">当前近况 · {{ state.user }}</span><h2>{{ snapshot }}</h2><p>{{ $t(state.error ? '同步未成功；已有数据为上次成功同步的快照。' : state.loading ? '正在同步，已有数据为上次快照。' : '总量汇总四类记忆对象与兼容记录，包含工作状态、程序版本、历史及归档；迁移副本不重复计数。') }}</p></div>
+      <div class="snapshot-actions"><RouterLink class="button primary" to="/evolution"><AppIcon name="activity" />{{ $t("体验记忆演化") }}</RouterLink><RouterLink class="button" to="/memories"><AppIcon name="memory" />{{ $t("管理记忆") }}</RouterLink></div>
     </section>
     <div class="metrics">
       <article v-for="metric in metrics" :key="metric.label" class="metric">
@@ -110,13 +110,13 @@ const donut = computed(() => {
       <div class="overview-column">
         <section class="panel types-panel">
           <div class="panel-heading">
-            <h2>记忆类型分布</h2>
-            <span class="subtle">全部记录</span>
+            <h2>{{ $t("记忆类型分布") }}</h2>
+            <span class="subtle">{{ $t("全部记录") }}</span>
           </div>
           <div class="type-chart">
             <div v-for="(type, key) in types" :key="key" class="type-row">
               <div class="type-label">
-                <span :style="{ background: type.color }" />{{ type.label }}
+                <span :style="{ background: type.color }" />{{ $t(type.label) }}
               </div>
               <div
                 class="bar-track"
@@ -134,18 +134,18 @@ const donut = computed(() => {
               <strong>{{ overview?.by_type[key] || 0 }}</strong>
             </div>
           </div>
-          <div class="panel-foot">不同形式的记忆，各有其位置。</div>
+          <div class="panel-foot">{{ $t("不同形式的记忆，各有其位置。") }}</div>
         </section>
         <section class="panel activity-panel">
           <div class="panel-heading">
-            <h2>最近变化</h2>
+            <h2>{{ $t("最近变化") }}</h2>
             <RouterLink class="text-button" to="/memories"
-              >查看记忆 ↗</RouterLink
+              >{{ $t("查看记忆 ↗") }}</RouterLink
             >
           </div>
           <template v-if="overview?.recent_activity.length"
             ><div class="activity-head">
-              <span>最近 {{ overview.recent_activity.length }} 项操作 · 当前用户</span><span style="text-align: right">时间</span>
+              <span>最近 {{ overview.recent_activity.length }} 项操作 · 当前用户</span><span style="text-align: right">{{ $t("时间") }}</span>
             </div>
             <div
               v-for="event in overview.recent_activity"
@@ -163,10 +163,10 @@ const donut = computed(() => {
                   "
                 />
                 <div>
-                  <b>{{ eventNames[event.event_type] || event.event_type }}</b>
+                  <b>{{ $t(eventNames[event.event_type] || event.event_type) }}</b>
                   <p class="change-explanation">{{ recentChange(event) }}</p>
                   <div v-if="event.related_memory && event.event_type !== 'USER_DELETE'" class="related-record"><span>关联记忆 · 当前快照 / {{ roles[event.related_memory.state_role]?.label || event.related_memory.state_role }}</span><blockquote>{{ event.related_memory.content }}</blockquote></div>
-                  <small v-else-if="event.memory_id" class="missing-record">{{ event.event_type === 'USER_DELETE' || event.related_memory === null ? '关联正文已删除或不可用，仅展示操作。' : '尚未提供关联正文；升级后端后可查看。' }}</small>
+                  <small v-else-if="event.memory_id" class="missing-record">{{ $t(event.event_type === 'USER_DELETE' || event.related_memory === null ? '关联正文已删除或不可用，仅展示操作。' : '尚未提供关联正文；升级后端后可查看。') }}</small>
                 </div>
               </div>
               <time
@@ -176,14 +176,14 @@ const donut = computed(() => {
               >
             </div></template
           >
-          <div v-else class="empty overview-empty"><p>{{ state.loading ? '正在同步当前空间…' : !overview ? '暂未取得活动数据，请刷新重试。' : '还没有活动。输入一句话，看看系统如何形成记忆。' }}</p><RouterLink v-if="overview && !state.loading" class="text-button" to="/evolution">从记忆演化开始 ↗</RouterLink></div>
+          <div v-else class="empty overview-empty"><p>{{ $t(state.loading ? '正在同步当前空间…' : !overview ? '暂未取得活动数据，请刷新重试。' : '还没有活动。输入一句话，看看系统如何形成记忆。') }}</p><RouterLink v-if="overview && !state.loading" class="text-button" to="/evolution">{{ $t("从记忆演化开始 ↗") }}</RouterLink></div>
         </section>
       </div>
       <div class="overview-column">
         <section class="panel state-panel">
           <div class="panel-heading">
-            <h2>记忆状态</h2>
-            <span class="subtle">生命周期</span>
+            <h2>{{ $t("记忆状态") }}</h2>
+            <span class="subtle">{{ $t("生命周期") }}</span>
           </div>
           <div class="state-layout">
             <div
@@ -193,7 +193,7 @@ const donut = computed(() => {
             >
               <div>
                 <strong>{{ overview?.total_count || 0 }}</strong
-                ><small>条记忆</small>
+                ><small>{{ $t("条记忆") }}</small>
               </div>
             </div>
             <div class="legend">
@@ -209,8 +209,8 @@ const donut = computed(() => {
         </section>
         <section class="panel modules-panel">
           <div class="panel-heading">
-            <h2>核心模块</h2>
-            <span class="subtle">当前配置</span>
+            <h2>{{ $t("核心模块") }}</h2>
+            <span class="subtle">{{ $t("当前配置") }}</span>
           </div>
           <div class="module-list">
             <div
@@ -231,15 +231,14 @@ const donut = computed(() => {
               >
             </div>
           </div>
-          <p class="module-note">“已配置”仅表示读取到模型配置，不代表已验证连接；查看此页不会调用模型。</p>
+          <p class="module-note">{{ $t("“已配置”仅表示读取到模型配置，不代表已验证连接；查看此页不会调用模型。") }}</p>
         </section>
       </div>
     </div>
     <footer class="overview-footer">
       <span
         >SQLite ·
-        {{ overview?.storage.mode === "memory" ? "内存模式" : "本地持久化"
-        }}<template v-if="overview">
+        {{ $t(overview?.storage.mode === "memory" ? "内存模式" : "本地持久化") }}<template v-if="overview">
           · 数据页 {{ bytes(overview.storage.allocated_bytes) }}</template
         ></span
       ><span>{{

@@ -2056,3 +2056,11 @@ dialog textarea::placeholder {
 .sidebar-collapsed .nav-group + .nav-group { margin-top:12px; padding-top:12px; }
 @media(max-height:760px) { .sidebar .brand { margin-bottom:18px; } .nav-group + .nav-group { margin-top:12px; padding-top:12px; } .sidebar .sidebar-note { margin-top:14px; padding-top:14px; } .sidebar-bottom { padding-top:16px; } }
 @media(max-height:610px) { .sidebar .sidebar-note { display:none; } .sidebar .nav-group + .nav-group { margin-top:8px; padding-top:8px; } .sidebar nav a { padding-block:7px; } }
+
+/* Softer bilingual typography, using installed system fonts. */
+:root{--ui-font:"Segoe UI Variable Text","Segoe UI","PingFang SC","Microsoft YaHei UI","Microsoft YaHei",sans-serif}
+body{font-family:var(--ui-font);font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+button,input,select,textarea{font-family:var(--ui-font)}
+h1,h2,h3,h4{font-weight:500;line-height:1.4}
+.lp-root{font-family:var(--ui-font)!important}.lp-root h1,.lp-root h2{font-weight:500!important;letter-spacing:-.025em!important}
+.lp-root p{line-height:1.9}.message-body>p{line-height:1.85}

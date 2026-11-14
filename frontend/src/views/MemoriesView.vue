@@ -139,26 +139,26 @@ function tabKey(event, index) {
   <div class="page">
     <div class="page-heading">
       <div>
-        <h1>记忆管理</h1>
-        <p>查看记忆来源，对照候选与历史，了解每次变化。</p>
+        <h1>{{ $t("记忆管理") }}</h1>
+        <p>{{ $t("查看记忆来源，对照候选与历史，了解每次变化。") }}</p>
       </div>
       <div class="heading-actions">
-        <button class="button" @click="healthOpen = true">记忆体检</button>
+        <button class="button" @click="healthOpen = true">{{ $t("记忆体检") }}</button>
         <button class="button" :disabled="checking" @click="retention">
-          <AppIcon name="refresh" />检查保留度</button
+          <AppIcon name="refresh" />{{ $t("检查保留度") }}</button
         ><button class="button primary" @click="openMemory()">
           <AppIcon name="plus" />添加记忆
         </button>
       </div>
     </div>
-    <div class="memory-scope"><span>当前空间：<strong>{{ state.user }}</strong></span><span>以下筛选与体检基于已加载的 {{ state.memories.length }} 条记忆<span v-if="state.overview?.total_count > state.memories.length">，不覆盖全部记录</span></span></div>
-    <div class="memory-shortcuts" aria-label="快捷筛选">
-      <button class="panel memory-shortcut" :class="{ active: !focus }" @click="resetFilters"><span>全部已加载</span><strong>{{ state.memories.length }}</strong><small>浏览当前空间</small></button>
-      <button class="panel memory-shortcut" :class="{ active: focus === 'candidate' }" @click="showCandidates"><span>待核实候选</span><strong>{{ candidates.length }}</strong><small>查看与已有记忆的差异</small></button>
-      <button class="panel memory-shortcut" :class="{ active: focus === 'protected' }" @click="resetFilters(); focus = 'protected'"><span>受保护记忆</span><strong>{{ protectedCount }}</strong><small>保留度检查不会归档</small></button>
-      <button class="panel memory-shortcut" :class="{ active: focus === 'archived' }" @click="resetFilters(); focus = 'archived'"><span>已归档</span><strong>{{ archivedCount }}</strong><small>回顾保留的旧记录</small></button>
+    <div class="memory-scope"><span>{{ $t("当前空间：") }}<strong>{{ state.user }}</strong></span><span>以下筛选与体检基于已加载的 {{ state.memories.length }} 条记忆<span v-if="state.overview?.total_count > state.memories.length">{{ $t("，不覆盖全部记录") }}</span></span></div>
+    <div class="memory-shortcuts" :aria-label="$t('快捷筛选')">
+      <button class="panel memory-shortcut" :class="{ active: !focus }" @click="resetFilters"><span>{{ $t("全部已加载") }}</span><strong>{{ state.memories.length }}</strong><small>{{ $t("浏览当前空间") }}</small></button>
+      <button class="panel memory-shortcut" :class="{ active: focus === 'candidate' }" @click="showCandidates"><span>{{ $t("待核实候选") }}</span><strong>{{ candidates.length }}</strong><small>{{ $t("查看与已有记忆的差异") }}</small></button>
+      <button class="panel memory-shortcut" :class="{ active: focus === 'protected' }" @click="resetFilters(); focus = 'protected'"><span>{{ $t("受保护记忆") }}</span><strong>{{ protectedCount }}</strong><small>{{ $t("保留度检查不会归档") }}</small></button>
+      <button class="panel memory-shortcut" :class="{ active: focus === 'archived' }" @click="resetFilters(); focus = 'archived'"><span>{{ $t("已归档") }}</span><strong>{{ archivedCount }}</strong><small>{{ $t("回顾保留的旧记录") }}</small></button>
     </div>
-    <div class="memory-tabs" role="tablist" aria-label="记忆类型">
+    <div class="memory-tabs" role="tablist" :aria-label="$t('记忆类型')">
       <button
         v-for="(tab, index) in tabs"
         :key="tab.key"
@@ -179,30 +179,30 @@ function tabKey(event, index) {
           <label class="search-input"
             ><AppIcon name="search" /><input
               v-model="query"
-              placeholder="搜索内容、标签或主题"
-              aria-label="搜索记忆" /></label
-          ><select v-model="role" aria-label="筛选状态">
-            <option value="">全部状态</option>
+              :placeholder="$t('搜索内容、标签或主题')"
+              :aria-label="$t('搜索记忆')" /></label
+          ><select v-model="role" :aria-label="$t('筛选状态')">
+            <option value="">{{ $t("全部状态") }}</option>
             <option v-for="(item, key) in roles" :key="key" :value="key">
-              {{ item.label }}
+              {{ $t(item.label) }}
             </option></select
           ><span class="subtle">{{ filtered.length }} 条记录</span>
         </div>
         <div class="memory-extra-filters">
-          <label>来源<select v-model="source" aria-label="筛选来源"><option value="">全部来源</option><option v-for="item in sources" :key="item" :value="item">{{ item }}</option></select></label>
-          <label>更新起始日期<input v-model="since" type="date" aria-label="更新起始日期" /></label>
-          <span v-if="focus" class="badge">{{ focus === 'protected' ? '受保护记忆' : roles[focus]?.label }}</span>
-          <button class="button small" @click="resetFilters">重置筛选</button>
+          <label>{{ $t("来源") }}<select v-model="source" :aria-label="$t('筛选来源')"><option value="">{{ $t("全部来源") }}</option><option v-for="item in sources" :key="item" :value="item">{{ item }}</option></select></label>
+          <label>{{ $t("更新起始日期") }}<input v-model="since" type="date" :aria-label="$t('更新起始日期')" /></label>
+          <span v-if="focus" class="badge">{{ $t(focus === 'protected' ? '受保护记忆' : roles[focus]?.label) }}</span>
+          <button class="button small" @click="resetFilters">{{ $t("重置筛选") }}</button>
         </div>
         <div class="table-scroll">
           <table class="memory-table">
             <thead>
               <tr>
-                <th>记忆内容</th>
-                <th>类型</th>
-                <th>状态</th>
-                <th>证据</th>
-                <th>更新时间</th>
+                <th>{{ $t("记忆内容") }}</th>
+                <th>{{ $t("类型") }}</th>
+                <th>{{ $t("状态") }}</th>
+                <th>{{ $t("证据") }}</th>
+                <th>{{ $t("更新时间") }}</th>
                 <th />
               </tr>
             </thead>
@@ -221,11 +221,9 @@ function tabKey(event, index) {
                     }}
                   </button>
                   <div class="memory-tags">
-                    {{
-                      memory.tags.length
+                    {{ $t(memory.tags.length
                         ? memory.tags.map((tag) => "#" + tag).join("  ")
-                        : memory.memory_key || "无标签"
-                    }}
+                        : memory.memory_key || "无标签") }}
                   </div>
                 </td>
                 <td>
@@ -242,7 +240,7 @@ function tabKey(event, index) {
                   <button
                     v-if="memory.can_delete !== false"
                     class="icon-button"
-                    aria-label="删除记忆"
+                    :aria-label="$t('删除记忆')"
                     @click="remove(memory.id)"
                   >
                     <AppIcon name="trash" />
@@ -252,13 +250,11 @@ function tabKey(event, index) {
               <tr v-if="!rows.length">
                 <td colspan="6">
                   <div class="empty">
-                    {{
-                      state.loading
+                    {{ $t(state.loading
                         ? "正在同步当前空间…"
                         : state.memories.length
                           ? "没有符合条件的记忆，试试其他筛选条件。"
-                          : "还没有记忆，点击右上角添加。"
-                    }}
+                          : "还没有记忆，点击右上角添加。") }}
                   </div>
                 </td>
               </tr>
@@ -277,14 +273,14 @@ function tabKey(event, index) {
             <button
               class="button small"
               :disabled="page <= 1"
-              aria-label="上一页"
+              :aria-label="$t('上一页')"
               @click="page--"
             >
               ←</button
             ><button
               class="button small"
               :disabled="page >= pages"
-              aria-label="下一页"
+              :aria-label="$t('下一页')"
               @click="page++"
             >
               →
@@ -292,10 +288,10 @@ function tabKey(event, index) {
           </div>
         </div>
       </section>
-      <aside class="panel memory-preview" aria-label="记忆预览">
+      <aside class="panel memory-preview" :aria-label="$t('记忆预览')">
         <div class="panel-heading">
-          <h2>记忆预览</h2>
-          <span class="subtle">选中记录</span>
+          <h2>{{ $t("记忆预览") }}</h2>
+          <span class="subtle">{{ $t("选中记录") }}</span>
         </div>
         <template v-if="previewMemory">
           <div class="preview-body">
@@ -314,20 +310,20 @@ function tabKey(event, index) {
               >
             </div>
             <dl class="preview-fields">
-              <dt>来源</dt><dd>{{ previewMemory.source || "未记录" }}</dd>
-              <dt>最近访问</dt><dd>{{ previewMemory.last_accessed_at ? formatDate(previewMemory.last_accessed_at) : "暂无访问记录" }}</dd>
-              <dt>主题</dt>
+              <dt>{{ $t("来源") }}</dt><dd>{{ previewMemory.source || "未记录" }}</dd>
+              <dt>{{ $t("最近访问") }}</dt><dd>{{ $t(previewMemory.last_accessed_at ? formatDate(previewMemory.last_accessed_at) : "暂无访问记录") }}</dd>
+              <dt>{{ $t("主题") }}</dt>
               <dd>{{ previewMemory.memory_key || "未设置" }}</dd>
-              <dt>取值</dt>
+              <dt>{{ $t("取值") }}</dt>
               <dd>{{ previewMemory.memory_value || "—" }}</dd>
-              <dt>支持证据</dt>
+              <dt>{{ $t("支持证据") }}</dt>
               <dd>{{ previewMemory.evidence_count }} 条</dd>
-              <dt>保护状态</dt>
-              <dd>{{ previewMemory.is_protected ? "受保护" : "普通记忆" }}</dd>
+              <dt>{{ $t("保护状态") }}</dt>
+              <dd>{{ $t(previewMemory.is_protected ? "受保护" : "普通记忆") }}</dd>
             </dl>
             <div v-if="previewMemory.importance != null" class="preview-score">
               <div>
-                <span>重要程度</span
+                <span>{{ $t("重要程度") }}</span
                 ><b>{{ Math.round(previewMemory.importance * 100) }}%</b>
               </div>
               <div class="bar-track">
@@ -341,13 +337,13 @@ function tabKey(event, index) {
               </div>
             </div>
             <div v-if="previewMemory.storage_kind === 'typed'" class="memory-notice">此记录来自四类记忆对象。状态为 {{ previewMemory.native_status }}，请在上方任务与来源面板管理来源和程序版本。</div>
-            <div v-else-if="previewMemory.state_role === 'candidate'" class="memory-notice">这是一条候选证据，尚未替代当前记忆。系统会在后续一致证据达到阈值后判断是否巩固。</div>
+            <div v-else-if="previewMemory.state_role === 'candidate'" class="memory-notice">{{ $t("这是一条候选证据，尚未替代当前记忆。系统会在后续一致证据达到阈值后判断是否巩固。") }}</div>
             <section v-if="related.length" class="memory-relations">
-              <h3>关联与新旧对照</h3>
-              <p class="subtle">前序版本、支持证据及同主题记录 · 已加载范围</p>
+              <h3>{{ $t("关联与新旧对照") }}</h3>
+              <p class="subtle">{{ $t("前序版本、支持证据及同主题记录 · 已加载范围") }}</p>
               <button v-for="item in related" :key="item.id" class="related-memory" @click="detail = item">
                 <span class="badge" :class="item.state_role">{{ roles[item.state_role]?.label }}</span>
-                <small>{{ previewMemory.parent_id === item.id ? '前序记忆' : (previewMemory.support_ids || []).includes(item.id) ? '支持证据' : '同主题 / 后续记录' }}</small>
+                <small>{{ $t(previewMemory.parent_id === item.id ? '前序记忆' : (previewMemory.support_ids || []).includes(item.id) ? '支持证据' : '同主题 / 后续记录') }}</small>
                 <p>{{ item.content }}</p>
               </button>
             </section>
@@ -359,19 +355,19 @@ function tabKey(event, index) {
             </button>
           </div>
         </template>
-        <div v-else class="empty">选择一条记忆，查看其内容与来源。</div>
+        <div v-else class="empty">{{ $t("选择一条记忆，查看其内容与来源。") }}</div>
       </aside>
     </div>
   </div>
-  <AppDialog :open="healthOpen" title="记忆体检" @update:open="healthOpen = false">
+  <AppDialog :open="healthOpen" :title="$t('记忆体检')" @update:open="healthOpen = false">
     <p class="form-hint">仅分析当前空间已加载的 {{ state.memories.length }} 条记录，不调用模型，不修改记忆。重复检查仅比较当前与工作层记录的相同正文，不代表语义去重。</p>
-    <div class="health-item"><h3>待核实候选 · {{ candidates.length }} 条</h3><p>候选尚未成为当前事实，可对照已有记忆和证据来源。</p><button class="button" :disabled="!candidates.length" @click="showCandidates">查看候选</button></div>
-    <div class="health-item"><h3>相同正文 · {{ duplicateGroups.length }} 组</h3><p v-if="!duplicateGroups.length">已加载的当前与工作层记录未发现相同正文。</p>
+    <div class="health-item"><h3>待核实候选 · {{ candidates.length }} 条</h3><p>{{ $t("候选尚未成为当前事实，可对照已有记忆和证据来源。") }}</p><button class="button" :disabled="!candidates.length" @click="showCandidates">{{ $t("查看候选") }}</button></div>
+    <div class="health-item"><h3>相同正文 · {{ duplicateGroups.length }} 组</h3><p v-if="!duplicateGroups.length">{{ $t("已加载的当前与工作层记录未发现相同正文。") }}</p>
       <button v-for="group in duplicateGroups" :key="group[0].id" class="related-memory" @click="healthOpen = false; detail = group[0]"><p>{{ group[0].content }}</p><small>{{ group.length }} 条记录 · 查看详情后判断是否需要保留</small></button>
     </div>
-    <div class="dialog-actions"><button class="button" @click="healthOpen = false">关闭</button></div>
+    <div class="dialog-actions"><button class="button" @click="healthOpen = false">{{ $t("关闭") }}</button></div>
   </AppDialog>
-  <AppDialog :open="!!detail" title="记忆详情" @update:open="detail = null"
+  <AppDialog :open="!!detail" :title="$t('记忆详情')" @update:open="detail = null"
     ><template v-if="detail"
       ><p class="detail-content">{{ detail.content }}</p>
       <div class="detail-tags">
@@ -387,7 +383,7 @@ function tabKey(event, index) {
       </dl>
       <SourceEvidence :memory-id="detail.id" :user-id="state.user" />
       <section v-if="detailRelated.length" class="memory-relations">
-        <h3>关联与新旧对照</h3><p class="subtle">当前空间已加载的关联记录</p>
+        <h3>{{ $t("关联与新旧对照") }}</h3><p class="subtle">{{ $t("当前空间已加载的关联记录") }}</p>
         <button v-for="item in detailRelated" :key="item.id" class="related-memory" @click="detail = item">
           <span class="badge" :class="item.state_role">{{ roles[item.state_role]?.label }}</span><p>{{ item.content }}</p>
         </button>
@@ -398,7 +394,7 @@ function tabKey(event, index) {
       <div class="dialog-actions">
         <button v-if="detail.can_delete !== false" class="button danger" @click="remove(detail.id)">
           删除记忆</button
-        ><button class="button" @click="detail = null">关闭</button>
+        ><button class="button" @click="detail = null">{{ $t("关闭") }}</button>
       </div></template
     ></AppDialog
   >

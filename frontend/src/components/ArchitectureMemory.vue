@@ -28,28 +28,28 @@ async function toggle(){expanded.value=!expanded.value;if(expanded.value)await l
 </script>
 <template>
 <section class="panel architecture-memory">
-  <button class="button" @click="toggle">{{ expanded ? '收起' : '打开' }}四类记忆 · 任务与来源</button>
+  <button class="button" @click="toggle">{{ $t(expanded ? '收起' : '打开') }}四类记忆 · 任务与来源</button>
   <div v-if="expanded">
-    <p>工作状态按任务恢复；事件、知识和程序分别保存。下方列表汇总四类对象与兼容记录，此处可查看专属字段、来源与执行结果。</p>
-    <label>模块 <select v-model="module"><option v-for="(label,key) in modules" :key="key" :value="key">{{label}}</option></select></label>
-    <button @click="load" :disabled="busy">刷新</button>
+    <p>{{ $t("工作状态按任务恢复；事件、知识和程序分别保存。下方列表汇总四类对象与兼容记录，此处可查看专属字段、来源与执行结果。") }}</p>
+    <label>{{ $t("模块") }}<select v-model="module"><option v-for="(label,key) in modules" :key="key" :value="key">{{label}}</option></select></label>
+    <button @click="load" :disabled="busy">{{ $t("刷新") }}</button>
     <p v-if="error" role="alert">{{error}}</p>
     <form @submit.prevent="observe">
-      <label>会话 <input v-model="thread" required></label><label>任务 <input v-model="task" required></label>
-      <label>观察 <textarea v-model="content" required placeholder="输入原始观察；自动语义提取可使用个人助手"></textarea></label>
-      <label>保存策略 <select v-model="policy"><option value="persist">允许长期保存</option><option value="no_long_term">仅任务状态（仍持久化）</option><option value="no_persist">不持久化正文或检查点</option></select></label>
-      <details><summary>结构化分流（可选 JSON，离线校验）</summary><textarea v-model="analysis" aria-label="结构化分流"></textarea><p>默认 {} 只记录工作观察。语义候选需 evidence_text 原文依据；程序提议需验证后启用。</p></details>
-      <button type="submit">提交观察</button>
+      <label>{{ $t("会话") }}<input v-model="thread" required></label><label>{{ $t("任务") }}<input v-model="task" required></label>
+      <label>{{ $t("观察") }}<textarea v-model="content" required :placeholder="$t('输入原始观察；自动语义提取可使用个人助手')"></textarea></label>
+      <label>{{ $t("保存策略") }}<select v-model="policy"><option value="persist">{{ $t("允许长期保存") }}</option><option value="no_long_term">{{ $t("仅任务状态（仍持久化）") }}</option><option value="no_persist">{{ $t("不持久化正文或检查点") }}</option></select></label>
+      <details><summary>{{ $t("结构化分流（可选 JSON，离线校验）") }}</summary><textarea v-model="analysis" :aria-label="$t('结构化分流')"></textarea><p>默认 {} 只记录工作观察。语义候选需 evidence_text 原文依据；程序提议需验证后启用。</p></details>
+      <button type="submit">{{ $t("提交观察") }}</button>
     </form>
-    <template v-if="module==='procedure_versions'"><button @click="install">登记内置程序</button><label>执行参数 JSON <input v-model="argumentsText"></label></template>
-    <p v-if="!items.length && !busy">该用户暂无此类记录。</p>
+    <template v-if="module==='procedure_versions'"><button @click="install">{{ $t("登记内置程序") }}</button><label>{{ $t("执行参数 JSON") }}<input v-model="argumentsText"></label></template>
+    <p v-if="!items.length && !busy">{{ $t("该用户暂无此类记录。") }}</p>
     <article v-for="row in items" :key="row.id" class="architecture-record">
       <code>{{row.id || `${row.thread_id}/${row.task_id}`}}</code>
       <dl><template v-for="key in columns" :key="key"><dt>{{key}}</dt><dd>{{show(row[key])}}</dd></template></dl>
-      <template v-if="module==='procedure_versions'"><button v-if="row.status==='enabled'" @click="execute(row)">执行</button><button v-if="row.status==='draft'" @click="change(row,'validate')">验证</button><button v-if="['validated','disabled'].includes(row.status)" @click="change(row,'activate')">启用此版本</button><button v-if="row.status==='enabled'" @click="change(row,'disable')">停用</button></template>
-      <button v-if="module==='source_records'" @click="remove(row)">删除来源及派生内容</button>
+      <template v-if="module==='procedure_versions'"><button v-if="row.status==='enabled'" @click="execute(row)">{{ $t("执行") }}</button><button v-if="row.status==='draft'" @click="change(row,'validate')">{{ $t("验证") }}</button><button v-if="['validated','disabled'].includes(row.status)" @click="change(row,'activate')">{{ $t("启用此版本") }}</button><button v-if="row.status==='enabled'" @click="change(row,'disable')">{{ $t("停用") }}</button></template>
+      <button v-if="module==='source_records'" @click="remove(row)">{{ $t("删除来源及派生内容") }}</button>
     </article>
-    <details v-if="receipt" open><summary>本次实际回执</summary><pre>{{JSON.stringify(receipt,null,2)}}</pre></details>
+    <details v-if="receipt" open><summary>{{ $t("本次实际回执") }}</summary><pre>{{JSON.stringify(receipt,null,2)}}</pre></details>
   </div>
 </section>
 </template>

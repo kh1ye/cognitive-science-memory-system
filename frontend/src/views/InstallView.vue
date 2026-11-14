@@ -62,41 +62,41 @@ async function copy(code, id) {
 </script>
 <template>
   <div class="page install-page">
-    <div class="install-banner"><AppIcon name="book" /><div><strong>把记忆能力接入你的应用</strong><p>选择接入方式，复制示例，从第一条记忆开始。</p></div><a class="button small" href="/docs" target="_blank" rel="noopener">接口文档 <AppIcon name="external" /></a></div>
+    <div class="install-banner"><AppIcon name="book" /><div><strong>{{ $t("把记忆能力接入你的应用") }}</strong><p>{{ $t("选择接入方式，复制示例，从第一条记忆开始。") }}</p></div><a class="button small" href="/docs" target="_blank" rel="noopener">{{ $t("接口文档") }}<AppIcon name="external" /></a></div>
     <div class="install-content">
-      <div class="page-heading"><div><h1>安装与接入</h1><p>Cognitive Science Memory System · 本地优先的记忆服务</p></div></div>
-      <div class="install-choices" aria-label="接入方式">
-        <button v-for="item in choices" :key="item.id" class="panel install-choice" :class="{ active: mode === item.id }" :aria-pressed="mode === item.id" @click="mode = item.id; copied = ''"><span class="integration-logo-tile"><IntegrationLogo :name="item.id === 'agent' ? 'agent' : item.id === 'python' ? 'sdk' : 'plugin'" /></span><span><strong>{{ item.title }}</strong><small>{{ item.text }}</small></span></button>
+      <div class="page-heading"><div><h1>{{ $t("安装与接入") }}</h1><p>{{ $t("Cognitive Science Memory System · 本地优先的记忆服务") }}</p></div></div>
+      <div class="install-choices" :aria-label="$t('接入方式')">
+        <button v-for="item in choices" :key="item.id" class="panel install-choice" :class="{ active: mode === item.id }" :aria-pressed="mode === item.id" @click="mode = item.id; copied = ''"><span class="integration-logo-tile"><IntegrationLogo :name="item.id === 'agent' ? 'agent' : item.id === 'python' ? 'sdk' : 'plugin'" /></span><span><strong>{{ $t(item.title) }}</strong><small>{{ $t(item.text) }}</small></span></button>
       </div>
       <template v-if="mode !== 'plugin'">
         <template v-if="mode === 'agent'">
-          <div class="install-switch" aria-label="Agent 客户端"><button v-for="item in harnesses" :key="item.id" class="button" :class="{ primary: harness === item.id }" :aria-pressed="harness === item.id" @click="harness = item.id"><IntegrationLogo :name="item.id" />{{ item.title }}</button></div>
-          <section class="panel install-guide"><span class="badge">{{ selectedHarness.status }}</span><h2>{{ selectedHarness.title }}</h2><p class="install-footnote">{{ selectedHarness.description }}</p><a class="button small" :href="selectedHarness.url" target="_blank" rel="noopener">官方接入文档 <AppIcon name="external" /></a></section>
-          <p class="install-footnote">插件连接本地记忆 API，支持检索和显式保存，不自动捕获聊天。隐私门和候选巩固规则仍由记忆服务执行。</p>
+          <div class="install-switch" :aria-label="$t('Agent 客户端')"><button v-for="item in harnesses" :key="item.id" class="button" :class="{ primary: harness === item.id }" :aria-pressed="harness === item.id" @click="harness = item.id"><IntegrationLogo :name="item.id" />{{ $t(item.title) }}</button></div>
+          <section class="panel install-guide"><span class="badge">{{ $t(selectedHarness.status) }}</span><h2>{{ selectedHarness.title }}</h2><p class="install-footnote">{{ $t(selectedHarness.description) }}</p><a class="button small" :href="selectedHarness.url" target="_blank" rel="noopener">{{ $t("官方接入文档") }}<AppIcon name="external" /></a></section>
+          <p class="install-footnote">{{ $t("插件连接本地记忆 API，支持检索和显式保存，不自动捕获聊天。隐私门和候选巩固规则仍由记忆服务执行。") }}</p>
         </template>
-        <div v-if="mode === 'python'" class="install-switch" aria-label="调用方式"><button class="button" :class="{ primary: language === 'python' }" @click="language = 'python'"><IntegrationLogo name="python" />Python 本地库</button><button class="button" :class="{ primary: language === 'http' }" @click="language = 'http'"><IntegrationLogo name="terminal" />HTTP API</button></div>
+        <div v-if="mode === 'python'" class="install-switch" :aria-label="$t('调用方式')"><button class="button" :class="{ primary: language === 'python' }" @click="language = 'python'"><IntegrationLogo name="python" />{{ $t("Python 本地库") }}</button><button class="button" :class="{ primary: language === 'http' }" @click="language = 'http'"><IntegrationLogo name="terminal" />HTTP API</button></div>
         <section class="panel install-guide">
-          <div class="install-guide-heading"><div v-if="mode === 'python'" class="install-switch"><button class="button small" :class="{ primary: method === 'write' }" @click="method = 'write'">写入记忆</button><button class="button small" :class="{ primary: method === 'search' }" @click="method = 'search'">检索记忆</button></div><strong v-else><IntegrationLogo :name="harness" /> {{ selectedHarness.title }} · 本地记忆插件</strong><span class="subtle">示例用户：{{ state.user }}</span></div>
-          <article v-for="(step,index) in steps" :key="mode + language + method + index" class="install-step"><div class="install-step-copy"><h2>{{ step.title }}</h2><p>{{ step.hint }}</p></div><div class="install-code"><div class="install-code-title"><IntegrationLogo :name="step.code.startsWith('LLM_') ? 'deepseek' : mode === 'agent' && harness !== 'deepseek' ? harness : step.code.startsWith('uv') ? 'terminal' : 'python'" /><span>{{ step.code.startsWith('LLM_') ? '.env · DeepSeek' : mode === 'agent' && harness !== 'deepseek' ? selectedHarness.title : step.code.startsWith('uv') ? '终端' : 'Python' }}</span></div><button class="button small" :aria-label="`复制${step.title}`" @click="copy(step.code, step.code)">{{ copied === step.code ? '已复制' : '复制' }}</button><pre><code>{{ step.code }}</code></pre></div></article>
+          <div class="install-guide-heading"><div v-if="mode === 'python'" class="install-switch"><button class="button small" :class="{ primary: method === 'write' }" @click="method = 'write'">{{ $t("写入记忆") }}</button><button class="button small" :class="{ primary: method === 'search' }" @click="method = 'search'">{{ $t("检索记忆") }}</button></div><strong v-else><IntegrationLogo :name="harness" /> {{ selectedHarness.title }} · {{ $t("本地记忆插件") }}</strong><span class="subtle">{{ $t("示例用户：") }}{{ state.user }}</span></div>
+          <article v-for="(step,index) in steps" :key="mode + language + method + index" class="install-step"><div class="install-step-copy"><h2>{{ $t(step.title) }}</h2><p>{{ $t(step.hint) }}</p></div><div class="install-code"><div class="install-code-title"><IntegrationLogo :name="step.code.startsWith('LLM_') ? 'deepseek' : mode === 'agent' && harness !== 'deepseek' ? harness : step.code.startsWith('uv') ? 'terminal' : 'python'" /><span>{{ $t(step.code.startsWith('LLM_') ? '.env · DeepSeek' : mode === 'agent' && harness !== 'deepseek' ? selectedHarness.title : step.code.startsWith('uv') ? '终端' : 'Python') }}</span></div><button class="button small" :aria-label="`复制${step.title}`" @click="copy(step.code, step.code)">{{ $t(copied === step.code ? '已复制' : '复制') }}</button><pre><code>{{ step.code }}</code></pre></div></article>
         </section>
-        <p class="install-footnote">代码仅供复制，不会在页面自动执行。HTTP 地址跟随当前工作台：{{ baseUrl }}。用户 ID 用于区分数据空间，不提供身份认证。</p>
+        <p class="install-footnote">{{ $t("代码仅供复制，不会在页面自动执行。HTTP 地址跟随当前工作台：") }}{{ baseUrl }}{{ $t("。用户 ID 用于区分数据空间，不提供身份认证。") }}</p>
       </template>
       <template v-else>
-        <div class="install-switch" aria-label="插件客户端">
-          <button v-for="item in plugins" :key="item.id" class="button" :class="{ primary: plugin === item.id }" :aria-pressed="plugin === item.id" @click="plugin = item.id"><IntegrationLogo :name="item.id" />{{ item.title }}</button>
+        <div class="install-switch" :aria-label="$t('插件客户端')">
+          <button v-for="item in plugins" :key="item.id" class="button" :class="{ primary: plugin === item.id }" :aria-pressed="plugin === item.id" @click="plugin = item.id"><IntegrationLogo :name="item.id" />{{ $t(item.title) }}</button>
         </div>
         <section class="panel install-guide">
-          <span class="badge">{{ selectedPlugin.status }}</span>
-          <h2><IntegrationLogo :name="selectedPlugin.id" /> {{ selectedPlugin.title }} · 记忆插件 / MCP</h2>
-          <p class="install-footnote">{{ selectedPlugin.description }}</p>
-          <a v-if="selectedPlugin.url" class="button small" :href="selectedPlugin.url" target="_blank" rel="noopener">官方文档 <AppIcon name="external" /></a>
+          <span class="badge">{{ $t(selectedPlugin.status) }}</span>
+          <h2><IntegrationLogo :name="selectedPlugin.id" /> {{ selectedPlugin.title }} · {{ $t("记忆插件 / MCP") }}</h2>
+          <p class="install-footnote">{{ $t(selectedPlugin.description) }}</p>
+          <a v-if="selectedPlugin.url" class="button small" :href="selectedPlugin.url" target="_blank" rel="noopener">{{ $t("官方文档") }}<AppIcon name="external" /></a>
           <article v-for="step in pluginSteps" :key="step.title" class="install-step">
-            <div class="install-step-copy"><h2>{{ step.title }}</h2><p>{{ step.hint }}</p></div>
-            <div class="install-code"><div class="install-code-title"><IntegrationLogo name="deepseek" /><span>DeepSeek Harness</span></div><button class="button small" :aria-label="`复制${step.title}`" @click="copy(step.code, step.code)">{{ copied === step.code ? '已复制' : '复制' }}</button><pre><code>{{ step.code }}</code></pre></div>
+            <div class="install-step-copy"><h2>{{ $t(step.title) }}</h2><p>{{ $t(step.hint) }}</p></div>
+            <div class="install-code"><div class="install-code-title"><IntegrationLogo name="deepseek" /><span>DeepSeek Harness</span></div><button class="button small" :aria-label="`复制${step.title}`" @click="copy(step.code, step.code)">{{ $t(copied === step.code ? '已复制' : '复制') }}</button><pre><code>{{ step.code }}</code></pre></div>
           </article>
-          <p v-if="pluginSteps.length" class="install-footnote">仅显式保存，不自动捕获聊天。请求只发送到同机本地记忆服务，敏感数据不推定授权。页面代码不会自动执行。</p>
-          <p class="install-footnote">已实现的 OpenClaw 和 Hermes 本地记忆适配，可在 Agent 接入侧查看安装步骤。</p>
-          <button class="button" @click="mode = 'agent'">查看已实现的接入方式</button>
+          <p v-if="pluginSteps.length" class="install-footnote">{{ $t("仅显式保存，不自动捕获聊天。请求只发送到同机本地记忆服务，敏感数据不推定授权。页面代码不会自动执行。") }}</p>
+          <p class="install-footnote">{{ $t("已实现的 OpenClaw 和 Hermes 本地记忆适配，可在 Agent 接入侧查看安装步骤。") }}</p>
+          <button class="button" @click="mode = 'agent'">{{ $t("查看已实现的接入方式") }}</button>
         </section>
       </template>
     </div>

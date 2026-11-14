@@ -35,19 +35,19 @@ onUnmounted(()=>{clearInterval(timer);observer?.disconnect();document.removeEven
 </script>
 <template>
  <section ref="section" id="lp-live-demo" class="ld-section" aria-labelledby="ld-heading">
-  <div class="ld-intro"><div><span class="ld-kicker">SEE MEMORY IN MOTION</span><h2 id="ld-heading">记忆如何发生，<br />亲眼看一遍。</h2><RouterLink to="/assistant" class="ld-assistant-cta">体验个人助手 <span>↗</span></RouterLink></div><p>从一句话开始，看信息被选择、被更新、被追溯。<br />让记忆的每一步，都有清晰的解释。</p></div>
+  <div class="ld-intro"><div><span class="ld-kicker">SEE MEMORY IN MOTION</span><h2 id="ld-heading">{{ $t("记忆如何发生，") }}<br />{{ $t("亲眼看一遍。") }}</h2><RouterLink to="/assistant" class="ld-assistant-cta">{{ $t("体验个人助手") }}<span>↗</span></RouterLink></div><p>{{ $t("从一句话开始，看信息被选择、被更新、被追溯。") }}<br />{{ $t("让记忆的每一步，都有清晰的解释。") }}</p></div>
   <div class="ld-window">
    <div class="ld-titlebar"><span class="ld-dots"><i/><i/><i/></span><span>Cognitive Memory</span></div>
-   <div class="ld-tabs" role="group" aria-label="动态演示场景"><div v-for="(item,index) in scenes" :key="item.label" :class="{active:active===index}" :aria-current="active===index?'step':undefined"><span>{{ item.label }}</span><span class="ld-tab-indicator"/><span class="ld-progress" :style="{width:active===index?`${progress}%`:'0%'}"/></div></div>
+   <div class="ld-tabs" role="group" :aria-label="$t('动态演示场景')"><div v-for="(item,index) in scenes" :key="item.label" :class="{active:active===index}" :aria-current="active===index?'step':undefined"><span>{{ $t(item.label) }}</span><span class="ld-tab-indicator"/><span class="ld-progress" :style="{width:active===index?`${progress}%`:'0%'}"/></div></div>
    <div class="ld-content">
-    <div class="ld-copy"><span class="ld-counter">0{{ active+1 }} / 03</span><div class="ld-copy-text"><Transition name="ld-dissolve"><div :key="active"><h3>{{ scene.title }}</h3><p>{{ scene.description }}</p></div></Transition></div><RouterLink to="/evolution">在工作台体验 <span>↗</span></RouterLink></div>
+    <div class="ld-copy"><span class="ld-counter">0{{ active+1 }} / 03</span><div class="ld-copy-text"><Transition name="ld-dissolve"><div :key="active"><h3>{{ $t(scene.title) }}</h3><p>{{ $t(scene.description) }}</p></div></Transition></div><RouterLink to="/evolution">{{ $t("在工作台体验") }}<span>↗</span></RouterLink></div>
     <div class="ld-stage">
      <div v-for="index in 3" :key="index" class="ld-backdrop" :class="[`ld-backdrop-${index}`, {active:active===index-1}]" aria-hidden="true"/>
-     <div class="ld-phone"><div class="ld-phone-header"><span class="ld-phone-avatar">m</span><span>个人助手<small>记住你的偏好</small></span><span class="ld-online"/></div><TransitionGroup name="ld-message" tag="div" class="ld-messages"><div v-for="(message,index) in messages" :key="`${active}-${index}`" class="ld-bubble" :class="message.role">{{ message.text }}</div></TransitionGroup><div class="ld-phone-input"><span>消息与记忆，自然衔接</span><AppIcon name="arrowUp"/></div></div>
-     <div class="ld-result-slot"><Transition name="ld-dissolve"><div class="ld-result" :key="`${active}-${snapshot.value}-${snapshot.note}`"><div class="ld-result-heading"><span><AppIcon name="memory"/>{{ snapshot.title }}</span><span class="ld-status" :class="snapshot.kind">{{ snapshot.status }}</span></div><strong>{{ snapshot.value }}</strong><p>{{ snapshot.note }}</p></div></Transition></div>
+     <div class="ld-phone"><div class="ld-phone-header"><span class="ld-phone-avatar">m</span><span>{{ $t("个人助手") }}<small>{{ $t("记住你的偏好") }}</small></span><span class="ld-online"/></div><TransitionGroup name="ld-message" tag="div" class="ld-messages"><div v-for="(message,index) in messages" :key="`${active}-${index}`" class="ld-bubble" :class="message.role">{{ $t(message.text) }}</div></TransitionGroup><div class="ld-phone-input"><span>{{ $t("消息与记忆，自然衔接") }}</span><AppIcon name="arrowUp"/></div></div>
+     <div class="ld-result-slot"><Transition name="ld-dissolve"><div class="ld-result" :key="`${active}-${snapshot.value}-${snapshot.note}`"><div class="ld-result-heading"><span><AppIcon name="memory"/>{{ $t(snapshot.title) }}</span><span class="ld-status" :class="snapshot.kind">{{ $t(snapshot.status) }}</span></div><strong>{{ $t(snapshot.value) }}</strong><p>{{ $t(snapshot.note) }}</p></div></Transition></div>
     </div>
    </div>
-   <div class="ld-statusbar"><span><span class="ld-status-dot" :class="{playing:running}"/>记忆持续演化</span><span class="ld-stage-caption">{{ scene.steps[frame] }}</span><span>{{ frame+1 }} / 5</span></div>
+   <div class="ld-statusbar"><span><span class="ld-status-dot" :class="{playing:running}"/>{{ $t("记忆持续演化") }}</span><span class="ld-stage-caption">{{ $t(scene.steps[frame]) }}</span><span>{{ frame+1 }} / 5</span></div>
   </div>
  </section>
 </template>
@@ -103,4 +103,8 @@ onUnmounted(()=>{clearInterval(timer);observer?.disconnect();document.removeEven
 
 <style scoped>
 .ld-assistant-cta{display:inline-flex;align-items:center;gap:20px;margin-top:20px;padding:11px 18px;border-radius:7px;background:#28232e;color:#fff;font-size:12px;text-decoration:none}
+</style>
+
+<style scoped>
+:lang(en) .ld-bubble{font-size:10px;line-height:1.6}:lang(en) .ld-result strong{font-size:16px}:lang(en) .ld-stage-caption{max-width:55%;line-height:1.5}:lang(en) .ld-statusbar{min-height:47px}
 </style>

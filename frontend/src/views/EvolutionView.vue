@@ -45,64 +45,64 @@ async function analyze() {
 <template>
   <div class="page evolution-page">
     <div class="page-heading">
-      <div><h1>记忆演化</h1><p>输入一句话，完整看见它如何被理解、筛选并存储。</p></div>
-      <span class="evolution-label">一次输入 · 全程可见</span>
+      <div><h1>{{ $t("记忆演化") }}</h1><p>{{ $t("输入一句话，完整看见它如何被理解、筛选并存储。") }}</p></div>
+      <span class="evolution-label">{{ $t("一次输入 · 全程可见") }}</span>
     </div>
 
     <section class="panel input-panel">
-      <div class="input-heading"><div><span class="eyebrow">从你的原话开始</span><h2>这次，有什么想让系统记住？</h2></div><span class="user-label">当前用户：{{ state.user }}</span></div>
+      <div class="input-heading"><div><span class="eyebrow">{{ $t("从你的原话开始") }}</span><h2>{{ $t("这次，有什么想让系统记住？") }}</h2></div><span class="user-label">当前用户：{{ state.user }}</span></div>
       <form @submit.prevent="analyze">
-        <label class="sr-only" for="evolution-content">输入想让系统记住的信息</label>
-        <textarea id="evolution-content" v-model="content" rows="3" required maxlength="10000" :disabled="busy" placeholder="例如：我现在更喜欢喝茶。" />
-        <div class="submit-row"><p>无需填写记忆类型或参数。系统自动提取并执行真实写入，下面一次展开全部结果。</p><button class="button primary" type="submit" :disabled="busy || !content.trim()">{{ busy ? '正在分析…' : '查看记忆全过程' }} <span aria-hidden="true">→</span></button></div>
+        <label class="sr-only" for="evolution-content">{{ $t("输入想让系统记住的信息") }}</label>
+        <textarea id="evolution-content" v-model="content" rows="3" required maxlength="10000" :disabled="busy" :placeholder="$t('例如：我现在更喜欢喝茶。')" />
+        <div class="submit-row"><p>{{ $t("无需填写记忆类型或参数。系统自动提取并执行真实写入，下面一次展开全部结果。") }}</p><button class="button primary" type="submit" :disabled="busy || !content.trim()">{{ $t(busy ? '正在分析…' : '查看记忆全过程') }} <span aria-hidden="true">→</span></button></div>
       </form>
-      <p class="scope-note">已配置模型时自动提取；未配置时仅识别简单的饮品、编程语言偏好。提交会处理并保存通过筛选的信息，敏感候选不会自动授权保存。</p>
-      <p v-if="error" class="local-error" role="alert">{{ error }}<span v-if="error.includes('接口不存在')"> 请先重启后端以加载新接口。</span></p>
+      <p class="scope-note">{{ $t("已配置模型时自动提取；未配置时仅识别简单的饮品、编程语言偏好。提交会处理并保存通过筛选的信息，敏感候选不会自动授权保存。") }}</p>
+      <p v-if="error" class="local-error" role="alert">{{ error }}<span v-if="error.includes('接口不存在')">{{ $t("请先重启后端以加载新接口。") }}</span></p>
     </section>
 
-    <section v-if="busy" class="panel processing" role="status"><span class="pulse" aria-hidden="true" /><div><h2>正在自动处理这次输入</h2><p>提取信息 → 选择性编码 → 比较已有记忆 → 巩固决策 → 返回存储记录</p><p>等待实际结果后完整展示，无需逐步操作。</p></div></section>
-    <div v-else-if="!report" class="empty-evolution"><span aria-hidden="true">◎</span><h2>一条输入，一段完整的记忆轨迹</h2><p>原话 → 提取结果 → 认知处理 → 新旧变化 → 最终存储</p><small>展示真实执行结果，不会自动生成额外确认或虚构证据。</small></div>
+    <section v-if="busy" class="panel processing" role="status"><span class="pulse" aria-hidden="true" /><div><h2>{{ $t("正在自动处理这次输入") }}</h2><p>{{ $t("提取信息 → 选择性编码 → 比较已有记忆 → 巩固决策 → 返回存储记录") }}</p><p>{{ $t("等待实际结果后完整展示，无需逐步操作。") }}</p></div></section>
+    <div v-else-if="!report" class="empty-evolution"><span aria-hidden="true">◎</span><h2>{{ $t("一条输入，一段完整的记忆轨迹") }}</h2><p>{{ $t("原话 → 提取结果 → 认知处理 → 新旧变化 → 最终存储") }}</p><small>{{ $t("展示真实执行结果，不会自动生成额外确认或虚构证据。") }}</small></div>
 
-    <section v-if="report" class="journey" aria-label="完整记忆演化过程" aria-live="polite">
-      <div class="panel outcome-summary"><span class="eyebrow">先看结论 · 本次处理已完成</span><h2>{{ ending }}</h2><ul v-if="report.traces.length > 1" class="summary-list"><li v-for="(trace, index) in report.traces" :key="index">候选 {{ index + 1 }}：{{ decisionSummary(trace) }}</li></ul><p v-if="report.outcome === 'no_new_memory'" class="explanation-note">{{ report.message }}</p><div class="summary-meta"><span>{{ records.length }} 条记录返回</span><span>{{ methodNames[report.extraction.method] }}</span><span>本次快照 · 不代表所有历史记录</span></div></div>
+    <section v-if="report" class="journey" :aria-label="$t('完整记忆演化过程')" aria-live="polite">
+      <div class="panel outcome-summary"><span class="eyebrow">{{ $t("先看结论 · 本次处理已完成") }}</span><h2>{{ ending }}</h2><ul v-if="report.traces.length > 1" class="summary-list"><li v-for="(trace, index) in report.traces" :key="index">候选 {{ index + 1 }}：{{ decisionSummary(trace) }}</li></ul><p v-if="report.outcome === 'no_new_memory'" class="explanation-note">{{ report.message }}</p><div class="summary-meta"><span>{{ records.length }} 条记录返回</span><span>{{ methodNames[report.extraction.method] }}</span><span>{{ $t("本次快照 · 不代表所有历史记录") }}</span></div></div>
 
       <article class="journey-stage">
         <span class="stage-number" aria-hidden="true">01</span>
-        <div class="panel stage-content"><div class="stage-heading"><h2>用户原话</h2><span class="status-tag done">已接收</span></div><blockquote class="evidence-input"><template v-for="(part, index) in highlightedInput" :key="index"><mark v-if="part.highlighted" :title="part.label">{{ part.text }}</mark><span v-else>{{ part.text }}</span></template></blockquote><p class="explanation-note">{{ report.extraction.candidates.length ? '高亮片段是下方提取结果的原文依据。' : '本次没有用于提取的有效原文片段。' }} 归属用户：{{ report.input.user_id }}。</p></div>
+        <div class="panel stage-content"><div class="stage-heading"><h2>{{ $t("用户原话") }}</h2><span class="status-tag done">{{ $t("已接收") }}</span></div><blockquote class="evidence-input"><template v-for="(part, index) in highlightedInput" :key="index"><mark v-if="part.highlighted" :title="part.label">{{ part.text }}</mark><span v-else>{{ part.text }}</span></template></blockquote><p class="explanation-note">{{ $t(report.extraction.candidates.length ? '高亮片段是下方提取结果的原文依据。' : '本次没有用于提取的有效原文片段。') }} 归属用户：{{ report.input.user_id }}。</p></div>
       </article>
 
       <article class="journey-stage">
         <span class="stage-number" aria-hidden="true">02</span>
-        <div class="panel stage-content"><div class="stage-heading"><h2>自动提取信息</h2><span class="status-tag">{{ methodNames[report.extraction.method] }}</span></div><p class="step-description">{{ report.extraction.message }}</p>
-          <div v-for="(candidate, index) in report.extraction.candidates" :key="index" class="candidate-result"><span class="candidate-caption">候选 {{ index + 1 }} · 对应上方高亮</span><div class="extraction-mapping"><blockquote>{{ candidate.content }}</blockquote><span aria-hidden="true">→</span><div><strong>{{ candidate.memory_value || '未指定取值' }}</strong><small>{{ types[candidate.memory_type]?.label }} · {{ candidate.memory_key || '未指定主题键' }}</small></div></div><dl class="field-grid compact-fields"><div><dt>标签</dt><dd>{{ candidate.tags.join('、') || '无' }}</dd></div><div><dt>重要性 / 置信度</dt><dd>{{ candidate.importance }} / {{ candidate.confidence }}</dd></div><div><dt>敏感信息</dt><dd>{{ candidate.sensitive ? '是，仍需明确授权' : '未被标为敏感' }}</dd></div></dl></div>
-          <p v-if="!report.extraction.candidates.length" class="explanation-note">{{ report.outcome === 'privacy_blocked' ? '在提取前停止，未调用模型。' : '没有提取到可用的记忆候选。' }}</p>
+        <div class="panel stage-content"><div class="stage-heading"><h2>{{ $t("自动提取信息") }}</h2><span class="status-tag">{{ methodNames[report.extraction.method] }}</span></div><p class="step-description">{{ report.extraction.message }}</p>
+          <div v-for="(candidate, index) in report.extraction.candidates" :key="index" class="candidate-result"><span class="candidate-caption">候选 {{ index + 1 }} · 对应上方高亮</span><div class="extraction-mapping"><blockquote>{{ candidate.content }}</blockquote><span aria-hidden="true">→</span><div><strong>{{ candidate.memory_value || '未指定取值' }}</strong><small>{{ types[candidate.memory_type]?.label }} · {{ candidate.memory_key || '未指定主题键' }}</small></div></div><dl class="field-grid compact-fields"><div><dt>{{ $t("标签") }}</dt><dd>{{ candidate.tags.join('、') || '无' }}</dd></div><div><dt>{{ $t("重要性 / 置信度") }}</dt><dd>{{ candidate.importance }} / {{ candidate.confidence }}</dd></div><div><dt>{{ $t("敏感信息") }}</dt><dd>{{ $t(candidate.sensitive ? '是，仍需明确授权' : '未被标为敏感') }}</dd></div></dl></div>
+          <p v-if="!report.extraction.candidates.length" class="explanation-note">{{ $t(report.outcome === 'privacy_blocked' ? '在提取前停止，未调用模型。' : '没有提取到可用的记忆候选。') }}</p>
           <p v-if="report.extraction.rejected_count" class="local-error">{{ report.extraction.rejected_count }} 条无有效原文依据或重复的候选已排除，不会写入。</p>
         </div>
       </article>
 
       <template v-if="report.traces.length">
         <template v-for="(trace, traceIndex) in report.traces" :key="traceIndex">
-          <div v-if="report.traces.length > 1" class="candidate-divider">候选 {{ traceIndex + 1 }} 的实际处理 · {{ trace.result.memory?.content || '已拦截' }}</div>
+          <div v-if="report.traces.length > 1" class="candidate-divider">候选 {{ traceIndex + 1 }} 的实际处理 · {{ $t(trace.result.memory?.content || '已拦截') }}</div>
           <article v-for="(step, stepIndex) in trace.steps.slice(1)" :key="step.title" class="journey-stage">
             <span class="stage-number" aria-hidden="true">{{ String(stepIndex + 3).padStart(2, '0') }}</span>
-            <div class="panel stage-content"><div class="stage-heading"><h2>{{ step.title }}</h2><span class="status-tag" :class="step.status">{{ statusNames[step.status] }}</span></div><p class="step-description">{{ step.description }}</p>
-              <dl v-if="step.fields.length" class="field-grid metric-fields"><div v-for="field in step.fields" :key="field.label"><dt>{{ field.label }}</dt><dd>{{ typeof field.value === 'boolean' ? (field.value ? '是' : '否') : field.value }}</dd><p v-if="metricExplanation(field, trace)" class="metric-help">{{ metricExplanation(field, trace) }}</p></div></dl>
+            <div class="panel stage-content"><div class="stage-heading"><h2>{{ $t(step.title) }}</h2><span class="status-tag" :class="step.status">{{ $t(statusNames[step.status]) }}</span></div><p class="step-description">{{ $t(step.description) }}</p>
+              <dl v-if="step.fields.length" class="field-grid metric-fields"><div v-for="field in step.fields" :key="field.label"><dt>{{ $t(field.label) }}</dt><dd>{{ $t(typeof field.value === 'boolean' ? (field.value ? '是' : '否') : field.value) }}</dd><p v-if="metricExplanation(field, trace)" class="metric-help">{{ metricExplanation(field, trace) }}</p></div></dl>
 
               <template v-if="stepIndex === 1">
-                <div class="comparison"><div class="before-state"><span class="candidate-caption">处理前</span><template v-if="trace.previous"><p>{{ trace.previous.content }}</p><small>{{ roles[trace.previous.state_role]?.label }} · 证据 {{ trace.previous.evidence_count }} 条</small></template><p v-else>{{ step.status === 'skipped' ? '未执行比较，不能据此判断是否已有记忆。' : '本次没有读取到可比较的已有记录。' }}</p></div><div class="input-state"><span class="candidate-caption">本次输入</span><p>{{ trace.steps[0].fields[0].value }}</p><small>仅来自本次用户原话</small></div><div class="after-state"><span class="candidate-caption">处理后 · 本次涉及的记录</span><div v-for="(item, index) in afterState(trace)" :key="index" class="state-item"><span class="state-role">{{ item.role }}</span><p>{{ item.content }}</p></div><p v-if="!afterState(trace).length">本次未保存正文；不代表已有记忆为空。</p></div></div>
+                <div class="comparison"><div class="before-state"><span class="candidate-caption">{{ $t("处理前") }}</span><template v-if="trace.previous"><p>{{ trace.previous.content }}</p><small>{{ roles[trace.previous.state_role]?.label }} · 证据 {{ trace.previous.evidence_count }} 条</small></template><p v-else>{{ $t(step.status === 'skipped' ? '未执行比较，不能据此判断是否已有记忆。' : '本次没有读取到可比较的已有记录。') }}</p></div><div class="input-state"><span class="candidate-caption">{{ $t("本次输入") }}</span><p>{{ trace.steps[0].fields[0].value }}</p><small>{{ $t("仅来自本次用户原话") }}</small></div><div class="after-state"><span class="candidate-caption">{{ $t("处理后 · 本次涉及的记录") }}</span><div v-for="(item, index) in afterState(trace)" :key="index" class="state-item"><span class="state-role">{{ item.role }}</span><p>{{ item.content }}</p></div><p v-if="!afterState(trace).length">{{ $t("本次未保存正文；不代表已有记忆为空。") }}</p></div></div>
               </template>
 
-              <template v-if="stepIndex === 2"><ol class="event-list"><li v-for="(event, eventIndex) in trace.events" :key="eventIndex"><span class="event-dot" /><div><strong>{{ eventNames[event.event_type] || event.event_type }}</strong><p>{{ event.message }}</p></div></li></ol><p v-if="trace.result.decision === 'CANDIDATE'" class="candidate-notice">新证据已保存为候选，但尚未满足全部巩固条件：真实证据数量、一致性及冲突依据。原有当前记忆保留；系统不会为了走完流程而自动补充证据。</p></template>
+              <template v-if="stepIndex === 2"><ol class="event-list"><li v-for="(event, eventIndex) in trace.events" :key="eventIndex"><span class="event-dot" /><div><strong>{{ $t(eventNames[event.event_type] || event.event_type) }}</strong><p>{{ event.message }}</p></div></li></ol><p v-if="trace.result.decision === 'CANDIDATE'" class="candidate-notice">{{ $t("新证据已保存为候选，但尚未满足全部巩固条件：真实证据数量、一致性及冲突依据。原有当前记忆保留；系统不会为了走完流程而自动补充证据。") }}</p></template>
 
               <template v-if="stepIndex === 3">
-                <template v-if="trace.result.memory"><div class="stored-record"><div class="record-badges"><span>{{ types[trace.result.memory.memory_type]?.label }}</span><span>{{ roles[trace.result.memory.state_role]?.label }}</span></div><blockquote>{{ trace.result.memory.content }}</blockquote><dl class="field-grid"><div><dt>记忆键 / 值</dt><dd>{{ trace.result.memory.memory_key || '—' }} / {{ trace.result.memory.memory_value || '—' }}</dd></div><div><dt>证据数量</dt><dd>{{ trace.result.memory.evidence_count }}</dd></div><div><dt>记录 ID</dt><dd>{{ trace.result.memory.id }}</dd></div><div><dt>写入分数（存储值）</dt><dd>{{ trace.result.memory.write_score }}</dd></div></dl></div><p class="explanation-note">以下为本次返回的真实 SQLite 记录。强化分支可能保留已有编码分数；上面的编码环节展示本次实际计算结果。类型与状态是不同维度。</p><pre class="storage-json" aria-label="最终存储 JSON">{{ JSON.stringify(trace.result.memory, null, 2) }}</pre></template>
-                <div v-else class="no-record">未保存记忆正文，仅保留原有隐私审计记录。</div>
+                <template v-if="trace.result.memory"><div class="stored-record"><div class="record-badges"><span>{{ types[trace.result.memory.memory_type]?.label }}</span><span>{{ roles[trace.result.memory.state_role]?.label }}</span></div><blockquote>{{ trace.result.memory.content }}</blockquote><dl class="field-grid"><div><dt>{{ $t("记忆键 / 值") }}</dt><dd>{{ trace.result.memory.memory_key || '—' }} / {{ trace.result.memory.memory_value || '—' }}</dd></div><div><dt>{{ $t("证据数量") }}</dt><dd>{{ trace.result.memory.evidence_count }}</dd></div><div><dt>{{ $t("记录 ID") }}</dt><dd>{{ trace.result.memory.id }}</dd></div><div><dt>{{ $t("写入分数（存储值）") }}</dt><dd>{{ trace.result.memory.write_score }}</dd></div></dl></div><p class="explanation-note">{{ $t("以下为本次返回的真实 SQLite 记录。强化分支可能保留已有编码分数；上面的编码环节展示本次实际计算结果。类型与状态是不同维度。") }}</p><pre class="storage-json" :aria-label="$t('最终存储 JSON')">{{ JSON.stringify(trace.result.memory, null, 2) }}</pre></template>
+                <div v-else class="no-record">{{ $t("未保存记忆正文，仅保留原有隐私审计记录。") }}</div>
               </template>
             </div>
           </article>
         </template>
       </template>
-      <template v-else><article v-for="(title, index) in ['选择性编码', '新旧比较', '巩固决策', '存储结果']" :key="title" class="journey-stage"><span class="stage-number" aria-hidden="true">{{ String(index + 3).padStart(2, '0') }}</span><div class="panel stage-content"><div class="stage-heading"><h2>{{ title }}</h2><span class="status-tag skipped">未执行</span></div><p class="step-description">没有可用候选，本步骤未执行，没有写入记忆。</p></div></article></template>
+      <template v-else><article v-for="(title, index) in ['选择性编码', '新旧比较', '巩固决策', '存储结果']" :key="title" class="journey-stage"><span class="stage-number" aria-hidden="true">{{ String(index + 3).padStart(2, '0') }}</span><div class="panel stage-content"><div class="stage-heading"><h2>{{ title }}</h2><span class="status-tag skipped">{{ $t("未执行") }}</span></div><p class="step-description">{{ $t("没有可用候选，本步骤未执行，没有写入记忆。") }}</p></div></article></template>
       <p class="journey-footnote">{{ report.message }} 本页结果为提交当时的快照。</p>
     </section>
   </div>
