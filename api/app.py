@@ -21,7 +21,7 @@ from conversation_agent import ConversationAgent
 
 from .middleware import RequestPolicyMiddleware
 from .responses import error_response
-from .routers import architecture, chat, demo, evolution, memories, retrieval, system, evaluations
+from .routers import architecture, chat, demo, evolution, memories, retrieval, system, evaluations, profile
 from .evaluation_center import EvaluationCenter
 from .settings import SERVICE_NAME
 
@@ -112,7 +112,7 @@ def create_app(
             {"detail": exc.detail}, status_code=exc.status_code, headers=exc.headers
         )
 
-    for router in (architecture.router, memories.router, retrieval.router, system.router, chat.router, evolution.router, evaluations.router):
+    for router in (architecture.router, memories.router, retrieval.router, system.router, chat.router, profile.router, evolution.router, evaluations.router):
         application.include_router(router)
     if application.state.demo_token:
         application.include_router(demo.router)

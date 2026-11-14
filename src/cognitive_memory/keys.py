@@ -4,6 +4,23 @@ import re
 
 
 _KEY_ALIASES = {
+    # Settings and conversational extraction must resolve to the same topic so
+    # changes still pass through the engine's existing candidate evidence gate.
+    "preferred_name": "preferred_name",
+    "user_name": "preferred_name",
+    "name": "preferred_name",
+    "nickname": "preferred_name",
+    "preferred_language": "preferred_language",
+    "preferred_response_language": "preferred_language",
+    "response_language": "preferred_language",
+    "communication_language": "preferred_language",
+    "language": "preferred_language",
+    "交流语言": "preferred_language",
+    "response_style": "response_style",
+    "answer_style": "response_style",
+    "communication_style": "response_style",
+    "回答风格": "response_style",
+
     # Beverage preferences are one topic even when a model chooses a synonym.
     "beverage_preference": "preferred_beverage",
     "drink_preference": "preferred_beverage",

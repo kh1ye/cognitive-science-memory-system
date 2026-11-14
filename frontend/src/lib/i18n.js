@@ -274,3 +274,75 @@ export function t(text, params) {
 }
 export function setLanguage(value){language.value=value;document.documentElement.lang=value === "zh" ? "zh-CN" : "en";try{localStorage.setItem("cm.language",value);}catch{}}
 setLanguage(language.value);
+
+Object.assign(translations, {"选择适合此刻的交流方式，点击即可应用。": "Choose how you’d like to chat. Select a style to apply it.", "应用到当前对话，随时可以切换。": "Applies to this conversation. Change it anytime."});
+Object.assign(translations, {
+  "用户画像": "User profile",
+  "仅展示当前已生效的个人语义记忆，随记忆状态自动更新。": "Only current personal facts are shown, following the memory lifecycle.",
+  "暂无已生效的画像，可以填写偏好或在对话中介绍自己。": "No current profile yet. Set your preferences or introduce yourself in a chat.",
+  "保存为长期偏好，跨会话生效；留空可删除对应设置。": "Save preferences across conversations. Clear a field to remove its setting.",
+  "身份": "Identity", "交互偏好": "Communication", "兴趣": "Interests", "技能与工具": "Skills and tools", "长期目标": "Long-term goals",
+  "修改画像内容": "Edit profile fact", "删除记忆": "Delete memory", "查看来源": "View sources", "修改": "Edit", "重试": "Retry",
+});
+
+Object.assign(translations, {
+  "你的专属画像": "Your personal profile",
+  "个人助手对你的了解": "What your assistant knows about you",
+  "从每一次交流中，逐渐认识你的习惯、兴趣与目标。这里记录的是助手当前对你的了解，你可以随时纠正。": "Your habits, interests and goals, understood through conversation. Review what your assistant currently knows and correct it anytime.",
+  "返回对话": "Back to chat",
+  "正在整理助手对你的了解…": "Loading your profile…",
+  "画像概览": "Profile overview",
+  "随着交流，持续了解": "Learning through conversation",
+  "条": "facts",
+  "已记住的个人信息": "Personal facts remembered",
+  "已了解的维度": "Dimensions understood",
+  "与当前记忆同步": "Synced with current memories",
+  "等待你的第一次分享": "Waiting for your first conversation",
+  "了解你的五个方面": "Five dimensions of you",
+  "画像目录": "Profile contents",
+  "这里的每一条了解都有记忆依据。尚未确认或已经过时的信息不会成为你的当前画像。": "Every fact has a memory behind it. Unconfirmed or outdated information stays out of your current profile.",
+  "条了解": "facts",
+  "已确认": "Confirmed",
+  "让助手再多了解你一点": "Help your assistant get to know you",
+  "继续聊聊你的近况，或回到偏好设置补充信息。已确认的记忆会自然体现在这里。": "Share what’s new or add your preferences. Confirmed memories will appear here.",
+  "去聊聊": "Start a conversation",
+  "关于你": "About you",
+  "你的称呼、身份与生活背景。": "Your name, identity and background.",
+  "还没有了解到你的个人背景。": "Your personal background is not known yet.",
+  "可以从你的称呼、职业或学习方向聊起。": "Start with your name, occupation or field of study.",
+  "你喜欢怎样交流": "How you like to communicate",
+  "让回答更合你的习惯，也更容易理解。": "Responses that fit your habits and make sense to you.",
+  "还不清楚你喜欢的交流方式。": "Your communication preferences are not known yet.",
+  "告诉助手你习惯的语言，以及喜欢简洁还是详细的回答。": "Share your preferred language and whether you like brief or detailed answers.",
+  "你感兴趣的事": "What interests you",
+  "你喜欢的事物，以及愿意投入时间的方向。": "The things you enjoy and choose to spend time on.",
+  "还没有记住你的兴趣与爱好。": "No interests or hobbies have been remembered yet.",
+  "聊聊最近在读的书、喜欢的活动或持续关注的话题。": "Talk about a recent book, favorite activity or topic you follow.",
+  "你的技能与常用工具": "Your skills and tools",
+  "你擅长什么，以及平时用什么完成工作。": "What you know and the tools you use to get things done.",
+  "还不了解你的技能和工具习惯。": "Your skills and tool preferences are not known yet.",
+  "可以告诉助手你常用的软件、编程语言或熟悉的领域。": "Share the software, programming languages or fields you work with.",
+  "你正在走向哪里": "Where you’re heading",
+  "你想长期推进的计划，以及希望实现的目标。": "The plans and goals you want to pursue over time.",
+  "还没有了解到你的长期目标。": "Your long-term goals are not known yet.",
+  "分享一个你希望持续投入的学习、工作或生活目标。": "Share a learning, work or life goal you want to keep working toward.",
+  "称呼": "Preferred name",
+  "职业": "Occupation",
+  "工作身份": "Work role",
+  "教育背景": "Education",
+  "所在地": "Location",
+  "其他交流偏好": "Other communication preferences",
+  "饮品偏好": "Beverage preference",
+  "饮食喜好": "Food preferences",
+  "熟悉的领域": "Expertise",
+  "职业目标": "Career goal",
+  "编程语言偏好": "Programming language preference"
+});
+Object.assign(translations, {
+  "从记忆中认识你": "Getting to know you through memories",
+  "画像会随着你的分享变化，不预设你应该是怎样的人。": "Your profile grows with what you share, without assumptions about who you should be.",
+  "目前，我了解到这样的你": "Here is what I currently know about you",
+  "目前可确认的信息还不多，我会在后续交流中继续了解你。": "There is not much confirmed information yet. I’ll learn more as we talk.",
+  "来自已确认的记忆": "From confirmed memories", "记忆依据": "Memory evidence",
+});
+Object.assign(translations, {"这里是助手目前记住的你。你可以随时补充或纠正。": "What your assistant remembers about you. Add to it or correct it anytime."});

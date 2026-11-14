@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { flushPromises, mount } from "@vue/test-utils";
 import { createWorkspace, WorkspaceKey } from "../composables/useWorkspace";
 import AssistantView from "../views/AssistantView.vue";
+import UserProfileView from "../views/UserProfileView.vue";
 import MemoriesView from "../views/MemoriesView.vue";
 
 const records = [
@@ -33,7 +34,7 @@ function workspace() {
 }
 function mountView(component, value) {
   const wrapper = mount(component, {
-    global: { provide: { [WorkspaceKey]: value } },
+    global: { provide: { [WorkspaceKey]: value }, stubs: { RouterLink: { props: ["to"], template: '<a :href="to"><slot /></a>' } } },
   });
   resources.push(() => wrapper.unmount());
   return wrapper;
@@ -304,4 +305,155 @@ describe("Vue workspace migration", () => {
     );
     expect(value.state.memoryDraft.content).toBe("不要记住这句话");
   });
+});
+
+it("keeps each conversation style selected after switching and restoring server sessions", async () => {
+  mockApi();
+  const value = workspace();
+  value.state.chats = [
+    { id: "work-chat", title: "工作", messages: [], persisted: true },
+    { id: "study-chat", title: "学习", messages: [], persisted: true },
+  ];
+  value.selectChat("work-chat");
+  const wrapper = mountView(AssistantView, value);
+  await wrapper.findAll(".preference-card")[1].trigger("click");
+  expect(value.currentChat.value.preference_context).toContain("先给结论，再给可执行的步骤");
+  value.selectChat("study-chat");
+  await flushPromises();
+  expect(wrapper.findAll(".preference-card.selected")).toHaveLength(0);
+  await wrapper.findAll(".preference-card")[2].trigger("click");
+  value.selectChat("work-chat");
+  await flushPromises();
+  expect(wrapper.find(".preference-card.selected").text()).toContain("专注工作");
+  expect(wrapper.find(".preference-card.selected").attributes("aria-pressed")).toBe("true");
+
+  const restored = workspace();
+  vi.stubGlobal("fetch", vi.fn(async () => response({ items: [
+    { id: "work-chat", title: "工作", messages: [], persisted: true },
+    { id: "study-chat", title: "学习", messages: [], persisted: true },
+  ] })));
+  await restored.refreshChats();
+  const restoredView = mountView(AssistantView, restored);
+  expect(restored.currentChat.value.preference_context).toContain("先给结论，再给可执行的步骤");
+  expect(restoredView.find(".preference-card.selected").text()).toContain("专注工作");
+  restored.selectChat("study-chat");
+  await flushPromises();
+  expect(restoredView.find(".preference-card.selected").text()).toContain("学习探索");
+});
+
+it("offers cold-start preferences, saves them to the engine and supports skipping", async () => {
+  let profile = { user_id: "demo-user", items: [], preferences: {} };
+  vi.stubGlobal("fetch", vi.fn(async (path, options) => {
+    if (path === "/api/profile" && options.method === "PUT") {
+      const payload = JSON.parse(options.body);
+      profile = { user_id: payload.user_id, items: [{id: "name-1", dimension: "identity", predicate: "preferred_name", value: payload.preferences.name}], preferences: payload.preferences };
+      return response(profile);
+    }
+    if (path.startsWith("/api/profile")) return response(profile);
+    return response(path.startsWith("/api/overview") ? summary : { items: [] });
+  }));
+  const value = workspace();
+  const wrapper = mountView(AssistantView, value);
+  await flushPromises();
+  expect(wrapper.find(".preferences-form").element.closest("dialog").open).toBe(true);
+  await wrapper.find(".preferences-form input").setValue("小林");
+  await wrapper.find(".preferences-form").trigger("submit");
+  await flushPromises();
+  const saved = fetch.mock.calls.find(([path, options]) => path === "/api/profile" && options.method === "PUT");
+  expect(JSON.parse(saved[1].body).preferences.name).toBe("小林");
+  expect(localStorage.getItem("cm.assistant.preferences.demo-user")).toBeNull();
+  await wrapper.find(".user-profile-trigger").trigger("click");
+  await flushPromises();
+  expect(wrapper.find(".portrait-heading h1").text()).toBe("个人助手对你的了解");
+  expect(wrapper.find(".conversation-sidebar").exists()).toBe(true);
+  expect(wrapper.find(".conversation-main").exists()).toBe(false);
+  await wrapper.find(".portrait-back").trigger("click");
+  expect(wrapper.find(".conversation-main").exists()).toBe(true);
+  value.switchUser("new-user");
+  profile = { user_id: "new-user", items: [], preferences: {} };
+  await flushPromises();
+  await wrapper.find(".preferences-skip").trigger("click");
+  expect(wrapper.find(".preferences-form").element.closest("dialog").open).toBe(false);
+  expect(localStorage.getItem("cm.assistant.preferences.new-user.visited")).toBe("true");
+});
+
+it("bootstraps existing users from server memory and supports editing and deleting profile facts", async () => {
+  let profile = { user_id: "demo-user", items: [{id: "fact-1", dimension: "interests", predicate: "interests", value: "阅读"}], preferences: { interests: "阅读" } };
+  vi.stubGlobal("fetch", vi.fn(async (path, options) => {
+    if (path.startsWith("/api/profile/fact-1") && options.method === "PATCH") {
+      const value = JSON.parse(options.body).value;
+      profile = { ...profile, items: [{...profile.items[0], value}], preferences: {interests: value} };
+    }
+    if (path.startsWith("/api/profile/fact-1") && options.method === "DELETE") profile = { ...profile, items: [], preferences: {} };
+    if (path.startsWith("/api/profile")) return response(profile);
+    return response(path.startsWith("/api/overview") ? summary : { items: [] });
+  }));
+  const value = workspace();
+  const assistant = mountView(AssistantView, value);
+  await flushPromises();
+  expect(assistant.find(".preferences-form").element.closest("dialog").open).toBe(false);
+  const wrapper = mountView(UserProfileView, value);
+  await flushPromises();
+  const edit = wrapper.findAll(".portrait-fact-actions button").find(button => button.text() === "修改");
+  await edit.trigger("click");
+  await wrapper.find(".portrait-edit textarea").setValue("跑步");
+  await wrapper.find(".portrait-edit").trigger("submit");
+  await flushPromises();
+  expect(wrapper.find(".portrait-fact").text()).toContain("跑步");
+  await wrapper.findAll(".portrait-fact-actions button").find(button => button.text() === "删除").trigger("click");
+  await flushPromises();
+  expect(wrapper.findAll(".portrait-fact")).toHaveLength(0);
+});
+
+it("does not send stale browser personal settings as conversation overrides", async () => {
+  mockApi();
+  const value = workspace();
+  value.newChat();
+  value.currentChat.value.preference_context = "# 我的个人偏好\n过时的兴趣和称呼";
+  await value.sendMessage("你好");
+  const call = fetch.mock.calls.find(([path]) => path === "/api/chat");
+  expect(JSON.parse(call[1].body).preference_context).toBe("");
+});
+
+it("ignores a previous user's delayed profile response", async () => {
+  let resolveOld;
+  vi.stubGlobal("fetch", vi.fn(async path => {
+    if (path === "/api/profile?user_id=demo-user") return new Promise(resolve => { resolveOld = resolve; });
+    if (path.startsWith("/api/profile")) return response({ user_id: "bob", items: [], preferences: {} });
+    return response(path.startsWith("/api/overview") ? summary : { items: [] });
+  }));
+  const value = workspace();
+  const wrapper = mountView(AssistantView, value);
+  value.switchUser("bob");
+  await flushPromises();
+  resolveOld(response({user_id: "demo-user", items: [{id: "old", dimension: "identity", predicate: "name", value: "不应泄露"}], preferences: {name: "不应泄露"}}));
+  await flushPromises();
+  expect(wrapper.find(".preferences-form input").element.value).toBe("");
+  expect(wrapper.text()).not.toContain("不应泄露");
+});
+
+it("numbers actual personal memories rather than fixed dimensions", async () => {
+  const items = [
+    {id: "run", dimension: "interests", value: "跑步", description: "你喜欢跑步", evidence_text: "我喜欢跑步"},
+    {id: "basketball", dimension: "interests", value: "打篮球", description: "你喜欢打篮球", evidence_text: "我喜欢打篮球"},
+    {id: "water", dimension: "interests", value: "喝水", description: "你喜欢喝水", evidence_text: "我喜欢喝水"},
+  ];
+  vi.stubGlobal("fetch", vi.fn(async () => response({user_id: "demo-user", items, preferences: {}})));
+  const wrapper = mountView(UserProfileView, workspace());
+  await flushPromises();
+  expect(wrapper.find("h1").text()).toBe("个人助手对你的了解");
+  expect(wrapper.findAll(".portrait-section")).toHaveLength(3);
+  expect(wrapper.findAll(".portrait-number").map(item => item.text())).toEqual(["1.", "2.", "3."]);
+  expect(wrapper.findAll(".portrait-section h2").map(item => item.text())).toEqual(items.map(item => item.description));
+  expect(wrapper.findAll(".portrait-evidence")).toHaveLength(3);
+  await wrapper.find(".portrait-back").trigger("click");
+  expect(wrapper.emitted("close")).toHaveLength(1);
+});
+
+it("does not invent profile statements when fewer than three memories exist", async () => {
+  vi.stubGlobal("fetch", vi.fn(async () => response({user_id: "demo-user", items: [], preferences: {}})));
+  const wrapper = mountView(UserProfileView, workspace());
+  await flushPromises();
+  expect(wrapper.findAll(".portrait-fact")).toHaveLength(0);
+  expect(wrapper.find(".portrait-sparse").text()).toContain("目前可确认的信息还不多");
 });

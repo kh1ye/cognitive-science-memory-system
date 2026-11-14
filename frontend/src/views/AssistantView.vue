@@ -1,8 +1,11 @@
 <script setup>
 import { computed, nextTick, reactive, ref, watch } from "vue";
 import AppDialog from "../components/AppDialog.vue";
+import UserProfileView from "./UserProfileView.vue";
 import WorkingMemoryPanel from "../components/WorkingMemoryPanel.vue";
 import AppIcon from "../components/AppIcon.vue";
+import { api } from "../lib/api";
+import { conversationStyles, chatStyle } from "../lib/conversationStyles";
 import { useWorkspace } from "../composables/useWorkspace";
 import { types, roles, memoryStatusNames, formatMemoryDecision } from "../lib/format";
 const {
@@ -12,26 +15,24 @@ const {
   selectChat,
   deleteChat,
   sendMessage,
+  setChatPreferences,
   openMemory,
+  notify,
+  refresh: useWorkspaceRefresh,
 } = useWorkspace();
 const input = ref(""),
   inputElement = ref(null),
   messagesElement = ref(null);
 const preferencesOpen = ref(false), previewOpen = ref(false);
-const profilesOpen = ref(false), activeProfile = ref("");
-const profiles = [
-  { id: "daily", title: "日常陪伴", icon: "chat", description: "轻松交流，关注日常生活与兴趣。", instruction: "请采用自然、温和、简洁的交流方式，优先关注我的日常生活与兴趣。" },
-  { id: "work", title: "专注工作", icon: "layers", description: "先给结论，再提供清晰可执行的步骤。", instruction: "请先给结论，再给可执行的步骤。表达简洁，明确区分已知信息与需要确认的事项。" },
-  { id: "study", title: "学习探索", icon: "book", description: "循序渐进，用例子帮助理解。", instruction: "请循序渐进地解释，结合具体例子，必要时通过提问确认我的理解。" },
-];
+const profilesOpen = ref(false), showUserProfile = ref(false);
+const profiles = conversationStyles;
+const activeProfile = computed(() => chatStyle(currentChat.value)?.id || "");
 async function applyProfile(profile) {
   if (state.sending || state.sessionsLoading) return;
   if (!currentChat.value) newChat();
-  currentChat.value.preference_context = `# 对话偏好\n${preferenceMarkdown.value}\n\n## 当前场景：${profile.title}\n${profile.instruction}`;
-  activeProfile.value = profile.id;
+  setChatPreferences(`## 当前场景：${profile.title}\n${profile.instruction}`, profile.id);
   profilesOpen.value = false;
 }
-watch(() => state.currentChatId, () => { activeProfile.value = ""; });
 const preferences = reactive({ name: "", language: "", style: "", tools: "", interests: "", notes: "" });
 const preferenceFields = [
   { key: "name", label: "如何称呼你", placeholder: "例如：小林" },
@@ -45,26 +46,70 @@ const preferenceMarkdown = computed(() => {
   const rows = preferenceFields.filter(field => preferences[field.key].trim()).map(field => `## ${field.label}\n${preferences[field.key].trim()}`);
   return rows.length ? `# 我的个人偏好\n\n${rows.join("\n\n")}\n\n请根据这些偏好与我交流，并记住适合长期保留的信息。` : "";
 });
+const userProfile = ref(null), profileLoading = ref(false), profileError = ref("");
+const savingPreferences = ref(false);
+let profileRequest = 0;
 function preferenceStorageKey(user) { return `cm.assistant.preferences.${encodeURIComponent(user)}`; }
-watch(() => state.user, (user) => {
-  for (const key of Object.keys(preferences)) preferences[key] = "";
-  let saved = null;
-  try { saved = JSON.parse(localStorage.getItem(preferenceStorageKey(user)) || "null"); } catch {}
-  if (saved) for (const key of Object.keys(preferences)) if (typeof saved[key] === "string") preferences[key] = saved[key];
-  previewOpen.value = false;
-  let visited = false;
+function fillPreferences() {
+  for (const key of Object.keys(preferences)) preferences[key] = userProfile.value?.preferences?.[key] || "";
+}
+async function loadProfile({ onboarding = false } = {}) {
+  const user = state.user, request = ++profileRequest;
+  profileLoading.value = true;
+  profileError.value = "";
   try {
-    visited = localStorage.getItem(preferenceStorageKey(user) + ".visited") === "true";
-    localStorage.setItem(preferenceStorageKey(user) + ".visited", "true");
-  } catch {}
-  preferencesOpen.value = !saved && !visited;
+    const result = await api(`/api/profile?user_id=${encodeURIComponent(user)}`);
+    if (user !== state.user || request !== profileRequest) return;
+    userProfile.value = result;
+    fillPreferences();
+    let visited = false;
+    try { visited = localStorage.getItem(preferenceStorageKey(user) + ".visited") === "true"; } catch {}
+    if (onboarding && !result.items?.length && !visited) {
+      // Legacy browser settings are only a draft until explicitly saved.
+      let draft;
+      try { draft = JSON.parse(localStorage.getItem(preferenceStorageKey(user)) || "null"); } catch {}
+      if (draft) for (const key of Object.keys(preferences)) if (typeof draft[key] === "string") preferences[key] = draft[key];
+      preferencesOpen.value = true;
+    }
+  } catch (error) {
+    if (user === state.user && request === profileRequest) profileError.value = error.message;
+  } finally {
+    if (user === state.user && request === profileRequest) profileLoading.value = false;
+  }
+}
+watch(() => state.user, () => {
+  userProfile.value = null;
+  preferencesOpen.value = previewOpen.value = false;
+  for (const key of Object.keys(preferences)) preferences[key] = "";
+  loadProfile({ onboarding: true });
 }, { immediate: true, flush: "sync" });
-async function submitPreferences() {
-  if (!preferenceMarkdown.value || state.sending || state.sessionsLoading) return;
-  if (!currentChat.value) newChat();
-  currentChat.value.preference_context = preferenceMarkdown.value;
-  try { localStorage.setItem(preferenceStorageKey(state.user), JSON.stringify({ ...preferences })); } catch {}
+watch(() => state.sending, (sending, wasSending) => { if (wasSending && !sending) loadProfile(); });
+function skipPreferences() {
+  try { localStorage.setItem(preferenceStorageKey(state.user) + ".visited", "true"); } catch {}
   preferencesOpen.value = false;
+}
+async function openPreferences() {
+  const user = state.user;
+  await loadProfile();
+  if (user === state.user && !profileError.value) preferencesOpen.value = true;
+}
+async function submitPreferences() {
+  if (savingPreferences.value || state.sending || state.sessionsLoading || profileLoading.value) return;
+  const user = state.user;
+  savingPreferences.value = true;
+  profileError.value = "";
+  try {
+    const changes = Object.fromEntries(Object.entries(preferences).filter(([key, value]) => value !== (userProfile.value?.preferences?.[key] || "")));
+    const result = await api("/api/profile", { method: "PUT", body: JSON.stringify({user_id: user, preferences: changes}) });
+    if (user !== state.user) return;
+    userProfile.value = result;
+    try { localStorage.removeItem(preferenceStorageKey(user)); } catch {}
+    skipPreferences();
+    fillPreferences();
+    await useWorkspaceRefresh();
+    notify("个人偏好已保存，后续会话自动使用。");
+  } catch (error) { if (user === state.user) profileError.value = error.message; }
+  finally { savingPreferences.value = false; }
 }
 const suggestions = [
   "我现在主要使用什么编程语言？",
@@ -100,6 +145,7 @@ watch(
   { immediate: true },
 );
 async function createChat() {
+  showUserProfile.value = false;
   newChat();
   await nextTick();
   inputElement.value?.focus();
@@ -108,7 +154,6 @@ async function send(text = input.value) {
   if (!text.trim() || state.sending || state.sessionsLoading) return;
   input.value = "";
   if (!currentChat.value) newChat();
-  if (!currentChat.value.preference_context) currentChat.value.preference_context = preferenceMarkdown.value;
   const pending = sendMessage(text);
   await scroll();
   await pending;
@@ -124,27 +169,47 @@ function keydown(event) {
 </script>
 <template>
   <div id="lp-assistant" class="page assistant-page">
-    <AppDialog v-model:open="profilesOpen" :title="$t('选择对话偏好')">
-      <div class="preference-cards"><button v-for="profile in profiles" :key="profile.id" class="preference-card" :class="{ selected: activeProfile === profile.id }" :disabled="state.sending || state.sessionsLoading" @click="applyProfile(profile)"><AppIcon :name="profile.icon"/><strong>{{ $t(profile.title) }}</strong><span>{{ $t(profile.description) }}</span><small>{{ $t(activeProfile === profile.id ? '当前模式' : '应用到当前对话 →') }}</small></button></div>
+    <AppDialog v-model:open="profilesOpen" class="profiles-dialog" :title="$t('选择对话偏好')">
+      <p class="profiles-intro">{{ $t('选择适合此刻的交流方式，点击即可应用。') }}</p>
+      <div class="preference-cards">
+        <button v-for="profile in profiles" :key="profile.id" type="button"
+          class="preference-card" :class="{ selected: activeProfile === profile.id }"
+          :aria-pressed="activeProfile === profile.id"
+          :disabled="state.sending || state.sessionsLoading" @click="applyProfile(profile)">
+          <span class="preference-icon" :class="`preference-icon--${profile.id}`"><AppIcon :name="profile.icon" /></span>
+          <span class="preference-copy">
+            <strong>{{ $t(profile.title) }}</strong>
+            <span>{{ $t(profile.description) }}</span>
+          </span>
+          <span class="preference-indicator"><AppIcon :name="activeProfile === profile.id ? 'check' : 'chevron'" /></span>
+        </button>
+      </div>
+      <div class="profiles-footer"><AppIcon name="chat" /><span>{{ $t('应用到当前对话，随时可以切换。') }}</span></div>
     </AppDialog>
     <div v-if="state.sessionsLoading" class="subtle" role="status">{{ $t("正在加载会话…") }}</div>
     <AppDialog v-model:open="preferencesOpen" :title="$t('让助手先了解你')">
         <form class="preferences-form" @submit.prevent="submitPreferences">
+          <p class="subtle">{{ $t('保存为长期偏好，跨会话生效；留空可删除对应设置。') }}</p>
+          <p v-if="profileError" class="profile-error" role="alert">{{ profileError }}</p>
+          <fieldset :disabled="savingPreferences || profileLoading || state.sending" class="preferences-fields">
           <label v-for="field in preferenceFields" :key="field.key">{{ $t(field.label) }}
-            <select v-if="field.options" v-model="preferences[field.key]"><option value="">{{ $t("请选择") }}</option><option v-for="option in field.options" :key="option">{{ $t(option) }}</option></select>
+            <select v-if="field.options" v-model="preferences[field.key]"><option value="">{{ $t("请选择") }}</option><option v-if="preferences[field.key] && !field.options.includes(preferences[field.key])" :value="preferences[field.key]">{{ preferences[field.key] }}</option><option v-for="option in field.options" :key="option">{{ $t(option) }}</option></select>
             <textarea v-else-if="field.key === 'notes'" v-model="preferences[field.key]" :placeholder="$t(field.placeholder)" rows="2" maxlength="2000" />
             <input v-else v-model="preferences[field.key]" :placeholder="$t(field.placeholder)" maxlength="500" />
           </label>
+          </fieldset>
           <button type="button" class="text-button" @click="previewOpen = !previewOpen">{{ $t(previewOpen ? '收起' : '预览') }} Markdown</button>
           <pre v-if="previewOpen" class="preferences-preview">{{ preferenceMarkdown || $t('填写偏好后生成') }}</pre>
-          <button class="button full" :disabled="!preferenceMarkdown || state.sending || state.sessionsLoading">{{ $t("保存并开始对话") }}</button>
+          <button class="button full" :disabled="savingPreferences || profileLoading || state.sending || state.sessionsLoading">{{ $t("保存并开始对话") }}</button>
         </form>
-      <button class="text-button preferences-skip" @click="preferencesOpen = false">{{ $t("稍后填写") }}</button>
+      <button class="text-button preferences-skip" @click="skipPreferences">{{ $t("稍后填写") }}</button>
     </AppDialog>
-    <div class="assistant-shell">
+    <p v-if="profileError && !preferencesOpen" class="profile-error" role="alert">{{ profileError }}</p>
+    <div class="assistant-shell" :class="{ 'profile-mode': showUserProfile }">
       <aside class="conversation-sidebar">
         <button class="button full preferences-trigger" :disabled="state.sending || state.sessionsLoading" @click="profilesOpen = true">{{ $t("切换偏好") }}<AppIcon name="layers"/></button>
-        <button class="button full preferences-trigger" @click="preferencesOpen = !preferencesOpen">{{ $t("偏好设置") }}<span>{{ preferencesOpen ? '−' : '+' }}</span></button>
+        <button class="button full preferences-trigger" @click="openPreferences">{{ $t("偏好设置") }}<span>{{ preferencesOpen ? '−' : '+' }}</span></button>
+        <button class="button full preferences-trigger user-profile-trigger" :class="{ active: showUserProfile }" :aria-pressed="showUserProfile" @click="showUserProfile = true">{{ $t("用户画像") }}<AppIcon name="brain" /></button>
 
         <button
           class="button full"
@@ -161,13 +226,14 @@ function keydown(event) {
             class="conversation-item"
             :class="{ active: chat.id === state.currentChatId }"
             :disabled="state.sending || state.sessionsLoading"
-            @click="selectChat(chat.id)"
+            @click="showUserProfile = false; selectChat(chat.id)"
           >
             <AppIcon name="chat" /><span>{{ chat.title }}</span>
           </button>
         </div>
       </aside>
-      <div class="conversation-main">
+      <UserProfileView v-if="showUserProfile" @close="showUserProfile = false" />
+      <div v-else class="conversation-main">
         <div class="chat-topline">
           <span>{{ $t(currentChat?.title || "新会话") }}</span>
           <div class="mobile-chat-tools">
@@ -323,12 +389,42 @@ function keydown(event) {
           </form>
         </div>
       </div>
-      <WorkingMemoryPanel :memory="currentChat?.working_state || null" :sending="state.sending" />
+      <WorkingMemoryPanel v-if="!showUserProfile" :memory="currentChat?.working_state || null" :sending="state.sending" />
     </div>
   </div>
 </template>
 <style scoped>
-.preference-cards{display:grid;gap:12px;padding:20px 24px 24px}.preference-card{display:grid;grid-template-columns:25px 1fr;gap:8px 12px;padding:18px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);text-align:left;cursor:pointer}.preference-card:hover,.preference-card.selected{border-color:var(--blue,#a48bc8)}.preference-card>svg{width:20px;height:20px;grid-row:1/4}.preference-card>strong{font-size:14px}.preference-card>span{font-size:12px;color:var(--muted)}.preference-card>small{font-size:11px;color:var(--blue,#a48bc8);margin-top:5px}
+.user-profile-trigger.active { border-color:var(--blue); background:var(--accent-soft); color:var(--blue); }
+.assistant-shell.profile-mode { grid-template-columns:190px minmax(0,1fr); }
+.profile-mode>.user-profile-page { grid-column:2 / -1; min-height:0; height:100%; }
+@media(max-width:1250px) { .assistant-shell.profile-mode { grid-template-columns:minmax(0,1fr); } .profile-mode>.user-profile-page { grid-column:1 / -1; } }
+@media(max-width:1050px) { .profile-mode>.user-profile-page { height:auto; } }
+.profile-error { color:#d87e7e; font-size:12px; }
+.preferences-fields { border:0; padding:0; margin:0; display:grid; gap:13px; min-width:0; }
+
+.profiles-dialog { width:min(520px, calc(100vw - 32px)); padding:28px; border-radius:20px; }
+.profiles-dialog :deep(.dialog-heading) { margin-bottom:8px; gap:16px; }
+.profiles-dialog :deep(.dialog-heading h2) { font-size:20px; letter-spacing:-.4px; }
+.profiles-intro { margin:0 0 24px; color:var(--muted); font-size:13px; line-height:1.7; }
+.preference-cards { display:grid; gap:10px; }
+.preference-card { display:flex; align-items:center; gap:16px; width:100%; padding:18px; border:1px solid var(--line); border-radius:14px; background:var(--surface, var(--paper)); color:var(--ink); text-align:left; cursor:pointer; font:inherit; transition:background .15s, border-color .15s; }
+.preference-card:hover { background:var(--surface-hover, #f0f3fa); border-color:var(--muted); }
+.preference-card.selected { background:var(--accent-soft, #edf1fc); border-color:var(--blue); }
+.preference-card:focus-visible { outline:2px solid var(--blue); outline-offset:3px; }
+.preference-card:disabled { opacity:.5; cursor:wait; }
+.preference-icon { display:flex; align-items:center; justify-content:center; flex:0 0 44px; height:44px; border-radius:12px; background:var(--accent-soft, #edf1fc); color:var(--violet); }
+.preference-icon--work { background:var(--success-soft, #edf5f0); color:var(--green); }
+.preference-icon--study { background:var(--warning-soft, #faf3e7); color:var(--amber); }
+.preference-icon :deep(svg) { width:22px; height:22px; }
+.preference-copy { display:grid; gap:5px; min-width:0; flex:1; }
+.preference-copy strong { font-size:14px; font-weight:600; }
+.preference-copy > span { color:var(--muted); font-size:12px; line-height:1.7; }
+.preference-indicator { flex:0 0 18px; color:var(--muted); }
+.selected .preference-indicator { color:var(--blue); }
+.preference-indicator :deep(svg) { width:18px; height:18px; }
+.profiles-footer { display:flex; align-items:center; gap:8px; margin-top:22px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+.profiles-footer :deep(svg) { width:15px; height:15px; }
+@media(max-width:540px) { .profiles-dialog { padding:22px 18px; } .preference-card { padding:15px 12px; gap:12px; } .preference-icon { flex-basis:38px; height:38px; } }
 .preferences-skip{margin:0 24px 20px}.preferences-trigger{display:flex;justify-content:space-between;margin-bottom:12px}.preferences-form{padding:20px 24px;display:grid;gap:13px;margin:0 0 20px;padding-bottom:18px;border-bottom:1px solid var(--line)}.preferences-form label{display:grid;gap:6px;font-size:11px;color:var(--muted)}.preferences-form input,.preferences-form select,.preferences-form textarea{width:100%;min-width:0;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--text);font:inherit}.preferences-preview{white-space:pre-wrap;overflow-wrap:anywhere;max-height:180px;overflow:auto;font-size:10px;line-height:1.7}.conversation-sidebar:has(.preferences-form){overflow:auto}.conversation-sidebar:has(.preferences-form) .conversation-list{flex:none;max-height:250px}
 .assistant-shell{display:grid;grid-template-columns:190px minmax(0,1fr) 265px;grid-template-rows:minmax(0,1fr)}
 .conversation-sidebar{width:auto;min-height:0;overflow:hidden}

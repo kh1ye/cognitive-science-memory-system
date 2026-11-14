@@ -1,5 +1,6 @@
 import { reactive, computed, inject } from "vue";
 import { api, post } from "../lib/api";
+import { chatStyleContext } from "../lib/conversationStyles";
 import { decisionNames } from "../lib/format";
 
 export const WorkspaceKey = Symbol("workspace");
@@ -63,6 +64,20 @@ export function createWorkspace() {
   function saveChats() {
     persist(`cm.chats.${state.user}`, state.chats);
   }
+  function setChatPreferences(context, profileId = "") {
+    if (!currentChat.value || state.sending || state.sessionsLoading) return;
+    currentChat.value.preference_context = context;
+    currentChat.value.preference_profile = profileId;
+    saveChats();
+  }
+  function restoreChatPreferences(chat) {
+    const cached = state.chats.find(item => item.id === chat.id);
+    return cached ? {
+      ...chat,
+      preference_context: cached.preference_context || "",
+      preference_profile: cached.preference_profile || "",
+    } : chat;
+  }
   function loadChats() {
     const chats = read(`cm.chats.${state.user}`, []);
     state.chats = Array.isArray(chats)
@@ -120,7 +135,7 @@ export function createWorkspace() {
     try {
       const result = await api(`/api/sessions?user_id=${encodeURIComponent(user)}`);
       if (version !== sessionsVersion || user !== state.user || state.sending) return;
-      const remote = result.items;
+      const remote = result.items.map(restoreChatPreferences);
       const remoteIds = new Set(remote.map((chat) => chat.id));
       const local = state.chats.filter((chat) => !chat.persisted && !remoteIds.has(chat.id));
       state.chats = [...remote, ...local];
@@ -257,7 +272,7 @@ export function createWorkspace() {
     try {
       const chat = await api(`/api/sessions/${encodeURIComponent(id)}?user_id=${encodeURIComponent(user)}`);
       if (user !== state.user || version !== sourceVersion) return;
-      state.chats = [chat, ...state.chats.filter(item => item.id !== id)];
+      state.chats = [restoreChatPreferences(chat), ...state.chats.filter(item => item.id !== id)];
       state.currentChatId = id;
       state.focusMessageId = messageId;
       saveChats();
@@ -328,7 +343,7 @@ export function createWorkspace() {
         user_id: user,
         thread_id: chat.id,
         message: text,
-        preference_context: chat.preference_context || "",
+        preference_context: chatStyleContext(chat),
         auto_remember: state.autoRemember,
       }, { timeoutMs: 300000 });
       chat.persisted = true;
@@ -380,6 +395,7 @@ export function createWorkspace() {
     inspectMemory,
     deleteChat,
     sendMessage,
+    setChatPreferences,
     dispose,
   };
 }

@@ -200,6 +200,59 @@ class Memory:
                 self.storage.archive_supports([(iso_now(), duplicate["id"])])
             return result
 
+    def edit_semantic_memory(self, user_id, key, value, content, *, tags,
+                             replace_ids=(), consent=False, predicate=None):
+        """Explicit user edit, distinct from automatic evidence consolidation.
+
+        Archive superseded states and admit the replacement atomically using the
+        existing encoder/storage. Failed admission rolls the entire edit back.
+        """
+        from uuid import uuid4
+
+        user = normalize_text(user_id) or "demo-user"
+        key = canonicalize_memory_key(key)
+        if not key or not value.strip():
+            raise ValueError("画像内容不能为空")
+        with self.storage.transaction():
+            rows = self.storage._conn.execute(
+                "SELECT id,memory_key,state_role FROM memories WHERE user_id=? AND memory_type='semantic'",
+                (user,),
+            ).fetchall()
+            targets = [row for row in rows if row["id"] in replace_ids or row["memory_key"] == key]
+            # Do not edit third-party/task facts via the personal settings path.
+            for row in targets:
+                native = self.architecture.repo.get("semantic_assertions", user, row["id"])
+                if native is None or native.get("subject") != user or native.get("scope") != "user":
+                    raise ValueError("只能修改当前用户的个人语义记忆")
+                prior = self.storage.get_memory(row["id"])
+                if native.get("sensitive") or set(prior["tags"]) & {"sensitive", "private", "敏感", "隐私"}:
+                    tags = sorted(set(tags) | {"sensitive"})
+            if self.encoder.privacy_reason(normalize_text(content), tags, consent):
+                raise ValueError("该内容不允许保存，原画像未修改。")
+            # Pending evidence for an explicitly changed topic must not later
+            # restore the preference that the user just replaced.
+            keys = {row["memory_key"] for row in targets} | {key}
+            for row in rows:
+                if row["memory_key"] in keys:
+                    if row["state_role"] == "current":
+                        self.storage.mark_history(iso_now(), row["id"])
+                    elif row["state_role"] == "candidate":
+                        self.storage.archive_supports([(iso_now(), row["id"])])
+            prototype = {"subject": user, "predicate": predicate or key,
+                         "value": value, "evidence_text": content, "scope": "user",
+                         "epistemic_status": "explicit", "source_refs": [],
+                         "sensitive": bool(set(tags) & {"sensitive", "private", "敏感", "隐私"})}
+            with self.storage.native_context(prototype):
+                result = self.add_memory({"user_id": user, "memory_type": "semantic",
+                    "memory_key": key, "memory_value": value, "content": content,
+                    "source": "user_profile_settings", "tags": tags, "consent": consent,
+                    "metadata": {"event_id": str(uuid4()), "explicit_edit": True, "consent": consent}})
+            if (result.get("memory") or {}).get("state_role") != "current":
+                raise ValueError("内容未通过记忆写入规则，原画像未修改。")
+            self.storage.audit(user, "USER_EDIT", "用户明确修改个人语义记忆，旧状态保留为历史。",
+                               result["memory"]["id"], {"replaced_ids": [row["id"] for row in targets]})
+            return result
+
     def store_native(self, user_id, module, prototype):
         """Run the existing admission/consolidation policy for a validated native candidate."""
         import json

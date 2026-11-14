@@ -31,6 +31,7 @@ from cognitive_memory.value import context_only
 from .llm import ChatModelError, LLMSettings, analyze_observation
 from .memory import CognitiveMemory
 from .prompts import DIALOGUE_PROMPT
+from cognitive_memory.profile import UserProfile
 from .state import ConversationState
 
 
@@ -310,7 +311,9 @@ class ConversationAgent:
                 content=DIALOGUE_PROMPT
                 + json.dumps(
                     {
-                        "preference_context": state.get("preference_context", ""),
+                        "preference_context": state.get("preference_context", "")[:2000],
+                        "user_profile": ([] if state["retention_policy"] == "no_persist" else
+                            UserProfile.read(self.memory.engine, state["user_id"]).context()),
                         "retrieved": state["references"],
                         "working": self.memory.engine.architecture.working_state(
                             state["user_id"], state["thread_id"], state["task_id"]
