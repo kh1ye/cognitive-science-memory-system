@@ -1,5 +1,6 @@
 import { reactive, computed, inject } from "vue";
 import { api, post } from "../lib/api";
+import { emotionStates, defaultEmotion } from "../lib/emotions";
 import { chatStyleContext } from "../lib/conversationStyles";
 import { decisionNames } from "../lib/format";
 
@@ -47,6 +48,35 @@ export function createWorkspace() {
   const currentChat = computed(() =>
     state.chats.find((c) => c.id === state.currentChatId),
   );
+  // Short-term UI state never enters chats, messages or localStorage.
+  const emotions = reactive(new Map()), emotionTimers = new Map();
+  const emotionKey = id => JSON.stringify([state.user, id]);
+  const currentEmotion = computed(() => {
+    const item = emotions.get(emotionKey(state.currentChatId));
+    if (item && item.expiresAt > Date.now()) return item;
+    const example = currentChat.value?.example_emotion;
+    if (example && Object.hasOwn(emotionStates, example.label))
+      return { label: example.label, confidence: example.confidence || 0, ...emotionStates[example.label], source: "example" };
+    return defaultEmotion();
+  });
+  function clearEmotions() {
+    for (const timer of emotionTimers.values()) clearTimeout(timer);
+    emotionTimers.clear();
+    emotions.clear();
+  }
+  function receiveEmotion(id, value) {
+    const key = emotionKey(id);
+    clearTimeout(emotionTimers.get(key));
+    emotionTimers.delete(key);
+    emotions.delete(key);
+    if (!value || !Object.hasOwn(emotionStates, value.label)
+        || !Number.isFinite(value.confidence) || value.confidence < .75 || value.confidence > 1
+        || !Number.isFinite(value.ttl_seconds) || value.ttl_seconds <= 0) return;
+    const ttl = Math.min(300, value.ttl_seconds) * 1000;
+    emotions.set(key, { label: value.label, confidence: value.confidence,
+      ...emotionStates[value.label], expiresAt: Date.now() + ttl });
+    emotionTimers.set(key, setTimeout(() => { emotions.delete(key); emotionTimers.delete(key); }, ttl));
+  }
   function notify(text) {
     state.toast = text;
     clearTimeout(toastTimer);
@@ -135,7 +165,10 @@ export function createWorkspace() {
     try {
       const result = await api(`/api/sessions?user_id=${encodeURIComponent(user)}`);
       if (version !== sessionsVersion || user !== state.user || state.sending) return;
-      const remote = result.items.map(restoreChatPreferences);
+      const remote = result.items.map(({ current_emotion, ...chat }) => {
+        if (current_emotion) receiveEmotion(chat.id, current_emotion);
+        return restoreChatPreferences(chat);
+      });
       const remoteIds = new Set(remote.map((chat) => chat.id));
       const local = state.chats.filter((chat) => !chat.persisted && !remoteIds.has(chat.id));
       state.chats = [...remote, ...local];
@@ -158,6 +191,7 @@ export function createWorkspace() {
     ++loadVersion;
     ++inspectVersion;
     ++sourceVersion;
+    clearEmotions();
     state.user = user;
     persist("cm.user", user);
     state.overview = null;
@@ -270,8 +304,9 @@ export function createWorkspace() {
     if (state.sending || !id) return;
     const version = ++sourceVersion;
     try {
-      const chat = await api(`/api/sessions/${encodeURIComponent(id)}?user_id=${encodeURIComponent(user)}`);
+      const { current_emotion, ...chat } = await api(`/api/sessions/${encodeURIComponent(id)}?user_id=${encodeURIComponent(user)}`);
       if (user !== state.user || version !== sourceVersion) return;
+      if (current_emotion) receiveEmotion(chat.id, current_emotion);
       state.chats = [restoreChatPreferences(chat), ...state.chats.filter(item => item.id !== id)];
       state.currentChatId = id;
       state.focusMessageId = messageId;
@@ -307,6 +342,9 @@ export function createWorkspace() {
       }
     }
     if (user !== state.user) return;
+    clearTimeout(emotionTimers.get(emotionKey(id)));
+    emotionTimers.delete(emotionKey(id));
+    emotions.delete(emotionKey(id));
     state.chats = state.chats.filter((c) => c.id !== id);
     state.currentChatId = state.chats[0]?.id || null;
     saveChats();
@@ -324,6 +362,7 @@ export function createWorkspace() {
     if (!currentChat.value) newChat();
     const chat = currentChat.value,
       user = state.user;
+    delete chat.example_emotion;
     chat.messages.push({ role: "user", text });
     if (chat.title === "新会话") chat.title = text.slice(0, 20);
     chat.messages.push({
@@ -346,6 +385,7 @@ export function createWorkspace() {
         preference_context: chatStyleContext(chat),
         auto_remember: state.autoRemember,
       }, { timeoutMs: 300000 });
+      if (user === state.user && result.emotion) receiveEmotion(chat.id, result.emotion);
       chat.persisted = true;
       chat.task_id = result.task_id;
       chat.working_state = result.working_state || null;
@@ -367,6 +407,7 @@ export function createWorkspace() {
     return true;
   }
   function dispose() {
+    clearEmotions();
     ++sourceVersion;
     ++inspectVersion;
     ++loadVersion;
@@ -378,6 +419,7 @@ export function createWorkspace() {
   return {
     state,
     currentChat,
+    currentEmotion,
     initialize,
     refreshChats,
     refresh,

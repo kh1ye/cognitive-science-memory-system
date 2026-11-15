@@ -457,3 +457,91 @@ it("does not invent profile statements when fewer than three memories exist", as
   expect(wrapper.findAll(".portrait-fact")).toHaveLength(0);
   expect(wrapper.find(".portrait-sparse").text()).toContain("目前可确认的信息还不多");
 });
+
+it("automatically switches the emotion indicator and expires without persisting it", async () => {
+  vi.useFakeTimers();
+  try {
+    mockApi(() => response({answer: "慢慢来", references: [], emotion: {label: "tired", confidence: .94, emoji: "😴", ttl_seconds: 2}}));
+    const value = workspace();
+    value.state.autoRemember = false;
+    const wrapper = mountView(AssistantView, value);
+    expect(wrapper.find(".emotion-emoji").text()).toBe("😐");
+    await value.sendMessage("我有点累了");
+    await flushPromises();
+    expect(wrapper.find(".emotion-emoji").text()).toBe("😴");
+    expect(wrapper.find(".emotion-emoji").attributes("aria-label")).toBe("有点疲惫");
+    const saved = localStorage.getItem("cm.chats.demo-user");
+    expect(saved).not.toContain('"emotion"');
+    expect(saved).not.toContain('"expiresAt"');
+    await vi.advanceTimersByTimeAsync(2100);
+    expect(wrapper.find(".emotion-emoji").text()).toBe("😐");
+  } finally { vi.useRealTimers(); }
+});
+
+it("isolates short-term emotion by conversation and user and resets on reload", async () => {
+  mockApi(() => response({answer: "真好", references: [], emotion: {label: "happy", confidence: .92, ttl_seconds: 300}}));
+  const value = workspace();
+  await value.sendMessage("今天很开心");
+  const first = value.state.currentChatId;
+  expect(value.currentEmotion.value.emoji).toBe("😄");
+  value.newChat();
+  expect(value.currentEmotion.value.emoji).toBe("😐");
+  value.selectChat(first);
+  expect(value.currentEmotion.value.emoji).toBe("😄");
+  const reloaded = workspace();
+  expect(reloaded.currentEmotion.value.emoji).toBe("😐");
+  value.switchUser("bob");
+  expect(value.currentEmotion.value.emoji).toBe("😐");
+  value.switchUser("demo-user");
+  expect(value.currentEmotion.value.emoji).toBe("😐");
+});
+
+it("renders all eight emotion states using trusted emoji mappings", async () => {
+  let emotion;
+  mockApi(() => response({answer: "收到", references: [], emotion}));
+  const value = workspace();
+  const wrapper = mountView(AssistantView, value);
+  for (const [label, emoji] of Object.entries({energetic: "⚡", happy: "😄", calm: "😌", neutral: "😐", tired: "😴", sad: "😔", anxious: "😟", irritable: "😤"})) {
+    emotion = {label, confidence: .9, emoji: "untrusted text", ttl_seconds: 300};
+    await value.sendMessage("更新状态");
+    await flushPromises();
+    expect(wrapper.find(".emotion-emoji").text()).toBe(emoji);
+  }
+  emotion = {label: "unknown", confidence: 1, ttl_seconds: 300};
+  await value.sendMessage("继续");
+  await flushPromises();
+  expect(wrapper.find(".emotion-emoji").text()).toBe("😐");
+});
+
+it("shows the selected example emotion in the chat status and clears the replay on live continuation", async () => {
+  mockApi(() => response({answer: "收到", references: [], emotion: {label: "neutral", confidence: 0, ttl_seconds: 0}}));
+  const value = workspace();
+  value.state.chats = [
+    {id: "emotion-example-happy-v1", title: "[示例] 开心", persisted: true, messages: [], example_emotion: {label: "happy", confidence: .97}},
+    {id: "emotion-example-tired-v1", title: "[示例] 疲惫", persisted: true, messages: [], example_emotion: {label: "tired", confidence: .95}},
+    {id: "real-chat", title: "普通对话", messages: []},
+  ];
+  value.selectChat("emotion-example-happy-v1");
+  const wrapper = mountView(AssistantView, value);
+  expect(wrapper.find(".emotion-emoji").text()).toBe("😄");
+  value.selectChat("emotion-example-tired-v1");
+  await flushPromises();
+  expect(wrapper.find(".emotion-emoji").text()).toBe("😴");
+  value.selectChat("real-chat");
+  await flushPromises();
+  expect(wrapper.find(".emotion-emoji").text()).toBe("😐");
+  value.selectChat("emotion-example-happy-v1");
+  await value.sendMessage("继续聊聊");
+  await flushPromises();
+  expect(wrapper.find(".emotion-emoji").text()).toBe("😐");
+  expect(value.currentChat.value.example_emotion).toBeUndefined();
+});
+
+it("restores a still-live server emotion without storing it in chat history", async () => {
+  vi.stubGlobal("fetch", vi.fn(async () => response({items:[{id:"live",title:"今天的心情",persisted:true,messages:[],current_emotion:{label:"happy",confidence:.95,ttl_seconds:120}}]})));
+  const value = workspace();
+  await value.refreshChats();
+  expect(value.currentEmotion.value.emoji).toBe("😄");
+  expect(value.currentChat.value.current_emotion).toBeUndefined();
+  expect(localStorage.getItem("cm.chats.demo-user")).not.toContain('"current_emotion"');
+});

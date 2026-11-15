@@ -2,7 +2,7 @@
 
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from .models import iso_now
 
@@ -97,7 +97,27 @@ class WorkingStatePatch(Contract):
     task_state: dict | None = None
 
 
+class EmotionAssessment(Contract):
+    """Current self-expression only; never a long-term personality assertion."""
+    label: Literal["energetic", "happy", "calm", "neutral", "tired", "sad", "anxious", "irritable"] = "neutral"
+    confidence: float = Field(default=0, ge=0, le=1)
+    is_user_state: bool = Field(default=False, description="是否有依据表明是用户本人此刻的真实感受，而非引用、假设或他人感受")
+    evidence_text: str = Field(default="", max_length=1000, description="支持判断的本轮用户原文连续片段；无明确依据留空")
+
+
 class ObservationAnalysis(Contract):
+    # Extraction schema includes emotion, but memory/working-state serialization
+    # must never carry this transient assessment into observations or receipts.
+    emotion: EmotionAssessment = Field(default_factory=EmotionAssessment, exclude=True)
+
+    @field_validator("emotion", mode="before")
+    @classmethod
+    def valid_emotion_or_default(cls, value):
+        try:
+            return EmotionAssessment.model_validate(value)
+        except (ValueError, TypeError):
+            return EmotionAssessment()
+
     working_state_patch: WorkingStatePatch = Field(default_factory=WorkingStatePatch)
     episode_candidates: list[EpisodeEvent] = Field(default_factory=list)
     semantic_candidates: list[SemanticAssertion] = Field(default_factory=list)

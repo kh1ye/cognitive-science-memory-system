@@ -1,8 +1,9 @@
 """Short-term conversation state and validated long-term memory candidates."""
 
-from typing import Any, Literal
+from typing import Annotated, Any, Literal
 
 from langgraph.graph import MessagesState
+from langgraph.channels import UntrackedValue
 from pydantic import BaseModel, ConfigDict, Field
 
 
@@ -32,6 +33,7 @@ class MemoryExtraction(BaseModel):
 
 
 class ConversationState(MessagesState):
+    emotion: Annotated[dict, UntrackedValue(dict)]
     preference_context: str
     user_id: str
     thread_id: str

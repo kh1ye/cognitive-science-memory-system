@@ -1,0 +1,103 @@
+{
+  "method": "Normal UI, real unmodified fetch responses, auto_remember=false, conversation persisted as requested",
+  "thread_id": "00b3747a-d19b-4bc7-a9e1-411fe0089b41",
+  "observations": [
+    {
+      "response": {
+        "request": {
+          "message": "我现在特别开心，想找你轻松聊几句。",
+          "auto_remember": false
+        },
+        "http": 200,
+        "result": {
+          "emotion": {
+            "label": "happy",
+            "confidence": 0.95,
+            "emoji": "😄",
+            "ttl_seconds": 299
+          },
+          "answer": "当然可以 😄 看你这么开心，我也跟着轻快起来了！最近有什么让你特别开心的事吗？也可以就随便聊聊、分享点小碎片。",
+          "memory_status": "disabled",
+          "warnings": []
+        }
+      },
+      "display": {
+        "emoji": "😄",
+        "title": "开心愉快"
+      }
+    },
+    {
+      "response": {
+        "request": {
+          "message": "不过想到明天要做一个重要汇报，我又有点紧张，总担心自己讲不好。",
+          "auto_remember": false
+        },
+        "http": 200,
+        "result": {
+          "emotion": {
+            "label": "anxious",
+            "confidence": 0.82,
+            "emoji": "😟",
+            "ttl_seconds": 297
+          },
+          "answer": "understandable，重要汇报前紧张很正常，说明你很重视这件事。不过“讲不好”往往比实际结果更让人害怕。\n\n明天可以先准备一个很简单的“三段式”：\n\n1. **开头**：这次汇报要解决什么问题？  \n2. **主体**：最重要的 2～3 个信息，每个配一个例子或数据。  \n3. **结尾**：希望对方做什么、有什么结论或下一步。\n\n准备时不要反复背稿，可以合上材料，用自己的话讲两三遍；每一部分只记一个关键词，提醒自己按结构走。你不需要做到完美，只需要把核心内容讲清楚。\n\n如果还是担心，今晚先做一件事就好：**写好开场和结尾，并完整练习一次**。剩下的交给明天的你。你也可以告诉我汇报主题，我帮你把结构理出来。",
+          "memory_status": "disabled",
+          "warnings": []
+        }
+      },
+      "display": {
+        "emoji": "😟",
+        "title": "紧张焦虑"
+      }
+    },
+    {
+      "response": {
+        "request": {
+          "message": "跟你聊完我已经放松下来了，现在心里挺平静的。",
+          "auto_remember": false
+        },
+        "http": 200,
+        "result": {
+          "emotion": {
+            "label": "calm",
+            "confidence": 0.93,
+            "emoji": "😌",
+            "ttl_seconds": 294
+          },
+          "answer": "很好，今晚就保持这个平稳的状态，不用逼自己彻底不紧张，也不用反复担心明天的表现。\n\n睡前可以再做一件小事：把汇报的开场、结尾和关键词过一遍，然后合上材料，让大脑休息。你已经准备在做了，剩下的是让明天的自己自然发挥。期待你的汇报顺利，也相信你能把自己的意思讲清楚。",
+          "memory_status": "disabled",
+          "warnings": []
+        }
+      },
+      "display": {
+        "emoji": "😌",
+        "title": "平静放松"
+      }
+    },
+    {
+      "response": {
+        "request": {
+          "message": "现在困意上来了，我真的有点累，想早点休息。",
+          "auto_remember": false
+        },
+        "http": 200,
+        "result": {
+          "emotion": {
+            "label": "tired",
+            "confidence": 0.9,
+            "emoji": "😴",
+            "ttl_seconds": 297
+          },
+          "answer": "那就别硬撑啦，趁困意还在，赶紧洗漱、简单收拾一下，然后早点睡吧。明天的汇报留给明天的你处理；今晚先好好休息。\n\n愿你睡得踏实，醒来时精神一点。晚安 🌙",
+          "memory_status": "disabled",
+          "warnings": []
+        }
+      },
+      "display": {
+        "emoji": "😴",
+        "title": "有点疲惫"
+      }
+    }
+  ],
+  "archive_note": "保留真实对话文本、实际情绪结果及页面显示；不包含检索到的底层用户记忆、来源原文或工作状态。"
+}

@@ -33,6 +33,23 @@ from .memory import CognitiveMemory
 from .prompts import DIALOGUE_PROMPT
 from cognitive_memory.profile import UserProfile
 from .state import ConversationState
+from .emotions import (EMOJIS, TEMPORARY_EMOTION_TOPICS, neutral_emotion, public_emotion, resolve_emotion)
+from cognitive_memory.keys import canonicalize_memory_key
+
+
+class ConversationSaver(SqliteSaver):
+    """Untracked channels must also stay out of SQLite's pending-write log."""
+
+    def put_writes(self, config, writes, task_id, task_path=""):
+        return super().put_writes(config, [(channel, value) for channel, value in writes if channel != "emotion"], task_id, task_path)
+
+    def put(self, config, checkpoint, metadata, new_versions):
+        checkpoint = {**checkpoint, "channel_values": {k: v for k, v in checkpoint.get("channel_values", {}).items() if k != "emotion"}}
+        metadata = dict(metadata)
+        if isinstance(metadata.get("writes"), dict):
+            metadata["writes"] = {k: ({key: value for key, value in v.items() if key != "emotion"} if isinstance(v, dict) else v)
+                                  for k, v in metadata["writes"].items() if k != "emotion"}
+        return super().put(config, checkpoint, metadata, new_versions)
 
 
 class ConversationAgent:
@@ -49,11 +66,13 @@ class ConversationAgent:
         self.settings = settings or LLMSettings.from_env()
         self._model = model
         self._lock = threading.RLock()
+        self._emotions = {}
+        self._emotion_clock = time.monotonic
         path = str(db_path)
         if path != ":memory:":
             Path(path).parent.mkdir(parents=True, exist_ok=True)
         self._conn = sqlite3.connect(path, check_same_thread=False)
-        self.checkpointer = SqliteSaver(self._conn)
+        self.checkpointer = ConversationSaver(self._conn)
         self.checkpointer.setup()
         with self.checkpointer.cursor() as cursor:
             cursor.execute("""
@@ -94,20 +113,32 @@ class ConversationAgent:
         architecture = self.memory.engine.architecture
         message = str(state["messages"][-1].content)
         analysis, warnings = ObservationAnalysis(), []
-        if (
-            state["auto_remember"]
-            and state["retention_policy"] != "no_persist"
-            and self.memory.allows_extraction(message)
-            and not context_only(message)
-        ):
-            try:
-                analysis = analyze_observation(
-                    self._get_model(),
-                    "user_id=" + state["user_id"] + "\n" + message,
-                    source_content=message,
-                )
-            except Exception:  # noqa: BLE001 -- preserve reply and report extraction/learning failure
+        learn_allowed = (
+            state["auto_remember"] and state["retention_policy"] == "persist"
+            and self.memory.allows_extraction(message) and not context_only(message)
+        )
+        # One shared analysis call, including when long-term learning is disabled.
+        # History is bounded and is explicitly not admissible as new evidence.
+        recent = [{"role": "user" if isinstance(m, HumanMessage) else "assistant", "text": str(m.content)[-400:]}
+                  for m in state["messages"][:-1][-4:] if isinstance(m, (HumanMessage, AIMessage))]
+        try:
+            analysis = analyze_observation(
+                self._get_model(), "user_id=" + state["user_id"] + "\n" + message,
+                source_content=message, emotion_context=json.dumps(recent, ensure_ascii=False) if recent else "",
+                emotion_only=not learn_allowed,
+            )
+        except Exception:  # emotion failure never blocks the reply
+            if learn_allowed:
                 warnings.append("结构化提取失败；本轮未确认保存长期记忆。")
+        assessment = analysis.emotion
+        key = (state["user_id"], state["thread_id"], state["task_id"])
+        previous = self._emotions.get(key) if state["retention_policy"] != "no_persist" else None
+        emotion = resolve_emotion(previous, assessment, message, self._emotion_clock())
+        if not learn_allowed:
+            analysis = ObservationAnalysis()
+        else:
+            analysis = analysis.model_copy(update={"semantic_candidates": [candidate for candidate in analysis.semantic_candidates
+                if canonicalize_memory_key(candidate.predicate) not in TEMPORARY_EMOTION_TOPICS]})
         working = architecture.working_state(
             state["user_id"], state["thread_id"], state["task_id"]
         )
@@ -138,6 +169,7 @@ class ConversationAgent:
             )
         return {
             "analysis": analysis.model_dump(),
+            "emotion": emotion,
             "completed_actions": [],
             "steps": 0,
             "stop_reason": "",
@@ -312,6 +344,7 @@ class ConversationAgent:
                 + json.dumps(
                     {
                         "preference_context": state.get("preference_context", "")[:2000],
+                        "current_emotion": public_emotion(state.get("emotion"), self._emotion_clock()),
                         "user_profile": ([] if state["retention_policy"] == "no_persist" else
                             UserProfile.read(self.memory.engine, state["user_id"]).context()),
                         "retrieved": state["references"],
@@ -395,6 +428,8 @@ class ConversationAgent:
                 self.memory.engine.architecture.register_model_configuration(
                     user_id, provider=self.settings.provider, model=self.settings.model
                 )
+            now = self._emotion_clock()
+            self._emotions = {key: value for key, value in self._emotions.items() if value["expires_at"] > now}
             state = graph.invoke(
                 {
                     "messages": new_messages,
@@ -411,6 +446,11 @@ class ConversationAgent:
                 {**config, "recursion_limit": 16},
             )
             if retention_policy != "no_persist":
+                key = (user_id, thread_id, state["task_id"])
+                if len(self._emotions) >= 1024:
+                    self._emotions.pop(next(iter(self._emotions)))
+                self._emotions[key] = state.get("emotion", neutral_emotion())
+            if retention_policy != "no_persist":
                 with self.checkpointer.cursor() as cursor:
                     cursor.execute(
                         "UPDATE conversation_threads SET updated_at=?, "
@@ -423,6 +463,7 @@ class ConversationAgent:
                     )
             return {
                 "thread_id": thread_id,
+                "emotion": public_emotion(state.get("emotion"), self._emotion_clock()),
                 "task_id": state["task_id"],
                 "working_state": self.memory.engine.architecture.working_state(
                     user_id, thread_id, state["task_id"]
@@ -457,7 +498,7 @@ class ConversationAgent:
                         "warnings": data.get("warnings", []),
                     }
                 )
-        return {
+        result = {
             "id": thread_id,
             "task_id": snapshot.values.get("task_id"),
             "working_state": self.memory.engine.architecture.working_state(
@@ -470,6 +511,21 @@ class ConversationAgent:
             "updated_at": updated_at,
             "persisted": True,
         }
+
+        # Expose still-live process state when opening an existing conversation;
+        # this is read from RAM, never reconstructed from saved transcripts.
+        active = self._emotions.get((_user_id, thread_id, snapshot.values.get("task_id")))
+        if active and active["expires_at"] > self._emotion_clock():
+            result["current_emotion"] = public_emotion(active, self._emotion_clock())
+        # Static, version-controlled example annotations are separate from live
+        # emotion state. A real continuation's last reply has no such annotation.
+        history = snapshot.values.get("messages", [])
+        if history and isinstance(history[-1], AIMessage) and thread_id.startswith("emotion-example-"):
+            example = history[-1].additional_kwargs.get("example_emotion", {})
+            if example.get("label") in EMOJIS:
+                result["example_emotion"] = {"label": example["label"], "emoji": EMOJIS[example["label"]],
+                                             "confidence": example.get("confidence", 0)}
+        return result
 
     def list_sessions(self, user_id: str):
         user_id = normalize_text(user_id) or "demo-user"
@@ -498,6 +554,7 @@ class ConversationAgent:
                 return False
             internal_id = self._config(user_id, thread_id)["configurable"]["thread_id"]
             self.checkpointer.delete_thread(internal_id)
+            self._emotions = {key: value for key, value in self._emotions.items() if key[:2] != (user_id, thread_id)}
             architecture = self.memory.engine.architecture
             with architecture.storage.transaction():
                 for runtime in architecture.repo.rows("working_states", user_id):
@@ -514,4 +571,5 @@ class ConversationAgent:
             hooks = self.memory.engine.architecture.source_delete_hooks
             if self._purge_source_session in hooks:
                 hooks.remove(self._purge_source_session)
+            self._emotions.clear()
             self._conn.close()

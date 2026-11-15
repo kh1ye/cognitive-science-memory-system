@@ -157,7 +157,9 @@ class ConversationAgentTests(unittest.TestCase):
         session = self.agent.get_session("alice", "thread-one")
         self.assertEqual(len(session["messages"]), 4)
         self.assertEqual(session["messages"][0]["text"], "我的项目叫 Atlas")
-        self.assertEqual(len(self.model.extraction_calls), 0)
+        self.assertEqual(len(self.model.extraction_calls), 2)
+        self.assertTrue(all("本次仅判断 emotion" in call[0].content for call in self.model.extraction_calls))
+        self.assertEqual(self.engine.architecture.repo.rows("semantic_assertions", "alice"), [])
 
     def test_long_term_memory_is_shared_across_threads_but_not_users(self):
         self.model.extraction = {"semantic_candidates": [candidate("我喜欢 Python")]}
@@ -204,7 +206,9 @@ class ConversationAgentTests(unittest.TestCase):
     def test_privacy_opt_out_sensitive_and_invented_memory_are_rejected(self):
         self.model.extraction = {"semantic_candidates": [candidate("我喜欢 Python")]}
         self.agent.chat("alice", "privacy", "不要记住，我喜欢 Python")
-        self.assertEqual(self.model.extraction_calls, [])
+        self.assertEqual(len(self.model.extraction_calls), 1)
+        self.assertIn("本次仅判断 emotion", self.model.extraction_calls[0][0].content)
+        self.assertEqual(self.engine.architecture.repo.rows("semantic_assertions", "alice"), [])
         self.model.extraction = {
             "semantic_candidates": [candidate("我有花生过敏", sensitive=True)]
         }

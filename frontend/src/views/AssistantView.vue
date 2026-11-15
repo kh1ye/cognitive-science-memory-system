@@ -11,6 +11,7 @@ import { types, roles, memoryStatusNames, formatMemoryDecision } from "../lib/fo
 const {
   state,
   currentChat,
+  currentEmotion,
   newChat,
   selectChat,
   deleteChat,
@@ -235,7 +236,13 @@ function keydown(event) {
       <UserProfileView v-if="showUserProfile" @close="showUserProfile = false" />
       <div v-else class="conversation-main">
         <div class="chat-topline">
-          <span>{{ $t(currentChat?.title || "新会话") }}</span>
+          <div class="chat-title-group">
+            <span class="chat-session-title">{{ $t(currentChat?.title || "新会话") }}</span>
+            <div class="chat-emotion" role="status" aria-live="polite" :title="$t(currentEmotion.source === 'example' ? '示例对话中的情绪' : '根据当前交流暂时判断，可能不准确')">
+              <Transition name="emotion" mode="out-in"><span :key="currentEmotion.label" class="emotion-emoji" role="img" :aria-label="$t(currentEmotion.title)">{{ currentEmotion.emoji }}</span></Transition>
+              <span class="emotion-title">{{ $t(currentEmotion.title) }}</span>
+            </div>
+          </div>
           <div class="mobile-chat-tools">
             <select
               :value="state.currentChatId"
@@ -394,6 +401,17 @@ function keydown(event) {
   </div>
 </template>
 <style scoped>
+.chat-title-group { display:flex; align-items:center; gap:16px; min-width:0; flex:1; }
+.chat-session-title { min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.chat-emotion { display:flex; align-items:center; gap:7px; flex-shrink:0; padding:4px 9px; border:1px solid var(--line); border-radius:20px; }
+.emotion-emoji { display:inline-block; font-size:20px; line-height:1.25; }
+.emotion-title { font-size:11px; color:var(--muted); }
+.emotion-enter-active,.emotion-leave-active { transition:opacity .16s ease, transform .16s ease; }
+.emotion-enter-from { opacity:0; transform:translateY(4px) scale(.9); }
+.emotion-leave-to { opacity:0; transform:translateY(-3px) scale(.95); }
+@media(max-width:650px) { .chat-title-group { gap:8px; } .emotion-title { display:none; } .chat-emotion { padding:3px 6px; } }
+@media(prefers-reduced-motion:reduce) { .emotion-enter-active,.emotion-leave-active { transition:none; } }
+
 .user-profile-trigger.active { border-color:var(--blue); background:var(--accent-soft); color:var(--blue); }
 .assistant-shell.profile-mode { grid-template-columns:190px minmax(0,1fr); }
 .profile-mode>.user-profile-page { grid-column:2 / -1; min-height:0; height:100%; }

@@ -346,3 +346,5 @@ Object.assign(translations, {
   "来自已确认的记忆": "From confirmed memories", "记忆依据": "Memory evidence",
 });
 Object.assign(translations, {"这里是助手目前记住的你。你可以随时补充或纠正。": "What your assistant remembers about you. Add to it or correct it anytime."});
+Object.assign(translations, {"元气满满": "Energetic", "开心愉快": "Happy", "平静放松": "Calm", "平平淡淡": "Neutral", "有点疲惫": "Tired", "难过低落": "Sad", "紧张焦虑": "Anxious", "烦躁郁闷": "Irritable", "根据当前交流暂时判断，可能不准确": "A tentative reading of this conversation; it may be inaccurate."});
+Object.assign(translations, {"示例对话中的情绪": "Emotion shown in this example conversation"});

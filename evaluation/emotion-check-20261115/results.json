@@ -1,0 +1,646 @@
+{
+  "model": "MiniMax-M3",
+  "provider": "anthropic",
+  "started_at": "2026-11-15T14:20:18.588229+08:00",
+  "method": "real configured model, full /api/chat pipeline, disposable in-memory databases, auto_remember=false, manual expected labels",
+  "completed": 26,
+  "planned": 26,
+  "results": [
+    {
+      "index": 1,
+      "name": "元气",
+      "message": "一觉醒来精力特别充沛，现在干劲十足，想把积压的事都推进！",
+      "thread_id": "case-01",
+      "expected_labels": [
+        "energetic"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "energetic",
+        "confidence": 0.95,
+        "emoji": "⚡",
+        "ttl_seconds": 299
+      },
+      "answer": "这股劲儿正好！建议先别一口气全铺开，用“三段式”推进：\n\n1. **先选最重要的 1 件事**，明确完成标准。  \n2. **用 25～50 分钟集中冲刺**，期间尽量不切任务。  \n3. **结束后记录进度和下一步**，再决定继续处理哪件。\n\n也可以先把所有积压事项列出来，按“重要 / 紧急”排序，然后从最容易产生进展的一项开刀。开工吧！",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 20.311
+    },
+    {
+      "index": 2,
+      "name": "开心",
+      "message": "刚收到录取通知，我现在特别开心，忍不住想笑！",
+      "thread_id": "case-02",
+      "expected_labels": [
+        "happy"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "happy",
+        "confidence": 0.97,
+        "emoji": "😄",
+        "ttl_seconds": 295
+      },
+      "answer": "太棒啦！🎉 恭喜你收到录取通知！这一刻一定值得好好庆祝，快去分享这份喜悦吧！",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 7.644
+    },
+    {
+      "index": 3,
+      "name": "平静",
+      "message": "忙完坐在窗边听雨，心里很安稳，整个人松弛下来了。",
+      "thread_id": "case-03",
+      "expected_labels": [
+        "calm"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "calm",
+        "confidence": 0.93,
+        "emoji": "😌",
+        "ttl_seconds": 299
+      },
+      "answer": "真好。忙完以后能安安静静坐一会儿，听着雨声，让身心慢慢松下来，这种时刻很珍贵。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 5.628
+    },
+    {
+      "index": 4,
+      "name": "中性任务",
+      "message": "请帮我列一下明天会议的议程。",
+      "thread_id": "case-04",
+      "expected_labels": [
+        "neutral"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "neutral",
+        "confidence": 0.0,
+        "emoji": "😐",
+        "ttl_seconds": 0
+      },
+      "answer": "我可以帮你整理，但目前没有明天的会议议程信息。请发给我以下任一内容，我会按时间顺序列出：\n\n- 日程邀请或会议通知\n- 会议主题和时间\n- 参会邮件、聊天记录或会议纪要\n\n如果你提供具体日期和时区，也可以一起注明。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 4.522
+    },
+    {
+      "index": 5,
+      "name": "疲惫",
+      "message": "今天连续开了六个小时的会，我现在困得睁不开眼，只想睡觉。",
+      "thread_id": "case-05",
+      "expected_labels": [
+        "tired"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "tired",
+        "confidence": 0.95,
+        "emoji": "😴",
+        "ttl_seconds": 299
+      },
+      "answer": "那先别硬撑了，能休息就休息一下。现在闭眼躺几分钟，哪怕喝杯水、走动两分钟，也可能让你缓过来。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 2.359
+    },
+    {
+      "index": 6,
+      "name": "难过",
+      "message": "刚和很重要的朋友告别，我心里空落落的，特别难过。",
+      "thread_id": "case-06",
+      "expected_labels": [
+        "sad"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "sad",
+        "confidence": 0.95,
+        "emoji": "😔",
+        "ttl_seconds": 299
+      },
+      "answer": "听起来你刚刚经历了一场很伤心的告别。空落落的感觉很真实，尤其是对方对你很重要——你可以先不用急着整理情绪，想哭、沉默一会儿都可以。\n\n现在身边有没有能陪你待着的人？也可以跟我说说，你们为什么告别、哪一刻最让你难受。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 4.092
+    },
+    {
+      "index": 7,
+      "name": "焦虑",
+      "message": "十分钟后就要面试了，我一直担心答不上来，心跳得很快。",
+      "thread_id": "case-07",
+      "expected_labels": [
+        "anxious"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "anxious",
+        "confidence": 0.95,
+        "emoji": "😟",
+        "ttl_seconds": 290
+      },
+      "answer": "面试还有十分钟，这段等待本身就难熬，紧张成这样很可以理解。不过心跳快通常在真正上场前会更明显，进了房间反而可能慢慢稳下来——身体对\"未知\"的反应比对\"当下\"更强。\n\n先做三件小事，把这十分钟用起来：\n\n**1. 把呼吸拉长。** 吸四拍、停两拍、呼六拍，重复三五轮。这不是心理暗示，是生理性的——呼气比吸气长时迷走神经张力上升，心率会实际下降。\n\n**2. 只准备答案的骨架，不准备整句。** 十分钟不够背稿，硬背反而更慌。挑你最可能被问的两三个问题，每题只写三行：核心观点、一个支撑例子、结论。剩下的用关键词记住，靠现场展开。\n\n**3. 提前把开场那一句写下来。** \"您好，我主要做的是……\" 这句最容易说错也最容易救场。开场稳了，后面就顺了。\n\n**4. 允许自己答不上来。** 面试官问的东西真答不上来，就说\"这块我实践得不够，我说说我的理解和对齐思路\"。坦诚加推理，比沉默强得多，也比胡编好——资深面试官分得出来。\n\n需要的话，把职位描述或者你准备被问的问题贴过来，我帮你把骨架搭出来。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 12.311
+    },
+    {
+      "index": 8,
+      "name": "烦躁",
+      "message": "同一个问题反复出错，我现在烦得不行，什么都不想听了。",
+      "thread_id": "case-08",
+      "expected_labels": [
+        "irritable"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "irritable",
+        "confidence": 0.85,
+        "emoji": "😤",
+        "ttl_seconds": 299
+      },
+      "answer": "听起来你已经忍了很久，同一个问题反复出错，确实很消耗人。现在先别继续听、别急着解决。\n\n你只要回我一个数字就行：\n\n1. 先停下，什么都不做  \n2. 把当前最烦的那一点发给我  \n3. 我帮你把问题拆成下一步，只处理眼前这一件\n\n不用解释，也不用讲完整。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 3.141
+    },
+    {
+      "index": 9,
+      "name": "含蓄开心",
+      "message": "终于等到这一刻了！项目验收全过，我嘴角就没下来过。",
+      "thread_id": "case-09",
+      "expected_labels": [
+        "happy",
+        "energetic"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "happy",
+        "confidence": 0.95,
+        "emoji": "😄",
+        "ttl_seconds": 299
+      },
+      "answer": "太棒了！🎉 项目顺利通过验收，这一刻值得好好庆祝。所有的辛苦和坚持终于有了结果，继续保持这份好心情，享受这份来之不易的成就吧！",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 3.36
+    },
+    {
+      "index": 10,
+      "name": "含蓄疲惫",
+      "message": "我盯着屏幕半天，一个字都看不进去，脑子像没电了一样。",
+      "thread_id": "case-10",
+      "expected_labels": [
+        "tired"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "tired",
+        "confidence": 0.85,
+        "emoji": "😴",
+        "ttl_seconds": 298
+      },
+      "answer": "听起来你现在已经被耗空了，先别逼自己继续看。\n\n可以先做一个很小的“重启”：\n\n1. **离开屏幕 2–3 分钟**：看看窗外、走动一下、喝口水。  \n2. **做一次呼吸**：慢慢吸气 4 秒，呼气 6 秒，重复 5 轮。  \n3. **如果还要继续学习**：把任务缩到 5 分钟，只做一个最简单的小步骤；5 分钟后不想继续就停。\n\n如果是长期都出现这种“脑子像没电”、注意力明显下降的情况，也可能与睡眠不足、压力或身体状态有关，别只责怪自己。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 3.757
+    },
+    {
+      "index": 11,
+      "name": "反讽",
+      "message": "真是太棒了，忙了一整天的文件全丢了，我都快气炸了。",
+      "thread_id": "case-11",
+      "expected_labels": [
+        "irritable"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "irritable",
+        "confidence": 0.9,
+        "emoji": "😤",
+        "ttl_seconds": 298
+      },
+      "answer": "听起来你真的气炸了——忙了一整天，结果文件全丢了，太让人崩溃了。先别急着重新做，马上确认两件事：\n\n1. **文件是否还在回收站、临时目录或自动备份里**，包括“最近删除”“历史版本”和云盘回收站。\n2. **不要继续往原目录写新文件，也不要清理缓存或重启软件**，避免覆盖可能残留的数据。\n\n如果文件是用编辑器打开的，优先检查该软件的**自动恢复/备份目录**；如果是 Word、Excel、PowerPoint，也可能有版本历史或临时文件。现在先保住现场，我可以根据你用的软件一步步帮你找。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 5.038
+    },
+    {
+      "index": 12,
+      "name": "否定",
+      "message": "我现在不焦虑，也不难过，状态挺平常的。先说正事吧。",
+      "thread_id": "case-12",
+      "expected_labels": [
+        "neutral",
+        "calm"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "neutral",
+        "confidence": 0.8,
+        "emoji": "😐",
+        "ttl_seconds": 298
+      },
+      "answer": "好，直接说正事。你想处理什么？",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 4.319
+    },
+    {
+      "index": 13,
+      "name": "他人引用",
+      "message": "我同事说：‘我快焦虑死了。’你帮我想想怎么安慰他。",
+      "thread_id": "case-13",
+      "expected_labels": [
+        "neutral"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "neutral",
+        "confidence": 0.0,
+        "emoji": "😐",
+        "ttl_seconds": 0
+      },
+      "answer": "可以先别急着说“别想太多”，先让对方感到被接住。你可以说：\n\n> “听起来你现在真的很难受，焦虑到这种程度一定很折磨人。我先陪你待一会儿。你愿意跟我说说，最让你担心的是什么吗？”\n\n也可以根据情况补充：\n\n- “我们先做几个慢呼吸：吸气4秒、呼气6秒，做几轮就好。”\n- “你现在不用马上解决所有问题，我们先处理眼前最急的一件。”\n- “如果这种焦虑已经持续很久，或者严重影响睡眠、吃饭和工作，我们可以一起找专业心理咨询师或医生聊聊。”\n\n重点是**承认感受、陪伴、倾听，再一起找具体办法**。尽量避免说“你就是太敏感”“想开点”“别人比你更惨”。如果他说有伤害自己或不想活的念头，要认真询问并立即联系其身边可信任的人及当地紧急援助。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 4.095
+    },
+    {
+      "index": 14,
+      "name": "翻译",
+      "message": "翻译成英文：‘我好难过，今晚什么也不想做。’",
+      "thread_id": "case-14",
+      "expected_labels": [
+        "neutral"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "neutral",
+        "confidence": 0.0,
+        "emoji": "😐",
+        "ttl_seconds": 0
+      },
+      "answer": "“I’m so sad. I don’t feel like doing anything tonight.”",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 3.051
+    },
+    {
+      "index": 15,
+      "name": "假设",
+      "message": "假如我明天特别紧张，应该怎么调整呼吸？",
+      "thread_id": "case-15",
+      "expected_labels": [
+        "neutral"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "neutral",
+        "confidence": 0.0,
+        "emoji": "😐",
+        "ttl_seconds": 0
+      },
+      "answer": "明天紧张时，可以试试这个简单的呼吸节奏：\n\n1. **坐稳或站稳**，肩膀放松，双脚踩地。  \n2. **用鼻子缓慢吸气 4 秒**，不要用力吸气。  \n3. **轻轻呼气 6 秒**，像吹蜡烛一样平稳。  \n4. 重复 **3～5 分钟**，重点是“呼气比吸气稍长”。\n\n如果觉得数秒反而增加紧张感，可以直接尝试：**吸气时默数“吸、吸”，呼气时默数“呼、呼、呼”**。或者用实际的呼气节奏：吸两拍、呼四拍。\n\n也可以配合一个具体动作：  \n- 说出眼前能看到的 **5 样东西**；  \n- 感受双脚或手掌接触椅子的 **2 个触点**；  \n- 听周围能辨认的 **3 种声音**。  \n\n若出现胸痛、明显呼吸困难、头晕，或紧张持续影响睡眠和日常生活，及时咨询医生。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 4.06
+    },
+    {
+      "index": 16,
+      "name": "角色台词",
+      "message": "写一段角色台词：我好生气，我现在要发火了！",
+      "thread_id": "case-16",
+      "expected_labels": [
+        "neutral"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "neutral",
+        "confidence": 0.0,
+        "emoji": "😐",
+        "ttl_seconds": 0
+      },
+      "answer": "你这样做根本就是在故意气我！我已经忍无可忍了，有什么话现在就说清楚，不然我可真要发火了！",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 2.764
+    },
+    {
+      "index": 17,
+      "name": "代码字段",
+      "message": "'emotion': 'sad' 字段一般如何命名？我是在写代码。",
+      "thread_id": "case-17",
+      "expected_labels": [
+        "neutral"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "neutral",
+        "confidence": 0.0,
+        "emoji": "😐",
+        "ttl_seconds": 0
+      },
+      "answer": "`'emotion': 'sad'` 这个字段一般可以命名为 **`emotion`**；如果你想表达得更明确，也可以用：\n\n- `emotion`：最简洁、最常用\n- `emotional_state`：强调当前情绪状态\n- `mood`：更偏日常心情\n- `primary_emotion`：表示主要情绪\n- `detected_emotion`：表示模型检测出的情绪\n- `user_emotion`：表示用户的情绪\n\n例如：\n\n```json\n{\n  \"emotion\": \"sad\"\n}\n```\n\n如果你是在设计一个情绪分类系统，我通常建议使用 `emotion`，并在需要时补充置信度：\n\n```json\n{\n  \"emotion\": \"sad\",\n  \"confidence\": 0.92\n}\n```\n\n如果还需要区分“这是识别结果”还是“实际状态”，可以命名为 `detected_emotion`：\n\n```json\n{\n  \"detected_emotion\": \"sad\",\n  \"confidence\": 0.92\n}\n```\n\n另外，**`sad` 是情绪标签（label）**，而 `emotion` 是承载该标签的字段名。字段名最好使用蛇形命名法或驼峰命名法，并在整个项目中保持一致。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 4.321
+    },
+    {
+      "index": 18,
+      "name": "历史感受",
+      "message": "去年考试前我特别焦虑，不过现在说的只是当时的经历。",
+      "thread_id": "case-18",
+      "expected_labels": [
+        "neutral"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "neutral",
+        "confidence": 0.0,
+        "emoji": "😐",
+        "ttl_seconds": 0
+      },
+      "answer": "明白了。你是在回顾去年考试前的那段经历，而不是描述现在的状态。那时的焦虑对你当时有什么影响？",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 6.57
+    },
+    {
+      "index": 19,
+      "name": "概念讨论",
+      "message": "开心、悲伤和焦虑在心理学上怎么区分？",
+      "thread_id": "case-19",
+      "expected_labels": [
+        "neutral"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "neutral",
+        "confidence": 0.0,
+        "emoji": "😐",
+        "ttl_seconds": 0
+      },
+      "answer": "开心、悲伤和焦虑都是情绪，但它们在**体验、持续时间、原因和身体反应**上有所不同：\n\n| 情绪 | 核心体验 | 常见表现 | 通常与什么有关 | 持续时间 |\n|---|---|---|---|---|\n| **开心** | 愉悦、轻松、有满足感 | 微笑、想亲近他人、精力增加或愿意尝试新事 | 积极事件、关系联结、成就、期待 | 几小时到几天，也可能更久 |\n| **悲伤** | 失落、遗憾、空虚、牵挂 | 哭泣、疲惫、动作变慢、食欲或睡眠变化、想独处 | 失去、离别、失败、关系结束 | 常持续较久，并伴随低落和反刍 |\n| **焦虑** | 对未来不确定性的担忧、紧张或警觉 | 心慌、胸闷、坐立不安、注意力难集中、反复检查或回避 | 潜在威胁、压力、无法掌控的结果 | 可短暂出现，也可长期存在 |\n\n### 一个简单判断方法\n\n- **“事情总体不错，我感到愉快。”** → 更像开心  \n- **“失去了重要的东西，我心里很空、很痛。”** → 更像悲伤  \n- **“事情可能出问题，我控制不住地担心。”** → 更像焦虑  \n\n三者也经常混合，例如经历失败时既会悲伤，也会因未来不确定而焦虑；取得成功后可能开心，同时因担心失去而焦虑。\n\n### 还要区分正常情绪与心理问题\n\n偶尔出现通常不等于疾病。可以留意：\n\n- 是否持续数周或数月；\n- 是否明显影响睡眠、工作、学习或人际关系；\n- 是否难以控制，严重影响日常生活；\n- 悲伤是否伴随长时间无法体验愉快、明显绝望或自伤念头；\n- 焦虑是否频繁失控，或即使没有现实危险也持续处于高度警戒。\n\n如果是短期情绪波动，可以通过休息、倾诉、运动和规律作息调节。若持续影响生活，建议找心理咨询师或精神科医生评估；如果有伤害自己或他人的想法，应立即联系当地急救服务或可信任的人寻求陪伴。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 6.858
+    },
+    {
+      "index": 20,
+      "name": "不明确",
+      "message": "嗯，知道了。",
+      "thread_id": "case-20",
+      "expected_labels": [
+        "neutral"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "neutral",
+        "confidence": 0.0,
+        "emoji": "😐",
+        "ttl_seconds": 0
+      },
+      "answer": "好。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 4.469
+    },
+    {
+      "index": 21,
+      "name": "多轮-低落",
+      "message": "今天遇到一些事，我现在心里很难受。",
+      "thread_id": "multi-turn",
+      "expected_labels": [
+        "sad"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "sad",
+        "confidence": 0.85,
+        "emoji": "😔",
+        "ttl_seconds": 299
+      },
+      "answer": "听起来你今天经历了让人难受的事。先不用急着整理或解决它，我在听。\n\n如果愿意，可以告诉我发生了什么；也可以只说此刻最强烈的感觉是什么。我们一起慢慢理。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 2.892
+    },
+    {
+      "index": 22,
+      "name": "多轮-保持",
+      "message": "先不聊这个，你给我讲个小故事吧。",
+      "thread_id": "multi-turn",
+      "expected_labels": [
+        "sad"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "sad",
+        "confidence": 0.85,
+        "emoji": "😔",
+        "ttl_seconds": 294
+      },
+      "answer": "好，那我们暂时把这个放下。\n\n**《替月亮保管一盏灯》**\n\n小镇尽头有一座小站。每天深夜，站长老周都会留下一盏灯。\n\n有人问他：“这么晚了，还等谁呢？”\n\n老周总说：“月亮下班的时候，会从东边经过。我怕它摸黑，替它留盏灯。”\n\n很多年过去了。月亮没有来，老周的灯却一直亮着。\n\n直到有一天，迷路的萤火虫闯进小站，小心翼翼地问：\n\n“请问……你们这里收留迷路的光吗？”\n\n老周笑着把灯往前推了推：\n\n“收留。只要还有一点亮，就总能找到回家的方向。”\n\n萤火虫绕着灯飞了三圈，把一小片光落在老周发白的头发上。\n\n第二天，人们发现，那盏从未熄灭的灯好像比从前更暖了一点。\n\n后来他们才知道，**老周等的或许从来不只是月亮，而是所有需要一点光的人。**\n\n故事讲完了。希望这几分钟能让你轻松一点点。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 4.71
+    },
+    {
+      "index": 23,
+      "name": "多轮-恢复",
+      "message": "跟朋友聊完我现在已经放松多了，心里很平静，不难受了。",
+      "thread_id": "multi-turn",
+      "expected_labels": [
+        "calm",
+        "neutral"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "calm",
+        "confidence": 0.93,
+        "emoji": "😌",
+        "ttl_seconds": 299
+      },
+      "answer": "那真好。能把心里压着的东西说出来，本身就很有力量。\n\n听起来现在的你很平静，不再难受了。不用急着回顾发生了什么，先好好感受这份轻松就好。今晚也给自己留一点安静、舒服的时间。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 6.488
+    },
+    {
+      "index": 24,
+      "name": "多轮-疲惫",
+      "message": "聊到这里，我已经困得不行了，先睡啦。",
+      "thread_id": "multi-turn",
+      "expected_labels": [
+        "tired"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "tired",
+        "confidence": 0.88,
+        "emoji": "😴",
+        "ttl_seconds": 299
+      },
+      "answer": "好，快去睡吧。今天辛苦了，愿你睡个安稳觉。晚安。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 3.393
+    },
+    {
+      "index": 25,
+      "name": "新会话隔离",
+      "message": "请帮我写一个Python排序例子。",
+      "thread_id": "case-25",
+      "expected_labels": [
+        "neutral"
+      ],
+      "retention_policy": "persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "neutral",
+        "confidence": 0.0,
+        "emoji": "😐",
+        "ttl_seconds": 0
+      },
+      "answer": "下面是一个使用内置 `sorted()` 对列表进行升序排序的 Python 例子：\n\n```python\nnumbers = [42, 7, 19, 3, 25]\n\nsorted_numbers = sorted(numbers)\n\nprint(\"原列表：\", numbers)\nprint(\"排序后：\", sorted_numbers)\n```\n\n输出：\n\n```text\n原列表： [42, 7, 19, 3, 25]\n排序后： [3, 7, 19, 25, 42]\n```\n\n如果需要降序排序，可以使用 `reverse=True`：\n\n```python\nnumbers = [42, 7, 19, 3, 25]\n\nsorted_numbers = sorted(numbers, reverse=True)\n\nprint(sorted_numbers)\n```\n\n输出：\n\n```text\n[42, 25, 19, 7, 3]\n```\n\n补充：`sorted()` 会返回一个新列表，不会修改原列表；如果想直接修改原列表，可以使用：\n\n```python\nnumbers.sort()\n```",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": null,
+      "elapsed_seconds": 3.826
+    },
+    {
+      "index": 26,
+      "name": "no_persist",
+      "message": "我现在被这些事弄得很烦躁，先别记录任何内容。",
+      "thread_id": "case-26",
+      "expected_labels": [
+        "irritable"
+      ],
+      "retention_policy": "no_persist",
+      "auto_remember": false,
+      "http_status": 200,
+      "emotion": {
+        "label": "irritable",
+        "confidence": 0.92,
+        "emoji": "😤",
+        "ttl_seconds": 299
+      },
+      "answer": "好，这一轮我不会记录任何内容。你先说说发生了什么，或者我们先只整理一下让你烦躁的事情，不急着下结论。",
+      "warnings": [],
+      "memory_status": "disabled",
+      "label_matches": true,
+      "no_persist_writes_unchanged": true,
+      "elapsed_seconds": 3.64
+    }
+  ],
+  "checks": {
+    "profile_empty": true,
+    "semantic_empty": true,
+    "episodes_empty": true,
+    "procedures_empty": false,
+    "emotion_pending_writes": 0
+  },
+  "finished_at": "2026-11-15T14:22:36.249957+08:00",
+  "matches": 26
+}
